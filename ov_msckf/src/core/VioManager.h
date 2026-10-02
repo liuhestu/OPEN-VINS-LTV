@@ -32,6 +32,8 @@
 #include <string>
 
 #include "VioManagerOptions.h"
+#include "ltv/LtvAdapter.h"
+#include "update/UpdaterLTV.h"
 
 namespace ov_core {
 struct ImuData;
@@ -137,6 +139,13 @@ public:
   }
 
 protected:
+  std::shared_ptr<LtvAdapter> ltv_adapter;
+  std::shared_ptr<UpdaterLTV> updater_ltv;
+  LtvDiagnostics ltv_diagnostics;
+  uint64_t ltv_state_version = 0;
+  std::ofstream ltv_log;
+  void record_ltv(const LtvFrame &frame);
+  void pause_ltv(double camera_time, const std::string &reason);
   /**
    * @brief Given a new set of camera images, this will track them.
    *

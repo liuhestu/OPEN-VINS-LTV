@@ -35,6 +35,7 @@
 #include "utils/sensor_data.h"
 
 #include "init/InertialInitializer.h"
+#include <iomanip>
 
 #include "state/Propagator.h"
 #include "state/State.h"
@@ -68,6 +69,25 @@ VioManager::VioManager(VioManagerOptions &params_) : thread_init_running(false),
 
   // Create the state!!
   state = std::make_shared<State>(params.state_options);
+
+  params.ltv_options.validate(params.state_options);
+  if (params.ltv_options.enabled) {
+    ltv_adapter = std::make_shared<LtvAdapter>(params.ltv_options);
+    updater_ltv = std::make_shared<UpdaterLTV>(params.ltv_options, params.gravity_mag);
+    if (params.ltv_options.log_enabled) {
+      ltv_log.open(params.ltv_options.log_path);
+      if (!ltv_log)
+        throw std::runtime_error("cannot open LTV diagnostic log");
+      ltv_log << "epoch,camera_time,camera_ns,imu_time,cursor,version,sequence,reason,available,valid,velocity_valid,gravity_valid,vx,vy,"
+                 "vz,eta_x,eta_y,eta_z,eta_norm,features,observed,warmup,substeps,P_trace,core_reset,integrated_steps,integrated_seconds,"
+                 "post_current_fej_rotation,post_current_fej_velocity,G_reason,V_reason,G_eligible,V_eligible,G_quality,V_quality,G_nis,V_"
+                 "nis,G_"
+                 "residual,V_residual,G_variance,V_variance,G_rows,V_rows,visual_rows,columns,EKF_calls,update_norm,P_symmetry,P_min_"
+                 "eigenvalue,submit_reason,attempt_id,used_once,accepted_G,accepted_V,prior_rotation_difference,prior_velocity_difference,"
+                 "P_checked,G_update_norm,V_update_norm,G_gain_norm,V_gain_norm,PL_min_eigenvalue,PL_checked\n";
+      ltv_log << std::setprecision(17);
+    }
+  }
 
   // Set the IMU intrinsics
   state->_calib_imu_dw->set_value(params.vec_dw);
@@ -165,6 +185,9 @@ VioManager::VioManager(VioManagerOptions &params_) : thread_init_running(false),
 
 void VioManager::feed_measurement_imu(const ov_core::ImuData &message) {
 
+  if (ltv_adapter)
+    ltv_adapter->feed_imu(message);
+
   // The oldest time we need IMU with is the last clone
   // We shouldn't really need the whole window, but if we go backwards in time we will
   double oldest_time = state->margtimestep();
@@ -190,6 +213,8 @@ void VioManager::feed_measurement_imu(const ov_core::ImuData &message) {
 
 void VioManager::feed_measurement_simulation(double timestamp, const std::vector<int> &camids,
                                              const std::vector<std::vector<std::pair<size_t, Eigen::VectorXf>>> &feats) {
+  if (ltv_adapter)
+    ++ltv_state_version;
 
   // Start timing
   rT1 = boost::posix_time::microsec_clock::local_time();
@@ -228,6 +253,7 @@ void VioManager::feed_measurement_simulation(double timestamp, const std::vector
       propagator->clean_old_imu_measurements(timestamp + state->_calib_dt_CAMtoIMU->value()(0) - 0.10);
       updaterZUPT->clean_old_imu_measurements(timestamp + state->_calib_dt_CAMtoIMU->value()(0) - 0.10);
       propagator->invalidate_cache();
+      pause_ltv(timestamp, "zupt");
       return;
     }
   }
@@ -254,6 +280,11 @@ void VioManager::feed_measurement_simulation(double timestamp, const std::vector
 }
 
 void VioManager::track_image_and_update(const ov_core::CameraData &message_const) {
+  if (ltv_adapter) {
+    ++ltv_state_version;
+    if (message_const.sensor_ids.empty() || message_const.sensor_ids.front() != 0 || message_const.sensor_ids.size() > 2)
+      throw std::runtime_error("UNSUPPORTED LTV camera packet: camera0 required");
+  }
 
   // Start timing
   rT1 = boost::posix_time::microsec_clock::local_time();
@@ -301,6 +332,7 @@ void VioManager::track_image_and_update(const ov_core::CameraData &message_const
       propagator->clean_old_imu_measurements(message.timestamp + state->_calib_dt_CAMtoIMU->value()(0) - 0.10);
       updaterZUPT->clean_old_imu_measurements(message.timestamp + state->_calib_dt_CAMtoIMU->value()(0) - 0.10);
       propagator->invalidate_cache();
+      pause_ltv(message.timestamp, "zupt");
       return;
     }
   }
@@ -312,6 +344,7 @@ void VioManager::track_image_and_update(const ov_core::CameraData &message_const
     if (!is_initialized_vio) {
       double time_track = (rT2 - rT1).total_microseconds() * 1e-6;
       PRINT_DEBUG(BLUE "[TIME]: %.4f seconds for tracking\n" RESET, time_track);
+      pause_ltv(message.timestamp, "uninitialized");
       return;
     }
   }
@@ -330,7 +363,14 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   if (state->_timestamp > message.timestamp) {
     PRINT_WARNING(YELLOW "image received out of order, unable to do anything (prop dt = %3f)\n" RESET,
                   (message.timestamp - state->_timestamp));
+    pause_ltv(message.timestamp, "out_of_order_camera");
     return;
+  }
+
+  Eigen::Vector3d ltv_ba, ltv_bg;
+  if (ltv_adapter) {
+    ltv_ba = state->_imu->bias_a();
+    ltv_bg = state->_imu->bias_g();
   }
 
   // Propagate the state forward to the current update time
@@ -348,6 +388,7 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   if ((int)state->_clones_IMU.size() < std::min(state->_options.max_clone_size, 5)) {
     PRINT_DEBUG("waiting for enough clone states (%d of %d)....\n", (int)state->_clones_IMU.size(),
                 std::min(state->_options.max_clone_size, 5));
+    pause_ltv(message.timestamp, "waiting_clones");
     return;
   }
 
@@ -355,9 +396,40 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   if (state->_timestamp != message.timestamp) {
     PRINT_WARNING(RED "[PROP]: Propagator unable to propagate the state forward in time!\n" RESET);
     PRINT_WARNING(RED "[PROP]: It has been %.3f since last time we propagated\n" RESET, message.timestamp - state->_timestamp);
+    pause_ltv(message.timestamp, "propagation_failed");
     return;
   }
   has_moved_since_zupt = true;
+
+  LtvFrame ltv_frame;
+  MeasurementBlock ltv_block;
+  if (ltv_adapter) {
+    ltv_diagnostics = LtvDiagnostics();
+    LtvCalibration c;
+    c.Da = State::Dm(state->_options.imu_model, state->_calib_imu_da->value());
+    c.Dw = State::Dm(state->_options.imu_model, state->_calib_imu_dw->value());
+    c.Tg = State::Tg(state->_calib_imu_tg->value());
+    c.R_ACCtoIMU = state->_calib_imu_ACCtoIMU->Rot();
+    c.R_GYROtoIMU = state->_calib_imu_GYROtoIMU->Rot();
+    c.R_BC = state->_calib_IMUtoCAM.at(0)->Rot().transpose();
+    c.p_BC = -c.R_BC * state->_calib_IMUtoCAM.at(0)->pos();
+    c.offset = state->_calib_dt_CAMtoIMU->value()(0);
+    std::vector<LtvBearing> bearings;
+    for (const auto &feature : trackFEATS->get_feature_database()->features_containing(message.timestamp)) {
+      const auto times = feature->timestamps.find(0);
+      if (times == feature->timestamps.end())
+        continue;
+      auto it = std::find(times->second.begin(), times->second.end(), message.timestamp);
+      if (it == times->second.end())
+        continue;
+      const auto uv = feature->uvs_norm.at(0).at(std::distance(times->second.begin(), it));
+      bearings.push_back({feature->featid, Eigen::Vector3d(uv(0), uv(1), 1)});
+    }
+    std::sort(bearings.begin(), bearings.end(), [](const LtvBearing &a, const LtvBearing &b) { return a.id < b.id; });
+    ltv_frame = ltv_adapter->process(message.timestamp, bearings, c, ltv_ba, ltv_bg, ltv_state_version);
+    if (ltv_frame.available && !ltv_adapter->claim(ltv_frame))
+      throw std::runtime_error("LTV duplicate attempt");
+  }
 
   //===================================================================================
   // MSCKF features and KLT tracks that are SLAM features
@@ -522,7 +594,14 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   // NOTE: this should only really be used if you want to track a lot of features, or have limited computational resources
   if ((int)featsup_MSCKF.size() > state->_options.max_msckf_in_update)
     featsup_MSCKF.erase(featsup_MSCKF.begin(), featsup_MSCKF.end() - state->_options.max_msckf_in_update);
-  updaterMSCKF->update(state, featsup_MSCKF);
+  if (ltv_adapter && (params.ltv_options.enable_gravity || params.ltv_options.enable_velocity))
+    ltv_block = updater_ltv->build(state, ltv_frame);
+  updaterMSCKF->update(state, featsup_MSCKF, ltv_block.receipt ? &ltv_block : nullptr, ltv_adapter ? &ltv_diagnostics : nullptr);
+  if (ltv_adapter) {
+    if (ltv_block.receipt)
+      ltv_diagnostics = ltv_block.receipt->diagnostics;
+    record_ltv(ltv_frame);
+  }
   propagator->invalidate_cache();
   rT4 = boost::posix_time::microsec_clock::local_time();
 
@@ -711,4 +790,46 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
                state->_calib_imu_tg->value()(4), state->_calib_imu_tg->value()(5), state->_calib_imu_tg->value()(6),
                state->_calib_imu_tg->value()(7), state->_calib_imu_tg->value()(8));
   }
+}
+
+void VioManager::pause_ltv(double time, const std::string &reason) {
+  if (ltv_adapter) {
+    ltv_diagnostics = LtvDiagnostics();
+    record_ltv(ltv_adapter->pause(time, reason, ltv_state_version));
+  }
+}
+void VioManager::record_ltv(const LtvFrame &f) {
+  if (!ltv_log.is_open())
+    return;
+  const auto &s = f.snapshot;
+  ltv_log << f.epoch << "," << f.camera_time << "," << f.camera_ns << ","
+          << (f.available ? f.imu_time : f.camera_time + state->_calib_dt_CAMtoIMU->value()(0)) << "," << f.cursor << "," << f.version
+          << "," << f.sequence << "," << f.reason << "," << f.available << "," << s.valid << "," << s.velocity_valid << ","
+          << s.gravity_valid;
+  for (int i = 0; i < 3; ++i)
+    ltv_log << "," << s.velocity_body(i);
+  for (int i = 0; i < 3; ++i)
+    ltv_log << "," << s.gravity_body(i);
+  ltv_log << "," << s.gravity_body.norm() << "," << s.state_features << "," << s.observed_features << "," << s.healthy_camera_updates << ","
+          << s.camera_substeps << "," << s.covariance_trace << "," << ltv::toString(s.last_reset_reason) << "," << f.integrated_steps << ","
+          << f.integrated_seconds << "," << (state->_imu->Rot() - state->_imu->Rot_fej()).norm() << ","
+          << (state->_imu->vel() - state->_imu->vel_fej()).norm();
+  const auto &d = ltv_diagnostics;
+  ltv_log << "," << d.gravity_reason << "," << d.velocity_reason << "," << d.gravity_eligible << "," << d.velocity_eligible << ","
+          << d.gravity_quality << "," << d.velocity_quality << "," << d.gravity_nis << "," << d.velocity_nis << "," << d.gravity_residual
+          << "," << d.velocity_residual << "," << d.gravity_variance << "," << d.velocity_variance << "," << d.gravity_rows << ","
+          << d.velocity_rows << "," << d.visual_rows << "," << d.columns << "," << d.ekf_calls << "," << d.update_norm << ","
+          << d.p_symmetry << "," << d.p_min_eigenvalue << "," << d.submit_reason << "," << (f.available ? f.sequence : 0) << ","
+          << f.available << "," << (d.gravity_rows > 0) << "," << (d.velocity_rows > 0) << "," << d.prior_rotation_difference << ","
+          << d.prior_velocity_difference << "," << d.p_checked << "," << d.gravity_update_norm << "," << d.velocity_update_norm << ","
+          << d.gravity_gain_norm << "," << d.velocity_gain_norm;
+  bool checked = f.available && f.sequence % 20 == 0;
+  double minimum = -1;
+  if (checked) {
+    Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> eig(ltv_adapter->core().covariance());
+    if (eig.info() != Eigen::Success)
+      throw std::runtime_error("LTV Riccati diagnostic eigensolver failed");
+    minimum = eig.eigenvalues().minCoeff();
+  }
+  ltv_log << "," << minimum << "," << checked << "\n";
 }

@@ -76,6 +76,8 @@ endif ()
 ##################################################
 
 list(APPEND LIBRARY_SOURCES
+        src/ltv/ltv_observer.cpp
+        src/ltv/LtvAdapter.cpp
         src/dummy.cpp
         src/sim/Simulator.cpp
         src/state/State.cpp
@@ -84,6 +86,7 @@ list(APPEND LIBRARY_SOURCES
         src/core/VioManager.cpp
         src/core/VioManagerHelper.cpp
         src/update/UpdaterHelper.cpp
+        src/update/UpdaterLTV.cpp
         src/update/UpdaterMSCKF.cpp
         src/update/UpdaterSLAM.cpp
         src/update/UpdaterZeroVelocity.cpp

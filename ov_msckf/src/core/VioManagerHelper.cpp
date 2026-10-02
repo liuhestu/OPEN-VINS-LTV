@@ -38,6 +38,8 @@ using namespace ov_type;
 using namespace ov_msckf;
 
 void VioManager::initialize_with_gt(Eigen::Matrix<double, 17, 1> imustate) {
+  if (ltv_adapter)
+    ltv_adapter->reset();
 
   // Initialize the system
   state->_imu->set_value(imustate.block(1, 0, 16, 1));

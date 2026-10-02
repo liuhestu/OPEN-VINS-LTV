@@ -558,6 +558,10 @@ void ROS2Visualizer::callback_monocular(const sensor_msgs::msg::Image::SharedPtr
 void ROS2Visualizer::callback_stereo(const sensor_msgs::msg::Image::ConstSharedPtr msg0, const sensor_msgs::msg::Image::ConstSharedPtr msg1,
                                      int cam_id0, int cam_id1) {
 
+  if (_app->get_params().ltv_options.enabled &&
+      (msg0->header.stamp.sec != msg1->header.stamp.sec || msg0->header.stamp.nanosec != msg1->header.stamp.nanosec))
+    throw std::runtime_error("UNSUPPORTED LTV asynchronous stereo headers");
+
   // Check if we should drop this image
   double timestamp = msg0->header.stamp.sec + msg0->header.stamp.nanosec * 1e-9;
   double time_delta = 1.0 / _app->get_params().track_frequency;

@@ -37,6 +37,8 @@ class FeatureInitializer;
 namespace ov_msckf {
 
 class State;
+struct MeasurementBlock;
+struct LtvDiagnostics;
 
 /**
  * @brief Will compute the system for our sparse features and update the filter.
@@ -65,7 +67,8 @@ public:
    * @param state State of the filter
    * @param feature_vec Features that can be used for update
    */
-  void update(std::shared_ptr<State> state, std::vector<std::shared_ptr<ov_core::Feature>> &feature_vec);
+  void update(std::shared_ptr<State> state, std::vector<std::shared_ptr<ov_core::Feature>> &feature_vec,
+              const MeasurementBlock *ltv_block = nullptr, LtvDiagnostics *diagnostics = nullptr);
 
 protected:
   /// Options used during update
