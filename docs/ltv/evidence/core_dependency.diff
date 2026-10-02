@@ -1,0 +1,19 @@
+--- formatted_source
++++ target
+@@ -1,6 +1,6 @@
+ #include "ltv_observer.h"
+ 
+-#include "../utility/utility.h"
++#include "utils/quat_ops.h"
+ 
+ #include <algorithm>
+ #include <chrono>
+@@ -94,7 +94,7 @@
+ 
+   const Eigen::Vector3d omega = gyro_measurement - gyro_bias;
+   const Eigen::Vector3d acceleration = acc_measurement - accel_bias;
+-  const Eigen::Matrix3d negative_omega_cross = -Utility::skewSymmetric(omega);
++  const Eigen::Matrix3d negative_omega_cross = -ov_core::skew_x(omega);
+   const int landmark_count = static_cast<int>(feature_to_slot_.size());
+   const int dimension = static_cast<int>(state_.size());
+ 

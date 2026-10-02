@@ -1,0 +1,145 @@
+[
+  {
+    "command": [
+      "/tmp/openvins-ltv-phase0.h7ylvn83/replay/alias_probe"
+    ],
+    "exit_code": 1,
+    "name": "alias_probe",
+    "stdout": "max_error=9 max_asymmetry=9\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-phase0.h7ylvn83/replay/source_matrices.jsonl",
+      "--expected",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "name": "compare_source_matrices",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-phase0.h7ylvn83/replay/source_outputs.stdout.log"
+    ],
+    "exit_code": 0,
+    "name": "compare_source_outputs",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-phase0.h7ylvn83/replay/target_matrices.jsonl",
+      "--expected",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "name": "compare_target_matrices",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-phase0.h7ylvn83/replay/target_outputs.stdout.log"
+    ],
+    "exit_code": 0,
+    "name": "compare_target_outputs",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_alias.cpp",
+      "-o",
+      "/tmp/openvins-ltv-phase0.h7ylvn83/replay/alias_probe"
+    ],
+    "exit_code": 0,
+    "name": "compile_alias",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/harness.cpp",
+      "-o",
+      "/tmp/openvins-ltv-phase0.h7ylvn83/replay/source_fixture"
+    ],
+    "exit_code": 0,
+    "name": "compile_source",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/harness.cpp",
+      "-o",
+      "/tmp/openvins-ltv-phase0.h7ylvn83/replay/target_fixture"
+    ],
+    "exit_code": 0,
+    "name": "compile_target",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-phase0.h7ylvn83/replay/source_fixture",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+      "/tmp/openvins-ltv-phase0.h7ylvn83/replay/source_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "name": "source_outputs",
+    "stdout": "[full event output retained in /tmp]",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-phase0.h7ylvn83/replay/target_fixture",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+      "/tmp/openvins-ltv-phase0.h7ylvn83/replay/target_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "name": "target_outputs",
+    "stdout": "[full event output retained in /tmp]",
+    "stderr": ""
+  }
+]

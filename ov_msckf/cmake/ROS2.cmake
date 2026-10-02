@@ -112,5 +112,10 @@ install(TARGETS test_sim_repeat DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY launch/ DESTINATION share/${PROJECT_NAME}/launch/)
 install(DIRECTORY ../config/ DESTINATION share/${PROJECT_NAME}/config/)
 
+option(BUILD_LTV_PHASE0_TESTS "Build isolated LTV Phase 0 acceptance probes" OFF)
+if (BUILD_LTV_PHASE0_TESTS)
+    add_subdirectory(tests/ltv)
+endif ()
+
 # finally define this as the package
 ament_package()
