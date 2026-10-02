@@ -1,0 +1,8 @@
+test_builds_strict_zero_and_point_zero_two_masks (__main__.BuildStage5OracleMaskTest) ... ok
+test_gt_tolerance_and_ineligible_rows_fail_closed (__main__.BuildStage5OracleMaskTest) ... ok
+test_world_to_body_rotation (__main__.BuildStage5OracleMaskTest) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

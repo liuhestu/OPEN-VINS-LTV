@@ -1,0 +1,9 @@
+test_imu_bracketing_drops_only_unsupported_boundaries (__main__.Stage5CacheTest) ... ok
+test_imu_bracketing_margin_covers_time_shift (__main__.Stage5CacheTest) ... ok
+test_imu_monotonicity_fails_closed (__main__.Stage5CacheTest) ... ok
+test_sha256_and_csv_are_deterministic (__main__.Stage5CacheTest) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

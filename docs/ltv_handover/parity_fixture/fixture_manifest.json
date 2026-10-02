@@ -1,0 +1,81 @@
+{
+  "generated": true,
+  "source_observer_unchanged": true,
+  "random_seed": 42,
+  "random_sampling_used": false,
+  "input_definition": "deterministic analytical synthetic sensor signals; no GT",
+  "event_count": 174,
+  "build_directory": "/tmp/ltv-handover-build-x40if5o0",
+  "compiler": [
+    "g++",
+    "-std=c++14",
+    "-O1",
+    "-DNDEBUG",
+    "-Wextra",
+    "-Wpedantic",
+    "-I/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src",
+    "-I/usr/include/eigen3",
+    "-I/usr/local/include"
+  ],
+  "generation_command": [
+    "/tmp/ltv-handover-build-x40if5o0/fixture",
+    "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+    "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+  ],
+  "repeat_byte_identical": true,
+  "excluded_comparison_fields": [
+    "wall_time",
+    "update_time_ms"
+  ],
+  "covariance_layout": "P is full nested row-major logical JSON array",
+  "source_sha256": {
+    "vins/src/ltv/ltv_observer.cpp": "835e0e1017cf04968ee8f1521cdbf8730beb8697832e88c56d115089e96a5c5b",
+    "vins/src/ltv/ltv_observer.h": "a5fa66731c2c4e965f9fce58b781617db1ca9938e41aea65405173c5ba09ef52",
+    "vins/src/ltv/ltv_types.h": "24fa6dee4c8a8301b3e833b65ed6e21ba1ad466d588391f110a96b3d6c62b099",
+    "vins/src/utility/utility.h": "e34e13fc4cce80d5e250e17d3a1f4fb6b906a8fec1809a341aa76e5d9abf4827"
+  },
+  "artifact_sha256": {
+    "expected_outputs.jsonl": "a02512850923b0eefa3662642513003f59c5c6f1c79f9a7016a3664ab2fcd84b",
+    "inputs.jsonl": "da93e353cf22a4f04ac4531e4680e1e793d813aecd83fc6a3bfd0943e929f57c",
+    "compare.py": "8943981211b22c6f3da8cf69474c187efdf5dc5634ffcaeb6e14430d00ae3fad",
+    "harness.cpp": "c5c0097e8517659374db204813ad32756df5d581f1a16d492c60bbd8c9610527",
+    "README.md": "51391a84f8e6ec6356850aa866685b9379bedfca8afbd0718f6a50e0db5d76a5",
+    "expected_matrices.jsonl": "5d7a7220adee1515bf3ddc9fe22f74da1de31b4a68d97780da72d6817eff5e9c"
+  },
+  "boundary_reset_results": {
+    "first_miss_20_candidate40_full": "none",
+    "delete_middle_slot20_compact_add40": "none",
+    "no_valid_features": "none",
+    "explicit_reset": "estimator_reset",
+    "accepted_imu_timestamp_difference": "none",
+    "timestamp_mismatch_gap": "timestamp_gap",
+    "duplicate_frame_backward": "timestamp_backward",
+    "camera_reset_gap": "timestamp_gap",
+    "max_imu_dt_rejected": "timestamp_gap",
+    "zero_dt_rejected": "invalid_input",
+    "substep_limit_resets_not_clamps": "covariance_failure"
+  },
+  "cpp_test_count": 33,
+  "core_copy_byte_identical": true,
+  "final_generation_command": [
+    "/tmp/ltv-handover-build-x40if5o0/fixture_final",
+    "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+    "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+  ],
+  "compaction_check": {
+    "pass_": true,
+    "retained_state_and_all_cross_blocks_checked": true,
+    "max_retained_covariance_error": 2.000888343900442e-11,
+    "nonzero_landmark_motion_cross_block_max": 25.0100000000034,
+    "new_point_zero": true,
+    "new_point_state_and_P0_cross_blocks_checked": true
+  },
+  "numeric_output_validation": {
+    "event_count": 174,
+    "state_and_full_P_finite": true,
+    "minimum_symmetric_P_eigenvalue": 0.9999950000258393,
+    "maximum_P_asymmetry": 1.4551915228366852e-11,
+    "max_camera_substeps": 2,
+    "note": "Checks actual stored outputs, no observer source changes; eigenvalues of explicitly symmetrized copy used only for validation."
+  }
+}

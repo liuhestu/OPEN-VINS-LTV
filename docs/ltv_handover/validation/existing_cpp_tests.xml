@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="33" failures="0" disabled="0" errors="0" time="0.018" timestamp="2026-10-02T21:23:37.459" name="AllTests">
+  <testsuite name="LtvProjection" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-02T21:23:37.459">
+    <testcase name="IsSymmetricIdempotentAndOrthogonal" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.459" classname="LtvProjection" />
+  </testsuite>
+  <testsuite name="LtvObserver" tests="5" failures="0" disabled="0" skipped="0" errors="0" time="0.017" timestamp="2026-10-02T21:23:37.459">
+    <testcase name="StateDimensionsFollowFeatureCount" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.459" classname="LtvObserver" />
+    <testcase name="ImuPropagationUsesBodyFrameApparentAcceleration" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.459" classname="LtvObserver" />
+    <testcase name="FeatureCompactionPreservesIdentity" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.459" classname="LtvObserver" />
+    <testcase name="TimestampBackwardResetsObserver" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.459" classname="LtvObserver" />
+    <testcase name="AdaptiveCameraSubstepsPreserveProductionScaleCovariance" status="run" result="completed" time="0.017" timestamp="2026-10-02T21:23:37.459" classname="LtvObserver" />
+  </testsuite>
+  <testsuite name="LtvCsvLogger" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-02T21:23:37.477">
+    <testcase name="DisabledLoggerDoesNotOpenFile" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvCsvLogger" />
+  </testsuite>
+  <testsuite name="LtvGravityQualityGate" tests="3" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-02T21:23:37.477">
+    <testcase name="AcceptsHealthySnapshot" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvGravityQualityGate" />
+    <testcase name="ReportsEveryRejectedCondition" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvGravityQualityGate" />
+    <testcase name="DisabledInnovationThresholdAlwaysPassesInnovation" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvGravityQualityGate" />
+  </testsuite>
+  <testsuite name="LtvVelocityQualityGate" tests="5" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-02T21:23:37.477">
+    <testcase name="InclusiveThresholdsPass" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityQualityGate" />
+    <testcase name="ReportsIndependentAndCombinedRejections" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityQualityGate" />
+    <testcase name="NanAndInfinityFailClosed" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityQualityGate" />
+    <testcase name="ResetRejectsExactlyTenFollowingHealthyFrames" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityQualityGate" />
+    <testcase name="ConflictAndInvalidConfigurationFailClosed" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityQualityGate" />
+  </testsuite>
+  <testsuite name="LtvVelocityOracleGate" tests="5" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-02T21:23:37.477">
+    <testcase name="DefaultsAreDisabled" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityOracleGate" />
+    <testcase name="DisabledGatePassesThroughWithoutLoadingMask" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityOracleGate" />
+    <testcase name="UsesSelectedFrozenDecisionColumn" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityOracleGate" />
+    <testcase name="RequiresExactTimestampAndBaseEligibility" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityOracleGate" />
+    <testcase name="MissingMalformedAndInvalidColumnFailClosed" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityOracleGate" />
+  </testsuite>
+  <testsuite name="LtvSnapshotWindow" tests="3" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-02T21:23:37.477">
+    <testcase name="StartsAndClearsInvalid" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvSnapshotWindow" />
+    <testcase name="MarginOldMatchesEstimatorPermutation" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvSnapshotWindow" />
+    <testcase name="MarginSecondNewestMatchesEstimatorPermutation" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvSnapshotWindow" />
+  </testsuite>
+  <testsuite name="LtvGravityFactor" tests="5" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-02T21:23:37.477">
+    <testcase name="MatchingDirectionsHaveZeroResidual" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvGravityFactor" />
+    <testcase name="ResidualIgnoresGravityMagnitudeAndPosition" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvGravityFactor" />
+    <testcase name="OppositeDirectionsHaveExpectedNorm" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvGravityFactor" />
+    <testcase name="AnalyticJacobianMatchesRightPerturbation" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvGravityFactor" />
+    <testcase name="RejectsInvalidConstructionInput" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvGravityFactor" />
+  </testsuite>
+  <testsuite name="LtvVelocityFactor" tests="5" failures="0" disabled="0" skipped="0" errors="0" time="0" timestamp="2026-10-02T21:23:37.477">
+    <testcase name="MatchingVelocityHasZeroResidual" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityFactor" />
+    <testcase name="RotationTransformsWorldVelocityIntoBodyFrame" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityFactor" />
+    <testcase name="ResidualIgnoresPositionAndBiases" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityFactor" />
+    <testcase name="AnalyticJacobiansMatchEffectiveLocalJacobians" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityFactor" />
+    <testcase name="RejectsInvalidInput" status="run" result="completed" time="0" timestamp="2026-10-02T21:23:37.477" classname="LtvVelocityFactor" />
+  </testsuite>
+</testsuites>

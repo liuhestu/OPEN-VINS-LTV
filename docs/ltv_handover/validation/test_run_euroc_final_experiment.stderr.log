@@ -1,0 +1,8 @@
+test_batch_manifest_freezes_all_modes_and_hashes (__main__.RunEurocFinalExperimentTest) ... ok
+test_expected_pair_consumption_counts_five_modes (__main__.RunEurocFinalExperimentTest) ... ok
+test_failed_batch_is_preserved_with_evidence (__main__.RunEurocFinalExperimentTest) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK

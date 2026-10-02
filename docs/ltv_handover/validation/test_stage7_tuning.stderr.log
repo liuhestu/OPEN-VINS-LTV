@@ -1,0 +1,14 @@
+test_budget_counts_failures_reserves_and_hard_limit (__main__.Stage7Test) ... ok
+test_cache_identity_paths_and_binary (__main__.Stage7Test) ... ok
+test_degenerate_gates_keep_bypass_checks (__main__.Stage7Test) ... ok
+test_group_delta_is_ratio_of_means (__main__.Stage7Test) ... ok
+test_metrics_match_old_evaluator_and_tails (__main__.Stage7Test) ... ok
+test_missing_frames_rejected_and_support_exact (__main__.Stage7Test) ... ok
+test_missing_hard_frame_recomputes_baseline_too (__main__.Stage7Test) ... ok
+test_override_and_old_default (__main__.Stage7Test) ... ok
+test_successful_skip_and_interrupted_attempt (__main__.Stage7Test) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.187s
+
+OK

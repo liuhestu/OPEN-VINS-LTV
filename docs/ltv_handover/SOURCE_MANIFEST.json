@@ -1,0 +1,701 @@
+{
+  "audit_id": "20261002T131659Z-9661610",
+  "captured_utc": "2026-10-02T13:18:37.175592+00:00",
+  "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+  "workspace_root": "/home/he/vins_fusion_ltv_ws",
+  "repository_root": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+  "branch": "main",
+  "head": "9661610dbcf26374e805634fbd4415ecddf7128d",
+  "git_status_before_artifacts": "?? docs/01_VINS_LTV_HANDOVER_PROMPT.md\n",
+  "git_submodule_status": "",
+  "source_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "3cdb666f9368d4125bef7a155cacb56a2eb693e30fb812436656957d50d35624",
+      "bytes": 2708
+    },
+    {
+      "path": "README.md",
+      "sha256": "9c4eaa8b7ca7f631aafd695b008d817882377e93e4d1933547dd17df9124c54a",
+      "bytes": 1957
+    },
+    {
+      "path": "config/euroc/cam0_mei.yaml",
+      "sha256": "cf80ecac499664460eb52159de38786058c7cfb5eee81ab6489dea37a5d64059",
+      "bytes": 429
+    },
+    {
+      "path": "config/euroc/cam0_pinhole.yaml",
+      "sha256": "04bf3968a3db62f0c40e4742709216b0766a7db3c2c03e0d713746ab0d9be9cb",
+      "bytes": 376
+    },
+    {
+      "path": "config/euroc/cam1_mei.yaml",
+      "sha256": "2a435db6a6fbd286c0fe0706792af4b08efd4ffdc6b7a22b8b261256d6e49963",
+      "bytes": 430
+    },
+    {
+      "path": "config/euroc/cam1_pinhole.yaml",
+      "sha256": "6bcaa1903db4451298405ba1452bc5bfb1f27ffe971b490fc852658187891533",
+      "bytes": 377
+    },
+    {
+      "path": "config/euroc/euroc_mono_imu_config.yaml",
+      "sha256": "2aea6be6b5377de1432e14a01f1eb6ccee4fb80c664701cd3b331adf9b2825a8",
+      "bytes": 2764
+    },
+    {
+      "path": "config/euroc/euroc_stereo_config.yaml",
+      "sha256": "6d9c69c5fdb007368c7e61c04149201dbaf7cb4ea9a23ef3d25c11af825c9609",
+      "bytes": 2079
+    },
+    {
+      "path": "config/euroc/euroc_stereo_imu_config.yaml",
+      "sha256": "e05307036295c6174a3e69ed771237faf5d3555152fdaff9aa1d3ffd0136dc64",
+      "bytes": 3163
+    },
+    {
+      "path": "config/euroc/euroc_stereo_imu_ltv_config.yaml",
+      "sha256": "ed8ad173f2a94e431f56155f8ba9f623be3b674f972cb806f627156120f9c7bb",
+      "bytes": 2854
+    },
+    {
+      "path": "config/tuning/cam0_mei.yaml",
+      "sha256": "cf80ecac499664460eb52159de38786058c7cfb5eee81ab6489dea37a5d64059",
+      "bytes": 429
+    },
+    {
+      "path": "config/tuning/cam1_mei.yaml",
+      "sha256": "2a435db6a6fbd286c0fe0706792af4b08efd4ffdc6b7a22b8b261256d6e49963",
+      "bytes": 430
+    },
+    {
+      "path": "config/tuning/euroc_stage7.yaml",
+      "sha256": "d86b709dd0536ffa81da3df7abca8f5a72a4b7c34e984e32f14a1084d7c7d7b3",
+      "bytes": 2963
+    },
+    {
+      "path": "config/tuning/stage7.rviz",
+      "sha256": "869e88043a85695b1d6245b6bbeddab132c25fdce8de6647013a8d7d9de17b5d",
+      "bytes": 17042
+    },
+    {
+      "path": "config/tuning/stage7_final_parameters.sha256",
+      "sha256": "8904fc00983b47ea29cd1c301d53f32c729f55ed84e68e016e1233bafa66aa90",
+      "bytes": 95
+    },
+    {
+      "path": "config/tuning/stage7_final_parameters.yaml",
+      "sha256": "78879571631bc4b4d01139e25debacb3643d2711e16e452b36d7c8673a7406dd",
+      "bytes": 250
+    },
+    {
+      "path": "config/tuning/stage7_protocol.json",
+      "sha256": "f3ebb330da13925c0c00ba3094b7897b191904fc6fe9e4bd42c17d76ec710625",
+      "bytes": 1151
+    },
+    {
+      "path": "docs/01_VINS_LTV_HANDOVER_PROMPT.md",
+      "sha256": "e3aef25025a2a58e95f287f3f8cb30dad1735a975b9b625486ca7d308b43e5e9",
+      "bytes": 12038
+    },
+    {
+      "path": "docs/Pose_Velocity_and_Landmark_Position_Estimation_Using_IMU_and_Bearing_Measurements.pdf",
+      "sha256": "510156af026fd2a9923321d6e699571392a01b1d86010014821219f66b3d0e7e",
+      "bytes": 1608320
+    },
+    {
+      "path": "docs/VINS-Fusion-LTV_Stage4_Gravity_Quality_Gate执行文档.md",
+      "sha256": "39cd638b434304631f9efa8236b98d1cbe1d45a31bda9d35fe90ac17a59f8d31",
+      "bytes": 4924
+    },
+    {
+      "path": "docs/VINS-Fusion-LTV_Stage5_Velocity_Oracle_Gate执行文档.md",
+      "sha256": "f84f806d0da2a08fff120e2cc6a384ab7f93da27d101ced16a986637454196fc",
+      "bytes": 9196
+    },
+    {
+      "path": "docs/VINS-Fusion-LTV_Stage6_Gated_Ablation执行文档.md",
+      "sha256": "10f89d62f3bc059e19b1f40ae896fed253e021940d5f6900923bb1250563c8a7",
+      "bytes": 4596
+    },
+    {
+      "path": "docs/VINS-Fusion-LTV_Stage7_ATE优先联合调参_Codex执行方案.md",
+      "sha256": "7d1658d5cfb0f7c18a85bd1955b2822c799ecd94fb329b0429d3b4db2159d6c1",
+      "bytes": 30627
+    },
+    {
+      "path": "docs/VINS-Fusion-LTV_stage1_Passive_LTV_Observer执行文档.md",
+      "sha256": "821640123c9fa1a15e339c74fcfed6961b18a166c8eb83bf361e7ae905c5a1ac",
+      "bytes": 25827
+    },
+    {
+      "path": "docs/VINS-Fusion-LTV_stage2Gravity Factor执行文档.md",
+      "sha256": "0ef04fe31dcf9f2d4eea1f2d3b27fabddf4227e4ad7c701ec463409576f0d4af",
+      "bytes": 21714
+    },
+    {
+      "path": "docs/VINS-Fusion-LTV_stage3_Velocity Factor执行文档.md",
+      "sha256": "20ef33fead0ea07305b1c6fd4ac9157c9c6b52b784265ce3c6865c079a3368ba",
+      "bytes": 18947
+    },
+    {
+      "path": "docs/euroc_loop_results.md",
+      "sha256": "82fafcae3d7238ff944dddb793080dc57a2a33af196b5323f8f93b31b8bd0dab",
+      "bytes": 4400
+    },
+    {
+      "path": "docs/euroc_notune_results.md",
+      "sha256": "feb616db61d3529f4fa4cceca40c08c9bf12fdb114272e3f6a6ce467c0ae8e80",
+      "bytes": 5608
+    },
+    {
+      "path": "docs/euroc_tuned_results.md",
+      "sha256": "3f981011503ee9c018c97bd45899e0e6faa0f306681f174e048593fa31719f2c",
+      "bytes": 22421
+    },
+    {
+      "path": "docs/stage7_delivery_protocol.md",
+      "sha256": "8e9ba665507a0e168e5169373746a634527b9addf8739b0f6f09a4de5cb8bd6d",
+      "bytes": 3213
+    },
+    {
+      "path": "docs/stage_test_result.md",
+      "sha256": "63f7c1c492a2f827b755883d8b1a0b99e4c733efdc9ee3790f18829a7a0654a5",
+      "bytes": 51864
+    },
+    {
+      "path": "docs/vins_fusion_ltv_plan.md",
+      "sha256": "c0a1c5d435ca59e9c01f59d59bc9a484e3f8c01917bb55bac5d9fd0502fc6d97",
+      "bytes": 8686
+    },
+    {
+      "path": "vins/CMakeLists.txt",
+      "sha256": "f43a792bb98181d502fd1c5240a923ee5f5fa50e5d9183f1de7b190e166949c4",
+      "bytes": 8233
+    },
+    {
+      "path": "vins/launch/stage7.launch.py",
+      "sha256": "759b908e905a4b11d98fac4c83607353411e49488f0d96fe2a5a3c099198c449",
+      "bytes": 2624
+    },
+    {
+      "path": "vins/package.xml",
+      "sha256": "2a61d2d51196421034c3eeb67c80a5c387e4806e14cdf12646810cdab64fcb49",
+      "bytes": 1182
+    },
+    {
+      "path": "vins/scripts/analyze_euroc_asl_velocity.py",
+      "sha256": "0a9d2738bbbf2d44df2d48335cfbb4b14ce3d9238d5ceb7bb6396ed940833300",
+      "bytes": 8620
+    },
+    {
+      "path": "vins/scripts/audit_stage5_timestamps.py",
+      "sha256": "12cb375e988b92f71a45330f71aaf3a938d30305796680ca416db14c2f4843bc",
+      "bytes": 7316
+    },
+    {
+      "path": "vins/scripts/audit_stage6b_common_alignment.py",
+      "sha256": "ea7026eb0f0c4939047f0bf40d20a3ca99de9cf8861769dc40d140416eeb8d08",
+      "bytes": 15740
+    },
+    {
+      "path": "vins/scripts/audit_uzhfpv_time_offsets.py",
+      "sha256": "47a5dfc386ba2a76dab5b619a11d26bc666b86c0ffac5edae55900e15fb4d696",
+      "bytes": 13010
+    },
+    {
+      "path": "vins/scripts/build_stage5_oracle_mask.py",
+      "sha256": "54448b4006364c181cbc4f1123f7c2e7c8a4ff4071e98500222199af27fdcc72",
+      "bytes": 9437
+    },
+    {
+      "path": "vins/scripts/diagnose_stage6c_mh01.py",
+      "sha256": "c5dd92027f6240540841569c2399c39d24bd75aed491aa808697bbbdb0841a9f",
+      "bytes": 30419
+    },
+    {
+      "path": "vins/scripts/evaluate_euroc_final.py",
+      "sha256": "170f27ed8493b1e940c48ee93b7239e7ac0ca117883692f98ec888bafb9a5966",
+      "bytes": 19549
+    },
+    {
+      "path": "vins/scripts/evaluate_euroc_loop.py",
+      "sha256": "308cd8a9143dcff831f0880554dcffe9ec10fb83bf0f8cc9a7018be40dae4a2a",
+      "bytes": 4615
+    },
+    {
+      "path": "vins/scripts/evaluate_ltv_euroc.py",
+      "sha256": "b65513c47f43bb03705b6cea5d9d3b8e6d897219924e56d9ade4369fdc4552ff",
+      "bytes": 4598
+    },
+    {
+      "path": "vins/scripts/evaluate_stage7_tuning.py",
+      "sha256": "a131c694904e6103182184711f7da2f2325f0ae57894d5aa738ce37a95e7e3e0",
+      "bytes": 6219
+    },
+    {
+      "path": "vins/scripts/evaluate_uzhfpv_loop.py",
+      "sha256": "2c1a98f5ba9d3d1da63dfb8bfb30f66a0010d2d976d1ae404c0ba7bc73795b66",
+      "bytes": 12718
+    },
+    {
+      "path": "vins/scripts/evaluate_uzhfpv_notune.py",
+      "sha256": "b1ebd29a91c41363920503963e02b89990afaac008662aa09e21c3b431aadd5d",
+      "bytes": 18453
+    },
+    {
+      "path": "vins/scripts/evaluate_vins_euroc.py",
+      "sha256": "cec620a3a77e29cb2f13fc3aa3c58b7e1d1444737c4548a5a02bcd14620b5d1b",
+      "bytes": 28597
+    },
+    {
+      "path": "vins/scripts/finalize_stage7_report.py",
+      "sha256": "7e35d44557fc90ef5163264883f60482d613c63c3f2b4298a06037d9c6ae1722",
+      "bytes": 11398
+    },
+    {
+      "path": "vins/scripts/run_euroc_final_experiment.py",
+      "sha256": "66973de04cb61ec9e94bd5ba229810f384c5bfb34e1da2a6fc264b2f237d88e8",
+      "bytes": 6061
+    },
+    {
+      "path": "vins/scripts/run_euroc_loop.py",
+      "sha256": "94d060192d32ad5b63564b42722b463051c9abf0f98659203793072b6611fa01",
+      "bytes": 6897
+    },
+    {
+      "path": "vins/scripts/run_stage5_velocity_oracle.py",
+      "sha256": "043365eed30c9902f53b8682ec5898449dc60c1fb264c5934f73cdac6d666fa9",
+      "bytes": 13186
+    },
+    {
+      "path": "vins/scripts/run_stage6_joint.py",
+      "sha256": "01b4a35a3f2330a589aa2d6fb1c926065db4980f321090af1a45bdca5fa98b23",
+      "bytes": 19261
+    },
+    {
+      "path": "vins/scripts/run_stage7_tuning.py",
+      "sha256": "bdac191b685e12a26cf78d9dd5ec80e2c4ad4e43fa56035906d13f8c8ce304b9",
+      "bytes": 30625
+    },
+    {
+      "path": "vins/scripts/run_uzhfpv_loop_experiment.py",
+      "sha256": "8d470bcc7261f84767a7b52d1544bb6e16293315d27c1f3334916cc79b65465e",
+      "bytes": 12766
+    },
+    {
+      "path": "vins/scripts/run_uzhfpv_notune_experiment.py",
+      "sha256": "1927ad498d2db9c5c76804d5aefa55a6d6b671be9b871b798c4339fb3f33dcf7",
+      "bytes": 10955
+    },
+    {
+      "path": "vins/scripts/stage5_cache.py",
+      "sha256": "6bbccd1f5b70fed2fc3c0fb6f873b5e922d17c1f19d1c77f5398bfff0612fb4f",
+      "bytes": 905
+    },
+    {
+      "path": "vins/scripts/stage5_prepare_euroc.py",
+      "sha256": "d113a3435188dbe82d1ab2fbf2b130057952567bf4aa4d79180a7d5993f487c7",
+      "bytes": 9963
+    },
+    {
+      "path": "vins/scripts/verify_snapshot_timestamps.py",
+      "sha256": "f3e46aa3f8b4e146869b6cc18a8358a4e381a8c2731cb26a3445f7e08e485f43",
+      "bytes": 2059
+    },
+    {
+      "path": "vins/scripts/verify_stage7_delivery.py",
+      "sha256": "aa32de066252f1ca0d940513223052194d5af3bd5bd9354fcdb7d3968d58c127",
+      "bytes": 5225
+    },
+    {
+      "path": "vins/src/estimator/estimator.cpp",
+      "sha256": "045b5627054553a72e6355f65dd7bb204ab09dcdf8abee10c55f3bb6b608fdb3",
+      "bytes": 76977
+    },
+    {
+      "path": "vins/src/estimator/estimator.h",
+      "sha256": "ae5bf18c20c98115b9162ab260bf853d0d464d74e18facaef135314b828cf054",
+      "bytes": 7435
+    },
+    {
+      "path": "vins/src/estimator/parameters.cpp",
+      "sha256": "8cea8cf7859e8f6d92fe06c8484449cda922ae1759703e7916d319df270e2f91",
+      "bytes": 12798
+    },
+    {
+      "path": "vins/src/estimator/parameters.h",
+      "sha256": "509ee3294e20166c55aeed22c275c0db810e869154ceb5aaaf7018b95bac19f9",
+      "bytes": 2546
+    },
+    {
+      "path": "vins/src/factor/ltv_gravity_factor.cpp",
+      "sha256": "70e5ccb7937ae3967f8593d68897fdc81fbebd84da8a94ee8a73ad041eb4ba61",
+      "bytes": 2990
+    },
+    {
+      "path": "vins/src/factor/ltv_gravity_factor.h",
+      "sha256": "9e0f654f01088f9565d1309df4d6fa468693498dbc3a42aa38ddf42f7d5a073c",
+      "bytes": 1119
+    },
+    {
+      "path": "vins/src/factor/ltv_velocity_factor.cpp",
+      "sha256": "1010471fb6d016d835e87339f4b1fc8ce2b4c1f217df8bbc3a3b8d7b861d225c",
+      "bytes": 3139
+    },
+    {
+      "path": "vins/src/factor/ltv_velocity_factor.h",
+      "sha256": "87526db0fd149accee3a93811767edbf78ea08c3b6de781c7f4c7bc705c8a407",
+      "bytes": 963
+    },
+    {
+      "path": "vins/src/factor/pose_local_parameterization.cpp",
+      "sha256": "e43446c3ad1fcda3b21145868c3982c52ea435dc71b6a3cb0470a5e96f50f640",
+      "bytes": 2291
+    },
+    {
+      "path": "vins/src/factor/pose_local_parameterization.h",
+      "sha256": "88a0c49a5f86a0fbc5e94265422ef848d3d5e52cfe59719d133fb5b10f01dd9b",
+      "bytes": 963
+    },
+    {
+      "path": "vins/src/featureTracker/feature_tracker.cpp",
+      "sha256": "4bc5db2c198000064712bda2844b27ac6660e44181b54367f85c8a27a8d968ab",
+      "bytes": 27734
+    },
+    {
+      "path": "vins/src/ltv/README.md",
+      "sha256": "e6be08812ba94d3ba72463dbf151c9a3797087ef5394eade1ba2b067dd3abc14",
+      "bytes": 2482
+    },
+    {
+      "path": "vins/src/ltv/ltv_csv_logger.cpp",
+      "sha256": "5bb0df03750407940a20d34ee8caa35b2a9914b033c0e22e60c1664186bb02b0",
+      "bytes": 5332
+    },
+    {
+      "path": "vins/src/ltv/ltv_csv_logger.h",
+      "sha256": "5dc0a400e43b7653dd745e3146af5deb3547acfdfb08283ab5253174be6df820",
+      "bytes": 333
+    },
+    {
+      "path": "vins/src/ltv/ltv_observer.cpp",
+      "sha256": "835e0e1017cf04968ee8f1521cdbf8730beb8697832e88c56d115089e96a5c5b",
+      "bytes": 18879
+    },
+    {
+      "path": "vins/src/ltv/ltv_observer.h",
+      "sha256": "a5fa66731c2c4e965f9fce58b781617db1ca9938e41aea65405173c5ba09ef52",
+      "bytes": 2288
+    },
+    {
+      "path": "vins/src/ltv/ltv_quality_gate.cpp",
+      "sha256": "cff16ea8427c2a706a1e593e8c5ad38fb2b01629dfe1239ae837446824e143bc",
+      "bytes": 2322
+    },
+    {
+      "path": "vins/src/ltv/ltv_quality_gate.h",
+      "sha256": "8acb39ec63a79714b0af056f42176772fc3e1c61ae6308e3874db166faab20d6",
+      "bytes": 945
+    },
+    {
+      "path": "vins/src/ltv/ltv_snapshot_window.h",
+      "sha256": "6c6307db9c81c41947fffdcc301a764946844e3a723eb16549b5be09efa15446",
+      "bytes": 973
+    },
+    {
+      "path": "vins/src/ltv/ltv_types.h",
+      "sha256": "24fa6dee4c8a8301b3e833b65ed6e21ba1ad466d588391f110a96b3d6c62b099",
+      "bytes": 4673
+    },
+    {
+      "path": "vins/src/ltv/ltv_velocity_oracle_gate.cpp",
+      "sha256": "40ada0191c6fa72b30e58ba0afddf70810be0ccc4fc176653f730f4fdf267069",
+      "bytes": 4120
+    },
+    {
+      "path": "vins/src/ltv/ltv_velocity_oracle_gate.h",
+      "sha256": "6a54e55f58ef221e073097963bf4f7b2123d2c39a502b1734209bc18a6513268",
+      "bytes": 656
+    },
+    {
+      "path": "vins/src/ltv/ltv_velocity_quality_gate.cpp",
+      "sha256": "16760f9f6bbf88b727f7db1ec8196ec09f2defcc0a667ba85c8a56c0a45a1f67",
+      "bytes": 3159
+    },
+    {
+      "path": "vins/src/ltv/ltv_velocity_quality_gate.h",
+      "sha256": "623a117f09d7c77d4c9ff087dd56b5eb212f7f9c5e509d27a384669c60469e14",
+      "bytes": 1209
+    },
+    {
+      "path": "vins/src/rosNodeTest.cpp",
+      "sha256": "34379fae6e09561ef9fbf6545643b390ed476bac1da87a73f2098bbd76f38753",
+      "bytes": 10563
+    },
+    {
+      "path": "vins/src/utility/utility.cpp",
+      "sha256": "d3c49f1f5fa890c9af5afa13ffd8a7e18d79e64dc20722491d709ae23e329e91",
+      "bytes": 803
+    },
+    {
+      "path": "vins/src/utility/utility.h",
+      "sha256": "e34e13fc4cce80d5e250e17d3a1f4fb6b906a8fec1809a341aa76e5d9abf4827",
+      "bytes": 5128
+    },
+    {
+      "path": "vins/stage5Replay.cpp",
+      "sha256": "32af46687a7a7df6c2cb98979a22b6dc834596fdf16760f987c24e1b48406368",
+      "bytes": 7282
+    },
+    {
+      "path": "vins/test/test_analyze_euroc_asl_velocity.py",
+      "sha256": "b911ee4ff7f7134943c2fdb04089860d3c2d9b5389636144ba3d2a92d9e62bb1",
+      "bytes": 3570
+    },
+    {
+      "path": "vins/test/test_audit_stage6b_common_alignment.py",
+      "sha256": "aa1fcf1f966eb71fa7b40177981c2937b6358642529686413522afd66ba4ce15",
+      "bytes": 2737
+    },
+    {
+      "path": "vins/test/test_audit_uzhfpv_time_offsets.py",
+      "sha256": "d219ad87c7dd922b6b1aeb48b5435010a265db009634fd427ecca93fa191c386",
+      "bytes": 2969
+    },
+    {
+      "path": "vins/test/test_build_stage5_oracle_mask.py",
+      "sha256": "a32ac47c858cea9a86972ea932748a0c4f92386d0eeaee52565d3a282567d296",
+      "bytes": 2335
+    },
+    {
+      "path": "vins/test/test_diagnose_stage6c_mh01.py",
+      "sha256": "9ba2e79a7a1ab76e9b60ad0c8ef6c997fc819b328f6c30565cf7914cf0311a06",
+      "bytes": 3845
+    },
+    {
+      "path": "vins/test/test_evaluate_euroc_final.py",
+      "sha256": "f6fcf3feb1015fd657c6aa7edd37cd25c189a087037efabfedd004ce29b10e7d",
+      "bytes": 5118
+    },
+    {
+      "path": "vins/test/test_evaluate_vins_euroc.py",
+      "sha256": "72de67f55124b4c603cd29f347a2a3bf61d9349798186435a2339bf1be0b0882",
+      "bytes": 6678
+    },
+    {
+      "path": "vins/test/test_feature_masks.cpp",
+      "sha256": "8dc4b56492428199660f79fb4a77abfe6f644f0260e0fc950376a806765e8de7",
+      "bytes": 1944
+    },
+    {
+      "path": "vins/test/test_ltv_gravity_factor.cpp",
+      "sha256": "b1c40a81fdd35cbbc2cb5138c3ef9d2baa637eb171b449b98f5a491a93d4d921",
+      "bytes": 4472
+    },
+    {
+      "path": "vins/test/test_ltv_observer.cpp",
+      "sha256": "c910797f320b73e17aaf946b2e9356f4dbda0334e5d70f5bbc1a131b40b49e86",
+      "bytes": 6335
+    },
+    {
+      "path": "vins/test/test_ltv_quality_gate.cpp",
+      "sha256": "13da425abbdbe14c672d511228e30ef745c866b3a917308bfa9da0158d6344d2",
+      "bytes": 2190
+    },
+    {
+      "path": "vins/test/test_ltv_snapshot.cpp",
+      "sha256": "22b0b114854a22d4e7f24fa45cca8b915be304559aee2c0a3672c451d27bf2e4",
+      "bytes": 2358
+    },
+    {
+      "path": "vins/test/test_ltv_velocity_factor.cpp",
+      "sha256": "c8a7bbfe7406a25ce912e7b32c003a5f42296ea8e492c029d1fa96f313db64f6",
+      "bytes": 7106
+    },
+    {
+      "path": "vins/test/test_ltv_velocity_oracle_gate.cpp",
+      "sha256": "5e26994711b757bbda71e50d9e574b96c61bd0d8227ce75d2e548d0d08d06fc5",
+      "bytes": 3368
+    },
+    {
+      "path": "vins/test/test_ltv_velocity_quality_gate.cpp",
+      "sha256": "c3534eca6a77918eaf2b8f00e2696741bb9821472e2b7e2e0efd8c20a94117e7",
+      "bytes": 5879
+    },
+    {
+      "path": "vins/test/test_run_euroc_final_experiment.py",
+      "sha256": "471c5a36d560a17e82af635a60e02387b55a4bdff6da031cf46604cd0a47381e",
+      "bytes": 2764
+    },
+    {
+      "path": "vins/test/test_run_stage6_joint.py",
+      "sha256": "b42b4f7788bcd06c46698be1832b338deda44c7402745674150b877597244e09",
+      "bytes": 11918
+    },
+    {
+      "path": "vins/test/test_stage5_cache.py",
+      "sha256": "fd14502361a1886355dbd9af99cfcae8ce66d43fff8759d3f88e3db3af114d9e",
+      "bytes": 2041
+    },
+    {
+      "path": "vins/test/test_stage7_tuning.py",
+      "sha256": "e9cc883a27bf13764f574c3605e27462eaf0277ffd0f34139b705febcef71698",
+      "bytes": 9294
+    },
+    {
+      "path": "vins/test/test_stereo_synchronizer.cpp",
+      "sha256": "78fb8f9fb808e49009239a70351d7852e2d4bd8bf0c80a04d5d06bf06fbb3fac",
+      "bytes": 650
+    },
+    {
+      "path": "vins/test/test_uzhfpv_config.py",
+      "sha256": "d4bda0e887a8987ad2e9f536c63a1e51e7d4d4d4da0754f3877b91c47b42de1a",
+      "bytes": 4510
+    },
+    {
+      "path": "vins/test/test_verify_snapshot_timestamps.py",
+      "sha256": "e66015dfe2959d80f86a96395ddf97f96c26e6655dd3cb8ad8495b9f06e4f956",
+      "bytes": 1699
+    }
+  ],
+  "core_copies": [
+    {
+      "original_path": "vins/src/ltv/ltv_observer.h",
+      "copy_path": "source_core/vins/src/ltv/ltv_observer.h",
+      "source_sha256": "a5fa66731c2c4e965f9fce58b781617db1ca9938e41aea65405173c5ba09ef52",
+      "copy_sha256": "a5fa66731c2c4e965f9fce58b781617db1ca9938e41aea65405173c5ba09ef52"
+    },
+    {
+      "original_path": "vins/src/ltv/ltv_observer.cpp",
+      "copy_path": "source_core/vins/src/ltv/ltv_observer.cpp",
+      "source_sha256": "835e0e1017cf04968ee8f1521cdbf8730beb8697832e88c56d115089e96a5c5b",
+      "copy_sha256": "835e0e1017cf04968ee8f1521cdbf8730beb8697832e88c56d115089e96a5c5b"
+    },
+    {
+      "original_path": "vins/src/ltv/ltv_types.h",
+      "copy_path": "source_core/vins/src/ltv/ltv_types.h",
+      "source_sha256": "24fa6dee4c8a8301b3e833b65ed6e21ba1ad466d588391f110a96b3d6c62b099",
+      "copy_sha256": "24fa6dee4c8a8301b3e833b65ed6e21ba1ad466d588391f110a96b3d6c62b099"
+    },
+    {
+      "original_path": "vins/src/utility/utility.h",
+      "copy_path": "source_core/vins/src/utility/utility.h",
+      "source_sha256": "e34e13fc4cce80d5e250e17d3a1f4fb6b906a8fec1809a341aa76e5d9abf4827",
+      "copy_sha256": "e34e13fc4cce80d5e250e17d3a1f4fb6b906a8fec1809a341aa76e5d9abf4827"
+    }
+  ],
+  "external_evidence": [
+    {
+      "original_path": "/home/he/output/ltv_stage7_tuning/all11_20261001/trials/V1_01_easy/5cf0514d06eb3235b0590f723d4ef8fa8d665c0c43c2ea2cc689126b767d6cc0/effective_config.yaml",
+      "exists": true,
+      "copy_path": "evidence/stage7_T2_effective_config.yaml",
+      "source_sha256": "d053b2cbbdefd0006c9b9d5b492a7bd365edcfe2ae832652a8d8f96211edce33",
+      "copy_sha256": "d053b2cbbdefd0006c9b9d5b492a7bd365edcfe2ae832652a8d8f96211edce33"
+    },
+    {
+      "original_path": "/home/he/output/ltv_stage7_tuning/all11_20261001/trials/V1_01_easy/5cf0514d06eb3235b0590f723d4ef8fa8d665c0c43c2ea2cc689126b767d6cc0/runtime_config.yaml",
+      "exists": true,
+      "copy_path": "evidence/stage7_T2_runtime_config.yaml",
+      "source_sha256": "a72740238993295ee4f47d535abef2f11b278a82754e3ebe0cad24881675d0e6",
+      "copy_sha256": "a72740238993295ee4f47d535abef2f11b278a82754e3ebe0cad24881675d0e6"
+    },
+    {
+      "original_path": "/home/he/output/ltv_stage7_tuning/all11_20261001/trials/V1_01_easy/5cf0514d06eb3235b0590f723d4ef8fa8d665c0c43c2ea2cc689126b767d6cc0/input_manifest.json",
+      "exists": true,
+      "copy_path": "evidence/stage7_T2_input_manifest.json",
+      "source_sha256": "59634b15961089d1aaee361aadfeb1134b3ad8aa8db2bc4a4b42a5c97bd92b21",
+      "copy_sha256": "59634b15961089d1aaee361aadfeb1134b3ad8aa8db2bc4a4b42a5c97bd92b21"
+    },
+    {
+      "original_path": "/home/he/output/ltv_stage7_tuning/all11_20261001/trials/V1_01_easy/5cf0514d06eb3235b0590f723d4ef8fa8d665c0c43c2ea2cc689126b767d6cc0/validation.json",
+      "exists": true,
+      "copy_path": "evidence/stage7_T2_validation.json",
+      "source_sha256": "2b80e9dd8c094335376e11bc884b54b6f53822dd9dc4c169c8d71494e849300b",
+      "copy_sha256": "2b80e9dd8c094335376e11bc884b54b6f53822dd9dc4c169c8d71494e849300b"
+    },
+    {
+      "original_path": "/home/he/output/ltv_stage7_tuning/all11_20261001/stage7_plan.json",
+      "exists": true,
+      "copy_path": "evidence/stage7_stage7_plan.json",
+      "source_sha256": "a840c76576303a33b1a608adcb78281b1b41dd41acd33393f2f75e65f6741f41",
+      "copy_sha256": "a840c76576303a33b1a608adcb78281b1b41dd41acd33393f2f75e65f6741f41"
+    },
+    {
+      "original_path": "/home/he/output/ltv_stage7_tuning/all11_20261001/release/release_manifest.json",
+      "exists": true,
+      "copy_path": "evidence/stage7_release_manifest.json",
+      "source_sha256": "29a76ad377f38a38d144ce19f867fd4d36bdc966581fbcab09f5777a562101f6",
+      "copy_sha256": "29a76ad377f38a38d144ce19f867fd4d36bdc966581fbcab09f5777a562101f6"
+    },
+    {
+      "original_path": "/home/he/output/ltv_stage7_tuning/all11_20261001/conclusions.json",
+      "exists": true,
+      "copy_path": "evidence/stage7_conclusions.json",
+      "source_sha256": "d038844e01591266c6acb4c2506608c22268951286f31428b711e43ffca60631",
+      "copy_sha256": "d038844e01591266c6acb4c2506608c22268951286f31428b711e43ffca60631"
+    },
+    {
+      "original_path": "/home/he/output/ltv_euroc_final_unified/batch_manifest.json",
+      "exists": true,
+      "copy_path": "evidence/notune_batch_manifest.json",
+      "source_sha256": "e32cfae13cf5248f51f1ba6112575ee1ffa7c18340f4081f9ebd5181049b4ef9",
+      "copy_sha256": "e32cfae13cf5248f51f1ba6112575ee1ffa7c18340f4081f9ebd5181049b4ef9"
+    },
+    {
+      "original_path": "/home/he/output/ltv_euroc_final_unified/V1_01_easy/baseline/effective_config.yaml",
+      "exists": true,
+      "copy_path": "evidence/notune_V1_01_easy_baseline_effective_config.yaml",
+      "source_sha256": "e47f717a86338a68a8e187ee5aed68cedd2a2652d8203a0c88a1eefda61b42fb",
+      "copy_sha256": "e47f717a86338a68a8e187ee5aed68cedd2a2652d8203a0c88a1eefda61b42fb"
+    },
+    {
+      "original_path": "/home/he/output/ltv_euroc_final_unified/V1_01_easy/joint_v_gate/effective_config.yaml",
+      "exists": true,
+      "copy_path": "evidence/notune_V1_01_easy_joint_v_gate_effective_config.yaml",
+      "source_sha256": "28dedb62573d2cd5dd2cf32f731cbfbe9da336e1f4a17fbce610f0e7f51bdbbd",
+      "copy_sha256": "28dedb62573d2cd5dd2cf32f731cbfbe9da336e1f4a17fbce610f0e7f51bdbbd"
+    },
+    {
+      "original_path": "/home/he/output/ltv_stage7_tuning/all11_20261001/release/live_startup_output/effective_config.yaml",
+      "exists": true,
+      "copy_path": "evidence/stage7_live_effective_config.yaml",
+      "source_sha256": "9ecb3bb5bff80fc8d579c77cf49ce7937e4edb1be3bce7d6fa072842060845ff",
+      "copy_sha256": "9ecb3bb5bff80fc8d579c77cf49ce7937e4edb1be3bce7d6fa072842060845ff"
+    }
+  ],
+  "dependencies": {
+    "compiler": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+    "packages": "libeigen3-dev\t3.4.0-2ubuntu2\nlibgtest-dev:amd64\t1.11.0-3\nlibopencv-dev\t4.5.4+dfsg-9ubuntu4\n",
+    "core": "C++14 + Eigen; Utility::skewSymmetric is header-only; no ROS/Ceres/OpenCV link required",
+    "full_vins": "See vins/CMakeLists.txt and package.xml; ROS humble available",
+    "license": "No tracked LICENSE/COPYING file found. utility.h has original GPLv3/HKUST header; LTV files have no license headers; vins/package.xml license is TODO.",
+    "ceres_headers_version": [
+      "2",
+      "1",
+      "0"
+    ]
+  },
+  "current_replay_binary": {
+    "path": "/home/he/vins_fusion_ltv_ws/build/vins/stage5_replay",
+    "sha256": "779da8043e36a5bed374fe28985158bd8827e29180abde78886d2f9fc54a3464",
+    "executed_this_audit": false
+  },
+  "git_status_after_artifacts": "?? docs/01_VINS_LTV_HANDOVER_PROMPT.md\n?? docs/ltv_handover/\n",
+  "source_content_unchanged_at_end": true,
+  "dependency_status_note": "No git submodules declared; no dependency install/build/update. Existing ROS build/install and replay binary retained. Dynamic linked dependency hashes from historical Stage7 manifests are stored in evidence; source core only needs Eigen/standard library.",
+  "verification_summary": {
+    "existing_cpp_test_count": 33,
+    "existing_python_test_count": 59,
+    "all_recorded_commands_exit_zero": true,
+    "fixture_event_count": 174,
+    "runtime_published_differ_only_paths": true,
+    "source_and_core_copy_hashes_verified": true,
+    "external_evidence_hashes_verified": true,
+    "standalone_build_directories": [
+      "/tmp/ltv-handover-build-x40if5o0"
+    ],
+    "full_ros_build_or_replay_executed": false
+  }
+}

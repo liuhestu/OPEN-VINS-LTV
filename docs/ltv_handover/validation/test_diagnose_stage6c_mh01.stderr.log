@@ -1,0 +1,11 @@
+test_gate_segments_count_frames_and_duration (__main__.DiagnoseStage6cMh01Test) ... ok
+test_imu_aggregation_fails_closed_on_empty_interval (__main__.DiagnoseStage6cMh01Test) ... ok
+test_imu_aggregation_uses_each_camera_interval (__main__.DiagnoseStage6cMh01Test) ... ok
+test_pitch_error_sign_uses_established_rpy_convention (__main__.DiagnoseStage6cMh01Test) ... ok
+test_post_optimization_velocity_residual_uses_body_frame (__main__.DiagnoseStage6cMh01Test) ... ok
+test_trailing_rmse_and_sustained_onset_use_inclusive_boundaries (__main__.DiagnoseStage6cMh01Test) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK

@@ -1,0 +1,8 @@
+{
+  "event_count": 174,
+  "state_and_full_P_finite": true,
+  "minimum_symmetric_P_eigenvalue": 0.9999950000258393,
+  "maximum_P_asymmetry": 1.4551915228366852e-11,
+  "max_camera_substeps": 2,
+  "note": "Checks actual stored outputs, no observer source changes; eigenvalues of explicitly symmetrized copy used only for validation."
+}

@@ -1,0 +1,8 @@
+{
+  "pass_": true,
+  "retained_state_and_all_cross_blocks_checked": true,
+  "max_retained_covariance_error": 2.000888343900442e-11,
+  "nonzero_landmark_motion_cross_block_max": 25.0100000000034,
+  "new_point_zero": true,
+  "new_point_state_and_P0_cross_blocks_checked": true
+}

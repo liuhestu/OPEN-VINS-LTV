@@ -1,0 +1,17 @@
+{
+  "G_only_J": -0.01907342529044299,
+  "J_change_vs_W0_percentage_points": -0.24051927195468253,
+  "W0_J": -0.02864909535291354,
+  "final_J": -0.031054288072460367,
+  "improved_vs_B": true,
+  "improved_vs_W0": true,
+  "macro_ate_change_vs_W0_percent": 0.17073395017952464,
+  "macro_ate_improved_vs_W0": false,
+  "ros_topics_verified": true,
+  "rviz_verified": true,
+  "system_live_startup": true,
+  "system_offline_runnable": true,
+  "velocity_factor_total": 9748,
+  "velocity_incremental_value": true,
+  "worst_sequence_change_vs_W0_percent": 6.255392884494926
+}

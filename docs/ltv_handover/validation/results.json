@@ -1,0 +1,436 @@
+{
+  "build_directory": "/tmp/ltv-handover-build-x40if5o0",
+  "checks": [
+    {
+      "name": "compile_observer",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O1",
+        "-DNDEBUG",
+        "-Wextra",
+        "-Wpedantic",
+        "-I/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src",
+        "-I/usr/include/eigen3",
+        "-I/usr/local/include",
+        "-c",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src/ltv/ltv_observer.cpp",
+        "-o",
+        "/tmp/ltv-handover-build-x40if5o0/observer.o"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/compile_observer.stdout.log",
+      "stderr": "validation/compile_observer.stderr.log"
+    },
+    {
+      "name": "compile_fixture",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O1",
+        "-DNDEBUG",
+        "-Wextra",
+        "-Wpedantic",
+        "-I/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src",
+        "-I/usr/include/eigen3",
+        "-I/usr/local/include",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/harness.cpp",
+        "/tmp/ltv-handover-build-x40if5o0/observer.o",
+        "-o",
+        "/tmp/ltv-handover-build-x40if5o0/fixture"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/compile_fixture.stdout.log",
+      "stderr": "validation/compile_fixture.stderr.log"
+    },
+    {
+      "name": "generate_fixture",
+      "command": [
+        "/tmp/ltv-handover-build-x40if5o0/fixture",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/generate_fixture.stdout.log",
+      "stderr": "validation/generate_fixture.stderr.log"
+    },
+    {
+      "name": "repeat_fixture",
+      "command": [
+        "/tmp/ltv-handover-build-x40if5o0/fixture",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+        "/tmp/ltv-handover-build-x40if5o0/repeat_matrices.jsonl"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/repeat_fixture.stdout.log",
+      "stderr": "validation/repeat_fixture.stderr.log"
+    },
+    {
+      "name": "compile_alias_probe",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O1",
+        "-DNDEBUG",
+        "-Wextra",
+        "-Wpedantic",
+        "-I/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src",
+        "-I/usr/include/eigen3",
+        "-I/usr/local/include",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/validation/eigen_alias_probe.cpp",
+        "-o",
+        "/tmp/ltv-handover-build-x40if5o0/alias_probe"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/compile_alias_probe.stdout.log",
+      "stderr": "validation/compile_alias_probe.stderr.log"
+    },
+    {
+      "name": "alias_probe",
+      "command": [
+        "/tmp/ltv-handover-build-x40if5o0/alias_probe"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/alias_probe.stdout.log",
+      "stderr": "validation/alias_probe.stderr.log"
+    },
+    {
+      "name": "compile_existing_cpp_tests",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O1",
+        "-DNDEBUG",
+        "-Wextra",
+        "-Wpedantic",
+        "-I/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src",
+        "-I/usr/include/eigen3",
+        "-I/usr/local/include",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_ltv_observer.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_ltv_quality_gate.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_ltv_velocity_quality_gate.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_ltv_velocity_oracle_gate.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_ltv_snapshot.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_ltv_gravity_factor.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_ltv_velocity_factor.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src/ltv/ltv_csv_logger.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src/ltv/ltv_quality_gate.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src/ltv/ltv_velocity_quality_gate.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src/ltv/ltv_velocity_oracle_gate.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src/factor/ltv_gravity_factor.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src/factor/ltv_velocity_factor.cpp",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src/factor/pose_local_parameterization.cpp",
+        "/tmp/ltv-handover-build-x40if5o0/observer.o",
+        "-L/usr/local/lib",
+        "-Wl,-rpath,/usr/local/lib",
+        "-lceres",
+        "-lgtest_main",
+        "-lgtest",
+        "-pthread",
+        "-o",
+        "/tmp/ltv-handover-build-x40if5o0/existing_cpp_tests"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/compile_existing_cpp_tests.stdout.log",
+      "stderr": "validation/compile_existing_cpp_tests.stderr.log"
+    },
+    {
+      "name": "existing_cpp_tests",
+      "command": [
+        "/tmp/ltv-handover-build-x40if5o0/existing_cpp_tests",
+        "--gtest_output=xml:/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/validation/existing_cpp_tests.xml"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/existing_cpp_tests.stdout.log",
+      "stderr": "validation/existing_cpp_tests.stderr.log"
+    },
+    {
+      "name": "test_stage7_tuning",
+      "command": [
+        "python3",
+        "-B",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_stage7_tuning.py",
+        "-v"
+      ],
+      "cwd": "/tmp/ltv-handover-build-x40if5o0",
+      "exit_code": 0,
+      "stdout": "validation/test_stage7_tuning.stdout.log",
+      "stderr": "validation/test_stage7_tuning.stderr.log"
+    },
+    {
+      "name": "test_run_stage6_joint",
+      "command": [
+        "python3",
+        "-B",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_run_stage6_joint.py",
+        "-v"
+      ],
+      "cwd": "/tmp/ltv-handover-build-x40if5o0",
+      "exit_code": 0,
+      "stdout": "validation/test_run_stage6_joint.stdout.log",
+      "stderr": "validation/test_run_stage6_joint.stderr.log"
+    },
+    {
+      "name": "test_verify_snapshot_timestamps",
+      "command": [
+        "python3",
+        "-B",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_verify_snapshot_timestamps.py",
+        "-v"
+      ],
+      "cwd": "/tmp/ltv-handover-build-x40if5o0",
+      "exit_code": 0,
+      "stdout": "validation/test_verify_snapshot_timestamps.stdout.log",
+      "stderr": "validation/test_verify_snapshot_timestamps.stderr.log"
+    },
+    {
+      "name": "test_build_stage5_oracle_mask",
+      "command": [
+        "python3",
+        "-B",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_build_stage5_oracle_mask.py",
+        "-v"
+      ],
+      "cwd": "/tmp/ltv-handover-build-x40if5o0",
+      "exit_code": 0,
+      "stdout": "validation/test_build_stage5_oracle_mask.stdout.log",
+      "stderr": "validation/test_build_stage5_oracle_mask.stderr.log"
+    },
+    {
+      "name": "test_stage5_cache",
+      "command": [
+        "python3",
+        "-B",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_stage5_cache.py",
+        "-v"
+      ],
+      "cwd": "/tmp/ltv-handover-build-x40if5o0",
+      "exit_code": 0,
+      "stdout": "validation/test_stage5_cache.stdout.log",
+      "stderr": "validation/test_stage5_cache.stderr.log"
+    },
+    {
+      "name": "test_evaluate_euroc_final",
+      "command": [
+        "python3",
+        "-B",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_evaluate_euroc_final.py",
+        "-v"
+      ],
+      "cwd": "/tmp/ltv-handover-build-x40if5o0",
+      "exit_code": 0,
+      "stdout": "validation/test_evaluate_euroc_final.stdout.log",
+      "stderr": "validation/test_evaluate_euroc_final.stderr.log"
+    },
+    {
+      "name": "test_run_euroc_final_experiment",
+      "command": [
+        "python3",
+        "-B",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_run_euroc_final_experiment.py",
+        "-v"
+      ],
+      "cwd": "/tmp/ltv-handover-build-x40if5o0",
+      "exit_code": 0,
+      "stdout": "validation/test_run_euroc_final_experiment.stdout.log",
+      "stderr": "validation/test_run_euroc_final_experiment.stderr.log"
+    },
+    {
+      "name": "test_audit_stage6b_common_alignment",
+      "command": [
+        "python3",
+        "-B",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_audit_stage6b_common_alignment.py",
+        "-v"
+      ],
+      "cwd": "/tmp/ltv-handover-build-x40if5o0",
+      "exit_code": 0,
+      "stdout": "validation/test_audit_stage6b_common_alignment.stdout.log",
+      "stderr": "validation/test_audit_stage6b_common_alignment.stderr.log"
+    },
+    {
+      "name": "test_diagnose_stage6c_mh01",
+      "command": [
+        "python3",
+        "-B",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_diagnose_stage6c_mh01.py",
+        "-v"
+      ],
+      "cwd": "/tmp/ltv-handover-build-x40if5o0",
+      "exit_code": 0,
+      "stdout": "validation/test_diagnose_stage6c_mh01.stdout.log",
+      "stderr": "validation/test_diagnose_stage6c_mh01.stderr.log"
+    },
+    {
+      "name": "test_analyze_euroc_asl_velocity",
+      "command": [
+        "python3",
+        "-B",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_analyze_euroc_asl_velocity.py",
+        "-v"
+      ],
+      "cwd": "/tmp/ltv-handover-build-x40if5o0",
+      "exit_code": 0,
+      "stdout": "validation/test_analyze_euroc_asl_velocity.stdout.log",
+      "stderr": "validation/test_analyze_euroc_asl_velocity.stderr.log"
+    },
+    {
+      "name": "test_evaluate_vins_euroc",
+      "command": [
+        "python3",
+        "-B",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/test/test_evaluate_vins_euroc.py",
+        "-v"
+      ],
+      "cwd": "/tmp/ltv-handover-build-x40if5o0",
+      "exit_code": 0,
+      "stdout": "validation/test_evaluate_vins_euroc.stdout.log",
+      "stderr": "validation/test_evaluate_vins_euroc.stderr.log"
+    },
+    {
+      "name": "compile_core_copy",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O1",
+        "-DNDEBUG",
+        "-Wextra",
+        "-Wpedantic",
+        "-I/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/source_core/vins/src",
+        "-I/usr/include/eigen3",
+        "-c",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/source_core/vins/src/ltv/ltv_observer.cpp",
+        "-o",
+        "/tmp/ltv-handover-build-x40if5o0/observer_copy.o"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/compile_core_copy.stdout.log",
+      "stderr": "validation/compile_core_copy.stderr.log"
+    },
+    {
+      "name": "compile_final_fixture",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O1",
+        "-DNDEBUG",
+        "-Wextra",
+        "-Wpedantic",
+        "-I/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/source_core/vins/src",
+        "-I/usr/include/eigen3",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/harness.cpp",
+        "/tmp/ltv-handover-build-x40if5o0/observer.o",
+        "-o",
+        "/tmp/ltv-handover-build-x40if5o0/fixture_final"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/compile_final_fixture.stdout.log",
+      "stderr": "validation/compile_final_fixture.stderr.log"
+    },
+    {
+      "name": "compile_copy_fixture",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O1",
+        "-DNDEBUG",
+        "-Wextra",
+        "-Wpedantic",
+        "-I/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/source_core/vins/src",
+        "-I/usr/include/eigen3",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/harness.cpp",
+        "/tmp/ltv-handover-build-x40if5o0/observer_copy.o",
+        "-o",
+        "/tmp/ltv-handover-build-x40if5o0/fixture_copy"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/compile_copy_fixture.stdout.log",
+      "stderr": "validation/compile_copy_fixture.stderr.log"
+    },
+    {
+      "name": "generate_final_fixture",
+      "command": [
+        "/tmp/ltv-handover-build-x40if5o0/fixture_final",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/generate_final_fixture.stdout.log",
+      "stderr": "validation/generate_final_fixture.stderr.log"
+    },
+    {
+      "name": "verify_copy_fixture",
+      "command": [
+        "/tmp/ltv-handover-build-x40if5o0/fixture_copy",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+        "/tmp/ltv-handover-build-x40if5o0/copy_matrices.jsonl"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/verify_copy_fixture.stdout.log",
+      "stderr": "validation/verify_copy_fixture.stderr.log"
+    },
+    {
+      "name": "compare_core_copy",
+      "command": [
+        "python3",
+        "-B",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/parity_fixture/compare.py",
+        "/tmp/ltv-handover-build-x40if5o0/copy_outputs.jsonl"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/compare_core_copy.stdout.log",
+      "stderr": "validation/compare_core_copy.stderr.log"
+    },
+    {
+      "name": "neutral_compaction_check",
+      "command": [
+        "inline Python: full old_index row/column mapping over final two source outputs"
+      ],
+      "exit_code": 0,
+      "artifact": "validation/compaction_check.json"
+    },
+    {
+      "name": "compile_final_alias_probe",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O1",
+        "-DNDEBUG",
+        "-Wextra",
+        "-Wpedantic",
+        "-I/usr/include/eigen3",
+        "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/validation/eigen_alias_probe.cpp",
+        "-o",
+        "/tmp/ltv-handover-build-x40if5o0/alias_probe_final"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/compile_final_alias_probe.stdout.log",
+      "stderr": "validation/compile_final_alias_probe.stderr.log"
+    },
+    {
+      "name": "final_alias_probe",
+      "command": [
+        "/tmp/ltv-handover-build-x40if5o0/alias_probe_final"
+      ],
+      "cwd": "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv",
+      "exit_code": 0,
+      "stdout": "validation/final_alias_probe.stdout.log",
+      "stderr": "validation/final_alias_probe.stderr.log"
+    }
+  ]
+}

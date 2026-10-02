@@ -1,0 +1,7 @@
+test_rejects_non_monotonic_grid (__main__.VerifySnapshotTimestampsTest) ... ok
+test_reports_equal_and_divergent_grids_without_rejecting_divergence (__main__.VerifySnapshotTimestampsTest) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

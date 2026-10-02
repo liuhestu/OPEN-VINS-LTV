@@ -1,0 +1,19 @@
+{
+  "source_files_unchanged_count": 110,
+  "readonly_core_copies": 4,
+  "external_evidence_count": 11,
+  "relative_links_valid": true,
+  "fixture_event_count": 174,
+  "runtime_published_only_path_differences": {
+    "output_path": [
+      "\"/home/he/output/ltv_stage7_tuning/all11_20261001/trials/V1_01_easy/5cf0514d06eb3235b0590f723d4ef8fa8d665c0c43c2ea2cc689126b767d6cc0.partial-06091ab135994979ab9dcf98b559a299\"",
+      "\"/home/he/output/ltv_stage7_tuning/all11_20261001/trials/V1_01_easy/5cf0514d06eb3235b0590f723d4ef8fa8d665c0c43c2ea2cc689126b767d6cc0\""
+    ],
+    "ltv_debug_csv_path": [
+      "\"/home/he/output/ltv_stage7_tuning/all11_20261001/trials/V1_01_easy/5cf0514d06eb3235b0590f723d4ef8fa8d665c0c43c2ea2cc689126b767d6cc0.partial-06091ab135994979ab9dcf98b559a299/ltv_debug.csv\"",
+      "\"/home/he/output/ltv_stage7_tuning/all11_20261001/trials/V1_01_easy/5cf0514d06eb3235b0590f723d4ef8fa8d665c0c43c2ea2cc689126b767d6cc0/ltv_debug.csv\""
+    ]
+  },
+  "new_point_verified": true,
+  "git_status": "?? docs/01_VINS_LTV_HANDOVER_PROMPT.md\n?? docs/ltv_handover/\n"
+}

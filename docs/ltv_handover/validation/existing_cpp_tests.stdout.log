@@ -1,0 +1,99 @@
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 33 tests from 9 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from LtvProjection
+[ RUN      ] LtvProjection.IsSymmetricIdempotentAndOrthogonal
+[       OK ] LtvProjection.IsSymmetricIdempotentAndOrthogonal (0 ms)
+[----------] 1 test from LtvProjection (0 ms total)
+
+[----------] 5 tests from LtvObserver
+[ RUN      ] LtvObserver.StateDimensionsFollowFeatureCount
+[       OK ] LtvObserver.StateDimensionsFollowFeatureCount (0 ms)
+[ RUN      ] LtvObserver.ImuPropagationUsesBodyFrameApparentAcceleration
+[       OK ] LtvObserver.ImuPropagationUsesBodyFrameApparentAcceleration (0 ms)
+[ RUN      ] LtvObserver.FeatureCompactionPreservesIdentity
+[       OK ] LtvObserver.FeatureCompactionPreservesIdentity (0 ms)
+[ RUN      ] LtvObserver.TimestampBackwardResetsObserver
+[       OK ] LtvObserver.TimestampBackwardResetsObserver (0 ms)
+[ RUN      ] LtvObserver.AdaptiveCameraSubstepsPreserveProductionScaleCovariance
+[       OK ] LtvObserver.AdaptiveCameraSubstepsPreserveProductionScaleCovariance (17 ms)
+[----------] 5 tests from LtvObserver (17 ms total)
+
+[----------] 1 test from LtvCsvLogger
+[ RUN      ] LtvCsvLogger.DisabledLoggerDoesNotOpenFile
+[       OK ] LtvCsvLogger.DisabledLoggerDoesNotOpenFile (0 ms)
+[----------] 1 test from LtvCsvLogger (0 ms total)
+
+[----------] 3 tests from LtvGravityQualityGate
+[ RUN      ] LtvGravityQualityGate.AcceptsHealthySnapshot
+[       OK ] LtvGravityQualityGate.AcceptsHealthySnapshot (0 ms)
+[ RUN      ] LtvGravityQualityGate.ReportsEveryRejectedCondition
+[       OK ] LtvGravityQualityGate.ReportsEveryRejectedCondition (0 ms)
+[ RUN      ] LtvGravityQualityGate.DisabledInnovationThresholdAlwaysPassesInnovation
+[       OK ] LtvGravityQualityGate.DisabledInnovationThresholdAlwaysPassesInnovation (0 ms)
+[----------] 3 tests from LtvGravityQualityGate (0 ms total)
+
+[----------] 5 tests from LtvVelocityQualityGate
+[ RUN      ] LtvVelocityQualityGate.InclusiveThresholdsPass
+[       OK ] LtvVelocityQualityGate.InclusiveThresholdsPass (0 ms)
+[ RUN      ] LtvVelocityQualityGate.ReportsIndependentAndCombinedRejections
+[       OK ] LtvVelocityQualityGate.ReportsIndependentAndCombinedRejections (0 ms)
+[ RUN      ] LtvVelocityQualityGate.NanAndInfinityFailClosed
+[       OK ] LtvVelocityQualityGate.NanAndInfinityFailClosed (0 ms)
+[ RUN      ] LtvVelocityQualityGate.ResetRejectsExactlyTenFollowingHealthyFrames
+[       OK ] LtvVelocityQualityGate.ResetRejectsExactlyTenFollowingHealthyFrames (0 ms)
+[ RUN      ] LtvVelocityQualityGate.ConflictAndInvalidConfigurationFailClosed
+[       OK ] LtvVelocityQualityGate.ConflictAndInvalidConfigurationFailClosed (0 ms)
+[----------] 5 tests from LtvVelocityQualityGate (0 ms total)
+
+[----------] 5 tests from LtvVelocityOracleGate
+[ RUN      ] LtvVelocityOracleGate.DefaultsAreDisabled
+[       OK ] LtvVelocityOracleGate.DefaultsAreDisabled (0 ms)
+[ RUN      ] LtvVelocityOracleGate.DisabledGatePassesThroughWithoutLoadingMask
+[       OK ] LtvVelocityOracleGate.DisabledGatePassesThroughWithoutLoadingMask (0 ms)
+[ RUN      ] LtvVelocityOracleGate.UsesSelectedFrozenDecisionColumn
+[       OK ] LtvVelocityOracleGate.UsesSelectedFrozenDecisionColumn (0 ms)
+[ RUN      ] LtvVelocityOracleGate.RequiresExactTimestampAndBaseEligibility
+[       OK ] LtvVelocityOracleGate.RequiresExactTimestampAndBaseEligibility (0 ms)
+[ RUN      ] LtvVelocityOracleGate.MissingMalformedAndInvalidColumnFailClosed
+[       OK ] LtvVelocityOracleGate.MissingMalformedAndInvalidColumnFailClosed (0 ms)
+[----------] 5 tests from LtvVelocityOracleGate (0 ms total)
+
+[----------] 3 tests from LtvSnapshotWindow
+[ RUN      ] LtvSnapshotWindow.StartsAndClearsInvalid
+[       OK ] LtvSnapshotWindow.StartsAndClearsInvalid (0 ms)
+[ RUN      ] LtvSnapshotWindow.MarginOldMatchesEstimatorPermutation
+[       OK ] LtvSnapshotWindow.MarginOldMatchesEstimatorPermutation (0 ms)
+[ RUN      ] LtvSnapshotWindow.MarginSecondNewestMatchesEstimatorPermutation
+[       OK ] LtvSnapshotWindow.MarginSecondNewestMatchesEstimatorPermutation (0 ms)
+[----------] 3 tests from LtvSnapshotWindow (0 ms total)
+
+[----------] 5 tests from LtvGravityFactor
+[ RUN      ] LtvGravityFactor.MatchingDirectionsHaveZeroResidual
+[       OK ] LtvGravityFactor.MatchingDirectionsHaveZeroResidual (0 ms)
+[ RUN      ] LtvGravityFactor.ResidualIgnoresGravityMagnitudeAndPosition
+[       OK ] LtvGravityFactor.ResidualIgnoresGravityMagnitudeAndPosition (0 ms)
+[ RUN      ] LtvGravityFactor.OppositeDirectionsHaveExpectedNorm
+[       OK ] LtvGravityFactor.OppositeDirectionsHaveExpectedNorm (0 ms)
+[ RUN      ] LtvGravityFactor.AnalyticJacobianMatchesRightPerturbation
+[       OK ] LtvGravityFactor.AnalyticJacobianMatchesRightPerturbation (0 ms)
+[ RUN      ] LtvGravityFactor.RejectsInvalidConstructionInput
+[       OK ] LtvGravityFactor.RejectsInvalidConstructionInput (0 ms)
+[----------] 5 tests from LtvGravityFactor (0 ms total)
+
+[----------] 5 tests from LtvVelocityFactor
+[ RUN      ] LtvVelocityFactor.MatchingVelocityHasZeroResidual
+[       OK ] LtvVelocityFactor.MatchingVelocityHasZeroResidual (0 ms)
+[ RUN      ] LtvVelocityFactor.RotationTransformsWorldVelocityIntoBodyFrame
+[       OK ] LtvVelocityFactor.RotationTransformsWorldVelocityIntoBodyFrame (0 ms)
+[ RUN      ] LtvVelocityFactor.ResidualIgnoresPositionAndBiases
+[       OK ] LtvVelocityFactor.ResidualIgnoresPositionAndBiases (0 ms)
+[ RUN      ] LtvVelocityFactor.AnalyticJacobiansMatchEffectiveLocalJacobians
+[       OK ] LtvVelocityFactor.AnalyticJacobiansMatchEffectiveLocalJacobians (0 ms)
+[ RUN      ] LtvVelocityFactor.RejectsInvalidInput
+[       OK ] LtvVelocityFactor.RejectsInvalidInput (0 ms)
+[----------] 5 tests from LtvVelocityFactor (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 33 tests from 9 test suites ran. (18 ms total)
+[  PASSED  ] 33 tests.

@@ -1,0 +1,10 @@
+test_common_support_accepts_exactly_99_percent (__main__.EvaluateEurocFinalTest) ... ok
+test_common_support_rejects_below_99_percent (__main__.EvaluateEurocFinalTest) ... ok
+test_markdown_contains_only_three_result_tables (__main__.EvaluateEurocFinalTest) ... ok
+test_metrics_use_independent_ate_and_common_baseline_gauge (__main__.EvaluateEurocFinalTest) ... ok
+test_one_to_one_matching_is_inclusive_and_does_not_reuse (__main__.EvaluateEurocFinalTest) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.006s
+
+OK

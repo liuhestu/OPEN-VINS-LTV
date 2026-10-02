@@ -1,0 +1,8 @@
+test_body_velocity_uses_transpose_of_world_body_rotation (__main__.AnalyzeEurocAslVelocityTest) ... ok
+test_constant_velocity_statistics_and_position_check (__main__.AnalyzeEurocAslVelocityTest) ... ok
+test_time_series_csv_contains_official_and_body_velocity (__main__.AnalyzeEurocAslVelocityTest) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.004s
+
+OK

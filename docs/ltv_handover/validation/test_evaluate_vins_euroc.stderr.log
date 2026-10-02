@@ -1,0 +1,16 @@
+test_alignment_rotation_changes_velocity_but_not_translation (__main__.EvaluateVinsEurocTest) ... ok
+test_json_output_includes_position_and_rotation_p95 (__main__.EvaluateVinsEurocTest) ... ok
+test_official_csv_reads_velocity_by_header_name (__main__.EvaluateVinsEurocTest) ... ok
+test_position_difference_is_fallback_for_constant_velocity (__main__.EvaluateVinsEurocTest) ... ok
+test_uzh_eight_column_reader (__main__.EvaluateVinsEurocTest) ... ok
+test_uzh_reader_rejects_nan (__main__.EvaluateVinsEurocTest) ... ok
+test_uzh_reader_rejects_no_bag_overlap (__main__.EvaluateVinsEurocTest) ... ok
+test_uzh_reader_rejects_non_increasing_time (__main__.EvaluateVinsEurocTest) ... ok
+test_uzh_reader_rejects_non_unit_quaternion (__main__.EvaluateVinsEurocTest) ... ok
+test_uzh_reader_rejects_wrong_field_count (__main__.EvaluateVinsEurocTest) ... ok
+test_uzh_reader_rejects_zero_quaternion (__main__.EvaluateVinsEurocTest) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.004s
+
+OK

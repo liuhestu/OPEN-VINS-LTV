@@ -1,0 +1,14 @@
+test_baseline_sha_must_match_stage6 (__main__.Stage6JointTest) ... ok
+test_effective_config_covers_all_modes_and_frozen_parameters (__main__.Stage6JointTest) ... ok
+test_gravity_only_requires_gated_gravity_and_no_velocity (__main__.Stage6JointTest) ... ok
+test_joint_diagnostics_require_gate_and_fixed_velocity (__main__.Stage6JointTest) ... ok
+test_joint_rejects_gate_bypass_and_oracle_use (__main__.Stage6JointTest) ... ok
+test_joint_v_gate_diagnostics_require_all_conditions (__main__.Stage6JointTest) ... ok
+test_joint_v_gate_rejects_velocity_gate_bypass (__main__.Stage6JointTest) ... ok
+test_transaction_publish_and_failure_preservation (__main__.Stage6JointTest) ... ok
+test_velocity_only_requires_fixed_velocity_and_no_gravity (__main__.Stage6JointTest) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.004s
+
+OK
