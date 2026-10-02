@@ -31,6 +31,8 @@
 #include "utils/print.h"
 #include "utils/sensor_data.h"
 
+#include <stdexcept>
+
 using namespace ov_core;
 using namespace ov_type;
 using namespace ov_msckf;
@@ -95,6 +97,25 @@ ROS2Visualizer::ROS2Visualizer(std::shared_ptr<rclcpp::Node> node, std::shared_p
   if (has_gt && _sim == nullptr && !path_to_gt.empty()) {
     DatasetReader::load_gt_file(path_to_gt, gt_states);
     PRINT_DEBUG("gt file path is: %s\n", path_to_gt.c_str());
+  }
+
+  bool dosave = false;
+  if (node->has_parameter("dosave")) {
+    node->get_parameter<bool>("dosave", dosave);
+  }
+  if (dosave) {
+    std::string path_est = "/tmp/traj_estimate.txt";
+    node->get_parameter<std::string>("path_est", path_est);
+    const boost::filesystem::path output_path(path_est);
+    if (!output_path.parent_path().empty()) {
+      boost::filesystem::create_directories(output_path.parent_path());
+    }
+    of_pose_est.open(path_est, std::ios::out | std::ios::trunc);
+    if (!of_pose_est) {
+      throw std::runtime_error("Unable to open estimated trajectory file: " + path_est);
+    }
+    of_pose_est << "# timestamp(s) tx ty tz qx qy qz qw Pr11 Pr12 Pr13 Pr22 Pr23 Pr33 Pt11 Pt12 Pt13 Pt22 Pt23 Pt33" << std::endl;
+    PRINT_INFO("saving estimated trajectory to: %s\n", path_est.c_str());
   }
 
   // Load if we should save the total state to file
@@ -621,6 +642,23 @@ void ROS2Visualizer::publish_state() {
     }
   }
   pub_poseimu->publish(poseIinM);
+
+  if (of_pose_est.is_open()) {
+    std::lock_guard<std::mutex> lock(pose_file_mtx);
+    const auto &pose = poseIinM.pose.pose;
+    const auto &cov = poseIinM.pose.covariance;
+    of_pose_est.setf(std::ios::fixed, std::ios::floatfield);
+    of_pose_est.precision(5);
+    of_pose_est << timestamp_inI << " ";
+    of_pose_est.precision(6);
+    of_pose_est << pose.position.x << " " << pose.position.y << " " << pose.position.z << " " << pose.orientation.x << " "
+                << pose.orientation.y << " " << pose.orientation.z << " " << pose.orientation.w;
+    of_pose_est.precision(10);
+    for (int index : {21, 22, 23, 28, 29, 35, 0, 1, 2, 7, 8, 14}) {
+      of_pose_est << " " << cov[index];
+    }
+    of_pose_est << std::endl;
+  }
 
   //=========================================================
   //=========================================================

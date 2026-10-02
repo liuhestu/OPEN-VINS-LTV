@@ -206,6 +206,10 @@ protected:
   // Files and if we should save total state
   bool save_total_state = false;
   std::ofstream of_state_est, of_state_std, of_state_gt;
+
+  // ROS 1 pose_to_file-compatible estimated trajectory
+  std::ofstream of_pose_est;
+  std::mutex pose_file_mtx;
 };
 
 } // namespace ov_msckf
