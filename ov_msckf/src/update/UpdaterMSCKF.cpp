@@ -57,8 +57,11 @@ UpdaterMSCKF::UpdaterMSCKF(UpdaterOptions &options, ov_core::FeatureInitializerO
 }
 
 void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_ptr<Feature>> &feature_vec,
-                          const MeasurementBlock *ltv_block, LtvDiagnostics *diagnostics) {
+                          const MeasurementBlock *ltv_block, LtvDiagnostics *diagnostics,
+                          const std::function<void(const MeasurementBlock &)> &before_update) {
   const auto auxiliary_only = [&]() {
+    if (before_update)
+      before_update(MeasurementBlock());
     if (ltv_block) {
       MeasurementBlock empty;
       empty.H.resize(0, 0);
@@ -300,6 +303,15 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
     diagnostics->columns = Hx_big.cols();
     if (!ltv_block)
       diagnostics->ekf_calls = 1;
+  }
+
+  if (before_update) {
+    MeasurementBlock visual;
+    visual.order = Hx_order_big;
+    visual.H = Hx_big;
+    visual.res = res_big;
+    visual.R = R_big;
+    before_update(visual);
   }
 
   // 6. With all good features update the state

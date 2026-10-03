@@ -1,0 +1,22 @@
+{
+  "euroc": {
+    "omega_p75": 0.7485214445413336,
+    "force_p75": 1.5662598638169285,
+    "visual_positive_p25": 60.0,
+    "sequences": [
+      "V1_01_easy",
+      "V2_02_medium",
+      "V2_03_difficult"
+    ]
+  },
+  "uzh": {
+    "omega_p75": 1.2183214116706909,
+    "force_p75": 4.560971821975544,
+    "visual_positive_p25": 48.0,
+    "sequences": [
+      "indoor_forward_3",
+      "indoor_45_2",
+      "outdoor_forward_1"
+    ]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "indoor_forward_3": {
+    "url": "http://rpg.ifi.uzh.ch/datasets/uzh-fpv-newer-versions/v3/indoor_forward_3_snapdragon_with_gt.zip",
+    "resolved_url": "https://download.ifi.uzh.ch/rpg/web/datasets/uzh-fpv-newer-versions/v3/indoor_forward_3_snapdragon_with_gt.zip",
+    "remote_sha": "671b8b04ea577feb075f01cc671e08ccdd354758d99082d2f3787c70f5bc2b51",
+    "local_sha": "671b8b04ea577feb075f01cc671e08ccdd354758d99082d2f3787c70f5bc2b51",
+    "match": true,
+    "bytes_fetched": 1956018,
+    "zip_member": "groundtruth.txt",
+    "zip_timestamp": [
+      2021,
+      12,
+      20,
+      13,
+      42,
+      12
+    ]
+  },
+  "indoor_45_2": {
+    "url": "http://rpg.ifi.uzh.ch/datasets/uzh-fpv-newer-versions/v3/indoor_45_2_snapdragon_with_gt.zip",
+    "resolved_url": "https://download.ifi.uzh.ch/rpg/web/datasets/uzh-fpv-newer-versions/v3/indoor_45_2_snapdragon_with_gt.zip",
+    "remote_sha": "ecab8a2a6de523164bdfcd56a2518d393334125256929b64a714fb6a35eaa97e",
+    "local_sha": "ecab8a2a6de523164bdfcd56a2518d393334125256929b64a714fb6a35eaa97e",
+    "match": true,
+    "bytes_fetched": 1839828,
+    "zip_member": "groundtruth.txt",
+    "zip_timestamp": [
+      2021,
+      12,
+      20,
+      13,
+      42,
+      12
+    ]
+  },
+  "outdoor_forward_1": {
+    "url": "http://rpg.ifi.uzh.ch/datasets/uzh-fpv-newer-versions/v3/outdoor_forward_1_snapdragon_with_gt.zip",
+    "resolved_url": "https://download.ifi.uzh.ch/rpg/web/datasets/uzh-fpv-newer-versions/v3/outdoor_forward_1_snapdragon_with_gt.zip",
+    "remote_sha": "67ecd68298d1463e730c131a1ca845981452a9b0ba7cea031f320e6c4c8dd08c",
+    "local_sha": "67ecd68298d1463e730c131a1ca845981452a9b0ba7cea031f320e6c4c8dd08c",
+    "match": true,
+    "bytes_fetched": 1702456,
+    "zip_member": "groundtruth.txt",
+    "zip_timestamp": [
+      2021,
+      12,
+      20,
+      13,
+      42,
+      12
+    ]
+  },
+  "indoor_forward_6": {
+    "url": "http://rpg.ifi.uzh.ch/datasets/uzh-fpv-newer-versions/v3/indoor_forward_6_snapdragon_with_gt.zip",
+    "resolved_url": "https://download.ifi.uzh.ch/rpg/web/datasets/uzh-fpv-newer-versions/v3/indoor_forward_6_snapdragon_with_gt.zip",
+    "remote_sha": "0d417f83866b335f5e3f9cf1a37f007d82e1f2362ba6c0fe44cc8e3a03dddd7c",
+    "local_sha": "0d417f83866b335f5e3f9cf1a37f007d82e1f2362ba6c0fe44cc8e3a03dddd7c",
+    "match": true,
+    "bytes_fetched": 1270077,
+    "zip_member": "groundtruth.txt",
+    "zip_timestamp": [
+      2021,
+      12,
+      20,
+      13,
+      42,
+      12
+    ]
+  },
+  "indoor_45_14": {
+    "url": "http://rpg.ifi.uzh.ch/datasets/uzh-fpv-newer-versions/v3/indoor_45_14_snapdragon_with_gt.zip",
+    "resolved_url": "https://download.ifi.uzh.ch/rpg/web/datasets/uzh-fpv-newer-versions/v3/indoor_45_14_snapdragon_with_gt.zip",
+    "remote_sha": "5b2b2e3b6aec5214e09ba12a506393904fb01217706bfa9677e35e8e991e2db2",
+    "local_sha": "5b2b2e3b6aec5214e09ba12a506393904fb01217706bfa9677e35e8e991e2db2",
+    "match": true,
+    "bytes_fetched": 1446235,
+    "zip_member": "groundtruth.txt",
+    "zip_timestamp": [
+      2021,
+      12,
+      20,
+      13,
+      42,
+      12
+    ]
+  },
+  "outdoor_forward_5": {
+    "url": "http://rpg.ifi.uzh.ch/datasets/uzh-fpv-newer-versions/v3/outdoor_forward_5_snapdragon_with_gt.zip",
+    "resolved_url": "https://download.ifi.uzh.ch/rpg/web/datasets/uzh-fpv-newer-versions/v3/outdoor_forward_5_snapdragon_with_gt.zip",
+    "remote_sha": "7e2c952ca60431d5c138a2a5aa2306740d8dc5c5aab21b115b2e760acd799e41",
+    "local_sha": "7e2c952ca60431d5c138a2a5aa2306740d8dc5c5aab21b115b2e760acd799e41",
+    "match": true,
+    "bytes_fetched": 965198,
+    "zip_member": "groundtruth.txt",
+    "zip_timestamp": [
+      2021,
+      12,
+      20,
+      13,
+      42,
+      12
+    ]
+  }
+}

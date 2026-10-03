@@ -71,6 +71,8 @@ VioManager::VioManager(VioManagerOptions &params_) : thread_init_running(false),
   state = std::make_shared<State>(params.state_options);
 
   params.ltv_options.validate(params.state_options);
+  if (params.ltv_options.value_diagnostics_enabled)
+    value_diagnostics = std::make_shared<ValueDiagnostics>(params.ltv_options, params.gravity_mag);
   if (params.ltv_options.enabled) {
     ltv_adapter = std::make_shared<LtvAdapter>(params.ltv_options);
     updater_ltv = std::make_shared<UpdaterLTV>(params.ltv_options, params.gravity_mag);
@@ -401,6 +403,7 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   }
   has_moved_since_zupt = true;
 
+  const auto observer_begin = std::chrono::steady_clock::now();
   LtvFrame ltv_frame;
   MeasurementBlock ltv_block;
   if (ltv_adapter) {
@@ -434,6 +437,8 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   //===================================================================================
   // MSCKF features and KLT tracks that are SLAM features
   //===================================================================================
+
+  const double observer_seconds = std::chrono::duration<double>(std::chrono::steady_clock::now() - observer_begin).count();
 
   // Now, lets get all features that should be used for an update that are lost in the newest frame
   // We explicitly request features that have not been deleted (used) in another update step
@@ -596,7 +601,15 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
     featsup_MSCKF.erase(featsup_MSCKF.begin(), featsup_MSCKF.end() - state->_options.max_msckf_in_update);
   if (ltv_adapter && (params.ltv_options.enable_gravity || params.ltv_options.enable_velocity))
     ltv_block = updater_ltv->build(state, ltv_frame);
-  updaterMSCKF->update(state, featsup_MSCKF, ltv_block.receipt ? &ltv_block : nullptr, ltv_adapter ? &ltv_diagnostics : nullptr);
+  std::function<void(const MeasurementBlock &)> diagnostic_before;
+  if (value_diagnostics)
+    diagnostic_before = [&](const MeasurementBlock &visual) { value_diagnostics->before(state, visual, ltv_frame); };
+  const auto update_begin = std::chrono::steady_clock::now();
+  updaterMSCKF->update(state, featsup_MSCKF, ltv_block.receipt ? &ltv_block : nullptr, ltv_adapter ? &ltv_diagnostics : nullptr,
+                       diagnostic_before);
+  if (value_diagnostics)
+    value_diagnostics->after(state, observer_seconds,
+                             std::chrono::duration<double>(std::chrono::steady_clock::now() - update_begin).count());
   if (ltv_adapter) {
     if (ltv_block.receipt)
       ltv_diagnostics = ltv_block.receipt->diagnostics;

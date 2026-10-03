@@ -1,0 +1,722 @@
+[
+  {
+    "sequence": "V1_01_easy",
+    "mode": "B",
+    "id": "20261003T043431Z-832b33",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V1_01_easy-B-C0-20261003T043431Z-832b33.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "5cee72d2cdb86d147a210bf3d461dd356f40675dead92efb3feb2a35e517094c",
+      "trajectory.csv": "432d948bfabc214773839e549781bfd73996c5d35be828a2f415366b7f11a313",
+      "audit.csv": "ecef9b3cd227905bb50092589b2ec6a9bb0dea7a5f559f120ce4cc0329277b0d",
+      "value.jsonl.gz": "494f4b4b05fd78ede6bb02c532060b407e5f0697db69deb2f9f185c47f6cb212",
+      "metrics.json": "197773e1e26f24ba52b9b9815061f4bcf0efd2815524cedc4042609711943897",
+      "engineering_audit.json": "3b54ee5cfecb46409ff502d0df4ff11f29fd8f9d9c2aa1bc55af10d58104a5c0",
+      "mechanism.json": "07d23b7d2a67ecca33ec7dcec4335b1730fe48665890a8100bb0b0e94c601db3"
+    }
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "P",
+    "id": "20261003T043507Z-9e277d",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V1_01_easy-P-C0-20261003T043507Z-9e277d.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "18a2e8359b34e87e14f12040e0f949826f6ed7585e5219e52ce87c4bdffde489",
+      "trajectory.csv": "432d948bfabc214773839e549781bfd73996c5d35be828a2f415366b7f11a313",
+      "audit.csv": "ecef9b3cd227905bb50092589b2ec6a9bb0dea7a5f559f120ce4cc0329277b0d",
+      "value.jsonl.gz": "5da51a3d6ecb72abbf204f7aa35617ba6b1091670f4e832814c1882fbf9848d4",
+      "metrics.json": "a6ed763bbbb6d738635ce6860b58bd2527bbb181ec79f63ceaab97e3a581f592",
+      "engineering_audit.json": "b761d11445ca668b4d2567af82b84ff080b99e5a769a42738c5b63a8de20c955",
+      "mechanism.json": "aff26c9c96ce92707332544af15aa74b24cbe5aa3a2ca7725d8fccaf08856dc4"
+    }
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "G",
+    "id": "20261003T044914Z-892512",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V1_01_easy-G-C0-20261003T044914Z-892512.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "48de75f9b4a22a130f1cc105d37e78f951e556b13950ba99c1a2ca9da2190fe8",
+      "trajectory.csv": "c9561a38e011395f790eb47a76600a2fe8380c5725af40ecda90e0ac6e9c219c",
+      "audit.csv": "c41db3a94c3f3f28e609cf64954050271851b9daf7ad36e8c49d6859d44b64c4",
+      "value.jsonl.gz": "47aed242697d91ff73653530942dac060156c31df98e1acef4a72936b30199af",
+      "metrics.json": "2ad1fa4bae4e5efef0999fb994cd944ce878546d25ea462f91107027e2cff3a5",
+      "engineering_audit.json": "853bf6ed07716df2d5906c264241fb77d073972b8547e85da0fa58b728986e96",
+      "mechanism.json": "adaad857c1eb59df6b1f062342ea4fe0da893cbe1160899cdd10543777398bd8"
+    }
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "V",
+    "id": "20261003T045040Z-e1843f",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V1_01_easy-V-C0-20261003T045040Z-e1843f.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "1569c281550988af4815823617fa85d6f0564033354b8ceabd3979aab4850432",
+      "trajectory.csv": "b95ff451ea87fe3211e121cbd82ed2531e2b2770b67d93192ccc0170e4e26489",
+      "audit.csv": "0f3203be72c4b02f1cd1f2ac2f06a743b6e628d813ac8a548d07f7a687907c38",
+      "value.jsonl.gz": "41b44169e62a6f017b6f07897ad4ab754590faa5efcb1f1188057f5092914712",
+      "metrics.json": "dc9c8b0d21a457e957b197e2bed59394fe865719094e5856434b16aaab2156ed",
+      "engineering_audit.json": "880b36e69fdde6449e8ba726cff7ba67f7761e8e1f232a8560dd0c5ff6c73c7a",
+      "mechanism.json": "398c14dddb49a0afc8d2e5add7d5b8ef6fafd2a42621d65ab29b4de6073dd503"
+    }
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "GV",
+    "id": "20261003T045205Z-58ab3a",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V1_01_easy-GV-C0-20261003T045205Z-58ab3a.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "e011f24f91b13372ff69d57f2463487664f10d06f9d699bb4e0000faba292391",
+      "trajectory.csv": "a5b468e02586ed44a1b0f4186fba61c3ab95569362b8d1cf1b25bc2b07cf1933",
+      "audit.csv": "efa0ba3838ce9260c1a25cbd473d9c6a83e26338aafadca8302afa16fd02568f",
+      "value.jsonl.gz": "a671e7f5dd2a6d0965991fcad26de181ef133536184136e994983eaf09e027ef",
+      "metrics.json": "bbc0d579a56b5c4521699c151af9486434c55509da10b91edadab651c693f5ea",
+      "engineering_audit.json": "6accb959c7df0b4e13428a44b3ab251c501fe6a4b45b161a2d9566fa061295b1",
+      "mechanism.json": "23433b7bd7812f07d6fc04c18016b47b93389551608a25ff9d9d53cd20abd9c0"
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "B",
+    "id": "20261003T043612Z-1ed6e2",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_02_medium-B-C0-20261003T043612Z-1ed6e2.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "2b02b5b43faa9876a1ddf57a5c3774cdb5cacdfa538f675c684b1c30f7b8bf1b",
+      "trajectory.csv": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+      "audit.csv": "c4887016ad436e631563210a5972dbc4663ef45ea09dc28c0f456be34800b8a5",
+      "value.jsonl.gz": "828c455fb8bf58e96a2a89a91fecdd257b835a1cb97c0ceba00ad7c3c271887b",
+      "metrics.json": "0b91e6cb8aa01d8c3973f5b2a37cc406741d647c3f7e7a897f7e76b60bc5348f",
+      "engineering_audit.json": "c9f884885f07535e7ec590044449d76b4c945c47c398de608311164537b5f08c",
+      "mechanism.json": "853a76105930ae026858e28ce7e68fc78e759e3246982bdf6e91ead9c6353f95"
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "P",
+    "id": "20261003T043643Z-91f587",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_02_medium-P-C0-20261003T043643Z-91f587.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "6728a6c141ec551d11e700d770fe5668987188e01484077f999162789c24b88a",
+      "trajectory.csv": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+      "audit.csv": "c4887016ad436e631563210a5972dbc4663ef45ea09dc28c0f456be34800b8a5",
+      "value.jsonl.gz": "9a4b6493efcbbd36760921d18b43933bcf4f86092991554b55ce9d3d21ba093c",
+      "metrics.json": "7ab773dc0d4c96b27304d27666545664ad47349141e302e40058a8ff225175d4",
+      "engineering_audit.json": "0ece2f4794453d8586b844f439310f506cb90ec7b1e0278792a0dd4ecf3176f4",
+      "mechanism.json": "1c1274c07f4cb4d46fc6951884ce6ecde3548a4972ca2467a30fd548db1c6f6f"
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "G",
+    "id": "20261003T045421Z-1e5a83",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_02_medium-G-C0-20261003T045421Z-1e5a83.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "54100df6edbf1d33c7874982cab86297903d6b0c86bf67efc557dd0fb39cb54f",
+      "trajectory.csv": "06ecbd99cf5be42a887e37e04371b0a093fa1a5976ce703a2c185af398ed5a7c",
+      "audit.csv": "a3485fecc2dd316909794f83bced8eb1f77cd62ce9a3dfdbfce7ef6e7fe291ea",
+      "value.jsonl.gz": "91a2643c4477720707b8f68052b3952a7b562f6694fabf151e9a3a3dcbad8c70",
+      "metrics.json": "5beae4ed2ca82027e53b86778ab4bb6996447a76c502a6cb140382a374de7afa",
+      "engineering_audit.json": "cf6b1e75a5cf62ea3eb0935ada0c793392c329604ff466d29cc09e528d65025f",
+      "mechanism.json": "a155a939cec4049513ace2404a2e6808587db457cb6630bfe92441c685176708"
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "V",
+    "id": "20261003T045531Z-d4ac3d",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_02_medium-V-C0-20261003T045531Z-d4ac3d.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "684115b7dc37012f6691c75934dc38f660cfb689542bc2ece379660878cc0f05",
+      "trajectory.csv": "d96e774fd44129047b1fef55b356862311e2b2a060b5d96a65d44a790ccd1ef9",
+      "audit.csv": "3447e861abf0a19864b3f54589eb8a5729fb6d2d5a5515f1a9865f352f9bb651",
+      "value.jsonl.gz": "42e46b1efd396b043bd2e2fe2f6f33a6b4914a3c7096412778951cee9ae00918",
+      "metrics.json": "ac904b74af19c84eca002f689befb45795e6db953b7d97ec1103478c9d03c4f8",
+      "engineering_audit.json": "9cc70bc0e53564c7e681024e8e69736af199a8a21ab56e55f3e9b1d926aaac95",
+      "mechanism.json": "47a3afbb430733e9eda515a65c181ac75be1a321b9e2a55f8b6625187dcf362f"
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "GV",
+    "id": "20261003T045641Z-2105c8",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_02_medium-GV-C0-20261003T045641Z-2105c8.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "ad6ece46e03d7ec020c7b0124c3a92a6d278c902c40dae5621b3863451046054",
+      "trajectory.csv": "2e428002fcf8dc6ef32ed7cbfe162c56925d2111590217e009497956c75129ae",
+      "audit.csv": "0a4fec06e9f69b86fddc405e2485d5e1dd78e7622f1400e8f27071cb6023734e",
+      "value.jsonl.gz": "09370683c2af5970e56b1dd6fdc90b1be8b636a3875b2a9631dd02113ce3b8c3",
+      "metrics.json": "15f77515ae22ea16433c5b1640d8bc5a11dcc97695f56195d6d8456a12fe5edb",
+      "engineering_audit.json": "e2b9847aca546e1e670b0293b8e873d357391a70154bb3387f3330dcea73a721",
+      "mechanism.json": "c375ec6a0d8d268803ab5e3c3089d18843fd4b35f7befee5fe131d2234fe0b9e"
+    }
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "B",
+    "id": "20261003T043736Z-353861",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_03_difficult-B-C0-20261003T043736Z-353861.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "c0136538cd2b6129ff116889001d6d13d6c171f5e19606949ecb8e7826113be5",
+      "trajectory.csv": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+      "audit.csv": "b82b6e6e737c3645fc5232679e287363306a757889dc1b706b4d9a8b62078129",
+      "value.jsonl.gz": "8742a42eb6a7ca196b1b30f6a0c0e61007af1afd47b91b512828abaea8544851",
+      "metrics.json": "aa79d62891a7429003c71b39b1129884f86701be52aa31df1f435421307bf1c7",
+      "engineering_audit.json": "8ae055db56b82dfdc0a8b1d53d772ef29a83c8af2cf8f2844c6b06ce62183658",
+      "mechanism.json": "afc6b166c2e90bf4632ca7d33ed23f55ca8edcd9a78c64bbedbeb9e843fe99c6"
+    }
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "P",
+    "id": "20261003T043759Z-01dd24",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_03_difficult-P-C0-20261003T043759Z-01dd24.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "4d865d935550db79c08c298fa5cb870014f5a1c5eaf8a1cdc21200e8461d9f77",
+      "trajectory.csv": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+      "audit.csv": "b82b6e6e737c3645fc5232679e287363306a757889dc1b706b4d9a8b62078129",
+      "value.jsonl.gz": "b4c51aa531ac319b5d6ea83cb723aa8701474d2f0fed6ee5128fa7349c086c07",
+      "metrics.json": "23317f723308b1f6f7d040e06fcc52f2389e414f7dd90870e13500325cf57fed",
+      "engineering_audit.json": "f2119d236957cd750ab92bed730f74983a89908b239f84cda45a67155413aa5d",
+      "mechanism.json": "4d75244c923a26fd3b4c2b72bf8b0740a96f63a531a5ab5dd952c6bd18e7b6e3"
+    }
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "G",
+    "id": "20261003T045832Z-61e74b",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_03_difficult-G-C0-20261003T045832Z-61e74b.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "6e1e3404fb78980d455f838b5ac6e04c759e78eaeebbdda3de7f614ef1b57dda",
+      "trajectory.csv": "668d857bf5cd87545fa3ace642141a475224bb0f50ca48d920a8f66f3c50e37d",
+      "audit.csv": "47d715e367e20c9c69a88f622bea1d0c7c378e028759cbb185b9494ad437f63c",
+      "value.jsonl.gz": "37918258a46435fb105af5081a8f743e32f62dc0867beea8ceb971362541a022",
+      "metrics.json": "0a3a07e39a88c7b4af839e2f7cf307c5e29cd3392ea88ef0c721d32d300f49d3",
+      "engineering_audit.json": "07e135840e229cdb2cfd2bfb1fa3d9e45166d8995939fbaef1d3bb0af581d455",
+      "mechanism.json": "f886803bcccfd65c40ec72e4cc65d44c88ca22bb4ef8390ff2a5df89a0907f41"
+    }
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "V",
+    "id": "20261003T045930Z-de370c",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_03_difficult-V-C0-20261003T045930Z-de370c.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "97d249393c47069e6c237628d4cde8e032566c6432eb7fa0712c9d96af671837",
+      "trajectory.csv": "4ce19d2c155cb4d1dff9513cb16c6e7995e7a7402e2d582bc83c04e52ed42c9c",
+      "audit.csv": "5e0634838b8a691a004add4c6d81d09a90aa9e8027fc3d573cfe1f3b939c61c7",
+      "value.jsonl.gz": "9b11ebb017640511898c7449367215f213e71ef61f6e3be1f6738db0fee4e30c",
+      "metrics.json": "f3cddf49af762479bc2017ce22352148f37c0eedad5d168cb3ef3fb8658d48bf",
+      "engineering_audit.json": "32523baeb04fa8a2c7346cf45c8d5042119a76d266f45fdc52fccb8b3a01e952",
+      "mechanism.json": "c86a4987aadd2b88f4e3fee4286243929747461424bda2f450cb7fa01d794522"
+    }
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "GV",
+    "id": "20261003T050027Z-94dfe4",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_03_difficult-GV-C0-20261003T050027Z-94dfe4.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "14a584c080a855e7ce250a8ed77ffc2b0fe9760109c392222f94c92959cf467f",
+      "trajectory.csv": "da9c34bfb9c90411491b0f77fb6fe3e086dd7477414086e5b32f502741141988",
+      "audit.csv": "d5de6f6408ddf03f60f24d7f12b6887443a9c4f68bcdf3696ab40e581d67ee11",
+      "value.jsonl.gz": "d5e2090a5512064de68224837033bbc68cfcb9aaa1c30c53b2ccc1a941e299dd",
+      "metrics.json": "269170ab150c194f0e132af5013408290777a7cc3dece147cdbefab5812121b5",
+      "engineering_audit.json": "97abf61747e17efd73692a2879ada0db7a2200c9bf1a58bf96dc97e09491e1bb",
+      "mechanism.json": "109890333cdb73250b9f1644413e768d51d4936ddd1536ff35e091a849296ace"
+    }
+  },
+  {
+    "sequence": "indoor_forward_3",
+    "mode": "B",
+    "id": "20261003T043844Z-3bad7f",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_3-B-C0-20261003T043844Z-3bad7f.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "f102d8a7305b8bd54992ed30784d12cbaada8b9b9794d7d8b633323fff209b4c",
+      "trajectory.csv": "dc6f727b6c8e9f965fcacf552c1fc88d0dd30e37bc70fc0674f66efc73175a50",
+      "audit.csv": "e48fb9dab721299f536f52fb9b6dee4e4f3855f0af38cb69a3d8fcd62925d0a8",
+      "value.jsonl.gz": "d333e97fc44a4aa0f7ee499fd5b97d796bc651fcaf03ade4818a196f26042479",
+      "metrics.json": "389566e00d7960d4c8ebc3b2b8e046f45180a6b55c913f69755f3c8c490ab99a",
+      "engineering_audit.json": "bd00c4e24f3c53fc2690d377ee8d25a5b5fbd32713610a8b589bced8e5fad311",
+      "mechanism.json": "bbfabe2f1dfebad5287a33cee17fcb9422e9fec4ae7156a147302e2a4efa34a7"
+    }
+  },
+  {
+    "sequence": "indoor_forward_3",
+    "mode": "P",
+    "id": "20261003T043915Z-92d71f",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_3-P-C0-20261003T043915Z-92d71f.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "80dcdf677a92ea2cd7c3a7a4ed93665f7bfff7e0f874f058342bde24443d3610",
+      "trajectory.csv": "dc6f727b6c8e9f965fcacf552c1fc88d0dd30e37bc70fc0674f66efc73175a50",
+      "audit.csv": "e48fb9dab721299f536f52fb9b6dee4e4f3855f0af38cb69a3d8fcd62925d0a8",
+      "value.jsonl.gz": "8f76ae6fa0273e418f5e644d0317af48dce2e2fff4402ccbd84652f3169849b6",
+      "metrics.json": "2c1e446ed7ec51e7f04db536cfb4fb220d92a8b2af1149856b716a3cfc76eb42",
+      "engineering_audit.json": "aeaefa97af32dba59c62a64bbd787ac5a023e389f92ad85952be8e96541575a1",
+      "mechanism.json": "095f319d3f7d57315a792951510de9ffe49b6c91877bc1f27342d2cf466b5ca1"
+    }
+  },
+  {
+    "sequence": "indoor_forward_3",
+    "mode": "G",
+    "id": "20261003T050202Z-8bbe32",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_3-G-C0-20261003T050202Z-8bbe32.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "dbfc18356a7db3529db026cc62ad785bab15f6f389e1434833ec8d3fbdab4439",
+      "trajectory.csv": "10fc7133f77269b83474df4c31d7f819a65a759c818b24f2794bee55c8246831",
+      "audit.csv": "7add685de39f0b3984ed81e2730e987c362122a794497e0a02edad8898f9efbf",
+      "value.jsonl.gz": "e030081c25115e06f8308466892df5af403a1817293537f4330305ba633a0f6b",
+      "metrics.json": "901838810933513b11c5934b9a5535c3c5f10cb51aed34301d9972ce3cb1eda6",
+      "engineering_audit.json": "0b3ac6b747db025123cfab7b2690bb5c3b43d4d3cb8f4c4bb2358f52201b8475",
+      "mechanism.json": "afb4fa636e2ed8331c30b1c39b2ad81c57552ddaa773dc1d3f6f5e3300ddbdeb"
+    }
+  },
+  {
+    "sequence": "indoor_forward_3",
+    "mode": "V",
+    "id": "20261003T050323Z-a87c6c",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_3-V-C0-20261003T050323Z-a87c6c.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "b16e69fccb46ab35e2756dd986071070b146c34155060ed2a382eb589738bd06",
+      "trajectory.csv": "01c79de2cf1873d8fe0097ef0aad6762b280d0f2041384dbc749bce9febb9284",
+      "audit.csv": "01cdbc501f4073b2ed0db034ca34aed0f47aba96cdfea468c40ca8baaf728f92",
+      "value.jsonl.gz": "562a8a354ca3fa33927309451b16addea80e805b61b24be9469c6274ded84d3f",
+      "metrics.json": "3fc859b020036109b2f24aec2b200801dd657e67bc8f86cd523ea5844c5b1574",
+      "engineering_audit.json": "1af7a4392d4507773cc53548392b3e7e8c1b250ef47c3ea17877efb572a3af3b",
+      "mechanism.json": "f35458256b83b737fc7963ee25ace347a8366398378942eaaf3be787b0ea0937"
+    }
+  },
+  {
+    "sequence": "indoor_forward_3",
+    "mode": "GV",
+    "id": "20261003T044458Z-72d71d",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_3-GV-C0-20261003T044458Z-72d71d.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "ac33a5f798cf6cda3919baf0af242d7099c5de44f939cce97dda2bfed3c60f80",
+      "trajectory.csv": "b43d5fbe08a93f3ca253ceb6caa34159b5679a01480e408b2309d22f5fac1c32",
+      "audit.csv": "a7fd86ecc362527abb62ba379bfb5b67558e95315f060d9de5dfe13a838c3ccf",
+      "value.jsonl.gz": "7f5738eff56e71fafe52dad26cc10f2e0690283e81794b6ed56f1c146df1f659",
+      "metrics.json": "bdd74791c27401908b0409dd85f223743f8cc5a0c1e01d523d361511bfc1b82b",
+      "engineering_audit.json": "b964e26c31db2f4448758d78b7d036c04988b6ff9e06a78b13b0b3e0e06b23b7",
+      "mechanism.json": "74c81deedb1adaa65ffb068a2a20315158e70c4fd651a00797fb47d30ae8e7ac"
+    }
+  },
+  {
+    "sequence": "indoor_45_2",
+    "mode": "B",
+    "id": "20261003T044020Z-6e8c4d",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_2-B-C0-20261003T044020Z-6e8c4d.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "2e9b4acc0623330e0bee847419d83b925cce209e3c059302a60bba3fda829765",
+      "trajectory.csv": "05b38db719621120011af361c1f006e8d109b3b9d8feaeb8edd5cd97fd5ddcb5",
+      "audit.csv": "f023a0aa3168661b9d8570af2b4e863f078ff30156478e8bf9f685f68e067302",
+      "value.jsonl.gz": "a1c896fcccf7fa5c3153592bdef2d5704336f19c54ea1955b1ebc4c88af9ebcc",
+      "metrics.json": "ed9a6c47071903db056059f70a63757f08d5be59727d6426bc79920100c4ec3c",
+      "engineering_audit.json": "fce08a9bb5d19a40d2540f89b5c48541112b5bdaaf57f2a71584eed7e0fa9b34",
+      "mechanism.json": "0102fa9808c9cfd4622212140fb1785461e2ec63b92076faacf42e4dc6caffd2"
+    }
+  },
+  {
+    "sequence": "indoor_45_2",
+    "mode": "P",
+    "id": "20261003T044045Z-502603",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_2-P-C0-20261003T044045Z-502603.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "c5d088bb958a875e59300903ccf3bed449d2997a209bfbe4abc1bbb889489ead",
+      "trajectory.csv": "05b38db719621120011af361c1f006e8d109b3b9d8feaeb8edd5cd97fd5ddcb5",
+      "audit.csv": "f023a0aa3168661b9d8570af2b4e863f078ff30156478e8bf9f685f68e067302",
+      "value.jsonl.gz": "f09c31d7cd6891ddb42c5ed6bf664ccd6340b0c44fd0722dd172ec3b46aca33b",
+      "metrics.json": "058eb536719d14667f85a92cf25cd895170cc806ba47b489b7d5100ba9a7567d",
+      "engineering_audit.json": "fd4f83f8b7fe055ae40b711873d3d2979e5fa850306bd1725a869a7574a8ff61",
+      "mechanism.json": "38744a2843d56b6ce69a79e1ef1cce929204fdaba5a40823d5b2b767c94bfbca"
+    }
+  },
+  {
+    "sequence": "indoor_45_2",
+    "mode": "G",
+    "id": "20261003T050531Z-c2147d",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_2-G-C0-20261003T050531Z-c2147d.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "a5ca4db8b209af4fc7795afcdfd27d21bee7c4d0515f7bbc69f90daf3b3051c9",
+      "trajectory.csv": "cad52211831627b392d0a89af46c4dec0cb241531c42f4352d10e28149573106",
+      "audit.csv": "983866847e5115eb95f208ba7c97eeb5b1c2d90e02946f3a467d1b388fc5e224",
+      "value.jsonl.gz": "597d32a4b58ece3367783f8325feb18ca2fc588e25edd02fbd90e2f6cbcdca47",
+      "metrics.json": "f58c58e885745e5f6319f674c56c0a87db6b5f3fe78ab5429575f21e1845446d",
+      "engineering_audit.json": "63e5f3c4e42b8f14d2833e9322db0af786cb7a7824bbaeb0e0772d7c1cae4874",
+      "mechanism.json": "db4c701e14441179e129bcfe1092e98e55e1fd136a8af027559a51f260a31bd9"
+    }
+  },
+  {
+    "sequence": "indoor_45_2",
+    "mode": "V",
+    "id": "20261003T050637Z-6451a2",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_2-V-C0-20261003T050637Z-6451a2.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "ea3b86718efea3aa6f97bd3b75bb0c378c06bf6456112a604c29090cebbd6d83",
+      "trajectory.csv": "c6dcbd7bf748c87754adec5cc329cd764694eed26015d3600a9b4cbf13dab3de",
+      "audit.csv": "0ee96ee4843472489b11bdb26ecd119635804d3ab5d6058540834a526639bcc9",
+      "value.jsonl.gz": "15bcaffcfa8dfd6a43f0a54a826af20f710bd8de4c1f3ed3cadeaf5f67434bf2",
+      "metrics.json": "bda2257f8119f89cd92fa42ce3ddd741333398154fdecd3488ff7ebd9c162a64",
+      "engineering_audit.json": "6da56295185c9c49b5b4461eae4e3ac282d2acb4a421e33a797138c52e107908",
+      "mechanism.json": "84ef3ec3e0da1bae449231514e1738b8f80bf9c4c5a4a4cc4d37e97589d15fb1"
+    }
+  },
+  {
+    "sequence": "indoor_45_2",
+    "mode": "GV",
+    "id": "20261003T044618Z-6a318b",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_2-GV-C0-20261003T044618Z-6a318b.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "d7d9aa965c51cdfb24d028dce51d05eb8d43634078eba540e4b437c5f3b0dfe4",
+      "trajectory.csv": "6ef03079422ec393ea96f55d8ef005687be5d64bd9e8d5a56b8ef123f1a223cb",
+      "audit.csv": "aa1b1e468b67da27c8edb5a80d7632b3e26fd6a1c0ae40da639ae31fbb582a0a",
+      "value.jsonl.gz": "1d8b5483ac7eb465a8f16a93d2851be9e259786d71086fcd7a7eaa14ada9e6c6",
+      "metrics.json": "543bb2845e4ad0f4a944aeeff94c1ca48e7ce8698166ccb349bb5c8eae873e37",
+      "engineering_audit.json": "c984ed4990d936dc721aed491cdb099fe03f720b6cab3bb7ab0c3d636147bb23",
+      "mechanism.json": "104bad56595d2a37d5757590009468e9c1cc823403e55ca9b23074cd0cf9848e"
+    }
+  },
+  {
+    "sequence": "outdoor_forward_1",
+    "mode": "B",
+    "id": "20261003T044139Z-dace8a",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_1-B-C0-20261003T044139Z-dace8a.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "70e3ff48fc45c76d1c1eced1db0f49749331d16350ab8eb50b8a625050d816e9",
+      "trajectory.csv": "1cd3cfd2bc3e32a5db65de404abedd3efc833ca824f61a3193d97a954d086eb2",
+      "audit.csv": "9b124b5acbd2625cd46725346170e609c50a6805de868e374476ae89ab9400f5",
+      "value.jsonl.gz": "234e3a87d2d293d08d1d8a1c1811bc4df91fa24bb9e0cd160fd50c37d5d22f38",
+      "metrics.json": "3ada13846a3bc8eaf9b8c0cd7d7cd3447e37fccb8ac27c8f0a00944b1d4957cc",
+      "engineering_audit.json": "70a969d7fd8439a89d2de7cfd3d7c536cb0f42be4b07c481d1a297bca0937352",
+      "mechanism.json": "5655b4561a4521f72f61a26bb883459671c55bd309b60d6a926078beb6012aa6"
+    }
+  },
+  {
+    "sequence": "outdoor_forward_1",
+    "mode": "P",
+    "id": "20261003T044207Z-e039fc",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_1-P-C0-20261003T044207Z-e039fc.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "54d911e5d5effa8906146f2345dff89d2207079251da6dda42594d5ab8ca47ae",
+      "trajectory.csv": "1cd3cfd2bc3e32a5db65de404abedd3efc833ca824f61a3193d97a954d086eb2",
+      "audit.csv": "9b124b5acbd2625cd46725346170e609c50a6805de868e374476ae89ab9400f5",
+      "value.jsonl.gz": "5a224d58285f16081a2522fc619db889bcc41707b87ded1e1152d4d293cb260f",
+      "metrics.json": "982a0852a3927e34816a2b19251efdc83824512253d5937cf6f75227d354afaa",
+      "engineering_audit.json": "23c80fdef6001398517ef42cd3b22b53c180bea8878fac1ee7cd7e972ee2a93f",
+      "mechanism.json": "e1c55adea3267f74b89834f99d2b3d69a69f3d8d293b05779bf6c8920eab25ff"
+    }
+  },
+  {
+    "sequence": "outdoor_forward_1",
+    "mode": "G",
+    "id": "20261003T050825Z-24eb35",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_1-G-C0-20261003T050825Z-24eb35.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "8d16ffa436de70f46f4ce10f3cd74e59060d786f37cba9e317c77fa770c7ed15",
+      "trajectory.csv": "c3b8923c5ca712c2581fe65801320f65cb92b0e64b895fd9616733b311aff3ec",
+      "audit.csv": "fa694ca0e734ca8eb9a033f20887d78807f19982ebfa3fc51ca28424f0b14924",
+      "value.jsonl.gz": "e5853a98275dc44333b11bd4aea7745b729465f66e37b11f01b104388a70cd18",
+      "metrics.json": "92ff473b3072c08b31e28ca8aec2a9da046b965ac6c96944db39eb1dc5c093a4",
+      "engineering_audit.json": "13c02f77edc3038656fd0056c0862120f55e2ccbb864731688a091f9fbc3c588",
+      "mechanism.json": "2bf13661c1999f540b0e24abb0ccd9894ba23fca3d02c8244d39308ab19a1af6"
+    }
+  },
+  {
+    "sequence": "outdoor_forward_1",
+    "mode": "V",
+    "id": "20261003T050943Z-cd0ac9",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_1-V-C0-20261003T050943Z-cd0ac9.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "21fe4e143cef4d834b3ba89bc2452530a6f481902566b4beaac494c05a1550c4",
+      "trajectory.csv": "ec24b98829ae692fa6766ccaa2895b768292d4644d002e468647ca999e5bad5c",
+      "audit.csv": "0007b113f8a9632b6e66fc46069f0dffd2b5e7ef2fedfc51b0ccf543093ee442",
+      "value.jsonl.gz": "a225d038b7c0bf5e57dedf046fb142f72c87e5aed615102dbd41a7843123c037",
+      "metrics.json": "abb0cb2fbc6eb3253e2814cf7d5fc26d738d8248dce307e612e520ac7aa20bcc",
+      "engineering_audit.json": "9e7dd6d5817347060126bcfeed13e440a830da8e8d36d3f69dfeffc13521b25f",
+      "mechanism.json": "09e8dc1a87ae30781b96abae0c51a17d73a8e401f1ad17ce2bc103364a7beb7f"
+    }
+  },
+  {
+    "sequence": "outdoor_forward_1",
+    "mode": "GV",
+    "id": "20261003T044724Z-2c3670",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_1-GV-C0-20261003T044724Z-2c3670.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "8f536f4ca17bed3899aa75c0d44e0513ffa3565cf745b9137e28810b0a8574cf",
+      "trajectory.csv": "1055c42918eb378dbc8cf08bcad5994d9eaddbf1dc80266aac918c9bcdc19cff",
+      "audit.csv": "f5725198ffa9f34687b41e81da5c49b40509e8dd6c269c9db0fb8b3f96fe5507",
+      "value.jsonl.gz": "e239b20ac73908e858401b1771fb400c85d34c79de6515df6f5696a981f9bc11",
+      "metrics.json": "3d2d73a18d7cbe37d7c74c722397ee44460d2a6896d97b25d4c49d47f4950266",
+      "engineering_audit.json": "67e66c13f2c12ec6644f2522b3fcf8ec9c0971a1d6ff576972e0621396095fb4",
+      "mechanism.json": "79a26bf4237a361cb4f506f83168fd5cfac71f9a7967d1bbe58189973659b1f3"
+    }
+  },
+  {
+    "sequence": "indoor_forward_6",
+    "mode": "B",
+    "id": "20261003T051136Z-6b0b7b",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_6-B-C0-20261003T051136Z-6b0b7b.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "61e367e00ba02089c20af3ab165b9efa1385c4f7bb874a02e00361c396591a55",
+      "trajectory.csv": "dad4f0481a31bf089b62bef53d6a82570f490ecf637229539e7cbd61af47a52e",
+      "audit.csv": "95b3c8d1c4374d8273067a40e87d630e58d773e0b5d554451f6616df7a6e7bc6",
+      "value.jsonl.gz": "b5b79b8ce21dc2b24da873a17a33bd2d0e111ea35c9d7179d8f13240eb7a1fc6",
+      "metrics.json": "c4cac857938c6e21139ba68cc52cb1fc8d36adb16160c6cdc5cecfee6ffde2dc",
+      "engineering_audit.json": "4b5af1ad64c4e913bb9ca41dc4370dbbf23e576af363d1404b720288b631b8e8",
+      "mechanism.json": "575b1c5cab8f85dfe99154cc3d1d0dd9c834a0135c9f32149c846e3e03c4e422"
+    }
+  },
+  {
+    "sequence": "indoor_forward_6",
+    "mode": "P",
+    "id": "20261003T051210Z-c04fef",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_6-P-C0-20261003T051210Z-c04fef.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "60b54f8c4266b30a639f8c22a8788e8089dc00a5d81d1fd53f421c89e4ddcb66",
+      "trajectory.csv": "dad4f0481a31bf089b62bef53d6a82570f490ecf637229539e7cbd61af47a52e",
+      "audit.csv": "95b3c8d1c4374d8273067a40e87d630e58d773e0b5d554451f6616df7a6e7bc6",
+      "value.jsonl.gz": "935e4ecfaaaea43afd9f0ffb36d21b7ea08d1b779b0dfc55a9e561eeed91e426",
+      "metrics.json": "61a37cfa18b84ba90ae4ce1791a9b1ea35346b5331aa41c95a83727a7ca1e11f",
+      "engineering_audit.json": "9ef86c20f8f4505fa8402e592555d06daa062c53a9889603c5d2c7dc544a3dff",
+      "mechanism.json": "6a425f394b2a5f0b3ea105a68a2b67ff593cc0008cd848850753e29c868ebadd"
+    }
+  },
+  {
+    "sequence": "indoor_forward_6",
+    "mode": "G",
+    "id": "20261003T051312Z-200d7f",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_6-G-C0-20261003T051312Z-200d7f.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "3f3372b25cf1f2fd89ce63b7f52e14cf03e0741e72571b49480d36c21ae74ad2",
+      "trajectory.csv": "49960fccc24b6e60c2b054ac5fd60b7832dbecab6035dc48aa672033a2fd664e",
+      "audit.csv": "3952528dc32cac5b8f22601012e37483a06748485026098090cf52d4ef16f08d",
+      "value.jsonl.gz": "2ba299e79584f8e959dc222c461b4bba23b8f590f782fac2b0c617980058bf3c",
+      "metrics.json": "2ba1cd7e0e88de70fff190cc5383c24434b91d6327d490910425bf403241cbf6",
+      "engineering_audit.json": "667f19d161295182aac50bcca38263d4037002f109dfab1f8447a038ea9f3cff",
+      "mechanism.json": "9ce94ebd41927a96291fef9882da212e242b7b7fe7c3adbc52ac8b9413aa5fb7"
+    }
+  },
+  {
+    "sequence": "indoor_forward_6",
+    "mode": "V",
+    "id": "20261003T051414Z-38a121",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_6-V-C0-20261003T051414Z-38a121.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "240096c4af527276b01834b5c0f30d1ff695c123bac3ca89813e2aaadd00d1f6",
+      "trajectory.csv": "8929ac54e5ed48da4460269e8ddddf3501709be22ff372c2a80fab58e15f1897",
+      "audit.csv": "c812bae9729dae040262ca1613b2e78badcbf3ee909f0509b407c5dafd8e6d08",
+      "value.jsonl.gz": "44970ecc572746756d4d0ad647f8ffc6941d6eaa3f009694d08e0cc857745641",
+      "metrics.json": "c82a546864c4b4075742552f17499318629370fb0b5e10f8fe7f22eea1c35e37",
+      "engineering_audit.json": "4bb484a46d20c1177dfcd71d48d48561e0f5d97195611af8d9b40dedc54b77b8",
+      "mechanism.json": "d87ee394c9533335a2f21f37c7f5892a2d455b78e36567c49168f0fb5d757e98"
+    }
+  },
+  {
+    "sequence": "indoor_forward_6",
+    "mode": "GV",
+    "id": "20261003T051516Z-b6b4a9",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_6-GV-C0-20261003T051516Z-b6b4a9.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "a735d4093ebcb2aeb5dd68ea6489d913ce3e2e8511a57bdac9a55ebc9469444e",
+      "trajectory.csv": "e5ed134479e2a008f7cac0d901ec42a3f176627fec12f5bd52e21371bb9b1782",
+      "audit.csv": "1518ec59ef1cd1a8c35007e9aab520a5c4dcad8339b70255d7112e9bfd8b5d9a",
+      "value.jsonl.gz": "41bda4ca4afbad9853a4e76435370a76bc995b4cf21cce5c1b4053ccc0e7895b",
+      "metrics.json": "a97254022db822802b9d2bc651d58b6e275745b4607bb0b9de52600c62d98187",
+      "engineering_audit.json": "d6128d24adf2ff90a9b0dc2b01846dab5f0ec2692b1984f6ffd19f9aedba79a8",
+      "mechanism.json": "3762c2f31f87eafa8f6f6dbaa76b539af314723d9c059577f980ebd131bc864c"
+    }
+  },
+  {
+    "sequence": "indoor_45_14",
+    "mode": "B",
+    "id": "20261003T051646Z-12f59c",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_14-B-C0-20261003T051646Z-12f59c.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "8d35cbb4b70f5dd38c91e9b44353f1f45db7e849bd96433acc22401c5f11e7a0",
+      "trajectory.csv": "1177e6e7099b4f13ef9f1e15d33ab0489970841b6fb6d77c205d1152a43ba77e",
+      "audit.csv": "044ebe4c387168ad08b3bc28079675970e3549955d6d154418cb16cc86888a77",
+      "value.jsonl.gz": "53d81bf07972ffcb08c565c413eda27478074ab055fa1d64bbcdc81c78b14f07",
+      "metrics.json": "2de87865c74fa4e4aed25aa8f982ebef6b7d906ab9c46f152635fa3bad10b182",
+      "engineering_audit.json": "509768257d55ff816853405e9d9ca18623cd945422eb902dda79c7edb9445463",
+      "mechanism.json": "4c42c617f113ae00be20ebc74a80371bd77831e86749aa6269001cb4b4084a9b"
+    }
+  },
+  {
+    "sequence": "indoor_45_14",
+    "mode": "P",
+    "id": "20261003T051718Z-2c88fb",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_14-P-C0-20261003T051718Z-2c88fb.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "7e0bb17587a0651505726afc1abb8adbd5166318195b063e2720f8e1f87b6d3f",
+      "trajectory.csv": "1177e6e7099b4f13ef9f1e15d33ab0489970841b6fb6d77c205d1152a43ba77e",
+      "audit.csv": "044ebe4c387168ad08b3bc28079675970e3549955d6d154418cb16cc86888a77",
+      "value.jsonl.gz": "422056d4aca9cb20d7bdec5a4449276eef0d13935e42f101607fe5458d4609ae",
+      "metrics.json": "03728187e421d99a27a8e715e37f34c8c41674d3e508ea000eab180b6ec4fcd7",
+      "engineering_audit.json": "80c8a521328d8690cb856edbd1a2661de6eec653c1ab0c22da712c1526a4a075",
+      "mechanism.json": "1f5e2dd88f68399fc547abff18f840796e011cfa82c36889c50e89c84cf20a0d"
+    }
+  },
+  {
+    "sequence": "indoor_45_14",
+    "mode": "G",
+    "id": "20261003T051813Z-cd49d6",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_14-G-C0-20261003T051813Z-cd49d6.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "92ef91a40830c293490c4e99c6336f3c89057d66847eb33c1692f759456c0e25",
+      "trajectory.csv": "31e84ae46e2fee08c62edfab2a976e7df70a3f023b4b659cb976990efa94e9bc",
+      "audit.csv": "52cd3b0a07df64d3bc5dffc2ab7d3f32b751f2a16bcbe2b1c134ce195f4ebea8",
+      "value.jsonl.gz": "0e2ceaf98341c11e11bce8095023e66c2c99c8d5719ed07cf2123d45632f770b",
+      "metrics.json": "9b06c9493bb5156164fe6cf55af681d684035ae1426e7abff3bc5851a41ccced",
+      "engineering_audit.json": "11412528110345db6c5b2d3d04cd1bd1f8a1827a103dd03ab632ccb065a5c25c",
+      "mechanism.json": "bc91555671898e7a76899fcfa2c744ee0732035570300b98f08bf837e54bdcf3"
+    }
+  },
+  {
+    "sequence": "indoor_45_14",
+    "mode": "V",
+    "id": "20261003T051909Z-30bb48",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_14-V-C0-20261003T051909Z-30bb48.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "757aab13688c57aa15d0472a6fec5264329281e5c67219976e04494cee2fc2ad",
+      "trajectory.csv": "260704391a72cc5c51aea7c0eb27d3a5fd31b5956fa38eb3be1b92905d583bf0",
+      "audit.csv": "1000640a4a4d617ccca75ecdd774ae8f1811eb4a8fa6d047da7045bf502d418e",
+      "value.jsonl.gz": "981273a6830d3ae660f490fe5f256e247b2aac009fcb3e5035214ad54471fde1",
+      "metrics.json": "72e973f9996f18c367949cbd1aeb38c3ed21907a3c31aa769a42dc00cc79bf77",
+      "engineering_audit.json": "411cdda657426c09391a6c429292dee2fc0d91c66b2a1e74aff085fd7578917e",
+      "mechanism.json": "6f277b29bc45adbfe5105410c8e18684a8fb8eb79e4055af21b9a07fa15f6d2d"
+    }
+  },
+  {
+    "sequence": "indoor_45_14",
+    "mode": "GV",
+    "id": "20261003T052005Z-6ad75d",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_14-GV-C0-20261003T052005Z-6ad75d.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "4ac03fd76c88250e7826cec40126515e85fbe14ad19574f87349ca79278b1607",
+      "trajectory.csv": "a55fd8a583137bd6f70fcdb41e3bee3da738eaa88ad8193aae6e1be3f6027852",
+      "audit.csv": "de850e2cbef902718331d2680f59f60e3f5519134ada04e409187a904f71c2c1",
+      "value.jsonl.gz": "a553b31b28b35af2d3338618e0500d874d8b045fa3cca4d1ccb93418ac0ee73b",
+      "metrics.json": "a8667603f0061f3ac6ed274504fd1d3544ccc2b791b0e9f1e27cbb723b776994",
+      "engineering_audit.json": "d79284236551f7d9a32c8075bd0c821d49288ca0a694405141b0eed23149cdd8",
+      "mechanism.json": "94eb9a529bca93921a8f1434a0f3c7a91664e83f666ba58ea147ad7410e99731"
+    }
+  },
+  {
+    "sequence": "outdoor_forward_5",
+    "mode": "B",
+    "id": "20261003T052125Z-ffb239",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_5-B-C0-20261003T052125Z-ffb239.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "61e85bcde707c311dc80106ae9af2ccf04ae80545bc39390fb59b332ca256bf3",
+      "trajectory.csv": "d88d323e8be4c180390035dc3d857de09966b859a3d632fca1f62606feea8999",
+      "audit.csv": "0915a2e29b3918b77ec9651f1948b353d1e502e953ae8f2f7626657b4ac3e5fc",
+      "value.jsonl.gz": "d1b304a51bd6a3be48a93bfeb8bc8e8c3b062002387cc5922d3026b71a5372e5",
+      "metrics.json": "401f632839a0a8c2a99d50305856afc40a1c8f9960c1d4f11d3724dffaf8bd7c",
+      "engineering_audit.json": "c11122c02da376e5b62c959f20a108bd9fe429a74ddb7fc772c37c526d9203f4",
+      "mechanism.json": "15e06776c9581cc1eec802a1a8f59f5bc56eafad0d39689e4d82cd2593553813"
+    }
+  },
+  {
+    "sequence": "outdoor_forward_5",
+    "mode": "P",
+    "id": "20261003T052208Z-77fdf2",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_5-P-C0-20261003T052208Z-77fdf2.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "42cdc92168cf992ddc8cc92b224ef59273ef80f42b1ff3e89780680eb110f9ed",
+      "trajectory.csv": "d88d323e8be4c180390035dc3d857de09966b859a3d632fca1f62606feea8999",
+      "audit.csv": "0915a2e29b3918b77ec9651f1948b353d1e502e953ae8f2f7626657b4ac3e5fc",
+      "value.jsonl.gz": "3bea319d950b64c41619dcccc5a414460579d22ffce3fecda713013d0b3d371e",
+      "metrics.json": "156fa8ed52150139bec33166500394359fef24e3828a6521f315860cf6659e82",
+      "engineering_audit.json": "d03aab7b2e1b2409f39746b3d294206dd9f42bb96aec3e21f55286322023b274",
+      "mechanism.json": "7474160028da01b19929d9ee4bddebec6d6281fa983e099d3266830204564b79"
+    }
+  },
+  {
+    "sequence": "outdoor_forward_5",
+    "mode": "G",
+    "id": "20261003T052326Z-79d1bb",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_5-G-C0-20261003T052326Z-79d1bb.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "2db0fa6fe12e0a3eb3a23a9dbe55cd32cda33877c247a6c3ab7786766647ee30",
+      "trajectory.csv": "4c4ceb0a35d2b04fd5ee69ece26bc6218da3d7e7cfbbc94c2f7fa5e95b4cedcf",
+      "audit.csv": "bce80841f6355090bf89f8454f13299599625ea8067cc812e8f7dd07f4d17aa7",
+      "value.jsonl.gz": "1feb337161fb8194a6fb7a0e3ae9a8e66c593bacb8882338d5b7eed3bd65ad3e",
+      "metrics.json": "dbe7521a1d4a809f08701991d83e70bad683c97fae4bf414d4a742537cd3d8a2",
+      "engineering_audit.json": "2f792d529e8d859e53653387812baebaacfd4acd23075813f7fd23fe01544175",
+      "mechanism.json": "60edb90286e2c15c3ecc12a1ee1ca05afb4be1bb07ea9e269c1e3ac2f9a6ca56"
+    }
+  },
+  {
+    "sequence": "outdoor_forward_5",
+    "mode": "V",
+    "id": "20261003T052446Z-209829",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_5-V-C0-20261003T052446Z-209829.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "38d84a5cdc4d615d1eaeb488cff43005da8a932d53fde88dfd9c55d76deca878",
+      "trajectory.csv": "7041cfae68a0e8bc3a09abf837f939ad06d086975ed1553cc59928400251b7da",
+      "audit.csv": "aae5539074a9321ddbcf3b39d20b97b51c56495992c3b74332e7e4f3855e6ba4",
+      "value.jsonl.gz": "a6128ed58d0b9ac504c81499c422c89e77184acec2035e8bc75960081660cf5f",
+      "metrics.json": "7b5f40d9d50a18c978722ecba0a61691e0bfb61f1ecb29234a0e46716efc4af4",
+      "engineering_audit.json": "8fd3dd08b2cfcdfd1036d4afd1264a9785dc1915c5b17e4cb40fb0d92c7c230a",
+      "mechanism.json": "e9c668d2ef6ed0a72b516c23769fb6f25ed001a2dfc1f61c40868514c1a1286b"
+    }
+  },
+  {
+    "sequence": "outdoor_forward_5",
+    "mode": "GV",
+    "id": "20261003T052606Z-5e4007",
+    "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_5-GV-C0-20261003T052606Z-5e4007.done",
+    "identity": "df95986e61de427354def921d35e54cba4082d54659e958420bff3c1346f1eae",
+    "files": {
+      "manifest.json": "f83df1b9874c5bf7c14c0b3401c20ebbc54a362536ce431a853a5c9c072488d0",
+      "trajectory.csv": "73c4765c0980fe8709e1439f0eb9d3ea016d5b687f4aaa2d79d6726f499fc0da",
+      "audit.csv": "af4b95fabc28d5e81b76708f9ebbb5fbe22a0010e6f65052ab7a7312635c1f0e",
+      "value.jsonl.gz": "b8c8fdfe1fc50c89a47076d7476c36d23c753896b3b18e367b2d7ec53f3eed12",
+      "metrics.json": "71866de31e5e5557a362d3bfc4d76d006f1be2426e472fe2872587e034700f59",
+      "engineering_audit.json": "166dfd47552a61aec7a8afaad2f02ab1cef46d1c221185c30ecb28240220af43",
+      "mechanism.json": "0d8c717dd94f667b55cd0714534cb9401cae19d1390aaf850b171d0ad4e7bc2c"
+    }
+  }
+]

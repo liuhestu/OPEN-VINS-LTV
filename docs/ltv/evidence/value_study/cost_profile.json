@@ -1,0 +1,176 @@
+{
+  "V1_01_easy": {
+    "diagnostics_on": {
+      "run": "20261003T054009Z-929de7",
+      "profile_sha": "5f60b821248e969b671a7b64c7ae21e774fc03d6c1b66142ce8e7b46b2286c20",
+      "exact_to_uninstrumented": {
+        "trajectory.csv": true,
+        "audit.csv": true
+      },
+      "runtime_seconds": 11.857120367931202,
+      "actual_auxiliary_build": {
+        "calls": 471,
+        "sum_seconds": 0.146919968,
+        "mean_ms": 0.311931991507431,
+        "p95_ms": 0.3331875
+      },
+      "shadow_auxiliary_build": {
+        "calls": 1413,
+        "sum_seconds": 0.40968235399999997,
+        "mean_ms": 0.28993797169143665,
+        "p95_ms": 0.3128164
+      },
+      "native_ekf": {
+        "calls": 466,
+        "sum_seconds": 0.117638007,
+        "mean_ms": 0.25244207510729616,
+        "p95_ms": 0.350576
+      },
+      "gzip_write": {
+        "calls": 471,
+        "sum_seconds": 0.838397681,
+        "mean_ms": 1.7800375392781316,
+        "p95_ms": 2.02313
+      },
+      "observer_seconds": {
+        "calls": 471,
+        "sum_seconds": 4.02805164,
+        "mean_ms": 8.552126624203822,
+        "p95_ms": 8.782853
+      },
+      "msckf_seconds_without_diagnostics": {
+        "calls": 471,
+        "sum_seconds": 0.9531888989999999,
+        "mean_ms": 2.0237556242038215,
+        "p95_ms": 4.6004725
+      },
+      "diagnostic_compute_seconds": {
+        "calls": 471,
+        "sum_seconds": 2.326773243,
+        "mean_ms": 4.940070579617834,
+        "p95_ms": 6.054291
+      },
+      "shadow_native_max_relative_error": 9.687817605871186e-16
+    },
+    "diagnostics_off": {
+      "run": "20261003T054023Z-0d4153",
+      "profile_sha": "5f60b821248e969b671a7b64c7ae21e774fc03d6c1b66142ce8e7b46b2286c20",
+      "exact_to_uninstrumented": {
+        "trajectory.csv": true,
+        "audit.csv": true
+      },
+      "runtime_seconds": 8.723380573093891,
+      "actual_auxiliary_build": {
+        "calls": 471,
+        "sum_seconds": 0.14738403,
+        "mean_ms": 0.3129172611464968,
+        "p95_ms": 0.3333015
+      },
+      "shadow_auxiliary_build": {
+        "calls": 0,
+        "sum_seconds": 0.0,
+        "mean_ms": null,
+        "p95_ms": null
+      },
+      "native_ekf": {
+        "calls": 466,
+        "sum_seconds": 0.118583616,
+        "mean_ms": 0.2544712789699571,
+        "p95_ms": 0.35294725000000005
+      },
+      "gzip_write": {
+        "calls": 0,
+        "sum_seconds": 0.0,
+        "mean_ms": null,
+        "p95_ms": null
+      }
+    }
+  },
+  "indoor_forward_3": {
+    "diagnostics_on": {
+      "run": "20261003T054032Z-d32d00",
+      "profile_sha": "5f60b821248e969b671a7b64c7ae21e774fc03d6c1b66142ce8e7b46b2286c20",
+      "exact_to_uninstrumented": {
+        "trajectory.csv": true,
+        "audit.csv": true
+      },
+      "runtime_seconds": 8.704574421979487,
+      "actual_auxiliary_build": {
+        "calls": 259,
+        "sum_seconds": 0.076038519,
+        "mean_ms": 0.29358501544401544,
+        "p95_ms": 0.32404829999999996
+      },
+      "shadow_auxiliary_build": {
+        "calls": 777,
+        "sum_seconds": 0.210208015,
+        "mean_ms": 0.2705379858429859,
+        "p95_ms": 0.2998724
+      },
+      "native_ekf": {
+        "calls": 249,
+        "sum_seconds": 0.051431991999999996,
+        "mean_ms": 0.20655418473895581,
+        "p95_ms": 0.3496188
+      },
+      "gzip_write": {
+        "calls": 259,
+        "sum_seconds": 0.437672827,
+        "mean_ms": 1.6898564749034748,
+        "p95_ms": 1.9982866
+      },
+      "observer_seconds": {
+        "calls": 259,
+        "sum_seconds": 3.3936090930000002,
+        "mean_ms": 13.102737810810812,
+        "p95_ms": 13.2845249
+      },
+      "msckf_seconds_without_diagnostics": {
+        "calls": 259,
+        "sum_seconds": 0.27989958400000003,
+        "mean_ms": 1.0806933745173746,
+        "p95_ms": 2.0453129999999997
+      },
+      "diagnostic_compute_seconds": {
+        "calls": 259,
+        "sum_seconds": 1.121016861,
+        "mean_ms": 4.328250428571429,
+        "p95_ms": 6.0133922
+      },
+      "shadow_native_max_relative_error": 6.0902171220871535e-16
+    },
+    "diagnostics_off": {
+      "run": "20261003T054230Z-758f84",
+      "profile_sha": "5f60b821248e969b671a7b64c7ae21e774fc03d6c1b66142ce8e7b46b2286c20",
+      "exact_to_uninstrumented": {
+        "trajectory.csv": true,
+        "audit.csv": true
+      },
+      "runtime_seconds": 7.078117524040863,
+      "actual_auxiliary_build": {
+        "calls": 259,
+        "sum_seconds": 0.075899382,
+        "mean_ms": 0.2930478069498069,
+        "p95_ms": 0.3248437
+      },
+      "shadow_auxiliary_build": {
+        "calls": 0,
+        "sum_seconds": 0.0,
+        "mean_ms": null,
+        "p95_ms": null
+      },
+      "native_ekf": {
+        "calls": 249,
+        "sum_seconds": 0.051485289999999996,
+        "mean_ms": 0.2067682329317269,
+        "p95_ms": 0.348858
+      },
+      "gzip_write": {
+        "calls": 0,
+        "sum_seconds": 0.0,
+        "mean_ms": null,
+        "p95_ms": null
+      }
+    }
+  }
+}

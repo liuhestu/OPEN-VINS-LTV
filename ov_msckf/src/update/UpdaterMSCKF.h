@@ -23,6 +23,7 @@
 #define OV_MSCKF_UPDATER_MSCKF_H
 
 #include <Eigen/Eigen>
+#include <functional>
 #include <memory>
 
 #include "feat/FeatureInitializerOptions.h"
@@ -68,7 +69,8 @@ public:
    * @param feature_vec Features that can be used for update
    */
   void update(std::shared_ptr<State> state, std::vector<std::shared_ptr<ov_core::Feature>> &feature_vec,
-              const MeasurementBlock *ltv_block = nullptr, LtvDiagnostics *diagnostics = nullptr);
+              const MeasurementBlock *ltv_block = nullptr, LtvDiagnostics *diagnostics = nullptr,
+              const std::function<void(const MeasurementBlock &)> &before_update = {});
 
 protected:
   /// Options used during update

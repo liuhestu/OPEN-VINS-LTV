@@ -33,6 +33,7 @@
 
 #include "VioManagerOptions.h"
 #include "ltv/LtvAdapter.h"
+#include "ltv/ValueDiagnostics.h"
 #include "update/UpdaterLTV.h"
 
 namespace ov_core {
@@ -139,6 +140,7 @@ public:
   }
 
 protected:
+  std::shared_ptr<ValueDiagnostics> value_diagnostics;
   std::shared_ptr<LtvAdapter> ltv_adapter;
   std::shared_ptr<UpdaterLTV> updater_ltv;
   LtvDiagnostics ltv_diagnostics;

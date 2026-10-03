@@ -1,0 +1,2810 @@
+{
+  "V1_01_easy": {
+    "B": {
+      "sequence": "V1_01_easy",
+      "mode": "B",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V1_01_easy-B-C0-20261003T043431Z-832b33.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2800,
+      "target_gt_rows": 2780,
+      "gt_time_fraction": 0.9928571428571429,
+      "output_rows": 2800,
+      "gt_sha": "701200e6924ba845ccdeea884bd717c82d1ed91f480913ea6e2e6ccb9c0fbf6d",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.06424283441468073,
+      "alignment_R": [
+        [
+          0.9698442219201739,
+          -0.24370463280422872,
+          -0.003199555876633453
+        ],
+        [
+          0.24371901928375714,
+          0.9698310505755221,
+          0.00536404501685348
+        ],
+        [
+          0.0017957860160328493,
+          -0.005982080686111741,
+          0.999980494741397
+        ]
+      ],
+      "alignment_t": [
+        0.9414798737287936,
+        2.1767982744124903,
+        0.9315725725014687
+      ],
+      "samples": 2780,
+      "rotation_rmse_deg": 5.354733713088441,
+      "velocity_rmse_mps": 0.02539450242786194,
+      "rpe": {
+        "1.0": {
+          "pairs": 2760,
+          "translation_rmse_m": 0.04456440575771393,
+          "rotation_rmse_deg": 0.4758912118107982
+        },
+        "5.0": {
+          "pairs": 2680,
+          "translation_rmse_m": 0.16793123716541206,
+          "rotation_rmse_deg": 2.025076201629274
+        }
+      },
+      "gt_extent_m": 7.328195825620178,
+      "gt_length_m": 58.44944644427788,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "P": {
+      "sequence": "V1_01_easy",
+      "mode": "P",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V1_01_easy-P-C0-20261003T043507Z-9e277d.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2800,
+      "target_gt_rows": 2780,
+      "gt_time_fraction": 0.9928571428571429,
+      "output_rows": 2800,
+      "gt_sha": "701200e6924ba845ccdeea884bd717c82d1ed91f480913ea6e2e6ccb9c0fbf6d",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.06424283441468073,
+      "alignment_R": [
+        [
+          0.9698442219201739,
+          -0.24370463280422872,
+          -0.003199555876633453
+        ],
+        [
+          0.24371901928375714,
+          0.9698310505755221,
+          0.00536404501685348
+        ],
+        [
+          0.0017957860160328493,
+          -0.005982080686111741,
+          0.999980494741397
+        ]
+      ],
+      "alignment_t": [
+        0.9414798737287936,
+        2.1767982744124903,
+        0.9315725725014687
+      ],
+      "samples": 2780,
+      "rotation_rmse_deg": 5.354733713088441,
+      "velocity_rmse_mps": 0.02539450242786194,
+      "rpe": {
+        "1.0": {
+          "pairs": 2760,
+          "translation_rmse_m": 0.04456440575771393,
+          "rotation_rmse_deg": 0.4758912118107982
+        },
+        "5.0": {
+          "pairs": 2680,
+          "translation_rmse_m": 0.16793123716541206,
+          "rotation_rmse_deg": 2.025076201629274
+        }
+      },
+      "gt_extent_m": 7.328195825620178,
+      "gt_length_m": 58.44944644427788,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "G": {
+      "sequence": "V1_01_easy",
+      "mode": "G",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V1_01_easy-G-C0-20261003T044914Z-892512.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2800,
+      "target_gt_rows": 2780,
+      "gt_time_fraction": 0.9928571428571429,
+      "output_rows": 2800,
+      "gt_sha": "701200e6924ba845ccdeea884bd717c82d1ed91f480913ea6e2e6ccb9c0fbf6d",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.06425080433766465,
+      "alignment_R": [
+        [
+          0.9698424289676564,
+          -0.2437116569981248,
+          -0.0032079927282250564
+        ],
+        [
+          0.2437261157019642,
+          0.9698292001207156,
+          0.005376162018089046
+        ],
+        [
+          0.0018009716678886734,
+          -0.005995901636997522,
+          0.9999804026402767
+        ]
+      ],
+      "alignment_t": [
+        0.9414485796901789,
+        2.1767697306866407,
+        0.9314074201816746
+      ],
+      "samples": 2780,
+      "rotation_rmse_deg": 5.354779514989555,
+      "velocity_rmse_mps": 0.02539466719280885,
+      "rpe": {
+        "1.0": {
+          "pairs": 2760,
+          "translation_rmse_m": 0.0445642710319986,
+          "rotation_rmse_deg": 0.47582721912783
+        },
+        "5.0": {
+          "pairs": 2680,
+          "translation_rmse_m": 0.16793272363726208,
+          "rotation_rmse_deg": 2.024947272248291
+        }
+      },
+      "gt_extent_m": 7.328195825620178,
+      "gt_length_m": 58.44944644427788,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "V": {
+      "sequence": "V1_01_easy",
+      "mode": "V",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V1_01_easy-V-C0-20261003T045040Z-e1843f.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2800,
+      "target_gt_rows": 2780,
+      "gt_time_fraction": 0.9928571428571429,
+      "output_rows": 2800,
+      "gt_sha": "701200e6924ba845ccdeea884bd717c82d1ed91f480913ea6e2e6ccb9c0fbf6d",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.06439840741511403,
+      "alignment_R": [
+        [
+          0.9698385254712575,
+          -0.24372706887729462,
+          -0.003217205032180065
+        ],
+        [
+          0.2437415842741873,
+          0.969825307535376,
+          0.005377077219336851
+        ],
+        [
+          0.0018095875899425684,
+          -0.005999063293225162,
+          0.9999803681234736
+        ]
+      ],
+      "alignment_t": [
+        0.941548728928068,
+        2.1765340133453424,
+        0.9314013470756068
+      ],
+      "samples": 2780,
+      "rotation_rmse_deg": 5.354918605670655,
+      "velocity_rmse_mps": 0.025411585737267362,
+      "rpe": {
+        "1.0": {
+          "pairs": 2760,
+          "translation_rmse_m": 0.04456759589502667,
+          "rotation_rmse_deg": 0.47589694654627074
+        },
+        "5.0": {
+          "pairs": 2680,
+          "translation_rmse_m": 0.16795846495674718,
+          "rotation_rmse_deg": 2.025070924225738
+        }
+      },
+      "gt_extent_m": 7.328195825620178,
+      "gt_length_m": 58.44944644427788,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "GV": {
+      "sequence": "V1_01_easy",
+      "mode": "GV",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V1_01_easy-GV-C0-20261003T045205Z-58ab3a.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2800,
+      "target_gt_rows": 2780,
+      "gt_time_fraction": 0.9928571428571429,
+      "output_rows": 2800,
+      "gt_sha": "701200e6924ba845ccdeea884bd717c82d1ed91f480913ea6e2e6ccb9c0fbf6d",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.0644064095529482,
+      "alignment_R": [
+        [
+          0.9698366961307067,
+          -0.24373423553746842,
+          -0.0032257193372051407
+        ],
+        [
+          0.24374882395761827,
+          0.9698234206578665,
+          0.005389207989459345
+        ],
+        [
+          0.0018148436722272149,
+          -0.0060129169661195525,
+          0.9999802753914723
+        ]
+      ],
+      "alignment_t": [
+        0.9415169715143976,
+        2.1765055663626254,
+        0.9312361794328775
+      ],
+      "samples": 2780,
+      "rotation_rmse_deg": 5.354962404248549,
+      "velocity_rmse_mps": 0.025411774733520482,
+      "rpe": {
+        "1.0": {
+          "pairs": 2760,
+          "translation_rmse_m": 0.044567467323402964,
+          "rotation_rmse_deg": 0.47583282287297324
+        },
+        "5.0": {
+          "pairs": 2680,
+          "translation_rmse_m": 0.16795993640084014,
+          "rotation_rmse_deg": 2.024941667747776
+        }
+      },
+      "gt_extent_m": 7.328195825620178,
+      "gt_length_m": 58.44944644427788,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    }
+  },
+  "V2_02_medium": {
+    "B": {
+      "sequence": "V2_02_medium",
+      "mode": "B",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_02_medium-B-C0-20261003T043612Z-1ed6e2.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2266,
+      "target_gt_rows": 2252,
+      "gt_time_fraction": 0.9938217122683142,
+      "output_rows": 2266,
+      "gt_sha": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.05197520957067538,
+      "alignment_R": [
+        [
+          -0.9973916316384436,
+          0.07135173388779706,
+          0.010902440497814601
+        ],
+        [
+          -0.07120258537431882,
+          -0.9973704342661648,
+          0.013505876044731017
+        ],
+        [
+          0.011837439487331528,
+          0.012694365794626978,
+          0.9998493527044247
+        ]
+      ],
+      "alignment_t": [
+        -0.9830317808242417,
+        0.4889284631038609,
+        1.3107198438117316
+      ],
+      "samples": 2252,
+      "rotation_rmse_deg": 1.3639876647236366,
+      "velocity_rmse_mps": 0.04011864176311119,
+      "rpe": {
+        "1.0": {
+          "pairs": 2232,
+          "translation_rmse_m": 0.02428377967193025,
+          "rotation_rmse_deg": 0.30020530394321804
+        },
+        "5.0": {
+          "pairs": 2152,
+          "translation_rmse_m": 0.04930234957068469,
+          "rotation_rmse_deg": 0.9158687646174204
+        }
+      },
+      "gt_extent_m": 8.389834574681972,
+      "gt_length_m": 82.94144611111179,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "P": {
+      "sequence": "V2_02_medium",
+      "mode": "P",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_02_medium-P-C0-20261003T043643Z-91f587.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2266,
+      "target_gt_rows": 2252,
+      "gt_time_fraction": 0.9938217122683142,
+      "output_rows": 2266,
+      "gt_sha": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.05197520957067538,
+      "alignment_R": [
+        [
+          -0.9973916316384436,
+          0.07135173388779706,
+          0.010902440497814601
+        ],
+        [
+          -0.07120258537431882,
+          -0.9973704342661648,
+          0.013505876044731017
+        ],
+        [
+          0.011837439487331528,
+          0.012694365794626978,
+          0.9998493527044247
+        ]
+      ],
+      "alignment_t": [
+        -0.9830317808242417,
+        0.4889284631038609,
+        1.3107198438117316
+      ],
+      "samples": 2252,
+      "rotation_rmse_deg": 1.3639876647236366,
+      "velocity_rmse_mps": 0.04011864176311119,
+      "rpe": {
+        "1.0": {
+          "pairs": 2232,
+          "translation_rmse_m": 0.02428377967193025,
+          "rotation_rmse_deg": 0.30020530394321804
+        },
+        "5.0": {
+          "pairs": 2152,
+          "translation_rmse_m": 0.04930234957068469,
+          "rotation_rmse_deg": 0.9158687646174204
+        }
+      },
+      "gt_extent_m": 8.389834574681972,
+      "gt_length_m": 82.94144611111179,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "G": {
+      "sequence": "V2_02_medium",
+      "mode": "G",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_02_medium-G-C0-20261003T045421Z-1e5a83.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2266,
+      "target_gt_rows": 2252,
+      "gt_time_fraction": 0.9938217122683142,
+      "output_rows": 2266,
+      "gt_sha": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.051996949250356445,
+      "alignment_R": [
+        [
+          -0.9973919425025912,
+          0.07134476428415697,
+          0.010919598900395858
+        ],
+        [
+          -0.0711955829627202,
+          -0.9973711451901206,
+          0.01349028201133002
+        ],
+        [
+          0.011853353850529796,
+          0.012677671370755369,
+          0.999849375981756
+        ]
+      ],
+      "alignment_t": [
+        -0.9830510009028994,
+        0.48890091516365514,
+        1.3103702415801242
+      ],
+      "samples": 2252,
+      "rotation_rmse_deg": 1.3639179420525702,
+      "velocity_rmse_mps": 0.04012342303749308,
+      "rpe": {
+        "1.0": {
+          "pairs": 2232,
+          "translation_rmse_m": 0.02428633825604034,
+          "rotation_rmse_deg": 0.30010903926448856
+        },
+        "5.0": {
+          "pairs": 2152,
+          "translation_rmse_m": 0.04930875520966273,
+          "rotation_rmse_deg": 0.9156295695763724
+        }
+      },
+      "gt_extent_m": 8.389834574681972,
+      "gt_length_m": 82.94144611111179,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "V": {
+      "sequence": "V2_02_medium",
+      "mode": "V",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_02_medium-V-C0-20261003T045531Z-d4ac3d.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2266,
+      "target_gt_rows": 2252,
+      "gt_time_fraction": 0.9938217122683142,
+      "output_rows": 2266,
+      "gt_sha": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.051759580437544674,
+      "alignment_R": [
+        [
+          -0.9974097044750149,
+          0.0711038417763698,
+          0.010868537330545928
+        ],
+        [
+          -0.07095592687141279,
+          -0.997388925839163,
+          0.013438268311801584
+        ],
+        [
+          0.011795671277346723,
+          0.012632272085504593,
+          0.9998506327652531
+        ]
+      ],
+      "alignment_t": [
+        -0.9839791139054581,
+        0.48926322030363595,
+        1.3102048354034959
+      ],
+      "samples": 2252,
+      "rotation_rmse_deg": 1.3596248512550777,
+      "velocity_rmse_mps": 0.04009986417580984,
+      "rpe": {
+        "1.0": {
+          "pairs": 2232,
+          "translation_rmse_m": 0.024281528081214736,
+          "rotation_rmse_deg": 0.3001005973881771
+        },
+        "5.0": {
+          "pairs": 2152,
+          "translation_rmse_m": 0.049270380404212645,
+          "rotation_rmse_deg": 0.9153899199914013
+        }
+      },
+      "gt_extent_m": 8.389834574681972,
+      "gt_length_m": 82.94144611111179,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "GV": {
+      "sequence": "V2_02_medium",
+      "mode": "GV",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_02_medium-GV-C0-20261003T045641Z-2105c8.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2266,
+      "target_gt_rows": 2252,
+      "gt_time_fraction": 0.9938217122683142,
+      "output_rows": 2266,
+      "gt_sha": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.05178201608343899,
+      "alignment_R": [
+        [
+          -0.9974100310067119,
+          0.07109664589954047,
+          0.010885632229104929
+        ],
+        [
+          -0.07094869926374298,
+          -0.9973896498209944,
+          0.01342268612231359
+        ],
+        [
+          0.011811524879325838,
+          0.01261560033413171,
+          0.999850656102319
+        ]
+      ],
+      "alignment_t": [
+        -0.9839990665618856,
+        0.48923323384512135,
+        1.3098552446040894
+      ],
+      "samples": 2252,
+      "rotation_rmse_deg": 1.3595591380952914,
+      "velocity_rmse_mps": 0.04010495462122917,
+      "rpe": {
+        "1.0": {
+          "pairs": 2232,
+          "translation_rmse_m": 0.024284385493881934,
+          "rotation_rmse_deg": 0.30000666342922466
+        },
+        "5.0": {
+          "pairs": 2152,
+          "translation_rmse_m": 0.04927724082527764,
+          "rotation_rmse_deg": 0.9151531249540492
+        }
+      },
+      "gt_extent_m": 8.389834574681972,
+      "gt_length_m": 82.94144611111179,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    }
+  },
+  "V2_03_difficult": {
+    "B": {
+      "sequence": "V2_03_difficult",
+      "mode": "B",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_03_difficult-B-C0-20261003T043736Z-353861.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1806,
+      "target_gt_rows": 1799,
+      "gt_time_fraction": 0.9961240310077519,
+      "output_rows": 1806,
+      "gt_sha": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.20742761529144607,
+      "alignment_R": [
+        [
+          -0.998679979137031,
+          0.05135805431849416,
+          -0.0008059326746755278
+        ],
+        [
+          -0.051364354917858686,
+          -0.998541903275704,
+          0.016606337537384643
+        ],
+        [
+          4.811163839367992e-05,
+          0.016625813037319796,
+          0.9998617804607368
+        ]
+      ],
+      "alignment_t": [
+        -0.784712113515256,
+        0.2027333280427487,
+        1.3563879802123742
+      ],
+      "samples": 1799,
+      "rotation_rmse_deg": 1.4360633525720778,
+      "velocity_rmse_mps": 0.06710461300057924,
+      "rpe": {
+        "1.0": {
+          "pairs": 1685,
+          "translation_rmse_m": 0.044782294279990066,
+          "rotation_rmse_deg": 0.4533680634323443
+        },
+        "5.0": {
+          "pairs": 1449,
+          "translation_rmse_m": 0.09882610092988672,
+          "rotation_rmse_deg": 0.9685680046976816
+        }
+      },
+      "gt_extent_m": 7.906022529991297,
+      "gt_length_m": 85.93467488920064,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "P": {
+      "sequence": "V2_03_difficult",
+      "mode": "P",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_03_difficult-P-C0-20261003T043759Z-01dd24.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1806,
+      "target_gt_rows": 1799,
+      "gt_time_fraction": 0.9961240310077519,
+      "output_rows": 1806,
+      "gt_sha": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.20742761529144607,
+      "alignment_R": [
+        [
+          -0.998679979137031,
+          0.05135805431849416,
+          -0.0008059326746755278
+        ],
+        [
+          -0.051364354917858686,
+          -0.998541903275704,
+          0.016606337537384643
+        ],
+        [
+          4.811163839367992e-05,
+          0.016625813037319796,
+          0.9998617804607368
+        ]
+      ],
+      "alignment_t": [
+        -0.784712113515256,
+        0.2027333280427487,
+        1.3563879802123742
+      ],
+      "samples": 1799,
+      "rotation_rmse_deg": 1.4360633525720778,
+      "velocity_rmse_mps": 0.06710461300057924,
+      "rpe": {
+        "1.0": {
+          "pairs": 1685,
+          "translation_rmse_m": 0.044782294279990066,
+          "rotation_rmse_deg": 0.4533680634323443
+        },
+        "5.0": {
+          "pairs": 1449,
+          "translation_rmse_m": 0.09882610092988672,
+          "rotation_rmse_deg": 0.9685680046976816
+        }
+      },
+      "gt_extent_m": 7.906022529991297,
+      "gt_length_m": 85.93467488920064,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "G": {
+      "sequence": "V2_03_difficult",
+      "mode": "G",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_03_difficult-G-C0-20261003T045832Z-61e74b.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1806,
+      "target_gt_rows": 1799,
+      "gt_time_fraction": 0.9961240310077519,
+      "output_rows": 1806,
+      "gt_sha": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.20716230797474133,
+      "alignment_R": [
+        [
+          -0.9986798468786342,
+          0.05135949953267809,
+          -0.0008747835279251325
+        ],
+        [
+          -0.05136694147926379,
+          -0.9985440208973839,
+          0.016470447873416755
+        ],
+        [
+          -2.7595901531408604e-05,
+          0.01649363931453233,
+          0.9998639702982742
+        ]
+      ],
+      "alignment_t": [
+        -0.7864259734216571,
+        0.2009207265186289,
+        1.3569734803690248
+      ],
+      "samples": 1799,
+      "rotation_rmse_deg": 1.4338045643077972,
+      "velocity_rmse_mps": 0.06713666257200371,
+      "rpe": {
+        "1.0": {
+          "pairs": 1685,
+          "translation_rmse_m": 0.04475956478893377,
+          "rotation_rmse_deg": 0.45328881759458306
+        },
+        "5.0": {
+          "pairs": 1449,
+          "translation_rmse_m": 0.09896759351013122,
+          "rotation_rmse_deg": 0.9690146596451458
+        }
+      },
+      "gt_extent_m": 7.906022529991297,
+      "gt_length_m": 85.93467488920064,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "V": {
+      "sequence": "V2_03_difficult",
+      "mode": "V",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_03_difficult-V-C0-20261003T045930Z-de370c.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1806,
+      "target_gt_rows": 1799,
+      "gt_time_fraction": 0.9961240310077519,
+      "output_rows": 1806,
+      "gt_sha": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.209169851963584,
+      "alignment_R": [
+        [
+          -0.9987731412308561,
+          0.04951102677414806,
+          -0.0009330507050695071
+        ],
+        [
+          -0.04951966760432544,
+          -0.998639212514112,
+          0.016356214401643428
+        ],
+        [
+          -0.00012196805218288483,
+          0.01638235199734779,
+          0.999865792827633
+        ]
+      ],
+      "alignment_t": [
+        -0.7809133846403362,
+        0.20091506987623475,
+        1.3572722775512234
+      ],
+      "samples": 1799,
+      "rotation_rmse_deg": 1.4659402690719767,
+      "velocity_rmse_mps": 0.06716679039610332,
+      "rpe": {
+        "1.0": {
+          "pairs": 1685,
+          "translation_rmse_m": 0.04440935870348238,
+          "rotation_rmse_deg": 0.4530770944459218
+        },
+        "5.0": {
+          "pairs": 1449,
+          "translation_rmse_m": 0.09823202257430384,
+          "rotation_rmse_deg": 0.9706480750424932
+        }
+      },
+      "gt_extent_m": 7.906022529991297,
+      "gt_length_m": 85.93467488920064,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "GV": {
+      "sequence": "V2_03_difficult",
+      "mode": "GV",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/V2_03_difficult-GV-C0-20261003T050027Z-94dfe4.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1806,
+      "target_gt_rows": 1799,
+      "gt_time_fraction": 0.9961240310077519,
+      "output_rows": 1806,
+      "gt_sha": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.20921699371009694,
+      "alignment_R": [
+        [
+          -0.9987726817536393,
+          0.0495201335987334,
+          -0.0009415683762420109
+        ],
+        [
+          -0.049528916219278164,
+          -0.9986383152111086,
+          0.016382974408262127
+        ],
+        [
+          -0.00012899917546460322,
+          0.01640950214606282,
+          0.9998653467335139
+        ]
+      ],
+      "alignment_t": [
+        -0.7809418103615554,
+        0.20088932026955528,
+        1.3571623010818477
+      ],
+      "samples": 1799,
+      "rotation_rmse_deg": 1.4667439798745636,
+      "velocity_rmse_mps": 0.06717796299185201,
+      "rpe": {
+        "1.0": {
+          "pairs": 1685,
+          "translation_rmse_m": 0.04441233068545672,
+          "rotation_rmse_deg": 0.45297697245145263
+        },
+        "5.0": {
+          "pairs": 1449,
+          "translation_rmse_m": 0.09823956246344308,
+          "rotation_rmse_deg": 0.9705379918255208
+        }
+      },
+      "gt_extent_m": 7.906022529991297,
+      "gt_length_m": 85.93467488920064,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    }
+  },
+  "indoor_forward_3": {
+    "B": {
+      "sequence": "indoor_forward_3",
+      "mode": "B",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_3-B-C0-20261003T043844Z-3bad7f.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2275,
+      "target_gt_rows": 1332,
+      "gt_time_fraction": 0.5854945054945055,
+      "output_rows": 2275,
+      "gt_sha": "671b8b04ea577feb075f01cc671e08ccdd354758d99082d2f3787c70f5bc2b51",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.25951841930125696,
+      "alignment_R": [
+        [
+          0.8421530039900021,
+          0.5392375892143072,
+          -0.0010678244036474854
+        ],
+        [
+          -0.539237756946653,
+          0.8421535604427023,
+          0.00014871725483607892
+        ],
+        [
+          0.000979466057431752,
+          0.0004505685533303678,
+          0.9999994188169417
+        ]
+      ],
+      "alignment_t": [
+        7.647921372501995,
+        0.46186230135968914,
+        -0.818795780434703
+      ],
+      "samples": 1332,
+      "rotation_rmse_deg": 1.4863566363776626,
+      "velocity_rmse_mps": 0.15437806894557662,
+      "rpe": {
+        "1.0": {
+          "pairs": 1164,
+          "translation_rmse_m": 0.16124958660844707,
+          "rotation_rmse_deg": 1.6790238095463823
+        },
+        "5.0": {
+          "pairs": 1201,
+          "translation_rmse_m": 0.41558970054300387,
+          "rotation_rmse_deg": 2.087036087969995
+        }
+      },
+      "gt_extent_m": 23.60029927968125,
+      "gt_length_m": 277.9985277400207,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "P": {
+      "sequence": "indoor_forward_3",
+      "mode": "P",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_3-P-C0-20261003T043915Z-92d71f.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2275,
+      "target_gt_rows": 1332,
+      "gt_time_fraction": 0.5854945054945055,
+      "output_rows": 2275,
+      "gt_sha": "671b8b04ea577feb075f01cc671e08ccdd354758d99082d2f3787c70f5bc2b51",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.25951841930125696,
+      "alignment_R": [
+        [
+          0.8421530039900021,
+          0.5392375892143072,
+          -0.0010678244036474854
+        ],
+        [
+          -0.539237756946653,
+          0.8421535604427023,
+          0.00014871725483607892
+        ],
+        [
+          0.000979466057431752,
+          0.0004505685533303678,
+          0.9999994188169417
+        ]
+      ],
+      "alignment_t": [
+        7.647921372501995,
+        0.46186230135968914,
+        -0.818795780434703
+      ],
+      "samples": 1332,
+      "rotation_rmse_deg": 1.4863566363776626,
+      "velocity_rmse_mps": 0.15437806894557662,
+      "rpe": {
+        "1.0": {
+          "pairs": 1164,
+          "translation_rmse_m": 0.16124958660844707,
+          "rotation_rmse_deg": 1.6790238095463823
+        },
+        "5.0": {
+          "pairs": 1201,
+          "translation_rmse_m": 0.41558970054300387,
+          "rotation_rmse_deg": 2.087036087969995
+        }
+      },
+      "gt_extent_m": 23.60029927968125,
+      "gt_length_m": 277.9985277400207,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "G": {
+      "sequence": "indoor_forward_3",
+      "mode": "G",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_3-G-C0-20261003T050202Z-8bbe32.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2275,
+      "target_gt_rows": 1332,
+      "gt_time_fraction": 0.5854945054945055,
+      "output_rows": 2275,
+      "gt_sha": "671b8b04ea577feb075f01cc671e08ccdd354758d99082d2f3787c70f5bc2b51",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.26149605231150447,
+      "alignment_R": [
+        [
+          0.8403608950180623,
+          0.5420268488886572,
+          -0.0006791231658245661
+        ],
+        [
+          -0.5420269858653975,
+          0.8403610808121639,
+          -2.121044565743524e-05
+        ],
+        [
+          0.0005592120466137718,
+          0.0003859275116996682,
+          0.9999997691708937
+        ]
+      ],
+      "alignment_t": [
+        7.648875447892916,
+        0.47255534846966735,
+        -0.8295725167436259
+      ],
+      "samples": 1332,
+      "rotation_rmse_deg": 1.5145264904668558,
+      "velocity_rmse_mps": 0.1568305396766792,
+      "rpe": {
+        "1.0": {
+          "pairs": 1164,
+          "translation_rmse_m": 0.1596138884934726,
+          "rotation_rmse_deg": 1.6839617553930604
+        },
+        "5.0": {
+          "pairs": 1201,
+          "translation_rmse_m": 0.4142042509004857,
+          "rotation_rmse_deg": 2.0885118333325314
+        }
+      },
+      "gt_extent_m": 23.60029927968125,
+      "gt_length_m": 277.9985277400207,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "V": {
+      "sequence": "indoor_forward_3",
+      "mode": "V",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_3-V-C0-20261003T050323Z-a87c6c.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2275,
+      "target_gt_rows": 1332,
+      "gt_time_fraction": 0.5854945054945055,
+      "output_rows": 2275,
+      "gt_sha": "671b8b04ea577feb075f01cc671e08ccdd354758d99082d2f3787c70f5bc2b51",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.25985608027961193,
+      "alignment_R": [
+        [
+          0.8425631673302825,
+          0.5385962486919708,
+          -0.0011789628065390773
+        ],
+        [
+          -0.5385964348685973,
+          0.8425638538094027,
+          0.00018055659559268467
+        ],
+        [
+          0.0010905985508383037,
+          0.00048285482737968864,
+          0.9999992887227555
+        ]
+      ],
+      "alignment_t": [
+        7.644933905009273,
+        0.4587974130336216,
+        -0.8163932327843402
+      ],
+      "samples": 1332,
+      "rotation_rmse_deg": 1.489032190998048,
+      "velocity_rmse_mps": 0.1542177489454882,
+      "rpe": {
+        "1.0": {
+          "pairs": 1164,
+          "translation_rmse_m": 0.16122768868199153,
+          "rotation_rmse_deg": 1.6793398218459115
+        },
+        "5.0": {
+          "pairs": 1201,
+          "translation_rmse_m": 0.4178594567492553,
+          "rotation_rmse_deg": 2.0944322718736323
+        }
+      },
+      "gt_extent_m": 23.60029927968125,
+      "gt_length_m": 277.9985277400207,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "GV": {
+      "sequence": "indoor_forward_3",
+      "mode": "GV",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_3-GV-C0-20261003T044458Z-72d71d.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2275,
+      "target_gt_rows": 1332,
+      "gt_time_fraction": 0.5854945054945055,
+      "output_rows": 2275,
+      "gt_sha": "671b8b04ea577feb075f01cc671e08ccdd354758d99082d2f3787c70f5bc2b51",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.26152126146626775,
+      "alignment_R": [
+        [
+          0.8408041632448124,
+          0.5413388240318789,
+          -0.0007979135119620395
+        ],
+        [
+          -0.5413389940149375,
+          0.8408044324019307,
+          3.4875145664900464e-06
+        ],
+        [
+          0.0006727771445652689,
+          0.0004290093811095703,
+          0.9999996816608818
+        ]
+      ],
+      "alignment_t": [
+        7.645226098108462,
+        0.4683603158321025,
+        -0.8270364938583015
+      ],
+      "samples": 1332,
+      "rotation_rmse_deg": 1.5150175380400945,
+      "velocity_rmse_mps": 0.15654033618907387,
+      "rpe": {
+        "1.0": {
+          "pairs": 1164,
+          "translation_rmse_m": 0.15943729072201177,
+          "rotation_rmse_deg": 1.6842754180347357
+        },
+        "5.0": {
+          "pairs": 1201,
+          "translation_rmse_m": 0.41652278133031445,
+          "rotation_rmse_deg": 2.0960346901836973
+        }
+      },
+      "gt_extent_m": 23.60029927968125,
+      "gt_length_m": 277.9985277400207,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    }
+  },
+  "indoor_45_2": {
+    "B": {
+      "sequence": "indoor_45_2",
+      "mode": "B",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_2-B-C0-20261003T044020Z-6e8c4d.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1783,
+      "target_gt_rows": 1264,
+      "gt_time_fraction": 0.7089175546831183,
+      "output_rows": 1783,
+      "gt_sha": "ecab8a2a6de523164bdfcd56a2518d393334125256929b64a714fb6a35eaa97e",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.6700003318256638,
+      "alignment_R": [
+        [
+          -0.5126847711910308,
+          0.8585355468387948,
+          0.008428535045396372
+        ],
+        [
+          -0.8585768356707224,
+          -0.5126556987659926,
+          -0.0054728212470312836
+        ],
+        [
+          -0.00037767505879959936,
+          -0.01004237705741979,
+          0.9999495027373071
+        ]
+      ],
+      "alignment_t": [
+        -4.3144373471396,
+        4.074740691100143,
+        -0.44528436338764327
+      ],
+      "samples": 1264,
+      "rotation_rmse_deg": 3.224308214821806,
+      "velocity_rmse_mps": 0.2915976995126589,
+      "rpe": {
+        "1.0": {
+          "pairs": 1058,
+          "translation_rmse_m": 0.18830273637683972,
+          "rotation_rmse_deg": 0.9993267263140582
+        },
+        "5.0": {
+          "pairs": 1130,
+          "translation_rmse_m": 0.5337086701032566,
+          "rotation_rmse_deg": 1.696380255770654
+        }
+      },
+      "gt_extent_m": 23.734889308074987,
+      "gt_length_m": 207.59858962820968,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "P": {
+      "sequence": "indoor_45_2",
+      "mode": "P",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_2-P-C0-20261003T044045Z-502603.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1783,
+      "target_gt_rows": 1264,
+      "gt_time_fraction": 0.7089175546831183,
+      "output_rows": 1783,
+      "gt_sha": "ecab8a2a6de523164bdfcd56a2518d393334125256929b64a714fb6a35eaa97e",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.6700003318256638,
+      "alignment_R": [
+        [
+          -0.5126847711910308,
+          0.8585355468387948,
+          0.008428535045396372
+        ],
+        [
+          -0.8585768356707224,
+          -0.5126556987659926,
+          -0.0054728212470312836
+        ],
+        [
+          -0.00037767505879959936,
+          -0.01004237705741979,
+          0.9999495027373071
+        ]
+      ],
+      "alignment_t": [
+        -4.3144373471396,
+        4.074740691100143,
+        -0.44528436338764327
+      ],
+      "samples": 1264,
+      "rotation_rmse_deg": 3.224308214821806,
+      "velocity_rmse_mps": 0.2915976995126589,
+      "rpe": {
+        "1.0": {
+          "pairs": 1058,
+          "translation_rmse_m": 0.18830273637683972,
+          "rotation_rmse_deg": 0.9993267263140582
+        },
+        "5.0": {
+          "pairs": 1130,
+          "translation_rmse_m": 0.5337086701032566,
+          "rotation_rmse_deg": 1.696380255770654
+        }
+      },
+      "gt_extent_m": 23.734889308074987,
+      "gt_length_m": 207.59858962820968,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "G": {
+      "sequence": "indoor_45_2",
+      "mode": "G",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_2-G-C0-20261003T050531Z-c2147d.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1783,
+      "target_gt_rows": 1264,
+      "gt_time_fraction": 0.7089175546831183,
+      "output_rows": 1783,
+      "gt_sha": "ecab8a2a6de523164bdfcd56a2518d393334125256929b64a714fb6a35eaa97e",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.6703712836496947,
+      "alignment_R": [
+        [
+          -0.5133290435019572,
+          0.8581504718372288,
+          0.008429755803526402
+        ],
+        [
+          -0.8581917950047951,
+          -0.5133000088232579,
+          -0.005472104576006734
+        ],
+        [
+          -0.00036889539551479274,
+          -0.010043337472424599,
+          0.9999494963689924
+        ]
+      ],
+      "alignment_t": [
+        -4.317032190273123,
+        4.071492669282583,
+        -0.44798704009254536
+      ],
+      "samples": 1264,
+      "rotation_rmse_deg": 3.2495416768248524,
+      "velocity_rmse_mps": 0.29328597191267536,
+      "rpe": {
+        "1.0": {
+          "pairs": 1058,
+          "translation_rmse_m": 0.18837477168753003,
+          "rotation_rmse_deg": 1.00002244507218
+        },
+        "5.0": {
+          "pairs": 1130,
+          "translation_rmse_m": 0.5343161965716786,
+          "rotation_rmse_deg": 1.702473499812456
+        }
+      },
+      "gt_extent_m": 23.734889308074987,
+      "gt_length_m": 207.59858962820968,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "V": {
+      "sequence": "indoor_45_2",
+      "mode": "V",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_2-V-C0-20261003T050637Z-6451a2.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1783,
+      "target_gt_rows": 1264,
+      "gt_time_fraction": 0.7089175546831183,
+      "output_rows": 1783,
+      "gt_sha": "ecab8a2a6de523164bdfcd56a2518d393334125256929b64a714fb6a35eaa97e",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.6698501226244085,
+      "alignment_R": [
+        [
+          -0.511690855842492,
+          0.8591276233750886,
+          0.008496752382583461
+        ],
+        [
+          -0.859169522433989,
+          -0.5116606191084049,
+          -0.005580553212292984
+        ],
+        [
+          -0.0004469538339121851,
+          -0.010155668736056882,
+          0.9999483299775022
+        ]
+      ],
+      "alignment_t": [
+        -4.311785848048058,
+        4.077003811500579,
+        -0.4432601910991079
+      ],
+      "samples": 1264,
+      "rotation_rmse_deg": 3.1914868142188646,
+      "velocity_rmse_mps": 0.2903130027170865,
+      "rpe": {
+        "1.0": {
+          "pairs": 1058,
+          "translation_rmse_m": 0.18837158719353067,
+          "rotation_rmse_deg": 0.9982325469568663
+        },
+        "5.0": {
+          "pairs": 1130,
+          "translation_rmse_m": 0.5366666864817742,
+          "rotation_rmse_deg": 1.6898462107581624
+        }
+      },
+      "gt_extent_m": 23.734889308074987,
+      "gt_length_m": 207.59858962820968,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "GV": {
+      "sequence": "indoor_45_2",
+      "mode": "GV",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_2-GV-C0-20261003T044618Z-6a318b.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1783,
+      "target_gt_rows": 1264,
+      "gt_time_fraction": 0.7089175546831183,
+      "output_rows": 1783,
+      "gt_sha": "ecab8a2a6de523164bdfcd56a2518d393334125256929b64a714fb6a35eaa97e",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.6701945741412751,
+      "alignment_R": [
+        [
+          -0.5123366639801774,
+          0.8587426427188959,
+          0.008498018464911987
+        ],
+        [
+          -0.8587845777016613,
+          -0.5123064661244832,
+          -0.0055797731875128
+        ],
+        [
+          -0.00043799936399734226,
+          -0.010156689579346796,
+          0.999948323571447
+        ]
+      ],
+      "alignment_t": [
+        -4.314375960864959,
+        4.0737563174039995,
+        -0.44596080510672004
+      ],
+      "samples": 1264,
+      "rotation_rmse_deg": 3.216715456666223,
+      "velocity_rmse_mps": 0.2919954813096874,
+      "rpe": {
+        "1.0": {
+          "pairs": 1058,
+          "translation_rmse_m": 0.18844483987349353,
+          "rotation_rmse_deg": 0.9989303067126128
+        },
+        "5.0": {
+          "pairs": 1130,
+          "translation_rmse_m": 0.5372714355900596,
+          "rotation_rmse_deg": 1.6959156518019516
+        }
+      },
+      "gt_extent_m": 23.734889308074987,
+      "gt_length_m": 207.59858962820968,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    }
+  },
+  "outdoor_forward_1": {
+    "B": {
+      "sequence": "outdoor_forward_1",
+      "mode": "B",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_1-B-C0-20261003T044139Z-dace8a.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2211,
+      "target_gt_rows": 1164,
+      "gt_time_fraction": 0.5264586160108549,
+      "output_rows": 2211,
+      "gt_sha": "67ecd68298d1463e730c131a1ca845981452a9b0ba7cea031f320e6c4c8dd08c",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.7702773999665817,
+      "alignment_R": [
+        [
+          0.7322378588456028,
+          0.6810461512731737,
+          -0.001964156104865847
+        ],
+        [
+          -0.6810228356835845,
+          0.7322319723961702,
+          0.006651005811313535
+        ],
+        [
+          0.005967859808650444,
+          -0.003532483094185121,
+          0.9999759528171122
+        ]
+      ],
+      "alignment_t": [
+        -1.0382442737978526,
+        -6.3216236449561904,
+        -0.23873327051350646
+      ],
+      "samples": 1164,
+      "rotation_rmse_deg": 1.7095335593710839,
+      "velocity_rmse_mps": 0.2506085603494779,
+      "rpe": {
+        "1.0": {
+          "pairs": 1026,
+          "translation_rmse_m": 0.3394634314186846,
+          "rotation_rmse_deg": 0.7137550894684485
+        },
+        "5.0": {
+          "pairs": 1022,
+          "translation_rmse_m": 1.0370538992171159,
+          "rotation_rmse_deg": 1.8423618613682102
+        }
+      },
+      "gt_extent_m": 49.62008847121372,
+      "gt_length_m": 229.944466096757,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "P": {
+      "sequence": "outdoor_forward_1",
+      "mode": "P",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_1-P-C0-20261003T044207Z-e039fc.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2211,
+      "target_gt_rows": 1164,
+      "gt_time_fraction": 0.5264586160108549,
+      "output_rows": 2211,
+      "gt_sha": "67ecd68298d1463e730c131a1ca845981452a9b0ba7cea031f320e6c4c8dd08c",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.7702773999665817,
+      "alignment_R": [
+        [
+          0.7322378588456028,
+          0.6810461512731737,
+          -0.001964156104865847
+        ],
+        [
+          -0.6810228356835845,
+          0.7322319723961702,
+          0.006651005811313535
+        ],
+        [
+          0.005967859808650444,
+          -0.003532483094185121,
+          0.9999759528171122
+        ]
+      ],
+      "alignment_t": [
+        -1.0382442737978526,
+        -6.3216236449561904,
+        -0.23873327051350646
+      ],
+      "samples": 1164,
+      "rotation_rmse_deg": 1.7095335593710839,
+      "velocity_rmse_mps": 0.2506085603494779,
+      "rpe": {
+        "1.0": {
+          "pairs": 1026,
+          "translation_rmse_m": 0.3394634314186846,
+          "rotation_rmse_deg": 0.7137550894684485
+        },
+        "5.0": {
+          "pairs": 1022,
+          "translation_rmse_m": 1.0370538992171159,
+          "rotation_rmse_deg": 1.8423618613682102
+        }
+      },
+      "gt_extent_m": 49.62008847121372,
+      "gt_length_m": 229.944466096757,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "G": {
+      "sequence": "outdoor_forward_1",
+      "mode": "G",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_1-G-C0-20261003T050825Z-24eb35.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2211,
+      "target_gt_rows": 1164,
+      "gt_time_fraction": 0.5264586160108549,
+      "output_rows": 2211,
+      "gt_sha": "67ecd68298d1463e730c131a1ca845981452a9b0ba7cea031f320e6c4c8dd08c",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.7638940902514965,
+      "alignment_R": [
+        [
+          0.7300162095984675,
+          0.6834268692784987,
+          -0.0020119820267436306
+        ],
+        [
+          -0.6834045036834964,
+          0.7300113373454399,
+          0.006460007139011306
+        ],
+        [
+          0.005883712144589284,
+          -0.003340912347193331,
+          0.999977109856064
+        ]
+      ],
+      "alignment_t": [
+        -1.0295716694819834,
+        -6.319401597076174,
+        -0.2434250756240932
+      ],
+      "samples": 1164,
+      "rotation_rmse_deg": 1.7471710400332505,
+      "velocity_rmse_mps": 0.2548453473338643,
+      "rpe": {
+        "1.0": {
+          "pairs": 1026,
+          "translation_rmse_m": 0.34112431274269917,
+          "rotation_rmse_deg": 0.7111183232017747
+        },
+        "5.0": {
+          "pairs": 1022,
+          "translation_rmse_m": 1.0494687837783128,
+          "rotation_rmse_deg": 1.8814439632810358
+        }
+      },
+      "gt_extent_m": 49.62008847121372,
+      "gt_length_m": 229.944466096757,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "V": {
+      "sequence": "outdoor_forward_1",
+      "mode": "V",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_1-V-C0-20261003T050943Z-cd0ac9.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2211,
+      "target_gt_rows": 1164,
+      "gt_time_fraction": 0.5264586160108549,
+      "output_rows": 2211,
+      "gt_sha": "67ecd68298d1463e730c131a1ca845981452a9b0ba7cea031f320e6c4c8dd08c",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.7662156147941357,
+      "alignment_R": [
+        [
+          0.7326801623608769,
+          0.6805700034101237,
+          -0.0020615870543530534
+        ],
+        [
+          -0.6805462669513193,
+          0.732674797510904,
+          0.006664805397003436
+        ],
+        [
+          0.006046339509365686,
+          -0.0034801653265449234,
+          0.9999756648178183
+        ]
+      ],
+      "alignment_t": [
+        -1.0232699209642764,
+        -6.3658621085317115,
+        -0.24277050381481552
+      ],
+      "samples": 1164,
+      "rotation_rmse_deg": 1.7137448877718466,
+      "velocity_rmse_mps": 0.2542419050158084,
+      "rpe": {
+        "1.0": {
+          "pairs": 1026,
+          "translation_rmse_m": 0.33933596998096865,
+          "rotation_rmse_deg": 0.7133664801397481
+        },
+        "5.0": {
+          "pairs": 1022,
+          "translation_rmse_m": 1.042121845629968,
+          "rotation_rmse_deg": 1.852139135406406
+        }
+      },
+      "gt_extent_m": 49.62008847121372,
+      "gt_length_m": 229.944466096757,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "GV": {
+      "sequence": "outdoor_forward_1",
+      "mode": "GV",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_1-GV-C0-20261003T044724Z-2c3670.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2211,
+      "target_gt_rows": 1164,
+      "gt_time_fraction": 0.5264586160108549,
+      "output_rows": 2211,
+      "gt_sha": "67ecd68298d1463e730c131a1ca845981452a9b0ba7cea031f320e6c4c8dd08c",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.7630956347669157,
+      "alignment_R": [
+        [
+          0.729784362641294,
+          0.6836740546032869,
+          -0.0021380146263602767
+        ],
+        [
+          -0.6836510906011292,
+          0.7297801465752897,
+          0.006490299256193318
+        ],
+        [
+          0.005997529835475579,
+          -0.003274862875000159,
+          0.9999766521819501
+        ]
+      ],
+      "alignment_t": [
+        -1.0047044132182563,
+        -6.361040797980108,
+        -0.24509181867933083
+      ],
+      "samples": 1164,
+      "rotation_rmse_deg": 1.7583962511812123,
+      "velocity_rmse_mps": 0.2582622398079922,
+      "rpe": {
+        "1.0": {
+          "pairs": 1026,
+          "translation_rmse_m": 0.34132906057470663,
+          "rotation_rmse_deg": 0.7129061911634984
+        },
+        "5.0": {
+          "pairs": 1022,
+          "translation_rmse_m": 1.0535959611479468,
+          "rotation_rmse_deg": 1.8965383153040982
+        }
+      },
+      "gt_extent_m": 49.62008847121372,
+      "gt_length_m": 229.944466096757,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    }
+  },
+  "indoor_forward_6": {
+    "B": {
+      "sequence": "indoor_forward_6",
+      "mode": "B",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_6-B-C0-20261003T051136Z-6b0b7b.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1781,
+      "target_gt_rows": 816,
+      "gt_time_fraction": 0.45816956765861877,
+      "output_rows": 1781,
+      "gt_sha": "0d417f83866b335f5e3f9cf1a37f007d82e1f2362ba6c0fe44cc8e3a03dddd7c",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.4126634706626433,
+      "alignment_R": [
+        [
+          0.842604891648483,
+          0.5385254102941837,
+          -0.0027164383905518355
+        ],
+        [
+          -0.5385178057367355,
+          0.8426085130951934,
+          0.0030767781849337494
+        ],
+        [
+          0.003945817347603214,
+          -0.0011296579076435533,
+          0.9999915771637636
+        ]
+      ],
+      "alignment_t": [
+        8.138800110331921,
+        0.4090603779327249,
+        -0.7282884864047865
+      ],
+      "samples": 816,
+      "rotation_rmse_deg": 2.3561032281997614,
+      "velocity_rmse_mps": 0.2988459840372263,
+      "rpe": {
+        "1.0": {
+          "pairs": 711,
+          "translation_rmse_m": 0.24382449781814067,
+          "rotation_rmse_deg": 2.367981621367537
+        },
+        "5.0": {
+          "pairs": 693,
+          "translation_rmse_m": 0.6682244508142282,
+          "rotation_rmse_deg": 3.582493984265574
+        }
+      },
+      "gt_extent_m": 24.933054607990744,
+      "gt_length_m": 208.43728633116808,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "P": {
+      "sequence": "indoor_forward_6",
+      "mode": "P",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_6-P-C0-20261003T051210Z-c04fef.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1781,
+      "target_gt_rows": 816,
+      "gt_time_fraction": 0.45816956765861877,
+      "output_rows": 1781,
+      "gt_sha": "0d417f83866b335f5e3f9cf1a37f007d82e1f2362ba6c0fe44cc8e3a03dddd7c",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.4126634706626433,
+      "alignment_R": [
+        [
+          0.842604891648483,
+          0.5385254102941837,
+          -0.0027164383905518355
+        ],
+        [
+          -0.5385178057367355,
+          0.8426085130951934,
+          0.0030767781849337494
+        ],
+        [
+          0.003945817347603214,
+          -0.0011296579076435533,
+          0.9999915771637636
+        ]
+      ],
+      "alignment_t": [
+        8.138800110331921,
+        0.4090603779327249,
+        -0.7282884864047865
+      ],
+      "samples": 816,
+      "rotation_rmse_deg": 2.3561032281997614,
+      "velocity_rmse_mps": 0.2988459840372263,
+      "rpe": {
+        "1.0": {
+          "pairs": 711,
+          "translation_rmse_m": 0.24382449781814067,
+          "rotation_rmse_deg": 2.367981621367537
+        },
+        "5.0": {
+          "pairs": 693,
+          "translation_rmse_m": 0.6682244508142282,
+          "rotation_rmse_deg": 3.582493984265574
+        }
+      },
+      "gt_extent_m": 24.933054607990744,
+      "gt_length_m": 208.43728633116808,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "G": {
+      "sequence": "indoor_forward_6",
+      "mode": "G",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_6-G-C0-20261003T051312Z-200d7f.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1781,
+      "target_gt_rows": 816,
+      "gt_time_fraction": 0.45816956765861877,
+      "output_rows": 1781,
+      "gt_sha": "0d417f83866b335f5e3f9cf1a37f007d82e1f2362ba6c0fe44cc8e3a03dddd7c",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.412363107463334,
+      "alignment_R": [
+        [
+          0.8420138558045552,
+          0.5394493326560837,
+          -0.0026616029101176053
+        ],
+        [
+          -0.5394420001657052,
+          0.842017330324129,
+          0.003023886745483489
+        ],
+        [
+          0.0038723494636388606,
+          -0.0011103741406001608,
+          0.9999918859565302
+        ]
+      ],
+      "alignment_t": [
+        8.138054464556603,
+        0.41040055602740355,
+        -0.729524052696747
+      ],
+      "samples": 816,
+      "rotation_rmse_deg": 2.3510894871104724,
+      "velocity_rmse_mps": 0.2989355902041697,
+      "rpe": {
+        "1.0": {
+          "pairs": 711,
+          "translation_rmse_m": 0.2445802382492917,
+          "rotation_rmse_deg": 2.3697032033021848
+        },
+        "5.0": {
+          "pairs": 693,
+          "translation_rmse_m": 0.6697082392642331,
+          "rotation_rmse_deg": 3.5880539623661623
+        }
+      },
+      "gt_extent_m": 24.933054607990744,
+      "gt_length_m": 208.43728633116808,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "V": {
+      "sequence": "indoor_forward_6",
+      "mode": "V",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_6-V-C0-20261003T051414Z-38a121.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1781,
+      "target_gt_rows": 816,
+      "gt_time_fraction": 0.45816956765861877,
+      "output_rows": 1781,
+      "gt_sha": "0d417f83866b335f5e3f9cf1a37f007d82e1f2362ba6c0fe44cc8e3a03dddd7c",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.406550544400304,
+      "alignment_R": [
+        [
+          0.8432878597224505,
+          0.5374549844820453,
+          -0.0027794424142080568
+        ],
+        [
+          -0.5374471643122123,
+          0.8432916825519111,
+          0.003111866245419481
+        ],
+        [
+          0.004016368694675698,
+          -0.0011303955819571762,
+          0.9999912954562852
+        ]
+      ],
+      "alignment_t": [
+        8.134156448963047,
+        0.40777231933510394,
+        -0.7242060875256093
+      ],
+      "samples": 816,
+      "rotation_rmse_deg": 2.3263914913061208,
+      "velocity_rmse_mps": 0.29554227164071817,
+      "rpe": {
+        "1.0": {
+          "pairs": 711,
+          "translation_rmse_m": 0.24335245554072152,
+          "rotation_rmse_deg": 2.363223121501219
+        },
+        "5.0": {
+          "pairs": 693,
+          "translation_rmse_m": 0.6651903618051032,
+          "rotation_rmse_deg": 3.5662698011695446
+        }
+      },
+      "gt_extent_m": 24.933054607990744,
+      "gt_length_m": 208.43728633116808,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "GV": {
+      "sequence": "indoor_forward_6",
+      "mode": "GV",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_6-GV-C0-20261003T051516Z-b6b4a9.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1781,
+      "target_gt_rows": 816,
+      "gt_time_fraction": 0.45816956765861877,
+      "output_rows": 1781,
+      "gt_sha": "0d417f83866b335f5e3f9cf1a37f007d82e1f2362ba6c0fe44cc8e3a03dddd7c",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.41198719231118347,
+      "alignment_R": [
+        [
+          0.8432899690237384,
+          0.5374525283727343,
+          -0.0026091933041618026
+        ],
+        [
+          -0.5374458915582866,
+          0.8432934079432461,
+          0.0028533781005225835
+        ],
+        [
+          0.0037338707879785576,
+          -0.0010039249083995429,
+          0.999992525143922
+        ]
+      ],
+      "alignment_t": [
+        8.145753386666794,
+        0.4097068575633759,
+        -0.7202515281357336
+      ],
+      "samples": 816,
+      "rotation_rmse_deg": 2.3424435819581766,
+      "velocity_rmse_mps": 0.29845313516774313,
+      "rpe": {
+        "1.0": {
+          "pairs": 711,
+          "translation_rmse_m": 0.2433911630389328,
+          "rotation_rmse_deg": 2.3643910014275646
+        },
+        "5.0": {
+          "pairs": 693,
+          "translation_rmse_m": 0.6669138421536639,
+          "rotation_rmse_deg": 3.572901107869081
+        }
+      },
+      "gt_extent_m": 24.933054607990744,
+      "gt_length_m": 208.43728633116808,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    }
+  },
+  "indoor_45_14": {
+    "B": {
+      "sequence": "indoor_45_14",
+      "mode": "B",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_14-B-C0-20261003T051646Z-12f59c.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1674,
+      "target_gt_rows": 1025,
+      "gt_time_fraction": 0.6123058542413381,
+      "output_rows": 1674,
+      "gt_sha": "5b2b2e3b6aec5214e09ba12a506393904fb01217706bfa9677e35e8e991e2db2",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.39736939670035787,
+      "alignment_R": [
+        [
+          -0.8037651605003322,
+          0.5949423938708057,
+          -0.0022615793486185573
+        ],
+        [
+          -0.5949466358988359,
+          -0.8037609332714767,
+          0.002619652500382902
+        ],
+        [
+          -0.00025922679822574374,
+          0.0034511044377042027,
+          0.9999940113218815
+        ]
+      ],
+      "alignment_t": [
+        -5.497517520773236,
+        4.359774363381553,
+        -0.921482750206304
+      ],
+      "samples": 1025,
+      "rotation_rmse_deg": 1.7217193718347865,
+      "velocity_rmse_mps": 0.24496204433474736,
+      "rpe": {
+        "1.0": {
+          "pairs": 913,
+          "translation_rmse_m": 0.20114758185017997,
+          "rotation_rmse_deg": 1.567627054949736
+        },
+        "5.0": {
+          "pairs": 886,
+          "translation_rmse_m": 0.4821368926194866,
+          "rotation_rmse_deg": 2.1943528289008576
+        }
+      },
+      "gt_extent_m": 24.037640514858523,
+      "gt_length_m": 215.7988025675855,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "P": {
+      "sequence": "indoor_45_14",
+      "mode": "P",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_14-P-C0-20261003T051718Z-2c88fb.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1674,
+      "target_gt_rows": 1025,
+      "gt_time_fraction": 0.6123058542413381,
+      "output_rows": 1674,
+      "gt_sha": "5b2b2e3b6aec5214e09ba12a506393904fb01217706bfa9677e35e8e991e2db2",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.39736939670035787,
+      "alignment_R": [
+        [
+          -0.8037651605003322,
+          0.5949423938708057,
+          -0.0022615793486185573
+        ],
+        [
+          -0.5949466358988359,
+          -0.8037609332714767,
+          0.002619652500382902
+        ],
+        [
+          -0.00025922679822574374,
+          0.0034511044377042027,
+          0.9999940113218815
+        ]
+      ],
+      "alignment_t": [
+        -5.497517520773236,
+        4.359774363381553,
+        -0.921482750206304
+      ],
+      "samples": 1025,
+      "rotation_rmse_deg": 1.7217193718347865,
+      "velocity_rmse_mps": 0.24496204433474736,
+      "rpe": {
+        "1.0": {
+          "pairs": 913,
+          "translation_rmse_m": 0.20114758185017997,
+          "rotation_rmse_deg": 1.567627054949736
+        },
+        "5.0": {
+          "pairs": 886,
+          "translation_rmse_m": 0.4821368926194866,
+          "rotation_rmse_deg": 2.1943528289008576
+        }
+      },
+      "gt_extent_m": 24.037640514858523,
+      "gt_length_m": 215.7988025675855,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "G": {
+      "sequence": "indoor_45_14",
+      "mode": "G",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_14-G-C0-20261003T051813Z-cd49d6.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1674,
+      "target_gt_rows": 1025,
+      "gt_time_fraction": 0.6123058542413381,
+      "output_rows": 1674,
+      "gt_sha": "5b2b2e3b6aec5214e09ba12a506393904fb01217706bfa9677e35e8e991e2db2",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.39728926451775454,
+      "alignment_R": [
+        [
+          -0.8040393834465355,
+          0.5945717855621969,
+          -0.002249817836449012
+        ],
+        [
+          -0.5945759754392496,
+          -0.8040353292639989,
+          0.0025687985125476473
+        ],
+        [
+          -0.0002815979065583264,
+          0.0034031028068944695,
+          0.999994169779957
+        ]
+      ],
+      "alignment_t": [
+        -5.4981356535839305,
+        4.358842778979032,
+        -0.9229580909674167
+      ],
+      "samples": 1025,
+      "rotation_rmse_deg": 1.7299167297954283,
+      "velocity_rmse_mps": 0.24546118389952865,
+      "rpe": {
+        "1.0": {
+          "pairs": 913,
+          "translation_rmse_m": 0.20116633024688035,
+          "rotation_rmse_deg": 1.568194743315349
+        },
+        "5.0": {
+          "pairs": 886,
+          "translation_rmse_m": 0.4824011659870304,
+          "rotation_rmse_deg": 2.1968074735927745
+        }
+      },
+      "gt_extent_m": 24.037640514858523,
+      "gt_length_m": 215.7988025675855,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "V": {
+      "sequence": "indoor_45_14",
+      "mode": "V",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_14-V-C0-20261003T051909Z-30bb48.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1674,
+      "target_gt_rows": 1025,
+      "gt_time_fraction": 0.6123058542413381,
+      "output_rows": 1674,
+      "gt_sha": "5b2b2e3b6aec5214e09ba12a506393904fb01217706bfa9677e35e8e991e2db2",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.3974504788066878,
+      "alignment_R": [
+        [
+          -0.8038224629197654,
+          0.5948651039618289,
+          -0.0022262511278750355
+        ],
+        [
+          -0.5948691737827666,
+          -0.8038188300546766,
+          0.0024401910864594242
+        ],
+        [
+          -0.00033791805268294436,
+          0.003285808578184654,
+          0.9999945446218073
+        ]
+      ],
+      "alignment_t": [
+        -5.492964101424468,
+        4.363109324475006,
+        -0.9122812686582272
+      ],
+      "samples": 1025,
+      "rotation_rmse_deg": 1.7202828405124793,
+      "velocity_rmse_mps": 0.24494049234828058,
+      "rpe": {
+        "1.0": {
+          "pairs": 913,
+          "translation_rmse_m": 0.20087108905796755,
+          "rotation_rmse_deg": 1.56766628266403
+        },
+        "5.0": {
+          "pairs": 886,
+          "translation_rmse_m": 0.4826933911074413,
+          "rotation_rmse_deg": 2.194128616450873
+        }
+      },
+      "gt_extent_m": 24.037640514858523,
+      "gt_length_m": 215.7988025675855,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "GV": {
+      "sequence": "indoor_45_14",
+      "mode": "GV",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_45_14-GV-C0-20261003T052005Z-6ad75d.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 1674,
+      "target_gt_rows": 1025,
+      "gt_time_fraction": 0.6123058542413381,
+      "output_rows": 1674,
+      "gt_sha": "5b2b2e3b6aec5214e09ba12a506393904fb01217706bfa9677e35e8e991e2db2",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.39737579413916946,
+      "alignment_R": [
+        [
+          -0.8040976684545327,
+          0.5944930908682983,
+          -0.0022146096364166652
+        ],
+        [
+          -0.5944971065464426,
+          -0.8040941998052991,
+          0.002389172949572676
+        ],
+        [
+          -0.00036040795206510913,
+          0.0032377074192656147,
+          0.9999946936643085
+        ]
+      ],
+      "alignment_t": [
+        -5.493644369396236,
+        4.3621285384574575,
+        -0.9137881916060272
+      ],
+      "samples": 1025,
+      "rotation_rmse_deg": 1.7285351806393072,
+      "velocity_rmse_mps": 0.24543952659391563,
+      "rpe": {
+        "1.0": {
+          "pairs": 913,
+          "translation_rmse_m": 0.20089090094854195,
+          "rotation_rmse_deg": 1.5682409475631076
+        },
+        "5.0": {
+          "pairs": 886,
+          "translation_rmse_m": 0.4829533247237273,
+          "rotation_rmse_deg": 2.196594585968565
+        }
+      },
+      "gt_extent_m": 24.037640514858523,
+      "gt_length_m": 215.7988025675855,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    }
+  },
+  "outdoor_forward_5": {
+    "B": {
+      "sequence": "outdoor_forward_5",
+      "mode": "B",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_5-B-C0-20261003T052125Z-ffb239.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2262,
+      "target_gt_rows": 444,
+      "gt_time_fraction": 0.1962864721485411,
+      "output_rows": 2262,
+      "gt_sha": "7e2c952ca60431d5c138a2a5aa2306740d8dc5c5aab21b115b2e760acd799e41",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.9067998237149992,
+      "alignment_R": [
+        [
+          0.8008916645290624,
+          0.5986530289747379,
+          -0.01367817923703303
+        ],
+        [
+          -0.5986766367336173,
+          0.800986091848227,
+          0.0027505081399184055
+        ],
+        [
+          0.012602631359852387,
+          0.005985947299786472,
+          0.9999026663219435
+        ]
+      ],
+      "alignment_t": [
+        -1.749952935326263,
+        -6.389468978943276,
+        -1.1058036794867816
+      ],
+      "samples": 444,
+      "rotation_rmse_deg": 1.5963574698687844,
+      "velocity_rmse_mps": 0.24653496015308957,
+      "rpe": {
+        "1.0": {
+          "pairs": 350,
+          "translation_rmse_m": 0.8444647404647129,
+          "rotation_rmse_deg": 1.0867032214692034
+        },
+        "5.0": {
+          "pairs": 316,
+          "translation_rmse_m": 1.8547741674497968,
+          "rotation_rmse_deg": 2.226995940352348
+        }
+      },
+      "gt_extent_m": 79.58511248899569,
+      "gt_length_m": 140.503280127084,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "P": {
+      "sequence": "outdoor_forward_5",
+      "mode": "P",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_5-P-C0-20261003T052208Z-77fdf2.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2262,
+      "target_gt_rows": 444,
+      "gt_time_fraction": 0.1962864721485411,
+      "output_rows": 2262,
+      "gt_sha": "7e2c952ca60431d5c138a2a5aa2306740d8dc5c5aab21b115b2e760acd799e41",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.9067998237149992,
+      "alignment_R": [
+        [
+          0.8008916645290624,
+          0.5986530289747379,
+          -0.01367817923703303
+        ],
+        [
+          -0.5986766367336173,
+          0.800986091848227,
+          0.0027505081399184055
+        ],
+        [
+          0.012602631359852387,
+          0.005985947299786472,
+          0.9999026663219435
+        ]
+      ],
+      "alignment_t": [
+        -1.749952935326263,
+        -6.389468978943276,
+        -1.1058036794867816
+      ],
+      "samples": 444,
+      "rotation_rmse_deg": 1.5963574698687844,
+      "velocity_rmse_mps": 0.24653496015308957,
+      "rpe": {
+        "1.0": {
+          "pairs": 350,
+          "translation_rmse_m": 0.8444647404647129,
+          "rotation_rmse_deg": 1.0867032214692034
+        },
+        "5.0": {
+          "pairs": 316,
+          "translation_rmse_m": 1.8547741674497968,
+          "rotation_rmse_deg": 2.226995940352348
+        }
+      },
+      "gt_extent_m": 79.58511248899569,
+      "gt_length_m": 140.503280127084,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "G": {
+      "sequence": "outdoor_forward_5",
+      "mode": "G",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_5-G-C0-20261003T052326Z-79d1bb.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2262,
+      "target_gt_rows": 444,
+      "gt_time_fraction": 0.1962864721485411,
+      "output_rows": 2262,
+      "gt_sha": "7e2c952ca60431d5c138a2a5aa2306740d8dc5c5aab21b115b2e760acd799e41",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.8863973098931772,
+      "alignment_R": [
+        [
+          0.798393230870058,
+          0.6019875103300634,
+          -0.013389783698109628
+        ],
+        [
+          -0.6020113382112886,
+          0.7984832229280409,
+          0.0026251414250672653
+        ],
+        [
+          0.012271819992316468,
+          0.005964906458608449,
+          0.9999069068293391
+        ]
+      ],
+      "alignment_t": [
+        -1.733241727243815,
+        -6.392685450941382,
+        -1.1062315273062697
+      ],
+      "samples": 444,
+      "rotation_rmse_deg": 1.5623982828369534,
+      "velocity_rmse_mps": 0.24475818065109545,
+      "rpe": {
+        "1.0": {
+          "pairs": 350,
+          "translation_rmse_m": 0.8363215043508353,
+          "rotation_rmse_deg": 1.0893339357612053
+        },
+        "5.0": {
+          "pairs": 316,
+          "translation_rmse_m": 1.8373602001944191,
+          "rotation_rmse_deg": 2.2391164595810547
+        }
+      },
+      "gt_extent_m": 79.58511248899569,
+      "gt_length_m": 140.503280127084,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "V": {
+      "sequence": "outdoor_forward_5",
+      "mode": "V",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_5-V-C0-20261003T052446Z-209829.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2262,
+      "target_gt_rows": 444,
+      "gt_time_fraction": 0.1962864721485411,
+      "output_rows": 2262,
+      "gt_sha": "7e2c952ca60431d5c138a2a5aa2306740d8dc5c5aab21b115b2e760acd799e41",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.9137366582873987,
+      "alignment_R": [
+        [
+          0.8007597471614557,
+          0.5988292783963026,
+          -0.013686586911462378
+        ],
+        [
+          -0.5988516091553782,
+          0.8008549099986839,
+          0.002857156456143005
+        ],
+        [
+          0.012671919268065976,
+          0.005908338714352521,
+          0.9999022522205369
+        ]
+      ],
+      "alignment_t": [
+        -1.746708825649776,
+        -6.393346768865316,
+        -1.1066055159654016
+      ],
+      "samples": 444,
+      "rotation_rmse_deg": 1.599429089178141,
+      "velocity_rmse_mps": 0.24788838454967957,
+      "rpe": {
+        "1.0": {
+          "pairs": 350,
+          "translation_rmse_m": 0.8386862828076376,
+          "rotation_rmse_deg": 1.0767754623407138
+        },
+        "5.0": {
+          "pairs": 316,
+          "translation_rmse_m": 1.881856951915153,
+          "rotation_rmse_deg": 2.2480769289853306
+        }
+      },
+      "gt_extent_m": 79.58511248899569,
+      "gt_length_m": 140.503280127084,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    },
+    "GV": {
+      "sequence": "outdoor_forward_5",
+      "mode": "GV",
+      "candidate": "C0",
+      "path": "/home/he/output/openvins_ltv_value_study_20261003/runs/outdoor_forward_5-GV-C0-20261003T052606Z-5e4007.done",
+      "status": "VALID",
+      "scale": 1.0,
+      "target_sensor_rows": 2262,
+      "target_gt_rows": 444,
+      "gt_time_fraction": 0.1962864721485411,
+      "output_rows": 2262,
+      "gt_sha": "7e2c952ca60431d5c138a2a5aa2306740d8dc5c5aab21b115b2e760acd799e41",
+      "evaluator_sha": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+      "protocol": "nearest_GT_20ms; fixed_B_support; SE3_no_scale; output_match_1us; >=99pct",
+      "coverage": 1.0,
+      "sensor_coverage": 1.0,
+      "initialization_delta_s": 0.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "ate_rmse_m": 0.8925091754312103,
+      "alignment_R": [
+        [
+          0.7982537400784494,
+          0.6021721686826634,
+          -0.013403197931272481
+        ],
+        [
+          -0.6021948184634559,
+          0.7983445077784921,
+          0.0027290136830310785
+        ],
+        [
+          0.012343705542974814,
+          0.005892890965847455,
+          0.9999064490088713
+        ]
+      ],
+      "alignment_t": [
+        -1.7298777762604303,
+        -6.396552008397083,
+        -1.1070428370495233
+      ],
+      "samples": 444,
+      "rotation_rmse_deg": 1.564437680897518,
+      "velocity_rmse_mps": 0.24581786628758054,
+      "rpe": {
+        "1.0": {
+          "pairs": 350,
+          "translation_rmse_m": 0.8301886414876668,
+          "rotation_rmse_deg": 1.0793257730651415
+        },
+        "5.0": {
+          "pairs": 316,
+          "translation_rmse_m": 1.8628166594072388,
+          "rotation_rmse_deg": 2.2575835091149563
+        }
+      },
+      "gt_extent_m": 79.58511248899569,
+      "gt_length_m": 140.503280127084,
+      "localization_status": "VALID",
+      "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); all raw metrics retained"
+    }
+  }
+}

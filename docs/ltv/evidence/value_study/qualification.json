@@ -1,0 +1,497 @@
+{
+  "G": {
+    "qualified": false,
+    "strata": {
+      "all": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          }
+        }
+      },
+      "high_rotation": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          }
+        }
+      },
+      "high_force": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          }
+        }
+      },
+      "zero_visual": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          }
+        }
+      },
+      "weak_visual": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          }
+        }
+      },
+      "high_rotation__high_force": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "shadow_p95_harm"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          }
+        }
+      },
+      "high_rotation__zero_visual": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "shadow_p95_harm"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "shadow_p95_harm"
+            ]
+          }
+        }
+      },
+      "high_rotation__weak_visual": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          }
+        }
+      },
+      "high_force__zero_visual": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          }
+        }
+      },
+      "high_force__weak_visual": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "V": {
+    "qualified": false,
+    "strata": {
+      "all": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          }
+        }
+      },
+      "high_rotation": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          }
+        }
+      },
+      "high_force": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          }
+        }
+      },
+      "zero_visual": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          }
+        }
+      },
+      "weak_visual": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          }
+        }
+      },
+      "high_rotation__high_force": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "shadow_p95_harm",
+              "velocity_derivative_sensitive"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          }
+        }
+      },
+      "high_rotation__zero_visual": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "shadow_p95_harm",
+              "velocity_derivative_sensitive"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "shadow_p95_harm",
+              "velocity_derivative_sensitive"
+            ]
+          }
+        }
+      },
+      "high_rotation__weak_visual": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          }
+        }
+      },
+      "high_force__zero_visual": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          }
+        }
+      },
+      "high_force__weak_visual": {
+        "passes": [],
+        "details": {
+          "indoor_forward_3": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "indoor_45_2": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage"
+            ]
+          },
+          "outdoor_forward_1": {
+            "pass": false,
+            "reasons": [
+              "no_stable_5pct_advantage",
+              "velocity_derivative_sensitive"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

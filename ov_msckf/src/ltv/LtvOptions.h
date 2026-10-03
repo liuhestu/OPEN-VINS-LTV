@@ -11,11 +11,16 @@ struct LtvOptions {
   double quality_eta_error = 0.5, quality_innovation = 0.03, quality_velocity_disagreement = 0.5;
   int quality_min_features = 25;
   std::string log_path = "ltv.csv", correlation_model = "independence_approximation";
+  bool value_diagnostics_enabled = false, value_diagnostics_matrices = false;
+  std::string value_diagnostics_path = "value.jsonl.gz";
   ltv::LtvConfig observer;
   void load(const std::shared_ptr<ov_core::YamlParser> &p) {
     if (!p)
       return;
 #define FIELD(x) p->parse_config("ltv_" #x, x, false)
+    FIELD(value_diagnostics_enabled);
+    FIELD(value_diagnostics_matrices);
+    FIELD(value_diagnostics_path);
     FIELD(enabled);
     FIELD(enable_gravity);
     FIELD(enable_velocity);

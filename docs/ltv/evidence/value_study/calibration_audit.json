@@ -1,0 +1,447 @@
+{
+  "uzhfpv_indoor": {
+    "camera_differences": {},
+    "official_camera": "/home/he/datasets/uzhfpv/archives/indoor_forward_calib_snapdragon/camchain-imucam-..indoor_forward_calib_snapdragon_imu.yaml",
+    "official_camera_sha": "06842157194c9c5ca59e343eaf105cc5d2c1b1380d13de8d287a343ad017efe9",
+    "native_noise": {
+      "imu0": {
+        "T_i_b": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "accelerometer_noise_density": 0.002,
+        "accelerometer_random_walk": 0.003,
+        "gyroscope_noise_density": 0.00016968,
+        "gyroscope_random_walk": 1.9393e-05,
+        "rostopic": "/snappy_imu",
+        "time_offset": 0.0,
+        "update_rate": 200.0,
+        "model": "kalibr",
+        "Tw": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "R_IMUtoGYRO": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Ta": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "R_IMUtoACC": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Tg": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    "official_noise": {
+      "accelerometer_noise_density": 0.1,
+      "accelerometer_random_walk": 0.002,
+      "gyroscope_noise_density": 0.05,
+      "gyroscope_random_walk": 4e-05,
+      "rostopic": "/snappy_imu",
+      "update_rate": 500.0
+    },
+    "decision": "retain repository estimator noise; camera calibration must match official",
+    "common_cam0_offset": -0.016684572091862235,
+    "cam1_offset": -0.016591431247074982
+  },
+  "uzhfpv_indoor_45": {
+    "camera_differences": {},
+    "official_camera": "/home/he/datasets/uzhfpv/archives/indoor_45_calib_snapdragon/camchain-imucam-..indoor_45_calib_snapdragon_imu.yaml",
+    "official_camera_sha": "9cbd3aa4e6e822b116cfbda2adececed5509e8dd36c5941dbd561c1f230caecc",
+    "native_noise": {
+      "imu0": {
+        "T_i_b": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "accelerometer_noise_density": 0.002,
+        "accelerometer_random_walk": 0.003,
+        "gyroscope_noise_density": 0.00016968,
+        "gyroscope_random_walk": 1.9393e-05,
+        "rostopic": "/snappy_imu",
+        "time_offset": 0.0,
+        "update_rate": 200.0,
+        "model": "kalibr",
+        "Tw": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "R_IMUtoGYRO": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Ta": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "R_IMUtoACC": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Tg": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    "official_noise": {
+      "T_i_b": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "accelerometer_noise_density": 0.1,
+      "accelerometer_random_walk": 0.002,
+      "gyroscope_noise_density": 0.05,
+      "gyroscope_random_walk": 4e-05,
+      "model": "calibrated",
+      "rostopic": "/snappy_imu",
+      "time_offset": 0.0,
+      "update_rate": 500.0
+    },
+    "decision": "retain repository estimator noise; camera calibration must match official",
+    "common_cam0_offset": -0.01484888826656275,
+    "cam1_offset": -0.014950736007814259
+  },
+  "uzhfpv_outdoor": {
+    "camera_differences": {},
+    "official_camera": "/home/he/datasets/uzhfpv/archives/outdoor_forward_calib_snapdragon/camchain-imucam-..outdoor_forward_calib_snapdragon_imu.yaml",
+    "official_camera_sha": "b113067666d1b265a9cca1ad0795fc4655f205f0122e0eb54d4fc740a37eae8e",
+    "native_noise": {
+      "imu0": {
+        "T_i_b": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "accelerometer_noise_density": 0.002,
+        "accelerometer_random_walk": 0.003,
+        "gyroscope_noise_density": 0.00016968,
+        "gyroscope_random_walk": 1.9393e-05,
+        "rostopic": "/snappy_imu",
+        "time_offset": 0.0,
+        "update_rate": 200.0,
+        "model": "kalibr",
+        "Tw": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "R_IMUtoGYRO": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Ta": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "R_IMUtoACC": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Tg": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    "official_noise": {
+      "accelerometer_noise_density": 0.1,
+      "accelerometer_random_walk": 0.002,
+      "gyroscope_noise_density": 0.05,
+      "gyroscope_random_walk": 4e-05,
+      "rostopic": "/snappy_imu",
+      "update_rate": 500.0
+    },
+    "decision": "retain repository estimator noise; camera calibration must match official",
+    "common_cam0_offset": -0.007999243205055177,
+    "cam1_offset": -0.007983859928063504
+  }
+}

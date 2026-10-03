@@ -1,0 +1,16 @@
+{
+  "reason": "Optional short profiling argument was briefly added on disk while the final process retained the old imported run module. All numerical commands and frozen engine identities are unchanged. runner_sha is an on-disk hash at launch; these runs used the original loaded source shown here. Restored disk source for remaining final runs; profiler addition deferred until final exits. Original manifests retained.",
+  "loaded_source_sha": "40f03c08cf76b450faa348025097283ea1c85ec6b6d1beaf574adea54fa3e31c",
+  "affected": [
+    {
+      "id": "20261003T050202Z-8bbe32",
+      "disk_runner_sha_recorded": "ac2c4a1c201783ab68e1190d3c13d071ae711ef5c56ddd633a20c751dd1cea9d",
+      "loaded_runner_sha": "40f03c08cf76b450faa348025097283ea1c85ec6b6d1beaf574adea54fa3e31c"
+    },
+    {
+      "id": "20261003T050323Z-a87c6c",
+      "disk_runner_sha_recorded": "ac2c4a1c201783ab68e1190d3c13d071ae711ef5c56ddd633a20c751dd1cea9d",
+      "loaded_runner_sha": "40f03c08cf76b450faa348025097283ea1c85ec6b6d1beaf574adea54fa3e31c"
+    }
+  ]
+}

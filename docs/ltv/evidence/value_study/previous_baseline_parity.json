@@ -1,0 +1,14 @@
+{
+  "V1_01_easy": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  },
+  "V2_02_medium": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  },
+  "V2_03_difficult": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  }
+}

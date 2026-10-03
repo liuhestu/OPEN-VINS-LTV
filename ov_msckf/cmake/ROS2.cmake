@@ -56,6 +56,7 @@ list(APPEND ament_libraries
 list(APPEND LIBRARY_SOURCES
         src/ltv/ltv_observer.cpp
         src/ltv/LtvAdapter.cpp
+        src/ltv/ValueDiagnostics.cpp
         src/dummy.cpp
         src/sim/Simulator.cpp
         src/state/State.cpp
@@ -73,7 +74,7 @@ list(APPEND LIBRARY_SOURCES src/ros/ROS2Visualizer.cpp src/ros/ROSVisualizerHelp
 file(GLOB_RECURSE LIBRARY_HEADERS "src/*.h")
 add_library(ov_msckf_lib SHARED ${LIBRARY_SOURCES} ${LIBRARY_HEADERS})
 ament_target_dependencies(ov_msckf_lib ${ament_libraries})
-target_link_libraries(ov_msckf_lib ${thirdparty_libraries})
+target_link_libraries(ov_msckf_lib ${thirdparty_libraries} z)
 target_include_directories(ov_msckf_lib PUBLIC src/)
 install(TARGETS ov_msckf_lib
         LIBRARY DESTINATION lib

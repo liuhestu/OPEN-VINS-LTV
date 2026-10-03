@@ -1,0 +1,161 @@
+{
+  "status": "PASS",
+  "full_replays": 57,
+  "short_replays": 12,
+  "formal_runs": 45,
+  "repeat_runs": 12,
+  "profile_runs": 4,
+  "frozen_identity_unchanged": true,
+  "all_run_engine_identities_match": true,
+  "B_P_exact_sequences": 9,
+  "repeat_exact_runs": 12,
+  "protected_paths_unchanged": [
+    "ov_core",
+    "ov_init",
+    "ov_msckf/src/state",
+    "ov_msckf/src/ltv/ltv_observer.cpp",
+    "ov_msckf/src/ltv/ltv_observer.h",
+    "ov_msckf/src/ltv/ltv_types.h",
+    "ov_msckf/src/ltv/LtvAdapter.cpp",
+    "ov_msckf/src/ltv/LtvAdapter.h",
+    "ov_msckf/src/update/UpdaterLTV.cpp",
+    "ov_msckf/src/update/UpdaterLTV.h",
+    "ov_msckf/src/update/UpdaterHelper.cpp",
+    "ov_msckf/src/ros/ROS2Visualizer.cpp",
+    "docs/ltv_handover",
+    "docs/ltv/final_report.md"
+  ],
+  "original_numeric_protocol_unchanged": {
+    "scripts/ltv_value/reference.py": true,
+    "scripts/ltv_value/statistics.py": true,
+    "scripts/ltv_value/analyze.py": true,
+    "scripts/ltv_value/evaluate.py": true,
+    "docs/ltv/value_study_goal.md": true
+  },
+  "original_protocol_prefix_preserved": true,
+  "native_tests": {
+    "test_ltv_fej.command": {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+        "test",
+        "/home/he/output/openvins_ltv_value_study_20261003",
+        "test_ltv_fej"
+      ],
+      "exit_code": 0
+    },
+    "test_ltv_gv_jacobian.command": {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+        "test",
+        "/home/he/output/openvins_ltv_value_study_20261003",
+        "test_ltv_gv_jacobian"
+      ],
+      "exit_code": 0
+    },
+    "test_ltv_value_shadow.command": {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+        "test",
+        "/home/he/output/openvins_ltv_value_study_20261003",
+        "test_ltv_value_shadow"
+      ],
+      "exit_code": 0
+    },
+    "test_ltv_options.command": {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+        "test",
+        "/home/he/output/openvins_ltv_value_study_20261003",
+        "test_ltv_options"
+      ],
+      "exit_code": 0
+    },
+    "test_ltv_gv_covariance.command": {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+        "test",
+        "/home/he/output/openvins_ltv_value_study_20261003",
+        "test_ltv_gv_covariance"
+      ],
+      "exit_code": 0
+    },
+    "test_ltv_joint_covariance.command": {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+        "test",
+        "/home/he/output/openvins_ltv_value_study_20261003",
+        "test_ltv_joint_covariance"
+      ],
+      "exit_code": 0
+    },
+    "test_ltv_joint_layout.command": {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+        "test",
+        "/home/he/output/openvins_ltv_value_study_20261003",
+        "test_ltv_joint_layout"
+      ],
+      "exit_code": 0
+    },
+    "test_ltv_timing.command": {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+        "test",
+        "/home/he/output/openvins_ltv_value_study_20261003",
+        "test_ltv_timing"
+      ],
+      "exit_code": 0
+    },
+    "test_ltv_innovation.command": {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+        "test",
+        "/home/he/output/openvins_ltv_value_study_20261003",
+        "test_ltv_innovation"
+      ],
+      "exit_code": 0
+    }
+  },
+  "gt_release_verification_sha": "4bb5631930e6edef3fe69a4766d1ccdb2ba1279de92e319aa1bb6769c593d7b4",
+  "input_hash_recheck_log": "/home/he/output/openvins_ltv_value_study_20261003/input_final_check.stdout.log",
+  "source_files": {
+    "scripts/ltv_value/analyze.py": "278d479bcf4b808abee1702b4434c31284e620ff8932881e561550b265f1162b",
+    "scripts/ltv_value/audit.py": "5fc84c43c497ac8dcc3cee01c52d75aa42814af6e17c6d2b2781ca4adbe300e0",
+    "scripts/ltv_value/common.py": "10bdb87a53751d4961eab15f6bf622672d943b094f2075e9d78fda266cd60bdc",
+    "scripts/ltv_value/evaluate.py": "1f22377d596233e35095e1ad85a40568e4de2e7bedb1516f939cd9c17f37593d",
+    "scripts/ltv_value/extended_evidence.py": "05308790356f75aaf87cbe7ed7a292f4fdea0473f1d74b34db82a2e715fed96d",
+    "scripts/ltv_value/plots.py": "9c69d087d35c1cc59c3b7efcbee374d5cb25dd77c860f693f5fb287f890a52bd",
+    "scripts/ltv_value/preflight_gt.py": "d296b19e7be22534a0806ba08d9375a262ea7c3886230d24fc119c1d4d3779fd",
+    "scripts/ltv_value/prepare.py": "eaff1a08151065d4addf2dfe9d09f1196861bc740ab5d364de131b21c2e13a52",
+    "scripts/ltv_value/profile_calls.cpp": "51d130ddb245a093e98636390a712484896b76902d102f461b05913b0ee3d2b0",
+    "scripts/ltv_value/profile_cost.py": "9e48f7e973fcc282d10fc78ec4344cf7d83b3a3ae892b995af4a95f92cb5e819",
+    "scripts/ltv_value/reference.py": "0e0fe11fc16634ae88c7880fed8f310f2f0de88b561038ed1555aac8086433ca",
+    "scripts/ltv_value/report.py": "494d4f7e385efc8537a96ebedb4bae6bf908236d63bab5b94d5d01b2a403b6d5",
+    "scripts/ltv_value/run.py": "ac2c4a1c201783ab68e1190d3c13d071ae711ef5c56ddd633a20c751dd1cea9d",
+    "scripts/ltv_value/statistics.py": "d9505509a721f3ee2400e5307112b9d062f909c3ec1ee812c24144055dc9a668",
+    "scripts/ltv_value/study.py": "d6d884dc93c2f1b5f75e75256bb333ee67b8c0eba14b8ad6cef929eda7b0bfa2",
+    "scripts/ltv_value/test_qualification.py": "ace3f268f5d89a4bffe555be45b3d652a6ce0224f2be76ed6dcbfbdcfa28d3b4",
+    "scripts/ltv_value/test_reference.py": "516e9517de6f35860762aa9a3b8cd4d0a8c758ebfe3715d1811d126243b50057",
+    "scripts/ltv_value/test_statistics.py": "c4b424e1baeda0c7d7dfaf444b85502c47bb65eb0fd4b71cb18377e11611c477",
+    "scripts/ltv_value/verify_completion.py": "1fc4373cf88832d0751426117b63207462f66266c09fc94bd333f2d8567a4dc1",
+    "scripts/ltv_value/verify_gt_release.py": "7c0a101713bb464ddfdc8d79c1ac05a9f54dcbf5df4c42b10b66b28ea2d3a98a"
+  }
+}

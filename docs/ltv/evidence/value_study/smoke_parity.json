@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "comparisons": "B diagnostics OFF/ON and P exact full audit and trajectory",
+  "runs": [
+    "20261003T043048Z-1b797f",
+    "20261003T043130Z-4c1ee5",
+    "20261003T043137Z-5f8123",
+    "20261003T043149Z-4226af",
+    "20261003T043201Z-72a558",
+    "20261003T043205Z-11a1e1",
+    "20261003T043210Z-104d53",
+    "20261003T043218Z-38bd19"
+  ]
+}

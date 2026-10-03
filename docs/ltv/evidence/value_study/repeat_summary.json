@@ -1,0 +1,104 @@
+{
+  "V1_01_easy": {
+    "B": {
+      "first": "20261003T043431Z-832b33",
+      "repeat": "20261003T052801Z-7db587",
+      "trajectory_exact": true,
+      "audit_exact": true,
+      "first_ate": 0.06424283441468073,
+      "repeat_ate": 0.06424283441468073
+    },
+    "G": {
+      "first": "20261003T044914Z-892512",
+      "repeat": "20261003T052847Z-4c78e2",
+      "trajectory_exact": true,
+      "audit_exact": true,
+      "first_ate": 0.06425080433766465,
+      "repeat_ate": 0.06425080433766465
+    },
+    "V": {
+      "first": "20261003T045040Z-e1843f",
+      "repeat": "20261003T053005Z-c71bbd",
+      "trajectory_exact": true,
+      "audit_exact": true,
+      "first_ate": 0.06439840741511403,
+      "repeat_ate": 0.06439840741511403
+    },
+    "GV": {
+      "first": "20261003T045205Z-58ab3a",
+      "repeat": "20261003T053122Z-4e9cef",
+      "trajectory_exact": true,
+      "audit_exact": true,
+      "first_ate": 0.0644064095529482,
+      "repeat_ate": 0.0644064095529482
+    }
+  },
+  "outdoor_forward_5": {
+    "B": {
+      "first": "20261003T052125Z-ffb239",
+      "repeat": "20261003T053240Z-395a5b",
+      "trajectory_exact": true,
+      "audit_exact": true,
+      "first_ate": 0.9067998237149992,
+      "repeat_ate": 0.9067998237149992
+    },
+    "G": {
+      "first": "20261003T052326Z-79d1bb",
+      "repeat": "20261003T053318Z-d03d8b",
+      "trajectory_exact": true,
+      "audit_exact": true,
+      "first_ate": 0.8863973098931772,
+      "repeat_ate": 0.8863973098931772
+    },
+    "V": {
+      "first": "20261003T052446Z-209829",
+      "repeat": "20261003T053432Z-0210ee",
+      "trajectory_exact": true,
+      "audit_exact": true,
+      "first_ate": 0.9137366582873987,
+      "repeat_ate": 0.9137366582873987
+    },
+    "GV": {
+      "first": "20261003T052606Z-5e4007",
+      "repeat": "20261003T053546Z-bff907",
+      "trajectory_exact": true,
+      "audit_exact": true,
+      "first_ate": 0.8925091754312103,
+      "repeat_ate": 0.8925091754312103
+    }
+  },
+  "indoor_45_14": {
+    "B": {
+      "first": "20261003T051646Z-12f59c",
+      "repeat": "20261003T053701Z-52a436",
+      "trajectory_exact": true,
+      "audit_exact": true,
+      "first_ate": 0.39736939670035787,
+      "repeat_ate": 0.39736939670035787
+    },
+    "G": {
+      "first": "20261003T051813Z-cd49d6",
+      "repeat": "20261003T053730Z-b52669",
+      "trajectory_exact": true,
+      "audit_exact": true,
+      "first_ate": 0.39728926451775454,
+      "repeat_ate": 0.39728926451775454
+    },
+    "V": {
+      "first": "20261003T051909Z-30bb48",
+      "repeat": "20261003T053823Z-5792f8",
+      "trajectory_exact": true,
+      "audit_exact": true,
+      "first_ate": 0.3974504788066878,
+      "repeat_ate": 0.3974504788066878
+    },
+    "GV": {
+      "first": "20261003T052005Z-6ad75d",
+      "repeat": "20261003T053916Z-b74d78",
+      "trajectory_exact": true,
+      "audit_exact": true,
+      "first_ate": 0.39737579413916946,
+      "repeat_ate": 0.39737579413916946
+    }
+  }
+}

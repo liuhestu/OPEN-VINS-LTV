@@ -1,0 +1,173 @@
+{
+  "V1_01_easy": {
+    "gt_first": 1403715274.302143,
+    "gt_last": 1403715417.8571432,
+    "gt_rows": 28712,
+    "gt_max_gap_s": 0.00500035285949707,
+    "quaternion_norm_max_error": 2.052610683955791e-05,
+    "gyro_disagreement_median_rad_s": 0.0885402797697153,
+    "gyro_disagreement_p95_rad_s": 0.12607067595278298,
+    "median_inferred_gravity_world": [
+      -0.01900193524366936,
+      0.30011161905884665,
+      -9.622074095978288
+    ],
+    "inferred_gravity_tilt_deg": 1.7900460463903736,
+    "body_orientation_convention_consistent": true,
+    "gravity_sign_consistent": true,
+    "gravity_precision_note": "input sanity only; no claim of sub-degree ground truth accuracy",
+    "velocity_reference": "provided"
+  },
+  "V2_02_medium": {
+    "gt_first": 1413393887.2257607,
+    "gt_last": 1413394002.6757605,
+    "gt_rows": 23091,
+    "gt_max_gap_s": 0.00500035285949707,
+    "quaternion_norm_max_error": 0.0001281577252987276,
+    "gyro_disagreement_median_rad_s": 0.08928581850300171,
+    "gyro_disagreement_p95_rad_s": 0.11925208431578903,
+    "median_inferred_gravity_world": [
+      -0.07746985159239322,
+      -0.14308949427614856,
+      -9.692310679114655
+    ],
+    "inferred_gravity_tilt_deg": 0.9617942655884641,
+    "body_orientation_convention_consistent": true,
+    "gravity_sign_consistent": true,
+    "gravity_precision_note": "input sanity only; no claim of sub-degree ground truth accuracy",
+    "velocity_reference": "provided"
+  },
+  "V2_03_difficult": {
+    "gt_first": 1413394882.7907605,
+    "gt_last": 1413394997.6357608,
+    "gt_rows": 22970,
+    "gt_max_gap_s": 0.00500035285949707,
+    "quaternion_norm_max_error": 0.0001298293556690755,
+    "gyro_disagreement_median_rad_s": 0.09083075386649601,
+    "gyro_disagreement_p95_rad_s": 0.12130078526098173,
+    "median_inferred_gravity_world": [
+      -0.08514618780729555,
+      -0.07931072531703093,
+      -9.869023119622499
+    ],
+    "inferred_gravity_tilt_deg": 0.6755207721263541,
+    "body_orientation_convention_consistent": true,
+    "gravity_sign_consistent": true,
+    "gravity_precision_note": "input sanity only; no claim of sub-degree ground truth accuracy",
+    "velocity_reference": "provided"
+  },
+  "indoor_forward_3": {
+    "gt_first": 4908.791704125,
+    "gt_last": 4958.289704125,
+    "gt_rows": 24750,
+    "gt_max_gap_s": 0.0020000000004074536,
+    "quaternion_norm_max_error": 8.881784197001252e-16,
+    "gyro_disagreement_median_rad_s": 0.14638709004905914,
+    "gyro_disagreement_p95_rad_s": 0.34298174223265304,
+    "median_inferred_gravity_world": [
+      -0.0936642400154033,
+      0.017935397797142816,
+      -9.70851838092881
+    ],
+    "inferred_gravity_tilt_deg": 0.5627935879874445,
+    "body_orientation_convention_consistent": true,
+    "gravity_sign_consistent": true,
+    "gravity_precision_note": "input sanity only; no claim of sub-degree ground truth accuracy",
+    "velocity_reference": "position derivative; shared visual/IMU reconstruction possible"
+  },
+  "indoor_45_2": {
+    "gt_first": 1416.606163685,
+    "gt_last": 1466.004163685,
+    "gt_rows": 24700,
+    "gt_max_gap_s": 0.00200000000018008,
+    "quaternion_norm_max_error": 8.881784197001252e-16,
+    "gyro_disagreement_median_rad_s": 0.11005901697947258,
+    "gyro_disagreement_p95_rad_s": 0.24738121967380805,
+    "median_inferred_gravity_world": [
+      -0.041524599858909716,
+      -0.00868004764504926,
+      -9.949604147505367
+    ],
+    "inferred_gravity_tilt_deg": 0.24429044954525103,
+    "body_orientation_convention_consistent": true,
+    "gravity_sign_consistent": true,
+    "gravity_precision_note": "input sanity only; no claim of sub-degree ground truth accuracy",
+    "velocity_reference": "position derivative; shared visual/IMU reconstruction possible"
+  },
+  "outdoor_forward_1": {
+    "gt_first": 552.459880894,
+    "gt_last": 595.057880894,
+    "gt_rows": 21300,
+    "gt_max_gap_s": 0.002000000000066393,
+    "quaternion_norm_max_error": 7.771561172376096e-16,
+    "gyro_disagreement_median_rad_s": 0.12166568298561758,
+    "gyro_disagreement_p95_rad_s": 0.2744885686970973,
+    "median_inferred_gravity_world": [
+      0.0286820695790308,
+      0.06855892161665977,
+      -10.044297012104067
+    ],
+    "inferred_gravity_tilt_deg": 0.42391830082411874,
+    "body_orientation_convention_consistent": true,
+    "gravity_sign_consistent": true,
+    "gravity_precision_note": "input sanity only; no claim of sub-degree ground truth accuracy",
+    "velocity_reference": "position derivative; shared visual/IMU reconstruction possible"
+  },
+  "indoor_forward_6": {
+    "gt_first": 1540821387.48298,
+    "gt_last": 1540821417.68098,
+    "gt_rows": 15100,
+    "gt_max_gap_s": 0.002000093460083008,
+    "quaternion_norm_max_error": 8.881784197001252e-16,
+    "gyro_disagreement_median_rad_s": 0.17909005441921194,
+    "gyro_disagreement_p95_rad_s": 0.49909272166630614,
+    "median_inferred_gravity_world": [
+      -0.04166750679363242,
+      0.04083968531978366,
+      -9.757601236843708
+    ],
+    "inferred_gravity_tilt_deg": 0.3425887197608729,
+    "body_orientation_convention_consistent": true,
+    "gravity_sign_consistent": true,
+    "gravity_precision_note": "input sanity only; no claim of sub-degree ground truth accuracy",
+    "velocity_reference": "position derivative; shared visual/IMU reconstruction possible"
+  },
+  "indoor_45_14": {
+    "gt_first": 948.562713409,
+    "gt_last": 985.560713409,
+    "gt_rows": 18500,
+    "gt_max_gap_s": 0.002000000000066393,
+    "quaternion_norm_max_error": 8.881784197001252e-16,
+    "gyro_disagreement_median_rad_s": 0.12733655494160218,
+    "gyro_disagreement_p95_rad_s": 0.30614882156235657,
+    "median_inferred_gravity_world": [
+      0.04951401481705764,
+      -0.06618415582542048,
+      -9.704037213972448
+    ],
+    "inferred_gravity_tilt_deg": 0.4880147790703301,
+    "body_orientation_convention_consistent": true,
+    "gravity_sign_consistent": true,
+    "gravity_precision_note": "input sanity only; no claim of sub-degree ground truth accuracy",
+    "velocity_reference": "position derivative; shared visual/IMU reconstruction possible"
+  },
+  "outdoor_forward_5": {
+    "gt_first": 573.454398161,
+    "gt_last": 591.052398161,
+    "gt_rows": 8800,
+    "gt_max_gap_s": 0.002000000000066393,
+    "quaternion_norm_max_error": 8.881784197001252e-16,
+    "gyro_disagreement_median_rad_s": 0.1217400939321713,
+    "gyro_disagreement_p95_rad_s": 0.3068022156799195,
+    "median_inferred_gravity_world": [
+      0.1846061394862255,
+      -0.35799685434171535,
+      -10.041616644772063
+    ],
+    "inferred_gravity_tilt_deg": 2.297030556824201,
+    "body_orientation_convention_consistent": true,
+    "gravity_sign_consistent": true,
+    "gravity_precision_note": "input sanity only; no claim of sub-degree ground truth accuracy",
+    "velocity_reference": "position derivative; shared visual/IMU reconstruction possible"
+  }
+}
