@@ -5,6 +5,11 @@ import numpy as np
 from scipy.integrate import cumulative_trapezoid
 from truth_model import truth,geometry,sample
 
+def load_arrays(path):
+    """Decompress each NPZ member once before per-sample loops."""
+    with np.load(path) as arrays:
+        return {key:arrays[key] for key in arrays.files}
+
 def geometry_diagnostics(scene,duration,out):
     t=np.arange(round(duration*200)+1)/200; points,Rbc,pc=geometry(scene)
     world=[]
@@ -34,9 +39,10 @@ def compare_runs(a,b):
 
 def overshoot(base,candidate):
     a=np.load(Path(base['directory'])/'trace.npz'); b=np.load(Path(candidate['directory'])/'trace.npz'); result={}
+    base_peaks=peak_diagnostics(base); candidate_peaks=peak_diagnostics(candidate)
     for col,key in [(0,'v'),(1,'eta')]:
-        av=a['values'][:,col]; bv=b['values'][:,col]; peak=float(av.max()); mask=bv>peak
-        result[key]={'base_peak':peak,'candidate_peak':float(bv.max()),'peak_increase':float(bv.max()-peak),'peak_ratio':float(bv.max()/peak),'duration_above_C0_peak':float(np.trapz(mask.astype(float),b['t'])),'duration_above_C0_peak_after_10s':float(np.trapz(mask[b['t']>=10].astype(float),b['t'][b['t']>=10])),'C0_peak_after_10s':float(av[a['t']>=10].max()),'candidate_peak_after_10s':float(bv[b['t']>=10].max()),'duration_above_late_C0_peak_after_10s':float(np.trapz((bv[b['t']>=10]>av[a['t']>=10].max()).astype(float),b['t'][b['t']>=10])),'rmse_full':float(np.sqrt(np.mean(bv*bv))),'rmse_tail':float(np.sqrt(np.mean(bv[b['t']>=50]**2)))}
+        av=a['values'][:,col]; bv=b['values'][:,col]; pk='v' if col==0 else 'eta_vector'; peak=base_peaks['full'][pk]; candidate_peak=candidate_peaks['full'][pk]; mask=bv>peak
+        result[key]={'base_peak':peak,'candidate_peak':candidate_peak,'peak_increase':candidate_peak-peak,'peak_ratio':candidate_peak/peak,'duration_above_C0_peak':float(np.trapz(mask.astype(float),b['t'])),'duration_above_C0_peak_after_10s':float(np.trapz(mask[b['t']>=10].astype(float),b['t'][b['t']>=10])),'C0_peak_after_10s':float(av[a['t']>=10].max()),'candidate_peak_after_10s':float(bv[b['t']>=10].max()),'duration_above_late_C0_peak_after_10s':float(np.trapz((bv[b['t']>=10]>av[a['t']>=10].max()).astype(float),b['t'][b['t']>=10])),'rmse_full':float(np.sqrt(np.mean(bv*bv))),'rmse_tail':float(np.sqrt(np.mean(bv[b['t']>=50]**2)))}
     return result
 
 def seed_summary(e):
@@ -45,6 +51,15 @@ def seed_summary(e):
     seeds=json.loads(path.read_text()); tracks=json.loads((path.parent/'lifecycle.json').read_text()); slotted=len(tracks)
     by_id={v['id']:v for v in tracks}
     return {'accepted':len(seeds),'slotted':slotted,'acceptance':len(seeds)/slotted,'delay_observed_median':float(np.median([v['delay'] for v in seeds])) if seeds else None,'delay_residence_median':float(np.median([v['t']-by_id[v['id']]['slot_birth'] for v in seeds])) if seeds else None,'seed_error_rmse':(0. if e['config']['initialization']=='GT_MATCHED' else float(np.sqrt(np.mean([v['seed_error']**2 for v in seeds])))) if seeds else None,'paired_geometry_error_rmse':float(np.sqrt(np.mean([v['seed_error']**2 for v in seeds]))) if seeds else None}
+
+def initialization_covariance_parity(base, initialized):
+    """Check all saved P snapshots against the same zero-seed simulation."""
+    with np.load(Path(base['directory'])/'matrices.npz') as a, np.load(Path(initialized['directory'])/'matrices.npz') as b:
+        checks={key:bool(np.array_equal(a[key],b[key],equal_nan=True)) for key in ['t','ids','P']}
+        checks['tags']=bool(np.array_equal(a['tags'],b['tags']))
+        result={'baseline':base['id'],'initialized':initialized['id'],'snapshots':len(a['t']),'exact_equal':checks,'pass':all(checks.values())}
+    if not result['pass']: raise AssertionError(f'Initialization changed covariance or lifecycle: {result}')
+    return result
 
 def inspect_saved_numerics(e):
     rd=Path(e['directory']); c=e['config']; m=np.load(rd/'matrices.npz'); summaries=[]
@@ -58,7 +73,7 @@ def inspect_saved_numerics(e):
 
 def dynamic_geometry(e,out):
     """Mask fixed-physical geometry by THIS ID's available history; never join IDs."""
-    c=e['config']; geo=np.load(out/f"geometry_{c['scene']}.npz")
+    c=e['config']; geo=load_arrays(out/f"geometry_{c['scene']}.npz")
     obs=json.loads((Path(e['directory'])/'observations.json').read_text()); t=geo['t']; total=0; summaries={}
     n=len(geometry(c['scene'])[0])
     for window in [1,5,10]:
@@ -73,7 +88,7 @@ def dynamic_geometry(e,out):
 def repeated_transients(base,candidate):
     """Matched dynamic slots at common timestamps; full timeline, including startup."""
     result=overshoot(base,candidate)
-    a=np.load(Path(base['directory'])/'trace.npz'); b=np.load(Path(candidate['directory'])/'trace.npz')
+    a=load_arrays(Path(base['directory'])/'trace.npz'); b=load_arrays(Path(candidate['directory'])/'trace.npz')
     assert np.array_equal(a['ids'],b['ids'])
     tracks=json.loads((Path(candidate['directory'])/'lifecycle.json').read_text())
     # Windows anchored at every accepted slot birth; overlap is explicit and never summed as time.
@@ -88,7 +103,7 @@ def repeated_transients(base,candidate):
 
 def track_outcomes(e):
     """Separate observed-ended and right-censored tracks; add joint v/g/point outcomes."""
-    rd=Path(e['directory']); trace=np.load(rd/'trace.npz'); path=rd/'lifecycle.json'
+    rd=Path(e['directory']); trace=load_arrays(rd/'trace.npz'); path=rd/'lifecycle.json'
     if not path.exists(): return {}
     tracks=json.loads(path.read_text()); lookup={v['id']:v for v in tracks}; rows={v['id']:[] for v in tracks}
     for k,t in enumerate(trace['t']):
@@ -108,12 +123,21 @@ def track_outcomes(e):
                     if start is None: start=t
                     if t-start>=.1-1e-9 and first is None: first=start
                 else: start=None
-            track['joint_'+grade]={'first_held_observation_age':None if first is None else float(first-track['observation_birth']),'at_last_visible':last,'success_by_last_visible':bool(first is not None and last)}
+            first_age=None if first is None else float(first-track['observation_birth'])
+            track['joint_'+grade]={'first_held_observation_age':first_age,'confirmation_observation_age':None if first_age is None else first_age+.1,'at_last_visible':last,'success_by_last_visible':bool(first is not None and last),'terminal_held_success':bool(last and start is not None and track['last_visible']-start>=.1-1e-9)}
+            landmark_start=None
+            for t,l,_,_,_ in samples:
+                if l<=lm:
+                    if landmark_start is None: landmark_start=t
+                else: landmark_start=None
+            track[grade]['terminal_held_success']=bool(landmark_start is not None and track['last_visible']-landmark_start>=.1-1e-9)
+            age=track[grade]['first_held_observation_age']
+            track[grade]['confirmation_observation_age']=None if age is None else age+.1
     completed=[t for t in tracks if not t['observation_right_censored']]
     def rate(tracks,key,field): return float(np.mean([t[key][field] for t in tracks])) if tracks else None
     result={'slotted':len(tracks),'completed_observation_tracks':len(completed),'observation_right_censored':len(tracks)-len(completed)}
     for grade in ['wide','strict']:
-        result[grade]={'landmark_success_completed':rate(completed,grade,'success_before_loss'),'joint_success_completed':rate(completed,'joint_'+grade,'success_by_last_visible'),'landmark_success_all_by_horizon':rate(tracks,grade,'success_before_loss'),'joint_success_all_by_horizon':rate(tracks,'joint_'+grade,'success_by_last_visible')}
+        result[grade]={'landmark_success_completed':rate(completed,grade,'success_before_loss'),'joint_success_completed':rate(completed,'joint_'+grade,'success_by_last_visible'),'landmark_success_all_by_horizon':rate(tracks,grade,'success_before_loss'),'joint_success_all_by_horizon':rate(tracks,'joint_'+grade,'success_by_last_visible'),'landmark_terminal_success_completed':rate(completed,grade,'terminal_held_success'),'joint_terminal_success_completed':rate(completed,'joint_'+grade,'terminal_held_success')}
     (rd/'joint_outcomes.json').write_text(json.dumps(tracks,indent=2))
     return result
 
@@ -172,9 +196,9 @@ def initialization_snapshots(e):
     if c['initialization'] not in ['GT_SEED','GEOM_IDEAL','GT_MATCHED','GEOM_NOISY']: return {}
     from geometry_seed import Seeder
     from truth_model import ids_at
-    metrics=json.loads((rd/'metrics.json').read_text()); inputs=np.load(metrics['input_path'])
+    metrics=json.loads((rd/'metrics.json').read_text()); inputs=load_arrays(metrics['input_path'])
     pts,Rbc,pc=geometry(c['scene']); seeder=Seeder(c['scene'],c['initialization'],Rbc,pc,inputs['priors'])
-    matrices=np.load(rd/'matrices.npz'); pre=np.flatnonzero(matrices['tags']=='before_event'); post=np.flatnonzero(matrices['tags']=='after_event')
+    matrices=load_arrays(rd/'matrices.npz'); pre=np.flatnonzero(matrices['tags']=='before_event'); post=np.flatnonzero(matrices['tags']=='after_event')
     saved_events=json.loads((rd/'seeds.json').read_text()); snapshots=[]; before=[]; after=[]; cov=[]; ids_saved=[]; seeded_ids=set()
     for a,b in zip(pre,post):
         t=float(matrices['t'][a]); assert t==matrices['t'][b]
@@ -202,11 +226,11 @@ def camera_correction_deltas(e):
     """Actual net camera correction from saved endpoints, removing lifecycle/seed writes."""
     c=e['config']; rd=Path(e['directory'])
     if c['impl']=='CONT_REF': return {}
-    camera=np.load(rd/'camera.npz'); trace=np.load(rd/'trace.npz')
+    camera=load_arrays(rd/'camera.npz'); trace=load_arrays(rd/'trace.npz')
     pre=np.flatnonzero(camera['side']=='pre'); post=np.flatnonzero(camera['side']=='post'); seeded={}
     hook_path=rd/'initialization_snapshots_reconstructed.npz'
     if hook_path.exists():
-        h=np.load(hook_path)
+        h=load_arrays(hook_path)
         seeded={round(float(t),9):x for t,x in zip(h['t'],h['x_after'])}
     times=[]; deltas=[]; idsout=[]; previous=0.
     for a,b in zip(pre,post):
@@ -225,3 +249,35 @@ def camera_correction_deltas(e):
     for dx,ids in zip(delta,idsout):
         d=3*int(np.sum(ids>=0))+6; v.append(np.linalg.norm(dx[d-6:d-3])); g.append(np.linalg.norm(dx[d-3:d]))
     return {'source':'actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay','maximum_velocity_correction':float(max(v)),'maximum_gravity_correction':float(max(g))}
+
+def reported_settling(e):
+    """t=0 is AFTER establishing x(0); keep pre-establishment data as audit only.
+
+    The frozen C* selector concerns ZERO initialization, for which this boundary
+    makes no difference. Accurate full-state initialization needs explicit handling.
+    """
+    result=combined_settling(e)
+    if e['config']['initialization']!='EXACT': return result
+    trace=np.load(Path(e['directory'])/'trace.npz'); camera=np.load(Path(e['directory'])/'camera.npz')
+    mask=(camera['t']>0)|(camera['side']=='post')
+    values=np.r_[trace['values'],camera['values'][mask]]; landmarks=np.r_[trace['landmarks'],camera['landmarks'][mask]]
+    n=len(geometry(e['config']['scene'])[0])
+    for grade,vm,gm,mag,lm in [('wide',.1,1,.2,.05),('strict',.05,.5,.1,.02)]:
+        v=values[:,0]<=vm; g=(values[:,2]<=gm)&(values[:,3]<=mag); land=landmarks[:,:n,1]<=lm
+        for key,good in [('t_V_all_samples',v),('t_G_all_samples',g),('t_VG_all_samples',v&g),('t_L_all_samples',np.all(land,axis=1))]:
+            if np.all(good) and trace['t'][-1]>=5: result[grade][key]=0.
+        for j in range(n):
+            if np.all(land[:,j]) and trace['t'][-1]>=5: result[grade]['per_point_all_samples'][j]=0.
+    return result
+
+def peak_diagnostics(e):
+    rd=Path(e['directory']); trace=np.load(rd/'trace.npz'); camera=np.load(rd/'camera.npz')
+    valid=(camera['t']>0)|(camera['side']=='post')
+    values=np.r_[trace['values'],camera['values'][valid]]; land=np.r_[trace['landmarks'],camera['landmarks'][valid]]
+    t=np.r_[trace['t'],camera['t'][valid]]
+    result={}
+    for label,mask in [('full',t>=0),('after_10s',t>=10)]:
+        vals=values[mask]; ll=land[mask]
+        result[label]={'v':float(np.max(vals[:,0])),'eta_vector':float(np.max(vals[:,1])),'eta_direction':float(np.nanmax(vals[:,2])),'eta_magnitude':float(np.max(vals[:,3])),'landmark_3D':float(np.nanmax(ll[:,:,0])),'landmark_relative':float(np.nanmax(ll[:,:,1]))}
+    result['basis']='maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded'
+    return result

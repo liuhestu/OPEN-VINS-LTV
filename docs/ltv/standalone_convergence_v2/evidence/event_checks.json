@@ -1,0 +1,166 @@
+{
+  "03_REGULAR_SPLIT_REF_C0": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "04_REGULAR_CORE_C0": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "07_FAST_SPLIT_REF_C0": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "08_FAST_CORE_C0": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "11_PAPER_CORE_C0": {
+    "records": 16,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "13_REGULAR_EXPERIMENTAL_C0": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "15_REGULAR_EXPERIMENTAL_C0": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "16_REGULAR_CORE_C0": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "17_REGULAR_CORE_C0": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "18_REGULAR_CORE_C0": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "19_REGULAR_SPLIT_REF_C0": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "22_REGULAR_EXPERIMENTAL_C1": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "24_REGULAR_EXPERIMENTAL_C2": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "26_REGULAR_EXPERIMENTAL_C3": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "28_REGULAR_EXPERIMENTAL_C4": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "30_REGULAR_EXPERIMENTAL_C5": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "32_REGULAR_EXPERIMENTAL_C6": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "34_FAST_EXPERIMENTAL_C6": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "36_REGULAR_EXPERIMENTAL_C0": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "37_REGULAR_EXPERIMENTAL_C0": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "38_REGULAR_EXPERIMENTAL_C6": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "39_REGULAR_EXPERIMENTAL_C6": {
+    "records": 30,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "40_REGULAR_EXPERIMENTAL_C0": {
+    "records": 3630,
+    "initial_planned_time_resolved_to_actual_event": 3
+  },
+  "41_REGULAR_EXPERIMENTAL_C0": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  },
+  "42_REGULAR_EXPERIMENTAL_C0": {
+    "records": 930,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "43_REGULAR_EXPERIMENTAL_C0": {
+    "records": 390,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "44_FAST_EXPERIMENTAL_C0": {
+    "records": 3630,
+    "initial_planned_time_resolved_to_actual_event": 3
+  },
+  "45_FAST_EXPERIMENTAL_C0": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  },
+  "46_FAST_EXPERIMENTAL_C0": {
+    "records": 930,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "47_FAST_EXPERIMENTAL_C0": {
+    "records": 390,
+    "initial_planned_time_resolved_to_actual_event": 0
+  },
+  "48_REGULAR_SPLIT_REF_C0": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  },
+  "49_REGULAR_EXPERIMENTAL_C6": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  },
+  "50_FAST_EXPERIMENTAL_C6": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  },
+  "51_REGULAR_EXPERIMENTAL_C0": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  },
+  "52_REGULAR_EXPERIMENTAL_C0": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  },
+  "53_REGULAR_EXPERIMENTAL_C0": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  },
+  "54_REGULAR_EXPERIMENTAL_C0": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  },
+  "55_FAST_EXPERIMENTAL_C0": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  },
+  "56_FAST_EXPERIMENTAL_C0": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  },
+  "57_FAST_EXPERIMENTAL_C0": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  },
+  "58_FAST_EXPERIMENTAL_C0": {
+    "records": 1830,
+    "initial_planned_time_resolved_to_actual_event": 1
+  }
+}

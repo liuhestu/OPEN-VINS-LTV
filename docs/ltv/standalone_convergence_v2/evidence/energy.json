@@ -1,0 +1,251 @@
+{
+  "01_REGULAR_CONT_REF_C0": {
+    "energy_snapshots": 61,
+    "min_U": 4.6253086360244637e-07,
+    "largest_U_increase_at_seconds": -3.2859781165584344e-08
+  },
+  "02_REGULAR_CONT_REF_C0": {
+    "energy_snapshots": 61,
+    "min_U": 4.625308636024341e-07,
+    "largest_U_increase_at_seconds": -3.285978116558244e-08
+  },
+  "03_REGULAR_SPLIT_REF_C0": {
+    "energy_snapshots": 63,
+    "min_U": 4.6222729051605985e-07
+  },
+  "04_REGULAR_CORE_C0": {
+    "energy_snapshots": 63,
+    "min_U": 4.3106195872433525e-07
+  },
+  "05_FAST_CONT_REF_C0": {
+    "energy_snapshots": 61,
+    "min_U": 1.1230646938957148e-10,
+    "largest_U_increase_at_seconds": -2.30076566022747e-11
+  },
+  "06_FAST_CONT_REF_C0": {
+    "energy_snapshots": 61,
+    "min_U": 1.1230646938942158e-10,
+    "largest_U_increase_at_seconds": -2.3007656602567263e-11
+  },
+  "07_FAST_SPLIT_REF_C0": {
+    "energy_snapshots": 63,
+    "min_U": 1.123138831104923e-10
+  },
+  "08_FAST_CORE_C0": {
+    "energy_snapshots": 63,
+    "min_U": 2.5352205261783427e-10
+  },
+  "09_PAPER_CONT_REF_C0": {
+    "energy_snapshots": 21,
+    "min_U": 9.811122224960677e-11,
+    "largest_U_increase_at_seconds": -1.0467980515939804e-10
+  },
+  "10_PAPER_CONT_REF_C0": {
+    "energy_snapshots": 21,
+    "min_U": 9.81112222494468e-11,
+    "largest_U_increase_at_seconds": -1.0467980516057131e-10
+  },
+  "11_PAPER_CORE_C0": {
+    "energy_snapshots": 23,
+    "min_U": 2.9672985047872166e-09
+  },
+  "12_REGULAR_CONT_REF_C0": {
+    "energy_snapshots": 11,
+    "min_U": 0.0,
+    "largest_U_increase_at_seconds": 1.7174897160157102e-32
+  },
+  "13_REGULAR_EXPERIMENTAL_C0": {
+    "energy_snapshots": 13,
+    "min_U": 0.0
+  },
+  "14_STATIC_CONT_REF_C0": {
+    "energy_snapshots": 61,
+    "min_U": 8.708184660069793e-06,
+    "largest_U_increase_at_seconds": -1.509681083648974e-07
+  },
+  "15_REGULAR_EXPERIMENTAL_C0": {
+    "energy_snapshots": 63,
+    "min_U": 4.3106195872433525e-07
+  },
+  "16_REGULAR_CORE_C0": {
+    "energy_snapshots": 63,
+    "min_U": 4.5551364592914815e-07
+  },
+  "17_REGULAR_CORE_C0": {
+    "energy_snapshots": 63,
+    "min_U": 4.315023461471917e-07
+  },
+  "18_REGULAR_CORE_C0": {
+    "energy_snapshots": 63,
+    "min_U": 4.5600165771638265e-07
+  },
+  "19_REGULAR_SPLIT_REF_C0": {
+    "energy_snapshots": 63,
+    "min_U": 4.6246400051201223e-07
+  },
+  "20_REGULAR_CONT_REF_C0": {
+    "energy_snapshots": 121,
+    "min_U": 2.1936398738404783e-09,
+    "largest_U_increase_at_seconds": -1.3533212478475772e-10
+  },
+  "21_REGULAR_CONT_REF_C1": {
+    "energy_snapshots": 61,
+    "min_U": 4.702230763996928e-07,
+    "largest_U_increase_at_seconds": -3.383328049301327e-08
+  },
+  "22_REGULAR_EXPERIMENTAL_C1": {
+    "energy_snapshots": 63,
+    "min_U": 4.367273437595357e-07
+  },
+  "23_REGULAR_CONT_REF_C2": {
+    "energy_snapshots": 61,
+    "min_U": 4.6096196679990965e-07,
+    "largest_U_increase_at_seconds": -3.278562071249686e-08
+  },
+  "24_REGULAR_EXPERIMENTAL_C2": {
+    "energy_snapshots": 63,
+    "min_U": 4.3017281151978915e-07
+  },
+  "25_REGULAR_CONT_REF_C3": {
+    "energy_snapshots": 61,
+    "min_U": 4.702200745142271e-06,
+    "largest_U_increase_at_seconds": -3.3833065481050574e-07
+  },
+  "26_REGULAR_EXPERIMENTAL_C3": {
+    "energy_snapshots": 63,
+    "min_U": 4.367244128875361e-06
+  },
+  "27_REGULAR_CONT_REF_C4": {
+    "energy_snapshots": 61,
+    "min_U": 4.609622755629073e-08,
+    "largest_U_increase_at_seconds": -3.278564259420707e-09
+  },
+  "28_REGULAR_EXPERIMENTAL_C4": {
+    "energy_snapshots": 63,
+    "min_U": 4.301731119351641e-08
+  },
+  "29_REGULAR_CONT_REF_C5": {
+    "energy_snapshots": 61,
+    "min_U": 4.624969895902047e-07,
+    "largest_U_increase_at_seconds": -3.2857383835472245e-08
+  },
+  "30_REGULAR_EXPERIMENTAL_C5": {
+    "energy_snapshots": 63,
+    "min_U": 4.3102895810159323e-07
+  },
+  "31_REGULAR_CONT_REF_C6": {
+    "energy_snapshots": 61,
+    "min_U": 4.5916741323801275e-07,
+    "largest_U_increase_at_seconds": -3.2621734810774776e-08
+  },
+  "32_REGULAR_EXPERIMENTAL_C6": {
+    "energy_snapshots": 63,
+    "min_U": 4.2779139876702024e-07
+  },
+  "33_FAST_CONT_REF_C6": {
+    "energy_snapshots": 61,
+    "min_U": 1.1131386917520074e-10,
+    "largest_U_increase_at_seconds": -2.2804319166184702e-11
+  },
+  "34_FAST_EXPERIMENTAL_C6": {
+    "energy_snapshots": 63,
+    "min_U": 2.510784427419425e-10
+  },
+  "35_REGULAR_CONT_REF_C6": {
+    "energy_snapshots": 61,
+    "min_U": 4.591674132380082e-07,
+    "largest_U_increase_at_seconds": -3.262173481077319e-08
+  },
+  "36_REGULAR_EXPERIMENTAL_C0": {
+    "energy_snapshots": 63,
+    "min_U": 9.01414172394365e-06
+  },
+  "37_REGULAR_EXPERIMENTAL_C0": {
+    "energy_snapshots": 63,
+    "min_U": 8.788711631607884e-06
+  },
+  "38_REGULAR_EXPERIMENTAL_C6": {
+    "energy_snapshots": 63,
+    "min_U": 9.009468212866586e-06
+  },
+  "39_REGULAR_EXPERIMENTAL_C6": {
+    "energy_snapshots": 63,
+    "min_U": 8.78400148810291e-06
+  },
+  "40_REGULAR_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 0.02658154969041085
+  },
+  "41_REGULAR_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 0.012390257508152931
+  },
+  "42_REGULAR_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 0.0049294963426802394
+  },
+  "43_REGULAR_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 0.0016428875845125137
+  },
+  "44_FAST_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 0.0211016027132227
+  },
+  "45_FAST_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 0.00982144177958866
+  },
+  "46_FAST_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 0.004113720225956004
+  },
+  "47_FAST_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 0.0013532668632941028
+  },
+  "48_REGULAR_SPLIT_REF_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 0.01172466674615879
+  },
+  "49_REGULAR_EXPERIMENTAL_C6": {
+    "energy_snapshots": 2463,
+    "min_U": 0.009996299999999996
+  },
+  "50_FAST_EXPERIMENTAL_C6": {
+    "energy_snapshots": 2463,
+    "min_U": 0.009097142762187203
+  },
+  "51_REGULAR_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 1.3469471592907915e-11
+  },
+  "52_REGULAR_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 1.2999984435384217e-11
+  },
+  "53_REGULAR_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 1.2999985358882067e-11
+  },
+  "54_REGULAR_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 0.00019309902430196405
+  },
+  "55_FAST_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 7.703409497989814e-11
+  },
+  "56_FAST_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 7.703083414647398e-11
+  },
+  "57_FAST_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 7.703083398510459e-11
+  },
+  "58_FAST_EXPERIMENTAL_C0": {
+    "energy_snapshots": 2463,
+    "min_U": 2.3362562117213576e-05
+  }
+}

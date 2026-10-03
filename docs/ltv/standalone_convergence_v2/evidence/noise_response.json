@@ -1,0 +1,50 @@
+{
+  "36_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "velocity_response_rmse": 0.3687529063859149,
+      "gravity_response_rmse": 0.21426349933705685,
+      "landmark_response_rmse": 3.548454420966887
+    },
+    "tail": {
+      "velocity_response_rmse": 0.6416521780645701,
+      "gravity_response_rmse": 0.37591292586823255,
+      "landmark_response_rmse": 6.183486030384427
+    }
+  },
+  "37_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "velocity_response_rmse": 0.36525868743518414,
+      "gravity_response_rmse": 0.21182465668916828,
+      "landmark_response_rmse": 3.5168342324963833
+    },
+    "tail": {
+      "velocity_response_rmse": 0.634026122327852,
+      "gravity_response_rmse": 0.37193996376128263,
+      "landmark_response_rmse": 6.117498864575478
+    }
+  },
+  "38_REGULAR_EXPERIMENTAL_C6": {
+    "full": {
+      "velocity_response_rmse": 0.36963832418946097,
+      "gravity_response_rmse": 0.21477743473687105,
+      "landmark_response_rmse": 3.5570268997501273
+    },
+    "tail": {
+      "velocity_response_rmse": 0.6424944341423625,
+      "gravity_response_rmse": 0.3764128383883464,
+      "landmark_response_rmse": 6.191752166742457
+    }
+  },
+  "39_REGULAR_EXPERIMENTAL_C6": {
+    "full": {
+      "velocity_response_rmse": 0.36613399818915415,
+      "gravity_response_rmse": 0.21233170001807203,
+      "landmark_response_rmse": 3.525307720721077
+    },
+    "tail": {
+      "velocity_response_rmse": 0.6348613051384117,
+      "gravity_response_rmse": 0.3724361000964216,
+      "landmark_response_rmse": 6.125701959125801
+    }
+  }
+}

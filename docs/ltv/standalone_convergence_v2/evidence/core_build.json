@@ -1,0 +1,20 @@
+{
+  "command": [
+    "g++",
+    "-std=c++14",
+    "-O2",
+    "-DNDEBUG",
+    "-shared",
+    "-fPIC",
+    "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv",
+    "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+    "-I/usr/include/eigen3",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/ltv_observer.cpp",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_standalone_study/core_runner.cpp",
+    "-o",
+    "/home/he/output/ltv_standalone_convergence_v2/core.so"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

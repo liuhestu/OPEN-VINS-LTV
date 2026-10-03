@@ -1,0 +1,76 @@
+{
+  "41_REGULAR_EXPERIMENTAL_C0": {},
+  "45_FAST_EXPERIMENTAL_C0": {},
+  "51_REGULAR_EXPERIMENTAL_C0": {
+    "accepted": 1827,
+    "slotted": 1827,
+    "acceptance": 1.0,
+    "delay_observed_median": 0.10000000000000142,
+    "delay_residence_median": 0.0,
+    "seed_error_rmse": 0.0,
+    "paired_geometry_error_rmse": 0.0
+  },
+  "52_REGULAR_EXPERIMENTAL_C0": {
+    "accepted": 1824,
+    "slotted": 1827,
+    "acceptance": 0.9983579638752053,
+    "delay_observed_median": 0.14999999999999858,
+    "delay_residence_median": 0.04999999999999716,
+    "seed_error_rmse": 1.4405967390036092e-10,
+    "paired_geometry_error_rmse": 1.4405967390036092e-10
+  },
+  "53_REGULAR_EXPERIMENTAL_C0": {
+    "accepted": 1824,
+    "slotted": 1827,
+    "acceptance": 0.9983579638752053,
+    "delay_observed_median": 0.14999999999999858,
+    "delay_residence_median": 0.04999999999999716,
+    "seed_error_rmse": 0.0,
+    "paired_geometry_error_rmse": 1.4405967390036092e-10
+  },
+  "54_REGULAR_EXPERIMENTAL_C0": {
+    "accepted": 1823,
+    "slotted": 1827,
+    "acceptance": 0.9978106185002736,
+    "delay_observed_median": 0.10000000000000142,
+    "delay_residence_median": 0.0,
+    "seed_error_rmse": 4.08614739790472,
+    "paired_geometry_error_rmse": 4.08614739790472
+  },
+  "55_FAST_EXPERIMENTAL_C0": {
+    "accepted": 1827,
+    "slotted": 1827,
+    "acceptance": 1.0,
+    "delay_observed_median": 0.10000000000000142,
+    "delay_residence_median": 0.0,
+    "seed_error_rmse": 0.0,
+    "paired_geometry_error_rmse": 0.0
+  },
+  "56_FAST_EXPERIMENTAL_C0": {
+    "accepted": 1824,
+    "slotted": 1827,
+    "acceptance": 0.9983579638752053,
+    "delay_observed_median": 0.10000000000000142,
+    "delay_residence_median": 0.0,
+    "seed_error_rmse": 5.93061729737281e-11,
+    "paired_geometry_error_rmse": 5.93061729737281e-11
+  },
+  "57_FAST_EXPERIMENTAL_C0": {
+    "accepted": 1824,
+    "slotted": 1827,
+    "acceptance": 0.9983579638752053,
+    "delay_observed_median": 0.10000000000000142,
+    "delay_residence_median": 0.0,
+    "seed_error_rmse": 0.0,
+    "paired_geometry_error_rmse": 5.93061729737281e-11
+  },
+  "58_FAST_EXPERIMENTAL_C0": {
+    "accepted": 1824,
+    "slotted": 1827,
+    "acceptance": 0.9983579638752053,
+    "delay_observed_median": 0.10000000000000142,
+    "delay_residence_median": 0.0,
+    "seed_error_rmse": 2.075809789342549,
+    "paired_geometry_error_rmse": 2.075809789342549
+  }
+}

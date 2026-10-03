@@ -1,0 +1,32 @@
+{
+  "36_REGULAR_EXPERIMENTAL_C0": {
+    "accelerometer_std_axes": [
+      0.020179975979510725,
+      0.019988418460990063,
+      0.020060588679608318
+    ],
+    "gyro_std_axes": [
+      0.0020287665175339475,
+      0.001995363109044497,
+      0.001991451330696543
+    ],
+    "bearing_angle_RMS_deg": 0.07107999067436387,
+    "bearing_expected_angle_RMS_deg": 0.07071067811865477,
+    "input_sha": "55c02ef9a16543356338b92a86df4e48636329ae0904924ebf7ee59cd51b76c6"
+  },
+  "37_REGULAR_EXPERIMENTAL_C0": {
+    "accelerometer_std_axes": [
+      0.020044647001381224,
+      0.019903297635481213,
+      0.01995996055173053
+    ],
+    "gyro_std_axes": [
+      0.001991032726675479,
+      0.002001502904734607,
+      0.0019738328113154753
+    ],
+    "bearing_angle_RMS_deg": 0.07052162213957845,
+    "bearing_expected_angle_RMS_deg": 0.07071067811865477,
+    "input_sha": "831823fad05adff7029b42b78e5e29c213c711a02db12a05c857eef64714b3f5"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "runs": 58,
+  "stage_counts": {
+    "fixed": 14,
+    "diagnostic": 2,
+    "discretization": 4,
+    "gains": 19,
+    "lifecycle": 11,
+    "initialization": 8
+  },
+  "numerical_code_identity_unchanged": true,
+  "frozen_selector_unchanged": true,
+  "all_initialization_covariance_checks": true,
+  "report_tables_and_local_links": true,
+  "authorized_frozen_files_unchanged": 588,
+  "no_new_simulation": true
+}

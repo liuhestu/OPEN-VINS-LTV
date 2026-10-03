@@ -1,0 +1,66 @@
+{
+  "51_REGULAR_EXPERIMENTAL_C0": {
+    "source": "exact reconstruction from saved pre-event P/x, actual post-event slot IDs and frozen seed inputs; not an extra simulation",
+    "seed_writes": 1827,
+    "events": 1199,
+    "unique_once": true,
+    "vg_means_unchanged_at_hook": true,
+    "P_is_shared_before_after": true
+  },
+  "52_REGULAR_EXPERIMENTAL_C0": {
+    "source": "exact reconstruction from saved pre-event P/x, actual post-event slot IDs and frozen seed inputs; not an extra simulation",
+    "seed_writes": 1824,
+    "events": 1076,
+    "unique_once": true,
+    "vg_means_unchanged_at_hook": true,
+    "P_is_shared_before_after": true
+  },
+  "53_REGULAR_EXPERIMENTAL_C0": {
+    "source": "exact reconstruction from saved pre-event P/x, actual post-event slot IDs and frozen seed inputs; not an extra simulation",
+    "seed_writes": 1824,
+    "events": 1076,
+    "unique_once": true,
+    "vg_means_unchanged_at_hook": true,
+    "P_is_shared_before_after": true
+  },
+  "54_REGULAR_EXPERIMENTAL_C0": {
+    "source": "exact reconstruction from saved pre-event P/x, actual post-event slot IDs and frozen seed inputs; not an extra simulation",
+    "seed_writes": 1823,
+    "events": 871,
+    "unique_once": true,
+    "vg_means_unchanged_at_hook": true,
+    "P_is_shared_before_after": true
+  },
+  "55_FAST_EXPERIMENTAL_C0": {
+    "source": "exact reconstruction from saved pre-event P/x, actual post-event slot IDs and frozen seed inputs; not an extra simulation",
+    "seed_writes": 1827,
+    "events": 1199,
+    "unique_once": true,
+    "vg_means_unchanged_at_hook": true,
+    "P_is_shared_before_after": true
+  },
+  "56_FAST_EXPERIMENTAL_C0": {
+    "source": "exact reconstruction from saved pre-event P/x, actual post-event slot IDs and frozen seed inputs; not an extra simulation",
+    "seed_writes": 1824,
+    "events": 1167,
+    "unique_once": true,
+    "vg_means_unchanged_at_hook": true,
+    "P_is_shared_before_after": true
+  },
+  "57_FAST_EXPERIMENTAL_C0": {
+    "source": "exact reconstruction from saved pre-event P/x, actual post-event slot IDs and frozen seed inputs; not an extra simulation",
+    "seed_writes": 1824,
+    "events": 1167,
+    "unique_once": true,
+    "vg_means_unchanged_at_hook": true,
+    "P_is_shared_before_after": true
+  },
+  "58_FAST_EXPERIMENTAL_C0": {
+    "source": "exact reconstruction from saved pre-event P/x, actual post-event slot IDs and frozen seed inputs; not an extra simulation",
+    "seed_writes": 1824,
+    "events": 1162,
+    "unique_once": true,
+    "vg_means_unchanged_at_hook": true,
+    "P_is_shared_before_after": true
+  }
+}

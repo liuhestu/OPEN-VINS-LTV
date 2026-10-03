@@ -1,0 +1,207 @@
+{
+  "03_REGULAR_SPLIT_REF_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.47160569006956976,
+    "maximum_gravity_correction": 0.23331617963314608
+  },
+  "04_REGULAR_CORE_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.470047401183364,
+    "maximum_gravity_correction": 0.2344352419909624
+  },
+  "07_FAST_SPLIT_REF_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.4707143577100543,
+    "maximum_gravity_correction": 0.24588157596515692
+  },
+  "08_FAST_CORE_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.46915781709451937,
+    "maximum_gravity_correction": 0.24713750653468436
+  },
+  "11_PAPER_CORE_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5215407298741186,
+    "maximum_gravity_correction": 0.2527007792554956
+  },
+  "13_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.0006438928316418627,
+    "maximum_gravity_correction": 0.00041434771339832324
+  },
+  "15_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.470047401183364,
+    "maximum_gravity_correction": 0.2344352419909624
+  },
+  "16_REGULAR_CORE_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.46908504048711985,
+    "maximum_gravity_correction": 0.23367097100856046
+  },
+  "17_REGULAR_CORE_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.09422487399863912,
+    "maximum_gravity_correction": 0.04687953718232111
+  },
+  "18_REGULAR_CORE_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.09403839632951955,
+    "maximum_gravity_correction": 0.04672527195881577
+  },
+  "19_REGULAR_SPLIT_REF_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.0941953555214303,
+    "maximum_gravity_correction": 0.046677514180168335
+  },
+  "22_REGULAR_EXPERIMENTAL_C1": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5034827579238835,
+    "maximum_gravity_correction": 0.23514695088218823
+  },
+  "24_REGULAR_EXPERIMENTAL_C2": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.4590938492873794,
+    "maximum_gravity_correction": 0.23415411371601924
+  },
+  "26_REGULAR_EXPERIMENTAL_C3": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5034814877781159,
+    "maximum_gravity_correction": 0.23514659003550087
+  },
+  "28_REGULAR_EXPERIMENTAL_C4": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.4590939924785945,
+    "maximum_gravity_correction": 0.23415415367632994
+  },
+  "30_REGULAR_EXPERIMENTAL_C5": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.4700315678689883,
+    "maximum_gravity_correction": 0.23443077715798355
+  },
+  "32_REGULAR_EXPERIMENTAL_C6": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.4685072861434051,
+    "maximum_gravity_correction": 0.23399218889048778
+  },
+  "34_FAST_EXPERIMENTAL_C6": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.46736678464969894,
+    "maximum_gravity_correction": 0.246467629739588
+  },
+  "36_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.46999054381917993,
+    "maximum_gravity_correction": 0.2355243151001758
+  },
+  "37_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.4722143594871372,
+    "maximum_gravity_correction": 0.23747247352684406
+  },
+  "38_REGULAR_EXPERIMENTAL_C6": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.46823827765014736,
+    "maximum_gravity_correction": 0.23506975862612442
+  },
+  "39_REGULAR_EXPERIMENTAL_C6": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.47100886570612555,
+    "maximum_gravity_correction": 0.2368958983670903
+  },
+  "40_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5724309016125972,
+    "maximum_gravity_correction": 0.2881463595441868
+  },
+  "41_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5358611609029219,
+    "maximum_gravity_correction": 0.2590084272612989
+  },
+  "42_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.47035600765643876,
+    "maximum_gravity_correction": 0.22926666406552398
+  },
+  "43_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.47430868284798705,
+    "maximum_gravity_correction": 0.23822487356257213
+  },
+  "44_FAST_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5950949285191911,
+    "maximum_gravity_correction": 0.31091335009996446
+  },
+  "45_FAST_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5507739246174292,
+    "maximum_gravity_correction": 0.27558100677978625
+  },
+  "46_FAST_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.46310924230197964,
+    "maximum_gravity_correction": 0.243013222542737
+  },
+  "47_FAST_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.4734211390162761,
+    "maximum_gravity_correction": 0.24880889489992575
+  },
+  "48_REGULAR_SPLIT_REF_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5385888808427849,
+    "maximum_gravity_correction": 0.2574542052269157
+  },
+  "49_REGULAR_EXPERIMENTAL_C6": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5360437361703904,
+    "maximum_gravity_correction": 0.25948843265662286
+  },
+  "50_FAST_EXPERIMENTAL_C6": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5514909321358534,
+    "maximum_gravity_correction": 0.276336053338304
+  },
+  "51_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5250368867909505,
+    "maximum_gravity_correction": 0.2533407329927233
+  },
+  "52_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5240971193362425,
+    "maximum_gravity_correction": 0.25434197902028943
+  },
+  "53_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5240971193362018,
+    "maximum_gravity_correction": 0.2543419790202731
+  },
+  "54_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5233471112294188,
+    "maximum_gravity_correction": 0.2676313599837541
+  },
+  "55_FAST_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.6749422551438314,
+    "maximum_gravity_correction": 0.25786544204393086
+  },
+  "56_FAST_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.6678396109845111,
+    "maximum_gravity_correction": 0.2611838213250596
+  },
+  "57_FAST_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.6678396109848178,
+    "maximum_gravity_correction": 0.26118382132507156
+  },
+  "58_FAST_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.7034536969754963,
+    "maximum_gravity_correction": 0.25919797167135894
+  }
+}

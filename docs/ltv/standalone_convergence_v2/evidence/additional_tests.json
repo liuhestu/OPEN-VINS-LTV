@@ -4,5 +4,27 @@
   "exact_split_vs_ODE": "PASS",
   "production_old_value_Euler_full_P": "PASS",
   "hook_off_parity_slots_cross_blocks_hook_scope_integer_ticks": "PASS",
-  "camera_ties_cannot_hide_preupdate_failure": "PASS"
+  "camera_ties_cannot_hide_preupdate_failure": "PASS",
+  "cpp_points_specific_force_body_states_signed_bearings": {
+    "status": "PASS",
+    "max_absolute_difference": 7.105427357601002e-15,
+    "rows": 424,
+    "build_command": [
+      "g++",
+      "-std=c++14",
+      "-O2",
+      "-I/usr/include/eigen3",
+      "scripts/ltv_standalone_study/truth_verify.cpp",
+      "-L/home/he/output/ltv_standalone_convergence_v2",
+      "-l:core.so",
+      "-Wl,-rpath,/home/he/output/ltv_standalone_convergence_v2",
+      "-o",
+      "/home/he/output/ltv_standalone_convergence_v2/truth_verify"
+    ],
+    "build_exit_code": 0,
+    "run_command": [
+      "/home/he/output/ltv_standalone_convergence_v2/truth_verify"
+    ],
+    "exit_code": 0
+  }
 }

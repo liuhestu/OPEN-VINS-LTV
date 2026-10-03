@@ -1,0 +1,255 @@
+{
+  "40_REGULAR_EXPERIMENTAL_C0": {
+    "window_1": {
+      "complete_samples": 0,
+      "observation_samples": 327630,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_5": {
+      "complete_samples": 0,
+      "observation_samples": 327630,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_10": {
+      "complete_samples": 0,
+      "observation_samples": 327630,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    }
+  },
+  "41_REGULAR_EXPERIMENTAL_C0": {
+    "window_1": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_5": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_10": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    }
+  },
+  "42_REGULAR_EXPERIMENTAL_C0": {
+    "window_1": {
+      "complete_samples": 169050,
+      "observation_samples": 351930,
+      "coverage": 0.48035120620577954,
+      "minimum": 1.1663252485472047e-05,
+      "median": 0.0005870657661501786
+    },
+    "window_5": {
+      "complete_samples": 0,
+      "observation_samples": 351930,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_10": {
+      "complete_samples": 0,
+      "observation_samples": 351930,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    }
+  },
+  "43_REGULAR_EXPERIMENTAL_C0": {
+    "window_1": {
+      "complete_samples": 280038,
+      "observation_samples": 356790,
+      "coverage": 0.7848818632809216,
+      "minimum": 1.1663252485472047e-05,
+      "median": 0.0005914484618269468
+    },
+    "window_5": {
+      "complete_samples": 0,
+      "observation_samples": 356790,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_10": {
+      "complete_samples": 0,
+      "observation_samples": 356790,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    }
+  },
+  "44_FAST_EXPERIMENTAL_C0": {
+    "window_1": {
+      "complete_samples": 0,
+      "observation_samples": 327630,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_5": {
+      "complete_samples": 0,
+      "observation_samples": 327630,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_10": {
+      "complete_samples": 0,
+      "observation_samples": 327630,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    }
+  },
+  "45_FAST_EXPERIMENTAL_C0": {
+    "window_1": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_5": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_10": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    }
+  },
+  "46_FAST_EXPERIMENTAL_C0": {
+    "window_1": {
+      "complete_samples": 169050,
+      "observation_samples": 351930,
+      "coverage": 0.48035120620577954,
+      "minimum": 5.0247263633399516e-05,
+      "median": 0.004879362088058581
+    },
+    "window_5": {
+      "complete_samples": 0,
+      "observation_samples": 351930,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_10": {
+      "complete_samples": 0,
+      "observation_samples": 351930,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    }
+  },
+  "47_FAST_EXPERIMENTAL_C0": {
+    "window_1": {
+      "complete_samples": 280038,
+      "observation_samples": 356790,
+      "coverage": 0.7848818632809216,
+      "minimum": 5.0247263633399516e-05,
+      "median": 0.004892636079157899
+    },
+    "window_5": {
+      "complete_samples": 0,
+      "observation_samples": 356790,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_10": {
+      "complete_samples": 0,
+      "observation_samples": 356790,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    }
+  },
+  "48_REGULAR_SPLIT_REF_C0": {
+    "window_1": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_5": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_10": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    }
+  },
+  "49_REGULAR_EXPERIMENTAL_C6": {
+    "window_1": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_5": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_10": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    }
+  },
+  "50_FAST_EXPERIMENTAL_C6": {
+    "window_1": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_5": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    },
+    "window_10": {
+      "complete_samples": 0,
+      "observation_samples": 343830,
+      "coverage": 0.0,
+      "minimum": null,
+      "median": null
+    }
+  }
+}

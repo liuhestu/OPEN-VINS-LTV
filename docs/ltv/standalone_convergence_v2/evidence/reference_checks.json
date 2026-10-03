@@ -19,5 +19,12 @@
     "state_max_normalized": 3.6154575432225674e-14,
     "P_max_relative": 5.903279757954757e-14,
     "pass": true
+  },
+  {
+    "base": "31_REGULAR_CONT_REF_C6",
+    "tight": "35_REGULAR_CONT_REF_C6",
+    "state_max_normalized": 2.419781362175666e-14,
+    "P_max_relative": 2.3696926424882617e-14,
+    "pass": true
   }
 ]

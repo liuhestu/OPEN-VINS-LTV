@@ -1,0 +1,1104 @@
+{
+  "01_REGULAR_CONT_REF_C0": {
+    "full": {
+      "v": 6.77949317419507,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.22905240218299,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.381631868357914,
+      "landmark_relative": 1.349990145401772
+    },
+    "after_10s": {
+      "v": 2.1053317460175327,
+      "eta_vector": 1.2301505446603558,
+      "eta_direction": 7.047921340048865,
+      "eta_magnitude": 0.5130390679194701,
+      "landmark_3D": 19.63018285676014,
+      "landmark_relative": 1.1650856287108238
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "02_REGULAR_CONT_REF_C0": {
+    "full": {
+      "v": 6.779493174195068,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.22905240244616,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.381631868357918,
+      "landmark_relative": 1.349990145401772
+    },
+    "after_10s": {
+      "v": 2.1053317460175323,
+      "eta_vector": 1.230150544660364,
+      "eta_direction": 7.0479213400490215,
+      "eta_magnitude": 0.5130390679194932,
+      "landmark_3D": 19.630182856760143,
+      "landmark_relative": 1.1650856287108238
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "03_REGULAR_SPLIT_REF_C0": {
+    "full": {
+      "v": 7.01068026726771,
+      "eta_vector": 9.81,
+      "eta_direction": 87.81117510150692,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.408700912961134,
+      "landmark_relative": 1.361947088818926
+    },
+    "after_10s": {
+      "v": 2.131040280485959,
+      "eta_vector": 1.230198782696638,
+      "eta_direction": 7.04818325508648,
+      "eta_magnitude": 0.51296059840816,
+      "landmark_3D": 19.648178943802264,
+      "landmark_relative": 1.1664497079104523
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "04_REGULAR_CORE_C0": {
+    "full": {
+      "v": 6.927056918772952,
+      "eta_vector": 9.81,
+      "eta_direction": 87.85022525215486,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.419947380036902,
+      "landmark_relative": 1.3575541040130668
+    },
+    "after_10s": {
+      "v": 2.119951807716612,
+      "eta_vector": 1.2349154995802827,
+      "eta_direction": 7.078718431107588,
+      "eta_magnitude": 0.5140030959734094,
+      "landmark_3D": 19.653818561716516,
+      "landmark_relative": 1.1670525251733137
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "05_FAST_CONT_REF_C0": {
+    "full": {
+      "v": 7.561034166962479,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.21677650908771,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.883391374166138,
+      "landmark_relative": 1.3127677861664178
+    },
+    "after_10s": {
+      "v": 3.2897487771187293,
+      "eta_vector": 2.097806601592409,
+      "eta_direction": 11.96834990027634,
+      "eta_magnitude": 1.2626544697491102,
+      "landmark_3D": 12.911367726289681,
+      "landmark_relative": 0.7430493007253366
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "06_FAST_CONT_REF_C0": {
+    "full": {
+      "v": 7.56103416696248,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.21677650955586,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.883391374166138,
+      "landmark_relative": 1.3127677861664184
+    },
+    "after_10s": {
+      "v": 3.289748777118717,
+      "eta_vector": 2.0978066015924055,
+      "eta_direction": 11.96834990027634,
+      "eta_magnitude": 1.262654469749112,
+      "landmark_3D": 12.911367726289676,
+      "landmark_relative": 0.7430493007253369
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "07_FAST_SPLIT_REF_C0": {
+    "full": {
+      "v": 7.721719302365703,
+      "eta_vector": 9.81,
+      "eta_direction": 87.6351316577823,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 23.019269719084523,
+      "landmark_relative": 1.3245467547859038
+    },
+    "after_10s": {
+      "v": 3.3368693217563012,
+      "eta_vector": 2.0975896525400928,
+      "eta_direction": 11.966215653266877,
+      "eta_magnitude": 1.266172705978967,
+      "landmark_3D": 12.950526508766275,
+      "landmark_relative": 0.7482949287014194
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "08_FAST_CORE_C0": {
+    "full": {
+      "v": 7.663596730446016,
+      "eta_vector": 9.81,
+      "eta_direction": 87.67472152363979,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.971212509067797,
+      "landmark_relative": 1.3201741339519204
+    },
+    "after_10s": {
+      "v": 3.3035660697698455,
+      "eta_vector": 2.097201574621962,
+      "eta_direction": 11.962938433837444,
+      "eta_magnitude": 1.267786361026669,
+      "landmark_3D": 12.894576941290662,
+      "landmark_relative": 0.7444023433369312
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "09_PAPER_CONT_REF_C0": {
+    "full": {
+      "v": 4.450513454946914,
+      "eta_vector": 9.81,
+      "eta_direction": 87.72729297442521,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 3.5935338691143497,
+      "landmark_relative": 1.0122656627232927
+    },
+    "after_10s": {
+      "v": 0.23931657721360453,
+      "eta_vector": 0.10868174384111698,
+      "eta_direction": 0.618084142799818,
+      "eta_magnitude": 0.025059455489088833,
+      "landmark_3D": 0.3274146452651435,
+      "landmark_relative": 0.09872955648956665
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "10_PAPER_CONT_REF_C0": {
+    "full": {
+      "v": 4.450513454946915,
+      "eta_vector": 9.81,
+      "eta_direction": 87.7272929743817,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 3.5935338691143506,
+      "landmark_relative": 1.0122656627232927
+    },
+    "after_10s": {
+      "v": 0.23931657721359229,
+      "eta_vector": 0.10868174384111627,
+      "eta_direction": 0.6180841428004077,
+      "eta_magnitude": 0.02505945548907107,
+      "landmark_3D": 0.3274146452651481,
+      "landmark_relative": 0.09872955648956523
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "11_PAPER_CORE_C0": {
+    "full": {
+      "v": 4.603717546985026,
+      "eta_vector": 9.810000000000002,
+      "eta_direction": 86.30438079966828,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 3.597437473845042,
+      "landmark_relative": 1.012319703966195
+    },
+    "after_10s": {
+      "v": 0.22677016637086797,
+      "eta_vector": 0.15580189996732008,
+      "eta_direction": 0.7318828738257438,
+      "eta_magnitude": 0.09297290775837652,
+      "landmark_3D": 0.2748222376534019,
+      "landmark_relative": 0.08884520339271933
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "12_REGULAR_CONT_REF_C0": {
+    "full": {
+      "v": 5.1227168947888106e-14,
+      "eta_vector": 4.0002554246458096e-14,
+      "eta_direction": 1.9090959104164224e-06,
+      "eta_magnitude": 3.019806626980426e-14,
+      "landmark_3D": 7.122061232937489e-14,
+      "landmark_relative": 4.534076441315247e-15
+    },
+    "after_10s": {
+      "v": 1.1540446590763553e-14,
+      "eta_vector": 7.856740153113387e-15,
+      "eta_direction": 8.537736462515939e-07,
+      "eta_magnitude": 1.7763568394002505e-15,
+      "landmark_3D": 5.706503147070311e-14,
+      "landmark_relative": 3.6609154107873435e-15
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "13_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 0.009630483831514118,
+      "eta_vector": 0.009853389776666293,
+      "eta_direction": 0.05061693554944442,
+      "eta_magnitude": 0.00469532984513954,
+      "landmark_3D": 0.04471766009382867,
+      "landmark_relative": 0.002729508986901847
+    },
+    "after_10s": {
+      "v": 0.004838007471910561,
+      "eta_vector": 0.003965675480015672,
+      "eta_direction": 0.02236937746789782,
+      "eta_magnitude": 0.0010276401744953034,
+      "landmark_3D": 0.04468788422605995,
+      "landmark_relative": 0.0026529600570026476
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "14_STATIC_CONT_REF_C0": {
+    "full": {
+      "v": 7.385104475988682,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.23845455274447,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.192680288759817,
+      "landmark_relative": 1.3858991287575726
+    },
+    "after_10s": {
+      "v": 0.002310007265186701,
+      "eta_vector": 0.00114523036636903,
+      "eta_direction": 0.00015527652448111347,
+      "eta_magnitude": 0.0011449217198489237,
+      "landmark_3D": 21.41240607756561,
+      "landmark_relative": 1.3229293246192324
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "15_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 6.927056918772952,
+      "eta_vector": 9.81,
+      "eta_direction": 87.85022525215486,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.419947380036902,
+      "landmark_relative": 1.3575541040130668
+    },
+    "after_10s": {
+      "v": 2.119951807716612,
+      "eta_vector": 1.2349154995802827,
+      "eta_direction": 7.078718431107588,
+      "eta_magnitude": 0.5140030959734094,
+      "landmark_3D": 19.653818561716516,
+      "landmark_relative": 1.1670525251733137
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "16_REGULAR_CORE_C0": {
+    "full": {
+      "v": 6.909730246884147,
+      "eta_vector": 9.81,
+      "eta_direction": 87.82610389805055,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.399624595147195,
+      "landmark_relative": 1.3561883166206627
+    },
+    "after_10s": {
+      "v": 2.11896773221222,
+      "eta_vector": 1.231129604851164,
+      "eta_direction": 7.0544191190463055,
+      "eta_magnitude": 0.5134173743476467,
+      "landmark_3D": 19.642197185865097,
+      "landmark_relative": 1.16603538732961
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "17_REGULAR_CORE_C0": {
+    "full": {
+      "v": 6.80111034983281,
+      "eta_vector": 9.81,
+      "eta_direction": 88.21100566526682,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.406596344774265,
+      "landmark_relative": 1.3515047242643472
+    },
+    "after_10s": {
+      "v": 2.106363798491481,
+      "eta_vector": 1.2348739186885016,
+      "eta_direction": 7.07818653313845,
+      "eta_magnitude": 0.5138691939108959,
+      "landmark_3D": 19.64431005489863,
+      "landmark_relative": 1.1663150488168676
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "18_REGULAR_CORE_C0": {
+    "full": {
+      "v": 6.783773827870315,
+      "eta_vector": 9.81,
+      "eta_direction": 88.20620091066469,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.386098562194647,
+      "landmark_relative": 1.3501172493268292
+    },
+    "after_10s": {
+      "v": 2.105359435885902,
+      "eta_vector": 1.2310874554243547,
+      "eta_direction": 7.053920439108676,
+      "eta_magnitude": 0.5132762181104749,
+      "landmark_3D": 19.632716219424925,
+      "landmark_relative": 1.1653028171169952
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "19_REGULAR_SPLIT_REF_C0": {
+    "full": {
+      "v": 6.821640325203197,
+      "eta_vector": 9.81,
+      "eta_direction": 88.2049867141738,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.386403932477528,
+      "landmark_relative": 1.3521075725732916
+    },
+    "after_10s": {
+      "v": 2.1098763412135932,
+      "eta_vector": 1.2301496168138075,
+      "eta_direction": 7.047912494862678,
+      "eta_magnitude": 0.5130378050626412,
+      "landmark_3D": 19.633448403122312,
+      "landmark_relative": 1.1653335493867945
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "20_REGULAR_CONT_REF_C0": {
+    "full": {
+      "v": 6.77949317419507,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.22905240218299,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.381631868357914,
+      "landmark_relative": 1.349990145401772
+    },
+    "after_10s": {
+      "v": 2.1053317460175327,
+      "eta_vector": 1.2301505446603558,
+      "eta_direction": 7.047921340048865,
+      "eta_magnitude": 0.5130390679194701,
+      "landmark_3D": 19.63018285676014,
+      "landmark_relative": 1.1650856287108238
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "21_REGULAR_CONT_REF_C1": {
+    "full": {
+      "v": 8.179308711826275,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.2290538174106,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.57953251138545,
+      "landmark_relative": 1.4446052233348272
+    },
+    "after_10s": {
+      "v": 2.210597397084484,
+      "eta_vector": 1.2363743535186247,
+      "eta_direction": 7.065084125391187,
+      "eta_magnitude": 0.5132808749544484,
+      "landmark_3D": 19.74972446010832,
+      "landmark_relative": 1.1725253818506813
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "22_REGULAR_EXPERIMENTAL_C1": {
+    "full": {
+      "v": 8.23567755331005,
+      "eta_vector": 9.81,
+      "eta_direction": 87.85022525215486,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.602308404927623,
+      "landmark_relative": 1.4447735512353266
+    },
+    "after_10s": {
+      "v": 2.2124615599165196,
+      "eta_vector": 1.2421706361939,
+      "eta_direction": 7.101897679387871,
+      "eta_magnitude": 0.5156852764205961,
+      "landmark_3D": 19.76397916079488,
+      "landmark_relative": 1.1735432420828533
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "23_REGULAR_CONT_REF_C2": {
+    "full": {
+      "v": 6.259231911134271,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.22903826705577,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.326094179517508,
+      "landmark_relative": 1.325734596349359
+    },
+    "after_10s": {
+      "v": 2.059453650435158,
+      "eta_vector": 1.2288183778968442,
+      "eta_direction": 7.044371437352872,
+      "eta_magnitude": 0.5126395860329893,
+      "landmark_3D": 19.591642299874078,
+      "landmark_relative": 1.1624735546990768
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "24_REGULAR_EXPERIMENTAL_C2": {
+    "full": {
+      "v": 6.534474828281538,
+      "eta_vector": 9.81,
+      "eta_direction": 87.82757708529007,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.377079189791477,
+      "landmark_relative": 1.3383052214720417
+    },
+    "after_10s": {
+      "v": 2.087612496886968,
+      "eta_vector": 1.2332822532531273,
+      "eta_direction": 7.0727681981116195,
+      "eta_magnitude": 0.5132534969733822,
+      "landmark_3D": 19.62454489781341,
+      "landmark_relative": 1.1652470759958584
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "25_REGULAR_CONT_REF_C3": {
+    "full": {
+      "v": 8.17927458785701,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.2290594196102,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.57946316204457,
+      "landmark_relative": 1.444600204788331
+    },
+    "after_10s": {
+      "v": 2.2105900090132913,
+      "eta_vector": 1.2363701505964058,
+      "eta_direction": 7.06505888754545,
+      "eta_magnitude": 0.5132790746044638,
+      "landmark_3D": 19.74966322567455,
+      "landmark_relative": 1.172520883368509
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "26_REGULAR_EXPERIMENTAL_C3": {
+    "full": {
+      "v": 8.235641921105781,
+      "eta_vector": 9.81,
+      "eta_direction": 87.85022525217866,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.602237842406495,
+      "landmark_relative": 1.4447684474261933
+    },
+    "after_10s": {
+      "v": 2.212454036915968,
+      "eta_vector": 1.2421663407695134,
+      "eta_direction": 7.1018718724781005,
+      "eta_magnitude": 0.5156834508136754,
+      "landmark_3D": 19.763916771140025,
+      "landmark_relative": 1.173538664004498
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "27_REGULAR_CONT_REF_C4": {
+    "full": {
+      "v": 6.259235428827788,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.22903771058651,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.32610138090096,
+      "landmark_relative": 1.3257351045792307
+    },
+    "after_10s": {
+      "v": 2.059454368819162,
+      "eta_vector": 1.228818814835513,
+      "eta_direction": 7.044374062722995,
+      "eta_magnitude": 0.512639772823416,
+      "landmark_3D": 19.59164866647547,
+      "landmark_relative": 1.16247401364093
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "28_REGULAR_EXPERIMENTAL_C4": {
+    "full": {
+      "v": 6.534478468079213,
+      "eta_vector": 9.81,
+      "eta_direction": 87.82757832096418,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.377086490864638,
+      "landmark_relative": 1.3383057361755712
+    },
+    "after_10s": {
+      "v": 2.0876132343089804,
+      "eta_vector": 1.2332826966712185,
+      "eta_direction": 7.072770866625188,
+      "eta_magnitude": 0.5132536876712148,
+      "landmark_3D": 19.624551366514726,
+      "landmark_relative": 1.1652475441450287
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "29_REGULAR_CONT_REF_C5": {
+    "full": {
+      "v": 6.779101228797499,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.22910983353572,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.380842610378302,
+      "landmark_relative": 1.3499348281957104
+    },
+    "after_10s": {
+      "v": 2.1052514101042648,
+      "eta_vector": 1.2301027024822488,
+      "eta_direction": 7.0476338484549785,
+      "eta_magnitude": 0.5130186010718063,
+      "landmark_3D": 19.62948541855178,
+      "landmark_relative": 1.1650352587616042
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "30_REGULAR_EXPERIMENTAL_C5": {
+    "full": {
+      "v": 6.926660935571195,
+      "eta_vector": 9.81,
+      "eta_direction": 87.85022525217951,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.419147709058908,
+      "landmark_relative": 1.3574982083610114
+    },
+    "after_10s": {
+      "v": 2.119869904167437,
+      "eta_vector": 1.2348668798501208,
+      "eta_direction": 7.078426206362598,
+      "eta_magnitude": 0.5139823474563645,
+      "landmark_3D": 19.653111053437147,
+      "landmark_relative": 1.1670013971820477
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "31_REGULAR_CONT_REF_C6": {
+    "full": {
+      "v": 6.740430728330571,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.22973792985297,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.303138765263856,
+      "landmark_relative": 1.3444882703598753
+    },
+    "after_10s": {
+      "v": 2.0973427068229733,
+      "eta_vector": 1.225392339837164,
+      "eta_direction": 7.019331549165013,
+      "eta_magnitude": 0.511004288164175,
+      "landmark_3D": 19.56083379920994,
+      "landmark_relative": 1.1600781250971428
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "32_REGULAR_EXPERIMENTAL_C6": {
+    "full": {
+      "v": 6.887583049652526,
+      "eta_vector": 9.81,
+      "eta_direction": 87.8502252521717,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.340389292576333,
+      "landmark_relative": 1.3519718614097398
+    },
+    "after_10s": {
+      "v": 2.111806637533055,
+      "eta_vector": 1.230084545019506,
+      "eta_direction": 7.049665657311216,
+      "eta_magnitude": 0.5119310691427597,
+      "landmark_3D": 19.58337574753069,
+      "landmark_relative": 1.16194937374097
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "33_FAST_CONT_REF_C6": {
+    "full": {
+      "v": 7.5290807174983385,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.21814696765918,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.7971897862792,
+      "landmark_relative": 1.3078138673996476
+    },
+    "after_10s": {
+      "v": 3.275533800915145,
+      "eta_vector": 2.0886423968620558,
+      "eta_direction": 11.912157297133753,
+      "eta_magnitude": 1.2571710716423787,
+      "landmark_3D": 12.856720108000548,
+      "landmark_relative": 0.7398403644218828
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "34_FAST_EXPERIMENTAL_C6": {
+    "full": {
+      "v": 7.63198048219119,
+      "eta_vector": 9.81,
+      "eta_direction": 87.67472152365636,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.883826924973004,
+      "landmark_relative": 1.3151183388757066
+    },
+    "after_10s": {
+      "v": 3.2890857108132954,
+      "eta_vector": 2.0879179131038037,
+      "eta_direction": 11.90595490081347,
+      "eta_magnitude": 1.262196060501445,
+      "landmark_3D": 12.8393406393525,
+      "landmark_relative": 0.7411414303226879
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "35_REGULAR_CONT_REF_C6": {
+    "full": {
+      "v": 6.740430728330575,
+      "eta_vector": 9.809999999999999,
+      "eta_direction": 88.22973793015034,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.303138765263867,
+      "landmark_relative": 1.3444882703598753
+    },
+    "after_10s": {
+      "v": 2.097342706822976,
+      "eta_vector": 1.2253923398371631,
+      "eta_direction": 7.019331549164857,
+      "eta_magnitude": 0.5110042881641803,
+      "landmark_3D": 19.56083379920995,
+      "landmark_relative": 1.160078125097144
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "36_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 6.923145818065912,
+      "eta_vector": 9.81,
+      "eta_direction": 87.85622765907195,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.31555440969525,
+      "landmark_relative": 1.357164699244766
+    },
+    "after_10s": {
+      "v": 2.0908697443074513,
+      "eta_vector": 1.2196250349377271,
+      "eta_direction": 7.039684183956445,
+      "eta_magnitude": 0.5127764541915365,
+      "landmark_3D": 19.350981814029964,
+      "landmark_relative": 1.1472230037759412
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "37_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 6.925699115101788,
+      "eta_vector": 9.81,
+      "eta_direction": 87.86860751559705,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.31982581662052,
+      "landmark_relative": 1.356857620399713
+    },
+    "after_10s": {
+      "v": 2.0909947382668603,
+      "eta_vector": 1.2186112483167864,
+      "eta_direction": 7.034155767368816,
+      "eta_magnitude": 0.5138188074679544,
+      "landmark_3D": 19.35751675453797,
+      "landmark_relative": 1.1477226668150409
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "38_REGULAR_EXPERIMENTAL_C6": {
+    "full": {
+      "v": 6.883669927585415,
+      "eta_vector": 9.81,
+      "eta_direction": 87.85622765907053,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.237840491813596,
+      "landmark_relative": 1.3515257327813706
+    },
+    "after_10s": {
+      "v": 2.0845270623107015,
+      "eta_vector": 1.2160957951175018,
+      "eta_direction": 7.018788417808273,
+      "eta_magnitude": 0.5106560000820739,
+      "landmark_3D": 19.2904074505545,
+      "landmark_relative": 1.1426777053607458
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "39_REGULAR_EXPERIMENTAL_C6": {
+    "full": {
+      "v": 6.886222610001959,
+      "eta_vector": 9.81,
+      "eta_direction": 87.86860751559453,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.24210884995099,
+      "landmark_relative": 1.3512825304534437
+    },
+    "after_10s": {
+      "v": 2.084560153396286,
+      "eta_vector": 1.215099562596464,
+      "eta_direction": 7.013217682120769,
+      "eta_magnitude": 0.5117592333944536,
+      "landmark_3D": 19.29714774228632,
+      "landmark_relative": 1.1431657458560573
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "40_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 8.268067712379736,
+      "eta_vector": 9.81,
+      "eta_direction": 87.71449981442544,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 19.48702980143441,
+      "landmark_relative": 1.2541160956939523
+    },
+    "after_10s": {
+      "v": 2.468547202496009,
+      "eta_vector": 1.3033420208966693,
+      "eta_direction": 7.614065867372559,
+      "eta_magnitude": 0.47485302874286717,
+      "landmark_3D": 18.81382102198735,
+      "landmark_relative": 1.0163654125581634
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "41_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 7.65318500970961,
+      "eta_vector": 9.81,
+      "eta_direction": 87.70646676183816,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 20.47416902506341,
+      "landmark_relative": 1.3152781088108982
+    },
+    "after_10s": {
+      "v": 2.2316204944799085,
+      "eta_vector": 1.2655969905227384,
+      "eta_direction": 7.373197409298231,
+      "eta_magnitude": 0.49817274171417836,
+      "landmark_3D": 18.88070812379219,
+      "landmark_relative": 1.0272431862419162
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "42_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 7.0182180898288165,
+      "eta_vector": 9.81,
+      "eta_direction": 87.85022525215486,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 20.85019205799838,
+      "landmark_relative": 1.376996797519399
+    },
+    "after_10s": {
+      "v": 2.143871604574776,
+      "eta_vector": 1.25595515679848,
+      "eta_direction": 7.303678669071106,
+      "eta_magnitude": 0.49988908136725385,
+      "landmark_3D": 18.857441029881773,
+      "landmark_relative": 1.0263290205259552
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "43_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 7.002191532599635,
+      "eta_vector": 9.81,
+      "eta_direction": 87.85022525215486,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.00659615672089,
+      "landmark_relative": 1.3640201491007666
+    },
+    "after_10s": {
+      "v": 2.1358439750733575,
+      "eta_vector": 1.2590711981335576,
+      "eta_direction": 7.306029401314732,
+      "eta_magnitude": 0.4776339424910159,
+      "landmark_3D": 18.655912291647077,
+      "landmark_relative": 1.0298866615029465
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "44_FAST_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 8.693452530306027,
+      "eta_vector": 9.81,
+      "eta_direction": 87.51592561156899,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.750951667233675,
+      "landmark_relative": 1.2321594083020986
+    },
+    "after_10s": {
+      "v": 6.746648613499835,
+      "eta_vector": 3.855852057003512,
+      "eta_direction": 22.994522890454103,
+      "eta_magnitude": 1.6140498927845552,
+      "landmark_3D": 22.750951667233675,
+      "landmark_relative": 1.0757128533038998
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "45_FAST_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 8.168786336968411,
+      "eta_vector": 9.81,
+      "eta_direction": 87.52201509537797,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 23.019598734254874,
+      "landmark_relative": 1.3051893986370469
+    },
+    "after_10s": {
+      "v": 6.655305912919563,
+      "eta_vector": 3.8351223444924587,
+      "eta_direction": 22.884814885089547,
+      "eta_magnitude": 1.680456715877236,
+      "landmark_3D": 23.019598734254874,
+      "landmark_relative": 1.1074844169800457
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "46_FAST_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 7.676656490498562,
+      "eta_vector": 9.81,
+      "eta_direction": 87.67472152363979,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.776414388757853,
+      "landmark_relative": 1.3282016403064894
+    },
+    "after_10s": {
+      "v": 6.738607779274798,
+      "eta_vector": 3.8220917855274723,
+      "eta_direction": 22.84054982379552,
+      "eta_magnitude": 1.7456597126096423,
+      "landmark_3D": 22.776414388757853,
+      "landmark_relative": 1.129434128469266
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "47_FAST_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 7.682248463280668,
+      "eta_vector": 9.81,
+      "eta_direction": 87.67472152363979,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 22.223064468669108,
+      "landmark_relative": 1.3243503968907964
+    },
+    "after_10s": {
+      "v": 6.763708270830025,
+      "eta_vector": 3.76547588997362,
+      "eta_direction": 22.523845095366507,
+      "eta_magnitude": 1.7324088534752384,
+      "landmark_3D": 22.00604869569273,
+      "landmark_relative": 1.1291494942850013
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "48_REGULAR_SPLIT_REF_C0": {
+    "full": {
+      "v": 7.766307988817464,
+      "eta_vector": 9.81,
+      "eta_direction": 87.66842678258134,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 20.551515161704522,
+      "landmark_relative": 1.3216501688222742
+    },
+    "after_10s": {
+      "v": 2.2471588273089558,
+      "eta_vector": 1.258069274931491,
+      "eta_direction": 7.325621658774096,
+      "eta_magnitude": 0.49618844511362603,
+      "landmark_3D": 18.887468236418215,
+      "landmark_relative": 1.0272911372725273
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "49_REGULAR_EXPERIMENTAL_C6": {
+    "full": {
+      "v": 7.641375124832726,
+      "eta_vector": 9.81,
+      "eta_direction": 87.7064667618555,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 20.459231886253534,
+      "landmark_relative": 1.31510908475718
+    },
+    "after_10s": {
+      "v": 2.2135514426874336,
+      "eta_vector": 1.264372682450542,
+      "eta_direction": 7.36418553988736,
+      "eta_magnitude": 0.4882208830428638,
+      "landmark_3D": 18.896154743960548,
+      "landmark_relative": 1.0271152930272671
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "50_FAST_EXPERIMENTAL_C6": {
+    "full": {
+      "v": 8.148741704165474,
+      "eta_vector": 9.81,
+      "eta_direction": 87.522015095395,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 23.046962817514707,
+      "landmark_relative": 1.3051143607077151
+    },
+    "after_10s": {
+      "v": 6.669529179293463,
+      "eta_vector": 3.8348016629378328,
+      "eta_direction": 22.885598647209118,
+      "eta_magnitude": 1.6769288000063032,
+      "landmark_3D": 23.046962817514707,
+      "landmark_relative": 1.1066344547440972
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "51_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 7.719826243634244,
+      "eta_vector": 9.812043011283505,
+      "eta_direction": 92.92698405003537,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 4.268632354899505,
+      "landmark_relative": 0.3056042141119487
+    },
+    "after_10s": {
+      "v": 0.011110874508444415,
+      "eta_vector": 0.011067763419612922,
+      "eta_direction": 0.05898977678643006,
+      "eta_magnitude": 0.00509534199780326,
+      "landmark_3D": 0.00995711803432778,
+      "landmark_relative": 0.0006369299679897358
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "52_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 7.735069140791295,
+      "eta_vector": 9.811284290329882,
+      "eta_direction": 92.39889004486041,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 18.752289639664223,
+      "landmark_relative": 1.075836967247255
+    },
+    "after_10s": {
+      "v": 0.4024242498701969,
+      "eta_vector": 0.24348393494296064,
+      "eta_direction": 1.2954462307369197,
+      "eta_magnitude": 0.11472984407886422,
+      "landmark_3D": 18.752289639664223,
+      "landmark_relative": 1.0244229123198787
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "53_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 7.735069140792099,
+      "eta_vector": 9.811284290329876,
+      "eta_direction": 92.39889004485678,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 18.752289639664223,
+      "landmark_relative": 1.0758369672472787
+    },
+    "after_10s": {
+      "v": 0.4024242498682261,
+      "eta_vector": 0.24348393493822257,
+      "eta_direction": 1.2954462307146917,
+      "eta_magnitude": 0.11472984407784814,
+      "landmark_3D": 18.752289639664223,
+      "landmark_relative": 1.0244229123199307
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "54_REGULAR_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 7.907419732270016,
+      "eta_vector": 9.812894004845592,
+      "eta_direction": 94.95695437648499,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 18.752289639664223,
+      "landmark_relative": 1.091478324717398
+    },
+    "after_10s": {
+      "v": 0.7212407659834718,
+      "eta_vector": 0.4790777181070425,
+      "eta_direction": 2.692455242398114,
+      "eta_magnitude": 0.31908554756195606,
+      "landmark_3D": 18.752289639664223,
+      "landmark_relative": 1.0168244564214455
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "55_FAST_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 6.8599593247000525,
+      "eta_vector": 9.87869497519745,
+      "eta_direction": 98.24482382140134,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 3.564872901407983,
+      "landmark_relative": 0.2613230339385753
+    },
+    "after_10s": {
+      "v": 0.023300354763992386,
+      "eta_vector": 0.018926884850189493,
+      "eta_direction": 0.10434096782422417,
+      "eta_magnitude": 0.00749808395892515,
+      "landmark_3D": 0.012919928229733016,
+      "landmark_relative": 0.00094927308498539
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "56_FAST_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 6.917745071104857,
+      "eta_vector": 9.889662834948702,
+      "eta_direction": 98.32771181308537,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 21.711255786123772,
+      "landmark_relative": 1.0420451710835008
+    },
+    "after_10s": {
+      "v": 0.23500934469413717,
+      "eta_vector": 0.16102469150993945,
+      "eta_direction": 0.9215985336893767,
+      "eta_magnitude": 0.054512681445425315,
+      "landmark_3D": 21.711255786123772,
+      "landmark_relative": 1.0129647782867286
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "57_FAST_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 6.917745071105204,
+      "eta_vector": 9.889662834948757,
+      "eta_direction": 98.32771181308597,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 21.711255786123772,
+      "landmark_relative": 1.0420451710836511
+    },
+    "after_10s": {
+      "v": 0.23500934469541732,
+      "eta_vector": 0.16102469150871063,
+      "eta_direction": 0.9215985336822579,
+      "eta_magnitude": 0.0545126814439989,
+      "landmark_3D": 21.711255786123772,
+      "landmark_relative": 1.01296477828675
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  },
+  "58_FAST_EXPERIMENTAL_C0": {
+    "full": {
+      "v": 7.019302585212458,
+      "eta_vector": 9.901863320330309,
+      "eta_direction": 98.88501374809762,
+      "eta_magnitude": 9.81,
+      "landmark_3D": 20.221475507665716,
+      "landmark_relative": 1.0314582851302185
+    },
+    "after_10s": {
+      "v": 0.9602881482960345,
+      "eta_vector": 0.5918141777856667,
+      "eta_direction": 3.1915485668873296,
+      "eta_magnitude": 0.4350826584564089,
+      "landmark_3D": 20.221475507665716,
+      "landmark_relative": 1.016909783056465
+    },
+    "basis": "maximum over all 200 Hz and camera pre/post checks; pre-establishment t=0 audit excluded"
+  }
+}

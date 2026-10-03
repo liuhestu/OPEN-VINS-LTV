@@ -1,0 +1,40 @@
+{
+  "C_star": "C6",
+  "J_resolution": 2.4868995751603507e-14,
+  "state_reference_resolution": 3.6154575432225674e-14,
+  "decisions": {
+    "C1": {
+      "continuous_no_degradation": false,
+      "discrete_benefit": false,
+      "continuous_only": false
+    },
+    "C2": {
+      "continuous_no_degradation": false,
+      "discrete_benefit": true,
+      "continuous_only": false
+    },
+    "C3": {
+      "continuous_no_degradation": false,
+      "discrete_benefit": false,
+      "continuous_only": false
+    },
+    "C4": {
+      "continuous_no_degradation": false,
+      "discrete_benefit": true,
+      "continuous_only": false
+    },
+    "C5": {
+      "continuous_no_degradation": true,
+      "discrete_benefit": true,
+      "continuous_only": false
+    },
+    "C6": {
+      "continuous_no_degradation": true,
+      "discrete_benefit": true,
+      "continuous_only": false
+    }
+  },
+  "status": "SELECTED_DIAGNOSTIC",
+  "settling_basis": "union of 200 Hz checks and camera pre/post; at least five seconds remaining",
+  "frozen_at": 1791040329.6914754
+}

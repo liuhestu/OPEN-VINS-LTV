@@ -4,13 +4,17 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-plt.rcParams.update({'font.size':9,'axes.grid':True,'grid.alpha':.25})
+from diagnostics import load_arrays
+plt.rcParams.update({'font.size':9,'axes.grid':True,'grid.alpha':.25,'svg.hashsalt':'ltv-standalone-v2'})
 def make_plots(entries,destination,star):
     destination.mkdir(exist_ok=True)
     paths=[]
     def save(fig,name):
         fig.tight_layout()
-        for ext in ['png','svg']: fig.savefig(destination/f'{name}.{ext}',dpi=140)
+        for ext in ['png','svg']:
+            target=destination/f'{name}.{ext}'
+            fig.savefig(target,dpi=140,metadata={'Date':None} if ext=='svg' else None)
+            if ext=='svg': target.write_text('\n'.join(line.rstrip() for line in target.read_text().splitlines())+'\n')
         plt.close(fig); paths.append(name)
     def find(**kw): return [e for e in entries if all(e['config'].get(k)==v for k,v in kw.items())]
     for scene in ['REGULAR','FAST','PAPER','STATIC']:
@@ -19,7 +23,7 @@ def make_plots(entries,destination,star):
         if not es: continue
         fig,ax=plt.subplots(3,2,figsize=(11,8))
         for e in es:
-            z=np.load(Path(e['directory'])/'trace.npz'); label=e['config']['impl']
+            z=load_arrays(Path(e['directory'])/'trace.npz'); label=e['config']['impl']
             for row,col in enumerate([0,1,2]):
                 for j in range(2):
                     ax[row,j].plot(z['t'],z['values'][:,col],label=label,lw=.8)
@@ -29,7 +33,7 @@ def make_plots(entries,destination,star):
         for row,col in enumerate([0,1,2]):
             tail_values=[]
             for e in es:
-                zz=np.load(Path(e['directory'])/'trace.npz'); tail_values.extend(zz['values'][zz['t']>=zz['t'][-1]-10,col])
+                zz=load_arrays(Path(e['directory'])/'trace.npz'); tail_values.extend(zz['values'][zz['t']>=zz['t'][-1]-10,col])
             finite=np.array(tail_values); finite=finite[np.isfinite(finite)]
             if len(finite): ax[row,1].set_ylim(0,max(.001,float(finite.max())*1.08))
         ax[0,0].legend(); fig.suptitle(scene+' — full horizon and tail'); save(fig,'fixed_'+scene)
@@ -38,15 +42,15 @@ def make_plots(entries,destination,star):
     if es:
         fig,axes=plt.subplots(2,1,figsize=(10,7))
         for e in es:
-            z=np.load(Path(e['directory'])/'trace.npz'); c=e['config']; label=f"{c['impl']} {c['imu_hz']}/{c['camera_hz']} Hz"
+            z=load_arrays(Path(e['directory'])/'trace.npz'); c=e['config']; label=f"{c['impl']} {c['imu_hz']}/{c['camera_hz']} Hz"
             for ax,col in zip(axes,[0,1]): ax.plot(z['t'],z['values'][:,col],label=label,lw=.7)
         axes[0].set_ylabel('Velocity error [m/s]'); axes[1].set_ylabel('Gravity vector error [m/s²]'); axes[1].set_xlabel('Time [s]'); axes[0].legend(ncol=2); save(fig,'sampling_rates')
     references=find(scene='REGULAR',candidate='C0',noise=0,lifetime=0,initialization='ZERO',tight=False,impl='CONT_REF',duration=60)
     if references and es:
-        ref=np.load(Path(references[0]['directory'])/'trace.npz')
+        ref=load_arrays(Path(references[0]['directory'])/'trace.npz')
         fig,ax=plt.subplots(2,1,figsize=(10,7))
         for e in es:
-            z=np.load(Path(e['directory'])/'trace.npz'); c=e['config']; label=f"{c['impl']} {c['imu_hz']}/{c['camera_hz']} Hz"
+            z=load_arrays(Path(e['directory'])/'trace.npz'); c=e['config']; label=f"{c['impl']} {c['imu_hz']}/{c['camera_hz']} Hz"
             for a,sl in zip(ax,[slice(-6,-3),slice(-3,None)]):
                 a.plot(z['t'],np.linalg.norm(z['x'][:,sl]-ref['x'][:,sl],axis=1),label=label,lw=.7)
         ax[0].set_ylabel('Velocity difference to CONT_REF [m/s]'); ax[1].set_ylabel('Gravity difference to CONT_REF [m/s²]'); ax[1].set_xlabel('Time [s]'); ax[0].legend(ncol=2); save(fig,'sampling_differences')
@@ -55,12 +59,12 @@ def make_plots(entries,destination,star):
     if es:
         fig,ax=plt.subplots(2,2,figsize=(11,7))
         for e in es:
-            z=np.load(Path(e['directory'])/'trace.npz')
+            z=load_arrays(Path(e['directory'])/'trace.npz')
             for j,col in enumerate([0,1]):
                 for k in range(2): ax[j,k].plot(z['t'],z['values'][:,col],label=e['config']['candidate'],lw=.8)
                 ax[j,1].set_xlim(50,60)
         for row,col in enumerate([0,1]):
-            maximum=max(float(np.max(np.load(Path(e['directory'])/'trace.npz')['values'][-2001:,col])) for e in es)
+            maximum=max(float(np.max(load_arrays(Path(e['directory'])/'trace.npz')['values'][-2001:,col])) for e in es)
             ax[row,1].set_ylim(0,max(.001,maximum*1.08))
         ax[0,0].legend(ncol=4); ax[0,0].set_ylabel('Velocity [m/s]'); ax[1,0].set_ylabel('Gravity vector [m/s²]'); save(fig,'gains_full_and_tail')
     es=find(scene='REGULAR',lifetime=0,initialization='ZERO',impl='EXPERIMENTAL')
@@ -68,7 +72,7 @@ def make_plots(entries,destination,star):
     if es:
         fig,ax=plt.subplots(2,1,figsize=(10,7))
         for e in es:
-            z=np.load(Path(e['directory'])/'trace.npz'); c=e['config']; label=f"{c['candidate']} seed {c['noise']}"
+            z=load_arrays(Path(e['directory'])/'trace.npz'); c=e['config']; label=f"{c['candidate']} seed {c['noise']}"
             for a,col in zip(ax,[0,1]): a.plot(z['t'],z['values'][:,col],label=label,lw=.6)
         ax[0].legend(); ax[0].set_ylabel('Velocity [m/s]'); ax[1].set_ylabel('Gravity vector [m/s²]'); ax[1].set_xlabel('Time [s]'); save(fig,'noise')
     for scene in ['REGULAR','FAST']:
@@ -76,7 +80,7 @@ def make_plots(entries,destination,star):
         if not es: continue
         fig,ax=plt.subplots(3,1,figsize=(11,9)); agefig,ageax=plt.subplots(figsize=(10,5))
         for e in es:
-            z=np.load(Path(e['directory'])/'trace.npz'); c=e['config']; label=f"{c['impl']} {c['candidate']} {c['initialization']}"
+            z=load_arrays(Path(e['directory'])/'trace.npz'); c=e['config']; label=f"{c['impl']} {c['candidate']} {c['initialization']}"
             for a,col in zip(ax[:2],[0,1]): a.plot(z['t'],z['values'][:,col],label=label,lw=.6)
             ax[2].plot(z['t'],np.nanpercentile(z['landmarks'][:,:,1],95,axis=1),label=label,lw=.6)
             path=Path(e['directory'])/'lifecycle.json'
@@ -93,11 +97,32 @@ def make_plots(entries,destination,star):
                 ageax.plot(centers,med,label=label)
         ax[0].legend(ncol=2,fontsize=7); ax[0].set_ylabel('Velocity [m/s]'); ax[1].set_ylabel('Gravity vector [m/s²]'); ax[2].set_ylabel('Landmark relative error P95'); ax[2].set_xlabel('Time [s]'); save(fig,'lifecycle_initialization_'+scene)
         ageax.axhline(.05,color='black',ls='--',label='wide target'); ageax.set_xlabel('Observation age [s], eligible only through last visible'); ageax.set_ylabel('Median relative 3D landmark error'); ageax.legend(fontsize=7); save(agefig,'landmark_age_'+scene)
+    # Every lifetime and initialization keeps its complete startup and a tail view.
+    for scene in ['REGULAR','FAST']:
+        for family in ['lifetimes','initialization_tail']:
+            es=find(scene=scene,impl='EXPERIMENTAL',candidate='C0',noise=0)
+            if family=='lifetimes':
+                es=[e for e in es if e['config']['lifetime']>0 and e['config']['initialization']=='ZERO']
+            else:
+                es=[e for e in es if e['config']['lifetime']==1]
+            if not es: continue
+            fig,ax=plt.subplots(2,2,figsize=(12,7))
+            for e in es:
+                z=load_arrays(Path(e['directory'])/'trace.npz'); c=e['config']
+                label=f"{c['lifetime']:g} s" if family=='lifetimes' else c['initialization']
+                for row in range(2):
+                    for col in range(2):
+                        mask=z['t']>=50 if col else z['t']>=0
+                        ax[row,col].plot(z['t'][mask],z['values'][mask,row],label=label,lw=.7)
+            ax[0,0].legend(fontsize=8); ax[0,0].set_ylabel('Velocity error [m/s]'); ax[1,0].set_ylabel('Gravity vector error [m/s²]')
+            ax[0,0].set_title('Full timeline'); ax[0,1].set_title('50–60 s (independent y scale)')
+            for a in ax[-1]: a.set_xlabel('Time [s]')
+            save(fig,family+'_'+scene)
     extended=[e for e in entries if e['config']['duration']>60]
     if extended:
         fig,ax=plt.subplots(3,1,figsize=(10,8))
         for e in extended:
-            z=np.load(Path(e['directory'])/'trace.npz')
+            z=load_arrays(Path(e['directory'])/'trace.npz')
             for a,col in zip(ax,[0,1,2]):
                 a.plot(z['t'],z['values'][:,col],label=e['id']); a.axvline(60,color='gray',ls='--')
         ax[0].set_ylabel('Velocity [m/s]'); ax[1].set_ylabel('Gravity vector [m/s²]'); ax[2].set_ylabel('Gravity direction [deg]'); ax[2].set_xlabel('Time [s]'); ax[0].legend(); save(fig,'extended_full_horizon')

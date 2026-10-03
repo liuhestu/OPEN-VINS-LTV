@@ -1,0 +1,26 @@
+{
+  "REGULAR_CORE-SPLIT_REF": {
+    "x_max_normalized": 0.07948961667703976,
+    "velocity_difference_rmse": 0.022680398486833633,
+    "gravity_difference_rmse": 0.015511000816360672,
+    "P_max_relative_at_seconds": 0.022278500289775995
+  },
+  "REGULAR_SPLIT_REF-CONT_REF": {
+    "x_max_normalized": 0.07795347290021165,
+    "velocity_difference_rmse": 0.024217966627103505,
+    "gravity_difference_rmse": 0.013607978416874555,
+    "P_max_relative_at_seconds": 0.02651448594248883
+  },
+  "FAST_CORE-SPLIT_REF": {
+    "x_max_normalized": 0.08050391602422964,
+    "velocity_difference_rmse": 0.03424637507366819,
+    "gravity_difference_rmse": 0.021206173422663295,
+    "P_max_relative_at_seconds": 0.023379621636247804
+  },
+  "FAST_SPLIT_REF-CONT_REF": {
+    "x_max_normalized": 0.07840223940648727,
+    "velocity_difference_rmse": 0.030921803143529502,
+    "gravity_difference_rmse": 0.018200405208682758,
+    "P_max_relative_at_seconds": 0.028643240313731375
+  }
+}

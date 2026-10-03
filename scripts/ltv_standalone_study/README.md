@@ -26,3 +26,16 @@ Output per run:
 Reference implementations integrate the complete covariance including cross blocks. Neither clips eigenvalues. The split dynamics use the exact commuting rotation/nilpotent transition and exact polynomial process-noise integral for the specified common scalar V blocks. Frozen correction uses a linear solve, not an explicit inverse. No P scaling is used.
 
 The source protocol is `docs/03_LTV_独立收敛_离散化与增益参数验证_Codex执行方案.md`; generated report and compact evidence live under `docs/ltv/standalone_convergence_v2/`. Do not feed diagnostic configurations back into production automatically.
+
+Raw array schema:
+
+- States are `[ell_1 ... ell_N, v, eta]`. `trace.x` / `matrices.x` pad on the right to 96 with NaN; determine N from nonnegative IDs. For PAPER, v/eta occupy indices 48:54, not the last six padded entries. IDs pad to 30 with -1. Full P pads to 96×96 with NaN outside the active square.
+- `values`: velocity error norm, eta error norm, eta direction error in degrees (NaN if undefined), eta magnitude error, estimated speed, true speed.
+- `landmarks`: 3D error norm, relative 3D error, signed ray distance, transverse/projected residual norm, distance to camera center, signed along-ray error.
+- `axes`: three velocity error components followed by three eta error components, all estimate minus truth.
+- `diag`: last camera substep count, reset reason enum, native camera update time in ms, cumulative eigenvalue-floor count, cumulative spectral lift norm, minimum negative pre-floor eigenvalue. The last three fields are available only for EXPERIMENTAL; zero placeholders in CORE are not evidence that no floor was applied.
+- `matrices.tags`: `before_event` precedes lifecycle processing; `after_event` follows lifecycle, hook, and correction; `second` follows that physical second's camera event; `continuous` is an instantaneous continuous solution. The pre-establishment t=0 record is for auditing only; common x(0)/P(0) are the post-establishment states.
+
+Offline report artifacts keep their provenance explicit. `events_verified.json` resolves the first nonzero correction-subflow event, including initially observed points lost before the second camera call. `joint_outcomes.json` distinguishes first held interval start, confirmation after at least 0.10 s, terminal holding, observation censoring and residence censoring. `initialization_snapshots_reconstructed.npz` reconstructs the hook's before/after state and shared P by exact lifecycle reindexing and frozen seed inputs; it is not a new observer run. `camera_correction_deltas.npz` subtracts lifecycle and seed writes from actual saved camera endpoints to isolate the applied net correction.
+
+After generating the report, run `python3 scripts/ltv_standalone_study/audit_delivery.py` to verify the completed run identities, stage budgets, frozen selector, reference checks, all saved initialization covariance snapshots, report links and table widths, and authorized source SHA values. It writes `delivery_audit.json` and `delivery_sha256.json` without running a simulation. Historical execution deviations are recorded in the report's `decision_log.md`.
