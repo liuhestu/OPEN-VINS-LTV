@@ -1,0 +1,79 @@
+{
+  "MH_01_easy": {
+    "rows": 36382,
+    "all_finite": true,
+    "strictly_increasing": true,
+    "max_quaternion_norm_error": 6.754059313407446e-05,
+    "duration_s": 181.90499993600002
+  },
+  "MH_02_easy": {
+    "rows": 29993,
+    "all_finite": true,
+    "strictly_increasing": true,
+    "max_quaternion_norm_error": 7.556941563158226e-05,
+    "duration_s": 149.96
+  },
+  "MH_03_medium": {
+    "rows": 26302,
+    "all_finite": true,
+    "strictly_increasing": true,
+    "max_quaternion_norm_error": 0.00032973768952793137,
+    "duration_s": 131.50499993600002
+  },
+  "MH_04_difficult": {
+    "rows": 19753,
+    "all_finite": true,
+    "strictly_increasing": true,
+    "max_quaternion_norm_error": 0.00021473221253853758,
+    "duration_s": 98.76
+  },
+  "MH_05_difficult": {
+    "rows": 22212,
+    "all_finite": true,
+    "strictly_increasing": true,
+    "max_quaternion_norm_error": 0.00018399483744979683,
+    "duration_s": 111.05500006400001
+  },
+  "V1_01_easy": {
+    "rows": 28712,
+    "all_finite": true,
+    "strictly_increasing": true,
+    "max_quaternion_norm_error": 2.052610683955791e-05,
+    "duration_s": 143.555000064
+  },
+  "V1_02_medium": {
+    "rows": 16702,
+    "all_finite": true,
+    "strictly_increasing": true,
+    "max_quaternion_norm_error": 0.00015247821369723802,
+    "duration_s": 83.504999936
+  },
+  "V1_03_difficult": {
+    "rows": 20932,
+    "all_finite": true,
+    "strictly_increasing": true,
+    "max_quaternion_norm_error": 0.00012654575208626007,
+    "duration_s": 104.655000064
+  },
+  "V2_01_easy": {
+    "rows": 22401,
+    "all_finite": true,
+    "strictly_increasing": true,
+    "max_quaternion_norm_error": 4.3650938297723485e-05,
+    "duration_s": 112.0
+  },
+  "V2_02_medium": {
+    "rows": 23091,
+    "all_finite": true,
+    "strictly_increasing": true,
+    "max_quaternion_norm_error": 0.0001281577252987276,
+    "duration_s": 115.449999872
+  },
+  "V2_03_difficult": {
+    "rows": 22970,
+    "all_finite": true,
+    "strictly_increasing": true,
+    "max_quaternion_norm_error": 0.0001298293556690755,
+    "duration_s": 114.845000192
+  }
+}

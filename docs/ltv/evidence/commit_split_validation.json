@@ -1,0 +1,167 @@
+{
+  "frozen_commit": "c7fc29b11352da3104c80462bcdd32553e785085",
+  "code_commits": [
+    {
+      "stage": 1,
+      "commit": "3facbf430347b2769c5b9c182838012749634374",
+      "title": "fix(ltv): avoid covariance symmetrization aliasing"
+    },
+    {
+      "stage": 2,
+      "commit": "eada1b9e4784624b01127f6008a5b9fd29460127",
+      "title": "feat(ltv): add persistent observer adapter and options"
+    },
+    {
+      "stage": 3,
+      "commit": "de711f5b385f013d02ed7f586ec6c77cfb56163f",
+      "title": "feat(ltv): build and validate gravity velocity measurements"
+    },
+    {
+      "stage": 4,
+      "commit": "03273132c5a783e7ae5cb8d0605e4e083fe23c49",
+      "title": "feat(msckf): integrate LTV joint updates into VIO"
+    },
+    {
+      "stage": 5,
+      "commit": "c50ba166fbcb4ac3e5901ec02849645ea660227d",
+      "title": "feat(eval): add reproducible LTV EuRoC experiments"
+    }
+  ],
+  "commands": [
+    {
+      "record": "core_parity.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "final_linkage.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage1_build.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage1_diff_check.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage1_test_ltv_alias_fixed.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage1_test_ltv_core_lifecycle.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage2_build.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage2_diff_check.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage2_test_ltv_core_lifecycle.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage3_build.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage3_diff_check.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage3_test_ltv_fej.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage3_test_ltv_gv_covariance.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage3_test_ltv_gv_jacobian.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage3_test_ltv_innovation.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage3_test_ltv_joint_covariance.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage3_test_ltv_options.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage3_test_ltv_timing.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage4_build.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage4_diff_check.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage4_test_ltv_joint_layout.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage5_build.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage5_diff_check.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage5_test_ltv_alias_fixed.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage5_test_ltv_core_lifecycle.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage5_test_ltv_fej.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage5_test_ltv_gv_covariance.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage5_test_ltv_gv_jacobian.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage5_test_ltv_innovation.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage5_test_ltv_joint_covariance.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage5_test_ltv_joint_layout.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage5_test_ltv_options.command.json",
+      "exit_code": 0
+    },
+    {
+      "record": "stage5_test_ltv_timing.command.json",
+      "exit_code": 0
+    }
+  ],
+  "command_root": "/home/he/output/ltv_commit_split_20261003",
+  "source_configuration_scripts_exact": true,
+  "new_dataset_replays": 0
+}

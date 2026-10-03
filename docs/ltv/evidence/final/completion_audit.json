@@ -1,0 +1,27 @@
+{
+  "status": "COMPLETE",
+  "code_commit": "c7fc29b11352da3104c80462bcdd32553e785085",
+  "requirements": 40,
+  "formal_runs": 55,
+  "repeat_runs": 16,
+  "original_diagnostic_runs": 1,
+  "full_replays_started": 80,
+  "budget": 300,
+  "formal_execution_success": 55,
+  "localization_success_sequences_per_mode": 10,
+  "localization_failed_sequence": "MH_04_difficult",
+  "all_formal_passive_exact": true,
+  "all_repeats_exact": true,
+  "inputs_unchanged": true,
+  "readonly_handover_hashes": 90,
+  "protected_native_sources_unchanged": true,
+  "additional_parameter_candidates": 0,
+  "post_freeze_parameter_changes": 0,
+  "source_identity_unchanged": true,
+  "reports": [
+    "docs/ltv/final_report.md",
+    "docs/ltv/euroc_gv_results.md",
+    "docs/ltv/decision_log.md",
+    "docs/ltv/requirements_audit.md"
+  ]
+}

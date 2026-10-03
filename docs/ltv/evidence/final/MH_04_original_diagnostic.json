@@ -1,0 +1,50 @@
+{
+  "run_id": "20261002T183009Z-568614d1",
+  "sequence": "MH_04_difficult",
+  "mode": "B",
+  "stage": "original_diagnostic",
+  "original": true,
+  "full": true,
+  "status": "complete",
+  "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/MH_04_difficult-B-original-20261002T183009Z-568614d1.done",
+  "command": [
+    "bash",
+    "-c",
+    "source /opt/ros/humble/setup.bash && export LD_LIBRARY_PATH=\"$1:$LD_LIBRARY_PATH\" && exec \"$2\" \"$3\" \"$4\" \"$5\" 0",
+    "diagnostic",
+    "/home/he/output/openvins_ltv_autonomous_20261002/baseline/lib",
+    "/home/he/output/openvins_ltv_autonomous_20261002/baseline/bin/run_ltv_euroc",
+    "/home/he/output/openvins_ltv_autonomous_20261002/runs/MH_04_difficult-B-original-20261002T183009Z-568614d1.partial/estimator_config.yaml",
+    "/home/he/output/openvins_ltv_autonomous_20261002/diagnostic_inputs/MH_04_exact_pairs/mav0",
+    "/home/he/output/openvins_ltv_autonomous_20261002/runs/MH_04_difficult-B-original-20261002T183009Z-568614d1.partial"
+  ],
+  "binary_sha256": "659eedf945a38cec88a672ea0244e5e491682b369940e1b310a6ce3e76f47172",
+  "libraries_sha256": {
+    "/home/he/output/openvins_ltv_autonomous_20261002/baseline/lib/libov_init_lib.so": "f6c8b2ab70021514be0ec32679be4e5a868e6c2c6d70dd015a693819cd908afa",
+    "/home/he/output/openvins_ltv_autonomous_20261002/baseline/lib/libov_core_lib.so": "cc50c4c417424214ef1a79d993363716e27a495a66869fa05cce60e0e7f5bc81",
+    "/home/he/output/openvins_ltv_autonomous_20261002/baseline/lib/libov_msckf_lib.so": "66e0ab8b3100b40be7d21d97c3999a342c5bcf48379ef40d2604b7ddeed04327"
+  },
+  "source_head": "a898929d3fa9f8ef0afad8c8551d1c23078b7b4a",
+  "input_rule": "same exact timestamp pair list as frozen runner; images/IMU symlink original read-only; no GT provided",
+  "reference_formal_run": "/home/he/output/openvins_ltv_autonomous_20261002/runs/MH_04_difficult-B-20261002T180601Z-661e1542.done",
+  "config_sha256": "85ab9e6cd108be1563f88229670a1c3dd8f26cf1976af449ed7f90a3e33f7925",
+  "derived_csv_sha256": {
+    "cam0": "034265126e28a73c78db51f937d8f574fe01c2be783567b5831efc9d6a739dc9",
+    "cam1": "034265126e28a73c78db51f937d8f574fe01c2be783567b5831efc9d6a739dc9"
+  },
+  "pid": 1513954,
+  "exit_code": 0,
+  "runtime_seconds": 11.111918454058468,
+  "replay": {
+    "camera_packets": 2032,
+    "input_camera_packets": 2032,
+    "imu_consumed": 20320,
+    "input_imu_samples": 20320,
+    "output_rows": 1919,
+    "complete": true
+  },
+  "exact_vs_frozen_B": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  }
+}

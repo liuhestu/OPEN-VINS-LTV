@@ -1,0 +1,67 @@
+--- native_euroc
+
++++ ltv_euroc
+
+@@ -7,14 +7,14 @@
+
+ use_stereo: true # if we have more than 1 camera, if we should try to track stereo constraints between pairs
+ max_cameras: 2 # how many cameras we have 1 = mono, 2 = stereo, >2 = binocular (all mono tracking)
+ 
+-calib_cam_extrinsics: true # if the transform between camera and IMU should be optimized R_ItoC, p_CinI
+-calib_cam_intrinsics: true # if camera intrinsics should be optimized (focal, center, distortion)
+-calib_cam_timeoffset: true # if timeoffset between camera and IMU should be optimized
++calib_cam_extrinsics: false # if the transform between camera and IMU should be optimized R_ItoC, p_CinI
++calib_cam_intrinsics: false # if camera intrinsics should be optimized (focal, center, distortion)
++calib_cam_timeoffset: false # if timeoffset between camera and IMU should be optimized
+ calib_imu_intrinsics: false # if imu intrinsics should be calibrated (rotation and skew-scale matrix)
+ calib_imu_g_sensitivity: false # if gyroscope gravity sensitivity (Tg) should be calibrated
+ 
+ max_clones: 11 # how many clones in the sliding window
+-max_slam: 50 # number of features in our state vector
++max_slam: 0 # number of features in our state vector
+ max_slam_in_update: 25 # update can be split into sequential updates of batches, how many in a batch
+ max_msckf_in_update: 40 # how many MSCKF features to use in the update
+ dt_slam_delay: 1 # delay before initializing (helps with stability from bad initialization...)
+@@ -117,3 +117,41 @@
+
+ 
+ 
+ 
++
++# LTV experiment base: all five modes share every native setting above.
++# Start conservative; per-run mode files may change only the three switches.
++ltv_enabled: false
++ltv_enable_gravity: false
++ltv_enable_velocity: false
++ltv_allow_correlated_pseudomeasurements: true
++ltv_correlation_model: "independence_approximation"
++ltv_sigma_gravity_deg: 10.0
++ltv_sigma_velocity_mps: 1.0
++ltv_max_gravity_angle_deg: 30.0
++ltv_enable_quality_gate: false
++ltv_enable_nis_gate: true
++ltv_nis_gravity: 9.21034037197618
++ltv_nis_velocity: 11.3448667301444
++ltv_time_tolerance_s: 0.000001
++ltv_log_enabled: true
++ltv_log_path: "ltv.csv"
++ltv_observer_max_features: 30
++ltv_observer_min_features: 15
++ltv_observer_max_missed_frames: 2
++ltv_observer_warmup_camera_updates: 20
++ltv_observer_max_imu_dt: 0.05
++ltv_observer_reset_gap: 0.2
++ltv_observer_timestamp_tolerance: 0.005
++ltv_observer_q_landmark: 0.0001
++ltv_observer_v_landmark: 1000000.0
++ltv_observer_v_velocity: 1000000.0
++ltv_observer_v_gravity: 1000000.0
++ltv_observer_initial_p_landmark: 1.0
++ltv_observer_initial_p_velocity: 1.0
++ltv_observer_initial_p_gravity: 1.0
++ltv_observer_covariance_floor: 1.e-9
++ltv_observer_covariance_failure_threshold: -0.001
++ltv_observer_camera_euler_safety: 0.5
++ltv_observer_max_camera_substeps: 100
++ltv_observer_gravity_norm_min: 7.0
++ltv_observer_gravity_norm_max: 12.0

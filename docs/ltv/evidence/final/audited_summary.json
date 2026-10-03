@@ -1,0 +1,313 @@
+{
+  "rows": [
+    {
+      "sequence": "MH_01_easy",
+      "B": 0.1854463006138023,
+      "G": 0.18544196261558615,
+      "V": 0.18178577022641912,
+      "GV": 0.18176101314592102,
+      "delta_G_percent": 0.0023392206810184894,
+      "delta_V_percent": 1.9739031597110934,
+      "delta_GV_percent": 1.9872531593692975,
+      "localization_status": "VALID"
+    },
+    {
+      "sequence": "MH_02_easy",
+      "B": 0.09719882154557895,
+      "G": 0.09728193223492711,
+      "V": 0.09375493993508284,
+      "GV": 0.09387909798218429,
+      "delta_G_percent": -0.08550586110674867,
+      "delta_V_percent": 3.5431310336218282,
+      "delta_GV_percent": 3.4153948685869198,
+      "localization_status": "VALID"
+    },
+    {
+      "sequence": "MH_03_medium",
+      "B": 0.14928164624251655,
+      "G": 0.14903771648445954,
+      "V": 0.15034202393885,
+      "GV": 0.1502776681202134,
+      "delta_G_percent": 0.16340237678028555,
+      "delta_V_percent": -0.7103202054797765,
+      "delta_GV_percent": -0.6672098699117714,
+      "localization_status": "VALID"
+    },
+    {
+      "sequence": "MH_04_difficult",
+      "B": 12999.026971521169,
+      "G": 1162.2042187319244,
+      "V": 11911.469257704635,
+      "GV": 1445.4046130292286,
+      "delta_G_percent": null,
+      "delta_V_percent": null,
+      "delta_GV_percent": null,
+      "localization_status": "FAIL",
+      "reason": "severe native baseline divergence reproduced byte-for-byte with original binary; sparse visual updates; all modes fail localization"
+    },
+    {
+      "sequence": "MH_05_difficult",
+      "B": 0.27624237765064125,
+      "G": 0.2764663006660057,
+      "V": 0.26576220883371326,
+      "GV": 0.2656543817137958,
+      "delta_G_percent": -0.08106034174366906,
+      "delta_V_percent": 3.7938309487699464,
+      "delta_GV_percent": 3.8328644673902637,
+      "localization_status": "VALID"
+    },
+    {
+      "sequence": "V1_01_easy",
+      "B": 0.0642531648464146,
+      "G": 0.06426113685777468,
+      "V": 0.0644087835555488,
+      "GV": 0.06441678753557188,
+      "delta_G_percent": -0.012407188625074199,
+      "delta_V_percent": -0.24219617742747773,
+      "delta_GV_percent": -0.25465312027568615,
+      "localization_status": "VALID"
+    },
+    {
+      "sequence": "V1_02_medium",
+      "B": 0.06818795827882115,
+      "G": 0.0682450154586196,
+      "V": 0.06783920844727488,
+      "GV": 0.06806325497709438,
+      "delta_G_percent": -0.0836763282530705,
+      "delta_V_percent": 0.5114536940968823,
+      "delta_GV_percent": 0.18288170649846924,
+      "localization_status": "VALID"
+    },
+    {
+      "sequence": "V1_03_difficult",
+      "B": 0.04189056911007757,
+      "G": 0.041866947054666655,
+      "V": 0.04214874472021949,
+      "GV": 0.04216066638841973,
+      "delta_G_percent": 0.05638991284372443,
+      "delta_V_percent": -0.616309626788559,
+      "delta_GV_percent": -0.6447687011184307,
+      "localization_status": "VALID"
+    },
+    {
+      "sequence": "V2_01_easy",
+      "B": 0.17458065614176158,
+      "G": 0.17452358012138,
+      "V": 0.1724156279905,
+      "GV": 0.17240537871598427,
+      "delta_G_percent": 0.0326932099139484,
+      "delta_V_percent": 1.240130607312842,
+      "delta_GV_percent": 1.246001403506557,
+      "localization_status": "VALID"
+    },
+    {
+      "sequence": "V2_02_medium",
+      "B": 0.05197520957067538,
+      "G": 0.051996949250356445,
+      "V": 0.051759580437544674,
+      "GV": 0.05178201608343899,
+      "delta_G_percent": -0.04182701688099942,
+      "delta_V_percent": 0.41486919420209234,
+      "delta_GV_percent": 0.37170314238692725,
+      "localization_status": "VALID"
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "B": 0.20742761529144607,
+      "G": 0.20716230797474133,
+      "V": 0.209169851963584,
+      "GV": 0.20921699371009694,
+      "delta_G_percent": 0.1279035659412891,
+      "delta_V_percent": -0.8399251322877178,
+      "delta_GV_percent": -0.8626519743461867,
+      "localization_status": "VALID"
+    }
+  ],
+  "groups": {
+    "Easy/Medium": {
+      "valid_count": 7,
+      "total_count": 7,
+      "sequences": [
+        "MH_01_easy",
+        "MH_02_easy",
+        "MH_03_medium",
+        "V1_01_easy",
+        "V1_02_medium",
+        "V2_01_easy",
+        "V2_02_medium"
+      ],
+      "means": {
+        "B": 0.11298910817708151,
+        "G": 0.11296975614615766,
+        "V": 0.11175799064731719,
+        "GV": 0.11179788808005833
+      },
+      "delta_percent": {
+        "G": 0.017127341950091083,
+        "V": 1.0895895627699423,
+        "GV": 1.0542786966299809
+      }
+    },
+    "Difficult": {
+      "valid_count": 3,
+      "total_count": 4,
+      "sequences": [
+        "MH_05_difficult",
+        "V1_03_difficult",
+        "V2_03_difficult"
+      ],
+      "means": {
+        "B": 0.1751868540173883,
+        "G": 0.17516518523180458,
+        "V": 0.17236026850583894,
+        "GV": 0.17234401393743748
+      },
+      "delta_percent": {
+        "G": 0.012368956395301733,
+        "V": 1.6134689599876006,
+        "GV": 1.6227473778761055
+      }
+    },
+    "All": {
+      "valid_count": 10,
+      "total_count": 11,
+      "sequences": [
+        "MH_01_easy",
+        "MH_02_easy",
+        "MH_03_medium",
+        "MH_05_difficult",
+        "V1_01_easy",
+        "V1_02_medium",
+        "V1_03_difficult",
+        "V2_01_easy",
+        "V2_02_medium",
+        "V2_03_difficult"
+      ],
+      "means": {
+        "B": 0.13164843192917353,
+        "G": 0.13162838487185174,
+        "V": 0.12993867400487372,
+        "GV": 0.12996172583727209
+      },
+      "delta_percent": {
+        "G": 0.015227722068552042,
+        "V": 1.2987301855746025,
+        "GV": 1.2812200397562532
+      }
+    }
+  },
+  "passive_exact": {
+    "MH_01_easy": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    },
+    "MH_02_easy": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    },
+    "MH_03_medium": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    },
+    "MH_04_difficult": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    },
+    "MH_05_difficult": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    },
+    "V1_01_easy": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    },
+    "V1_02_medium": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    },
+    "V1_03_difficult": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    },
+    "V2_01_easy": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    },
+    "V2_02_medium": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    },
+    "V2_03_difficult": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    }
+  },
+  "delta_definition": "100*(B-mode)/B; positive is improvement",
+  "repeat_sequences": [
+    "V1_01_easy",
+    "MH_04_difficult",
+    "V2_03_difficult",
+    "MH_02_easy"
+  ],
+  "raw_full_group_means": {
+    "Easy/Medium": {
+      "sequences": [
+        "MH_01_easy",
+        "MH_02_easy",
+        "MH_03_medium",
+        "V1_01_easy",
+        "V1_02_medium",
+        "V2_01_easy",
+        "V2_02_medium"
+      ],
+      "valid_count": 7,
+      "total_count": 7,
+      "means": {
+        "B": 0.11298910817708151,
+        "G": 0.11296975614615766,
+        "V": 0.11175799064731719,
+        "GV": 0.11179788808005833
+      }
+    },
+    "Difficult": {
+      "sequences": [
+        "MH_04_difficult",
+        "MH_05_difficult",
+        "V1_03_difficult",
+        "V2_03_difficult"
+      ],
+      "valid_count": 4,
+      "total_count": 4,
+      "means": {
+        "B": 3249.888133020805,
+        "G": 290.68242857190495,
+        "V": 2977.996584627538,
+        "GV": 361.4804112677602
+      }
+    },
+    "All": {
+      "sequences": [
+        "MH_01_easy",
+        "MH_02_easy",
+        "MH_03_medium",
+        "MH_04_difficult",
+        "MH_05_difficult",
+        "V1_01_easy",
+        "V1_02_medium",
+        "V1_03_difficult",
+        "V2_01_easy",
+        "V2_02_medium",
+        "V2_03_difficult"
+      ],
+      "valid_count": 11,
+      "total_count": 11,
+      "means": {
+        "B": 1181.8494050764054,
+        "G": 105.7745911436948,
+        "V": 1082.9789676767896,
+        "GV": 131.5185663897819
+      }
+    }
+  },
+  "interpretation": "Frozen evaluator values preserved. Manual failure adjudication is a separate audit; failed row and all raw means retained."
+}

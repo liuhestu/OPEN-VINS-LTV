@@ -1,0 +1,82 @@
+{
+  "sequence": "MH_04_difficult",
+  "gt_position_extent_m": [
+    19.437592000000002,
+    17.385335,
+    3.308376
+  ],
+  "gt_max_speed_mps": 2.8703945618785585,
+  "original_baseline_exact": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  },
+  "modes": {
+    "B": {
+      "first_timestamp": 1403638132.945097,
+      "last_timestamp": 1403638228.845097,
+      "max_speed_mps": 783.5303132146778,
+      "end_position_m": [
+        -27824.956848417012,
+        -27658.794780185555,
+        -17357.81120509591
+      ],
+      "all_finite": true
+    },
+    "P": {
+      "first_timestamp": 1403638132.945097,
+      "last_timestamp": 1403638228.845097,
+      "max_speed_mps": 783.5303132146778,
+      "end_position_m": [
+        -27824.956848417012,
+        -27658.794780185555,
+        -17357.81120509591
+      ],
+      "all_finite": true,
+      "visual_update_packets": 23,
+      "first_visual_offset_s": 2.8500001430511475,
+      "last_visual_offset_s": 92.90000009536743
+    },
+    "G": {
+      "first_timestamp": 1403638132.945097,
+      "last_timestamp": 1403638228.845097,
+      "max_speed_mps": 82.64329539320093,
+      "end_position_m": [
+        357.22725680877585,
+        53.0960767197127,
+        3998.1613602483944
+      ],
+      "all_finite": true,
+      "visual_update_packets": 33,
+      "first_visual_offset_s": 2.8500001430511475,
+      "last_visual_offset_s": 92.90000009536743
+    },
+    "V": {
+      "first_timestamp": 1403638132.945097,
+      "last_timestamp": 1403638228.845097,
+      "max_speed_mps": 1075.027039476522,
+      "end_position_m": [
+        32308.781228701348,
+        -599.0403153802689,
+        -25435.53194799747
+      ],
+      "all_finite": true,
+      "visual_update_packets": 30,
+      "first_visual_offset_s": 1.0500001907348633,
+      "last_visual_offset_s": 92.90000009536743
+    },
+    "GV": {
+      "first_timestamp": 1403638132.945097,
+      "last_timestamp": 1403638228.845097,
+      "max_speed_mps": 92.71325521880476,
+      "end_position_m": [
+        3726.614691378802,
+        16.147383298578923,
+        2623.3772773649866
+      ],
+      "all_finite": true,
+      "visual_update_packets": 33,
+      "first_visual_offset_s": 1.0500001907348633,
+      "last_visual_offset_s": 92.90000009536743
+    }
+  }
+}

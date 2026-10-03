@@ -1,0 +1,282 @@
+{
+  "sequence": "MH_01_easy",
+  "protocol": {
+    "version": 1,
+    "association_tolerance_s": 0.02,
+    "camera_tolerance_s": 1e-06,
+    "min_coverage": 0.99,
+    "alignment": "SE3_no_scale",
+    "initialization": "first_B_output_no_additional_exclusion",
+    "orientation": "JPL_GtoI_components_as_Hamilton_ItoG",
+    "velocity": "official_state_GT_velocity_rotated_by_each_run_SE3"
+  },
+  "evaluator_sha256": "0d2959cedb9629247b77e8a73376865530ec7764d81ebc78fd929d77b4d7171c",
+  "gt_sha256": "aae2d7c5684724c8afe364d2fd8499a6ed77a9169adf03736531f67d8e7b2117",
+  "modes": {
+    "B": {
+      "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/MH_01_easy-B-20261002T175630Z-cb3d26f1.done",
+      "replay": {
+        "input_left_images": 3682,
+        "input_right_images": 3682,
+        "unmatched_left_images": 0,
+        "unmatched_right_images": 0,
+        "camera_packets": 3682,
+        "input_camera_packets": 3682,
+        "imu_consumed": 36820,
+        "input_imu_samples": 36820,
+        "output_rows": 2784,
+        "complete": true
+      },
+      "status": "VALID",
+      "start": 1403636624.6635556,
+      "end": 1403636763.8135555,
+      "rows": 2784,
+      "trajectory_sha256": "22571ff5569c1a6aefdc08aabbd9f085bdfc3aee6a9fe48a336c16c3f2b14800",
+      "sensor_output_coverage": 1.0,
+      "coverage": 1.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "initialization_delta_s": 0.0,
+      "ate_rmse_m": 0.1854463006138023,
+      "rotation_rmse_deg": 3.1039010747027986,
+      "velocity_rmse_mps": 0.04401603432531416,
+      "alignment_R": [
+        [
+          -0.9950155594930121,
+          -0.09756302226300625,
+          -0.020627482970928868
+        ],
+        [
+          0.09796788627438655,
+          -0.9949961257652973,
+          -0.019621492577734267
+        ],
+        [
+          -0.018609933523168976,
+          -0.02154452132114487,
+          0.9995946698413841
+        ]
+      ],
+      "alignment_t": [
+        4.814347169585854,
+        -1.3102627579644812,
+        0.5080646357609956
+      ],
+      "scale": 1.0,
+      "samples": 2763
+    },
+    "P": {
+      "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/MH_01_easy-P-20261002T175652Z-73699324.done",
+      "replay": {
+        "input_left_images": 3682,
+        "input_right_images": 3682,
+        "unmatched_left_images": 0,
+        "unmatched_right_images": 0,
+        "camera_packets": 3682,
+        "input_camera_packets": 3682,
+        "imu_consumed": 36820,
+        "input_imu_samples": 36820,
+        "output_rows": 2784,
+        "complete": true
+      },
+      "status": "VALID",
+      "start": 1403636624.6635556,
+      "end": 1403636763.8135555,
+      "rows": 2784,
+      "trajectory_sha256": "22571ff5569c1a6aefdc08aabbd9f085bdfc3aee6a9fe48a336c16c3f2b14800",
+      "sensor_output_coverage": 1.0,
+      "coverage": 1.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "initialization_delta_s": 0.0,
+      "ate_rmse_m": 0.1854463006138023,
+      "rotation_rmse_deg": 3.1039010747027986,
+      "velocity_rmse_mps": 0.04401603432531416,
+      "alignment_R": [
+        [
+          -0.9950155594930121,
+          -0.09756302226300625,
+          -0.020627482970928868
+        ],
+        [
+          0.09796788627438655,
+          -0.9949961257652973,
+          -0.019621492577734267
+        ],
+        [
+          -0.018609933523168976,
+          -0.02154452132114487,
+          0.9995946698413841
+        ]
+      ],
+      "alignment_t": [
+        4.814347169585854,
+        -1.3102627579644812,
+        0.5080646357609956
+      ],
+      "scale": 1.0,
+      "samples": 2763
+    },
+    "G": {
+      "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/MH_01_easy-G-20261002T175739Z-c1a9a79a.done",
+      "replay": {
+        "input_left_images": 3682,
+        "input_right_images": 3682,
+        "unmatched_left_images": 0,
+        "unmatched_right_images": 0,
+        "camera_packets": 3682,
+        "input_camera_packets": 3682,
+        "imu_consumed": 36820,
+        "input_imu_samples": 36820,
+        "output_rows": 2784,
+        "complete": true
+      },
+      "status": "VALID",
+      "start": 1403636624.6635556,
+      "end": 1403636763.8135555,
+      "rows": 2784,
+      "trajectory_sha256": "4af4d6469932324aace12c7dba523fab780dcc414d62faf9e2b7cfcb366facdc",
+      "sensor_output_coverage": 1.0,
+      "coverage": 1.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "initialization_delta_s": 0.0,
+      "ate_rmse_m": 0.18544196261558615,
+      "rotation_rmse_deg": 3.106566550396403,
+      "velocity_rmse_mps": 0.04402329294752244,
+      "alignment_R": [
+        [
+          -0.9950162633798935,
+          -0.09754736177640033,
+          -0.02066755476540616
+        ],
+        [
+          0.09795414369978009,
+          -0.9949963631136536,
+          -0.019677985736520798
+        ],
+        [
+          -0.01864460623236064,
+          -0.0216043884678101,
+          0.9995927315949107
+        ]
+      ],
+      "alignment_t": [
+        4.814387225916956,
+        -1.310182252219393,
+        0.5077767472643948
+      ],
+      "scale": 1.0,
+      "samples": 2763
+    },
+    "V": {
+      "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/MH_01_easy-V-20261002T175827Z-6341cf9d.done",
+      "replay": {
+        "input_left_images": 3682,
+        "input_right_images": 3682,
+        "unmatched_left_images": 0,
+        "unmatched_right_images": 0,
+        "camera_packets": 3682,
+        "input_camera_packets": 3682,
+        "imu_consumed": 36820,
+        "input_imu_samples": 36820,
+        "output_rows": 2784,
+        "complete": true
+      },
+      "status": "VALID",
+      "start": 1403636624.6635556,
+      "end": 1403636763.8135555,
+      "rows": 2784,
+      "trajectory_sha256": "5cb39f46d7d39bd071469caeacc71b957022062804a1e7505b11427ed6783c20",
+      "sensor_output_coverage": 1.0,
+      "coverage": 1.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "initialization_delta_s": 0.0,
+      "ate_rmse_m": 0.18178577022641912,
+      "rotation_rmse_deg": 3.0194564872895175,
+      "velocity_rmse_mps": 0.04371160297101112,
+      "alignment_R": [
+        [
+          -0.9949149559275958,
+          -0.0987560117186495,
+          -0.01978586922572978
+        ],
+        [
+          0.0991285031373017,
+          -0.9948966148222345,
+          -0.018821946791390487
+        ],
+        [
+          -0.017826113916096176,
+          -0.020687579962045233,
+          0.9996270573058567
+        ]
+      ],
+      "alignment_t": [
+        4.802350833236232,
+        -1.317287604860991,
+        0.5086501095702118
+      ],
+      "scale": 1.0,
+      "samples": 2763
+    },
+    "GV": {
+      "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/MH_01_easy-GV-20261002T175916Z-204a7486.done",
+      "replay": {
+        "input_left_images": 3682,
+        "input_right_images": 3682,
+        "unmatched_left_images": 0,
+        "unmatched_right_images": 0,
+        "camera_packets": 3682,
+        "input_camera_packets": 3682,
+        "imu_consumed": 36820,
+        "input_imu_samples": 36820,
+        "output_rows": 2784,
+        "complete": true
+      },
+      "status": "VALID",
+      "start": 1403636624.6635556,
+      "end": 1403636763.8135555,
+      "rows": 2784,
+      "trajectory_sha256": "5b247d492841fd2ed8b931a5183ddb5471ddd3006e151f55399367728b76a6a7",
+      "sensor_output_coverage": 1.0,
+      "coverage": 1.0,
+      "missing_rows": 0,
+      "longest_missing_packets": 0,
+      "initialization_delta_s": 0.0,
+      "ate_rmse_m": 0.18176101314592102,
+      "rotation_rmse_deg": 3.0217523607037386,
+      "velocity_rmse_mps": 0.04371834935504246,
+      "alignment_R": [
+        [
+          -0.9949152363506903,
+          -0.09874648046157877,
+          -0.019819310626295827
+        ],
+        [
+          0.09912057114158973,
+          -0.9948964432956955,
+          -0.018872718249929255
+        ],
+        [
+          -0.01785454714675122,
+          -0.020741256327119872,
+          0.9996254375675713
+        ]
+      ],
+      "alignment_t": [
+        4.802360241938249,
+        -1.3172911811822674,
+        0.5083686115855569
+      ],
+      "scale": 1.0,
+      "samples": 2763
+    }
+  },
+  "expected_support_rows": 2763,
+  "gt_support_start": 1403636624.6635556,
+  "gt_support_end": 1403636762.7635558,
+  "common_support_rows": 2763,
+  "common_support_fraction": 1.0
+}
