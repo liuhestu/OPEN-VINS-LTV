@@ -54,3 +54,8 @@ add_executable(test_ltv_value_shadow test_ltv_value_shadow.cpp)
 ament_target_dependencies(test_ltv_value_shadow ${ament_libraries})
 target_link_libraries(test_ltv_value_shadow ov_msckf_lib ${thirdparty_libraries})
 install(TARGETS test_ltv_value_shadow DESTINATION lib/${PROJECT_NAME})
+
+add_executable(test_ltv_huber test_ltv_huber.cpp)
+ament_target_dependencies(test_ltv_huber ${ament_libraries})
+target_link_libraries(test_ltv_huber ov_msckf_lib ${thirdparty_libraries})
+install(TARGETS test_ltv_huber DESTINATION lib/${PROJECT_NAME})

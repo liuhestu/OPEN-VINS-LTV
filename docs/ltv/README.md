@@ -10,6 +10,8 @@
 |EuRoC/UZH信息价值验证|[合同](value_study/value_study_goal.md)、[报告](value_study/value_study_report.md)、[验收](value_study/value_study_validation.md)|完成：57次完整、12次短段|
 |VINS差异与observer根因排查|[计划](observer_diagnosis/plan.md)、[排查报告](observer_diagnosis/report.md)|本轮完成：10组核心对照、2次插桩回放|
 
+新任务：[鲁棒融合与全 EuRoC 调参对照](robust_fusion/plan.md)。
+
 `evidence/`是只读历史证据归档，其已有phase/value_study子目录、文件字节及绝对历史路径保持原样；大型日志和数据仍在各任务记录的外部输出根。`../ltv_handover/`也保持只读。文档迁移映射和迁移前后SHA见[document_paths.json](document_paths.json)；正文只修订导航链接，历史命令/manifest内原路径不批量改写。
 
 上一轮信息价值验证的完整提交为`02ef83c`。严格冻结身份检查应在对应历史版本执行；新任务新增测试/源码不表示旧实验失效，也不得把旧PASS解释成新代码已验收。

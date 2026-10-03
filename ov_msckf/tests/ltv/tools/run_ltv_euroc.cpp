@@ -98,6 +98,8 @@ int main(int argc, char **argv) {
     EFFECTIVE("ltv_enable_gravity", options.ltv_options.enable_gravity);
     EFFECTIVE("ltv_enable_velocity", options.ltv_options.enable_velocity);
     EFFECTIVE("ltv_allow_correlated_pseudomeasurements", options.ltv_options.allow_correlated_pseudomeasurements);
+    EFFECTIVE("ltv_enable_huber", options.ltv_options.enable_huber);
+    EFFECTIVE("ltv_huber_delta", options.ltv_options.huber_delta);
     EFFECTIVE("ltv_enable_quality_gate", options.ltv_options.enable_quality_gate);
     EFFECTIVE("ltv_enable_nis_gate", options.ltv_options.enable_nis_gate);
     EFFECTIVE("ltv_log_enabled", options.ltv_options.log_enabled);

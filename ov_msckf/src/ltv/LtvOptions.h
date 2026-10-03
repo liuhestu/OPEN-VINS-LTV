@@ -6,6 +6,8 @@ namespace ov_msckf {
 struct LtvOptions {
   bool enabled = false, enable_gravity = false, enable_velocity = false, allow_correlated_pseudomeasurements = false;
   bool enable_quality_gate = false, enable_nis_gate = true, log_enabled = false;
+  bool enable_huber = false;
+  double huber_delta = 2.0;
   double sigma_gravity_deg = 10, sigma_velocity_mps = 1, max_gravity_angle_deg = 30, time_tolerance_s = 1e-6;
   double nis_gravity = 9.21034037197618, nis_velocity = 11.3448667301444;
   double quality_eta_error = 0.5, quality_innovation = 0.03, quality_velocity_disagreement = 0.5;
@@ -27,6 +29,8 @@ struct LtvOptions {
     FIELD(allow_correlated_pseudomeasurements);
     FIELD(enable_quality_gate);
     FIELD(enable_nis_gate);
+    FIELD(enable_huber);
+    FIELD(huber_delta);
     FIELD(log_enabled);
     FIELD(log_path);
     FIELD(correlation_model);
@@ -77,7 +81,7 @@ struct LtvOptions {
     auto positive = [](double x) { return std::isfinite(x) && x > 0; };
     if (correlation_model != "independence_approximation" || !positive(sigma_gravity_deg) || !positive(sigma_velocity_mps) ||
         !positive(time_tolerance_s) || !positive(max_gravity_angle_deg) || max_gravity_angle_deg >= 90 || !positive(nis_gravity) ||
-        !positive(nis_velocity))
+        !positive(nis_velocity) || !positive(huber_delta))
       throw std::invalid_argument("invalid LTV fusion settings");
     if (observer.max_features < 1 || observer.min_features < 1 || observer.min_features > observer.max_features ||
         observer.max_missed_frames < 0 || observer.warmup_camera_updates < 1 || observer.max_camera_substeps < 1)

@@ -165,6 +165,17 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
     reason = "accepted";
     return true;
   };
+  // One frozen IRLS weight per branch, after gating against the original noise.
+  // This is a robust EKF step, not an iterated nonlinear sliding-window solve.
+  auto robustify = [&](MeasurementBlock &block, double &variance) {
+    if (options_.enable_huber) {
+      Eigen::LLT<Eigen::MatrixXd> noise(block.R);
+      const double magnitude = noise.matrixL().solve(block.res).norm();
+      if (magnitude > options_.huber_delta)
+        block.R *= magnitude / options_.huber_delta;
+    }
+    variance = block.R(0, 0);
+  };
   if (options_.enable_gravity) {
     d.gravity_reason = "eta_invalid";
     const double norm = snap.gravity_body.norm();
@@ -183,6 +194,7 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
              snap.innovation_norm / std::sqrt(std::max(1, 3 * snap.observed_features)) <= options_.quality_innovation);
         d.gravity_reason = "quality";
         if (d.gravity_quality && gate(g, options_.nis_gravity, d.gravity_nis, d.gravity_reason)) {
+          robustify(g, d.gravity_variance);
           b = merge(b, g);
           d.gravity_rows = 2;
         }
@@ -201,6 +213,7 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
                             v.res.norm() <= options_.quality_velocity_disagreement);
       d.velocity_reason = "quality";
       if (d.velocity_quality && gate(v, options_.nis_velocity, d.velocity_nis, d.velocity_reason)) {
+        robustify(v, d.velocity_variance);
         b = merge(b, v);
         d.velocity_rows = 3;
       }
