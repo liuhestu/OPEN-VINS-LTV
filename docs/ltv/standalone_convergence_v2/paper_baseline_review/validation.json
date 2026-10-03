@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "test_command": [
+    "python3",
+    "scripts/ltv_standalone_study/test_paper_review.py"
+  ],
+  "test_exit_code": 0,
+  "test_output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.003s\n\nOK\n",
+  "geometry_max_absolute_difference": 4.0356651545558897e-07,
+  "all_native_settling_matches_original": true,
+  "source_sha_verified": true,
+  "links_and_tables_valid": true,
+  "runs_unchanged": 58
+}

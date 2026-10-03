@@ -1,0 +1,38 @@
+{
+  "velocity": {
+    "last_bad_time": 15.2,
+    "last_bad_sides": [
+      "pre"
+    ],
+    "terminal_good_suffix_start": 15.205,
+    "remaining_validation_seconds": 4.795,
+    "failed_samples_after_15s": 7
+  },
+  "gravity_angle": {
+    "last_bad_time": 10.2,
+    "last_bad_sides": [
+      "pre"
+    ],
+    "terminal_good_suffix_start": 10.205,
+    "remaining_validation_seconds": 9.795,
+    "failed_samples_after_15s": 0
+  },
+  "gravity_magnitude": {
+    "last_bad_time": 9.35,
+    "last_bad_sides": [
+      "pre"
+    ],
+    "terminal_good_suffix_start": 9.355,
+    "remaining_validation_seconds": 10.645,
+    "failed_samples_after_15s": 0
+  },
+  "landmark_worst": {
+    "last_bad_time": 13.5,
+    "last_bad_sides": [
+      "pre"
+    ],
+    "terminal_good_suffix_start": 13.505,
+    "remaining_validation_seconds": 6.494999999999999,
+    "failed_samples_after_15s": 0
+  }
+}

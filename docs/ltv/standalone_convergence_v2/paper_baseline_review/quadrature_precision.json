@@ -1,0 +1,38 @@
+{
+  "REGULAR_4": {
+    "max_absolute_eigenvalue_difference": 1.9799914076357172e-08,
+    "pass": true
+  },
+  "REGULAR_5": {
+    "max_absolute_eigenvalue_difference": 1.020102424580116e-08,
+    "pass": true
+  },
+  "REGULAR_10": {
+    "max_absolute_eigenvalue_difference": 2.8011690241663834e-09,
+    "pass": true
+  },
+  "FAST_4": {
+    "max_absolute_eigenvalue_difference": 1.5406667964318332e-07,
+    "pass": true
+  },
+  "FAST_5": {
+    "max_absolute_eigenvalue_difference": 8.096167172788604e-08,
+    "pass": true
+  },
+  "FAST_10": {
+    "max_absolute_eigenvalue_difference": 1.993020588841876e-08,
+    "pass": true
+  },
+  "PAPER_4": {
+    "max_absolute_eigenvalue_difference": 4.0356651545558897e-07,
+    "pass": true
+  },
+  "PAPER_5": {
+    "max_absolute_eigenvalue_difference": 1.8204957674683442e-07,
+    "pass": true
+  },
+  "PAPER_10": {
+    "max_absolute_eigenvalue_difference": 1.8311448790608864e-07,
+    "pass": true
+  }
+}

@@ -1,0 +1,577 @@
+{
+  "status": "COMPLETED",
+  "runs_before": 58,
+  "runs_after": 58,
+  "new_simulations": 0,
+  "results": {
+    "01_REGULAR_CONT_REF_C0": {
+      "config": {
+        "impl": "CONT_REF",
+        "scene": "REGULAR",
+        "candidate": "C0",
+        "q": 0.0001,
+        "v": 1000000.0,
+        "p": 1,
+        "imu_hz": 200,
+        "camera_hz": 20,
+        "duration": 60,
+        "tight": false,
+        "lifetime": 0,
+        "initialization": "ZERO",
+        "noise": 0
+      },
+      "common_20s": {
+        "wide": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        },
+        "strict": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        }
+      },
+      "native_horizon": {
+        "wide": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        },
+        "strict": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        }
+      }
+    },
+    "04_REGULAR_CORE_C0": {
+      "config": {
+        "impl": "CORE",
+        "scene": "REGULAR",
+        "candidate": "C0",
+        "q": 0.0001,
+        "v": 1000000.0,
+        "p": 1,
+        "imu_hz": 200,
+        "camera_hz": 20,
+        "duration": 60,
+        "tight": false,
+        "lifetime": 0,
+        "initialization": "ZERO",
+        "noise": 0
+      },
+      "common_20s": {
+        "wide": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        },
+        "strict": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        }
+      },
+      "native_horizon": {
+        "wide": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        },
+        "strict": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        }
+      }
+    },
+    "02_REGULAR_CONT_REF_C0": {
+      "config": {
+        "impl": "CONT_REF",
+        "scene": "REGULAR",
+        "candidate": "C0",
+        "q": 0.0001,
+        "v": 1000000.0,
+        "p": 1,
+        "imu_hz": 200,
+        "camera_hz": 20,
+        "duration": 60,
+        "tight": true,
+        "lifetime": 0,
+        "initialization": "ZERO",
+        "noise": 0
+      },
+      "common_20s": {
+        "wide": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        },
+        "strict": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        }
+      },
+      "native_horizon": {
+        "wide": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        },
+        "strict": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        }
+      }
+    },
+    "05_FAST_CONT_REF_C0": {
+      "config": {
+        "impl": "CONT_REF",
+        "scene": "FAST",
+        "candidate": "C0",
+        "q": 0.0001,
+        "v": 1000000.0,
+        "p": 1,
+        "imu_hz": 200,
+        "camera_hz": 20,
+        "duration": 60,
+        "tight": false,
+        "lifetime": 0,
+        "initialization": "ZERO",
+        "noise": 0
+      },
+      "common_20s": {
+        "wide": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        },
+        "strict": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        }
+      },
+      "native_horizon": {
+        "wide": {
+          "t_V": 40.775,
+          "t_G": 31.36,
+          "t_VG": 40.775,
+          "t_L": 32.525
+        },
+        "strict": {
+          "t_V": 46.45,
+          "t_G": 34.92,
+          "t_VG": 46.45,
+          "t_L": 40.26
+        }
+      }
+    },
+    "08_FAST_CORE_C0": {
+      "config": {
+        "impl": "CORE",
+        "scene": "FAST",
+        "candidate": "C0",
+        "q": 0.0001,
+        "v": 1000000.0,
+        "p": 1,
+        "imu_hz": 200,
+        "camera_hz": 20,
+        "duration": 60,
+        "tight": false,
+        "lifetime": 0,
+        "initialization": "ZERO",
+        "noise": 0
+      },
+      "common_20s": {
+        "wide": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        },
+        "strict": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        }
+      },
+      "native_horizon": {
+        "wide": {
+          "t_V": 37.855,
+          "t_G": 31.205,
+          "t_VG": 37.855,
+          "t_L": 32.105
+        },
+        "strict": {
+          "t_V": 43.555,
+          "t_G": 34.805,
+          "t_VG": 43.555,
+          "t_L": 38.555
+        }
+      }
+    },
+    "06_FAST_CONT_REF_C0": {
+      "config": {
+        "impl": "CONT_REF",
+        "scene": "FAST",
+        "candidate": "C0",
+        "q": 0.0001,
+        "v": 1000000.0,
+        "p": 1,
+        "imu_hz": 200,
+        "camera_hz": 20,
+        "duration": 60,
+        "tight": true,
+        "lifetime": 0,
+        "initialization": "ZERO",
+        "noise": 0
+      },
+      "common_20s": {
+        "wide": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        },
+        "strict": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        }
+      },
+      "native_horizon": {
+        "wide": {
+          "t_V": 40.775,
+          "t_G": 31.36,
+          "t_VG": 40.775,
+          "t_L": 32.525
+        },
+        "strict": {
+          "t_V": 46.45,
+          "t_G": 34.92,
+          "t_VG": 46.45,
+          "t_L": 40.26
+        }
+      }
+    },
+    "09_PAPER_CONT_REF_C0": {
+      "config": {
+        "impl": "CONT_REF",
+        "scene": "PAPER",
+        "candidate": "C0",
+        "q": 0.0001,
+        "v": 1000000.0,
+        "p": 1,
+        "imu_hz": 200,
+        "camera_hz": 20,
+        "duration": 20,
+        "tight": false,
+        "lifetime": 0,
+        "initialization": "ZERO",
+        "noise": 0
+      },
+      "common_20s": {
+        "wide": {
+          "t_V": 11.45,
+          "t_G": 8.485,
+          "t_VG": 11.45,
+          "t_L": 11.6
+        },
+        "strict": {
+          "t_V": 13.53,
+          "t_G": 10.095,
+          "t_VG": 13.53,
+          "t_L": 14.095
+        }
+      },
+      "native_horizon": {
+        "wide": {
+          "t_V": 11.45,
+          "t_G": 8.485,
+          "t_VG": 11.45,
+          "t_L": 11.6
+        },
+        "strict": {
+          "t_V": 13.53,
+          "t_G": 10.095,
+          "t_VG": 13.53,
+          "t_L": 14.095
+        }
+      }
+    },
+    "11_PAPER_CORE_C0": {
+      "config": {
+        "impl": "CORE",
+        "scene": "PAPER",
+        "candidate": "C0",
+        "q": 0.0001,
+        "v": 1000000.0,
+        "p": 1,
+        "imu_hz": 200,
+        "camera_hz": 20,
+        "duration": 20,
+        "tight": false,
+        "lifetime": 0,
+        "initialization": "ZERO",
+        "noise": 0
+      },
+      "common_20s": {
+        "wide": {
+          "t_V": 10.555,
+          "t_G": 8.605,
+          "t_VG": 10.555,
+          "t_L": 10.655
+        },
+        "strict": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": 10.205,
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": 13.505
+        }
+      },
+      "native_horizon": {
+        "wide": {
+          "t_V": 10.555,
+          "t_G": 8.605,
+          "t_VG": 10.555,
+          "t_L": 10.655
+        },
+        "strict": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": 10.205,
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": 13.505
+        }
+      }
+    },
+    "10_PAPER_CONT_REF_C0": {
+      "config": {
+        "impl": "CONT_REF",
+        "scene": "PAPER",
+        "candidate": "C0",
+        "q": 0.0001,
+        "v": 1000000.0,
+        "p": 1,
+        "imu_hz": 200,
+        "camera_hz": 20,
+        "duration": 20,
+        "tight": true,
+        "lifetime": 0,
+        "initialization": "ZERO",
+        "noise": 0
+      },
+      "common_20s": {
+        "wide": {
+          "t_V": 11.45,
+          "t_G": 8.485,
+          "t_VG": 11.45,
+          "t_L": 11.6
+        },
+        "strict": {
+          "t_V": 13.53,
+          "t_G": 10.095,
+          "t_VG": 13.53,
+          "t_L": 14.095
+        }
+      },
+      "native_horizon": {
+        "wide": {
+          "t_V": 11.45,
+          "t_G": 8.485,
+          "t_VG": 11.45,
+          "t_L": 11.6
+        },
+        "strict": {
+          "t_V": 13.53,
+          "t_G": 10.095,
+          "t_VG": 13.53,
+          "t_L": 14.095
+        }
+      }
+    },
+    "20_REGULAR_CONT_REF_C0": {
+      "config": {
+        "impl": "CONT_REF",
+        "scene": "REGULAR",
+        "candidate": "C0",
+        "q": 0.0001,
+        "v": 1000000.0,
+        "p": 1,
+        "imu_hz": 200,
+        "camera_hz": 20,
+        "duration": 120,
+        "tight": false,
+        "lifetime": 0,
+        "initialization": "ZERO",
+        "noise": 0
+      },
+      "common_20s": {
+        "wide": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        },
+        "strict": {
+          "t_V": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_G": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_VG": "NOT_OBSERVED_WITHIN_HORIZON",
+          "t_L": "NOT_OBSERVED_WITHIN_HORIZON"
+        }
+      },
+      "native_horizon": {
+        "wide": {
+          "t_V": 85.975,
+          "t_G": 57.515,
+          "t_VG": 85.975,
+          "t_L": 87.4
+        },
+        "strict": {
+          "t_V": 97.605,
+          "t_G": 74.295,
+          "t_VG": 97.605,
+          "t_L": 109.135
+        }
+      }
+    }
+  },
+  "integrity": {
+    "checked": 588,
+    "changed": [],
+    "head": "43215b84e90c18d79d55528c811d85ab22fc04a8",
+    "dataset_paths_excluded_from_recheck": [
+      "ov_data/CMakeLists.txt",
+      "ov_data/euroc_mav/MH_01_easy.csv",
+      "ov_data/euroc_mav/MH_01_easy.txt",
+      "ov_data/euroc_mav/MH_02_easy.csv",
+      "ov_data/euroc_mav/MH_02_easy.txt",
+      "ov_data/euroc_mav/MH_03_medium.csv",
+      "ov_data/euroc_mav/MH_03_medium.txt",
+      "ov_data/euroc_mav/MH_04_difficult.csv",
+      "ov_data/euroc_mav/MH_04_difficult.txt",
+      "ov_data/euroc_mav/MH_05_difficult.csv",
+      "ov_data/euroc_mav/MH_05_difficult.txt",
+      "ov_data/euroc_mav/V1_01_easy.csv",
+      "ov_data/euroc_mav/V1_01_easy.txt",
+      "ov_data/euroc_mav/V1_01_easy_original.csv",
+      "ov_data/euroc_mav/V1_01_easy_original.txt",
+      "ov_data/euroc_mav/V1_02_medium.csv",
+      "ov_data/euroc_mav/V1_02_medium.txt",
+      "ov_data/euroc_mav/V1_03_difficult.csv",
+      "ov_data/euroc_mav/V1_03_difficult.txt",
+      "ov_data/euroc_mav/V2_01_easy.csv",
+      "ov_data/euroc_mav/V2_01_easy.txt",
+      "ov_data/euroc_mav/V2_02_medium.csv",
+      "ov_data/euroc_mav/V2_02_medium.txt",
+      "ov_data/euroc_mav/V2_03_difficult.csv",
+      "ov_data/euroc_mav/V2_03_difficult.txt",
+      "ov_data/kaist/matlab/kaist_calculate_imu2cam.m",
+      "ov_data/kaist/matlab/kaist_convert_groundtruth.m",
+      "ov_data/kaist/matlab/rot2quat.m",
+      "ov_data/kaist/raw/stereoParams.mat",
+      "ov_data/kaist/raw/urban28_global_pose.csv",
+      "ov_data/kaist/raw/urban32_global_pose.csv",
+      "ov_data/kaist/raw/urban34_global_pose.csv",
+      "ov_data/kaist/raw/urban38_global_pose.csv",
+      "ov_data/kaist/raw/urban39_global_pose.csv",
+      "ov_data/kaist/urban28.csv",
+      "ov_data/kaist/urban28.txt",
+      "ov_data/kaist/urban32.csv",
+      "ov_data/kaist/urban32.txt",
+      "ov_data/kaist/urban34.csv",
+      "ov_data/kaist/urban34.txt",
+      "ov_data/kaist/urban38.csv",
+      "ov_data/kaist/urban38.txt",
+      "ov_data/kaist/urban39.csv",
+      "ov_data/kaist/urban39.txt",
+      "ov_data/kaist_vio/circle.txt",
+      "ov_data/kaist_vio/circle_fast.txt",
+      "ov_data/kaist_vio/circle_head.txt",
+      "ov_data/kaist_vio/infinite.txt",
+      "ov_data/kaist_vio/infinite_fast.txt",
+      "ov_data/kaist_vio/infinite_head.txt",
+      "ov_data/kaist_vio/rotation.txt",
+      "ov_data/kaist_vio/rotation_fast.txt",
+      "ov_data/kaist_vio/square.txt",
+      "ov_data/kaist_vio/square_fast.txt",
+      "ov_data/kaist_vio/square_head.txt",
+      "ov_data/package.xml",
+      "ov_data/rpng_ironsides/ReadMe.txt",
+      "ov_data/rpng_ironsides/neighborhood_01.txt",
+      "ov_data/rpng_ironsides/neighborhood_02.txt",
+      "ov_data/rpng_plane/table_01.csv",
+      "ov_data/rpng_plane/table_01.txt",
+      "ov_data/rpng_plane/table_02.csv",
+      "ov_data/rpng_plane/table_02.txt",
+      "ov_data/rpng_plane/table_03.csv",
+      "ov_data/rpng_plane/table_03.txt",
+      "ov_data/rpng_plane/table_04.csv",
+      "ov_data/rpng_plane/table_04.txt",
+      "ov_data/rpng_plane/table_05.csv",
+      "ov_data/rpng_plane/table_05.txt",
+      "ov_data/rpng_plane/table_06.csv",
+      "ov_data/rpng_plane/table_06.txt",
+      "ov_data/rpng_plane/table_07.csv",
+      "ov_data/rpng_plane/table_07.txt",
+      "ov_data/rpng_plane/table_08.csv",
+      "ov_data/rpng_plane/table_08.txt",
+      "ov_data/sim/euroc_V1_01_easy.txt",
+      "ov_data/sim/tum_corridor1_512_16_okvis.txt",
+      "ov_data/sim/tum_magistrale1_512_16_vinsmono.txt",
+      "ov_data/sim/udel_arl.txt",
+      "ov_data/sim/udel_arl_short.txt",
+      "ov_data/sim/udel_garage.txt",
+      "ov_data/sim/udel_gore.txt",
+      "ov_data/sim/udel_gore_zupt.txt",
+      "ov_data/sim/udel_neighborhood.txt",
+      "ov_data/tum_vi/dataset-room1_512_16.csv",
+      "ov_data/tum_vi/dataset-room1_512_16.txt",
+      "ov_data/tum_vi/dataset-room2_512_16.csv",
+      "ov_data/tum_vi/dataset-room2_512_16.txt",
+      "ov_data/tum_vi/dataset-room3_512_16.csv",
+      "ov_data/tum_vi/dataset-room3_512_16.txt",
+      "ov_data/tum_vi/dataset-room4_512_16.csv",
+      "ov_data/tum_vi/dataset-room4_512_16.txt",
+      "ov_data/tum_vi/dataset-room5_512_16.csv",
+      "ov_data/tum_vi/dataset-room5_512_16.txt",
+      "ov_data/tum_vi/dataset-room6_512_16.csv",
+      "ov_data/tum_vi/dataset-room6_512_16.txt",
+      "ov_data/uzhfpv_indoor/indoor_forward_10_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_indoor/indoor_forward_3_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_indoor/indoor_forward_5_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_indoor/indoor_forward_6_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_indoor/indoor_forward_7_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_indoor/indoor_forward_9_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_indoor_45/indoor_45_12_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_indoor_45/indoor_45_13_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_indoor_45/indoor_45_14_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_indoor_45/indoor_45_2_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_indoor_45/indoor_45_4_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_outdoor/outdoor_forward_1_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_outdoor/outdoor_forward_3_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_outdoor/outdoor_forward_5_snapdragon_with_gt.txt",
+      "ov_data/uzhfpv_outdoor_45/outdoor_45_1_snapdragon_with_gt.txt"
+    ],
+    "original_manifest_entries": 699
+  }
+}

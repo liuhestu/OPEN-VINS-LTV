@@ -1,0 +1,19 @@
+{
+  "REGULAR_extension120.png": "b67e4a1d0a4c8b91e0455dac878476f6d0e8f5d6e4d79aff0509118594eddcfc",
+  "REGULAR_extension120.svg": "66a4cf0da5c738df02a3a2a73d3de2362f230984a2c0dd71975c77afeec56a8d",
+  "errors_common20.png": "afb329d2afa1881567d44061600b59fb70a7dbfe9b097f02a39591d81a2bfe2e",
+  "errors_common20.svg": "ba77b9f28d3b24c7e88a8424226c1dbad131b60a22f86a602a4fb8b219dbbe6e",
+  "errors_native.png": "7cfcae2b94b0878c064564ce07068470f17d1562546fa92aa46e9fe15ac261ae",
+  "errors_native.svg": "1bce5d8008ad985a83db7f901a3446c308e18b010102cab6df94e6a17f4581d1",
+  "excitation.json": "6b9ea8a3c66b8d71491353453e6f4e4b6d4f75a7b09a03ea7a8b8ba3812ca965",
+  "excitation_distribution.png": "8b3b2570ba079ab874245332fc82e85d20541bb91368312572b524df829be87c",
+  "excitation_distribution.svg": "f23a6a0da33a6c607b0a26c7da450b0268b3be25df12cee31921f5541c8d53a8",
+  "excitation_per_point.csv": "b1b21229ea05fad7ae55a2eede14e4c8a41ae0f2e76bffc3ceddba130fbb4109",
+  "paper_core_strict_diagnosis.json": "959df5dd0baaaa6630b3e91fcce288f51b71cc8dc863c3b4575587da08560f0a",
+  "paper_core_strict_failures.csv": "4301faf6e0070006b9898813654ce9bdafec4d0ffc0e869a3af5200b120937ea",
+  "quadrature_precision.json": "03d8afe54c2ee1e630201398ca445dc11f4195b74eb30dc55a2dadf1e3e8cb58",
+  "report.md": "794850ba0783465491acfb9d8e1d91f28c2b85985be312bd14e049fc1534e7b1",
+  "results.json": "88f99286855416a1939895070834afe747371c1e293cd14c47483d2e79b1617c",
+  "sources_sha256.json": "2de5d020a7a92e4a7f0407c2622815caf8a55561ee4a6992fcbbc432696e0ee2",
+  "validation.json": "1b76ed1f091d04eab0f587c5c4425cc18d2252f0c39fb2224c55486308a5bbcb"
+}
