@@ -76,6 +76,8 @@ endif ()
 ##################################################
 
 list(APPEND LIBRARY_SOURCES
+        src/ltv/ltv_observer.cpp
+        src/ltv/LtvAdapter.cpp
         src/dummy.cpp
         src/sim/Simulator.cpp
         src/state/State.cpp
