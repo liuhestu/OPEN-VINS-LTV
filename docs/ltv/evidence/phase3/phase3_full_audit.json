@@ -1,0 +1,82 @@
+{
+  "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/V1_01_easy-V-20261002T173956Z-9319dc74.done",
+  "mode": "V",
+  "replay": {
+    "camera_packets": 2912,
+    "input_camera_packets": 2912,
+    "imu_consumed": 29120,
+    "input_imu_samples": 29120,
+    "output_rows": 2800,
+    "complete": true
+  },
+  "runtime_seconds": 48.41345430188812,
+  "trajectory_finite": true,
+  "camera_rows": 2912,
+  "available": 2800,
+  "core_valid": 2781,
+  "submit_reasons": {
+    "none": 131,
+    "joint_applied": 2781
+  },
+  "pause_reasons": {
+    "uninitialized": 108,
+    "waiting_clones": 4,
+    "candidate": 2800
+  },
+  "core_reset_reasons": {
+    "reconfigured": 112,
+    "none": 2800
+  },
+  "max_ekf_calls": 1,
+  "max_update_norm": 0.06170485163914173,
+  "max_P_symmetry": 0.0,
+  "min_P_eigenvalue": -2.996935838695649e-17,
+  "min_PL_eigenvalue": 0.9999949999136998,
+  "epoch_count": 1,
+  "unique_attempts": 2800,
+  "G": {
+    "updates": 0,
+    "coverage": 0.0,
+    "reasons": {
+      "disabled": 2912
+    },
+    "nis": null,
+    "residual": null,
+    "gain_norm": null,
+    "update_norm": null
+  },
+  "V": {
+    "updates": 2781,
+    "coverage": 0.9932142857142857,
+    "reasons": {
+      "disabled": 112,
+      "warmup_or_core_invalid": 19,
+      "accepted": 2781
+    },
+    "nis": {
+      "count": 2781,
+      "mean": 0.25153254423602195,
+      "max": 4.613822249050416,
+      "p95": 0.666343000559324
+    },
+    "residual": {
+      "count": 2781,
+      "mean": 0.4479362076670188,
+      "max": 2.1479960200836556,
+      "p95": 0.8163024554568314
+    },
+    "gain_norm": {
+      "count": 2781,
+      "mean": 3.508267378611744e-05,
+      "max": 0.00011685921580533497,
+      "p95": 6.812712114662743e-05
+    },
+    "update_norm": {
+      "count": 2781,
+      "mean": 1.2276872853842133e-05,
+      "max": 9.437858380574302e-05,
+      "p95": 3.7428377288184975e-05
+    }
+  },
+  "GV_joint_updates": 0
+}

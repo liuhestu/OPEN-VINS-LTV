@@ -1,0 +1,24 @@
+{
+  "original": {
+    "audit.csv": "c91472f33176ae673267a6902ab3458d0c1d12ed82243cc7f45252d7fb1ddfe2",
+    "trajectory.csv": "c9acc513225583f98ea89b685a8d71244e7e8b010dc5c8768514ecc1f2c50a6d",
+    "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/V1_01_easy-B-20261002T154155Z-194ed9d6.done"
+  },
+  "B": {
+    "audit.csv": "c91472f33176ae673267a6902ab3458d0c1d12ed82243cc7f45252d7fb1ddfe2",
+    "trajectory.csv": "c9acc513225583f98ea89b685a8d71244e7e8b010dc5c8768514ecc1f2c50a6d",
+    "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/V1_01_easy-B-20261002T154439Z-70b28ec1.done"
+  },
+  "P": {
+    "audit.csv": "c91472f33176ae673267a6902ab3458d0c1d12ed82243cc7f45252d7fb1ddfe2",
+    "trajectory.csv": "c9acc513225583f98ea89b685a8d71244e7e8b010dc5c8768514ecc1f2c50a6d",
+    "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/V1_01_easy-P-20261002T154510Z-9ffbf255.done",
+    "ltv_reasons": {
+      "uninitialized": 108,
+      "waiting_clones": 4,
+      "candidate": 288
+    },
+    "valid": 269,
+    "max_features": 30
+  }
+}

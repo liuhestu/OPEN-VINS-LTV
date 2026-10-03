@@ -1,0 +1,32 @@
+{
+  "B": {
+    "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/V1_01_easy-B-20261002T160517Z-bf453cd2.done",
+    "audit_sha": "c91472f33176ae673267a6902ab3458d0c1d12ed82243cc7f45252d7fb1ddfe2",
+    "trajectory_sha": "c9acc513225583f98ea89b685a8d71244e7e8b010dc5c8768514ecc1f2c50a6d"
+  },
+  "P": {
+    "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/V1_01_easy-P-20261002T160520Z-e306cbb1.done",
+    "audit_sha": "c91472f33176ae673267a6902ab3458d0c1d12ed82243cc7f45252d7fb1ddfe2",
+    "trajectory_sha": "c9acc513225583f98ea89b685a8d71244e7e8b010dc5c8768514ecc1f2c50a6d",
+    "g_reasons": {
+      "disabled": 400
+    },
+    "g_updates": 0,
+    "max_ekf_calls": 1,
+    "max_update_norm": 0.0
+  },
+  "G": {
+    "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/V1_01_easy-G-20261002T160526Z-8658932e.done",
+    "audit_sha": "a10250ac024b2c657b812568907d7fb7eb6de5e2bea19f4ca4553fdaca537498",
+    "trajectory_sha": "c39007b391121b3e777043e92a4ab572a2d7561b5f8d80e393a7746de18e23a3",
+    "g_reasons": {
+      "disabled": 112,
+      "warmup_or_core_invalid": 19,
+      "eta_invalid": 24,
+      "accepted": 245
+    },
+    "g_updates": 212,
+    "max_ekf_calls": 1,
+    "max_update_norm": 0.02849943974895009
+  }
+}

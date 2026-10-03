@@ -1,0 +1,11 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+    "ltv",
+    "/tmp/openvins-ltv-phase0-recheck-20261003/install",
+    "test_ltv_options"
+  ],
+  "exit_code": 0
+}

@@ -1,0 +1,26 @@
+{
+  "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/V1_01_easy-G-20261002T161719Z-c7c14c08.done",
+  "replay": {
+    "camera_packets": 2912,
+    "input_camera_packets": 2912,
+    "imu_consumed": 29120,
+    "input_imu_samples": 29120,
+    "output_rows": 2800,
+    "complete": true
+  },
+  "G_updates": 2757,
+  "reasons": {
+    "disabled": 112,
+    "warmup_or_core_invalid": 19,
+    "eta_invalid": 24,
+    "accepted": 2757
+  },
+  "submit": {
+    "none": 155,
+    "joint_applied": 2757
+  },
+  "max_calls": 1,
+  "max_delta": 0.061718583631960096,
+  "max_P_asymmetry": 1.3552527156068805e-19,
+  "min_P_eigenvalue": -2.750601655005785e-17
+}

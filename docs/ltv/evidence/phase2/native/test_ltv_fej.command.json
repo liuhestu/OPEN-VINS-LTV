@@ -1,0 +1,11 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && ros2 run ov_msckf \"$2\"",
+    "ltv_tests",
+    "/home/he/output/openvins_ltv_autonomous_20261002",
+    "test_ltv_fej"
+  ],
+  "exit_code": 0
+}

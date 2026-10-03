@@ -1,0 +1,30 @@
+{
+  "dimensions": [
+    [
+      78,
+      78
+    ],
+    [
+      74,
+      78
+    ],
+    [
+      74,
+      74
+    ],
+    [
+      74,
+      74
+    ]
+  ],
+  "P_asymmetry": 1.61506995206187e-19,
+  "P_min_eig": -1.0630797541723214e-23,
+  "S_norm": 9.370626310028316,
+  "S_asymmetry": 2.2747280497054862e-11,
+  "S_max_asymmetry": 4.237585976563096e-12,
+  "native_upper_min_eig": 0.030465637688192895,
+  "native_upper_vs_extended_precision": 3.344246195480195e-12,
+  "raw_vs_extended_precision": 3.344246195480195e-12,
+  "absolute_product_scale": 430154.9344395426,
+  "eigen_roundoff_bound": 7.450059432986116e-09
+}

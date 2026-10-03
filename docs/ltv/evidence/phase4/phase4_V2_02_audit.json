@@ -1,0 +1,115 @@
+{
+  "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/V2_02_medium-GV-20261002T174523Z-4ac249c6.done",
+  "mode": "GV",
+  "replay": {
+    "camera_packets": 2348,
+    "input_camera_packets": 2348,
+    "imu_consumed": 23490,
+    "input_imu_samples": 23490,
+    "output_rows": 2266,
+    "complete": true
+  },
+  "runtime_seconds": 39.18020619312301,
+  "trajectory_finite": true,
+  "camera_rows": 2348,
+  "available": 2266,
+  "core_valid": 2207,
+  "submit_reasons": {
+    "none": 141,
+    "joint_applied": 2207
+  },
+  "pause_reasons": {
+    "uninitialized": 78,
+    "waiting_clones": 4,
+    "candidate": 2266
+  },
+  "core_reset_reasons": {
+    "reconfigured": 82,
+    "none": 2266
+  },
+  "max_ekf_calls": 1,
+  "max_update_norm": 0.09422122898996173,
+  "max_P_symmetry": 0.0,
+  "min_P_eigenvalue": -1.1412837911559812e-16,
+  "min_PL_eigenvalue": 0.999994999953382,
+  "epoch_count": 1,
+  "unique_attempts": 2266,
+  "G": {
+    "updates": 2183,
+    "active": true,
+    "no_effect": false,
+    "coverage": 0.9633715798764343,
+    "coverage_all_camera": 0.9297274275979557,
+    "eligible_count": 2183,
+    "coverage_eligible": 1.0,
+    "reasons": {
+      "disabled": 82,
+      "warmup_or_core_invalid": 59,
+      "eta_invalid": 24,
+      "accepted": 2183
+    },
+    "nis": {
+      "count": 2183,
+      "mean": 0.06508416548741498,
+      "max": 0.5886921732705028,
+      "p95": 0.24182154057992916
+    },
+    "residual": {
+      "count": 2183,
+      "mean": 0.03771652095999555,
+      "max": 0.13391321090786498,
+      "p95": 0.08582746551478959
+    },
+    "gain_norm": {
+      "count": 2183,
+      "mean": 0.0002859918341094502,
+      "max": 0.002216502282165182,
+      "p95": 0.0004273694724481172
+    },
+    "update_norm": {
+      "count": 2183,
+      "mean": 7.959694586301427e-06,
+      "max": 0.0001237038265058969,
+      "p95": 2.1954316104479598e-05
+    }
+  },
+  "V": {
+    "updates": 2207,
+    "active": true,
+    "no_effect": false,
+    "coverage": 0.9739629302736099,
+    "coverage_all_camera": 0.9399488926746167,
+    "eligible_count": 2207,
+    "coverage_eligible": 1.0,
+    "reasons": {
+      "disabled": 82,
+      "warmup_or_core_invalid": 59,
+      "accepted": 2207
+    },
+    "nis": {
+      "count": 2207,
+      "mean": 0.7923316742617341,
+      "max": 4.9506423842894005,
+      "p95": 2.4274514346558402
+    },
+    "residual": {
+      "count": 2207,
+      "mean": 0.7773306030395675,
+      "max": 2.2250317804355073,
+      "p95": 1.5580590715049796
+    },
+    "gain_norm": {
+      "count": 2207,
+      "mean": 6.01893453760201e-05,
+      "max": 0.000244121814436854,
+      "p95": 0.00011645363913540116
+    },
+    "update_norm": {
+      "count": 2207,
+      "mean": 4.158799290318973e-05,
+      "max": 0.00031908845534187204,
+      "p95": 0.00012394577930589725
+    }
+  },
+  "GV_joint_updates": 2183
+}

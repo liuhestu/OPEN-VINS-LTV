@@ -1,0 +1,38 @@
+{
+  "B": {
+    "audit.csv": "ecef9b3cd227905bb50092589b2ec6a9bb0dea7a5f559f120ce4cc0329277b0d",
+    "trajectory.csv": "432d948bfabc214773839e549781bfd73996c5d35be828a2f415366b7f11a313",
+    "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/V1_01_easy-B-20261002T154643Z-1061b661.done",
+    "runtime": 21.81209176615812,
+    "replay": {
+      "camera_packets": 2912,
+      "input_camera_packets": 2912,
+      "imu_consumed": 29120,
+      "input_imu_samples": 29120,
+      "output_rows": 2800,
+      "complete": true
+    }
+  },
+  "P": {
+    "audit.csv": "ecef9b3cd227905bb50092589b2ec6a9bb0dea7a5f559f120ce4cc0329277b0d",
+    "trajectory.csv": "432d948bfabc214773839e549781bfd73996c5d35be828a2f415366b7f11a313",
+    "path": "/home/he/output/openvins_ltv_autonomous_20261002/runs/V1_01_easy-P-20261002T154730Z-3c1dd890.done",
+    "runtime": 44.63976882304996,
+    "replay": {
+      "camera_packets": 2912,
+      "input_camera_packets": 2912,
+      "imu_consumed": 29120,
+      "input_imu_samples": 29120,
+      "output_rows": 2800,
+      "complete": true
+    },
+    "reasons": {
+      "uninitialized": 108,
+      "waiting_clones": 4,
+      "candidate": 2800
+    },
+    "valid": 2781,
+    "gravity_valid": 2757
+  },
+  "pass": true
+}
