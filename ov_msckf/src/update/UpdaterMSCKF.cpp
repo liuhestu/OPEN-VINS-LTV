@@ -20,6 +20,7 @@
  */
 
 #include "UpdaterMSCKF.h"
+#include "UpdaterLTV.h"
 
 #include "UpdaterHelper.h"
 
@@ -55,11 +56,22 @@ UpdaterMSCKF::UpdaterMSCKF(UpdaterOptions &options, ov_core::FeatureInitializerO
   }
 }
 
-void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_ptr<Feature>> &feature_vec) {
+void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_ptr<Feature>> &feature_vec,
+                          const MeasurementBlock *ltv_block, LtvDiagnostics *diagnostics) {
+  const auto auxiliary_only = [&]() {
+    if (ltv_block) {
+      MeasurementBlock empty;
+      empty.H.resize(0, 0);
+      empty.R.resize(0, 0);
+      UpdaterLTV::apply_joint(state, empty, *ltv_block);
+    }
+  };
 
   // Return if no features
-  if (feature_vec.empty())
+  if (feature_vec.empty()) {
+    auxiliary_only();
     return;
+  }
 
   // Start timing
   boost::posix_time::ptime rT0, rT1, rT2, rT3, rT4, rT5;
@@ -264,6 +276,7 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
 
   // Return if we don't have anything and resize our matrices
   if (ct_meas < 1) {
+    auxiliary_only();
     return;
   }
   assert(ct_meas <= max_meas_size);
@@ -274,6 +287,7 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
   // 5. Perform measurement compression
   UpdaterHelper::measurement_compress_inplace(Hx_big, res_big);
   if (Hx_big.rows() < 1) {
+    auxiliary_only();
     return;
   }
   rT4 = boost::posix_time::microsec_clock::local_time();
@@ -281,8 +295,24 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
   // Our noise is isotropic, so make it here after our compression
   Eigen::MatrixXd R_big = _options.sigma_pix_sq * Eigen::MatrixXd::Identity(res_big.rows(), res_big.rows());
 
+  if (diagnostics) {
+    diagnostics->visual_rows = Hx_big.rows();
+    diagnostics->columns = Hx_big.cols();
+    if (!ltv_block)
+      diagnostics->ekf_calls = 1;
+  }
+
   // 6. With all good features update the state
-  StateHelper::EKFUpdate(state, Hx_order_big, Hx_big, res_big, R_big);
+  if (ltv_block) {
+    MeasurementBlock visual;
+    visual.order = Hx_order_big;
+    visual.H = Hx_big;
+    visual.res = res_big;
+    visual.R = R_big;
+    UpdaterLTV::apply_joint(state, visual, *ltv_block);
+  } else {
+    StateHelper::EKFUpdate(state, Hx_order_big, Hx_big, res_big, R_big);
+  }
   rT5 = boost::posix_time::microsec_clock::local_time();
 
   // Debug print timing information

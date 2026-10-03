@@ -29,6 +29,7 @@
 #include <string>
 #include <vector>
 
+#include "ltv/LtvOptions.h"
 #include "state/StateOptions.h"
 #include "update/UpdaterOptions.h"
 #include "utils/NoiseManager.h"
@@ -55,6 +56,8 @@ namespace ov_msckf {
  */
 struct VioManagerOptions {
 
+  LtvOptions ltv_options;
+
   /**
    * @brief This function will load the non-simulation parameters of the system and print.
    * @param parser If not null, this parser will be used to load our parameters
@@ -66,6 +69,8 @@ struct VioManagerOptions {
 
     // needs to be called last
     print_and_load_state(parser);
+    ltv_options.load(parser);
+    ltv_options.validate(state_options);
   }
 
   // ESTIMATOR ===============================
