@@ -8,7 +8,7 @@
 - G/V开发资格均为否；C0保持G10度/V1m/s，额外权重候选0；observer及原生预测/EKF未改。
 - UZH独立验证平均ATE：G改善1.211%、V退化0.053%、GV改善0.871%；直接G/V质量明显落后prior，单步收益极小。主要小幅ATE收益来自GT支持有限的outdoor_forward_5，不能据此宣称稳定增量信息。
 
-交付：[最终报告](value_study_report.md)、[实现与验收](value_study_validation.md)、[完成核验](evidence/value_study/completion_audit.json)。图表与原始结果索引均由报告链接。
+交付：[最终报告](value_study_report.md)、[实现与验收](value_study_validation.md)、[完成核验](../evidence/value_study/completion_audit.json)。图表与原始结果索引均由报告链接。
 
 输出根：`/home/he/output/openvins_ltv_value_study_20261003`，最终checkpoint无运行中进程。成本统计曾误调用无GT短段参考插值，保留失败日志后改为GT无关读取，复用成功回放；正式数值参考脚本未改。
 

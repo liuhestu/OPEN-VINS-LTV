@@ -1,0 +1,92 @@
+{
+  "docs/ltv/port_audit.md": {
+    "new": "docs/ltv/phase0/port_audit.md",
+    "old_sha256": "a9c628f0ffc03476b1aaad983cb9e4060c2a3594c351f3373fe7fa39d9ac6c6a",
+    "new_sha256": "083cb09479f926ba8c06f32b700912f921d854e6799078364df658439d15db7d"
+  },
+  "docs/ltv/frame_and_jacobian_contract.md": {
+    "new": "docs/ltv/phase0/frame_and_jacobian_contract.md",
+    "old_sha256": "75c78ed62d8efe6ea08783dd6fb4b09ec266d09a5cbd31f4779cc767c5688e95",
+    "new_sha256": "75c78ed62d8efe6ea08783dd6fb4b09ec266d09a5cbd31f4779cc767c5688e95"
+  },
+  "docs/ltv/test_matrix.md": {
+    "new": "docs/ltv/phase0/test_matrix.md",
+    "old_sha256": "5bb297d69c19c40700afef4671ef14fc8a54c7a254cb198bba36c7caf4f6c57b",
+    "new_sha256": "7b86152f2224d13c5c065d6f3e504d2ef0435060d59e50f00b1c219641ff50d1"
+  },
+  "docs/ltv/phase0_recheck.md": {
+    "new": "docs/ltv/phase0/phase0_recheck.md",
+    "old_sha256": "2b8ac5dbfe3e1f3002fb793d7b16ac9339c2b3a5aa86ec0d74fc16a58fe5f690",
+    "new_sha256": "0b53c18792c6d50bdc6f467e828834dec26b819202e85598ecc3fbb3fd89f8c7"
+  },
+  "docs/ltv/autonomous_goal.md": {
+    "new": "docs/ltv/integration/autonomous_goal.md",
+    "old_sha256": "cf7d6409f4c979a6f1c49aa0513325eace8768f95154d1a485b7769b4d71d7c1",
+    "new_sha256": "cf7d6409f4c979a6f1c49aa0513325eace8768f95154d1a485b7769b4d71d7c1"
+  },
+  "docs/ltv/autonomous_progress.md": {
+    "new": "docs/ltv/integration/autonomous_progress.md",
+    "old_sha256": "6d32b874ea73fa46305c75550dbcceb13d85cc426a8a7f5b70db35dc3496eecd",
+    "new_sha256": "6d32b874ea73fa46305c75550dbcceb13d85cc426a8a7f5b70db35dc3496eecd"
+  },
+  "docs/ltv/decision_log.md": {
+    "new": "docs/ltv/integration/decision_log.md",
+    "old_sha256": "9d07daebd17460aa66cbba16bc9a1474e99d56e22bdef78a9db9e2f3d7e5bb48",
+    "new_sha256": "9d07daebd17460aa66cbba16bc9a1474e99d56e22bdef78a9db9e2f3d7e5bb48"
+  },
+  "docs/ltv/engineering_acceptance.md": {
+    "new": "docs/ltv/integration/engineering_acceptance.md",
+    "old_sha256": "bd16f4de3674070dcd72a0adcec9a540e58d4bd702adef747c3f82dc07f3685b",
+    "new_sha256": "bd16f4de3674070dcd72a0adcec9a540e58d4bd702adef747c3f82dc07f3685b"
+  },
+  "docs/ltv/requirements_audit.md": {
+    "new": "docs/ltv/integration/requirements_audit.md",
+    "old_sha256": "5194333e50598594f5747782bb0dd8b29cbd4657e5f41739d6f62927a461631a",
+    "new_sha256": "2a6b1ce20520bd4917d8d332a9cd7143ef3c1082f4ff332961c15a7f0a74a8ea"
+  },
+  "docs/ltv/commit_split.md": {
+    "new": "docs/ltv/integration/commit_split.md",
+    "old_sha256": "26abdfd9e581332549d4f1bf0645bde616d01ac21642ee5398cc3f1bc29cf283",
+    "new_sha256": "f719c2977633e88b189a93ac517d7b1b1a44eb1690a30bc2e14675360d42d3ef"
+  },
+  "docs/ltv/frozen_configuration.json": {
+    "new": "docs/ltv/integration/frozen_configuration.json",
+    "old_sha256": "9c7385adb6ea9683595edef5680c153f1014c608f127ce050c7a5d8176cb1484",
+    "new_sha256": "9c7385adb6ea9683595edef5680c153f1014c608f127ce050c7a5d8176cb1484"
+  },
+  "docs/ltv/final_report.md": {
+    "new": "docs/ltv/euroc_evaluation/final_report.md",
+    "old_sha256": "ad9606297a37583634d7e0881cc6db534ced1d8144a4e1fb0fb115149666e77c",
+    "new_sha256": "0c27df2d6f59c69354640577c00c5190ac7a4fe40b4940058327fc77f4bff998"
+  },
+  "docs/ltv/euroc_gv_results.md": {
+    "new": "docs/ltv/euroc_evaluation/euroc_gv_results.md",
+    "old_sha256": "712d7871060e4a666280e67dd6855f564e786e9685c4199390374e297677a9a8",
+    "new_sha256": "712d7871060e4a666280e67dd6855f564e786e9685c4199390374e297677a9a8"
+  },
+  "docs/ltv/value_study_progress.md": {
+    "new": "docs/ltv/value_study/value_study_progress.md",
+    "old_sha256": "745ffab8bb7a6588c09f6f98b047b0bcbf0dd560994a60cb7e64acd8d49a3b5a",
+    "new_sha256": "a515be8bd3d0cd22e39ee1247788adbabea9f54928213f5e50fc0041cc154986"
+  },
+  "docs/ltv/value_study_goal.md": {
+    "new": "docs/ltv/value_study/value_study_goal.md",
+    "old_sha256": "fddb35a8857b312cb0d67714b210f22b490cbba61b25df72ba992f40381cdc23",
+    "new_sha256": "fddb35a8857b312cb0d67714b210f22b490cbba61b25df72ba992f40381cdc23"
+  },
+  "docs/ltv/value_study_protocol.md": {
+    "new": "docs/ltv/value_study/value_study_protocol.md",
+    "old_sha256": "9dde49b701af4aff9e7c3d397fc015ecc39d80513f6b60786fcc3b9a9a55ae42",
+    "new_sha256": "9dde49b701af4aff9e7c3d397fc015ecc39d80513f6b60786fcc3b9a9a55ae42"
+  },
+  "docs/ltv/value_study_report.md": {
+    "new": "docs/ltv/value_study/value_study_report.md",
+    "old_sha256": "bea6a49923081594c7e4423c3dd899b4c88b344811b55f2c89508f88590ef4f0",
+    "new_sha256": "f4eac5160bb9f3cc2f21bcc27ed9b1dc23aa82c8d7b787bd24d145aad8a87c58"
+  },
+  "docs/ltv/value_study_validation.md": {
+    "new": "docs/ltv/value_study/value_study_validation.md",
+    "old_sha256": "02ccd93befee5ddab7f48467b00012c59560a31a47a7d44f3cf7589825911bf3",
+    "new_sha256": "67b83d3a69d3f84c5313083769adbd693a21e3d2a88fac0977d23fcec1c6c0c8"
+  }
+}

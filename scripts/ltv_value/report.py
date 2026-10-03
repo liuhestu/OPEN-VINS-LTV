@@ -61,7 +61,7 @@ def render():
  '|序列|全部事件|GT姿态|GT速度|GT+LTV G|GT+LTV V|','|---|---:|---:|---:|---:|---:|']
  for seq,e in extended.items():
   c=e['reference_coverage'];lines.append('|'+ '|'.join([seq]+[str(c[k]) for k in ['diagnostic_events','pose','velocity','G_and_LTV','V_and_LTV']])+'|')
- lines+=['','![Direct errors](evidence/value_study/figures/direct_errors.png)','',
+ lines+=['','![Direct errors](../evidence/value_study/figures/direct_errors.png)','',
  '## UZH是否更困难，以及困难区间是否受益','',
  '下面比较完整原始IMU输入与GT支持区间的一秒窗口RMS之P95。角速度单位rad/s；比力变化为abs(norm(a)−g)，单位m/s²，**不是真实平移加速度**。末尾无GT支持的冲击保留在全输入列，不用于解释飞行区间优势。','',
  '|序列|全输入角速P95|GT支持角速P95|全输入比力P95|GT支持比力P95|','|---|---:|---:|---:|---:|']
@@ -146,12 +146,12 @@ def render():
  '- LTV Riccati、主P和辅助R含义区分；原生数学测试不证明observer估计质量，也不证明共享输入相关性已解决。','',
  '## 证据与复现','',
  f"输出根：`{OUT}`。完整回放{sum(not r['short'] for r in records.values())}/80，短段{sum(r['short'] for r in records.values())}/20。",'',
- '- [逐run文件哈希索引](evidence/value_study/artifact_index.json)、[闭环原始结果](evidence/value_study/final_results.json)、[辅助诊断CSV](evidence/value_study/diagnostics.csv)。',
- '- [实现与测试验收](value_study_validation.md)、[完成核验](evidence/value_study/completion_audit.json)；后者核对45个正式结果、12个复测及全部运行的冻结身份和只读边界。',
- '- [构建与分析环境](evidence/value_study/environment.json)、[两条runner磁盘/已导入源码哈希说明](evidence/value_study/runner_loaded_source_note.json)；原始manifest保留，实际数值命令和冻结估计器不变。',
- '- [资格门槛](evidence/value_study/qualification.json)、[参数冻结](evidence/value_study/weight_freeze.json)、[复测](evidence/value_study/repeat_summary.json)。',
- '- [GT约定检查](evidence/value_study/gt_preflight.json)、[官方GT版本核对](evidence/value_study/gt_release_verification.json)、[标定差异](evidence/value_study/calibration_audit.json)。',
- '- 各序列时序图（同名PDF可导出）：'+', '.join(f'[{s}](evidence/value_study/figures/{s}.png)' for s in SEQUENCES)+'。',
+ '- [逐run文件哈希索引](../evidence/value_study/artifact_index.json)、[闭环原始结果](../evidence/value_study/final_results.json)、[辅助诊断CSV](../evidence/value_study/diagnostics.csv)。',
+ '- [实现与测试验收](value_study_validation.md)、[完成核验](../evidence/value_study/completion_audit.json)；后者核对45个正式结果、12个复测及全部运行的冻结身份和只读边界。',
+ '- [构建与分析环境](../evidence/value_study/environment.json)、[两条runner磁盘/已导入源码哈希说明](../evidence/value_study/runner_loaded_source_note.json)；原始manifest保留，实际数值命令和冻结估计器不变。',
+ '- [资格门槛](../evidence/value_study/qualification.json)、[参数冻结](../evidence/value_study/weight_freeze.json)、[复测](../evidence/value_study/repeat_summary.json)。',
+ '- [GT约定检查](../evidence/value_study/gt_preflight.json)、[官方GT版本核对](../evidence/value_study/gt_release_verification.json)、[标定差异](../evidence/value_study/calibration_audit.json)。',
+ '- 各序列时序图（同名PDF可导出）：'+', '.join(f'[{s}](../evidence/value_study/figures/{s}.png)' for s in SEQUENCES)+'。',
  '- 脚本顺序：prepare.py（首次）/--check（核对）→study.py diagnostic→freeze→final→repeats→plots.py→report.py；已有输入和冻结权重不会自动覆盖。',
  '', '参考：[OpenVINS数据集说明](https://docs.openvins.com/gs-datasets.html)、[UZH官方GT方法](https://rpg.ifi.uzh.ch/docs/RAL2021_Cioffi.pdf)、[UZH数据](https://fpv.ifi.uzh.ch/datasets/)。','']
  means={mode:float(np.mean([result[s][mode]['ate_rmse_m'] for s in VALIDATION])) for mode in ['B','G','V','GV']}
@@ -168,5 +168,5 @@ def render():
  '经验误差相关性随序列和轴变化，不能认定全为独立，也不能把相关性宣布为本轮失败的唯一原因。先证明第一层在受控几何/已知输入下能收敛并保持速度幅度，再检查特征寿命与动态可观性，之后才值得讨论相关融合或更强权重。这是后续建议，本Goal到此停止；不自动改核心、不扩展全量UZH。','',
  '工程验收和科学结论分开：输入、数学/FEJ、旁路一致性、联合提交及复测通过，并不证明有新的独立信息，也不保证Riccati可作为量测噪声。','']
  lines[5:5]=verdict
- (ROOT/'docs/ltv/value_study_report.md').write_text('\n'.join(lines))
+ (ROOT/'docs/ltv/value_study/value_study_report.md').write_text('\n'.join(lines))
 if __name__=='__main__':render()

@@ -33,7 +33,7 @@
 
 各原生命令、退出码及stdout/stderr位于`tests/`；Python测试日志同目录。正式运行逐事件检查shadow/actual IMU均值相对差≤1e-9，活动模式每事件EKF为0或1；无视觉、拒绝等实际覆盖另见每run工程审计。
 
-既有174事件核心parity和alias正负对照是**前一阶段证据**，见[test_matrix.md](test_matrix.md)，本轮未冒充重跑。核心与交接/golden相对本轮起点未改。ROS1构建为NOT RUN；没有全量UZH、随机噪声Monte Carlo或跨平台实时性能验收。
+既有174事件核心parity和alias正负对照是**前一阶段证据**，见[test_matrix.md](../phase0/test_matrix.md)，本轮未冒充重跑。核心与交接/golden相对本轮起点未改。ROS1构建为NOT RUN；没有全量UZH、随机噪声Monte Carlo或跨平台实时性能验收。
 
 ## 可复现命令
 

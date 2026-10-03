@@ -70,8 +70,8 @@ python3 ov_msckf/tests/ltv/run_native_tests.py \
 `test_ltv_gv_covariance`、`test_ltv_fej`；runner分别保存命令、stdout、stderr、退出码，首次失败即停。
 `test_ltv_core_parity` 和旧 `test_ltv_alias` 也可独立运行。默认构建开关仍OFF。
 
-本轮全部执行记录：[commands.json](evidence/alias_fix_acceptance/commands.json)；
-最终原生命令记录：[native](evidence/alias_fix_acceptance/native/)；stdout/stderr 见 [外部产物索引](evidence/external_artifacts.json)；
-数值汇总：[max_metrics.json](evidence/alias_fix_acceptance/max_metrics.json)；
-修复前后差异：[numerical_differences.json](evidence/alias_fix_acceptance/numerical_differences.json)。
+本轮全部执行记录：[commands.json](../evidence/alias_fix_acceptance/commands.json)；
+最终原生命令记录：[native](../evidence/alias_fix_acceptance/native)；stdout/stderr 见 [外部产物索引](../evidence/external_artifacts.json)；
+数值汇总：[max_metrics.json](../evidence/alias_fix_acceptance/max_metrics.json)；
+修复前后差异：[numerical_differences.json](../evidence/alias_fix_acceptance/numerical_differences.json)。
 首轮新增测试编译类型错误和检测能力不足的开发样例均保留，不计入最终PASS。

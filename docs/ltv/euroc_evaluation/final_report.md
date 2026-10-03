@@ -7,7 +7,7 @@
 ## 版本、配置与复现
 
 - 冻结代码：`c7fc29b11352da3104c80462bcdd32553e785085`（本地提交，无远程推送）。
-- [冻结身份与全部源码/二进制/库SHA](frozen_configuration.json)；[基础配置](../../config/ltv_euroc/estimator_config.yaml)。
+- [冻结身份与全部源码/二进制/库SHA](../integration/frozen_configuration.json)；[基础配置](../../../config/ltv_euroc/estimator_config.yaml)。
 - G标准差10°，V标准差1m/s；99% NIS门限分别9.21034037197618、11.3448667301444；额外quality gate关闭；observer warmup20，其余核心参数保持初始配置。
 - 额外候选配置 **0/6**。冻结前依据数学、数值、NIS、覆盖和实际增益选定规范初值，未读取真实ATE来选参；全量后没有调参。
 - 五模式仅三个enable开关和日志路径不同。原生配置相对于仓库EuRoC默认仅关闭相机外参/内参/时差在线标定，并设max_slam=0；ArUco/ZUPT关闭、原IMU和视觉噪声/FEJ/积分方法/前端预算相同。
@@ -15,7 +15,7 @@
 - 唯一输出根：`/home/he/output/openvins_ltv_autonomous_20261002`。每run保存命令、实际读入参数JSON、配置、commit/hash、stdout/stderr、轨迹、状态审计、LTV日志及完整性。
 - 完整回放实际 **80/300**：开发8（含1个修复前输入失败）、正式55、原版诊断1、复测16。短段和单元测试另记；未用重置卡、未购买额度。
 
-以下命令仅适用于冻结代码 `c7fc29b` 和现有数据/输出目录。提交拆分后的新 HEAD 会被严格身份检查拒绝；需在 `archive/ltv-frozen-c7fc29b` 对应的独立 worktree 中运行，不能修改历史 manifest 绕过检查。详见 [提交拆分记录](commit_split.md)。
+以下命令仅适用于冻结代码 `c7fc29b` 和现有数据/输出目录。提交拆分后的新 HEAD 会被严格身份检查拒绝；需在 `archive/ltv-frozen-c7fc29b` 对应的独立 worktree 中运行，不能修改历史 manifest 绕过检查。详见 [提交拆分记录](../integration/commit_split.md)。
 
 在冻结代码下可重入：
 
@@ -28,13 +28,13 @@ python3 scripts/ltv/run_repeats.py
 若重新运行 `summarize_final.py`，它会重建原始三条复测清单。按D010在输出根的 `repeat_sequences.json` 追加 `MH_02_easy` 后再运行复测；本次四条清单和所有结果已保存，无须为阅读报告重跑。
 后处理与原版诊断脚本也保存在OUT，未进入冻结估计器代码。
 
-正式结果原始数值见[evidence/final/final_summary.json](evidence/final/final_summary.json)；
-定位失败审计后的解释见[audited_summary.json](evidence/final/audited_summary.json)。
+正式结果原始数值见[evidence/final/final_summary.json](../evidence/final/final_summary.json)；
+定位失败审计后的解释见[audited_summary.json](../evidence/final/audited_summary.json)。
 注意summarize_final只输出原始算术结果，MH_04失败归类及额外MH_02复测由D010单独记录，不修改冻结evaluator。
 
 ## 工程与数学验收
 
-[工程验收详表](engineering_acceptance.md)、[40项完成审计](requirements_audit.md)、[决策日志](decision_log.md)。
+[工程验收详表](../integration/engineering_acceptance.md)、[40项完成审计](../integration/requirements_audit.md)、[决策日志](../integration/decision_log.md)。
 原State、IMU、JPLQuat、Propagator、StateHelper、UpdaterHelper未改；LTV状态独立持久递推，不写入主状态定义。
 G/V在同一prior构造与独立门控，视觉原压缩后合并，调用原生EKF一次，保留完整交叉协方差。
 
@@ -124,8 +124,8 @@ P仅23个包有接受的视觉行，G/V/GV分别33/30/33个；大部分时间缺
 冻结V分支在该序列主要被NIS拒绝，G虽抑制部分发散量级，G和GV仍分别约1.16km/1.45km ATE，均不可用。
 
 使用接入前保存的原版二进制及库，以完全相同2032同步包/20320 IMU重新完整运行，
-`trajectory.csv`和`audit.csv`与冻结B逐字节一致：[原版诊断证据](evidence/final/MH_04_original_diagnostic.json)。
-这证明发散并非新LTV关闭路径引入；[直接失败分析](evidence/final/MH_04_failure_analysis.json)保存末端状态、速度和视觉更新计数。
+`trajectory.csv`和`audit.csv`与冻结B逐字节一致：[原版诊断证据](../evidence/final/MH_04_original_diagnostic.json)。
+这证明发散并非新LTV关闭路径引入；[直接失败分析](../evidence/final/MH_04_failure_analysis.json)保存末端状态、速度和视觉更新计数。
 现有证据尚不足以断言唯一初始化/视觉根因；本任务保持原初始化与最终参数，未为修好此序列回调配置。
 不能把原始算术“GV下降88.9%”包装为定位改善，也不能把数值PSD通过包装为闭环稳定。
 
@@ -162,7 +162,7 @@ MH_04失败也被复现，不能因此视为有效轨迹。
 
 以下是**实际进入EKF**的次数；GV的G/V次数不等于独立EKF次数，同帧仍一次joint提交。
 覆盖分别给出全部camera包及结构eligible包分母，完整残差、NIS、gain、update norm、P/PL、runtime和reason计数见
-[55行诊断CSV](evidence/final/euroc_diagnostics.csv)及原run的ltv.csv。
+[55行诊断CSV](../evidence/final/euroc_diagnostics.csv)及原run的ltv.csv。
 
 | Sequence | G模式G次数 | V模式V次数 | GV模式G/V次数 | 同帧GV次数 | GV覆盖/全部包G/V | GV覆盖/eligible G/V |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -226,8 +226,8 @@ SHA比较不包含wall-time日志；不是仅凭两个ATE相同宣称Passive旁�
 
 ## 证据索引
 
-- [全部正式run与轨迹/manifest SHA索引](evidence/final/final_artifact_index.json)
-- [原始数值](evidence/final/final_summary.json)、[失败审计后解释](evidence/final/audited_summary.json)、[复测原始汇总](evidence/final/repeat_summary.json)
-- [工程验收](engineering_acceptance.md)、[Phase0本地复核](phase0_recheck.md)、[决策日志](decision_log.md)
+- [全部正式run与轨迹/manifest SHA索引](../evidence/final/final_artifact_index.json)
+- [原始数值](../evidence/final/final_summary.json)、[失败审计后解释](../evidence/final/audited_summary.json)、[复测原始汇总](../evidence/final/repeat_summary.json)
+- [工程验收](../integration/engineering_acceptance.md)、[Phase0本地复核](../phase0/phase0_recheck.md)、[决策日志](../integration/decision_log.md)
 - OUT内 `runs.jsonl`、`experiment_manifest.json`、`checkpoint.json`、`input_manifest.json`、`evaluator_protocol.json` 与所有run目录；失败目录未删除。
 - 唯一开发full失败为修复前V2_03同步器数量假设，D007记录原因、修复与重跑；正式没有异常退出，但不能因此掩盖MH_04定位失败。

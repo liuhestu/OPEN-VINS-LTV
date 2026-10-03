@@ -2,7 +2,7 @@
 
 依据：用户附件40项及接入规范。冻结代码c7fc29b；最终科学结果允许失败/退化，不以ATE改善定义完成。
 以下逐项检查实际源码、命令退出码、运行manifest、原始轨迹/审计、统一metrics和复测；不把覆盖有效等同定位成功。
-证据根：`/home/he/output/openvins_ltv_autonomous_20261002`（OUT）。[最终报告](final_report.md)保留全部11条，包括MH_04失败。
+证据根：`/home/he/output/openvins_ltv_autonomous_20261002`（OUT）。[最终报告](../euroc_evaluation/final_report.md)保留全部11条，包括MH_04失败。
 
 | 要求 | 判定 | 实际证据 |
 |---|---|---|

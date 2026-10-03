@@ -10,7 +10,7 @@
 
 目标 `sanitizeCovariance()` 的两处修改均为
 `covariance_ = (0.5 * (covariance_ + covariance_.transpose())).eval();`。
-数学公式、参数和其余核心逻辑不变；独立 [diff](evidence/phase0_recheck_20261003/alias_fix.diff)
+数学公式、参数和其余核心逻辑不变；独立 [diff](../evidence/phase0_recheck_20261003/alias_fix.diff)
 只有这两处。源交接副本、golden、compare.py 均未修改，原容差仍为 atol=1e-8 / rtol=1e-10。
 交接包 ARTIFACT_HASHES 的 90 项全部匹配，运行前后 91 个交接文件哈希不变。
 StateHelper、Propagator、IMU、JPLQuat、UpdaterHelper 与 HEAD 字节一致。
@@ -43,7 +43,7 @@ T2 三个 eps=1e-5 / 1e-6 / 1e-7 的预测/残差最大绝对误差分别为
 ## 命令与产物
 
 完整命令、退出码、stdout/stderr、环境与链接记录见
-[证据目录](evidence/phase0_recheck_20261003/)。完整事件输出和构建 stderr 压缩文件保留在外部归档，位置与 SHA 见 [外部产物索引](evidence/external_artifacts.json)。
+[证据目录](../evidence/phase0_recheck_20261003)。完整事件输出和构建 stderr 压缩文件保留在外部归档，位置与 SHA 见 [外部产物索引](../evidence/external_artifacts.json)。
 编译产物在 `/tmp/openvins-ltv-phase0-recheck-20261003`，未放入仓库。
 
 ```bash

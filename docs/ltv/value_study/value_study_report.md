@@ -80,7 +80,7 @@ B/P记录包含完整状态/P/FEJ/clone/视觉集合digest；新EuRoC B与旧正
 |indoor_45_14|1674|1025|1023|345|343|
 |outdoor_forward_5|2262|444|443|272|272|
 
-![Direct errors](evidence/value_study/figures/direct_errors.png)
+![Direct errors](../evidence/value_study/figures/direct_errors.png)
 
 ## UZH是否更困难，以及困难区间是否受益
 
@@ -287,12 +287,12 @@ Observer、MSCKF扣除诊断计算、诊断计算总时长见各mechanism JSON�
 
 输出根：`/home/he/output/openvins_ltv_value_study_20261003`。完整回放57/80，短段12/20。
 
-- [逐run文件哈希索引](evidence/value_study/artifact_index.json)、[闭环原始结果](evidence/value_study/final_results.json)、[辅助诊断CSV](evidence/value_study/diagnostics.csv)。
-- [实现与测试验收](value_study_validation.md)、[完成核验](evidence/value_study/completion_audit.json)；后者核对45个正式结果、12个复测及全部运行的冻结身份和只读边界。
-- [构建与分析环境](evidence/value_study/environment.json)、[两条runner磁盘/已导入源码哈希说明](evidence/value_study/runner_loaded_source_note.json)；原始manifest保留，实际数值命令和冻结估计器不变。
-- [资格门槛](evidence/value_study/qualification.json)、[参数冻结](evidence/value_study/weight_freeze.json)、[复测](evidence/value_study/repeat_summary.json)。
-- [GT约定检查](evidence/value_study/gt_preflight.json)、[官方GT版本核对](evidence/value_study/gt_release_verification.json)、[标定差异](evidence/value_study/calibration_audit.json)。
-- 各序列时序图（同名PDF可导出）：[V1_01_easy](evidence/value_study/figures/V1_01_easy.png), [V2_02_medium](evidence/value_study/figures/V2_02_medium.png), [V2_03_difficult](evidence/value_study/figures/V2_03_difficult.png), [indoor_forward_3](evidence/value_study/figures/indoor_forward_3.png), [indoor_45_2](evidence/value_study/figures/indoor_45_2.png), [outdoor_forward_1](evidence/value_study/figures/outdoor_forward_1.png), [indoor_forward_6](evidence/value_study/figures/indoor_forward_6.png), [indoor_45_14](evidence/value_study/figures/indoor_45_14.png), [outdoor_forward_5](evidence/value_study/figures/outdoor_forward_5.png)。
+- [逐run文件哈希索引](../evidence/value_study/artifact_index.json)、[闭环原始结果](../evidence/value_study/final_results.json)、[辅助诊断CSV](../evidence/value_study/diagnostics.csv)。
+- [实现与测试验收](value_study_validation.md)、[完成核验](../evidence/value_study/completion_audit.json)；后者核对45个正式结果、12个复测及全部运行的冻结身份和只读边界。
+- [构建与分析环境](../evidence/value_study/environment.json)、[两条runner磁盘/已导入源码哈希说明](../evidence/value_study/runner_loaded_source_note.json)；原始manifest保留，实际数值命令和冻结估计器不变。
+- [资格门槛](../evidence/value_study/qualification.json)、[参数冻结](../evidence/value_study/weight_freeze.json)、[复测](../evidence/value_study/repeat_summary.json)。
+- [GT约定检查](../evidence/value_study/gt_preflight.json)、[官方GT版本核对](../evidence/value_study/gt_release_verification.json)、[标定差异](../evidence/value_study/calibration_audit.json)。
+- 各序列时序图（同名PDF可导出）：[V1_01_easy](../evidence/value_study/figures/V1_01_easy.png), [V2_02_medium](../evidence/value_study/figures/V2_02_medium.png), [V2_03_difficult](../evidence/value_study/figures/V2_03_difficult.png), [indoor_forward_3](../evidence/value_study/figures/indoor_forward_3.png), [indoor_45_2](../evidence/value_study/figures/indoor_45_2.png), [outdoor_forward_1](../evidence/value_study/figures/outdoor_forward_1.png), [indoor_forward_6](../evidence/value_study/figures/indoor_forward_6.png), [indoor_45_14](../evidence/value_study/figures/indoor_45_14.png), [outdoor_forward_5](../evidence/value_study/figures/outdoor_forward_5.png)。
 - 脚本顺序：prepare.py（首次）/--check（核对）→study.py diagnostic→freeze→final→repeats→plots.py→report.py；已有输入和冻结权重不会自动覆盖。
 
 参考：[OpenVINS数据集说明](https://docs.openvins.com/gs-datasets.html)、[UZH官方GT方法](https://rpg.ifi.uzh.ch/docs/RAL2021_Cioffi.pdf)、[UZH数据](https://fpv.ifi.uzh.ch/datasets/)。

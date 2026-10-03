@@ -9,12 +9,12 @@
 ## 版本与修订
 
 本轮起点 HEAD 为 `a898929`（完整 HEAD 见 scope_check）；此前 Phase 0 冻结版本与环境记录保留在
-[freeze.json](evidence/freeze.json)。源核心 HEAD 为 `9661610dbcf26374e805634fbd4415ecddf7128d`。
+[freeze.json](../evidence/freeze.json)。源核心 HEAD 为 `9661610dbcf26374e805634fbd4415ecddf7128d`。
 交接包 90/90 SHA 仍匹配。原生 StateHelper、Propagator、IMU、JPLQuat、UpdaterHelper 和 ov_core 源码保持原 SHA。
 
-目标核心唯一算法补丁见 [alias_fix.diff](evidence/alias_fix.diff)：
+目标核心唯一算法补丁见 [alias_fix.diff](../evidence/alias_fix.diff)：
 `covariance_ = (0.5 * (covariance_ + covariance_.transpose())).eval();`，共两处。
-此前等价 skew 依赖替换补丁仍单列于 [core_dependency.diff](evidence/core_dependency.diff)。
+此前等价 skew 依赖替换补丁仍单列于 [core_dependency.diff](../evidence/core_dependency.diff)。
 
 g++ 11.4.0、Eigen 3.4.0、ROS Humble；standalone 使用 C++14、`-O1 -DNDEBUG -Wextra -Wpedantic`。
 隔离 colcon 使用仓库默认编译参数（包括 O3），`BUILD_LTV_PHASE0_TESTS=ON`、两路编译、顺序构建包。
@@ -23,7 +23,7 @@ C++ 已用 clang-format 23.1.2、`-style=file` 格式化。
 ## 实际路径正向测试与旧证据
 
 旧硬编码表达式探针原样保留，仍输出 error=9 / asymmetry=9，退出 1，作为预期的反例。
-旧停止报告见 [initial_stop_audit.md](evidence/alias_fix_acceptance/initial_stop_audit.md)，旧 commands.json 未覆盖。
+旧停止报告见 [initial_stop_audit.md](../evidence/alias_fix_acceptance/initial_stop_audit.md)，旧 commands.json 未覆盖。
 
 新 `test_ltv_alias_fixed` 在测试拥有的非 const observer 中，经已有只读 accessor 的 const_cast
 注入非对称 9×9 P（一个内部路标），调用真实 `propagateImu()`，执行目标两处实际 sanitize 代码。
@@ -63,7 +63,7 @@ ldd 确认三个 OpenVINS 库均来自本次 `/tmp/.../install`。
 
 ## 证据与边界
 
-证据入口：[alias_fix_acceptance](evidence/alias_fix_acceptance/commands.json)，包含逐命令退出码、stdout/stderr；
+证据入口：[alias_fix_acceptance](../evidence/alias_fix_acceptance/commands.json)，包含逐命令退出码、stdout/stderr；
 另有数值差异、SHA、编译 flags、库路径、原生完整测试日志和最大指标。
 完整二进制、174 事件输出及构建产物位于 `/tmp/openvins-ltv-core-gate.llf_74db/`，不加入仓库；临时目录可能被清理。
 
