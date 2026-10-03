@@ -8,12 +8,12 @@
   "excitation.json": "6b9ea8a3c66b8d71491353453e6f4e4b6d4f75a7b09a03ea7a8b8ba3812ca965",
   "excitation_distribution.png": "8b3b2570ba079ab874245332fc82e85d20541bb91368312572b524df829be87c",
   "excitation_distribution.svg": "f23a6a0da33a6c607b0a26c7da450b0268b3be25df12cee31921f5541c8d53a8",
-  "excitation_per_point.csv": "b1b21229ea05fad7ae55a2eede14e4c8a41ae0f2e76bffc3ceddba130fbb4109",
+  "excitation_per_point.csv": "e2e87d4ab6ddb6a837cefdb9a66477c662e821ceb669c26e023f9d57dbfed8a2",
   "paper_core_strict_diagnosis.json": "959df5dd0baaaa6630b3e91fcce288f51b71cc8dc863c3b4575587da08560f0a",
-  "paper_core_strict_failures.csv": "4301faf6e0070006b9898813654ce9bdafec4d0ffc0e869a3af5200b120937ea",
+  "paper_core_strict_failures.csv": "7ca3ba153189ac20928edf7726424b7ce08436516ddd08d9236a24c8fc96c2ff",
   "quadrature_precision.json": "03d8afe54c2ee1e630201398ca445dc11f4195b74eb30dc55a2dadf1e3e8cb58",
   "report.md": "794850ba0783465491acfb9d8e1d91f28c2b85985be312bd14e049fc1534e7b1",
   "results.json": "88f99286855416a1939895070834afe747371c1e293cd14c47483d2e79b1617c",
-  "sources_sha256.json": "2de5d020a7a92e4a7f0407c2622815caf8a55561ee4a6992fcbbc432696e0ee2",
+  "sources_sha256.json": "22b0246168c24faab2af8b59b5ca091537d80ead0e75f0cc2a1c1706b048f0a9",
   "validation.json": "1b76ed1f091d04eab0f587c5c4425cc18d2252f0c39fb2224c55486308a5bbcb"
 }

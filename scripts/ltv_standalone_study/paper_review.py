@@ -128,7 +128,7 @@ def main():
         expected = {'REGULAR':(.00243,.00399),'FAST':(.02457,.03601),'PAPER':(.09606,.16251)}[scene]
         assert np.allclose([geometric[scene][4]['minimum'],geometric[scene][4]['median']],expected,rtol=0,atol=5e-6)
     with (dest/'excitation_per_point.csv').open('w') as f:
-        writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
+        writer=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n");writer.writeheader();writer.writerows(rows)
     write(dest/'excitation.json',geometric);write(dest/'quadrature_precision.json',precision)
     # Preserve each failing side, plus the grouped terminal good suffix.
     paper = next(e for e in selected if e['config']['scene']=='PAPER' and e['config']['impl']=='CORE')
@@ -147,7 +147,7 @@ def main():
         for i in np.flatnonzero(bad):
             failures.append({'metric':name,'time_s':t[i],'side':sides[i],'value':values[i] if np.isfinite(values[i]) else 'undefined'})
     with (dest/'paper_core_strict_failures.csv').open('w') as f:
-        writer=csv.DictWriter(f,fieldnames=['metric','time_s','side','value']);writer.writeheader();writer.writerows(failures)
+        writer=csv.DictWriter(f,fieldnames=['metric','time_s','side','value'],lineterminator="\n");writer.writeheader();writer.writerows(failures)
     write(dest/'paper_core_strict_diagnosis.json',blockers)
     figures=[]
     labels=['Velocity error [m/s]','Gravity vector error [m/s²]','Gravity direction [deg]','Gravity magnitude error [m/s²]','Landmark RMS / worst [m]','Landmark relative RMS / worst']
