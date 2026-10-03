@@ -1,0 +1,182 @@
+{
+  "stable": {
+    "v_error": 0.5341291888115595,
+    "g_error_deg": 1.7647011760846665,
+    "speed_true": 1.3785032653632785,
+    "speed_ltv": 0.9123079234139335,
+    "observed_mean": 30.0,
+    "valid_fraction": 1.0,
+    "max_propagation_error": 2.220446049250313e-16,
+    "max_measurement_residual": 9.807355173725688e-15,
+    "resets": [
+      "none"
+    ],
+    "tail_start": 30,
+    "tail_end": 60,
+    "dt": 0.005,
+    "track_lifetime": 0,
+    "scale": 1
+  },
+  "life_0.5": {
+    "v_error": 1.5948363053292853,
+    "g_error_deg": 5.026585936747444,
+    "speed_true": 1.3785032653632785,
+    "speed_ltv": 0.5534043100710376,
+    "observed_mean": 24.0,
+    "valid_fraction": 1.0,
+    "max_propagation_error": 8.881784197001252e-16,
+    "max_measurement_residual": 9.807355173725688e-15,
+    "resets": [
+      "none"
+    ],
+    "tail_start": 30,
+    "tail_end": 60,
+    "dt": 0.005,
+    "track_lifetime": 0.5,
+    "scale": 1
+  },
+  "life_1": {
+    "v_error": 1.5408410975127118,
+    "g_error_deg": 5.024067245811375,
+    "speed_true": 1.3785032653632785,
+    "speed_ltv": 0.3685995426954814,
+    "observed_mean": 27.0,
+    "valid_fraction": 1.0,
+    "max_propagation_error": 8.881784197001252e-16,
+    "max_measurement_residual": 9.807355173725688e-15,
+    "resets": [
+      "none"
+    ],
+    "tail_start": 30,
+    "tail_end": 60,
+    "dt": 0.005,
+    "track_lifetime": 1,
+    "scale": 1
+  },
+  "life_2": {
+    "v_error": 1.5323225863205767,
+    "g_error_deg": 5.024938589460351,
+    "speed_true": 1.3785032653632785,
+    "speed_ltv": 0.33073816245656024,
+    "observed_mean": 28.499168053244592,
+    "valid_fraction": 1.0,
+    "max_propagation_error": 8.881784197001252e-16,
+    "max_measurement_residual": 9.807355173725688e-15,
+    "resets": [
+      "none"
+    ],
+    "tail_start": 30,
+    "tail_end": 60,
+    "dt": 0.005,
+    "track_lifetime": 2,
+    "scale": 1
+  },
+  "life_5": {
+    "v_error": 1.5251780825814822,
+    "g_error_deg": 5.0057146970573685,
+    "speed_true": 1.3785032653632785,
+    "speed_ltv": 0.32021470696634596,
+    "observed_mean": 29.399334442595674,
+    "valid_fraction": 1.0,
+    "max_propagation_error": 8.881784197001252e-16,
+    "max_measurement_residual": 9.807355173725688e-15,
+    "resets": [
+      "none"
+    ],
+    "tail_start": 30,
+    "tail_end": 60,
+    "dt": 0.005,
+    "track_lifetime": 5,
+    "scale": 1
+  },
+  "fast_stable": {
+    "v_error": 0.09945884904120489,
+    "g_error_deg": 0.3170053140877019,
+    "speed_true": 4.135509796089836,
+    "speed_ltv": 4.07679073726814,
+    "observed_mean": 30.0,
+    "valid_fraction": 1.0,
+    "max_propagation_error": 8.881784197001252e-16,
+    "max_measurement_residual": 1.2324975783409113e-14,
+    "resets": [
+      "none"
+    ],
+    "tail_start": 30,
+    "tail_end": 60,
+    "dt": 0.005,
+    "track_lifetime": 0,
+    "scale": 3
+  },
+  "fast_life_1": {
+    "v_error": 4.720793390887721,
+    "g_error_deg": 15.170170253058815,
+    "speed_true": 4.135509796089836,
+    "speed_ltv": 1.3464496950400626,
+    "observed_mean": 27.0,
+    "valid_fraction": 1.0,
+    "max_propagation_error": 4.440892098500626e-16,
+    "max_measurement_residual": 1.2324975783409113e-14,
+    "resets": [
+      "none"
+    ],
+    "tail_start": 30,
+    "tail_end": 60,
+    "dt": 0.005,
+    "track_lifetime": 1,
+    "scale": 3
+  },
+  "static": {
+    "v_error": 5.971669060041244e-13,
+    "g_error_deg": 2.2025993402800115e-07,
+    "speed_true": 0.0,
+    "speed_ltv": 5.971669060041244e-13,
+    "observed_mean": 30.0,
+    "valid_fraction": 1.0,
+    "max_propagation_error": 0.0,
+    "max_measurement_residual": 8.30814836211045e-15,
+    "resets": [
+      "none"
+    ],
+    "tail_start": 30,
+    "tail_end": 60,
+    "dt": 0.005,
+    "track_lifetime": 0,
+    "scale": 1
+  },
+  "fine_stable": {
+    "v_error": 0.5400053934707507,
+    "g_error_deg": 1.7853836093816067,
+    "speed_true": 1.3785032653632785,
+    "speed_ltv": 0.906236976217158,
+    "observed_mean": 30.0,
+    "valid_fraction": 1.0,
+    "max_propagation_error": 2.2247786310271853e-16,
+    "max_measurement_residual": 9.807355173725688e-15,
+    "resets": [
+      "none"
+    ],
+    "tail_start": 30,
+    "tail_end": 60,
+    "dt": 0.001,
+    "track_lifetime": 0,
+    "scale": 1
+  },
+  "fine_life_1": {
+    "v_error": 1.5400948181268732,
+    "g_error_deg": 5.023372328463748,
+    "speed_true": 1.3785032653632785,
+    "speed_ltv": 0.36803023942100616,
+    "observed_mean": 27.0,
+    "valid_fraction": 1.0,
+    "max_propagation_error": 4.440892098500626e-16,
+    "max_measurement_residual": 9.807355173725688e-15,
+    "resets": [
+      "none"
+    ],
+    "tail_start": 30,
+    "tail_end": 60,
+    "dt": 0.001,
+    "track_lifetime": 1,
+    "scale": 1
+  }
+}

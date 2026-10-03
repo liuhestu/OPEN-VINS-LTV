@@ -1,0 +1,30 @@
+{
+  "fast_stable": {
+    "t": 0.0,
+    "v_error": 1.6786572132332367e-13,
+    "g_error_deg": 5.596075512703802e-11,
+    "speed_true": 0.0,
+    "speed_ltv": 1.8829382497642655e-13,
+    "eta_norm": 1.829647544582258e-13,
+    "features": 0.0,
+    "observed": 0.0,
+    "valid": 0.0,
+    "substeps": 0.0,
+    "model_residual": 0.0,
+    "propagation_error": 7.771561172376096e-16
+  },
+  "fast_life_1": {
+    "t": 0.0,
+    "v_error": 1.234568003383174e-13,
+    "g_error_deg": 2.7924329515371937e-11,
+    "speed_true": 0.0,
+    "speed_ltv": 1.3855583347321954e-13,
+    "eta_norm": 1.6786572132332367e-13,
+    "features": 0.0,
+    "observed": 0.0,
+    "valid": 0.0,
+    "substeps": 0.0,
+    "model_residual": 0.0,
+    "propagation_error": 3.3306690738754696e-16
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "V1_01_easy": {
+    "core_reset": [
+      "none"
+    ],
+    "completed_residences": 1402,
+    "births": 1432,
+    "right_censored": 30,
+    "completed_lifetime_quantiles_s": {
+      "p10": 0.40500006675720185,
+      "p50": 2.0,
+      "p90": 6.2949999809265185
+    },
+    "all": {
+      "selected_observations": 81196,
+      "resident_age_quantiles_s": {
+        "p10": 0.2500002384185791,
+        "p50": 1.9000000953674316,
+        "p90": 6.349999904632568
+      },
+      "age_less_than_fraction": {
+        "0.5": 0.16335780087689047,
+        "1": 0.3011232080398049,
+        "2": 0.5127592492240997,
+        "5": 0.840349278289571
+      },
+      "negative_depth_fraction": 0.45269471402532147,
+      "range_quantiles_m": [
+        0.011961085212841394,
+        0.05600628415399786,
+        0.2897610571862185
+      ],
+      "projection_residual_median_m": 0.003653301508310061
+    },
+    "GT_pose_support": {
+      "selected_observations": 80596,
+      "resident_age_quantiles_s": {
+        "p10": 0.2500002384185791,
+        "p50": 1.8999998569488525,
+        "p90": 6.299999952316284
+      },
+      "age_less_than_fraction": {
+        "0.5": 0.16457392426423148,
+        "1": 0.30336493126209735,
+        "2": 0.5165268747828676,
+        "5": 0.8413941138518041
+      },
+      "negative_depth_fraction": 0.45407960692838356,
+      "range_quantiles_m": [
+        0.012003150232919924,
+        0.05633280400466098,
+        0.29159170124658285
+      ],
+      "projection_residual_median_m": 0.0036769478584467745
+    }
+  },
+  "indoor_forward_3": {
+    "core_reset": [
+      "none"
+    ],
+    "completed_residences": 2643,
+    "births": 2673,
+    "right_censored": 30,
+    "completed_lifetime_quantiles_s": {
+      "p10": 0.13268357519991697,
+      "p50": 0.43125337499986927,
+      "p90": 1.4930218029996467
+    },
+    "all": {
+      "selected_observations": 62947,
+      "resident_age_quantiles_s": {
+        "p10": 0.06638860499970178,
+        "p50": 0.8626629330001379,
+        "p90": 10.350079980999908
+      },
+      "age_less_than_fraction": {
+        "0.5": 0.3750933324860597,
+        "1": 0.5330833876118004,
+        "2": 0.6532479705148776,
+        "5": 0.7668355918471095
+      },
+      "negative_depth_fraction": 0.48710820213830686,
+      "range_quantiles_m": [
+        0.02074543441778913,
+        0.09736074891683257,
+        0.5901649831651349
+      ],
+      "projection_residual_median_m": 0.01850071891910999
+    },
+    "GT_pose_support": {
+      "selected_observations": 35214,
+      "resident_age_quantiles_s": {
+        "p10": 0.033175999999912165,
+        "p50": 0.43111654700032886,
+        "p90": 1.592297343800419
+      },
+      "age_less_than_fraction": {
+        "0.5": 0.5680695178054183,
+        "1": 0.7925257000056796,
+        "2": 0.9262509229283807,
+        "5": 0.9500482762537628
+      },
+      "negative_depth_fraction": 0.5946782529675697,
+      "range_quantiles_m": [
+        0.02172943384456748,
+        0.09316675257895857,
+        0.36551218377475914
+      ],
+      "projection_residual_median_m": 0.03210974346891422
+    }
+  }
+}

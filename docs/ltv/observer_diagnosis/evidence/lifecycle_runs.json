@@ -1,0 +1,52 @@
+{
+  "V1_01_easy": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && exec env \"$6\" \"$7\" \"$1/install/ov_msckf/lib/ov_msckf/run_ltv_value\" \"$2\" \"$3\" \"$4\" \"$5\"",
+      "lifecycle",
+      "/home/he/output/openvins_ltv_value_study_20261003",
+      "/home/he/output/openvins_ltv_observer_diagnosis_20261003/lifecycle_V1_01_easy/estimator_config.yaml",
+      "/home/he/output/openvins_ltv_value_study_20261003/inputs/V1_01_easy",
+      "/home/he/output/openvins_ltv_observer_diagnosis_20261003/lifecycle_V1_01_easy",
+      "0",
+      "LD_PRELOAD=/home/he/output/openvins_ltv_observer_diagnosis_20261003/liblifecycle_trace.so",
+      "LTV_LIFECYCLE_TRACE=/home/he/output/openvins_ltv_observer_diagnosis_20261003/lifecycle_V1_01_easy/lifecycle.csv"
+    ],
+    "reference": "/home/he/output/openvins_ltv_value_study_20261003/runs/V1_01_easy-P-C0-20261003T043507Z-9e277d.done",
+    "preload_sha": "c21349dd5632d1bdaef12642d7d683426670f3a7a552ad0bab12cdd8674fb2c7",
+    "config_sha": "8524c4fab0504bb3d8b6ae3341d0dd167f7a036838cbd550cf0d5a7d2301b5fb",
+    "status": "pass",
+    "exit_code": 0,
+    "seconds": 66.15912183513865,
+    "byte_equal": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    }
+  },
+  "indoor_forward_3": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && exec env \"$6\" \"$7\" \"$1/install/ov_msckf/lib/ov_msckf/run_ltv_value\" \"$2\" \"$3\" \"$4\" \"$5\"",
+      "lifecycle",
+      "/home/he/output/openvins_ltv_value_study_20261003",
+      "/home/he/output/openvins_ltv_observer_diagnosis_20261003/lifecycle_indoor_forward_3/estimator_config.yaml",
+      "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_forward_3",
+      "/home/he/output/openvins_ltv_observer_diagnosis_20261003/lifecycle_indoor_forward_3",
+      "0",
+      "LD_PRELOAD=/home/he/output/openvins_ltv_observer_diagnosis_20261003/liblifecycle_trace.so",
+      "LTV_LIFECYCLE_TRACE=/home/he/output/openvins_ltv_observer_diagnosis_20261003/lifecycle_indoor_forward_3/lifecycle.csv"
+    ],
+    "reference": "/home/he/output/openvins_ltv_value_study_20261003/runs/indoor_forward_3-P-C0-20261003T043915Z-92d71f.done",
+    "preload_sha": "c21349dd5632d1bdaef12642d7d683426670f3a7a552ad0bab12cdd8674fb2c7",
+    "config_sha": "56645aec9c095659dd234d617263f365082cdd9fbfaad575f164ecb6870039a4",
+    "status": "pass",
+    "exit_code": 0,
+    "seconds": 65.6613555001095,
+    "byte_equal": {
+      "trajectory.csv": true,
+      "audit.csv": true
+    }
+  }
+}

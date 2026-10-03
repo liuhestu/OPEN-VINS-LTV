@@ -1,0 +1,15 @@
+{
+  "time_utc": "2026-10-03T06:02:26.274070+00:00",
+  "openvins_head": "86b3ec7a9ffff53dbde6d26581420c8b71b4d488",
+  "vins_head": "9661610dbcf26374e805634fbd4415ecddf7128d",
+  "hashes": {
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/ltv_observer.cpp": "5a01ba09bec8ab61cb206ab4358b9952503c0e9bedd8b2c05f16bfdd8173beba",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/LtvAdapter.cpp": "c4de7992b5f4ad8785a277e2192dbb600a00df94a6974a02046d69c316b5cc5b",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/update/UpdaterLTV.cpp": "42d8e8a25ca95307c7e536e5aac5ff3d56b47626cb5b446d37f8016968538885",
+    "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src/ltv/ltv_observer.cpp": "835e0e1017cf04968ee8f1521cdbf8730beb8697832e88c56d115089e96a5c5b",
+    "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/vins/src/estimator/estimator.cpp": "045b5627054553a72e6355f65dd7bb204ab09dcdf8abee10c55f3bb6b608fdb3",
+    "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/ltv_handover/evidence/stage7_T2_effective_config.yaml": "d053b2cbbdefd0006c9b9d5b492a7bd365edcfe2ae832652a8d8f96211edce33",
+    "/home/he/vins_fusion_ltv_ws/src/vins_fusion_ltv/docs/euroc_tuned_results.md": "3f981011503ee9c018c97bd45899e0e6faa0f306681f174e048593fa31719f2c"
+  },
+  "scope": "standalone actual-core synthetic probes and offline existing data, no production parameter changes"
+}

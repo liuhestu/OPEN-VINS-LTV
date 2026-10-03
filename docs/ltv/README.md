@@ -8,7 +8,7 @@
 |Phase 1–4 adapter与G/V联合接入|[工程验收](integration/engineering_acceptance.md)、[决策记录](integration/decision_log.md)|完成|
 |首轮EuRoC全量效果评估|[最终报告](euroc_evaluation/final_report.md)、[逐序列结果](euroc_evaluation/euroc_gv_results.md)|完成，保留MH_04失败|
 |EuRoC/UZH信息价值验证|[合同](value_study/value_study_goal.md)、[报告](value_study/value_study_report.md)、[验收](value_study/value_study_validation.md)|完成：57次完整、12次短段|
-|VINS差异与observer根因排查|[执行记录](observer_diagnosis/plan.md)|当前任务|
+|VINS差异与observer根因排查|[计划](observer_diagnosis/plan.md)、[排查报告](observer_diagnosis/report.md)|本轮完成：10组核心对照、2次插桩回放|
 
 `evidence/`是只读历史证据归档，其已有phase/value_study子目录、文件字节及绝对历史路径保持原样；大型日志和数据仍在各任务记录的外部输出根。`../ltv_handover/`也保持只读。文档迁移映射和迁移前后SHA见[document_paths.json](document_paths.json)；正文只修订导航链接，历史命令/manifest内原路径不批量改写。
 
