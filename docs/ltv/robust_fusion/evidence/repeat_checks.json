@@ -1,0 +1,42 @@
+{
+  "MH_01_easy": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  },
+  "MH_02_easy": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  },
+  "MH_03_medium": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  },
+  "MH_05_difficult": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  },
+  "V1_01_easy": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  },
+  "V1_02_medium": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  },
+  "V1_03_difficult": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  },
+  "V2_01_easy": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  },
+  "V2_02_medium": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  },
+  "V2_03_difficult": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  }
+}

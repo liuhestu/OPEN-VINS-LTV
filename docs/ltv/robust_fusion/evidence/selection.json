@@ -1,0 +1,108 @@
+{
+  "best": "raw",
+  "scores": {
+    "raw": {
+      "mean_relative_ATE_percent": -0.860681508208636,
+      "median_relative_ATE_percent": -0.27729242444269886,
+      "worst_relative_ATE_percent": 0.8626519743461847,
+      "per_sequence_percent": {
+        "MH_01_easy": -1.9872531593692955,
+        "MH_02_easy": -3.4153948685869184,
+        "MH_03_medium": 0.6672098699117779,
+        "MH_05_difficult": -3.8328644673902623,
+        "V1_01_easy": 0.254653120275683,
+        "V1_02_medium": -0.18288170649847224,
+        "V1_03_difficult": 0.6447687011184255,
+        "V2_01_easy": -1.246001403506558,
+        "V2_02_medium": -0.3717031423869255,
+        "V2_03_difficult": 0.8626519743461847
+      }
+    },
+    "Q": {
+      "mean_relative_ATE_percent": -0.03666897226445642,
+      "median_relative_ATE_percent": 0.04248748554388504,
+      "worst_relative_ATE_percent": 0.4977340693124388,
+      "per_sequence_percent": {
+        "MH_01_easy": 0.4977340693124388,
+        "MH_02_easy": -0.3046887785452035,
+        "MH_03_medium": 0.3994972007273834,
+        "MH_05_difficult": -0.049856712260254454,
+        "V1_01_easy": 0.052786894100353976,
+        "V1_02_medium": 0.057740493230951095,
+        "V1_03_difficult": 0.0321880769874161,
+        "V2_01_easy": -1.1840894810056568,
+        "V2_02_medium": 0.11076808437202601,
+        "V2_03_difficult": 0.021230430435981162
+      }
+    },
+    "H": {
+      "mean_relative_ATE_percent": -0.7959935560231224,
+      "median_relative_ATE_percent": -0.2764488041782587,
+      "worst_relative_ATE_percent": 0.8569077370677913,
+      "per_sequence_percent": {
+        "MH_01_easy": -1.9873191250520006,
+        "MH_02_easy": -3.4153948685869184,
+        "MH_03_medium": 0.8569077370677913,
+        "MH_05_difficult": -3.3676312594920654,
+        "V1_01_easy": 0.2546263015101413,
+        "V1_02_medium": -0.18252716818212278,
+        "V1_03_difficult": 0.6445456004802175,
+        "V2_01_easy": -1.246001403506558,
+        "V2_02_medium": -0.3703704401743946,
+        "V2_03_difficult": 0.8532290657046859
+      }
+    },
+    "QH": {
+      "mean_relative_ATE_percent": -0.03666897226445642,
+      "median_relative_ATE_percent": 0.04248748554388504,
+      "worst_relative_ATE_percent": 0.4977340693124388,
+      "per_sequence_percent": {
+        "MH_01_easy": 0.4977340693124388,
+        "MH_02_easy": -0.3046887785452035,
+        "MH_03_medium": 0.3994972007273834,
+        "MH_05_difficult": -0.049856712260254454,
+        "V1_01_easy": 0.052786894100353976,
+        "V1_02_medium": 0.057740493230951095,
+        "V1_03_difficult": 0.0321880769874161,
+        "V2_01_easy": -1.1840894810056568,
+        "V2_02_medium": 0.11076808437202601,
+        "V2_03_difficult": 0.021230430435981162
+      }
+    },
+    "QH_strong": {
+      "mean_relative_ATE_percent": 0.06218030368494776,
+      "median_relative_ATE_percent": 0.1373031375403566,
+      "worst_relative_ATE_percent": 1.684189107775702,
+      "per_sequence_percent": {
+        "MH_01_easy": 0.2736741248428265,
+        "MH_02_easy": -1.0411181046209084,
+        "MH_03_medium": 1.684189107775702,
+        "MH_05_difficult": -0.1087508255359193,
+        "V1_01_easy": 0.2355495202639224,
+        "V1_02_medium": 0.23162860643335392,
+        "V1_03_difficult": 0.0429776686473593,
+        "V2_01_easy": -0.9434098021866899,
+        "V2_02_medium": 0.4046532895786603,
+        "V2_03_difficult": -0.15759054834882935
+      }
+    },
+    "QH_weak": {
+      "mean_relative_ATE_percent": 0.006576403206061121,
+      "median_relative_ATE_percent": 0.010270701671988292,
+      "worst_relative_ATE_percent": 0.11006244389830666,
+      "per_sequence_percent": {
+        "MH_01_easy": 0.11006244389830666,
+        "MH_02_easy": -0.08108673713346226,
+        "MH_03_medium": 0.1032937533724132,
+        "MH_05_difficult": 0.01127178566808773,
+        "V1_01_easy": 0.013457791146009868,
+        "V1_02_medium": 0.014037935202515506,
+        "V1_03_difficult": 0.0083744521788498,
+        "V2_01_easy": -0.1280836394250695,
+        "V2_02_medium": 0.009269617675888853,
+        "V2_03_difficult": 0.0051666294770713606
+      }
+    }
+  },
+  "in_sample": true
+}

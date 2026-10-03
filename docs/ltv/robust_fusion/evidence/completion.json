@@ -1,0 +1,8 @@
+{
+  "full_runs": 80,
+  "candidate_runs": 70,
+  "repeat_runs": 10,
+  "identity_unchanged": true,
+  "inputs_unchanged": true,
+  "repeats_identical": true
+}

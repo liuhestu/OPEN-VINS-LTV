@@ -1,0 +1,237 @@
+{
+  "B": {
+    "mean_ATE_m": 0.13164843192917353,
+    "mean_RPE_1s_m": 0.04076054795494615,
+    "mean_RPE_5s_m": 0.10451645897103087,
+    "complete_sequences": 10,
+    "runtime_seconds_sum": 204.53481484297663
+  },
+  "raw": {
+    "mean_ATE_m": 0.12996172583727209,
+    "mean_RPE_1s_m": 0.04062496593891746,
+    "mean_RPE_5s_m": 0.10414746383815779,
+    "complete_sequences": 10,
+    "runtime_seconds_sum": 430.5500896726735,
+    "mean_relative_ATE_percent": -0.860681508208636,
+    "median_relative_ATE_percent": -0.27729242444269886,
+    "worst_relative_ATE_percent": 0.8626519743461847,
+    "per_sequence_percent": {
+      "MH_01_easy": -1.9872531593692955,
+      "MH_02_easy": -3.4153948685869184,
+      "MH_03_medium": 0.6672098699117779,
+      "MH_05_difficult": -3.8328644673902623,
+      "V1_01_easy": 0.254653120275683,
+      "V1_02_medium": -0.18288170649847224,
+      "V1_03_difficult": 0.6447687011184255,
+      "V2_01_easy": -1.246001403506558,
+      "V2_02_medium": -0.3717031423869255,
+      "V2_03_difficult": 0.8626519743461847
+    },
+    "branches": {
+      "G": {
+        "updates": 20812,
+        "huber_downweighted_updates": 0,
+        "mean_weight_on_accepted": 1.0,
+        "coverage_output": 0.9515362106803219,
+        "mean_update_norm": 1.4923781885547363e-05
+      },
+      "V": {
+        "updates": 21053,
+        "huber_downweighted_updates": 0,
+        "mean_weight_on_accepted": 1.0,
+        "coverage_output": 0.9625548646671543,
+        "mean_update_norm": 0.00010213143658341416
+      }
+    }
+  },
+  "Q": {
+    "mean_ATE_m": 0.13156910370550823,
+    "mean_RPE_1s_m": 0.04074293690427967,
+    "mean_RPE_5s_m": 0.10427430556932571,
+    "complete_sequences": 10,
+    "runtime_seconds_sum": 438.1091204325203,
+    "mean_relative_ATE_percent": -0.03666897226445642,
+    "median_relative_ATE_percent": 0.04248748554388504,
+    "worst_relative_ATE_percent": 0.4977340693124388,
+    "per_sequence_percent": {
+      "MH_01_easy": 0.4977340693124388,
+      "MH_02_easy": -0.3046887785452035,
+      "MH_03_medium": 0.3994972007273834,
+      "MH_05_difficult": -0.049856712260254454,
+      "V1_01_easy": 0.052786894100353976,
+      "V1_02_medium": 0.057740493230951095,
+      "V1_03_difficult": 0.0321880769874161,
+      "V2_01_easy": -1.1840894810056568,
+      "V2_02_medium": 0.11076808437202601,
+      "V2_03_difficult": 0.021230430435981162
+    },
+    "branches": {
+      "G": {
+        "updates": 16043,
+        "huber_downweighted_updates": 0,
+        "mean_weight_on_accepted": 1.0,
+        "coverage_output": 0.7334948792977323,
+        "mean_update_norm": 1.4065967801977486e-05
+      },
+      "V": {
+        "updates": 7854,
+        "huber_downweighted_updates": 0,
+        "mean_weight_on_accepted": 1.0,
+        "coverage_output": 0.35908924652523777,
+        "mean_update_norm": 2.6561338728679348e-05
+      }
+    }
+  },
+  "H": {
+    "mean_ATE_m": 0.1301166769438387,
+    "mean_RPE_1s_m": 0.04062355319253073,
+    "mean_RPE_5s_m": 0.1041555819598888,
+    "complete_sequences": 10,
+    "runtime_seconds_sum": 433.88737796107307,
+    "mean_relative_ATE_percent": -0.7959935560231224,
+    "median_relative_ATE_percent": -0.2764488041782587,
+    "worst_relative_ATE_percent": 0.8569077370677913,
+    "per_sequence_percent": {
+      "MH_01_easy": -1.9873191250520006,
+      "MH_02_easy": -3.4153948685869184,
+      "MH_03_medium": 0.8569077370677913,
+      "MH_05_difficult": -3.3676312594920654,
+      "V1_01_easy": 0.2546263015101413,
+      "V1_02_medium": -0.18252716818212278,
+      "V1_03_difficult": 0.6445456004802175,
+      "V2_01_easy": -1.246001403506558,
+      "V2_02_medium": -0.3703704401743946,
+      "V2_03_difficult": 0.8532290657046859
+    },
+    "branches": {
+      "G": {
+        "updates": 20812,
+        "huber_downweighted_updates": 0,
+        "mean_weight_on_accepted": 1.0,
+        "coverage_output": 0.9515362106803219,
+        "mean_update_norm": 1.4926347649298555e-05
+      },
+      "V": {
+        "updates": 21053,
+        "huber_downweighted_updates": 588,
+        "mean_weight_on_accepted": 0.9956018775807742,
+        "coverage_output": 0.9625548646671543,
+        "mean_update_norm": 9.745831037797678e-05
+      }
+    }
+  },
+  "QH": {
+    "mean_ATE_m": 0.13156910370550823,
+    "mean_RPE_1s_m": 0.04074293690427967,
+    "mean_RPE_5s_m": 0.10427430556932571,
+    "complete_sequences": 10,
+    "runtime_seconds_sum": 431.0670636733994,
+    "mean_relative_ATE_percent": -0.03666897226445642,
+    "median_relative_ATE_percent": 0.04248748554388504,
+    "worst_relative_ATE_percent": 0.4977340693124388,
+    "per_sequence_percent": {
+      "MH_01_easy": 0.4977340693124388,
+      "MH_02_easy": -0.3046887785452035,
+      "MH_03_medium": 0.3994972007273834,
+      "MH_05_difficult": -0.049856712260254454,
+      "V1_01_easy": 0.052786894100353976,
+      "V1_02_medium": 0.057740493230951095,
+      "V1_03_difficult": 0.0321880769874161,
+      "V2_01_easy": -1.1840894810056568,
+      "V2_02_medium": 0.11076808437202601,
+      "V2_03_difficult": 0.021230430435981162
+    },
+    "branches": {
+      "G": {
+        "updates": 16043,
+        "huber_downweighted_updates": 0,
+        "mean_weight_on_accepted": 1.0,
+        "coverage_output": 0.7334948792977323,
+        "mean_update_norm": 1.4065967801977486e-05
+      },
+      "V": {
+        "updates": 7854,
+        "huber_downweighted_updates": 0,
+        "mean_weight_on_accepted": 1.0,
+        "coverage_output": 0.35908924652523777,
+        "mean_update_norm": 2.6561338728679348e-05
+      }
+    }
+  },
+  "QH_strong": {
+    "mean_ATE_m": 0.13167573691483728,
+    "mean_RPE_1s_m": 0.04027242700935264,
+    "mean_RPE_5s_m": 0.1038068915503823,
+    "complete_sequences": 10,
+    "runtime_seconds_sum": 430.9604712331202,
+    "mean_relative_ATE_percent": 0.06218030368494776,
+    "median_relative_ATE_percent": 0.1373031375403566,
+    "worst_relative_ATE_percent": 1.684189107775702,
+    "per_sequence_percent": {
+      "MH_01_easy": 0.2736741248428265,
+      "MH_02_easy": -1.0411181046209084,
+      "MH_03_medium": 1.684189107775702,
+      "MH_05_difficult": -0.1087508255359193,
+      "V1_01_easy": 0.2355495202639224,
+      "V1_02_medium": 0.23162860643335392,
+      "V1_03_difficult": 0.0429776686473593,
+      "V2_01_easy": -0.9434098021866899,
+      "V2_02_medium": 0.4046532895786603,
+      "V2_03_difficult": -0.15759054834882935
+    },
+    "branches": {
+      "G": {
+        "updates": 16043,
+        "huber_downweighted_updates": 10,
+        "mean_weight_on_accepted": 0.9999726938103485,
+        "coverage_output": 0.7334948792977323,
+        "mean_update_norm": 5.5383986972780245e-05
+      },
+      "V": {
+        "updates": 7860,
+        "huber_downweighted_updates": 0,
+        "mean_weight_on_accepted": 1.0,
+        "coverage_output": 0.35936356986100954,
+        "mean_update_norm": 0.00010397066811530487
+      }
+    }
+  },
+  "QH_weak": {
+    "mean_ATE_m": 0.13166085997388363,
+    "mean_RPE_1s_m": 0.04073322442226772,
+    "mean_RPE_5s_m": 0.10446767793641092,
+    "complete_sequences": 10,
+    "runtime_seconds_sum": 427.6248418088071,
+    "mean_relative_ATE_percent": 0.006576403206061121,
+    "median_relative_ATE_percent": 0.010270701671988292,
+    "worst_relative_ATE_percent": 0.11006244389830666,
+    "per_sequence_percent": {
+      "MH_01_easy": 0.11006244389830666,
+      "MH_02_easy": -0.08108673713346226,
+      "MH_03_medium": 0.1032937533724132,
+      "MH_05_difficult": 0.01127178566808773,
+      "V1_01_easy": 0.013457791146009868,
+      "V1_02_medium": 0.014037935202515506,
+      "V1_03_difficult": 0.0083744521788498,
+      "V2_01_easy": -0.1280836394250695,
+      "V2_02_medium": 0.009269617675888853,
+      "V2_03_difficult": 0.0051666294770713606
+    },
+    "branches": {
+      "G": {
+        "updates": 16043,
+        "huber_downweighted_updates": 0,
+        "mean_weight_on_accepted": 1.0,
+        "coverage_output": 0.7334948792977323,
+        "mean_update_norm": 3.5310653259887338e-06
+      },
+      "V": {
+        "updates": 7853,
+        "huber_downweighted_updates": 0,
+        "mean_weight_on_accepted": 1.0,
+        "coverage_output": 0.3590435259692758,
+        "mean_update_norm": 6.681607145996435e-06
+      }
+    }
+  }
+}

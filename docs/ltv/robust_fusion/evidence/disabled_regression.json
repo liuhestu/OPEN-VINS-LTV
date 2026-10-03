@@ -1,0 +1,34 @@
+{
+  "B": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && source \"$2/install/setup.bash\" && exec \"$2/install/ov_msckf/lib/ov_msckf/run_ltv_euroc\" \"$3\" \"$4\" \"$5\" 800",
+      "short",
+      "/home/he/output/openvins_ltv_value_study_20261003",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003/short_disabled_regression/B/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003/short_disabled_regression/B"
+    ],
+    "exit_code": 0
+  },
+  "P": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && source \"$2/install/setup.bash\" && exec \"$2/install/ov_msckf/lib/ov_msckf/run_ltv_euroc\" \"$3\" \"$4\" \"$5\" 800",
+      "short",
+      "/home/he/output/openvins_ltv_value_study_20261003",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003/short_disabled_regression/P/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003/short_disabled_regression/P"
+    ],
+    "exit_code": 0
+  },
+  "byte_equal": {
+    "trajectory.csv": true,
+    "audit.csv": true
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "test_ltv_huber": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source /home/he/output/openvins_ltv_value_study_20261003/install/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+      "test",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003",
+      "test_ltv_huber"
+    ],
+    "exit_code": 0
+  },
+  "test_ltv_gv_jacobian": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source /home/he/output/openvins_ltv_value_study_20261003/install/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+      "test",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003",
+      "test_ltv_gv_jacobian"
+    ],
+    "exit_code": 0
+  },
+  "test_ltv_gv_covariance": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source /home/he/output/openvins_ltv_value_study_20261003/install/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+      "test",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003",
+      "test_ltv_gv_covariance"
+    ],
+    "exit_code": 0
+  },
+  "test_ltv_fej": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source /home/he/output/openvins_ltv_value_study_20261003/install/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+      "test",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003",
+      "test_ltv_fej"
+    ],
+    "exit_code": 0
+  },
+  "test_ltv_joint_layout": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source /home/he/output/openvins_ltv_value_study_20261003/install/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+      "test",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003",
+      "test_ltv_joint_layout"
+    ],
+    "exit_code": 0
+  },
+  "test_ltv_joint_covariance": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source /home/he/output/openvins_ltv_value_study_20261003/install/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+      "test",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003",
+      "test_ltv_joint_covariance"
+    ],
+    "exit_code": 0
+  },
+  "test_ltv_innovation": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source /home/he/output/openvins_ltv_value_study_20261003/install/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+      "test",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003",
+      "test_ltv_innovation"
+    ],
+    "exit_code": 0
+  },
+  "test_ltv_options": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source /home/he/output/openvins_ltv_value_study_20261003/install/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+      "test",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003",
+      "test_ltv_options"
+    ],
+    "exit_code": 0
+  },
+  "test_ltv_timing": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source /home/he/output/openvins_ltv_value_study_20261003/install/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+      "test",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003",
+      "test_ltv_timing"
+    ],
+    "exit_code": 0
+  },
+  "test_ltv_value_shadow": {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source /home/he/output/openvins_ltv_value_study_20261003/install/setup.bash && source \"$1/install/setup.bash\" && exec \"$1/install/ov_msckf/lib/ov_msckf/$2\"",
+      "test",
+      "/home/he/output/openvins_ltv_robust_fusion_20261003",
+      "test_ltv_value_shadow"
+    ],
+    "exit_code": 0
+  }
+}

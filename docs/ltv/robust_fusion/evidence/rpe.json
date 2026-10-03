@@ -1,0 +1,862 @@
+{
+  "MH_01_easy": {
+    "B": {
+      "1.0": {
+        "pairs": 2743,
+        "translation_rmse_m": 0.02985482534361837,
+        "rotation_rmse_deg": 0.1892898929627588
+      },
+      "5.0": {
+        "pairs": 2663,
+        "translation_rmse_m": 0.06847539515043197,
+        "rotation_rmse_deg": 0.5228582210623856
+      }
+    },
+    "raw": {
+      "1.0": {
+        "pairs": 2743,
+        "translation_rmse_m": 0.029713425384049225,
+        "rotation_rmse_deg": 0.18820381746546147
+      },
+      "5.0": {
+        "pairs": 2663,
+        "translation_rmse_m": 0.06856448299604813,
+        "rotation_rmse_deg": 0.5202567580109863
+      }
+    },
+    "Q": {
+      "1.0": {
+        "pairs": 2743,
+        "translation_rmse_m": 0.02975193650406739,
+        "rotation_rmse_deg": 0.18886327726886334
+      },
+      "5.0": {
+        "pairs": 2663,
+        "translation_rmse_m": 0.06836397589428365,
+        "rotation_rmse_deg": 0.522220031766036
+      }
+    },
+    "H": {
+      "1.0": {
+        "pairs": 2743,
+        "translation_rmse_m": 0.029713477415327313,
+        "rotation_rmse_deg": 0.18820430067832528
+      },
+      "5.0": {
+        "pairs": 2663,
+        "translation_rmse_m": 0.06856471381966595,
+        "rotation_rmse_deg": 0.5202547432956809
+      }
+    },
+    "QH": {
+      "1.0": {
+        "pairs": 2743,
+        "translation_rmse_m": 0.02975193650406739,
+        "rotation_rmse_deg": 0.18886327726886334
+      },
+      "5.0": {
+        "pairs": 2663,
+        "translation_rmse_m": 0.06836397589428365,
+        "rotation_rmse_deg": 0.522220031766036
+      }
+    },
+    "QH_strong": {
+      "1.0": {
+        "pairs": 2743,
+        "translation_rmse_m": 0.029469387238534855,
+        "rotation_rmse_deg": 0.1876632547410903
+      },
+      "5.0": {
+        "pairs": 2663,
+        "translation_rmse_m": 0.06831806555662115,
+        "rotation_rmse_deg": 0.5204379427645957
+      }
+    },
+    "QH_weak": {
+      "1.0": {
+        "pairs": 2743,
+        "translation_rmse_m": 0.029830524735037778,
+        "rotation_rmse_deg": 0.1891893172737293
+      },
+      "5.0": {
+        "pairs": 2663,
+        "translation_rmse_m": 0.06846124942069151,
+        "rotation_rmse_deg": 0.5226788973445845
+      }
+    }
+  },
+  "MH_02_easy": {
+    "B": {
+      "1.0": {
+        "pairs": 2217,
+        "translation_rmse_m": 0.027561543395843376,
+        "rotation_rmse_deg": 0.1849250198683154
+      },
+      "5.0": {
+        "pairs": 2137,
+        "translation_rmse_m": 0.05887318088667769,
+        "rotation_rmse_deg": 0.4110740554639485
+      }
+    },
+    "raw": {
+      "1.0": {
+        "pairs": 2217,
+        "translation_rmse_m": 0.026665173157702334,
+        "rotation_rmse_deg": 0.18423793128319157
+      },
+      "5.0": {
+        "pairs": 2137,
+        "translation_rmse_m": 0.05729759140751239,
+        "rotation_rmse_deg": 0.40897367091632314
+      }
+    },
+    "Q": {
+      "1.0": {
+        "pairs": 2217,
+        "translation_rmse_m": 0.02734885677178254,
+        "rotation_rmse_deg": 0.18449227007736443
+      },
+      "5.0": {
+        "pairs": 2137,
+        "translation_rmse_m": 0.05848432659668952,
+        "rotation_rmse_deg": 0.40986064194054433
+      }
+    },
+    "H": {
+      "1.0": {
+        "pairs": 2217,
+        "translation_rmse_m": 0.026665173157702334,
+        "rotation_rmse_deg": 0.18423793128319157
+      },
+      "5.0": {
+        "pairs": 2137,
+        "translation_rmse_m": 0.05729759140751239,
+        "rotation_rmse_deg": 0.40897367091632314
+      }
+    },
+    "QH": {
+      "1.0": {
+        "pairs": 2217,
+        "translation_rmse_m": 0.02734885677178254,
+        "rotation_rmse_deg": 0.18449227007736443
+      },
+      "5.0": {
+        "pairs": 2137,
+        "translation_rmse_m": 0.05848432659668952,
+        "rotation_rmse_deg": 0.40986064194054433
+      }
+    },
+    "QH_strong": {
+      "1.0": {
+        "pairs": 2217,
+        "translation_rmse_m": 0.026823198881763904,
+        "rotation_rmse_deg": 0.18335325426181545
+      },
+      "5.0": {
+        "pairs": 2137,
+        "translation_rmse_m": 0.0574264768275444,
+        "rotation_rmse_deg": 0.4066771335870637
+      }
+    },
+    "QH_weak": {
+      "1.0": {
+        "pairs": 2217,
+        "translation_rmse_m": 0.027506640437005368,
+        "rotation_rmse_deg": 0.18481449553552406
+      },
+      "5.0": {
+        "pairs": 2137,
+        "translation_rmse_m": 0.05877421168158814,
+        "rotation_rmse_deg": 0.41076657788718857
+      }
+    }
+  },
+  "MH_03_medium": {
+    "B": {
+      "1.0": {
+        "pairs": 2269,
+        "translation_rmse_m": 0.05233522994975351,
+        "rotation_rmse_deg": 0.23044940191357918
+      },
+      "5.0": {
+        "pairs": 2189,
+        "translation_rmse_m": 0.13718905375726728,
+        "rotation_rmse_deg": 0.5130206751874721
+      }
+    },
+    "raw": {
+      "1.0": {
+        "pairs": 2269,
+        "translation_rmse_m": 0.05214449207389684,
+        "rotation_rmse_deg": 0.22734759941687585
+      },
+      "5.0": {
+        "pairs": 2189,
+        "translation_rmse_m": 0.138285543464624,
+        "rotation_rmse_deg": 0.5029380126440103
+      }
+    },
+    "Q": {
+      "1.0": {
+        "pairs": 2269,
+        "translation_rmse_m": 0.05224209277902266,
+        "rotation_rmse_deg": 0.22978281123267716
+      },
+      "5.0": {
+        "pairs": 2189,
+        "translation_rmse_m": 0.1369945837927559,
+        "rotation_rmse_deg": 0.5093416885180169
+      }
+    },
+    "H": {
+      "1.0": {
+        "pairs": 2269,
+        "translation_rmse_m": 0.05213109840190396,
+        "rotation_rmse_deg": 0.22748654971542406
+      },
+      "5.0": {
+        "pairs": 2189,
+        "translation_rmse_m": 0.13816171857370574,
+        "rotation_rmse_deg": 0.5033012817009529
+      }
+    },
+    "QH": {
+      "1.0": {
+        "pairs": 2269,
+        "translation_rmse_m": 0.05224209277902266,
+        "rotation_rmse_deg": 0.22978281123267716
+      },
+      "5.0": {
+        "pairs": 2189,
+        "translation_rmse_m": 0.1369945837927559,
+        "rotation_rmse_deg": 0.5093416885180169
+      }
+    },
+    "QH_strong": {
+      "1.0": {
+        "pairs": 2269,
+        "translation_rmse_m": 0.052078367084184014,
+        "rotation_rmse_deg": 0.22921374367633493
+      },
+      "5.0": {
+        "pairs": 2189,
+        "translation_rmse_m": 0.1367716736478779,
+        "rotation_rmse_deg": 0.5082553133989497
+      }
+    },
+    "QH_weak": {
+      "1.0": {
+        "pairs": 2269,
+        "translation_rmse_m": 0.05231874225195662,
+        "rotation_rmse_deg": 0.2303947670322013
+      },
+      "5.0": {
+        "pairs": 2189,
+        "translation_rmse_m": 0.13716507189820087,
+        "rotation_rmse_deg": 0.5129020584576218
+      }
+    }
+  },
+  "MH_05_difficult": {
+    "B": {
+      "1.0": {
+        "pairs": 1806,
+        "translation_rmse_m": 0.05130411423244518,
+        "rotation_rmse_deg": 0.3154000494398927
+      },
+      "5.0": {
+        "pairs": 1726,
+        "translation_rmse_m": 0.1387926491885097,
+        "rotation_rmse_deg": 0.6320497185406595
+      }
+    },
+    "raw": {
+      "1.0": {
+        "pairs": 1806,
+        "translation_rmse_m": 0.05112361622264124,
+        "rotation_rmse_deg": 0.3148621217626224
+      },
+      "5.0": {
+        "pairs": 1726,
+        "translation_rmse_m": 0.13719211556230992,
+        "rotation_rmse_deg": 0.6338550727680873
+      }
+    },
+    "Q": {
+      "1.0": {
+        "pairs": 1806,
+        "translation_rmse_m": 0.051198307241030395,
+        "rotation_rmse_deg": 0.3152915158402325
+      },
+      "5.0": {
+        "pairs": 1726,
+        "translation_rmse_m": 0.1383341444364886,
+        "rotation_rmse_deg": 0.6311200705323865
+      }
+    },
+    "H": {
+      "1.0": {
+        "pairs": 1806,
+        "translation_rmse_m": 0.051122939703874486,
+        "rotation_rmse_deg": 0.3152123671667296
+      },
+      "5.0": {
+        "pairs": 1726,
+        "translation_rmse_m": 0.13739773248545747,
+        "rotation_rmse_deg": 0.633746046860416
+      }
+    },
+    "QH": {
+      "1.0": {
+        "pairs": 1806,
+        "translation_rmse_m": 0.051198307241030395,
+        "rotation_rmse_deg": 0.3152915158402325
+      },
+      "5.0": {
+        "pairs": 1726,
+        "translation_rmse_m": 0.1383341444364886,
+        "rotation_rmse_deg": 0.6311200705323865
+      }
+    },
+    "QH_strong": {
+      "1.0": {
+        "pairs": 1806,
+        "translation_rmse_m": 0.05099370690476373,
+        "rotation_rmse_deg": 0.31499674951781037
+      },
+      "5.0": {
+        "pairs": 1726,
+        "translation_rmse_m": 0.13716064278259946,
+        "rotation_rmse_deg": 0.6286776022526479
+      }
+    },
+    "QH_weak": {
+      "1.0": {
+        "pairs": 1806,
+        "translation_rmse_m": 0.05127734411341915,
+        "rotation_rmse_deg": 0.31537880790795725
+      },
+      "5.0": {
+        "pairs": 1726,
+        "translation_rmse_m": 0.13868054249697295,
+        "rotation_rmse_deg": 0.6318876114620983
+      }
+    }
+  },
+  "V1_01_easy": {
+    "B": {
+      "1.0": {
+        "pairs": 2761,
+        "translation_rmse_m": 0.04455649616048167,
+        "rotation_rmse_deg": 0.47580969802274903
+      },
+      "5.0": {
+        "pairs": 2681,
+        "translation_rmse_m": 0.16790050109710983,
+        "rotation_rmse_deg": 2.0246997069828456
+      }
+    },
+    "raw": {
+      "1.0": {
+        "pairs": 2761,
+        "translation_rmse_m": 0.04455955701988986,
+        "rotation_rmse_deg": 0.4757513142599054
+      },
+      "5.0": {
+        "pairs": 2681,
+        "translation_rmse_m": 0.16792919529165626,
+        "rotation_rmse_deg": 2.024565195560697
+      }
+    },
+    "Q": {
+      "1.0": {
+        "pairs": 2761,
+        "translation_rmse_m": 0.04455772793415742,
+        "rotation_rmse_deg": 0.47576076057108146
+      },
+      "5.0": {
+        "pairs": 2681,
+        "translation_rmse_m": 0.1679099755904081,
+        "rotation_rmse_deg": 2.024560156043295
+      }
+    },
+    "H": {
+      "1.0": {
+        "pairs": 2761,
+        "translation_rmse_m": 0.044559558122862775,
+        "rotation_rmse_deg": 0.4757511883253966
+      },
+      "5.0": {
+        "pairs": 2681,
+        "translation_rmse_m": 0.1679291801354959,
+        "rotation_rmse_deg": 2.024564718702866
+      }
+    },
+    "QH": {
+      "1.0": {
+        "pairs": 2761,
+        "translation_rmse_m": 0.04455772793415742,
+        "rotation_rmse_deg": 0.47576076057108146
+      },
+      "5.0": {
+        "pairs": 2681,
+        "translation_rmse_m": 0.1679099755904081,
+        "rotation_rmse_deg": 2.024560156043295
+      }
+    },
+    "QH_strong": {
+      "1.0": {
+        "pairs": 2761,
+        "translation_rmse_m": 0.04456288967941282,
+        "rotation_rmse_deg": 0.4756451729227899
+      },
+      "5.0": {
+        "pairs": 2681,
+        "translation_rmse_m": 0.1679391480855534,
+        "rotation_rmse_deg": 2.0242460431430724
+      }
+    },
+    "QH_weak": {
+      "1.0": {
+        "pairs": 2761,
+        "translation_rmse_m": 0.04455680198800455,
+        "rotation_rmse_deg": 0.47579736919682164
+      },
+      "5.0": {
+        "pairs": 2681,
+        "translation_rmse_m": 0.16790288128497294,
+        "rotation_rmse_deg": 2.024664565104807
+      }
+    }
+  },
+  "V1_02_medium": {
+    "B": {
+      "1.0": {
+        "pairs": 1572,
+        "translation_rmse_m": 0.036302966779263354,
+        "rotation_rmse_deg": 0.2410464786204294
+      },
+      "5.0": {
+        "pairs": 1492,
+        "translation_rmse_m": 0.10421722149164643,
+        "rotation_rmse_deg": 0.4733080137338221
+      }
+    },
+    "raw": {
+      "1.0": {
+        "pairs": 1572,
+        "translation_rmse_m": 0.03637477925955945,
+        "rotation_rmse_deg": 0.240222183806016
+      },
+      "5.0": {
+        "pairs": 1492,
+        "translation_rmse_m": 0.10430786667839755,
+        "rotation_rmse_deg": 0.4692310547860965
+      }
+    },
+    "Q": {
+      "1.0": {
+        "pairs": 1572,
+        "translation_rmse_m": 0.03630601030684619,
+        "rotation_rmse_deg": 0.24107734787991197
+      },
+      "5.0": {
+        "pairs": 1492,
+        "translation_rmse_m": 0.10420874962599933,
+        "rotation_rmse_deg": 0.47348035481989953
+      }
+    },
+    "H": {
+      "1.0": {
+        "pairs": 1572,
+        "translation_rmse_m": 0.036374768689221834,
+        "rotation_rmse_deg": 0.24022266263728032
+      },
+      "5.0": {
+        "pairs": 1492,
+        "translation_rmse_m": 0.10430784392486328,
+        "rotation_rmse_deg": 0.46923158512928714
+      }
+    },
+    "QH": {
+      "1.0": {
+        "pairs": 1572,
+        "translation_rmse_m": 0.03630601030684619,
+        "rotation_rmse_deg": 0.24107734787991197
+      },
+      "5.0": {
+        "pairs": 1492,
+        "translation_rmse_m": 0.10420874962599933,
+        "rotation_rmse_deg": 0.47348035481989953
+      }
+    },
+    "QH_strong": {
+      "1.0": {
+        "pairs": 1572,
+        "translation_rmse_m": 0.03631544613640633,
+        "rotation_rmse_deg": 0.24118419031803817
+      },
+      "5.0": {
+        "pairs": 1492,
+        "translation_rmse_m": 0.10418392563407305,
+        "rotation_rmse_deg": 0.47402788893631753
+      }
+    },
+    "QH_weak": {
+      "1.0": {
+        "pairs": 1572,
+        "translation_rmse_m": 0.03630371078893037,
+        "rotation_rmse_deg": 0.2410538637611663
+      },
+      "5.0": {
+        "pairs": 1492,
+        "translation_rmse_m": 0.10421503072046716,
+        "rotation_rmse_deg": 0.4733497167189879
+      }
+    }
+  },
+  "V1_03_difficult": {
+    "B": {
+      "1.0": {
+        "pairs": 1966,
+        "translation_rmse_m": 0.03426727466754892,
+        "rotation_rmse_deg": 0.26445145789722124
+      },
+      "5.0": {
+        "pairs": 1886,
+        "translation_rmse_m": 0.07361711937123183,
+        "rotation_rmse_deg": 0.7033470689074061
+      }
+    },
+    "raw": {
+      "1.0": {
+        "pairs": 1966,
+        "translation_rmse_m": 0.03430627480223498,
+        "rotation_rmse_deg": 0.2638927135888362
+      },
+      "5.0": {
+        "pairs": 1886,
+        "translation_rmse_m": 0.07372858580757181,
+        "rotation_rmse_deg": 0.7019401378485827
+      }
+    },
+    "Q": {
+      "1.0": {
+        "pairs": 1966,
+        "translation_rmse_m": 0.03426706114072184,
+        "rotation_rmse_deg": 0.26441854661156833
+      },
+      "5.0": {
+        "pairs": 1886,
+        "translation_rmse_m": 0.0736358314194302,
+        "rotation_rmse_deg": 0.703204915305648
+      }
+    },
+    "H": {
+      "1.0": {
+        "pairs": 1966,
+        "translation_rmse_m": 0.03430621096335224,
+        "rotation_rmse_deg": 0.263891959748158
+      },
+      "5.0": {
+        "pairs": 1886,
+        "translation_rmse_m": 0.07372859730204973,
+        "rotation_rmse_deg": 0.7019389653964919
+      }
+    },
+    "QH": {
+      "1.0": {
+        "pairs": 1966,
+        "translation_rmse_m": 0.03426706114072184,
+        "rotation_rmse_deg": 0.26441854661156833
+      },
+      "5.0": {
+        "pairs": 1886,
+        "translation_rmse_m": 0.0736358314194302,
+        "rotation_rmse_deg": 0.703204915305648
+      }
+    },
+    "QH_strong": {
+      "1.0": {
+        "pairs": 1966,
+        "translation_rmse_m": 0.03426771879287515,
+        "rotation_rmse_deg": 0.26433300333901005
+      },
+      "5.0": {
+        "pairs": 1886,
+        "translation_rmse_m": 0.073684680891739,
+        "rotation_rmse_deg": 0.702739668454416
+      }
+    },
+    "QH_weak": {
+      "1.0": {
+        "pairs": 1966,
+        "translation_rmse_m": 0.034267216056407916,
+        "rotation_rmse_deg": 0.26444207963239885
+      },
+      "5.0": {
+        "pairs": 1886,
+        "translation_rmse_m": 0.07362183263144992,
+        "rotation_rmse_deg": 0.7033099941744058
+      }
+    }
+  },
+  "V2_01_easy": {
+    "B": {
+      "1.0": {
+        "pairs": 2146,
+        "translation_rmse_m": 0.06235695506858682,
+        "rotation_rmse_deg": 0.1976942114814083
+      },
+      "5.0": {
+        "pairs": 2066,
+        "translation_rmse_m": 0.14797101826686285,
+        "rotation_rmse_deg": 0.5131594301085826
+      }
+    },
+    "raw": {
+      "1.0": {
+        "pairs": 2146,
+        "translation_rmse_m": 0.06266562528986197,
+        "rotation_rmse_deg": 0.19750474199109613
+      },
+      "5.0": {
+        "pairs": 2066,
+        "translation_rmse_m": 0.14665245388473724,
+        "rotation_rmse_deg": 0.5146060126760827
+      }
+    },
+    "Q": {
+      "1.0": {
+        "pairs": 2146,
+        "translation_rmse_m": 0.06268984956356241,
+        "rotation_rmse_deg": 0.1975654430315242
+      },
+      "5.0": {
+        "pairs": 2066,
+        "translation_rmse_m": 0.1466783300252031,
+        "rotation_rmse_deg": 0.5146767704768134
+      }
+    },
+    "H": {
+      "1.0": {
+        "pairs": 2146,
+        "translation_rmse_m": 0.06266562528986197,
+        "rotation_rmse_deg": 0.19750474199109613
+      },
+      "5.0": {
+        "pairs": 2066,
+        "translation_rmse_m": 0.14665245388473724,
+        "rotation_rmse_deg": 0.5146060126760827
+      }
+    },
+    "QH": {
+      "1.0": {
+        "pairs": 2146,
+        "translation_rmse_m": 0.06268984956356241,
+        "rotation_rmse_deg": 0.1975654430315242
+      },
+      "5.0": {
+        "pairs": 2066,
+        "translation_rmse_m": 0.1466783300252031,
+        "rotation_rmse_deg": 0.5146767704768134
+      }
+    },
+    "QH_strong": {
+      "1.0": {
+        "pairs": 2146,
+        "translation_rmse_m": 0.059094846447644664,
+        "rotation_rmse_deg": 0.19687835701378975
+      },
+      "5.0": {
+        "pairs": 2066,
+        "translation_rmse_m": 0.14420379560754934,
+        "rotation_rmse_deg": 0.5125678645518001
+      }
+    },
+    "QH_weak": {
+      "1.0": {
+        "pairs": 2146,
+        "translation_rmse_m": 0.06220477587071255,
+        "rotation_rmse_deg": 0.19762260755788835
+      },
+      "5.0": {
+        "pairs": 2066,
+        "translation_rmse_m": 0.14772684312215997,
+        "rotation_rmse_deg": 0.5129885937627429
+      }
+    }
+  },
+  "V2_02_medium": {
+    "B": {
+      "1.0": {
+        "pairs": 2232,
+        "translation_rmse_m": 0.02428377967193025,
+        "rotation_rmse_deg": 0.30020530394321804
+      },
+      "5.0": {
+        "pairs": 2152,
+        "translation_rmse_m": 0.04930234957068469,
+        "rotation_rmse_deg": 0.9158687646174204
+      }
+    },
+    "raw": {
+      "1.0": {
+        "pairs": 2232,
+        "translation_rmse_m": 0.024284385493881934,
+        "rotation_rmse_deg": 0.30000666342922466
+      },
+      "5.0": {
+        "pairs": 2152,
+        "translation_rmse_m": 0.04927724082527764,
+        "rotation_rmse_deg": 0.9151531249540492
+      }
+    },
+    "Q": {
+      "1.0": {
+        "pairs": 2232,
+        "translation_rmse_m": 0.02428616525827061,
+        "rotation_rmse_deg": 0.3001343600984978
+      },
+      "5.0": {
+        "pairs": 2152,
+        "translation_rmse_m": 0.04930989436619147,
+        "rotation_rmse_deg": 0.9157114023095532
+      }
+    },
+    "H": {
+      "1.0": {
+        "pairs": 2232,
+        "translation_rmse_m": 0.024285107809475282,
+        "rotation_rmse_deg": 0.30000747406759065
+      },
+      "5.0": {
+        "pairs": 2152,
+        "translation_rmse_m": 0.04927679856388274,
+        "rotation_rmse_deg": 0.9151555891697841
+      }
+    },
+    "QH": {
+      "1.0": {
+        "pairs": 2232,
+        "translation_rmse_m": 0.02428616525827061,
+        "rotation_rmse_deg": 0.3001343600984978
+      },
+      "5.0": {
+        "pairs": 2152,
+        "translation_rmse_m": 0.04930989436619147,
+        "rotation_rmse_deg": 0.9157114023095532
+      }
+    },
+    "QH_strong": {
+      "1.0": {
+        "pairs": 2232,
+        "translation_rmse_m": 0.02431120997706968,
+        "rotation_rmse_deg": 0.3000688030935359
+      },
+      "5.0": {
+        "pairs": 2152,
+        "translation_rmse_m": 0.0493741406076205,
+        "rotation_rmse_deg": 0.9155879877556719
+      }
+    },
+    "QH_weak": {
+      "1.0": {
+        "pairs": 2232,
+        "translation_rmse_m": 0.02428442618155252,
+        "rotation_rmse_deg": 0.30019486766623865
+      },
+      "5.0": {
+        "pairs": 2152,
+        "translation_rmse_m": 0.04930388740624741,
+        "rotation_rmse_deg": 0.9158444354764091
+      }
+    }
+  },
+  "V2_03_difficult": {
+    "B": {
+      "1.0": {
+        "pairs": 1685,
+        "translation_rmse_m": 0.044782294279990066,
+        "rotation_rmse_deg": 0.4533680634323443
+      },
+      "5.0": {
+        "pairs": 1449,
+        "translation_rmse_m": 0.09882610092988672,
+        "rotation_rmse_deg": 0.9685680046976816
+      }
+    },
+    "raw": {
+      "1.0": {
+        "pairs": 1685,
+        "translation_rmse_m": 0.04441233068545672,
+        "rotation_rmse_deg": 0.45297697245145263
+      },
+      "5.0": {
+        "pairs": 1449,
+        "translation_rmse_m": 0.09823956246344308,
+        "rotation_rmse_deg": 0.9705379918255208
+      }
+    },
+    "Q": {
+      "1.0": {
+        "pairs": 1685,
+        "translation_rmse_m": 0.044781361543335264,
+        "rotation_rmse_deg": 0.4533143842370016
+      },
+      "5.0": {
+        "pairs": 1449,
+        "translation_rmse_m": 0.0988232439458071,
+        "rotation_rmse_deg": 0.9686076141780185
+      }
+    },
+    "H": {
+      "1.0": {
+        "pairs": 1685,
+        "translation_rmse_m": 0.04441157237172504,
+        "rotation_rmse_deg": 0.4529776061478926
+      },
+      "5.0": {
+        "pairs": 1449,
+        "translation_rmse_m": 0.09823918950151755,
+        "rotation_rmse_deg": 0.9705428148765831
+      }
+    },
+    "QH": {
+      "1.0": {
+        "pairs": 1685,
+        "translation_rmse_m": 0.044781361543335264,
+        "rotation_rmse_deg": 0.4533143842370016
+      },
+      "5.0": {
+        "pairs": 1449,
+        "translation_rmse_m": 0.0988232439458071,
+        "rotation_rmse_deg": 0.9686076141780185
+      }
+    },
+    "QH_strong": {
+      "1.0": {
+        "pairs": 1685,
+        "translation_rmse_m": 0.04480749895087127,
+        "rotation_rmse_deg": 0.45309606301527405
+      },
+      "5.0": {
+        "pairs": 1449,
+        "translation_rmse_m": 0.09900636586264472,
+        "rotation_rmse_deg": 0.9692706501073668
+      }
+    },
+    "QH_weak": {
+      "1.0": {
+        "pairs": 1685,
+        "translation_rmse_m": 0.04478206179965034,
+        "rotation_rmse_deg": 0.4533539740584848
+      },
+      "5.0": {
+        "pairs": 1449,
+        "translation_rmse_m": 0.09882522870135842,
+        "rotation_rmse_deg": 0.9685765522834068
+      }
+    }
+  }
+}

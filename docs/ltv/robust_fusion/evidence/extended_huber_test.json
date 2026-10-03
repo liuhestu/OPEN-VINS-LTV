@@ -1,0 +1,15 @@
+{
+  "build_exit_code": 0,
+  "first_invocation": {
+    "exit_code": 127,
+    "reason": "incorrect build-tree executable path; test did not execute",
+    "stderr": "/home/he/output/openvins_ltv_robust_fusion_20261003/test_ltv_huber_extended.stderr.log"
+  },
+  "correct_invocation": {
+    "executable": "/home/he/output/openvins_ltv_robust_fusion_20261003/build/ov_msckf/tests/ltv/test_ltv_huber",
+    "sha256": "20838e3674fadedcfe5bbf0024ead271e8258721f5a073bbe4908049f5c7fdfa",
+    "exit_code": 0,
+    "stdout": "G_unaffected_by_V_outlier=0 limit=1e-14\nhuber_information_weight_one_third=0 limit=1e-14\nresidual_unchanged=0 limit=0\nFEJ_jacobian_unchanged=0 limit=0\ndisabled_matches_original_block=0 limit=0\nweighted_native_state=0 limit=1e-10\nweighted_Joseph_posterior=5.6025963268589031e-22 limit=1e-10\ninlier_unmodified=0 limit=0\nG_Huber_whitening_in_radians=1.3877787807814457e-17 limit=1e-14\n"
+  },
+  "frozen_runtime_libraries_and_runners_unchanged": true
+}

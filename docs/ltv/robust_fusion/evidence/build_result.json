@@ -1,0 +1,14 @@
+{
+  "exit_code": 0,
+  "flags": [
+    "BUILD_LTV_PHASE0_TESTS=ON",
+    "CMAKE_BUILD_TYPE=Release",
+    "CMAKE_CXX_FLAGS_RELEASE=-O2 -DNDEBUG"
+  ],
+  "packages": [
+    "ov_msckf"
+  ],
+  "reused_dependencies": "/home/he/output/openvins_ltv_value_study_20261003/install",
+  "stdout": "/home/he/output/openvins_ltv_robust_fusion_20261003/build.stdout.log",
+  "stderr": "/home/he/output/openvins_ltv_robust_fusion_20261003/build.stderr.log"
+}
