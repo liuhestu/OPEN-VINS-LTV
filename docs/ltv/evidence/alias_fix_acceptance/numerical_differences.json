@@ -1,0 +1,25 @@
+{
+  "state": {
+    "max_absolute_difference": 2.220446049250313e-16,
+    "event": 46,
+    "max_tolerance_ratio": 2.1779591095276886e-08
+  },
+  "P": {
+    "max_absolute_difference": 4.831235855817795e-09,
+    "event": 67,
+    "max_tolerance_ratio": 0.11789298664483784
+  },
+  "source": {
+    "max_asymmetry": 1.4551915228366852e-11,
+    "min_eigenvalue_or_zero": 0.0,
+    "max_spectral_scale": 392330.64095369284,
+    "max_normalized_negative_eigenvalue": 0.0
+  },
+  "target": {
+    "max_asymmetry": 0.0,
+    "min_eigenvalue_or_zero": 0.0,
+    "max_spectral_scale": 392330.6409537004,
+    "max_normalized_negative_eigenvalue": 0.0
+  },
+  "target_spectral_pass": true
+}

@@ -1,0 +1,10 @@
+{
+  "command": [
+    "nm",
+    "-D",
+    "-C",
+    "/tmp/openvins-ltv-core-gate.llf_74db/install/ov_msckf/lib/libov_msckf_lib.so"
+  ],
+  "exit_code": 0,
+  "ltv_symbols": []
+}

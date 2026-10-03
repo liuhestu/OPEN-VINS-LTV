@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+    "/tmp/openvins-ltv-phase0-recheck-20261003/source_matrices.jsonl",
+    "--expected",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+  ],
+  "exit_code": 0,
+  "expected_exit": 0
+}

@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "recorded_commands": 20,
+  "core_events": 174,
+  "atol": 1e-08,
+  "rtol": 1e-10,
+  "production_sources_unchanged_this_recheck": true,
+  "dataset_replays_this_recheck": 0,
+  "scope": "Phase 0; existing later-phase workspace changes retained"
+}

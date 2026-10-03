@@ -1,6 +1,9 @@
-# G/V 坐标与 Jacobian 合同（原生数值验收待运行）
+# G/V 坐标与 Jacobian 合同（Phase 0 原生数值验收通过）
 
-以下是待测试的实现合同，不是 T1/T2/T5 通过声明。本轮按 alias 失败停止。
+> 2026-10-03：本次重新执行的结果和当前工作区范围见 [Phase 0 复核](phase0_recheck.md)。下文保留早期验收快照；其中“尚未接入”等描述仅适用于该历史阶段，当前实现状态见工程验收与最终报告。
+
+以下合同已通过本轮 T1/T2/T5 原生测试。G/V 预测与 H 仍是测试参考公式；
+生产 UpdaterLTV 尚未接入，其后续验收不能由本轮结果替代。详细范围与指标见 test_matrix.md。
 
 令 `R=R_GtoI`，主 IMU 误差顺序 `[theta,p,v,bg,ba]`。
 本地 `IMU::update()` 使用归一化 `[delta_theta/2,1]` 左乘 JPL quaternion；
@@ -31,7 +34,7 @@ Propagator 名义加速度为 `R.transpose()*a_corrected - (0,0,+g)`；
 `w_hat=R_GYROtoIMU*Dw*(wm-bg-Tg*a_hat)`。bias 只扣一次。
 adapter 需左右包围样本，对校正后端点平均；禁止外推。
 
-待验证 yaw 基姿态与速度块为 `R gamma`、`-[v]x gamma`，故瞬时速度约束满足
+已验证 yaw 基姿态与速度块为 `R gamma`、`-[v]x gamma`，故瞬时速度约束满足
 `[Rv]x R gamma + R(-[v]x gamma)=0`。平移不出现在 G/V 预测中。
 瞬时零空间恒等式不能代替跨帧真实 Phi、clone 增广和视觉 FEJ 检查。
 

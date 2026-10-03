@@ -1,0 +1,782 @@
+[
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/alias_fixed"
+    ],
+    "exit_code": 0,
+    "record": "alias_fixed.command.json",
+    "stdout": "actual_target_sanitize max_error=5.68434e-14 max_asymmetry=0 started=1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/alias_old_core"
+    ],
+    "exit_code": 0,
+    "expected_exit": 1,
+    "record": "alias_old_core.command.json",
+    "stdout": "actual_target_sanitize max_error=5.68434e-14 max_asymmetry=3.55271e-15 started=1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/alias_probe"
+    ],
+    "exit_code": 1,
+    "record": "alias_probe.command.json",
+    "stdout": "max_error=9 max_asymmetry=9\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && CMAKE_BUILD_PARALLEL_LEVEL=2 colcon --log-base /tmp/openvins-ltv-core-gate.llf_74db/log build --base-paths /home/he/open_vins_ltv_ws/src/open_vins_ltv --packages-up-to ov_msckf --build-base /tmp/openvins-ltv-core-gate.llf_74db/build --install-base /tmp/openvins-ltv-core-gate.llf_74db/install --executor sequential --cmake-args -DBUILD_LTV_PHASE0_TESTS=ON"
+    ],
+    "exit_code": 2,
+    "record": "colcon.command.json",
+    "stdout": "Starting >>> ov_core\nFinished <<< ov_core [39.3s]\nStarting >>> ov_init\nFinished <<< ov_init [53.5s]\nStarting >>> ov_msckf\n\nSummary: 2 packages finished [2min 54s]\n  1 package failed: ov_msckf\n  3 packages had stderr output: ov_core ov_init ov_msckf\n",
+    "stderr": "--- stderr: ov_core\nCMake Warning:\n  Manually-specified variables were not used by the project:\n\n    BUILD_LTV_PHASE0_TESTS\n\n\nIn file included from /usr/include/eigen3/Eigen/Core:341,\n                 from /usr/include/eigen3/Eigen/Dense:1,\n                 from /usr/include/eigen3/Eigen/Eigen:1,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src/utils/opencv_yaml_parse.h:25,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src/feat/FeatureInitializerOptions.h:25,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src/feat/FeatureInitializer.h:27,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src/feat/FeatureInitializer.cpp:22:\n/usr/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector.h: In function \u2018static void Eigen::internal::trmv_selector<Mode, 1>::run(const Lhs&, const Rhs&, Dest&, const typename Dest::Scalar&) [with Lhs = Eigen::Transpose<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false>, -1, -1, false> >; Rhs = Eigen::Transpose<const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1> >, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false> > > >; Dest = Eigen::Transpose<Eigen::Block<Eigen::Block<Eigen::Matrix<double, -1, -1, 1, -1, -1>, 1, -1, true>, 1, -1, false> >; int Mode = 6]\u2019:\n/usr/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector.h:332:12: warning: \u2018result\u2019 may be used uninitialized [-Wmaybe-uninitialized]\n  327 |     internal::triangular_matrix_vector_product\n      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  328 |       <Index,Mode,\n      |       ~~~~~~~~~~~~\n  329 |        LhsScalar, LhsBlasTraits::NeedToConjugate,\n      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  330 |        RhsScalar, RhsBlasTraits::NeedToConjugate,\n      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  331 |        RowMajor>\n      |        ~~~~~~~~~\n  332 |       ::run(actualLhs.rows(),actualLhs.cols(),\n      |       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  333 |             actualLhs.data(),actualLhs.outerStride(),\n      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  334 |             actualRhsPtr,1,\n      |             ~~~~~~~~~~~~~~~\n  335 |             dest.data(),dest.innerStride(),\n      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  336 |             actualAlpha);\n      |             ~~~~~~~~~~~~\n/usr/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector.h:105:24: note: by argument 5 of type \u2018const double*\u2019 to \u2018static void Eigen::internal::triangular_matrix_vector_product<Index, Mode, LhsScalar, ConjLhs, RhsScalar, ConjRhs, 1, Version>::run(Index, Index, const LhsScalar*, Index, const RhsScalar*, Index, Eigen::internal::triangular_matrix_vector_product<Index, Mode, LhsScalar, ConjLhs, RhsScalar, ConjRhs, 1, Version>::ResScalar*, Index, const ResScalar&) [with Index = long int; int Mode = 6; LhsScalar = double; bool ConjLhs = false; RhsScalar = double; bool ConjRhs = false; int Version = 0]\u2019 declared here\n  105 | EIGEN_DONT_INLINE void triangular_matrix_vector_product<Index,Mode,LhsScalar,ConjLhs,RhsScalar,ConjRhs,RowMajor,Version>\n      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from /usr/include/eigen3/Eigen/Core:341,\n                 from /usr/include/eigen3/Eigen/Dense:1,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src/test_profile.cpp:27:\n/usr/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector.h: In function \u2018static void Eigen::internal::trmv_selector<Mode, 1>::run(const Lhs&, const Rhs&, Dest&, const typename Dest::Scalar&) [with Lhs = Eigen::Transpose<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false>, -1, -1, false> >; Rhs = Eigen::Transpose<const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double, double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 1, -1> >, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false> > > >; Dest = Eigen::Transpose<Eigen::Block<Eigen::Block<Eigen::Matrix<double, -1, -1, 1, -1, -1>, 1, -1, true>, 1, -1, false> >; int Mode = 6]\u2019:\n/usr/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector.h:332:12: warning: \u2018result\u2019 may be used uninitialized [-Wmaybe-uninitialized]\n  327 |     internal::triangular_matrix_vector_product\n      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  328 |       <Index,Mode,\n      |       ~~~~~~~~~~~~\n  329 |        LhsScalar, LhsBlasTraits::NeedToConjugate,\n      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  330 |        RhsScalar, RhsBlasTraits::NeedToConjugate,\n      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  331 |        RowMajor>\n      |        ~~~~~~~~~\n  332 |       ::run(actualLhs.rows(),actualLhs.cols(),\n      |       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  333 |             actualLhs.data(),actualLhs.outerStride(),\n      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  334 |             actualRhsPtr,1,\n      |             ~~~~~~~~~~~~~~~\n  335 |             dest.data(),dest.innerStride(),\n      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  336 |             actualAlpha);\n      |             ~~~~~~~~~~~~\n/usr/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector.h:105:24: note: by argument 5 of type \u2018const double*\u2019 to \u2018static void Eigen::internal::triangular_matrix_vector_product<Index, Mode, LhsScalar, ConjLhs, RhsScalar, ConjRhs, 1, Version>::run(Index, Index, const LhsScalar*, Index, const RhsScalar*, Index, Eigen::internal::triangular_matrix_vector_product<Index, Mode, LhsScalar, ConjLhs, RhsScalar, ConjRhs, 1, Version>::ResScalar*, Index, const ResScalar&) [with Index = long int; int Mode = 6; LhsScalar = double; bool ConjLhs = false; RhsScalar = double; bool ConjRhs = false; int Version = 0]\u2019 declared here\n  105 | EIGEN_DONT_INLINE void triangular_matrix_vector_product<Index,Mode,LhsScalar,ConjLhs,RhsScalar,ConjRhs,RowMajor,Version>\n      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/usr/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector.h: In function \u2018static void Eigen::internal::trmv_selector<Mode, 1>::run(const Lhs&, const Rhs&, Dest&, const typename Dest::Scalar&) [with Lhs = Eigen::Transpose<const Eigen::Block<const Eigen::Block<Eigen::Matrix<float, -1, -1>, -1, -1, false>, -1, -1, false> >; Rhs = Eigen::Transpose<const Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<float, float>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>, const Eigen::Matrix<float, 1, -1> >, const Eigen::Transpose<const Eigen::Block<const Eigen::Block<const Eigen::Block<Eigen::Matrix<float, -1, -1>, -1, -1, false>, -1, 1, true>, -1, 1, false> > > >; Dest = Eigen::Transpose<Eigen::Block<Eigen::Block<Eigen::Matrix<float, -1, -1, 1, -1, -1>, 1, -1, true>, 1, -1, false> >; int Mode = 6]\u2019:\n/usr/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector.h:332:12: warning: \u2018result\u2019 may be used uninitialized [-Wmaybe-uninitialized]\n  327 |     internal::triangular_matrix_vector_product\n      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  328 |       <Index,Mode,\n      |       ~~~~~~~~~~~~\n  329 |        LhsScalar, LhsBlasTraits::NeedToConjugate,\n      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  330 |        RhsScalar, RhsBlasTraits::NeedToConjugate,\n      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  331 |        RowMajor>\n      |        ~~~~~~~~~\n  332 |       ::run(actualLhs.rows(),actualLhs.cols(),\n      |       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  333 |             actualLhs.data(),actualLhs.outerStride(),\n      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  334 |             actualRhsPtr,1,\n      |             ~~~~~~~~~~~~~~~\n  335 |             dest.data(),dest.innerStride(),\n      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  336 |             actualAlpha);\n      |             ~~~~~~~~~~~~\n/usr/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector.h:105:24: note: by argument 5 of type \u2018const float*\u2019 to \u2018static void Eigen::internal::triangular_matrix_vector_product<Index, Mode, LhsScalar, ConjLhs, RhsScalar, ConjRhs, 1, Version>::run(Index, Index, const LhsScalar*, Index, const RhsScalar*, Index, Eigen::internal::triangular_matrix_vector_product<Index, Mode, LhsScalar, ConjLhs, RhsScalar, ConjRhs, 1, Version>::ResScalar*, Index, const ResScalar&) [with Index = long int; int Mode = 6; LhsScalar = float; bool ConjLhs = false; RhsScalar = float; bool ConjRhs = false; int Version = 0]\u2019 declared here\n  105 | EIGEN_DONT_INLINE void triangular_matrix_vector_product<Index,Mode,LhsScalar,ConjLhs,RhsScalar,ConjRhs,RowMajor,Version>\n      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n---\n--- stderr: ov_init\nCMake Warning:\n  Manually-specified variables were not used by the project:\n\n    BUILD_LTV_PHASE0_TESTS\n\n\n/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_init/src/dynamic/DynamicInitializer.cpp: In member function \u2018bool ov_init::DynamicInitializer::initialize(double&, Eigen::MatrixXd&, std::vector<std::shared_ptr<ov_type::Type> >&, std::shared_ptr<ov_type::IMU>&, std::map<double, std::shared_ptr<ov_type::PoseJPL> >&, std::unordered_map<long unsigned int, std::shared_ptr<ov_type::Landmark> >&)\u2019:\n/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_init/src/dynamic/DynamicInitializer.cpp:673:30: warning: \u2018void ceres::Problem::AddParameterBlock(double*, int, ceres::LocalParameterization*)\u2019 is deprecated: LocalParameterizations are deprecated. Use the version with Manifolds instead. [-Wdeprecated-declarations]\n  673 |     problem.AddParameterBlock(var_ori, 4, ceres_jplquat);\n      |     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from /usr/local/include/ceres/ceres.h:66,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_init/src/ceres/Factor_GenericPrior.h:25,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_init/src/dynamic/DynamicInitializer.cpp:24:\n/usr/local/include/ceres/problem.h:302:8: note: declared here\n  302 |   void AddParameterBlock(double* values,\n      |        ^~~~~~~~~~~~~~~~~\n/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_init/src/dynamic/DynamicInitializer.cpp:766:32: warning: \u2018void ceres::Problem::AddParameterBlock(double*, int, ceres::LocalParameterization*)\u2019 is deprecated: LocalParameterizations are deprecated. Use the version with Manifolds instead. [-Wdeprecated-declarations]\n  766 |       problem.AddParameterBlock(var_calib_ori, 4, ceres_calib_jplquat);\n      |       ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from /usr/local/include/ceres/ceres.h:66,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_init/src/ceres/Factor_GenericPrior.h:25,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_init/src/dynamic/DynamicInitializer.cpp:24:\n/usr/local/include/ceres/problem.h:302:8: note: declared here\n  302 |   void AddParameterBlock(double* values,\n      |        ^~~~~~~~~~~~~~~~~\n/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_init/src/test_dynamic_mle.cpp: In function \u2018int main(int, char**)\u2019:\n/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_init/src/test_dynamic_mle.cpp:275:34: warning: \u2018void ceres::Problem::AddParameterBlock(double*, int, ceres::LocalParameterization*)\u2019 is deprecated: LocalParameterizations are deprecated. Use the version with Manifolds instead. [-Wdeprecated-declarations]\n  275 |         problem.AddParameterBlock(var_ori, 4, ceres_jplquat);\n      |         ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from /usr/local/include/ceres/ceres.h:66,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_init/src/test_dynamic_mle.cpp:30:\n/usr/local/include/ceres/problem.h:302:8: note: declared here\n  302 |   void AddParameterBlock(double* values,\n      |        ^~~~~~~~~~~~~~~~~\n/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_init/src/test_dynamic_mle.cpp:371:38: warning: \u2018void ceres::Problem::AddParameterBlock(double*, int, ceres::LocalParameterization*)\u2019 is deprecated: LocalParameterizations are deprecated. Use the version with Manifolds instead. [-Wdeprecated-declarations]\n  371 |             problem.AddParameterBlock(var_calib_ori, 4, ceres_calib_jplquat);\n      |             ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from /usr/local/include/ceres/ceres.h:66,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_init/src/test_dynamic_mle.cpp:30:\n/usr/local/include/ceres/problem.h:302:8: note: declared here\n  302 |   void AddParameterBlock(double* values,\n      |        ^~~~~~~~~~~~~~~~~\n---\n--- stderr: ov_msckf\nIn file included from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ros/ROSVisualizerHelper.h:37,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ros/ROSVisualizerHelper.cpp:22:\n/opt/ros/humble/include/tf2_geometry_msgs/tf2_geometry_msgs/tf2_geometry_msgs.h:35:2: warning: #warning This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead [-Wcpp]\n   35 | #warning This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead\n      |  ^~~~~~~\nIn file included from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ros/ROS2Visualizer.h:45,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ros/ROS2Visualizer.cpp:22:\n/opt/ros/humble/include/tf2_geometry_msgs/tf2_geometry_msgs/tf2_geometry_msgs.h:35:2: warning: #warning This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead [-Wcpp]\n   35 | #warning This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead\n      |  ^~~~~~~\nIn file included from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ros/ROS2Visualizer.h:28,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ros/ROS2Visualizer.cpp:22:\n/opt/ros/humble/include/image_transport/image_transport/image_transport.h:32:89: note: \u2018#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead\u2019\n   32 | #pragma message (\"Warning: This header is deprecated. Use 'image_transport.hpp' instead\")\n      |                                                                                         ^\nIn file included from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ros/ROS2Visualizer.h:45,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/run_simulation.cpp:36:\n/opt/ros/humble/include/tf2_geometry_msgs/tf2_geometry_msgs/tf2_geometry_msgs.h:35:2: warning: #warning This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead [-Wcpp]\n   35 | #warning This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead\n      |  ^~~~~~~\nIn file included from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ros/ROS2Visualizer.h:45,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/run_subscribe_msckf.cpp:32:\n/opt/ros/humble/include/tf2_geometry_msgs/tf2_geometry_msgs/tf2_geometry_msgs.h:35:2: warning: #warning This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead [-Wcpp]\n   35 | #warning This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead\n      |  ^~~~~~~\nIn file included from /usr/include/eigen3/Eigen/Core:164,\n                 from /usr/include/eigen3/Eigen/Dense:1,\n                 from /usr/include/eigen3/Eigen/Eigen:1,\n                 from /tmp/openvins-ltv-core-gate.llf_74db/install/ov_core/include/cam/CamBase.h:25,\n                 from /tmp/openvins-ltv-core-gate.llf_74db/install/ov_core/include/cam/CamRadtan.h:25,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_fej.cpp:1:\n/usr/include/eigen3/Eigen/src/plugins/BlockMethods.h: In instantiation of \u2018typename Eigen::DenseBase<Derived>::FixedSegmentReturnType<Size>::Type Eigen::DenseBase<Derived>::head(Eigen::Index) [with int N = 4; Derived = Eigen::Matrix<double, -1, -1>; typename Eigen::DenseBase<Derived>::FixedSegmentReturnType<Size>::Type = Eigen::VectorBlock<Eigen::Matrix<double, -1, -1>, 4>; Eigen::Index = long int]\u2019:\n/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_fej.cpp:19:24:   required from here\n/usr/include/eigen3/Eigen/src/plugins/BlockMethods.h:1331:3: error: static assertion failed: YOU_TRIED_CALLING_A_VECTOR_METHOD_ON_A_MATRIX\n 1331 |   EIGEN_STATIC_ASSERT_VECTOR_ONLY(Derived)\n      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/usr/include/eigen3/Eigen/src/plugins/BlockMethods.h:1331:3: note: \u2018Eigen::Matrix<double, -1, -1>::IsVectorAtCompileTime\u2019 evaluates to false\n/usr/include/eigen3/Eigen/src/plugins/BlockMethods.h: In instantiation of \u2018typename Eigen::DenseBase<Derived>::FixedSegmentReturnType<Size>::Type Eigen::DenseBase<Derived>::segment(Eigen::Index, Eigen::Index) [with int N = 3; Derived = Eigen::Matrix<double, -1, -1>; typename Eigen::DenseBase<Derived>::FixedSegmentReturnType<Size>::Type = Eigen::VectorBlock<Eigen::Matrix<double, -1, -1>, 3>; Eigen::Index = long int]\u2019:\n/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_fej.cpp:20:27:   required from here\n/usr/include/eigen3/Eigen/src/plugins/BlockMethods.h:1299:3: error: static assertion failed: YOU_TRIED_CALLING_A_VECTOR_METHOD_ON_A_MATRIX\n 1299 |   EIGEN_STATIC_ASSERT_VECTOR_ONLY(Derived)\n      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/usr/include/eigen3/Eigen/src/plugins/BlockMethods.h:1299:3: note: \u2018Eigen::Matrix<double, -1, -1>::IsVectorAtCompileTime\u2019 evaluates to false\nIn file included from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ros/ROS2Visualizer.h:28,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/run_simulation.cpp:36:\n/opt/ros/humble/include/image_transport/image_transport/image_transport.h:32:89: note: \u2018#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead\u2019\n   32 | #pragma message (\"Warning: This header is deprecated. Use 'image_transport.hpp' instead\")\n      |                                                                                         ^\nIn file included from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ros/ROS2Visualizer.h:28,\n                 from /home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/run_subscribe_msckf.cpp:32:\n/opt/ros/humble/include/image_transport/image_transport/image_transport.h:32:89: note: \u2018#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead\u2019\n   32 | #pragma message (\"Warning: This header is deprecated. Use 'image_transport.hpp' instead\")\n      |                                                                                         ^\ngmake[2]: *** [tests/ltv/CMakeFiles/test_ltv_fej.dir/build.make:76\uff1atests/ltv/CMakeFiles/test_ltv_fej.dir/test_ltv_fej.cpp.o] \u9519\u8bef 1\ngmake[1]: *** [CMakeFiles/Makefile2:488\uff1atests/ltv/CMakeFiles/test_ltv_fej.dir/all] \u9519\u8bef 2\ngmake[1]: *** \u6b63\u5728\u7b49\u5f85\u672a\u5b8c\u6210\u7684\u4efb\u52a1....\ngmake: *** [Makefile:146\uff1aall] \u9519\u8bef 2\n---\nFailed   <<< ov_msckf [1min 21s, exited with code 2]\n"
+  },
+  {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && CMAKE_BUILD_PARALLEL_LEVEL=2 colcon --log-base /tmp/openvins-ltv-core-gate.llf_74db/log build --base-paths /home/he/open_vins_ltv_ws/src/open_vins_ltv --packages-up-to ov_msckf --build-base /tmp/openvins-ltv-core-gate.llf_74db/build --install-base /tmp/openvins-ltv-core-gate.llf_74db/install --executor sequential --cmake-args -DBUILD_LTV_PHASE0_TESTS=ON"
+    ],
+    "exit_code": 0,
+    "record": "colcon_final.command.json",
+    "stdout": "Starting >>> ov_core\nFinished <<< ov_core [0.11s]\nStarting >>> ov_init\nFinished <<< ov_init [0.10s]\nStarting >>> ov_msckf\nFinished <<< ov_msckf [17.8s]\n\nSummary: 3 packages finished [18.2s]\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && CMAKE_BUILD_PARALLEL_LEVEL=2 colcon --log-base /tmp/openvins-ltv-core-gate.llf_74db/log build --base-paths /home/he/open_vins_ltv_ws/src/open_vins_ltv --packages-up-to ov_msckf --build-base /tmp/openvins-ltv-core-gate.llf_74db/build --install-base /tmp/openvins-ltv-core-gate.llf_74db/install --executor sequential --cmake-args -DBUILD_LTV_PHASE0_TESTS=ON"
+    ],
+    "exit_code": 0,
+    "record": "colcon_retry.command.json",
+    "stdout": "Starting >>> ov_core\nFinished <<< ov_core [0.14s]\nStarting >>> ov_init\nFinished <<< ov_init [0.13s]\nStarting >>> ov_msckf\nFinished <<< ov_msckf [18.1s]\n\nSummary: 3 packages finished [18.6s]\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/source_matrices.jsonl",
+      "--expected",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "record": "compare_source_matrices.command.json",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/source_outputs.stdout.log"
+    ],
+    "exit_code": 0,
+    "record": "compare_source_outputs.command.json",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/target_matrices.jsonl",
+      "--expected",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "record": "compare_target_matrices.command.json",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/target_outputs.stdout.log"
+    ],
+    "exit_code": 0,
+    "record": "compare_target_outputs.command.json",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_alias.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/alias_probe"
+    ],
+    "exit_code": 0,
+    "record": "compile_alias.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_alias_fixed.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/alias_fixed"
+    ],
+    "exit_code": 0,
+    "record": "compile_alias_fixed.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_alias_fixed.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/alias_old_core"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "record": "compile_alias_old_core.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_core_lifecycle.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/lifecycle"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "record": "compile_lifecycle.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/harness.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/source_fixture"
+    ],
+    "exit_code": 0,
+    "record": "compile_source.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/harness.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/target_fixture"
+    ],
+    "exit_code": 0,
+    "record": "compile_target.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/alias_fixed"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/alias_fixed.command.json",
+    "stdout": "actual_target_sanitize max_error=1.13687e-13 max_asymmetry=0 started=1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/alias_old_core"
+    ],
+    "exit_code": 1,
+    "record": "final_core_gate/alias_old_core.command.json",
+    "stdout": "actual_target_sanitize max_error=1.13687e-13 max_asymmetry=2.66454e-15 started=1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/alias_probe"
+    ],
+    "exit_code": 1,
+    "record": "final_core_gate/alias_probe.command.json",
+    "stdout": "max_error=9 max_asymmetry=9\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/source_matrices.jsonl",
+      "--expected",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/compare_source_matrices.command.json",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/source_outputs.stdout.log"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/compare_source_outputs.command.json",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/target_matrices.jsonl",
+      "--expected",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/compare_target_matrices.command.json",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/target_outputs.stdout.log"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/compare_target_outputs.command.json",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_alias.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/alias_probe"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/compile_alias.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_alias_fixed.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/alias_fixed"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/compile_alias_fixed.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_alias_fixed.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/alias_old_core"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/compile_alias_old_core.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/harness.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/source_fixture"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/compile_source.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/harness.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/target_fixture"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/compile_target.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/source_fixture",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/source_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/source_outputs.command.json",
+    "stdout": "[full event output retained in temporary artifacts]",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/analyze_core_outputs.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/spectra.command.json",
+    "stdout": "{\n  \"state\": {\n    \"max_absolute_difference\": 2.220446049250313e-16,\n    \"event\": 46,\n    \"max_tolerance_ratio\": 2.1779591095276886e-08\n  },\n  \"P\": {\n    \"max_absolute_difference\": 4.831235855817795e-09,\n    \"event\": 67,\n    \"max_tolerance_ratio\": 0.11789298664483784\n  },\n  \"source\": {\n    \"max_asymmetry\": 1.4551915228366852e-11,\n    \"min_eigenvalue_or_zero\": 0.0,\n    \"max_spectral_scale\": 392330.64095369284,\n    \"max_normalized_negative_eigenvalue\": 0.0\n  },\n  \"target\": {\n    \"max_asymmetry\": 0.0,\n    \"min_eigenvalue_or_zero\": 0.0,\n    \"max_spectral_scale\": 392330.6409537004,\n    \"max_normalized_negative_eigenvalue\": 0.0\n  },\n  \"target_spectral_pass\": true\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/target_fixture",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+      "/tmp/openvins-ltv-core-gate.llf_74db/final_core_gate/target_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "record": "final_core_gate/target_outputs.command.json",
+    "stdout": "[full event output retained in temporary artifacts]",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/install/setup.bash\" && ldd \"$1/install/ov_msckf/lib/ov_msckf/test_ltv_fej\"",
+      "phase0",
+      "/tmp/openvins-ltv-core-gate.llf_74db"
+    ],
+    "exit_code": 0,
+    "record": "ldd_native.command.json",
+    "stdout": "\tlinux-vdso.so.1 (0x00007ffca4329000)\n\tlibov_msckf_lib.so => /tmp/openvins-ltv-core-gate.llf_74db/install/ov_msckf/lib/libov_msckf_lib.so (0x00007c7926c00000)\n\tlibunwind.so.8 => /lib/x86_64-linux-gnu/libunwind.so.8 (0x00007c7927071000)\n\tlibopencv_calib3d.so.4.5d => /lib/x86_64-linux-gnu/libopencv_calib3d.so.4.5d (0x00007c7926a25000)\n\tlibopencv_core.so.4.5d => /lib/x86_64-linux-gnu/libopencv_core.so.4.5d (0x00007c7926600000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007c7926200000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007c7926519000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007c7925e00000)\n\tlibnav_msgs__rosidl_typesupport_cpp.so => /opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_cpp.so (0x00007c7927067000)\n\tlibcv_bridge.so => /opt/ros/humble/lib/libcv_bridge.so (0x00007c7927035000)\n\tlibimage_transport.so => /opt/ros/humble/lib/x86_64-linux-gnu/libimage_transport.so (0x00007c7926441000)\n\tlibov_core_lib.so => /tmp/openvins-ltv-core-gate.llf_74db/install/ov_core/lib/libov_core_lib.so (0x00007c7926130000)\n\tlibov_init_lib.so => /tmp/openvins-ltv-core-gate.llf_74db/install/ov_init/lib/libov_init_lib.so (0x00007c7925cc5000)\n\tlibboost_filesystem.so.1.74.0 => /lib/x86_64-linux-gnu/libboost_filesystem.so.1.74.0 (0x00007c7927013000)\n\tlibopencv_aruco.so.4.5d => /lib/x86_64-linux-gnu/libopencv_aruco.so.4.5d (0x00007c79269cb000)\n\tlibtf2_ros.so => /opt/ros/humble/lib/libtf2_ros.so (0x00007c7926098000)\n\tlibtf2_msgs__rosidl_typesupport_cpp.so => /opt/ros/humble/lib/libtf2_msgs__rosidl_typesupport_cpp.so (0x00007c792700b000)\n\tlibsensor_msgs__rosidl_typesupport_cpp.so => /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_cpp.so (0x00007c7926ffe000)\n\tlibgeometry_msgs__rosidl_typesupport_cpp.so => /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_cpp.so (0x00007c7926ff2000)\n\tlibmessage_filters.so => /opt/ros/humble/lib/libmessage_filters.so (0x00007c7926fed000)\n\tlibrclcpp.so => /opt/ros/humble/lib/librclcpp.so (0x00007c7925ace000)\n\tliblibstatistics_collector.so => /opt/ros/humble/lib/liblibstatistics_collector.so (0x00007c7926fe6000)\n\tlibrcl.so => /opt/ros/humble/lib/librcl.so (0x00007c792698d000)\n\tlibrmw.so => /opt/ros/humble/lib/librmw.so (0x00007c7926fd8000)\n\tlibstatistics_msgs__rosidl_typesupport_cpp.so => /opt/ros/humble/lib/libstatistics_msgs__rosidl_typesupport_cpp.so (0x00007c7926fd3000)\n\tlibtracetools.so => /opt/ros/humble/lib/libtracetools.so (0x00007c7926fce000)\n\tlibrcutils.so => /opt/ros/humble/lib/librcutils.so (0x00007c7926975000)\n\tlibopencv_features2d.so.4.5d => /lib/x86_64-linux-gnu/libopencv_features2d.so.4.5d (0x00007c7925a18000)\n\tlibopencv_imgproc.so.4.5d => /lib/x86_64-linux-gnu/libopencv_imgproc.so.4.5d (0x00007c7925400000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007c7927128000)\n\tliblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007c792606d000)\n\tlibopencv_flann.so.4.5d => /lib/x86_64-linux-gnu/libopencv_flann.so.4.5d (0x00007c79259ad000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007c792604d000)\n\tlibz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007c7926031000)\n\tlibtbb.so.2 => /lib/x86_64-linux-gnu/libtbb.so.2 (0x00007c7925967000)\n\tlibrosidl_typesupport_cpp.so => /opt/ros/humble/lib/librosidl_typesupport_cpp.so (0x00007c792643b000)\n\tlibopencv_imgcodecs.so.4.5d => /lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.5d (0x00007c79253a7000)\n\tlibament_index_cpp.so => /opt/ros/humble/lib/libament_index_cpp.so (0x00007c7926430000)\n\tlibclass_loader.so => /opt/ros/humble/lib/libclass_loader.so (0x00007c7925954000)\n\tlibrcpputils.so => /opt/ros/humble/lib/librcpputils.so (0x00007c7925946000)\n\tlibconsole_bridge.so.1.0 => /lib/x86_64-linux-gnu/libconsole_bridge.so.1.0 (0x00007c792602b000)\n\tlibtinyxml2.so.9 => /lib/x86_64-linux-gnu/libtinyxml2.so.9 (0x00007c792592e000)\n\tlibopencv_video.so.4.5d => /lib/x86_64-linux-gnu/libopencv_video.so.4.5d (0x00007c792532d000)\n\tlibceres.so.3 => /usr/local/lib/libceres.so.3 (0x00007c7924e00000)\n\tlibglog.so.0 => /lib/x86_64-linux-gnu/libglog.so.0 (0x00007c79252f8000)\n\tlibrclcpp_action.so => /opt/ros/humble/lib/librclcpp_action.so (0x00007c79252d5000)\n\tlibtf2.so => /opt/ros/humble/lib/libtf2.so (0x00007c79252b3000)\n\tlibaction_msgs__rosidl_typesupport_cpp.so => /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_cpp.so (0x00007c79252ad000)\n\tlibrcl_yaml_param_parser.so => /opt/ros/humble/lib/librcl_yaml_param_parser.so (0x00007c79252a1000)\n\tlibrosgraph_msgs__rosidl_typesupport_cpp.so => /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_cpp.so (0x00007c792529b000)\n\tlibrmw_implementation.so => /opt/ros/humble/lib/librmw_implementation.so (0x00007c792528e000)\n\tlibrcl_logging_interface.so => /opt/ros/humble/lib/librcl_logging_interface.so (0x00007c7925289000)\n\tlibrcl_interfaces__rosidl_typesupport_cpp.so => /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_cpp.so (0x00007c792527e000)\n\tlibrcl_logging_spdlog.so => /opt/ros/humble/lib/librcl_logging_spdlog.so (0x00007c7925276000)\n\tlibrcl_interfaces__rosidl_typesupport_c.so => /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_c.so (0x00007c792526d000)\n\tlibrcl_interfaces__rosidl_generator_c.so => /opt/ros/humble/lib/librcl_interfaces__rosidl_generator_c.so (0x00007c7925251000)\n\tlibrosidl_runtime_c.so => /opt/ros/humble/lib/librosidl_runtime_c.so (0x00007c7925246000)\n\tlibjpeg.so.8 => /lib/x86_64-linux-gnu/libjpeg.so.8 (0x00007c79251c5000)\n\tlibwebp.so.7 => /lib/x86_64-linux-gnu/libwebp.so.7 (0x00007c7924d93000)\n\tlibpng16.so.16 => /lib/x86_64-linux-gnu/libpng16.so.16 (0x00007c7924d58000)\n\tlibgdcmMSFF.so.3.0 => /lib/x86_64-linux-gnu/libgdcmMSFF.so.3.0 (0x00007c7924b70000)\n\tlibtiff.so.5 => /lib/x86_64-linux-gnu/libtiff.so.5 (0x00007c7924ae7000)\n\tlibopenjp2.so.7 => /lib/x86_64-linux-gnu/libopenjp2.so.7 (0x00007c7924a8f000)\n\tlibIlmImf-2_5.so.25 => /lib/x86_64-linux-gnu/libIlmImf-2_5.so.25 (0x00007c7924600000)\n\tlibgdal.so.30 => /lib/libgdal.so.30 (0x00007c7922e00000)\n\tlibgdcmDSED.so.3.0 => /lib/x86_64-linux-gnu/libgdcmDSED.so.3.0 (0x00007c7924997000)\n\tlibopencv_dnn.so.4.5d => /lib/x86_64-linux-gnu/libopencv_dnn.so.4.5d (0x00007c7922a00000)\n\tlibcholmod.so.3 => /lib/x86_64-linux-gnu/libcholmod.so.3 (0x00007c792451f000)\n\tlibspqr.so.2 => /lib/x86_64-linux-gnu/libspqr.so.2 (0x00007c7924969000)\n\tlibcxsparse.so.3 => /lib/x86_64-linux-gnu/libcxsparse.so.3 (0x00007c792493c000)\n\tliblapack.so.3 => /lib/x86_64-linux-gnu/liblapack.so.3 (0x00007c7922200000)\n\tlibgflags.so.2.2 => /lib/x86_64-linux-gnu/libgflags.so.2.2 (0x00007c7924913000)\n\tlibrcl_action.so => /opt/ros/humble/lib/librcl_action.so (0x00007c7924900000)\n\tlibyaml.so => /opt/ros/humble/lib/libyaml.so (0x00007c79248de000)\n\tlibspdlog.so.1 => /lib/x86_64-linux-gnu/libspdlog.so.1 (0x00007c79244a4000)\n\tlibrosidl_typesupport_c.so => /opt/ros/humble/lib/librosidl_typesupport_c.so (0x00007c79251b9000)\n\tlibbuiltin_interfaces__rosidl_generator_c.so => /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_generator_c.so (0x00007c79251b4000)\n\tlibgdcmDICT.so.3.0 => /lib/x86_64-linux-gnu/libgdcmDICT.so.3.0 (0x00007c7921e00000)\n\tlibgdcmjpeg8.so.3.0 => /lib/x86_64-linux-gnu/libgdcmjpeg8.so.3.0 (0x00007c792447a000)\n\tlibgdcmjpeg12.so.3.0 => /lib/x86_64-linux-gnu/libgdcmjpeg12.so.3.0 (0x00007c7924450000)\n\tlibgdcmjpeg16.so.3.0 => /lib/x86_64-linux-gnu/libgdcmjpeg16.so.3.0 (0x00007c7924426000)\n\tlibcharls.so.2 => /lib/x86_64-linux-gnu/libcharls.so.2 (0x00007c7922daf000)\n\tlibuuid.so.1 => /lib/x86_64-linux-gnu/libuuid.so.1 (0x00007c79248d5000)\n\tlibjson-c.so.5 => /lib/x86_64-linux-gnu/libjson-c.so.5 (0x00007c7924413000)\n\tlibgdcmIOD.so.3.0 => /lib/x86_64-linux-gnu/libgdcmIOD.so.3.0 (0x00007c7922d99000)\n\tlibgdcmCommon.so.3.0 => /lib/x86_64-linux-gnu/libgdcmCommon.so.3.0 (0x00007c7922d74000)\n\tlibzstd.so.1 => /lib/x86_64-linux-gnu/libzstd.so.1 (0x00007c7922131000)\n\tlibjbig.so.0 => /lib/x86_64-linux-gnu/libjbig.so.0 (0x00007c79229ef000)\n\tlibdeflate.so.0 => /lib/x86_64-linux-gnu/libdeflate.so.0 (0x00007c79229cb000)\n\tlibImath-2_5.so.25 => /lib/x86_64-linux-gnu/libImath-2_5.so.25 (0x00007c79229b3000)\n\tlibIlmThread-2_5.so.25 => /lib/x86_64-linux-gnu/libIlmThread-2_5.so.25 (0x00007c7924409000)\n\tlibHalf-2_5.so.25 => /lib/x86_64-linux-gnu/libHalf-2_5.so.25 (0x00007c792296e000)\n\tlibIex-2_5.so.25 => /lib/x86_64-linux-gnu/libIex-2_5.so.25 (0x00007c79220c3000)\n\tlibheif.so.1 => /lib/x86_64-linux-gnu/libheif.so.1 (0x00007c7921d7d000)\n\tlibarmadillo.so.10 => /lib/libarmadillo.so.10 (0x00007c792295a000)\n\tlibpoppler.so.118 => /lib/x86_64-linux-gnu/libpoppler.so.118 (0x00007c7921a00000)\n\tlibfreexl.so.1 => /lib/x86_64-linux-gnu/libfreexl.so.1 (0x00007c7922d68000)\n\tlibqhull_r.so.8.0 => /lib/x86_64-linux-gnu/libqhull_r.so.8.0 (0x00007c792198d000)\n\tlibgeos_c.so.1 => /lib/x86_64-linux-gnu/libgeos_c.so.1 (0x00007c792194e000)\n\tlibodbc.so.2 => /lib/x86_64-linux-gnu/libodbc.so.2 (0x00007c79218df000)\n\tlibodbcinst.so.2 => /lib/x86_64-linux-gnu/libodbcinst.so.2 (0x00007c7922945000)\n\tlibkmlbase.so.1 => /lib/x86_64-linux-gnu/libkmlbase.so.1 (0x00007c7921d60000)\n\tlibkmldom.so.1 => /lib/x86_64-linux-gnu/libkmldom.so.1 (0x00007c792183f000)\n\tlibkmlengine.so.1 => /lib/x86_64-linux-gnu/libkmlengine.so.1 (0x00007c7921806000)\n\tlibexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007c79217d4000)\n\tlibxerces-c-3.2.so => /lib/x86_64-linux-gnu/libxerces-c-3.2.so (0x00007c7921400000)\n\tlibnetcdf.so.19 => /lib/x86_64-linux-gnu/libnetcdf.so.19 (0x00007c79212a9000)\n\tlibhdf5_serial.so.103 => /lib/x86_64-linux-gnu/libhdf5_serial.so.103 (0x00007c7920e00000)\n\tlibmfhdfalt.so.0 => /lib/libmfhdfalt.so.0 (0x00007c79217aa000)\n\tlibdfalt.so.0 => /lib/libdfalt.so.0 (0x00007c7921204000)\n\tlibogdi.so.4.1 => /lib/libogdi.so.4.1 (0x00007c792178e000)\n\tlibgif.so.7 => /lib/x86_64-linux-gnu/libgif.so.7 (0x00007c7921783000)\n\tlibgeotiff.so.5 => /lib/x86_64-linux-gnu/libgeotiff.so.5 (0x00007c79211cf000)\n\tlibcfitsio.so.9 => /lib/x86_64-linux-gnu/libcfitsio.so.9 (0x00007c7920a00000)\n\tlibpq.so.5 => /lib/x86_64-linux-gnu/libpq.so.5 (0x00007c7920dab000)\n\tliblz4.so.1 => /lib/x86_64-linux-gnu/liblz4.so.1 (0x00007c7921763000)\n\tlibblosc.so.1 => /lib/x86_64-linux-gnu/libblosc.so.1 (0x00007c79211be000)\n\tlibproj.so.22 => /lib/x86_64-linux-gnu/libproj.so.22 (0x00007c7920600000)\n\tlibsqlite3.so.0 => /lib/x86_64-linux-gnu/libsqlite3.so.0 (0x00007c79204b3000)\n\tlibspatialite.so.7 => /lib/x86_64-linux-gnu/libspatialite.so.7 (0x00007c791fc00000)\n\tlibpcre2-8.so.0 => /lib/x86_64-linux-gnu/libpcre2-8.so.0 (0x00007c7920d14000)\n\tlibcurl.so.4 => /lib/x86_64-linux-gnu/libcurl.so.4 (0x00007c792040c000)\n\tlibfyba.so.0 => /lib/x86_64-linux-gnu/libfyba.so.0 (0x00007c79209a8000)\n\tlibxml2.so.2 => /lib/x86_64-linux-gnu/libxml2.so.2 (0x00007c791fa1e000)\n\tlibmysqlclient.so.21 => /lib/x86_64-linux-gnu/libmysqlclient.so.21 (0x00007c791f200000)\n\tlibcrypto.so.3 => /lib/x86_64-linux-gnu/libcrypto.so.3 (0x00007c791ec00000)\n\tlibprotobuf.so.23 => /lib/x86_64-linux-gnu/libprotobuf.so.23 (0x00007c791e800000)\n\tlibamd.so.2 => /lib/x86_64-linux-gnu/libamd.so.2 (0x00007c7921758000)\n\tlibcolamd.so.2 => /lib/x86_64-linux-gnu/libcolamd.so.2 (0x00007c79211b5000)\n\tlibsuitesparseconfig.so.5 => /lib/x86_64-linux-gnu/libsuitesparseconfig.so.5 (0x00007c79220be000)\n\tlibccolamd.so.2 => /lib/x86_64-linux-gnu/libccolamd.so.2 (0x00007c79211a8000)\n\tlibcamd.so.2 => /lib/x86_64-linux-gnu/libcamd.so.2 (0x00007c792119c000)\n\tlibmetis.so.5 => /lib/x86_64-linux-gnu/libmetis.so.5 (0x00007c791f9b4000)\n\tlibblas.so.3 => /lib/x86_64-linux-gnu/libblas.so.3 (0x00007c791f90e000)\n\tlibgomp.so.1 => /lib/x86_64-linux-gnu/libgomp.so.1 (0x00007c791f8c4000)\n\tlibgfortran.so.5 => /lib/x86_64-linux-gnu/libgfortran.so.5 (0x00007c791e400000)\n\tlibpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007c7921d5b000)\n\tlibfmt.so.8 => /lib/x86_64-linux-gnu/libfmt.so.8 (0x00007c7920987000)\n\tlibaom.so.3 => /lib/x86_64-linux-gnu/libaom.so.3 (0x00007c791de00000)\n\tlibde265.so.0 => /lib/x86_64-linux-gnu/libde265.so.0 (0x00007c791f14c000)\n\tlibx265.so.199 => /lib/x86_64-linux-gnu/libx265.so.199 (0x00007c791ce00000)\n\tlibdav1d.so.5 => /lib/x86_64-linux-gnu/libdav1d.so.5 (0x00007c791cc7a000)\n\tlibarpack.so.2 => /lib/x86_64-linux-gnu/libarpack.so.2 (0x00007c791f104000)\n\tlibsuperlu.so.5 => /lib/x86_64-linux-gnu/libsuperlu.so.5 (0x00007c791f092000)\n\tlibfreetype.so.6 => /lib/x86_64-linux-gnu/libfreetype.so.6 (0x00007c791eb38000)\n\tlibfontconfig.so.1 => /lib/x86_64-linux-gnu/libfontconfig.so.1 (0x00007c791f048000)\n\tliblcms2.so.2 => /lib/x86_64-linux-gnu/liblcms2.so.2 (0x00007c791ead6000)\n\tlibnss3.so => /lib/x86_64-linux-gnu/libnss3.so (0x00007c791cb49000)\n\tlibsmime3.so => /lib/x86_64-linux-gnu/libsmime3.so (0x00007c79203e2000)\n\tlibplc4.so => /lib/x86_64-linux-gnu/libplc4.so (0x00007c7921195000)\n\tlibnspr4.so => /lib/x86_64-linux-gnu/libnspr4.so (0x00007c791e7c0000)\n\tlibgeos.so.3.10.2 => /lib/x86_64-linux-gnu/libgeos.so.3.10.2 (0x00007c791c800000)\n\tlibltdl.so.7 => /lib/x86_64-linux-gnu/libltdl.so.7 (0x00007c7920d09000)\n\tlibminizip.so.1 => /lib/x86_64-linux-gnu/libminizip.so.1 (0x00007c791c400000)\n\tliburiparser.so.1 => /lib/x86_64-linux-gnu/liburiparser.so.1 (0x00007c7920970000)\n\tlibcurl-gnutls.so.4 => /lib/x86_64-linux-gnu/libcurl-gnutls.so.4 (0x00007c791e71e000)\n\tlibicuuc.so.70 => /lib/x86_64-linux-gnu/libicuuc.so.70 (0x00007c791c205000)\n\tlibhdf5_serial_hl.so.100 => /lib/x86_64-linux-gnu/libhdf5_serial_hl.so.100 (0x00007c791f89f000)\n\tlibsz.so.2 => /lib/x86_64-linux-gnu/libsz.so.2 (0x00007c792096b000)\n\tlibtirpc.so.3 => /lib/x86_64-linux-gnu/libtirpc.so.3 (0x00007c791e6f0000)\n\tlibdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007c791f89a000)\n\tlibbz2.so.1.0 => /lib/x86_64-linux-gnu/libbz2.so.1.0 (0x00007c791eac3000)\n\tlibssl.so.3 => /lib/x86_64-linux-gnu/libssl.so.3 (0x00007c791caa4000)\n\tlibgssapi_krb5.so.2 => /lib/x86_64-linux-gnu/libgssapi_krb5.so.2 (0x00007c791e3ac000)\n\tlibldap-2.5.so.0 => /lib/x86_64-linux-gnu/libldap-2.5.so.0 (0x00007c791dda0000)\n\tlibsnappy.so.1 => /lib/x86_64-linux-gnu/libsnappy.so.1 (0x00007c791f890000)\n\tlibrttopo.so.1 => /lib/x86_64-linux-gnu/librttopo.so.1 (0x00007c791ca31000)\n\tlibnghttp2.so.14 => /lib/x86_64-linux-gnu/libnghttp2.so.14 (0x00007c791e382000)\n\tlibidn2.so.0 => /lib/x86_64-linux-gnu/libidn2.so.0 (0x00007c791dd7f000)\n\tlibrtmp.so.1 => /lib/x86_64-linux-gnu/librtmp.so.1 (0x00007c791ca12000)\n\tlibssh.so.4 => /lib/x86_64-linux-gnu/libssh.so.4 (0x00007c791c792000)\n\tlibpsl.so.5 => /lib/x86_64-linux-gnu/libpsl.so.5 (0x00007c791e6dc000)\n\tliblber-2.5.so.0 => /lib/x86_64-linux-gnu/liblber-2.5.so.0 (0x00007c791e371000)\n\tlibbrotlidec.so.1 => /lib/x86_64-linux-gnu/libbrotlidec.so.1 (0x00007c791dd71000)\n\tlibfyut.so.0 => /lib/x86_64-linux-gnu/libfyut.so.0 (0x00007c791dd66000)\n\tlibfygm.so.0 => /lib/x86_64-linux-gnu/libfygm.so.0 (0x00007c791c789000)\n\tlibresolv.so.2 => /lib/x86_64-linux-gnu/libresolv.so.2 (0x00007c791c776000)\n\tlibquadmath.so.0 => /lib/x86_64-linux-gnu/libquadmath.so.0 (0x00007c791c72e000)\n\tlibnuma.so.1 => /lib/x86_64-linux-gnu/libnuma.so.1 (0x00007c791c721000)\n\tlibnssutil3.so => /lib/x86_64-linux-gnu/libnssutil3.so (0x00007c791c6ee000)\n\tlibplds4.so => /lib/x86_64-linux-gnu/libplds4.so (0x00007c791ca0d000)\n\tlibnettle.so.8 => /lib/x86_64-linux-gnu/libnettle.so.8 (0x00007c791c6a8000)\n\tlibgnutls.so.30 => /lib/x86_64-linux-gnu/libgnutls.so.30 (0x00007c791c018000)\n\tlibicudata.so.70 => /lib/x86_64-linux-gnu/libicudata.so.70 (0x00007c791a200000)\n\tlibaec.so.0 => /lib/x86_64-linux-gnu/libaec.so.0 (0x00007c791c69f000)\n\tlibkrb5.so.3 => /lib/x86_64-linux-gnu/libkrb5.so.3 (0x00007c791bf4d000)\n\tlibk5crypto.so.3 => /lib/x86_64-linux-gnu/libk5crypto.so.3 (0x00007c791c670000)\n\tlibcom_err.so.2 => /lib/x86_64-linux-gnu/libcom_err.so.2 (0x00007c791c668000)\n\tlibkrb5support.so.0 => /lib/x86_64-linux-gnu/libkrb5support.so.0 (0x00007c791c65a000)\n\tlibsasl2.so.2 => /lib/x86_64-linux-gnu/libsasl2.so.2 (0x00007c791c63f000)\n\tlibunistring.so.2 => /lib/x86_64-linux-gnu/libunistring.so.2 (0x00007c791a056000)\n\tlibhogweed.so.6 => /lib/x86_64-linux-gnu/libhogweed.so.6 (0x00007c791bf05000)\n\tlibgmp.so.10 => /lib/x86_64-linux-gnu/libgmp.so.10 (0x00007c791be83000)\n\tlibbrotlicommon.so.1 => /lib/x86_64-linux-gnu/libbrotlicommon.so.1 (0x00007c791c61a000)\n\tlibp11-kit.so.0 => /lib/x86_64-linux-gnu/libp11-kit.so.0 (0x00007c7919f1b000)\n\tlibtasn1.so.6 => /lib/x86_64-linux-gnu/libtasn1.so.6 (0x00007c791be6b000)\n\tlibkeyutils.so.1 => /lib/x86_64-linux-gnu/libkeyutils.so.1 (0x00007c791c613000)\n\tlibffi.so.8 => /lib/x86_64-linux-gnu/libffi.so.8 (0x00007c791be5e000)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/lifecycle"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "record": "lifecycle.command.json",
+    "stdout": "compaction_all_cross_blocks_error=5.32907e-14 state_error=0\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+      "phase0",
+      "/tmp/openvins-ltv-core-gate.llf_74db/install",
+      "test_ltv_alias_fixed"
+    ],
+    "exit_code": 0,
+    "record": "native/test_ltv_alias_fixed.command.json",
+    "stdout": "actual_target_sanitize max_error=1.13687e-13 max_asymmetry=0 started=1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+      "phase0",
+      "/tmp/openvins-ltv-core-gate.llf_74db/install",
+      "test_ltv_core_lifecycle"
+    ],
+    "exit_code": 0,
+    "record": "native/test_ltv_core_lifecycle.command.json",
+    "stdout": "compaction_all_cross_blocks_error=5.32907e-14 state_error=0\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+      "phase0",
+      "/tmp/openvins-ltv-core-gate.llf_74db/install",
+      "test_ltv_fej"
+    ],
+    "exit_code": 0,
+    "record": "native/test_ltv_fej.command.json",
+    "stdout": "instant_HN=1.7772239894833365e-16 limit=1e-10\nfinite_yaw_translation_invariance=1.576213700060856e-16 limit=1e-10\nnative_Q_symmetry=5.849418347159468e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.0340408448183666e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=3.2393411995454041e-24 limit=1e-10\nPhi_gauge=1.9221164452961809e-16 limit=1e-10\nnative_Q_symmetry=2.9248151496158122e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=5.7870319211413351e-26 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.0247374966391814e-16 limit=1e-10\nnative_Q_symmetry=1.1039900745460144e-24 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=2.8850463241137859e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=6.0352290097688804e-16 limit=1e-10\nnative_Q_symmetry=5.8492287028694392e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=9.1812836628143467e-26 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=9.4744495084634457e-16 limit=1e-10\nnative_Q_symmetry=6.0292902309569697e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=8.3330693486797511e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=6.8158247978143136e-16 limit=1e-10\nnative_accumulated_propagation_mean=0 limit=1e-10\nnative_accumulated_propagation_P=3.433504983622287e-21 limit=1e-10\nclone_augmented_gauge=7.2237405862542358e-16 limit=1e-10\nnative_clone_covariance_mapping=0 limit=1e-10\ncross_frame_GV_HPhiN=5.2967759526760607e-16 limit=1e-10\nnative_Q_symmetry=1.2058269328141589e-24 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=8.5434859837362341e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=9.2719476021900545e-16 limit=1e-10\nnative_Q_symmetry=6.5397961422878816e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.7419287285059543e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.0722644659637955e-15 limit=1e-10\nnative_Q_symmetry=5.8607747555687489e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.658499162885615e-24 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.1303864948882003e-15 limit=1e-10\nnative_Q_symmetry=6.5395791222104931e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.3494023208940094e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.2412588218812224e-15 limit=1e-10\nnative_Q_symmetry=6.5394768466331645e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=8.6040585198733314e-26 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.4664261758116727e-15 limit=1e-10\nnative_accumulated_propagation_mean=1.1102230246251565e-16 limit=1e-10\nnative_accumulated_propagation_P=7.5579706945028229e-21 limit=1e-10\nclone_augmented_gauge=1.5680466994744132e-15 limit=1e-10\nnative_clone_covariance_mapping=0 limit=1e-10\ncross_frame_GV_HPhiN=1.1462517248601278e-15 limit=1e-10\nnative_Q_symmetry=4.9136377181175941e-27 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=3.3092288621396476e-24 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.6286026987000706e-15 limit=1e-10\nnative_Q_symmetry=7.3113863877811633e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=3.3109841328024661e-24 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.8098597968031544e-15 limit=1e-10\nnative_Q_symmetry=2.9247035992409146e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=6.6183727354750069e-24 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.9534180244531282e-15 limit=1e-10\nnative_Q_symmetry=6.5396190335582918e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.2210255592410047e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.1611871963714272e-15 limit=1e-10\nnative_Q_symmetry=1.2058349129737463e-24 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=6.6384687703422597e-24 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.4101800910851666e-15 limit=1e-10\n\u001b[33mPropagator::select_imu_readings(): Zero DT between IMU reading 5 and 6, removing it!\n\u001b[0mnative_accumulated_propagation_mean=1.1102230246251565e-16 limit=1e-10\nnative_accumulated_propagation_P=1.1690307016692576e-20 limit=1e-10\nclone_augmented_gauge=2.6127569440382875e-15 limit=1e-10\nnative_clone_covariance_mapping=0 limit=1e-10\ncross_frame_GV_HPhiN=2.0177607090360393e-15 limit=1e-10\nnative_visual_joint_HN=7.3482566349710386e-17 limit=1e-10\nnative_visual_projected_HPhiN=2.699433554578327e-17 limit=1e-10\nintegration=0 PASS\ninstant_HN=1.7772239894833365e-16 limit=1e-10\nfinite_yaw_translation_invariance=1.576213700060856e-16 limit=1e-10\nnative_Q_symmetry=5.8492314945517315e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.0340078136318633e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=8.9698005345905749e-24 limit=1e-10\nPhi_gauge=2.3242902923241264e-16 limit=1e-10\nnative_Q_symmetry=1.178921645701784e-24 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=2.3418438708730574e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=6.6225115025758316e-16 limit=1e-10\nnative_Q_symmetry=2.2848113830887998e-27 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=2.9810015479901121e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=6.5264719364008039e-16 limit=1e-10\nnative_Q_symmetry=6.0293335243062967e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=4.2376964975159982e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.126178425893285e-15 limit=1e-10\nnative_Q_symmetry=5.8492844821312315e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=8.3150070535407466e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.2367494329278893e-15 limit=1e-10\nnative_accumulated_propagation_mean=0 limit=1e-10\nnative_accumulated_propagation_P=3.6419255930100921e-21 limit=1e-10\nclone_augmented_gauge=1.3156495061516989e-15 limit=1e-10\nnative_clone_covariance_mapping=0 limit=1e-10\ncross_frame_GV_HPhiN=1.1764767377156329e-15 limit=1e-10\nnative_Q_symmetry=3.4390919313147176e-27 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=3.0218218952634102e-26 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.8868440631271462e-15 limit=1e-10\nnative_Q_symmetry=1.3160422458551414e-24 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=2.3374317953100233e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.5738504289865702e-15 limit=1e-10\nnative_Q_symmetry=1.1698248226894713e-24 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.8902545641282689e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.7113564236316712e-15 limit=1e-10\nnative_Q_symmetry=2.9246143518602811e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=5.3783750727359455e-26 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.769896055492757e-15 limit=1e-10\nnative_Q_symmetry=5.849175711039661e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=3.1080324820815141e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.3622029163009936e-15 limit=1e-10\nnative_accumulated_propagation_mean=2.7755575615628914e-17 limit=1e-10\nnative_accumulated_propagation_P=8.9926803909853106e-21 limit=1e-10\nclone_augmented_gauge=2.5424202808405364e-15 limit=1e-10\nnative_clone_covariance_mapping=0 limit=1e-10\ncross_frame_GV_HPhiN=1.8193263100319897e-15 limit=1e-10\nnative_Q_symmetry=5.8492844800885566e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.0703497424742287e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.5096802501580725e-15 limit=1e-10\nnative_Q_symmetry=6.5395192519534016e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.5753638598928363e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.7660197190968454e-15 limit=1e-10\nnative_Q_symmetry=2.9248430447362845e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=8.1998102212232718e-26 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.9626999293867204e-15 limit=1e-10\nnative_Q_symmetry=1.1698257988082508e-24 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=6.6209339044716243e-24 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.7695974578090181e-15 limit=1e-10\nnative_Q_symmetry=5.8491645538989082e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=6.6191652065767762e-24 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=3.008254009573812e-15 limit=1e-10\n\u001b[33mPropagator::select_imu_readings(): Zero DT between IMU reading 5 and 6, removing it!\n\u001b[0mnative_accumulated_propagation_mean=2.7755575615628914e-17 limit=1e-10\nnative_accumulated_propagation_P=1.5183992542976893e-20 limit=1e-10\nclone_augmented_gauge=3.2632300635938246e-15 limit=1e-10\nnative_clone_covariance_mapping=0 limit=1e-10\ncross_frame_GV_HPhiN=2.5545817542095399e-15 limit=1e-10\nnative_visual_joint_HN=7.8813283861405704e-17 limit=1e-10\nnative_visual_projected_HPhiN=4.2951237812478059e-17 limit=1e-10\nintegration=1 PASS\ninstant_HN=1.7772239894833365e-16 limit=1e-10\nfinite_yaw_translation_invariance=1.576213700060856e-16 limit=1e-10\nnative_Q_symmetry=5.8492314945517315e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.0340078136318633e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=8.9698005345905749e-24 limit=1e-10\nPhi_gauge=2.3278082563477715e-16 limit=1e-10\nnative_Q_symmetry=1.178921645701784e-24 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=2.3408959036438539e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=6.6225239303592836e-16 limit=1e-10\nnative_Q_symmetry=2.2848113830887998e-27 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=2.1491895049030095e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=6.5412862289511113e-16 limit=1e-10\nnative_Q_symmetry=6.0293335243062967e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=9.3891531388143435e-26 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.1261803891639796e-15 limit=1e-10\nnative_Q_symmetry=5.8492844821312315e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.1726951858682572e-24 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.2385419214284331e-15 limit=1e-10\nnative_accumulated_propagation_mean=0 limit=1e-10\nnative_accumulated_propagation_P=4.2180431366120054e-21 limit=1e-10\nclone_augmented_gauge=1.3156495018354907e-15 limit=1e-10\nnative_clone_covariance_mapping=0 limit=1e-10\ncross_frame_GV_HPhiN=1.1088075375007285e-15 limit=1e-10\nnative_Q_symmetry=3.4390919313147176e-27 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=2.6301517115795527e-26 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.8868461256085054e-15 limit=1e-10\nnative_Q_symmetry=1.3160422458551414e-24 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=2.3363043924900558e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.5798497683944646e-15 limit=1e-10\nnative_Q_symmetry=1.1698248226894713e-24 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.6596350849661997e-24 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.7150626927372505e-15 limit=1e-10\nnative_Q_symmetry=2.9246143518602811e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=6.8695884613967417e-26 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=1.7792679701882405e-15 limit=1e-10\nnative_Q_symmetry=5.849175711039661e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=3.3112789510323144e-24 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.3658061042229941e-15 limit=1e-10\nnative_accumulated_propagation_mean=1.1102230246251565e-16 limit=1e-10\nnative_accumulated_propagation_P=1.0111787254093349e-20 limit=1e-10\nclone_augmented_gauge=2.54242670315063e-15 limit=1e-10\nnative_clone_covariance_mapping=0 limit=1e-10\ncross_frame_GV_HPhiN=1.8176727433255659e-15 limit=1e-10\nnative_Q_symmetry=5.8492844800885566e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=3.3108632205073755e-24 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.5198340069963102e-15 limit=1e-10\nnative_Q_symmetry=6.5395192519534016e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.2942112063465986e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.7733753443304497e-15 limit=1e-10\nnative_Q_symmetry=2.9248430447362845e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=1.1582763499608826e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.9627108439659286e-15 limit=1e-10\nnative_Q_symmetry=1.1698257988082508e-24 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=2.0689620440000909e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=2.778869041687033e-15 limit=1e-10\nnative_Q_symmetry=5.8491645538989082e-25 limit=9.9999999999999998e-13\naccumulated_Q_alias_error=2.5460909928600705e-25 limit=9.9999999999999998e-13\nnative_Q_negative_eigenvalue=0 limit=1e-10\nPhi_gauge=3.0181513991030672e-15 limit=1e-10\n\u001b[33mPropagator::select_imu_readings(): Zero DT between IMU reading 5 and 6, removing it!\n\u001b[0mnative_accumulated_propagation_mean=0 limit=1e-10\nnative_accumulated_propagation_P=1.6693694767335247e-20 limit=1e-10\nclone_augmented_gauge=3.2632366870139749e-15 limit=1e-10\nnative_clone_covariance_mapping=0 limit=1e-10\ncross_frame_GV_HPhiN=2.4942378229495975e-15 limit=1e-10\nnative_visual_joint_HN=8.0698283981564237e-17 limit=1e-10\nnative_visual_projected_HPhiN=4.4023058116136534e-17 limit=1e-10\nintegration=2 PASS\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+      "phase0",
+      "/tmp/openvins-ltv-core-gate.llf_74db/install",
+      "test_ltv_gv_covariance"
+    ],
+    "exit_code": 0,
+    "record": "native/test_ltv_gv_covariance.command.json",
+    "stdout": "native_vs_Joseph=1.646393692716547e-16 limit=1.0000000000000001e-09\nnative_vs_dense=2.9809782507681666e-16 limit=1.0000000000000001e-09\nnative_mean_imu=3.9443507491098127e-17 limit=1.0000000000000001e-09\nnative_mean_clone=0 limit=1.0000000000000001e-09\nnegative_eigenvalue=0 limit=2.9969091242236342e-09\nsingular=0 zero_innovation=0\nnative_vs_Joseph=1.646393692716547e-16 limit=1.0000000000000001e-09\nnative_vs_dense=2.9809782507681666e-16 limit=1.0000000000000001e-09\nnative_mean_imu=0 limit=1.0000000000000001e-09\nnative_mean_clone=0 limit=1.0000000000000001e-09\nnegative_eigenvalue=0 limit=2.9969091242236342e-09\nsingular=0 zero_innovation=1\nnative_vs_Joseph=2.4683312750899473e-16 limit=1.0000000000000001e-09\nnative_vs_dense=3.8580947792480081e-16 limit=1.0000000000000001e-09\nnative_mean_imu=6.3714199444893914e-17 limit=1.0000000000000001e-09\nnative_mean_clone=6.3596013107845015e-17 limit=1.0000000000000001e-09\nnegative_eigenvalue=1.7001673307460051e-15 limit=2.9851488112316224e-09\nsingular=1 zero_innovation=0\nnative_vs_Joseph=2.4683312750899473e-16 limit=1.0000000000000001e-09\nnative_vs_dense=3.8580947792480081e-16 limit=1.0000000000000001e-09\nnative_mean_imu=0 limit=1.0000000000000001e-09\nnative_mean_clone=0 limit=1.0000000000000001e-09\nnegative_eigenvalue=1.7001673307460051e-15 limit=2.9851488112316224e-09\nsingular=1 zero_innovation=1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+      "phase0",
+      "/tmp/openvins-ltv-core-gate.llf_74db/install",
+      "test_ltv_gv_jacobian"
+    ],
+    "exit_code": 0,
+    "record": "native/test_ltv_gv_jacobian.command.json",
+    "stdout": "eps=1e-05 prediction_jacobian=5.7884319559775577e-10 limit=9.9999999999999995e-07\nresidual_jacobian=5.7884319559775577e-10 limit=9.9999999999999995e-07\neps=9.9999999999999995e-07 prediction_jacobian=4.2454910698097592e-09 limit=9.9999999999999995e-07\nresidual_jacobian=4.2454910698097592e-09 limit=9.9999999999999995e-07\neps=9.9999999999999995e-08 prediction_jacobian=5.8967370986096057e-08 limit=9.9999999999999995e-07\nresidual_jacobian=5.8967370986096057e-08 limit=9.9999999999999995e-07\nDm_layout=0 limit=1e-14\nTg_layout=0 limit=1e-14\nstationary_calibrated_mean=5.7302997460712833e-17 limit=9.9999999999999998e-13\nDm_layout=0 limit=1e-14\nTg_layout=0 limit=1e-14\nstationary_calibrated_mean=5.9787339602818177e-17 limit=9.9999999999999998e-13\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "nm",
+      "-D",
+      "-C",
+      "/tmp/openvins-ltv-core-gate.llf_74db/install/ov_msckf/lib/libov_msckf_lib.so"
+    ],
+    "exit_code": 0,
+    "record": "production_symbols.command.json",
+    "stdout": "[full event output retained in temporary artifacts]",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/source_fixture",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+      "/tmp/openvins-ltv-core-gate.llf_74db/source_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "record": "source_outputs.command.json",
+    "stdout": "[full event output retained in temporary artifacts]",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/alias_fixed"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/alias_fixed.command.json",
+    "stdout": "actual_target_sanitize max_error=1.13687e-13 max_asymmetry=0 started=1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/alias_old_core"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/alias_old_core.command.json",
+    "stdout": "actual_target_sanitize max_error=1.13687e-13 max_asymmetry=2.66454e-15 started=1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/alias_probe"
+    ],
+    "exit_code": 1,
+    "record": "stronger_alias/alias_probe.command.json",
+    "stdout": "max_error=9 max_asymmetry=9\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/source_matrices.jsonl",
+      "--expected",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/compare_source_matrices.command.json",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/source_outputs.stdout.log"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/compare_source_outputs.command.json",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/target_matrices.jsonl",
+      "--expected",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/compare_target_matrices.command.json",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/target_outputs.stdout.log"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/compare_target_outputs.command.json",
+    "stdout": "{\"pass_\": true, \"events\": 174, \"atol\": 1e-08, \"rtol\": 1e-10}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_alias.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/alias_probe"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/compile_alias.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_alias_fixed.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/alias_fixed"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/compile_alias_fixed.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_alias_fixed.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/alias_old_core"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/compile_alias_old_core.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/harness.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/source_fixture"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/compile_source.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-DNDEBUG",
+      "-Wextra",
+      "-Wpedantic",
+      "-I/usr/include/eigen3",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src",
+      "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/ltv_observer.cpp",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/harness.cpp",
+      "-o",
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/target_fixture"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/compile_target.command.json",
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/source_fixture",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/source_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/source_outputs.command.json",
+    "stdout": "[full event output retained in temporary artifacts]",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/target_fixture",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+      "/tmp/openvins-ltv-core-gate.llf_74db/stronger_alias/target_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "record": "stronger_alias/target_outputs.command.json",
+    "stdout": "[full event output retained in temporary artifacts]",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/tmp/openvins-ltv-core-gate.llf_74db/target_fixture",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+      "/tmp/openvins-ltv-core-gate.llf_74db/target_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "record": "target_outputs.command.json",
+    "stdout": "[full event output retained in temporary artifacts]",
+    "stderr": ""
+  }
+]

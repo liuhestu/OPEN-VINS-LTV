@@ -1,0 +1,9 @@
+{
+  "command": [
+    "cmake",
+    "--version"
+  ],
+  "exit_code": 0,
+  "stdout": "cmake version 3.22.1\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\n",
+  "stderr": ""
+}

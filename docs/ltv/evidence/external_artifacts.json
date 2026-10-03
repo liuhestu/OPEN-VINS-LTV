@@ -1,0 +1,552 @@
+{
+  "description": "Original generated artifacts preserved outside Git; historical manifests remain unchanged.",
+  "archive_root": "/home/he/output/ltv_commit_split_20261003/snapshot",
+  "files": [
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compare_source_matrices.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compare_source_matrices.stdout.log",
+      "sha256": "ce3df9dccb61fa99f448728e4c0925ba56e7663294043bbaa1962484e99e5485",
+      "bytes": 61
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compile_source.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compile_source.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compile_alias.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compile_alias.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/target_outputs.stdout.log.gz",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/target_outputs.stdout.log.gz",
+      "sha256": "fac92839b4d29e07a7686bfcc50ce73918374d459b5da532da7be8de7119bd34",
+      "bytes": 218051
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/source_matrices.jsonl.gz",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/source_matrices.jsonl.gz",
+      "sha256": "f7560806d4e5e289267276693616bb3734949781abf34f35ce1e0285922a0673",
+      "bytes": 5894
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/build.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/build.stdout.log",
+      "sha256": "fd029e873b554196516ac63306e2ca06f1123546bef602d70d14551d28267a47",
+      "bytes": 256
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/build.stderr.log.gz",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/build.stderr.log.gz",
+      "sha256": "990fa3817b91e5cefff6e9efc866331754cd0d67fb738f12eeff35778b608383",
+      "bytes": 1933
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compile_source.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compile_source.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/alias_old_core.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/alias_old_core.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/alias_fixed.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/alias_fixed.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compile_target.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compile_target.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compile_alias_old_core.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compile_alias_old_core.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compare_target_outputs.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compare_target_outputs.stdout.log",
+      "sha256": "ce3df9dccb61fa99f448728e4c0925ba56e7663294043bbaa1962484e99e5485",
+      "bytes": 61
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/target_matrices.jsonl.gz",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/target_matrices.jsonl.gz",
+      "sha256": "7215bcf8210a5d036e7176c3aec1206ae262afedde53e518f7f5029ceb447d08",
+      "bytes": 5894
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/alias_probe.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/alias_probe.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compare_source_matrices.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compare_source_matrices.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/alias_probe.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/alias_probe.stdout.log",
+      "sha256": "b379dbd86a2e640e5c2b489a96e435056c40fc8b387b0438152628c6642ea08d",
+      "bytes": 28
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compile_alias.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compile_alias.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compare_target_outputs.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compare_target_outputs.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/target_outputs.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/target_outputs.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compare_source_outputs.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compare_source_outputs.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compile_target.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compile_target.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compile_alias_fixed.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compile_alias_fixed.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compare_target_matrices.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compare_target_matrices.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/source_outputs.stdout.log.gz",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/source_outputs.stdout.log.gz",
+      "sha256": "e66ce2929b586b02ead558fd8584f36c82aa2cfa9017c8e9a0027e6b3f4562f7",
+      "bytes": 260489
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/alias_fixed.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/alias_fixed.stdout.log",
+      "sha256": "69a237d4f8b6f45929638fd02d8afb26b7852f956d49f29556806b3ec5d2cb3a",
+      "bytes": 71
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/alias_old_core.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/alias_old_core.stdout.log",
+      "sha256": "216925cc006429e07a370de613cdc109e149057fe86cea7ff833942d782934d5",
+      "bytes": 81
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compile_alias_old_core.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compile_alias_old_core.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compile_alias_fixed.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compile_alias_fixed.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/source_outputs.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/source_outputs.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/start.diff.gz",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/start.diff.gz",
+      "sha256": "5db29158981e4c2fdc8f4e016016e946b072da46e94e0bab4ca1b4668dc220c2",
+      "bytes": 16102
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compare_source_outputs.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compare_source_outputs.stdout.log",
+      "sha256": "ce3df9dccb61fa99f448728e4c0925ba56e7663294043bbaa1962484e99e5485",
+      "bytes": 61
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/compare_target_matrices.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/compare_target_matrices.stdout.log",
+      "sha256": "ce3df9dccb61fa99f448728e4c0925ba56e7663294043bbaa1962484e99e5485",
+      "bytes": 61
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_gv_covariance.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_gv_covariance.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_fej.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_fej.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_alias_fixed.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_alias_fixed.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_gv_jacobian.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_gv_jacobian.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_core_lifecycle.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_core_lifecycle.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_fej.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_fej.stdout.log",
+      "sha256": "a3932328fa70a1cc46be04219ca35d77579793314f7c8b55ca931986b9770ae6",
+      "bytes": 14317
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_core_lifecycle.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_core_lifecycle.stdout.log",
+      "sha256": "617afb5925608835bb6bfc2573eebeb7e45943c13eafbc9f8dbe6335da8aca52",
+      "bytes": 60
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_gv_jacobian.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_gv_jacobian.stdout.log",
+      "sha256": "fa4a9e15375e98dd17721e94d123aa3a873e2c5ff840f5f4fc6f77aed455b50c",
+      "bytes": 991
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_gv_covariance.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_gv_covariance.stdout.log",
+      "sha256": "a8c13d9860c1e516968e6c7bd6dd0f896ee346b3a7c24312d759635c0902cf20",
+      "bytes": 1355
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_alias_fixed.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase0_recheck_20261003/native/test_ltv_alias_fixed.stdout.log",
+      "sha256": "69a237d4f8b6f45929638fd02d8afb26b7852f956d49f29556806b3ec5d2cb3a",
+      "bytes": 71
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/native/test_ltv_joint_covariance.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/native/test_ltv_joint_covariance.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/native/test_ltv_gv_covariance.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/native/test_ltv_gv_covariance.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/native/test_ltv_fej.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/native/test_ltv_fej.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/native/test_ltv_gv_jacobian.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/native/test_ltv_gv_jacobian.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/native/test_ltv_timing.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/native/test_ltv_timing.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/native/test_ltv_fej.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/native/test_ltv_fej.stdout.log",
+      "sha256": "a3932328fa70a1cc46be04219ca35d77579793314f7c8b55ca931986b9770ae6",
+      "bytes": 14317
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/native/test_ltv_gv_jacobian.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/native/test_ltv_gv_jacobian.stdout.log",
+      "sha256": "6df3e23b9de75b359ea6311115ae3ae66861a7e521c5f63aaf2d152ba6a2ff43",
+      "bytes": 742
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/native/test_ltv_timing.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/native/test_ltv_timing.stdout.log",
+      "sha256": "974b929c1168dba1b2c329d9dc38406ead50c98d0c556404dcee13cbf047701b",
+      "bytes": 183
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/native/test_ltv_joint_layout.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/native/test_ltv_joint_layout.stdout.log",
+      "sha256": "c99459860837bbe4fdeba1049bd302a7fc87aada69bed79d21b0fd4e6372b0a9",
+      "bytes": 367
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/native/test_ltv_gv_covariance.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/native/test_ltv_gv_covariance.stdout.log",
+      "sha256": "a8c13d9860c1e516968e6c7bd6dd0f896ee346b3a7c24312d759635c0902cf20",
+      "bytes": 1355
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/native/test_ltv_joint_covariance.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/native/test_ltv_joint_covariance.stdout.log",
+      "sha256": "e7f2affb389a5e4f64ebc030897685eae178037c75c93e759e0b4577d30ba4d5",
+      "bytes": 228
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/native/test_ltv_joint_layout.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/native/test_ltv_joint_layout.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/innovation_fix/test_ltv_innovation.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/innovation_fix/test_ltv_innovation.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/innovation_fix/test_ltv_joint_covariance.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/innovation_fix/test_ltv_joint_covariance.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/innovation_fix/test_ltv_innovation.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/innovation_fix/test_ltv_innovation.stdout.log",
+      "sha256": "04259f0a4b00c7aae52d2b3c6fe78d2f771305174cb4682956c5f635884199e4",
+      "bytes": 185
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/innovation_fix/test_ltv_joint_layout.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/innovation_fix/test_ltv_joint_layout.stdout.log",
+      "sha256": "c99459860837bbe4fdeba1049bd302a7fc87aada69bed79d21b0fd4e6372b0a9",
+      "bytes": 367
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/innovation_fix/test_ltv_joint_covariance.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/innovation_fix/test_ltv_joint_covariance.stdout.log",
+      "sha256": "e7f2affb389a5e4f64ebc030897685eae178037c75c93e759e0b4577d30ba4d5",
+      "bytes": 228
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase2/innovation_fix/test_ltv_joint_layout.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase2/innovation_fix/test_ltv_joint_layout.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/alias_fix_acceptance/ldd_native.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/alias_fix_acceptance/ldd_native.stdout.log",
+      "sha256": "fc8e30d8bc644572b1221acc0ba0e243b868f511454dc745cc682a1b4827dfb4",
+      "bytes": 16337
+    },
+    {
+      "repository_path": "docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_gv_covariance.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_gv_covariance.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_fej.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_fej.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_alias_fixed.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_alias_fixed.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_gv_jacobian.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_gv_jacobian.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_core_lifecycle.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_core_lifecycle.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_fej.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_fej.stdout.log",
+      "sha256": "a3932328fa70a1cc46be04219ca35d77579793314f7c8b55ca931986b9770ae6",
+      "bytes": 14317
+    },
+    {
+      "repository_path": "docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_core_lifecycle.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_core_lifecycle.stdout.log",
+      "sha256": "617afb5925608835bb6bfc2573eebeb7e45943c13eafbc9f8dbe6335da8aca52",
+      "bytes": 60
+    },
+    {
+      "repository_path": "docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_gv_jacobian.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_gv_jacobian.stdout.log",
+      "sha256": "768d21b63dd01c76fc914a9d44b8ad4c0ab63c3c3e79cbe8721993678d9297b7",
+      "bytes": 744
+    },
+    {
+      "repository_path": "docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_gv_covariance.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_gv_covariance.stdout.log",
+      "sha256": "a8c13d9860c1e516968e6c7bd6dd0f896ee346b3a7c24312d759635c0902cf20",
+      "bytes": 1355
+    },
+    {
+      "repository_path": "docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_alias_fixed.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/alias_fix_acceptance/native/test_ltv_alias_fixed.stdout.log",
+      "sha256": "69a237d4f8b6f45929638fd02d8afb26b7852f956d49f29556806b3ec5d2cb3a",
+      "bytes": 71
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase3/native/test_ltv_innovation.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase3/native/test_ltv_innovation.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase3/native/test_ltv_joint_covariance.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase3/native/test_ltv_joint_covariance.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase3/native/test_ltv_innovation.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase3/native/test_ltv_innovation.stdout.log",
+      "sha256": "04259f0a4b00c7aae52d2b3c6fe78d2f771305174cb4682956c5f635884199e4",
+      "bytes": 185
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase3/native/test_ltv_options.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase3/native/test_ltv_options.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase3/native/test_ltv_timing.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase3/native/test_ltv_timing.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase3/native/test_ltv_options.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase3/native/test_ltv_options.stdout.log",
+      "sha256": "950e5aa21b8ac8294980af0286e0bfde9eba6b4af3ac514be31643c6130a02e9",
+      "bytes": 138
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase3/native/test_ltv_timing.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase3/native/test_ltv_timing.stdout.log",
+      "sha256": "974b929c1168dba1b2c329d9dc38406ead50c98d0c556404dcee13cbf047701b",
+      "bytes": 183
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase3/native/test_ltv_joint_layout.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase3/native/test_ltv_joint_layout.stdout.log",
+      "sha256": "dd3e14f83e5893b946d9b5e230468f32eceabe86f75f105ce51bc9aa3b6baa44",
+      "bytes": 629
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase3/native/test_ltv_joint_covariance.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase3/native/test_ltv_joint_covariance.stdout.log",
+      "sha256": "e7f2affb389a5e4f64ebc030897685eae178037c75c93e759e0b4577d30ba4d5",
+      "bytes": 228
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase3/native/test_ltv_joint_layout.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase3/native/test_ltv_joint_layout.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase4/phase4_sync_build.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase4/phase4_sync_build.stdout.log",
+      "sha256": "6a262485eda6810d5d7afb9e686078e14c1831b6b9191710b86fbcfe550a208d",
+      "bytes": 190
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase4/phase4_edge.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase4/phase4_edge.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase4/phase4_sync_build.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase4/phase4_sync_build.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase4/phase4_edge.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase4/phase4_edge.stdout.log",
+      "sha256": "dd3e14f83e5893b946d9b5e230468f32eceabe86f75f105ce51bc9aa3b6baa44",
+      "bytes": 629
+    },
+    {
+      "repository_path": "docs/ltv/evidence/final/bias_epoch.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/final/bias_epoch.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/final/bias_epoch.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/final/bias_epoch.stdout.log",
+      "sha256": "6c5a3f73c99609392454ce253a2be96cf4e10d44c160cff5b76cc0e134fc782c",
+      "bytes": 80
+    },
+    {
+      "repository_path": "docs/ltv/evidence/final/input_final_check.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/final/input_final_check.log",
+      "sha256": "8ddea427480540815aefeef7be898d7b4485e704bdd50ef04dcd570da14dbd04",
+      "bytes": 917
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase1/phase1_timing.stderr.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase1/phase1_timing.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "repository_path": "docs/ltv/evidence/phase1/phase1_timing.stdout.log",
+      "archive_path": "/home/he/output/ltv_commit_split_20261003/snapshot/docs/ltv/evidence/phase1/phase1_timing.stdout.log",
+      "sha256": "974b929c1168dba1b2c329d9dc38406ead50c98d0c556404dcee13cbf047701b",
+      "bytes": 183
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "g++",
+    "-std=c++14",
+    "-O1",
+    "-DNDEBUG",
+    "-Wextra",
+    "-Wpedantic",
+    "-I/usr/include/eigen3",
+    "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src/ltv/ltv_observer.cpp",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_alias_fixed.cpp",
+    "-o",
+    "/tmp/openvins-ltv-phase0-recheck-20261003/alias_old_core"
+  ],
+  "exit_code": 0,
+  "expected_exit": 0
+}

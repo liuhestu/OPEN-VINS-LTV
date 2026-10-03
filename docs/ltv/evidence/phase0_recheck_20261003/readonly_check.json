@@ -1,0 +1,10 @@
+{
+  "artifact_hashes_pass": 90,
+  "protected_native_files": [
+    "ov_msckf/src/state/StateHelper.cpp",
+    "ov_msckf/src/state/Propagator.cpp",
+    "ov_core/src/types/IMU.h",
+    "ov_core/src/types/JPLQuat.h",
+    "ov_msckf/src/update/UpdaterHelper.cpp"
+  ]
+}

@@ -1,0 +1,44 @@
+ M docs/ltv/frame_and_jacobian_contract.md
+ M docs/ltv/port_audit.md
+ M docs/ltv/test_matrix.md
+ M ov_msckf/cmake/ROS1.cmake
+ M ov_msckf/cmake/ROS2.cmake
+ M ov_msckf/src/core/VioManager.cpp
+ M ov_msckf/src/core/VioManager.h
+ M ov_msckf/src/core/VioManagerHelper.cpp
+ M ov_msckf/src/core/VioManagerOptions.h
+ M ov_msckf/src/ltv/ltv_observer.cpp
+ M ov_msckf/src/ros/ROS2Visualizer.cpp
+ M ov_msckf/src/update/UpdaterMSCKF.cpp
+ M ov_msckf/src/update/UpdaterMSCKF.h
+ M ov_msckf/tests/ltv/CMakeLists.txt
+ M ov_msckf/tests/ltv/run_core_gate.py
+?? config/ltv_euroc/
+?? docs/ltv/autonomous_goal.md
+?? docs/ltv/autonomous_progress.md
+?? docs/ltv/decision_log.md
+?? docs/ltv/evidence/alias_fix.diff
+?? docs/ltv/evidence/alias_fix_acceptance/
+?? docs/ltv/evidence/phase1/
+?? docs/ltv/evidence/phase2/
+?? ov_msckf/src/ltv/LtvAdapter.cpp
+?? ov_msckf/src/ltv/LtvAdapter.h
+?? ov_msckf/src/ltv/LtvOptions.h
+?? ov_msckf/src/update/UpdaterLTV.cpp
+?? ov_msckf/src/update/UpdaterLTV.h
+?? ov_msckf/tests/ltv/analyze_core_outputs.py
+?? ov_msckf/tests/ltv/fixtures/
+?? ov_msckf/tests/ltv/native_test_support.h
+?? ov_msckf/tests/ltv/run_native_tests.py
+?? ov_msckf/tests/ltv/test_ltv_alias_fixed.cpp
+?? ov_msckf/tests/ltv/test_ltv_core_lifecycle.cpp
+?? ov_msckf/tests/ltv/test_ltv_fej.cpp
+?? ov_msckf/tests/ltv/test_ltv_gv_covariance.cpp
+?? ov_msckf/tests/ltv/test_ltv_gv_jacobian.cpp
+?? ov_msckf/tests/ltv/test_ltv_innovation.cpp
+?? ov_msckf/tests/ltv/test_ltv_joint_covariance.cpp
+?? ov_msckf/tests/ltv/test_ltv_joint_layout.cpp
+?? ov_msckf/tests/ltv/test_ltv_options.cpp
+?? ov_msckf/tests/ltv/test_ltv_timing.cpp
+?? ov_msckf/tests/ltv/tools/
+?? scripts/

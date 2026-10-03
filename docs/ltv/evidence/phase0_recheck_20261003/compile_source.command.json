@@ -1,0 +1,19 @@
+{
+  "command": [
+    "g++",
+    "-std=c++14",
+    "-O1",
+    "-DNDEBUG",
+    "-Wextra",
+    "-Wpedantic",
+    "-I/usr/include/eigen3",
+    "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src",
+    "-I/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_core/src",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/source_core/vins/src/ltv/ltv_observer.cpp",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/harness.cpp",
+    "-o",
+    "/tmp/openvins-ltv-phase0-recheck-20261003/source_fixture"
+  ],
+  "exit_code": 0,
+  "expected_exit": 0
+}

@@ -1,0 +1,20 @@
+--- a/ov_msckf/src/ltv/ltv_observer.cpp
++++ b/ov_msckf/src/ltv/ltv_observer.cpp
+@@ -345,7 +345,7 @@
+ bool LtvObserver::stateFinite() const { return state_.allFinite() && covariance_.allFinite(); }
+ 
+ bool LtvObserver::sanitizeCovariance() {
+-  covariance_ = 0.5 * (covariance_ + covariance_.transpose());
++  covariance_ = (0.5 * (covariance_ + covariance_.transpose())).eval();
+   if (!covariance_.allFinite())
+     return false;
+ 
+@@ -361,7 +361,7 @@
+ 
+   Eigen::VectorXd eigenvalues = solver.eigenvalues().cwiseMax(config_.covariance_floor);
+   covariance_ = solver.eigenvectors() * eigenvalues.asDiagonal() * solver.eigenvectors().transpose();
+-  covariance_ = 0.5 * (covariance_ + covariance_.transpose());
++  covariance_ = (0.5 * (covariance_ + covariance_.transpose())).eval();
+   return covariance_.allFinite();
+ }
+ 

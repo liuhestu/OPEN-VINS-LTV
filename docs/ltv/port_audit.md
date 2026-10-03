@@ -1,51 +1,72 @@
-# Phase 0 本地适配审查
+# Phase 0 本地适配审查：alias 修复后验收
 
-本轮结果：**STOP / 未通过 Phase 0**。原样源复现和等价移植 parity 通过；
-对称化 alias 验收失败，按计划停在步骤 4。没有进入 Passive，没有修改生产估计链路。
-本次执行不将计划中“待确认”的 `.eval()` 算法修订视为已经单独获准。
+> 2026-10-03：本次重新执行的结果和当前工作区范围见 [Phase 0 复核](phase0_recheck.md)。下文保留早期验收快照；其中“尚未接入”等描述仅适用于该历史阶段，当前实现状态见工程验收与最终报告。
 
-## 冻结现场
+**PASS（Phase 0 范围）**。本轮按用户单独授权，仅修复目标 LTV 核心两处完整 RHS 的 `.eval()`；
+原数学公式、参数和其他算法逻辑不变。原 VINS 源码交接副本、golden、容差均未修改。
+未接入生产 G/V 更新，未运行数据集，未调参，未进入 Passive。
 
-- 目标 HEAD：`2a3dcb953cf0b11c6e85a355e4f45090950b97bb`；开始时工作区干净。
-- 源 HEAD：`9661610dbcf26374e805634fbd4415ecddf7128d`。
-- 源未跟踪项：`docs/01_VINS_LTV_HANDOVER_PROMPT.md`、`docs/ltv_handover/`；已跟踪 diff 为空。
-- 交接包 ARTIFACT_HASHES：90/90 匹配；四个核心文件同时匹配实际源文件与 SOURCE_MANIFEST。
-- g++ 11.4.0，Eigen 3.4.0，C++14；`-O1 -DNDEBUG -Wextra -Wpedantic`。
-- Eigen include：`/usr/include/eigen3`；独立 harness 不链接 ROS/OpenVINS 二进制库。
-- 新增 C++ 使用 clang-format 23.1.2、仓库 `-style=file` 格式化。
+## 版本与修订
 
-详细版本、状态、diff 和本地主源码 SHA 见 [freeze.json](evidence/freeze.json)。
-未重新获取上游规范版本；此前的“11 文件匹配”不计为本轮重新验证结果。
+本轮起点 HEAD 为 `a898929`（完整 HEAD 见 scope_check）；此前 Phase 0 冻结版本与环境记录保留在
+[freeze.json](evidence/freeze.json)。源核心 HEAD 为 `9661610dbcf26374e805634fbd4415ecddf7128d`。
+交接包 90/90 SHA 仍匹配。原生 StateHelper、Propagator、IMU、JPLQuat、UpdaterHelper 和 ov_core 源码保持原 SHA。
 
-## 实施范围
+目标核心唯一算法补丁见 [alias_fix.diff](evidence/alias_fix.diff)：
+`covariance_ = (0.5 * (covariance_ + covariance_.transpose())).eval();`，共两处。
+此前等价 skew 依赖替换补丁仍单列于 [core_dependency.diff](evidence/core_dependency.diff)。
 
-新增 `ov_msckf/src/ltv/ltv_observer.{h,cpp}`、`ltv_types.h`，保留持久状态和所有算法表达式。
-唯一语义编辑是以 `ov_core::skew_x` 替换 `Utility::skewSymmetric`，两者矩阵元素顺序相同。
-排除格式化差异后的补丁见 [core_dependency.diff](evidence/core_dependency.diff)。
-交接源副本和 golden 未修改。
+g++ 11.4.0、Eigen 3.4.0、ROS Humble；standalone 使用 C++14、`-O1 -DNDEBUG -Wextra -Wpedantic`。
+隔离 colcon 使用仓库默认编译参数（包括 O3），`BUILD_LTV_PHASE0_TESTS=ON`、两路编译、顺序构建包。
+C++ 已用 clang-format 23.1.2、`-style=file` 格式化。
 
-ROS2 新增默认 OFF 的 `BUILD_LTV_PHASE0_TESTS`，仅建立独立核心库、parity harness 和 alias 探针。
-核心 `.cpp` 不在 `ov_msckf_lib` 源清单中。原生数学测试目标尚未实现，因停止门未通过；
-新增 CMake 的隔离 colcon 构建同样 NOT RUN，不能宣称 ROS 链接已验证。
+## 实际路径正向测试与旧证据
 
-## 阻断证据
+旧硬编码表达式探针原样保留，仍输出 error=9 / asymmetry=9，退出 1，作为预期的反例。
+旧停止报告见 [initial_stop_audit.md](evidence/alias_fix_acceptance/initial_stop_audit.md)，旧 commands.json 未覆盖。
 
-源和目标均以原 fixture 重放 174 个事件，摘要与完整 state/P golden 比较均退出 0；
-保持 `atol=1e-8, rtol=1e-10` 和离散字段精确匹配。
-这验证等价移植，不证明源算法数值安全，也不证明整机轨迹 parity。
+新 `test_ltv_alias_fixed` 在测试拥有的非 const observer 中，经已有只读 accessor 的 const_cast
+注入非对称 9×9 P（一个内部路标），调用真实 `propagateImu()`，执行目标两处实际 sanitize 代码。
+未修改生产可见性。独立计算冻结旧值的 Euler P 与对称参考，其特征值严格为正，floor 不起作用。
+目标最终误差 `1.13687e-13`（限 `1e-10`），非对称量 **0**，退出 0。
 
-`test_ltv_alias` 在非对称 5×5 输入上执行原表达式
-`P = 0.5 * (P + P.transpose())`，与冻结旧值参考相比最大误差为 **9**，
-输出最大非对称量为 **9**，验收退出 **1**。此探针复现表达式问题；
-没有通过篡改私有状态测试完整 sanitize 路径，也没有运行原生传播 Q 的实际数值检查。
+同一新测试链接只读旧核心时，最终非对称量为 `2.66454e-15`，退出 **1**。
+测试要求最终 mirrored pairs 完全相等，这是完整 RHS `.eval()` 的精确后置条件；
+否则 eigensolver 已把大非对称误差消去，宽松 epsilon 会掩盖旧表达式的残余。
+开发期间 6 维样例以及 9 维宽松对称阈值样例确实未检出旧核心，日志如实保留；最终测试已加强。
+此测试执行两处修复，但不声称从最终 P 单独区分第一处与第二处的贡献。
 
-未应用 `.eval()`、PSD 截断或 golden 更新。若后续单独确认两处 `.eval()` 修订，
-应留存独立 diff、前后数值差异，再按同一 golden/容差运行；超差立即停止。
-随后才能继续 T1/T2/T3/T5 与隔离构建。原生 Propagator 保持只读。
+## 原 golden 与独立核心
 
-原计划中的 ROS2 双目同步检查、平铺配置、adapter、UpdaterLTV 和联合提交均留在后续阶段。
-共享输入相关性仍未建模；一次联合 EKF 更新不能消除该近似。
+原／目标核心均完成 174 事件，摘要（含完整 state/P、slot、reset、warmup、substeps）及设计矩阵
+分别通过只读 compare.py；仍使用 `atol=1e-8, rtol=1e-10`，离散字段精确匹配。
+修复相对本轮原样源的最大 state 差 `2.22045e-16`（event 46），最大 P 差 `4.83124e-9`（event 67）。
+最大逐元素 P 差／允许误差为 `0.117893`，没有超差。数值变化来自冻结求值消除 alias 后的谱重构与递推舍入。
 
-完整临时产物：`/tmp/openvins-ltv-phase0.h7ylvn83/`。
-命令、退出码和精简输出已保存于 [commands.json](evidence/commands.json)，
-完整临时产物 SHA 见 [artifact_hashes.json](evidence/artifact_hashes.json)。临时目录不保证长期保留。
+174 个目标 P 全部精确对称，未检出负特征值；原样源最大非对称量 `1.45519e-11`。
+独立 compaction 测试同时删除中间 ID、加入新 ID，验证全部旧路标／v／g 交叉块、新路标初值与零交叉项、
+slot 映射、state 保留、snapshot 值拷贝及 reset。最大 P 误差 `5.32907e-14`，state 误差 0。
+
+## 原生验收与构建
+
+T1/T2、T3、T5 均 PASS，阈值与范围见 [test_matrix.md](test_matrix.md)。
+FEJ 包括 DISCRETE、RK4、ANALYTICAL 三种积分，三帧与帧间 current 修正，真实 Phi、clone 增广、
+真实 `propagate_and_clone()` 与逐步传播对照，以及 UpdaterHelper 视觉 Jacobian 与 nullspace projection。
+原生 Q 的本次数值误差在界内；这不证明原生原地对称化对任意非对称输入安全，原传播代码未修改。
+
+隔离构建三包 ov_core/ov_init/ov_msckf 通过；首轮新增测试把 MatrixXd 当 vector 使用导致编译失败，
+改为显式 VectorXd 后通过，首次失败与重试日志均保留。依赖库旧 deprecation 警告不影响结果。
+原生时间选取在重合端点输出去重提示，完整传播与逐步结果仍通过阈值。
+
+ldd 确认三个 OpenVINS 库均来自本次 `/tmp/.../install`。
+生产 `libov_msckf_lib.so` 无 `ltv::` 动态符号，LTV 核心只在独立测试库链接；默认开关仍 OFF。
+
+## 证据与边界
+
+证据入口：[alias_fix_acceptance](evidence/alias_fix_acceptance/commands.json)，包含逐命令退出码、stdout/stderr；
+另有数值差异、SHA、编译 flags、库路径、原生完整测试日志和最大指标。
+完整二进制、174 事件输出及构建产物位于 `/tmp/openvins-ltv-core-gate.llf_74db/`，不加入仓库；临时目录可能被清理。
+
+本轮 G/V H 是测试参考实现，尚非 UpdaterLTV。后续接入必须直接测试实际 updater。
+T4 联合提交、T6 adapter 时序、T7 B/P 回归、非法 R/S 拒绝、真实数据效果均未运行，仍属于后续阶段。
+共享输入相关项未建模，一次联合更新不能消除该近似。本轮工程数学验收不代表轨迹效果结论。

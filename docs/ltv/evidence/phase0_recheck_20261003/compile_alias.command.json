@@ -1,0 +1,16 @@
+{
+  "command": [
+    "g++",
+    "-std=c++14",
+    "-O1",
+    "-DNDEBUG",
+    "-Wextra",
+    "-Wpedantic",
+    "-I/usr/include/eigen3",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/tests/ltv/test_ltv_alias.cpp",
+    "-o",
+    "/tmp/openvins-ltv-phase0-recheck-20261003/alias_probe"
+  ],
+  "exit_code": 0,
+  "expected_exit": 0
+}

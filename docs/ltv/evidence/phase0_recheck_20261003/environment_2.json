@@ -1,0 +1,10 @@
+{
+  "command": [
+    "dpkg-query",
+    "-W",
+    "libeigen3-dev"
+  ],
+  "exit_code": 0,
+  "stdout": "libeigen3-dev\t3.4.0-2ubuntu2\n",
+  "stderr": ""
+}
