@@ -237,14 +237,26 @@ def main():
             if stage=='freeze': print(freeze(out))
             elif stage=='verify':
                 build(out)
-                from tests import verify,verify_statistics
-                result=verify(out); result.update(verify_statistics(out)); result['code']=code_identity(); write(out/'verification.json',result); print(result)
+                from tests import verify,verify_statistics,verify_sensor_contract
+                result=verify(out); result.update(verify_statistics(out)); result.update(verify_sensor_contract(out)); result['code']=code_identity(); write(out/'verification.json',result); print(result)
             elif stage=='report':
                 from report import report
                 report(out,DOC); write(DOC/'evidence/integrity.json',frozen_check())
             else:
                 verified=json.loads((out/'verification.json').read_text())
                 if verified['code']!=code_identity(): raise RuntimeError('Code changed: rerun verify before full simulations')
-                frozen_check(); globals()[stage](out)
+                frozen_check()
+                if stage=='gains':
+                    import inspect
+                    from diagnostics import combined_settling
+                    current={'selector_source_sha256':digest(inspect.getsource(gains).encode()),'combined_settling_source_sha256':digest(inspect.getsource(combined_settling).encode())}
+                    contract_path=out/'selection_contract.json'
+                    if contract_path.exists():
+                        contract=json.loads(contract_path.read_text())
+                        if any(contract.get(k)!=v for k,v in current.items()): raise RuntimeError('Frozen C* selection code changed')
+                    else:
+                        write(contract_path,{**current,'candidate_multipliers':CANDIDATES,'primary':'wide all-sample t_VG','fallback':'50-60 s J_tail','time_resolution_seconds':.005,'peak_increase_allowed':True})
+                        (out/'selection_source.py.txt').write_text(inspect.getsource(gains)+'\n'+inspect.getsource(combined_settling))
+                globals()[stage](out)
             print('STAGE_DONE',stage,flush=True)
 if __name__=='__main__': main()

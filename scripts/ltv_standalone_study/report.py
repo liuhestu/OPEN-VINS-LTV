@@ -2,7 +2,7 @@
 import json,shutil
 from pathlib import Path
 import numpy as np
-from diagnostics import geometry_diagnostics,compare_runs,overshoot,seed_summary,inspect_saved_numerics,dynamic_geometry,repeated_transients,track_outcomes,combined_settling,noise_response,verified_events,initialization_snapshots
+from diagnostics import geometry_diagnostics,compare_runs,overshoot,seed_summary,inspect_saved_numerics,dynamic_geometry,repeated_transients,track_outcomes,combined_settling,noise_response,verified_events,initialization_snapshots,camera_correction_deltas
 from plot_results import make_plots
 
 def report(out,doc):
@@ -39,7 +39,7 @@ def report(out,doc):
     status='COMPLETED' if complete else ('BUDGET_EXHAUSTED' if len(all_entries)>=64 else 'BLOCKED_REFERENCE')
     summary={'protocol_deviations':['Original broad SHA freeze read ov_data reference-file bytes only; excluded from subsequent rechecks, never used as scientific inputs','Two 0.1 s scheduler probes briefly overlapped one full reference: three short-lived calculation processes; full simulations always at most two'],'status':status,'runs_used':len(all_entries),'runs_remaining':64-len(all_entries),'completed_runs':len(entries),'missing':missing,'selection':selection,'reference_checks':references,'full_parity':parity,'metrics':metrics,'integrity':frozen_check()}
     write(evidence/'summary.json',summary); write(evidence/'ledger.json',all_entries)
-    for name in ['verification.json','selection.json','reference_checks.json','full_parity.json','core_build.json','experimental_build.json','environment.json','additional_tests.json']:
+    for name in ['verification.json','selection.json','reference_checks.json','full_parity.json','core_build.json','experimental_build.json','environment.json','additional_tests.json','selection_contract.json','selection_source.py.txt','extension_prefix.json']:
         if (out/name).exists(): shutil.copyfile(out/name,evidence/name)
     geometry={}
     for scene in ['REGULAR','FAST','PAPER','STATIC']:
@@ -120,7 +120,7 @@ def report(out,doc):
     for e in entries:
         c=e['config']; m=metrics[e['id']]
         if c['noise']: lines.append(f"|{c['candidate']} / {c['noise']}|{fmt(m['J_tail'])}|{fmt(m['50-60']['v_rmse'])}|{fmt(m['50-60']['eta_rmse'])}|{fmt(m['wide']['target_fraction_VG'])}|")
-    lines+=['','噪声只做两种子的敏感性检查，不是充分统计验证。`evidence/noise_response.json` 另报同候选带噪输出相对无噪输出的扰动 RMSE，以免收敛偏差改善掩盖噪声放大。IMU 与 bearing 噪声均为冻结的每样本噪声，C0/C* 同种子完全共用；不得将不同采样率下的每样本噪声混为同一连续谱密度。`gain_diagnostics.npy` 保存 K 范数、三类实际 K r、P_vL/P_etaL 及各块尺度；`gain_landmark_contributions.npy` 保存逐点 K_i r。离散诊断取相机事件前的已驻留状态与当前可见观测，连续诊断取整秒。','',
+    lines+=['','噪声只做两种子的敏感性检查，不是充分统计验证。`evidence/noise_response.json` 另报同候选带噪输出相对无噪输出的扰动 RMSE，以免收敛偏差改善掩盖噪声放大。IMU 与 bearing 噪声均为冻结的每样本噪声，C0/C* 同种子完全共用；不得将不同采样率下的每样本噪声混为同一连续谱密度。`gain_diagnostics.npy` 保存 K 范数、三类实际 K r、P_vL/P_etaL 及各块尺度；`gain_landmark_contributions.npy` 保存逐点 K_i r。离散诊断取相机事件前的已驻留状态与当前可见观测，连续诊断取整秒。`camera_correction_deltas.npz` 从实际相机前后状态中扣除 slot 重排与一次均值写入，给出真实净校正量，包含全部相机子步的最终作用；不把它冒充每个子步内部的瞬时 K r。','',
             '## 4. 寿命对照','', '|场景 / 实现 / 候选 / 寿命 s|physical bearing SHA 前12位|驻留中位数 s|完整观测轨迹最后可见前路标宽档达标率|末段 V RMSE|末段 η RMSE|','|---|---|---:|---:|---:|---:|']
     for e in entries:
         c=e['config']; m=metrics[e['id']]
@@ -137,6 +137,7 @@ def report(out,doc):
     write(evidence/'seeds.json',seeds)
     hook_snapshots={e['id']:initialization_snapshots(e) for e in entries if e['config']['initialization'] in ['GT_SEED','GEOM_IDEAL','GT_MATCHED','GEOM_NOISY']}
     write(evidence/'initialization_snapshots.json',hook_snapshots)
+    write(evidence/'camera_corrections.json',{e['id']:camera_correction_deltas(e) for e in entries if e['config']['impl']!='CONT_REF'})
     lines+=['','GT_SEED 是入槽真值诊断；GEOM_IDEAL 使用同 ID 过去/当前 bearing 与精确模拟相机位姿；GT_MATCHED 复用完全相同触发规则、ID 和时刻；GEOM_NOISY 使用 seed42 的位置/姿态噪声，三角化和执行时的机体系变换均使用带噪先验。至少三帧且跨度 0.10 s，条件数≤1e8、最大视线夹角≥0.5°、残差≤0.5°、正射线，最多 1 s 历史。每点最多写一次，只改该点均值，P 和 v/η 均值规则保持原样。初始化瞬间的完整 x/P 由已保存的相机事件前状态、实际 slot 重排及冻结种子输入精确重建，另存 `initialization_snapshots_reconstructed.npz`；该文件明确标记重建来源，不冒充额外现场采样，P 为均值写入前后共用矩阵。这是额外位姿先验诊断，不是已完成在线融合。','',
             '## 6. 几何与完整证据','',
             '有限窗口指标不乘 Q，按物理点/连续 ID 的世界 bearing 计算；固定 ID 的 1/5/10 s 完整窗口见 `evidence/geometry.json`，窗口不完整为缺失。这些有限窗口不能证明全时间 uniform PE。S_PAPER 使用文档假设的 4×4 地面网格、P0=I 与有符号理想 bearing；相机 Z 负比例独立记录，未翻轴，未裁剪后方点，也未按 Fig.3 读图拟合。','',

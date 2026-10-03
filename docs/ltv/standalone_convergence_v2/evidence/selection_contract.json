@@ -1,0 +1,59 @@
+{
+  "candidate_multipliers": {
+    "C0": [
+      1,
+      1,
+      1
+    ],
+    "C1": [
+      0.1,
+      1,
+      1
+    ],
+    "C2": [
+      10,
+      1,
+      1
+    ],
+    "C3": [
+      1,
+      0.1,
+      1
+    ],
+    "C4": [
+      1,
+      10,
+      1
+    ],
+    "C5": [
+      1,
+      1,
+      100
+    ],
+    "C6": [
+      1,
+      1,
+      10000
+    ]
+  },
+  "primary": "wide t_VG over the union of 200 Hz samples and camera pre/post, grouped by equal timestamps; 5 s verification",
+  "fallback": "J_tail over 50-60 s only",
+  "time_resolution_seconds": 0.005,
+  "continuous_non_degradation": [
+    "wide and strict t_V, t_G, t_VG, t_L_all",
+    "50-60 v RMSE, eta RMSE, direction RMSE, magnitude RMSE, landmark RMSE"
+  ],
+  "discrete_benefit": "earlier primary settling, else lower J_tail when primary unavailable or indistinguishable",
+  "floating_resolution": "actual C0 standard vs tightened discrepancies, with machine epsilon floor; chosen reference also tightened after selection",
+  "peak_increase_allowed": true,
+  "if_none": "C_star=C0; continue lifecycle and initialization",
+  "no_reselection_after": [
+    "FAST",
+    "tightened reference",
+    "noise",
+    "lifecycle",
+    "initialization"
+  ],
+  "selector_source_sha256": "60dec0e2d37bdb168b77d9ec4e5aa9aa3d29e40bcbdc4994621d314e709ce200",
+  "combined_settling_source_sha256": "07cb0f16f04a4971e0d93e481e668b0021de5cb3d7c570ed926f064964976ed4"
+}

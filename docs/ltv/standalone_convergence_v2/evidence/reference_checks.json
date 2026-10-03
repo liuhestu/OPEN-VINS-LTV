@@ -1,0 +1,23 @@
+[
+  {
+    "base": "01_REGULAR_CONT_REF_C0",
+    "tight": "02_REGULAR_CONT_REF_C0",
+    "state_max_normalized": 2.3964945770043918e-14,
+    "P_max_relative": 2.1631105937705126e-14,
+    "pass": true
+  },
+  {
+    "base": "05_FAST_CONT_REF_C0",
+    "tight": "06_FAST_CONT_REF_C0",
+    "state_max_normalized": 1.2484333324759575e-14,
+    "P_max_relative": 2.1225415607167657e-14,
+    "pass": true
+  },
+  {
+    "base": "09_PAPER_CONT_REF_C0",
+    "tight": "10_PAPER_CONT_REF_C0",
+    "state_max_normalized": 3.6154575432225674e-14,
+    "P_max_relative": 5.903279757954757e-14,
+    "pass": true
+  }
+]

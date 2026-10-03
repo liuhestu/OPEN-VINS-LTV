@@ -1,0 +1,23 @@
+{
+  "analytic_truth_cpp_and_dynamics": "PASS",
+  "old_rhs_vector_error_and_U_identity": "PASS",
+  "exact_split_vs_ODE": "PASS",
+  "hook_off_parity_slots_cross_blocks_hook_scope_integer_ticks": "PASS",
+  "code": {
+    "scripts/ltv_standalone_study/truth_model.py": "2bfe9e7dcccde4f4bfd1c41c2c687fa6408a17d605eeb514d0703ba2e83b5747",
+    "scripts/ltv_standalone_study/continuous_reference.py": "756c6d03a4a60a427e193167f13222df67b9d6330edecd7d9e38dfd54257dd46",
+    "scripts/ltv_standalone_study/split_reference.py": "1f6e96055e80a3cf4029631a6acbe4644fc0fdb4478d897dd3038102a4e6d51b",
+    "scripts/ltv_standalone_study/core.py": "dbc56831a9233337bc9e31ed895c14eac1ce4ed1cdf1ab118cb0bf0f38e3b75f",
+    "scripts/ltv_standalone_study/geometry_seed.py": "35f3a30f4f030c8f2b59f8f412a5600a979714c5c28953e21ae38ea5dbbb0ad2",
+    "scripts/ltv_standalone_study/experiment.py": "96c51fe85501f1bcaee0ee6362a4da81c01222619fe44070e6a016e435bbbeb1",
+    "scripts/ltv_standalone_study/evaluate.py": "df034aada7113d5c581e7f8620805d3ace372a51afff301cea0abf8c625f7041",
+    "scripts/ltv_standalone_study/core_runner.cpp": "415d4ad8e84ecfe73ec45e3ce243a0b3f7646337280030af4be9a3bc701f0b17",
+    "scripts/ltv_standalone_study/experimental_core/ltv_observer.cpp": "35e65557c732f47f0beaa07687088ab9b0fe18d0d2526b910ce5d9d2330dc4c0",
+    "scripts/ltv_standalone_study/experimental_core/ltv_types.h": "a59af2239b958473eef5b8a720ad45271c8da87ef6487332e66fb51d6bacc865",
+    "scripts/ltv_standalone_study/experimental_core/ltv_observer.h": "97c678ed8ed6ca8715e5d34167352b2cc1b108fbe4e672b97800368ff9004210",
+    "ov_msckf/src/ltv/ltv_observer.h": "0ecef65a2af566dd721282c4349208704853a65e66203c78cc9e2b955579de30",
+    "ov_msckf/src/ltv/ltv_observer.cpp": "5a01ba09bec8ab61cb206ab4358b9952503c0e9bedd8b2c05f16bfdd8173beba",
+    "ov_msckf/src/ltv/ltv_types.h": "a59af2239b958473eef5b8a720ad45271c8da87ef6487332e66fb51d6bacc865",
+    "ov_core/src/utils/quat_ops.h": "2e01cbd84740d6ba4f446ec12d4e2927d367fc07fcc4ec6ada85f4b0d81d3e9a"
+  }
+}

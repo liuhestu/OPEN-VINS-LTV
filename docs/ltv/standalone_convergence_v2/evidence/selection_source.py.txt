@@ -1,0 +1,73 @@
+def gains(out):
+    from diagnostics import combined_settling
+    def selection_metric(e):
+        m=metric(e); combined=combined_settling(e)
+        for grade in ['wide','strict']:
+            for target in ['t_V','t_G','t_VG']:
+                m[grade][target]=combined[grade][target+'_all_samples']
+            m[grade]['t_L_all']=combined[grade]['t_L_all_samples']
+        return m
+    entries={}
+    jobs=[config(impl,candidate=candidate) for candidate in CANDIDATES for impl in ['CONT_REF','EXPERIMENTAL']]
+    completed=parallel_runs(out,'gains',jobs,allow_candidate_reset=True)
+    for e in completed: entries.setdefault(e['config']['candidate'],{})[e['config']['impl']]=e
+    checks=json.loads((out/'reference_checks.json').read_text()); precision=max(c['state_max_normalized'] for c in checks)
+    # Resolve scientific metrics by the actual C0 tightened discrepancy, never a post-hoc percentage band.
+    base_ref=entries['C0']['CONT_REF']; tight=next(e for e in ledger(out) if e['config']==config('CONT_REF',tight=True) and e['status']=='COMPLETED')
+    base_m=selection_metric(base_ref); tight_m=selection_metric(tight)
+    j_resolution=max(abs(base_m['J_tail']-tight_m['J_tail']),np.finfo(float).eps)
+    choices=[]; decisions={}
+    def time_ok(new,old):
+        if isinstance(old,str): return True
+        return not isinstance(new,str) and new<=old+.005/2
+    def better(new,old):
+        tn,to=new['wide']['t_VG'],old['wide']['t_VG']
+        if not isinstance(tn,str) and isinstance(to,str): return True
+        if not isinstance(tn,str) and not isinstance(to,str) and tn<to-.005/2: return True
+        if (isinstance(tn,str) and isinstance(to,str)) or (not isinstance(tn,str) and not isinstance(to,str) and abs(tn-to)<.005/2): return new['J_tail']<old['J_tail']-j_resolution
+        return False
+    for candidate in list(CANDIDATES)[1:]:
+        if entries[candidate]['EXPERIMENTAL']['status']!='COMPLETED':
+            decisions[candidate]={'continuous_no_degradation':None,'discrete_benefit':False,'continuous_only':None,'excluded':'production numerical reset at the prescribed camera substep cap / protection boundary'}
+            continue
+        cm=selection_metric(entries[candidate]['CONT_REF']); dm=selection_metric(entries[candidate]['EXPERIMENTAL']); bm=selection_metric(entries['C0']['EXPERIMENTAL'])
+        continuous_ok=time_ok(cm['wide']['t_VG'],base_m['wide']['t_VG']) and cm['J_tail']<=base_m['J_tail']+j_resolution
+        for grade in ['wide','strict']:
+            for target in ['t_V','t_G','t_VG','t_L_all']:
+                continuous_ok &= time_ok(cm[grade][target],base_m[grade][target])
+        # Check individual tail quantities, not only their scalar sum.
+        for key in ['v_rmse','eta_rmse','g_angle_rmse','g_magnitude_rmse','landmark_rmse']:
+            resolution=max(abs(base_m['50-60'][key]-tight_m['50-60'][key]),np.finfo(float).eps)
+            continuous_ok &= cm['50-60'][key]<=base_m['50-60'][key]+resolution
+        discrete_ok=better(dm,bm)
+        decisions[candidate]={'continuous_no_degradation':bool(continuous_ok),'discrete_benefit':bool(discrete_ok),'continuous_only':bool(better(cm,base_m) and not discrete_ok)}
+        if continuous_ok and discrete_ok: choices.append(candidate)
+    def ranking(candidate):
+        m=selection_metric(entries[candidate]['EXPERIMENTAL']); t=m['wide']['t_VG']; return (isinstance(t,str), t if not isinstance(t,str) else float('inf'),m['J_tail'])
+    star=min(choices,key=ranking) if choices else 'C0'
+    write(out/'selection.json',{'C_star':star,'J_resolution':j_resolution,'state_reference_resolution':precision,'decisions':decisions,'status':'SELECTED_DIAGNOSTIC' if choices else 'NO_GAIN_IMPROVEMENT','settling_basis':'union of 200 Hz checks and camera pre/post; at least five seconds remaining','frozen_at':time.time()})
+    if star!='C0':
+        run(out,'gains',config('CONT_REF','FAST',star)); run(out,'gains',config('EXPERIMENTAL','FAST',star))
+        a=entries[star]['CONT_REF']; b=run(out,'gains',config('CONT_REF',candidate=star,tight=True)); reference_check(a,b,out)
+    for candidate in dict.fromkeys(['C0',star]):
+        for seed in [42,43]: run(out,'gains',config('EXPERIMENTAL',candidate=candidate,noise=seed))
+
+def combined_settling(e):
+    """Conservative fixed-ID settling includes every common sample AND camera pre/post."""
+    from evaluate import settle
+    rd=Path(e['directory']); c=e['config']
+    if c['lifetime']>0: return {}
+    trace=np.load(rd/'trace.npz'); camera=np.load(rd/'camera.npz')
+    times=np.r_[trace['t'],camera['t']]; order=np.argsort(times,kind='stable'); times=times[order]
+    values=np.r_[trace['values'],camera['values']][order]
+    landmarks=np.r_[trace['landmarks'],camera['landmarks']][order]
+    results={}; n=len(geometry(c['scene'])[0])
+    unique,index=np.unique(times,return_index=True)
+    def all_settle(good):
+        return settle(unique,np.logical_and.reduceat(good,index))
+    for name,vm,gm,mag,lm in [('wide',.1,1,.2,.05),('strict',.05,.5,.1,.02)]:
+        vg=(values[:,0]<=vm)&(values[:,2]<=gm)&(values[:,3]<=mag)
+        # Empty pre-lifecycle slots at t=0 do not certify landmark convergence.
+        lg=landmarks[:,:n,1]<=lm
+        results[name]={'t_V_all_samples':all_settle(values[:,0]<=vm),'t_G_all_samples':all_settle((values[:,2]<=gm)&(values[:,3]<=mag)),'t_VG_all_samples':all_settle(vg),'t_L_all_samples':all_settle(np.all(lg,axis=1)),'per_point_all_samples':[all_settle(lg[:,j]) for j in range(n)]}
+    return results

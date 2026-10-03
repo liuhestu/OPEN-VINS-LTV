@@ -115,3 +115,20 @@ def verify_statistics(out):
     assert result['wide']['t_VG_all_samples']==1.005
     assert result['wide']['t_L_all_samples']==1.005
     return {'camera_ties_cannot_hide_preupdate_failure':'PASS'}
+
+def verify_sensor_contract(out):
+    """C++ and Python independently form points, specific force, states and bearings."""
+    import subprocess
+    from pathlib import Path
+    source=Path(__file__).with_name('truth_verify.cpp')
+    command=['g++','-std=c++14','-O2','-I/usr/include/eigen3',str(source),'-L'+str(out),'-l:core.so','-Wl,-rpath,'+str(out),'-o',str(out/'truth_verify')]
+    compiled=subprocess.run(command,capture_output=True,text=True)
+    assert compiled.returncode==0,compiled.stderr
+    completed=subprocess.run([str(out/'truth_verify')],capture_output=True,text=True)
+    assert completed.returncode==0,completed.stderr
+    rows=np.array([list(map(float,line.split())) for line in completed.stdout.splitlines()]); difference=0.
+    for row in rows:
+        scene,t,j=int(row[0]),row[1],int(row[2]); x,a,w,z=sample(t,SCENES[scene],[j])
+        difference=max(difference,float(np.max(np.abs(np.r_[a,w,x[:3],x[-6:],z.ravel()]-row[3:]))))
+    assert difference<1e-10
+    return {'cpp_points_specific_force_body_states_signed_bearings':{'status':'PASS','max_absolute_difference':difference,'rows':len(rows),'build_command':command,'build_exit_code':compiled.returncode,'exit_code':completed.returncode}}

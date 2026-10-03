@@ -197,3 +197,31 @@ def initialization_snapshots(e):
     assert [(v['id'],v['t']) for v in seeder.events]==[(v['id'],v['t']) for v in saved_events]
     np.savez_compressed(rd/'initialization_snapshots_reconstructed.npz',t=snapshots,x_before=before,x_after=after,P_shared=cov,ids=ids_saved)
     return {'source':'exact reconstruction from saved pre-event P/x, actual post-event slot IDs and frozen seed inputs; not an extra simulation','seed_writes':len(seeded_ids),'events':len(snapshots),'unique_once':True,'vg_means_unchanged_at_hook':True,'P_is_shared_before_after':True}
+
+def camera_correction_deltas(e):
+    """Actual net camera correction from saved endpoints, removing lifecycle/seed writes."""
+    c=e['config']; rd=Path(e['directory'])
+    if c['impl']=='CONT_REF': return {}
+    camera=np.load(rd/'camera.npz'); trace=np.load(rd/'trace.npz')
+    pre=np.flatnonzero(camera['side']=='pre'); post=np.flatnonzero(camera['side']=='post'); seeded={}
+    hook_path=rd/'initialization_snapshots_reconstructed.npz'
+    if hook_path.exists():
+        h=np.load(hook_path)
+        seeded={round(float(t),9):x for t,x in zip(h['t'],h['x_after'])}
+    times=[]; deltas=[]; idsout=[]; previous=0.
+    for a,b in zip(pre,post):
+        t=float(camera['t'][a]); assert t==camera['t'][b]
+        old=camera['ids'][a]; old=old[old>=0].astype(int).tolist(); new=camera['ids'][b]; new=new[new>=0].astype(int).tolist()
+        do,dn=3*len(old)+6,3*len(new)+6; before=np.zeros(dn); before[-6:]=camera['x'][a,do-6:do]
+        for j,id in enumerate(new):
+            if id in old: s=old.index(id); before[3*j:3*j+3]=camera['x'][a,3*s:3*s+3]
+        if round(t,9) in seeded: before=seeded[round(t,9)][:dn]
+        dx=camera['x'][b,:dn]-before
+        if t==0: dx=np.zeros(dn)  # First event only initializes, with zero correction length.
+        row=np.full(96,np.nan); row[:dn]=dx
+        times.append(t); deltas.append(row); idsout.append(camera['ids'][b]); previous=t
+    delta=np.array(deltas); np.savez_compressed(rd/'camera_correction_deltas.npz',t=times,delta_x=delta,ids=idsout)
+    v=[]; g=[]
+    for dx,ids in zip(delta,idsout):
+        d=3*int(np.sum(ids>=0))+6; v.append(np.linalg.norm(dx[d-6:d-3])); g.append(np.linalg.norm(dx[d-3:d]))
+    return {'source':'actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay','maximum_velocity_correction':float(max(v)),'maximum_gravity_correction':float(max(g))}
