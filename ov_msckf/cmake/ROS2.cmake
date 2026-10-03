@@ -64,6 +64,7 @@ list(APPEND LIBRARY_SOURCES
         src/core/VioManager.cpp
         src/core/VioManagerHelper.cpp
         src/update/UpdaterHelper.cpp
+        src/update/UpdaterLTV.cpp
         src/update/UpdaterMSCKF.cpp
         src/update/UpdaterSLAM.cpp
         src/update/UpdaterZeroVelocity.cpp
