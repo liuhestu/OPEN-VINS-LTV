@@ -36,7 +36,7 @@ def overshoot(base,candidate):
     a=np.load(Path(base['directory'])/'trace.npz'); b=np.load(Path(candidate['directory'])/'trace.npz'); result={}
     for col,key in [(0,'v'),(1,'eta')]:
         av=a['values'][:,col]; bv=b['values'][:,col]; peak=float(av.max()); mask=bv>peak
-        result[key]={'base_peak':peak,'candidate_peak':float(bv.max()),'peak_increase':float(bv.max()-peak),'peak_ratio':float(bv.max()/peak),'duration_above_C0_peak':float(np.trapz(mask.astype(float),b['t'])),'duration_above_C0_peak_after_10s':float(np.trapz(mask[b['t']>=10].astype(float),b['t'][b['t']>=10])),'rmse_full':float(np.sqrt(np.mean(bv*bv))),'rmse_tail':float(np.sqrt(np.mean(bv[b['t']>=50]**2)))}
+        result[key]={'base_peak':peak,'candidate_peak':float(bv.max()),'peak_increase':float(bv.max()-peak),'peak_ratio':float(bv.max()/peak),'duration_above_C0_peak':float(np.trapz(mask.astype(float),b['t'])),'duration_above_C0_peak_after_10s':float(np.trapz(mask[b['t']>=10].astype(float),b['t'][b['t']>=10])),'C0_peak_after_10s':float(av[a['t']>=10].max()),'candidate_peak_after_10s':float(bv[b['t']>=10].max()),'duration_above_late_C0_peak_after_10s':float(np.trapz((bv[b['t']>=10]>av[a['t']>=10].max()).astype(float),b['t'][b['t']>=10])),'rmse_full':float(np.sqrt(np.mean(bv*bv))),'rmse_tail':float(np.sqrt(np.mean(bv[b['t']>=50]**2)))}
     return result
 
 def seed_summary(e):
@@ -44,7 +44,7 @@ def seed_summary(e):
     if not path.exists(): return {}
     seeds=json.loads(path.read_text()); tracks=json.loads((path.parent/'lifecycle.json').read_text()); slotted=len(tracks)
     by_id={v['id']:v for v in tracks}
-    return {'accepted':len(seeds),'slotted':slotted,'acceptance':len(seeds)/slotted,'delay_observed_median':float(np.median([v['delay'] for v in seeds])) if seeds else None,'delay_residence_median':float(np.median([v['t']-by_id[v['id']]['slot_birth'] for v in seeds])) if seeds else None,'seed_error_rmse':float(np.sqrt(np.mean([v['seed_error']**2 for v in seeds]))) if seeds else None}
+    return {'accepted':len(seeds),'slotted':slotted,'acceptance':len(seeds)/slotted,'delay_observed_median':float(np.median([v['delay'] for v in seeds])) if seeds else None,'delay_residence_median':float(np.median([v['t']-by_id[v['id']]['slot_birth'] for v in seeds])) if seeds else None,'seed_error_rmse':(0. if e['config']['initialization']=='GT_MATCHED' else float(np.sqrt(np.mean([v['seed_error']**2 for v in seeds])))) if seeds else None,'paired_geometry_error_rmse':float(np.sqrt(np.mean([v['seed_error']**2 for v in seeds]))) if seeds else None}
 
 def inspect_saved_numerics(e):
     rd=Path(e['directory']); c=e['config']; m=np.load(rd/'matrices.npz'); summaries=[]
@@ -85,3 +85,115 @@ def repeated_transients(base,candidate):
     result['births_after_10s_with_larger_v_peak']=sum(w['birth']>=10 and w['candidate_v_peak_next_02s']>w['C0_v_peak_next_02s'] for w in windows)
     result['births_after_10s_total']=sum(w['birth']>=10 for w in windows)
     return result
+
+def track_outcomes(e):
+    """Separate observed-ended and right-censored tracks; add joint v/g/point outcomes."""
+    rd=Path(e['directory']); trace=np.load(rd/'trace.npz'); path=rd/'lifecycle.json'
+    if not path.exists(): return {}
+    tracks=json.loads(path.read_text()); lookup={v['id']:v for v in tracks}; rows={v['id']:[] for v in tracks}
+    for k,t in enumerate(trace['t']):
+        val=trace['values'][k]
+        for j,id in enumerate(trace['ids'][k]):
+            if id<0: continue
+            track=lookup[int(id)]
+            if t<=track['last_visible']+1e-9:
+                rows[int(id)].append((t,trace['landmarks'][k,j,1],val[0],val[2],val[3]))
+    for track in tracks:
+        samples=rows[track['id']]
+        for grade,vm,gm,mag,lm in [('wide',.1,1,.2,.05),('strict',.05,.5,.1,.02)]:
+            start=None; first=None; last=False
+            for t,l,v,g,m in samples:
+                last=bool(l<=lm and v<=vm and g<=gm and m<=mag)
+                if last:
+                    if start is None: start=t
+                    if t-start>=.1-1e-9 and first is None: first=start
+                else: start=None
+            track['joint_'+grade]={'first_held_observation_age':None if first is None else float(first-track['observation_birth']),'at_last_visible':last,'success_by_last_visible':bool(first is not None and last)}
+    completed=[t for t in tracks if not t['observation_right_censored']]
+    def rate(tracks,key,field): return float(np.mean([t[key][field] for t in tracks])) if tracks else None
+    result={'slotted':len(tracks),'completed_observation_tracks':len(completed),'observation_right_censored':len(tracks)-len(completed)}
+    for grade in ['wide','strict']:
+        result[grade]={'landmark_success_completed':rate(completed,grade,'success_before_loss'),'joint_success_completed':rate(completed,'joint_'+grade,'success_by_last_visible'),'landmark_success_all_by_horizon':rate(tracks,grade,'success_before_loss'),'joint_success_all_by_horizon':rate(tracks,'joint_'+grade,'success_by_last_visible')}
+    (rd/'joint_outcomes.json').write_text(json.dumps(tracks,indent=2))
+    return result
+
+def combined_settling(e):
+    """Conservative fixed-ID settling includes every common sample AND camera pre/post."""
+    from evaluate import settle
+    rd=Path(e['directory']); c=e['config']
+    if c['lifetime']>0: return {}
+    trace=np.load(rd/'trace.npz'); camera=np.load(rd/'camera.npz')
+    times=np.r_[trace['t'],camera['t']]; order=np.argsort(times,kind='stable'); times=times[order]
+    values=np.r_[trace['values'],camera['values']][order]
+    landmarks=np.r_[trace['landmarks'],camera['landmarks']][order]
+    results={}; n=len(geometry(c['scene'])[0])
+    unique,index=np.unique(times,return_index=True)
+    def all_settle(good):
+        return settle(unique,np.logical_and.reduceat(good,index))
+    for name,vm,gm,mag,lm in [('wide',.1,1,.2,.05),('strict',.05,.5,.1,.02)]:
+        vg=(values[:,0]<=vm)&(values[:,2]<=gm)&(values[:,3]<=mag)
+        # Empty pre-lifecycle slots at t=0 do not certify landmark convergence.
+        lg=landmarks[:,:n,1]<=lm
+        results[name]={'t_V_all_samples':all_settle(values[:,0]<=vm),'t_G_all_samples':all_settle((values[:,2]<=gm)&(values[:,3]<=mag)),'t_VG_all_samples':all_settle(vg),'t_L_all_samples':all_settle(np.all(lg,axis=1)),'per_point_all_samples':[all_settle(lg[:,j]) for j in range(n)]}
+    return results
+
+
+def noise_response(clean,noisy):
+    a=np.load(Path(clean['directory'])/'trace.npz'); b=np.load(Path(noisy['directory'])/'trace.npz')
+    assert np.array_equal(a['t'],b['t']) and np.array_equal(a['ids'],b['ids'])
+    dx=b['x']-a['x']; result={}
+    for name,mask in [('full',a['t']>=0),('tail',a['t']>=50)]:
+        result[name]={'velocity_response_rmse':float(np.sqrt(np.mean(np.sum(dx[mask,-6:-3]**2,axis=1)))),'gravity_response_rmse':float(np.sqrt(np.mean(np.sum(dx[mask,-3:]**2,axis=1)))),'landmark_response_rmse':float(np.sqrt(np.mean(np.sum(dx[mask,:90].reshape(-1,30,3)**2,axis=2))))}
+    return result
+
+def verified_events(e):
+    """Resolve the t=0 zero-length correction edge from saved observation/slot times."""
+    rd=Path(e['directory']); path=rd/'observations.json'
+    if not path.exists(): return {}
+    observations=json.loads(path.read_text()); corrected=0
+    for track in observations:
+        actual=None
+        if 'slot_birth' in track:
+            first=max(track['slot_birth'],1/e['config']['camera_hz'])
+            if first<=track['last_visible']+1e-9: actual=first
+        if track.get('first_correction')!=actual: corrected+=1
+        track['first_correction']=actual
+        track['first_correction_is_nonzero_subflow']=actual is not None
+    (rd/'events_verified.json').write_text(json.dumps(observations,indent=2))
+    return {'records':len(observations),'initial_planned_time_resolved_to_actual_event':corrected}
+
+def initialization_snapshots(e):
+    """Exact offline reconstruction at the hook: lifecycle is only a permutation/copy.
+
+    This is not another observer run. Input state/P are saved event records. The
+    hook cannot access P; store one shared P for before/after the mean write.
+    """
+    c=e['config']; rd=Path(e['directory'])
+    if c['initialization'] not in ['GT_SEED','GEOM_IDEAL','GT_MATCHED','GEOM_NOISY']: return {}
+    from geometry_seed import Seeder
+    from truth_model import ids_at
+    metrics=json.loads((rd/'metrics.json').read_text()); inputs=np.load(metrics['input_path'])
+    pts,Rbc,pc=geometry(c['scene']); seeder=Seeder(c['scene'],c['initialization'],Rbc,pc,inputs['priors'])
+    matrices=np.load(rd/'matrices.npz'); pre=np.flatnonzero(matrices['tags']=='before_event'); post=np.flatnonzero(matrices['tags']=='after_event')
+    saved_events=json.loads((rd/'seeds.json').read_text()); snapshots=[]; before=[]; after=[]; cov=[]; ids_saved=[]; seeded_ids=set()
+    for a,b in zip(pre,post):
+        t=float(matrices['t'][a]); assert t==matrices['t'][b]
+        old=matrices['ids'][a]; old=old[old>=0].tolist(); new=matrices['ids'][b]; new=new[new>=0].tolist(); tick=round(t*c['camera_hz'])
+        seeds=seeder.update(t,tick,ids_at(tick,c['camera_hz'],c['lifetime'],len(pts)),inputs['bearings'][tick],set(new))
+        if not seeds: continue
+        assert not seeded_ids.intersection(seeds); seeded_ids.update(seeds)
+        do,dn=3*len(old)+6,3*len(new)+6; x0=matrices['x'][a,:do]; P0=matrices['P'][a,:do,:do]
+        mapping=[]
+        for id in new: mapping+=list(range(3*old.index(id),3*old.index(id)+3)) if id in old else [-1]*3
+        mapping+=list(range(do-6,do)); good=np.flatnonzero(np.array(mapping)>=0); src=np.array(mapping)[good]
+        x=np.zeros(dn); P=np.zeros((dn,dn)); x[good]=x0[src]; P[np.ix_(good,good)]=P0[np.ix_(src,src)]
+        for j,id in enumerate(new):
+            if id not in old: P[3*j:3*j+3,3*j:3*j+3]=c['p']*np.eye(3)
+        changed=x.copy()
+        for id,seed in seeds.items(): j=new.index(id); changed[3*j:3*j+3]=seed
+        assert np.array_equal(changed[-6:],x[-6:])
+        xp=np.full(96,np.nan); xp[:dn]=x; yp=np.full(96,np.nan); yp[:dn]=changed; pp=np.full((96,96),np.nan); pp[:dn,:dn]=P; ip=np.full(30,-1); ip[:len(new)]=new
+        snapshots.append(t); before.append(xp); after.append(yp); cov.append(pp); ids_saved.append(ip)
+    assert [(v['id'],v['t']) for v in seeder.events]==[(v['id'],v['t']) for v in saved_events]
+    np.savez_compressed(rd/'initialization_snapshots_reconstructed.npz',t=snapshots,x_before=before,x_after=after,P_shared=cov,ids=ids_saved)
+    return {'source':'exact reconstruction from saved pre-event P/x, actual post-event slot IDs and frozen seed inputs; not an extra simulation','seed_writes':len(seeded_ids),'events':len(snapshots),'unique_once':True,'vg_means_unchanged_at_hook':True,'P_is_shared_before_after':True}

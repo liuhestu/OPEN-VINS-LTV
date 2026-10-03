@@ -6,7 +6,7 @@ Run from any working directory with Python 3, NumPy, SciPy, Matplotlib, g++ (C++
 python3 scripts/ltv_standalone_study/run_study.py all
 ```
 
-The individual commands are `freeze`, `verify`, `fixed`, `discretization`, `gains`, `lifecycle`, `initialization`, `report`. Use `--out /absolute/external/directory` before the command to select an output directory. Default: `/home/he/output/ltv_standalone_convergence_v2`.
+The individual commands are `freeze`, `verify`, `fixed`, `discretization`, `gains`, `lifecycle`, `initialization`, `diagnostic`, `report`. The `diagnostic` command runs the declared 120 s C0 continuous extension and preserves the 0–60 s comparisons. Use `--out /absolute/external/directory` before the command to select an output directory. Default: `/home/he/output/ltv_standalone_convergence_v2`.
 
 `freeze` verifies the frozen repository manifest and saves the standalone protocol and experimental diff. `verify` builds the real core and diagnostic copy as standalone shared libraries, then runs short algebra, truth, flow, lifecycle, hook-scope and parity checks. Full simulations require an unchanged verification code identity. All BLAS thread counts are set before importing NumPy. The driver holds an exclusive scheduling lock and uses at most two simulation children; ledger writes are serialized. Every full attempt is reserved in `ledger.json` before starting its subprocess, including failures. Successful identical identities resume without spending another run. Never delete failed reservations to reclaim budget.
 

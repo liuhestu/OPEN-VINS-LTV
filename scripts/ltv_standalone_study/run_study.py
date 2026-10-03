@@ -22,16 +22,20 @@ def code_identity():
     return {str(p.relative_to(ROOT)):digest(p.read_bytes()) for p in files}
 def frozen_check():
     freeze=json.loads((DOC/'evidence/frozen_manifest.json').read_text())
-    changed=[p for p,h in freeze['sha256'].items() if not (ROOT/p).exists() or digest((ROOT/p).read_bytes())!=h]
+    # Original broad manifest is retained as an audit record. Dataset reference
+    # files were inadvertently byte-hashed during the first freeze; never reread them.
+    excluded=[p for p in freeze['sha256'] if p.startswith('ov_data/')]
+    checked={p:h for p,h in freeze['sha256'].items() if p not in excluded}
+    changed=[p for p,h in checked.items() if not (ROOT/p).exists() or digest((ROOT/p).read_bytes())!=h]
     if changed: raise RuntimeError('Frozen files modified: '+repr(changed))
-    return {'checked':len(freeze['sha256']),'changed':changed,'head':freeze['head']}
+    return {'checked':len(checked),'changed':changed,'head':freeze['head'],'dataset_paths_excluded_from_recheck':excluded,'original_manifest_entries':len(freeze['sha256'])}
 def freeze(out):
     check=frozen_check(); write(DOC/'evidence/integrity.json',check)
     protocol={'baseline':check['head'],'output':str(out),'maximum_runs':64,'maximum_simulators':2,'blas_threads':1,'stage_caps':CAPS,'candidates':CANDIDATES,'solver':{'method':'DOP853','rtol':1e-9,'atol':1e-11,'max_step':.005,'tight_rtol':1e-11,'tight_atol':1e-13,'tight_max_step':.0025,'P_scale':1},'reference_state_and_full_P_tolerance':1e-6,'algebra_tolerance':1e-8,'spectrum_relative_roundoff':1e-10,'selection':'wide t_VG at .005 s resolution, otherwise 50-60 s J_tail; continuous nondegradation and discrete benefit required; peaks may increase','input_boundary':'truth -> sensor arrays; only labelled initialization uses pose/point priors','commands':['freeze','verify','fixed','discretization','gains','lifecycle','initialization','report'],'execution_spec_sha':digest(next((ROOT/'docs').glob('03_LTV*')).read_bytes())}
     write(DOC/'protocol.json',protocol)
     patch=''
     for name in ['ltv_observer.h','ltv_observer.cpp','ltv_types.h']:
-        patch+=''.join(difflib.unified_diff((ROOT/'ov_msckf/src/ltv'/name).read_text().splitlines(True),(HERE/'experimental_core'/name).read_text().splitlines(True),fromfile='production/'+name,tofile='experimental_core/'+name))
+        patch+=''.join(difflib.unified_diff((ROOT/'ov_msckf/src/ltv'/name).read_text().splitlines(True),(HERE/'experimental_core'/name).read_text().splitlines(True),fromfile='production/'+name,tofile='experimental_core/'+name,n=0))
     (HERE/'experimental_core.patch').write_text(patch)
     return check
 
@@ -77,11 +81,18 @@ def run(out,stage,c):
     print('DONE',run_id,round(e['seconds'],2),flush=True)
     return e
 
-def parallel_runs(out,stage,configs):
+def parallel_runs(out,stage,configs,allow_candidate_reset=False):
     # Two simulator children total; reservations and completions are serialized.
     with ThreadPoolExecutor(max_workers=2) as pool:
         futures=[pool.submit(run,out,stage,c) for c in configs]
-        return [future.result() for future in futures]
+        results=[]
+        for c,future in zip(configs,futures):
+            try: results.append(future.result())
+            except RuntimeError as error:
+                if allow_candidate_reset and c['impl']=='EXPERIMENTAL' and c['candidate']!='C0' and 'CORE reset' in str(error):
+                    results.append(next(e for e in reversed(ledger(out)) if e['config']==c))
+                else: raise
+        return results
 
 def data(e,name='trace.npz'): return np.load(Path(e['directory'])/name)
 def metric(e): return json.loads((Path(e['directory'])/'metrics.json').read_text())
@@ -113,18 +124,29 @@ def fixed(out):
     if not all(checks.values()): raise RuntimeError('BLOCKED_REFERENCE: hook-off parity')
 
 def discretization(out):
-    for ih,ch in [(1000,20),(200,100),(1000,100)]: run(out,'discretization',config(imu_hz=ih,camera_hz=ch))
-    run(out,'discretization',config('SPLIT_REF',camera_hz=100))
+    parallel_runs(out,'discretization',[config(imu_hz=ih,camera_hz=ch) for ih,ch in [(1000,20),(200,100),(1000,100)]]+[config('SPLIT_REF',camera_hz=100)])
+
+def diagnostic(out):
+    # One pre-declared extension to distinguish slow convergence from a 60 s platform.
+    run(out,'diagnostic',config('CONT_REF',duration=120))
 
 def gains(out):
+    from diagnostics import combined_settling
+    def selection_metric(e):
+        m=metric(e); combined=combined_settling(e)
+        for grade in ['wide','strict']:
+            for target in ['t_V','t_G','t_VG']:
+                m[grade][target]=combined[grade][target+'_all_samples']
+            m[grade]['t_L_all']=combined[grade]['t_L_all_samples']
+        return m
     entries={}
     jobs=[config(impl,candidate=candidate) for candidate in CANDIDATES for impl in ['CONT_REF','EXPERIMENTAL']]
-    completed=parallel_runs(out,'gains',jobs)
+    completed=parallel_runs(out,'gains',jobs,allow_candidate_reset=True)
     for e in completed: entries.setdefault(e['config']['candidate'],{})[e['config']['impl']]=e
     checks=json.loads((out/'reference_checks.json').read_text()); precision=max(c['state_max_normalized'] for c in checks)
     # Resolve scientific metrics by the actual C0 tightened discrepancy, never a post-hoc percentage band.
     base_ref=entries['C0']['CONT_REF']; tight=next(e for e in ledger(out) if e['config']==config('CONT_REF',tight=True) and e['status']=='COMPLETED')
-    base_m=metric(base_ref); tight_m=metric(tight)
+    base_m=selection_metric(base_ref); tight_m=selection_metric(tight)
     j_resolution=max(abs(base_m['J_tail']-tight_m['J_tail']),np.finfo(float).eps)
     choices=[]; decisions={}
     def time_ok(new,old):
@@ -137,9 +159,15 @@ def gains(out):
         if (isinstance(tn,str) and isinstance(to,str)) or (not isinstance(tn,str) and not isinstance(to,str) and abs(tn-to)<.005/2): return new['J_tail']<old['J_tail']-j_resolution
         return False
     for candidate in list(CANDIDATES)[1:]:
-        cm=metric(entries[candidate]['CONT_REF']); dm=metric(entries[candidate]['EXPERIMENTAL']); bm=metric(entries['C0']['EXPERIMENTAL'])
+        if entries[candidate]['EXPERIMENTAL']['status']!='COMPLETED':
+            decisions[candidate]={'continuous_no_degradation':None,'discrete_benefit':False,'continuous_only':None,'excluded':'production numerical reset at the prescribed camera substep cap / protection boundary'}
+            continue
+        cm=selection_metric(entries[candidate]['CONT_REF']); dm=selection_metric(entries[candidate]['EXPERIMENTAL']); bm=selection_metric(entries['C0']['EXPERIMENTAL'])
         continuous_ok=time_ok(cm['wide']['t_VG'],base_m['wide']['t_VG']) and cm['J_tail']<=base_m['J_tail']+j_resolution
-        # Check individual velocity/eta tail quantities, not only their scalar sum.
+        for grade in ['wide','strict']:
+            for target in ['t_V','t_G','t_VG','t_L_all']:
+                continuous_ok &= time_ok(cm[grade][target],base_m[grade][target])
+        # Check individual tail quantities, not only their scalar sum.
         for key in ['v_rmse','eta_rmse','g_angle_rmse','g_magnitude_rmse','landmark_rmse']:
             resolution=max(abs(base_m['50-60'][key]-tight_m['50-60'][key]),np.finfo(float).eps)
             continuous_ok &= cm['50-60'][key]<=base_m['50-60'][key]+resolution
@@ -147,9 +175,9 @@ def gains(out):
         decisions[candidate]={'continuous_no_degradation':bool(continuous_ok),'discrete_benefit':bool(discrete_ok),'continuous_only':bool(better(cm,base_m) and not discrete_ok)}
         if continuous_ok and discrete_ok: choices.append(candidate)
     def ranking(candidate):
-        m=metric(entries[candidate]['EXPERIMENTAL']); t=m['wide']['t_VG']; return (isinstance(t,str), t if not isinstance(t,str) else float('inf'),m['J_tail'])
+        m=selection_metric(entries[candidate]['EXPERIMENTAL']); t=m['wide']['t_VG']; return (isinstance(t,str), t if not isinstance(t,str) else float('inf'),m['J_tail'])
     star=min(choices,key=ranking) if choices else 'C0'
-    write(out/'selection.json',{'C_star':star,'J_resolution':j_resolution,'state_reference_resolution':precision,'decisions':decisions,'status':'SELECTED_DIAGNOSTIC' if choices else 'NO_GAIN_IMPROVEMENT','frozen_at':time.time()})
+    write(out/'selection.json',{'C_star':star,'J_resolution':j_resolution,'state_reference_resolution':precision,'decisions':decisions,'status':'SELECTED_DIAGNOSTIC' if choices else 'NO_GAIN_IMPROVEMENT','settling_basis':'union of 200 Hz checks and camera pre/post; at least five seconds remaining','frozen_at':time.time()})
     if star!='C0':
         run(out,'gains',config('CONT_REF','FAST',star)); run(out,'gains',config('EXPERIMENTAL','FAST',star))
         a=entries[star]['CONT_REF']; b=run(out,'gains',config('CONT_REF',candidate=star,tight=True)); reference_check(a,b,out)
@@ -173,11 +201,17 @@ def initialization(out):
         if events(a)!=events(b): raise AssertionError('GT_MATCHED schedule differs')
 
 def main():
-    parser=argparse.ArgumentParser(); parser.add_argument('--out',type=Path,default=DEFAULT); parser.add_argument('command',choices=['freeze','verify','fixed','discretization','gains','lifecycle','initialization','report','all','worker']); parser.add_argument('--config',type=Path)
+    parser=argparse.ArgumentParser(); parser.add_argument('--out',type=Path,default=DEFAULT); parser.add_argument('command',choices=['freeze','verify','fixed','discretization','gains','lifecycle','initialization','diagnostic','report','all','worker']); parser.add_argument('--config',type=Path)
     args=parser.parse_args(); out=args.out.resolve(); out.mkdir(parents=True,exist_ok=True)
     if args.command=='worker':
         from experiment import execute
-        c=json.loads(args.config.read_text()); execute(c,out,args.config.parent); return
+        c=json.loads(args.config.read_text()); rd=args.config.parent.resolve()
+        reserved=[e for e in ledger(out) if e['status']=='RUNNING' and Path(e['directory']).resolve()==rd and e['config']==c]
+        if len(reserved)!=1: raise RuntimeError('Worker requires a prior unique ledger reservation; use the phase command')
+        if json.loads((rd/'code.json').read_text())!=code_identity(): raise RuntimeError('Simulation code differs from reserved identity')
+        execute(c,out,rd)
+        if json.loads((rd/'code.json').read_text())!=code_identity(): raise RuntimeError('Simulation code changed during the run')
+        return
     # One driver lock prevents accidental concurrent schedules or overspending on resume.
     with (out/'driver.lock').open('w') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -198,13 +232,13 @@ def main():
                 entry['status']='INTERRUPTED'; entry['exit_code']=None
                 entry['recovery_note']='Previous driver exited without recording the child result; no identity reuse'
         if old: write(out/'ledger.json',old)
-        stages=['freeze','verify','fixed','discretization','gains','lifecycle','initialization','report'] if args.command=='all' else [args.command]
+        stages=['freeze','verify','fixed','discretization','diagnostic','gains','lifecycle','initialization','report'] if args.command=='all' else [args.command]
         for stage in stages:
             if stage=='freeze': print(freeze(out))
             elif stage=='verify':
                 build(out)
-                from tests import verify
-                result=verify(out); result['code']=code_identity(); write(out/'verification.json',result); print(result)
+                from tests import verify,verify_statistics
+                result=verify(out); result.update(verify_statistics(out)); result['code']=code_identity(); write(out/'verification.json',result); print(result)
             elif stage=='report':
                 from report import report
                 report(out,DOC); write(DOC/'evidence/integrity.json',frozen_check())

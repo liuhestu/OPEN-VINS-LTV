@@ -15,7 +15,7 @@ def make_plots(entries,destination,star):
     def find(**kw): return [e for e in entries if all(e['config'].get(k)==v for k,v in kw.items())]
     for scene in ['REGULAR','FAST','PAPER','STATIC']:
         es=find(scene=scene,candidate='C0',noise=0,lifetime=0,initialization='ZERO',tight=False,imu_hz=200,camera_hz=20)
-        es=[e for e in es if e['config']['impl']!='EXPERIMENTAL']
+        es=[e for e in es if e['config']['impl']!='EXPERIMENTAL' and e['config']['duration']==(20 if scene=='PAPER' else 60)]
         if not es: continue
         fig,ax=plt.subplots(3,2,figsize=(11,8))
         for e in es:
@@ -26,6 +26,12 @@ def make_plots(entries,destination,star):
                     if j==1: ax[row,j].set_xlim(max(0,z['t'][-1]-10),z['t'][-1])
         for r,title in enumerate(['Velocity error [m/s]','Gravity vector error [m/s²]','Gravity direction error [deg]']):
             for a in ax[r]: a.set_ylabel(title); a.set_xlabel('physical time [s]')
+        for row,col in enumerate([0,1,2]):
+            tail_values=[]
+            for e in es:
+                zz=np.load(Path(e['directory'])/'trace.npz'); tail_values.extend(zz['values'][zz['t']>=zz['t'][-1]-10,col])
+            finite=np.array(tail_values); finite=finite[np.isfinite(finite)]
+            if len(finite): ax[row,1].set_ylim(0,max(.001,float(finite.max())*1.08))
         ax[0,0].legend(); fig.suptitle(scene+' — full horizon and tail'); save(fig,'fixed_'+scene)
     es=find(scene='REGULAR',candidate='C0',noise=0,lifetime=0,initialization='ZERO',tight=False)
     es=[e for e in es if e['config']['impl'] in ['CORE','SPLIT_REF']]
@@ -35,6 +41,15 @@ def make_plots(entries,destination,star):
             z=np.load(Path(e['directory'])/'trace.npz'); c=e['config']; label=f"{c['impl']} {c['imu_hz']}/{c['camera_hz']} Hz"
             for ax,col in zip(axes,[0,1]): ax.plot(z['t'],z['values'][:,col],label=label,lw=.7)
         axes[0].set_ylabel('Velocity error [m/s]'); axes[1].set_ylabel('Gravity vector error [m/s²]'); axes[1].set_xlabel('Time [s]'); axes[0].legend(ncol=2); save(fig,'sampling_rates')
+    references=find(scene='REGULAR',candidate='C0',noise=0,lifetime=0,initialization='ZERO',tight=False,impl='CONT_REF',duration=60)
+    if references and es:
+        ref=np.load(Path(references[0]['directory'])/'trace.npz')
+        fig,ax=plt.subplots(2,1,figsize=(10,7))
+        for e in es:
+            z=np.load(Path(e['directory'])/'trace.npz'); c=e['config']; label=f"{c['impl']} {c['imu_hz']}/{c['camera_hz']} Hz"
+            for a,sl in zip(ax,[slice(-6,-3),slice(-3,None)]):
+                a.plot(z['t'],np.linalg.norm(z['x'][:,sl]-ref['x'][:,sl],axis=1),label=label,lw=.7)
+        ax[0].set_ylabel('Velocity difference to CONT_REF [m/s]'); ax[1].set_ylabel('Gravity difference to CONT_REF [m/s²]'); ax[1].set_xlabel('Time [s]'); ax[0].legend(ncol=2); save(fig,'sampling_differences')
     es=find(scene='REGULAR',noise=0,lifetime=0,initialization='ZERO',tight=False,imu_hz=200,camera_hz=20)
     es=[e for e in es if e['config']['impl']=='EXPERIMENTAL']
     if es:
@@ -44,6 +59,9 @@ def make_plots(entries,destination,star):
             for j,col in enumerate([0,1]):
                 for k in range(2): ax[j,k].plot(z['t'],z['values'][:,col],label=e['config']['candidate'],lw=.8)
                 ax[j,1].set_xlim(50,60)
+        for row,col in enumerate([0,1]):
+            maximum=max(float(np.max(np.load(Path(e['directory'])/'trace.npz')['values'][-2001:,col])) for e in es)
+            ax[row,1].set_ylim(0,max(.001,maximum*1.08))
         ax[0,0].legend(ncol=4); ax[0,0].set_ylabel('Velocity [m/s]'); ax[1,0].set_ylabel('Gravity vector [m/s²]'); save(fig,'gains_full_and_tail')
     es=find(scene='REGULAR',lifetime=0,initialization='ZERO',impl='EXPERIMENTAL')
     es=[e for e in es if e['config']['noise'] in [42,43]]
@@ -75,4 +93,12 @@ def make_plots(entries,destination,star):
                 ageax.plot(centers,med,label=label)
         ax[0].legend(ncol=2,fontsize=7); ax[0].set_ylabel('Velocity [m/s]'); ax[1].set_ylabel('Gravity vector [m/s²]'); ax[2].set_ylabel('Landmark relative error P95'); ax[2].set_xlabel('Time [s]'); save(fig,'lifecycle_initialization_'+scene)
         ageax.axhline(.05,color='black',ls='--',label='wide target'); ageax.set_xlabel('Observation age [s], eligible only through last visible'); ageax.set_ylabel('Median relative 3D landmark error'); ageax.legend(fontsize=7); save(agefig,'landmark_age_'+scene)
+    extended=[e for e in entries if e['config']['duration']>60]
+    if extended:
+        fig,ax=plt.subplots(3,1,figsize=(10,8))
+        for e in extended:
+            z=np.load(Path(e['directory'])/'trace.npz')
+            for a,col in zip(ax,[0,1,2]):
+                a.plot(z['t'],z['values'][:,col],label=e['id']); a.axvline(60,color='gray',ls='--')
+        ax[0].set_ylabel('Velocity [m/s]'); ax[1].set_ylabel('Gravity vector [m/s²]'); ax[2].set_ylabel('Gravity direction [deg]'); ax[2].set_xlabel('Time [s]'); ax[0].legend(); save(fig,'extended_full_horizon')
     return paths

@@ -98,3 +98,20 @@ def verify(out):
     results['hook_off_parity_slots_cross_blocks_hook_scope_integer_ticks']='PASS'
     core.close(); exp.close()
     return results
+
+def verify_statistics(out):
+    """Pure fabricated-data regression for tied camera timestamps; no simulation."""
+    import tempfile
+    from pathlib import Path
+    from diagnostics import combined_settling
+    folder=Path(tempfile.mkdtemp(prefix='statistics_test_',dir=out))
+    t=np.arange(1221)/200; values=np.zeros((len(t),6)); values[t<1,0]=1
+    landmarks=np.zeros((len(t),30,6))
+    np.savez(folder/'trace.npz',t=t,values=values,landmarks=landmarks)
+    camera_values=np.zeros((2,6)); camera_values[0,0]=1
+    camera_landmarks=np.zeros((2,30,6)); camera_landmarks[0,0,1]=1
+    np.savez(folder/'camera.npz',t=[1.,1.],values=camera_values,landmarks=camera_landmarks)
+    result=combined_settling({'directory':str(folder),'config':{'scene':'REGULAR','lifetime':0}})
+    assert result['wide']['t_VG_all_samples']==1.005
+    assert result['wide']['t_L_all_samples']==1.005
+    return {'camera_ties_cannot_hide_preupdate_failure':'PASS'}
