@@ -1,0 +1,191 @@
+{
+  "41_REGULAR_EXPERIMENTAL_C0": {
+    "slotted": 1827,
+    "completed_observation_tracks": 1800,
+    "observation_right_censored": 27,
+    "wide": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    },
+    "strict": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    }
+  },
+  "49_REGULAR_EXPERIMENTAL_C6": {
+    "slotted": 1827,
+    "completed_observation_tracks": 1800,
+    "observation_right_censored": 27,
+    "wide": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    },
+    "strict": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    }
+  },
+  "61_REGULAR_EXPERIMENTAL_C2": {
+    "slotted": 1827,
+    "completed_observation_tracks": 1800,
+    "observation_right_censored": 27,
+    "wide": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    },
+    "strict": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    }
+  },
+  "45_FAST_EXPERIMENTAL_C0": {
+    "slotted": 1827,
+    "completed_observation_tracks": 1800,
+    "observation_right_censored": 27,
+    "wide": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    },
+    "strict": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    }
+  },
+  "50_FAST_EXPERIMENTAL_C6": {
+    "slotted": 1827,
+    "completed_observation_tracks": 1800,
+    "observation_right_censored": 27,
+    "wide": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    },
+    "strict": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    }
+  },
+  "62_FAST_EXPERIMENTAL_C2": {
+    "slotted": 1827,
+    "completed_observation_tracks": 1800,
+    "observation_right_censored": 27,
+    "wide": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    },
+    "strict": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    }
+  },
+  "11_PAPER_CORE_C0": {
+    "slotted": 16,
+    "completed_observation_tracks": 0,
+    "observation_right_censored": 16,
+    "wide": {
+      "landmark_success_completed": null,
+      "joint_success_completed": null,
+      "landmark_success_all_by_horizon": 1.0,
+      "joint_success_all_by_horizon": 1.0,
+      "landmark_terminal_success_completed": null,
+      "joint_terminal_success_completed": null
+    },
+    "strict": {
+      "landmark_success_completed": null,
+      "joint_success_completed": null,
+      "landmark_success_all_by_horizon": 1.0,
+      "joint_success_all_by_horizon": 1.0,
+      "landmark_terminal_success_completed": null,
+      "joint_terminal_success_completed": null
+    }
+  },
+  "63_PAPER_EXPERIMENTAL_C0": {
+    "slotted": 336,
+    "completed_observation_tracks": 320,
+    "observation_right_censored": 16,
+    "wide": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    },
+    "strict": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    }
+  },
+  "64_PAPER_EXPERIMENTAL_C0": {
+    "slotted": 80,
+    "completed_observation_tracks": 64,
+    "observation_right_censored": 16,
+    "wide": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    },
+    "strict": {
+      "landmark_success_completed": 0.0,
+      "joint_success_completed": 0.0,
+      "landmark_success_all_by_horizon": 0.0,
+      "joint_success_all_by_horizon": 0.0,
+      "landmark_terminal_success_completed": 0.0,
+      "joint_terminal_success_completed": 0.0
+    }
+  }
+}

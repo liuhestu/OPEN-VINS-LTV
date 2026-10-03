@@ -1,0 +1,33 @@
+[
+  {
+    "runs": [
+      "41_REGULAR_EXPERIMENTAL_C0",
+      "61_REGULAR_EXPERIMENTAL_C2",
+      "49_REGULAR_EXPERIMENTAL_C6"
+    ],
+    "physical_bearing_sha": "a667d51ac212cff615ea767051f75dcc58b3997290ee9cee11e5e18561cadaaf",
+    "input_sha": "40e9b9b2461f5385660837dc6c99b706d43194c7ea41ed5dac25b4fd69fc9a52",
+    "pass": true
+  },
+  {
+    "runs": [
+      "45_FAST_EXPERIMENTAL_C0",
+      "62_FAST_EXPERIMENTAL_C2",
+      "50_FAST_EXPERIMENTAL_C6"
+    ],
+    "physical_bearing_sha": "5ced0931f68f120d5ac30b2065c503029e78058defc00786571e6192e3c73dab",
+    "input_sha": "bf237d493ac9f4b5e0191662e4390ed4ae9ac2ffe0084f4d1b1d1de731ef3ff8",
+    "pass": true
+  },
+  {
+    "runs": [
+      "11_PAPER_CORE_C0",
+      "63_PAPER_EXPERIMENTAL_C0",
+      "64_PAPER_EXPERIMENTAL_C0",
+      "59_PAPER_SPLIT_REF_C0"
+    ],
+    "physical_bearing_sha": "70416516b8158cc03b44ff08a5f737215f55194e539fef864b28d8b1a08bbe63",
+    "input_sha": "4f7b5c7f6a751a04c3ce69c00d60fd9d68076dd59739d6ba6a40d8ab16955ca8",
+    "pass": true
+  }
+]

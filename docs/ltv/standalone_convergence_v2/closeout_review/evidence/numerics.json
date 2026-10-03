@@ -1,0 +1,112 @@
+{
+  "41_REGULAR_EXPERIMENTAL_C0": {
+    "P_min": 0.9999949998521045,
+    "P_max": 16252111.032590082,
+    "P_condition_max": 13714220.557987208,
+    "symmetry_max": 0.0,
+    "substeps_max": 2.0,
+    "protection_count": 0.0,
+    "protection_norm": 0.0,
+    "seconds": 34.096762409899384
+  },
+  "49_REGULAR_EXPERIMENTAL_C6": {
+    "P_min": 9512.34374999969,
+    "P_max": 16399779.103203146,
+    "P_condition_max": 1455.0614614925066,
+    "symmetry_max": 0.0,
+    "substeps_max": 2.0,
+    "protection_count": 0.0,
+    "protection_norm": 0.0,
+    "seconds": 33.70413410500623
+  },
+  "61_REGULAR_EXPERIMENTAL_C2": {
+    "P_min": 0.9999500016007964,
+    "P_max": 14426762.822270017,
+    "P_condition_max": 12186820.182945248,
+    "symmetry_max": 0.0,
+    "substeps_max": 9.0,
+    "protection_count": 0.0,
+    "protection_norm": 0.0,
+    "seconds": 39.44849420408718
+  },
+  "45_FAST_EXPERIMENTAL_C0": {
+    "P_min": 0.9999949998096098,
+    "P_max": 21591096.68354068,
+    "P_condition_max": 18268038.603871614,
+    "symmetry_max": 0.0,
+    "substeps_max": 2.0,
+    "protection_count": 0.0,
+    "protection_norm": 0.0,
+    "seconds": 34.06390118715353
+  },
+  "50_FAST_EXPERIMENTAL_C6": {
+    "P_min": 9512.343749999805,
+    "P_max": 21791564.474142645,
+    "P_condition_max": 1938.1863939006485,
+    "symmetry_max": 0.0,
+    "substeps_max": 2.0,
+    "protection_count": 0.0,
+    "protection_norm": 0.0,
+    "seconds": 34.10147303203121
+  },
+  "62_FAST_EXPERIMENTAL_C2": {
+    "P_min": 0.9999500019875587,
+    "P_max": 19423065.882990025,
+    "P_condition_max": 16434393.890252776,
+    "symmetry_max": 0.0,
+    "substeps_max": 9.0,
+    "protection_count": 0.0,
+    "protection_norm": 0.0,
+    "seconds": 39.812435660045594
+  },
+  "11_PAPER_CORE_C0": {
+    "P_min": 1.0,
+    "P_max": 13823184.471613362,
+    "P_condition_max": 243.88626216042726,
+    "symmetry_max": 0.0,
+    "substeps_max": 2.0,
+    "protection_count": 0.0,
+    "protection_norm": 0.0,
+    "seconds": 3.820683653000742
+  },
+  "63_PAPER_EXPERIMENTAL_C0": {
+    "P_min": 0.9999949998731914,
+    "P_max": 4514611.761142565,
+    "P_condition_max": 3866431.323803523,
+    "symmetry_max": 0.0,
+    "substeps_max": 2.0,
+    "protection_count": 0.0,
+    "protection_norm": 0.0,
+    "seconds": 4.7052759430371225
+  },
+  "64_PAPER_EXPERIMENTAL_C0": {
+    "P_min": 0.9999949998953943,
+    "P_max": 9823136.958599053,
+    "P_condition_max": 9134185.905444566,
+    "symmetry_max": 0.0,
+    "substeps_max": 2.0,
+    "protection_count": 0.0,
+    "protection_norm": 0.0,
+    "seconds": 4.398573810001835
+  },
+  "59_PAPER_SPLIT_REF_C0": {
+    "P_min": 1.0,
+    "P_max": 14261257.67446426,
+    "P_condition_max": 188.10072555512062,
+    "symmetry_max": 2.254082472001596e-15,
+    "substeps_max": 0.0,
+    "protection_count": 0.0,
+    "protection_norm": 0.0,
+    "seconds": 4.530913727125153
+  },
+  "60_PAPER_CORE_C0": {
+    "P_min": 1.0,
+    "P_max": 14523171.850630831,
+    "P_condition_max": 259.6487895276005,
+    "symmetry_max": 0.0,
+    "substeps_max": 2.0,
+    "protection_count": 0.0,
+    "protection_norm": 0.0,
+    "seconds": 7.385011826874688
+  }
+}

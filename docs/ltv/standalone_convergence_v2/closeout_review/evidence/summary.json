@@ -1,0 +1,16 @@
+{
+  "status": "COMPLETED_WITH_RESULTS",
+  "total_attempts": 64,
+  "new_attempts": 6,
+  "completed": {
+    "E1": "59_PAPER_SPLIT_REF_C0",
+    "E2": "60_PAPER_CORE_C0",
+    "E3": "61_REGULAR_EXPERIMENTAL_C2",
+    "E4": "62_FAST_EXPERIMENTAL_C2",
+    "E5": "63_PAPER_EXPERIMENTAL_C0",
+    "E6": "64_PAPER_EXPERIMENTAL_C0"
+  },
+  "missing": [],
+  "historical_C_star": "C6",
+  "selection_repeated": false
+}

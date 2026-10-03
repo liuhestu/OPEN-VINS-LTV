@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "runs": 64,
+  "new_runs": 6,
+  "failed_new_runs": 0,
+  "numerical": {
+    "E1": {
+      "finite_active_states_and_P": true,
+      "P_min": 1.0,
+      "symmetry_max": 2.254082472001596e-15,
+      "pass": true
+    },
+    "E2": {
+      "finite_active_states_and_P": true,
+      "P_min": 1.0,
+      "symmetry_max": 0.0,
+      "pass": true
+    },
+    "E3": {
+      "finite_active_states_and_P": true,
+      "P_min": 0.9999500016007964,
+      "symmetry_max": 0.0,
+      "pass": true
+    },
+    "E4": {
+      "finite_active_states_and_P": true,
+      "P_min": 0.9999500019875587,
+      "symmetry_max": 0.0,
+      "pass": true
+    },
+    "E5": {
+      "finite_active_states_and_P": true,
+      "P_min": 0.9999949998731914,
+      "symmetry_max": 0.0,
+      "pass": true
+    },
+    "E6": {
+      "finite_active_states_and_P": true,
+      "P_min": 0.9999949998953943,
+      "symmetry_max": 0.0,
+      "pass": true
+    }
+  },
+  "test_command": [
+    "python3",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_standalone_study/test_closeout_review.py"
+  ],
+  "test_exit_code": 0,
+  "test_output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.009s\n\nOK\n",
+  "links_and_table_widths": true,
+  "historical_artifacts_unchanged": true,
+  "historical_ledger_prefix_unchanged": true,
+  "historical_selection_unchanged": true
+}

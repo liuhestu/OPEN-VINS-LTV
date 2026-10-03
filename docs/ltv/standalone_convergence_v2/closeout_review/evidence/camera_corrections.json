@@ -1,0 +1,47 @@
+{
+  "41_REGULAR_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5358611609029219,
+    "maximum_gravity_correction": 0.2590084272612989
+  },
+  "49_REGULAR_EXPERIMENTAL_C6": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5360437361703904,
+    "maximum_gravity_correction": 0.25948843265662286
+  },
+  "61_REGULAR_EXPERIMENTAL_C2": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5382411648114189,
+    "maximum_gravity_correction": 0.2716525845806115
+  },
+  "45_FAST_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5507739246174292,
+    "maximum_gravity_correction": 0.27558100677978625
+  },
+  "50_FAST_EXPERIMENTAL_C6": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5514909321358534,
+    "maximum_gravity_correction": 0.276336053338304
+  },
+  "62_FAST_EXPERIMENTAL_C2": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5464311500084892,
+    "maximum_gravity_correction": 0.2854045347829568
+  },
+  "11_PAPER_CORE_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5215407298741186,
+    "maximum_gravity_correction": 0.2527007792554956
+  },
+  "63_PAPER_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5355996676505701,
+    "maximum_gravity_correction": 0.2769702203688049
+  },
+  "64_PAPER_EXPERIMENTAL_C0": {
+    "source": "actual camera endpoint difference, excluding slot rebuild and one-time mean seed; not a replay",
+    "maximum_velocity_correction": 0.5246978246072121,
+    "maximum_gravity_correction": 0.25728462880714864
+  }
+}

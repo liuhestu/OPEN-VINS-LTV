@@ -1,0 +1,308 @@
+{
+  "60_PAPER_CORE_C0": {
+    "0-20": {
+      "v_rmse": 1.2750812316842992,
+      "eta_rmse": 2.5755258204560927,
+      "landmark_rmse": 0.9372602691280735,
+      "landmark_relative_p95": 0.6780625230520219,
+      "positive_ray_fraction": 0.998578480379905,
+      "near_center_fraction": 0.007669957510622345,
+      "wide_VG_fraction": 0.4726318420394901,
+      "strict_VG_fraction": 0.36690827293176703,
+      "samples": 4001
+    },
+    "5-20": {
+      "v_rmse": 0.2488036151025888,
+      "eta_rmse": 0.18126446025704837,
+      "landmark_rmse": 0.32905821098932186,
+      "landmark_relative_p95": 0.2582355526114116,
+      "positive_ray_fraction": 1.0,
+      "near_center_fraction": 0.0,
+      "wide_VG_fraction": 0.6301232922359213,
+      "strict_VG_fraction": 0.48917027657447515,
+      "samples": 3001
+    },
+    "15-20": {
+      "v_rmse": 0.03515741796034932,
+      "eta_rmse": 0.07303986522358899,
+      "landmark_rmse": 0.014091464864997925,
+      "landmark_relative_p95": 0.007802303640220219,
+      "positive_ray_fraction": 1.0,
+      "near_center_fraction": 0.0,
+      "wide_VG_fraction": 1.0,
+      "strict_VG_fraction": 0.998001998001998,
+      "samples": 1001
+    },
+    "20-30": {
+      "v_rmse": 0.039756591025448415,
+      "eta_rmse": 0.07369102538277542,
+      "landmark_rmse": 0.027602987503292896,
+      "landmark_relative_p95": 0.012045851297999271,
+      "positive_ray_fraction": 1.0,
+      "near_center_fraction": 0.0,
+      "wide_VG_fraction": 1.0,
+      "strict_VG_fraction": 0.9460269865067467,
+      "samples": 2001
+    },
+    "0-30": {
+      "v_rmse": 1.0413958540939456,
+      "eta_rmse": 2.1034259118458234,
+      "landmark_rmse": 0.7654676010559188,
+      "landmark_relative_p95": 0.6165136899122992,
+      "positive_ray_fraction": 0.9990522412931178,
+      "near_center_fraction": 0.0051137310448258625,
+      "wide_VG_fraction": 0.6483919346775537,
+      "strict_VG_fraction": 0.55990668221963,
+      "samples": 6001
+    }
+  },
+  "41_REGULAR_EXPERIMENTAL_C0": {
+    "0-60": {
+      "v_rmse": 1.9439807841220635,
+      "eta_rmse": 1.861192597438234,
+      "landmark_rmse": 15.002911559413937,
+      "landmark_relative_p95": 1.0369692732362592,
+      "positive_ray_fraction": 0.24189095353165013,
+      "near_center_fraction": 0.5201594311585146,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 12001
+    },
+    "50-60": {
+      "v_rmse": 1.5334562331547614,
+      "eta_rmse": 0.9086666665157358,
+      "landmark_rmse": 14.81141018801716,
+      "landmark_relative_p95": 1.01645773709033,
+      "positive_ray_fraction": 0.3703981342662002,
+      "near_center_fraction": 0.5348659003831417,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 2001
+    }
+  },
+  "49_REGULAR_EXPERIMENTAL_C6": {
+    "0-60": {
+      "v_rmse": 1.9441489719732141,
+      "eta_rmse": 1.860504242506896,
+      "landmark_rmse": 15.007663839940996,
+      "landmark_relative_p95": 1.0374845799142798,
+      "positive_ray_fraction": 0.23138627336610837,
+      "near_center_fraction": 0.5189484209649196,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 12001
+    },
+    "50-60": {
+      "v_rmse": 1.5324797186071761,
+      "eta_rmse": 0.9073230941959788,
+      "landmark_rmse": 14.816215785772393,
+      "landmark_relative_p95": 1.016429891217327,
+      "positive_ray_fraction": 0.35373979676828254,
+      "near_center_fraction": 0.5613026819923371,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 2001
+    }
+  },
+  "61_REGULAR_EXPERIMENTAL_C2": {
+    "0-60": {
+      "v_rmse": 1.8689138902557607,
+      "eta_rmse": 1.838156297035268,
+      "landmark_rmse": 14.993569657362926,
+      "landmark_relative_p95": 1.0337582877684948,
+      "positive_ray_fraction": 0.2178846207260506,
+      "near_center_fraction": 0.5737410771324611,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 12001
+    },
+    "50-60": {
+      "v_rmse": 1.509127759800307,
+      "eta_rmse": 0.9107823335077909,
+      "landmark_rmse": 14.813299926118288,
+      "landmark_relative_p95": 1.0160018372778752,
+      "positive_ray_fraction": 0.3593703148425787,
+      "near_center_fraction": 0.5910711311011161,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 2001
+    }
+  },
+  "45_FAST_EXPERIMENTAL_C0": {
+    "0-60": {
+      "v_rmse": 4.870497371850628,
+      "eta_rmse": 3.1278653537628616,
+      "landmark_rmse": 15.919727869320205,
+      "landmark_relative_p95": 1.0697176271641284,
+      "positive_ray_fraction": 0.07556036996916923,
+      "near_center_fraction": 0.14189928617059688,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 12001
+    },
+    "50-60": {
+      "v_rmse": 4.706847092962411,
+      "eta_rmse": 2.732320616542111,
+      "landmark_rmse": 15.583042043902948,
+      "landmark_relative_p95": 1.0663617185605156,
+      "positive_ray_fraction": 0.1758120939530235,
+      "near_center_fraction": 0.26300183241712477,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 2001
+    }
+  },
+  "50_FAST_EXPERIMENTAL_C6": {
+    "0-60": {
+      "v_rmse": 4.8753985818726315,
+      "eta_rmse": 3.128059200380437,
+      "landmark_rmse": 15.926498569702293,
+      "landmark_relative_p95": 1.0700090861488856,
+      "positive_ray_fraction": 0.07027747687692693,
+      "near_center_fraction": 0.1432880593283893,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 12001
+    },
+    "50-60": {
+      "v_rmse": 4.710398969061443,
+      "eta_rmse": 2.7312582914435546,
+      "landmark_rmse": 15.588460198675063,
+      "landmark_relative_p95": 1.0659450999763265,
+      "positive_ray_fraction": 0.15598867233050143,
+      "near_center_fraction": 0.2666999833416625,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 2001
+    }
+  },
+  "62_FAST_EXPERIMENTAL_C2": {
+    "0-60": {
+      "v_rmse": 4.775026183631197,
+      "eta_rmse": 3.1181215090029077,
+      "landmark_rmse": 15.883564853733526,
+      "landmark_relative_p95": 1.0650864868881675,
+      "positive_ray_fraction": 0.07517706857761854,
+      "near_center_fraction": 0.17079965558425686,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 12001
+    },
+    "50-60": {
+      "v_rmse": 4.633288242588127,
+      "eta_rmse": 2.739032129066071,
+      "landmark_rmse": 15.561541457468302,
+      "landmark_relative_p95": 1.0634752673055035,
+      "positive_ray_fraction": 0.18937198067632852,
+      "near_center_fraction": 0.3331334332833583,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 2001
+    }
+  },
+  "11_PAPER_CORE_C0": {
+    "0-20": {
+      "v_rmse": 1.2750812316842992,
+      "eta_rmse": 2.5755258204560927,
+      "landmark_rmse": 0.9372602691280735,
+      "landmark_relative_p95": 0.6780625230520219,
+      "positive_ray_fraction": 0.998578480379905,
+      "near_center_fraction": 0.007669957510622345,
+      "wide_VG_fraction": 0.4726318420394901,
+      "strict_VG_fraction": 0.36690827293176703,
+      "samples": 4001
+    },
+    "5-20": {
+      "v_rmse": 0.2488036151025888,
+      "eta_rmse": 0.18126446025704837,
+      "landmark_rmse": 0.32905821098932186,
+      "landmark_relative_p95": 0.2582355526114116,
+      "positive_ray_fraction": 1.0,
+      "near_center_fraction": 0.0,
+      "wide_VG_fraction": 0.6301232922359213,
+      "strict_VG_fraction": 0.48917027657447515,
+      "samples": 3001
+    },
+    "15-20": {
+      "v_rmse": 0.03515741796034932,
+      "eta_rmse": 0.07303986522358899,
+      "landmark_rmse": 0.014091464864997925,
+      "landmark_relative_p95": 0.007802303640220219,
+      "positive_ray_fraction": 1.0,
+      "near_center_fraction": 0.0,
+      "wide_VG_fraction": 1.0,
+      "strict_VG_fraction": 0.998001998001998,
+      "samples": 1001
+    }
+  },
+  "63_PAPER_EXPERIMENTAL_C0": {
+    "0-20": {
+      "v_rmse": 2.5426518109654306,
+      "eta_rmse": 2.9154465119218966,
+      "landmark_rmse": 3.038060187214674,
+      "landmark_relative_p95": 1.0923664142326592,
+      "positive_ray_fraction": 0.23823663124396205,
+      "near_center_fraction": 0.29963914303574474,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 4001
+    },
+    "5-20": {
+      "v_rmse": 2.35955290539654,
+      "eta_rmse": 1.4774735580437974,
+      "landmark_rmse": 3.1220505534811593,
+      "landmark_relative_p95": 1.0968960161330565,
+      "positive_ray_fraction": 0.08196069521753947,
+      "near_center_fraction": 0.3109545988110114,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 3001
+    },
+    "15-20": {
+      "v_rmse": 2.421412931001108,
+      "eta_rmse": 1.4664658251021239,
+      "landmark_rmse": 3.0810761426303843,
+      "landmark_relative_p95": 1.0978946062498978,
+      "positive_ray_fraction": 0.10160063571347486,
+      "near_center_fraction": 0.34674764445453515,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 1001
+    }
+  },
+  "64_PAPER_EXPERIMENTAL_C0": {
+    "0-20": {
+      "v_rmse": 2.2343274662159396,
+      "eta_rmse": 2.811715544452398,
+      "landmark_rmse": 2.6102698407241465,
+      "landmark_relative_p95": 1.0906346755463636,
+      "positive_ray_fraction": 0.7550745285475742,
+      "near_center_fraction": 0.13378372167838595,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 4001
+    },
+    "5-20": {
+      "v_rmse": 2.0469141330133067,
+      "eta_rmse": 1.2600457297361451,
+      "landmark_rmse": 2.7259048906355847,
+      "landmark_relative_p95": 1.1036214367382304,
+      "positive_ray_fraction": 0.6884864324070482,
+      "near_center_fraction": 0.1466402597137432,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 3001
+    },
+    "15-20": {
+      "v_rmse": 2.134809870313887,
+      "eta_rmse": 1.2821397896597468,
+      "landmark_rmse": 2.769433089155654,
+      "landmark_relative_p95": 1.1016849227411403,
+      "positive_ray_fraction": 0.6766848258554202,
+      "near_center_fraction": 0.1892636346942523,
+      "wide_VG_fraction": 0.0,
+      "strict_VG_fraction": 0.0,
+      "samples": 1001
+    }
+  }
+}

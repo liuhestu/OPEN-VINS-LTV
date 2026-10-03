@@ -1,0 +1,678 @@
+{
+  "41_REGULAR_EXPERIMENTAL_C0": {
+    "seed": {},
+    "completed_denominator": 1800,
+    "right_censored": 27,
+    "breakdown": {
+      "wide": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 0,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 0,
+          "both_fail": 1800
+        },
+        "at_last_visible_separate": {
+          "V_pass": 0,
+          "G_pass": 4,
+          "landmark_pass": 0,
+          "VG_pass": 0
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 0,
+        "held_joint_success": 0,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      },
+      "strict": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 0,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 0,
+          "both_fail": 1800
+        },
+        "at_last_visible_separate": {
+          "V_pass": 0,
+          "G_pass": 0,
+          "landmark_pass": 0,
+          "VG_pass": 0
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 0,
+        "held_joint_success": 0,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      }
+    },
+    "seed_directions": {
+      "status": "MISSING_NOT_RECONSTRUCTED_NOW"
+    }
+  },
+  "51_REGULAR_EXPERIMENTAL_C0": {
+    "seed": {
+      "accepted": 1827,
+      "slotted": 1827,
+      "acceptance": 1.0,
+      "delay_observed_median": 0.10000000000000142,
+      "delay_residence_median": 0.0,
+      "seed_error_rmse": 0.0,
+      "paired_geometry_error_rmse": 0.0
+    },
+    "completed_denominator": 1800,
+    "right_censored": 27,
+    "breakdown": {
+      "wide": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 1647,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 50,
+          "both_fail": 103
+        },
+        "at_last_visible_separate": {
+          "V_pass": 1647,
+          "G_pass": 1677,
+          "landmark_pass": 1697,
+          "VG_pass": 1647
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 1694,
+        "held_joint_success": 1644,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      },
+      "strict": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 1575,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 97,
+          "both_fail": 128
+        },
+        "at_last_visible_separate": {
+          "V_pass": 1596,
+          "G_pass": 1620,
+          "landmark_pass": 1672,
+          "VG_pass": 1575
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 1669,
+        "held_joint_success": 1571,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      }
+    },
+    "seed_directions": {
+      "source": "previously saved explicitly reconstructed hook x_after, evaluated against analytic truth; not a live seed-vector log",
+      "count": 1827,
+      "body_component_rmse": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "body_component_mean": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ray_signed_mean": 0.0,
+      "ray_rmse": 0.0,
+      "transverse_rmse": 0.0
+    }
+  },
+  "52_REGULAR_EXPERIMENTAL_C0": {
+    "seed": {
+      "accepted": 1824,
+      "slotted": 1827,
+      "acceptance": 0.9983579638752053,
+      "delay_observed_median": 0.14999999999999858,
+      "delay_residence_median": 0.04999999999999716,
+      "seed_error_rmse": 1.4405967390036092e-10,
+      "paired_geometry_error_rmse": 1.4405967390036092e-10
+    },
+    "completed_denominator": 1800,
+    "right_censored": 27,
+    "breakdown": {
+      "wide": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 1419,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 273,
+          "both_fail": 108
+        },
+        "at_last_visible_separate": {
+          "V_pass": 1446,
+          "G_pass": 1640,
+          "landmark_pass": 1692,
+          "VG_pass": 1419
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 1689,
+        "held_joint_success": 1389,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      },
+      "strict": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 1299,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 367,
+          "both_fail": 134
+        },
+        "at_last_visible_separate": {
+          "V_pass": 1313,
+          "G_pass": 1494,
+          "landmark_pass": 1666,
+          "VG_pass": 1299
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 1663,
+        "held_joint_success": 1281,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      }
+    },
+    "seed_directions": {
+      "source": "previously saved explicitly reconstructed hook x_after, evaluated against analytic truth; not a live seed-vector log",
+      "count": 1824,
+      "body_component_rmse": [
+        5.1707693984230656e-11,
+        3.7969380914284065e-11,
+        1.289877131361646e-10
+      ],
+      "body_component_mean": [
+        -1.5552840798255155e-11,
+        -1.4910993888204238e-11,
+        -6.498818345067155e-11
+      ],
+      "ray_signed_mean": -7.327609496073788e-11,
+      "ray_rmse": 1.4405772955923535e-10,
+      "transverse_rmse": 7.484641050479753e-13
+    }
+  },
+  "53_REGULAR_EXPERIMENTAL_C0": {
+    "seed": {
+      "accepted": 1824,
+      "slotted": 1827,
+      "acceptance": 0.9983579638752053,
+      "delay_observed_median": 0.14999999999999858,
+      "delay_residence_median": 0.04999999999999716,
+      "seed_error_rmse": 0.0,
+      "paired_geometry_error_rmse": 1.4405967390036092e-10
+    },
+    "completed_denominator": 1800,
+    "right_censored": 27,
+    "breakdown": {
+      "wide": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 1419,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 273,
+          "both_fail": 108
+        },
+        "at_last_visible_separate": {
+          "V_pass": 1446,
+          "G_pass": 1640,
+          "landmark_pass": 1692,
+          "VG_pass": 1419
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 1689,
+        "held_joint_success": 1389,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      },
+      "strict": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 1299,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 367,
+          "both_fail": 134
+        },
+        "at_last_visible_separate": {
+          "V_pass": 1313,
+          "G_pass": 1494,
+          "landmark_pass": 1666,
+          "VG_pass": 1299
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 1663,
+        "held_joint_success": 1281,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      }
+    },
+    "seed_directions": {
+      "source": "previously saved explicitly reconstructed hook x_after, evaluated against analytic truth; not a live seed-vector log",
+      "count": 1824,
+      "body_component_rmse": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "body_component_mean": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ray_signed_mean": 0.0,
+      "ray_rmse": 0.0,
+      "transverse_rmse": 0.0
+    }
+  },
+  "54_REGULAR_EXPERIMENTAL_C0": {
+    "seed": {
+      "accepted": 1823,
+      "slotted": 1827,
+      "acceptance": 0.9978106185002736,
+      "delay_observed_median": 0.10000000000000142,
+      "delay_residence_median": 0.0,
+      "seed_error_rmse": 4.08614739790472,
+      "paired_geometry_error_rmse": 4.08614739790472
+    },
+    "completed_denominator": 1800,
+    "right_censored": 27,
+    "breakdown": {
+      "wide": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 8,
+          "landmark_only_fail": 24,
+          "VG_only_fail": 207,
+          "both_fail": 1561
+        },
+        "at_last_visible_separate": {
+          "V_pass": 32,
+          "G_pass": 951,
+          "landmark_pass": 215,
+          "VG_pass": 32
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 207,
+        "held_joint_success": 7,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      },
+      "strict": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 0,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 80,
+          "both_fail": 1720
+        },
+        "at_last_visible_separate": {
+          "V_pass": 0,
+          "G_pass": 210,
+          "landmark_pass": 80,
+          "VG_pass": 0
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 73,
+        "held_joint_success": 0,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      }
+    },
+    "seed_directions": {
+      "source": "previously saved explicitly reconstructed hook x_after, evaluated against analytic truth; not a live seed-vector log",
+      "count": 1823,
+      "body_component_rmse": [
+        1.5056116520700944,
+        1.0197657350132425,
+        3.6592091982076114
+      ],
+      "body_component_mean": [
+        -0.5429560083196912,
+        -0.511141024866857,
+        -2.584396914598344
+      ],
+      "ray_signed_mean": -2.882816181857144,
+      "ray_rmse": 4.0860746608392615,
+      "transverse_rmse": 0.024380800865324816
+    }
+  },
+  "45_FAST_EXPERIMENTAL_C0": {
+    "seed": {},
+    "completed_denominator": 1800,
+    "right_censored": 27,
+    "breakdown": {
+      "wide": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 0,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 0,
+          "both_fail": 1800
+        },
+        "at_last_visible_separate": {
+          "V_pass": 0,
+          "G_pass": 0,
+          "landmark_pass": 0,
+          "VG_pass": 0
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 0,
+        "held_joint_success": 0,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      },
+      "strict": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 0,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 0,
+          "both_fail": 1800
+        },
+        "at_last_visible_separate": {
+          "V_pass": 0,
+          "G_pass": 0,
+          "landmark_pass": 0,
+          "VG_pass": 0
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 0,
+        "held_joint_success": 0,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      }
+    },
+    "seed_directions": {
+      "status": "MISSING_NOT_RECONSTRUCTED_NOW"
+    }
+  },
+  "55_FAST_EXPERIMENTAL_C0": {
+    "seed": {
+      "accepted": 1827,
+      "slotted": 1827,
+      "acceptance": 1.0,
+      "delay_observed_median": 0.10000000000000142,
+      "delay_residence_median": 0.0,
+      "seed_error_rmse": 0.0,
+      "paired_geometry_error_rmse": 0.0
+    },
+    "completed_denominator": 1800,
+    "right_censored": 27,
+    "breakdown": {
+      "wide": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 1631,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 66,
+          "both_fail": 103
+        },
+        "at_last_visible_separate": {
+          "V_pass": 1631,
+          "G_pass": 1664,
+          "landmark_pass": 1697,
+          "VG_pass": 1631
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 1694,
+        "held_joint_success": 1628,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      },
+      "strict": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 1623,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 43,
+          "both_fail": 134
+        },
+        "at_last_visible_separate": {
+          "V_pass": 1623,
+          "G_pass": 1640,
+          "landmark_pass": 1666,
+          "VG_pass": 1623
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 1656,
+        "held_joint_success": 1620,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      }
+    },
+    "seed_directions": {
+      "source": "previously saved explicitly reconstructed hook x_after, evaluated against analytic truth; not a live seed-vector log",
+      "count": 1827,
+      "body_component_rmse": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "body_component_mean": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ray_signed_mean": 0.0,
+      "ray_rmse": 0.0,
+      "transverse_rmse": 0.0
+    }
+  },
+  "56_FAST_EXPERIMENTAL_C0": {
+    "seed": {
+      "accepted": 1824,
+      "slotted": 1827,
+      "acceptance": 0.9983579638752053,
+      "delay_observed_median": 0.10000000000000142,
+      "delay_residence_median": 0.0,
+      "seed_error_rmse": 5.93061729737281e-11,
+      "paired_geometry_error_rmse": 5.93061729737281e-11
+    },
+    "completed_denominator": 1800,
+    "right_censored": 27,
+    "breakdown": {
+      "wide": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 1597,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 96,
+          "both_fail": 107
+        },
+        "at_last_visible_separate": {
+          "V_pass": 1597,
+          "G_pass": 1662,
+          "landmark_pass": 1693,
+          "VG_pass": 1597
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 1690,
+        "held_joint_success": 1594,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      },
+      "strict": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 1532,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 131,
+          "both_fail": 137
+        },
+        "at_last_visible_separate": {
+          "V_pass": 1532,
+          "G_pass": 1631,
+          "landmark_pass": 1663,
+          "VG_pass": 1532
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 1656,
+        "held_joint_success": 1517,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      }
+    },
+    "seed_directions": {
+      "source": "previously saved explicitly reconstructed hook x_after, evaluated against analytic truth; not a live seed-vector log",
+      "count": 1824,
+      "body_component_rmse": [
+        2.860290495693002e-11,
+        1.8944421008445082e-11,
+        4.8375664269024464e-11
+      ],
+      "body_component_mean": [
+        -4.30865640760464e-12,
+        -4.704702544941924e-12,
+        -1.7981767634354964e-11
+      ],
+      "ray_signed_mean": -2.1923413035691547e-11,
+      "ray_rmse": 5.930464833892296e-11,
+      "transverse_rmse": 4.2525073361515514e-13
+    }
+  },
+  "57_FAST_EXPERIMENTAL_C0": {
+    "seed": {
+      "accepted": 1824,
+      "slotted": 1827,
+      "acceptance": 0.9983579638752053,
+      "delay_observed_median": 0.10000000000000142,
+      "delay_residence_median": 0.0,
+      "seed_error_rmse": 0.0,
+      "paired_geometry_error_rmse": 5.93061729737281e-11
+    },
+    "completed_denominator": 1800,
+    "right_censored": 27,
+    "breakdown": {
+      "wide": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 1597,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 96,
+          "both_fail": 107
+        },
+        "at_last_visible_separate": {
+          "V_pass": 1597,
+          "G_pass": 1662,
+          "landmark_pass": 1693,
+          "VG_pass": 1597
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 1690,
+        "held_joint_success": 1594,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      },
+      "strict": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 1532,
+          "landmark_only_fail": 0,
+          "VG_only_fail": 131,
+          "both_fail": 137
+        },
+        "at_last_visible_separate": {
+          "V_pass": 1532,
+          "G_pass": 1631,
+          "landmark_pass": 1663,
+          "VG_pass": 1532
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 1656,
+        "held_joint_success": 1517,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      }
+    },
+    "seed_directions": {
+      "source": "previously saved explicitly reconstructed hook x_after, evaluated against analytic truth; not a live seed-vector log",
+      "count": 1824,
+      "body_component_rmse": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "body_component_mean": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ray_signed_mean": 0.0,
+      "ray_rmse": 0.0,
+      "transverse_rmse": 0.0
+    }
+  },
+  "58_FAST_EXPERIMENTAL_C0": {
+    "seed": {
+      "accepted": 1824,
+      "slotted": 1827,
+      "acceptance": 0.9983579638752053,
+      "delay_observed_median": 0.10000000000000142,
+      "delay_residence_median": 0.0,
+      "seed_error_rmse": 2.075809789342549,
+      "paired_geometry_error_rmse": 2.075809789342549
+    },
+    "completed_denominator": 1800,
+    "right_censored": 27,
+    "breakdown": {
+      "wide": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 75,
+          "landmark_only_fail": 78,
+          "VG_only_fail": 525,
+          "both_fail": 1122
+        },
+        "at_last_visible_separate": {
+          "V_pass": 153,
+          "G_pass": 1295,
+          "landmark_pass": 600,
+          "VG_pass": 153
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 587,
+        "held_joint_success": 62,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      },
+      "strict": {
+        "at_last_visible_partition": {
+          "landmark_and_VG_pass": 0,
+          "landmark_only_fail": 9,
+          "VG_only_fail": 242,
+          "both_fail": 1549
+        },
+        "at_last_visible_separate": {
+          "V_pass": 33,
+          "G_pass": 430,
+          "landmark_pass": 242,
+          "VG_pass": 9
+        },
+        "evaluated_denominator": 1800,
+        "missing_at_last_visible": 0,
+        "held_landmark_success": 237,
+        "held_joint_success": 0,
+        "held_denominator": 1800,
+        "note": "endpoint partition is distinct from requiring a prior continuous 0.10 s held interval"
+      }
+    },
+    "seed_directions": {
+      "source": "previously saved explicitly reconstructed hook x_after, evaluated against analytic truth; not a live seed-vector log",
+      "count": 1824,
+      "body_component_rmse": [
+        0.8841668001120842,
+        0.6421496977430651,
+        1.7649020133702606
+      ],
+      "body_component_mean": [
+        -0.12195171407462461,
+        -0.10537169136622966,
+        -0.5300985457110934
+      ],
+      "ray_signed_mean": -0.6352094264589724,
+      "ray_rmse": 2.0756342185529153,
+      "transverse_rmse": 0.02699763512952473
+    }
+  }
+}

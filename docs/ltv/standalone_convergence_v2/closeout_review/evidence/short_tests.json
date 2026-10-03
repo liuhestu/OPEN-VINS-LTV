@@ -1,0 +1,14 @@
+{
+  "analytic_truth_cpp_and_dynamics": "PASS",
+  "old_rhs_vector_error_and_U_identity": "PASS",
+  "exact_split_vs_ODE": "PASS",
+  "production_old_value_Euler_full_P": "PASS",
+  "hook_off_parity_slots_cross_blocks_hook_scope_integer_ticks": "PASS",
+  "PAPER_dynamic_hook_off_slot_P_parity": {
+    "pass": true,
+    "min_slots": 16,
+    "max_slots": 18,
+    "duration": 1.25,
+    "full_simulation": false
+  }
+}

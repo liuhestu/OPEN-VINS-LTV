@@ -1,0 +1,30 @@
+{
+  "old": "11_PAPER_CORE_C0",
+  "new": "60_PAPER_CORE_C0",
+  "checks": {
+    "trace.npz/t": true,
+    "trace.npz/x": true,
+    "trace.npz/ids": true,
+    "trace.npz/values": true,
+    "trace.npz/landmarks": true,
+    "trace.npz/axes": true,
+    "discrete_events": true,
+    "camera.npz/t": true,
+    "camera.npz/side": true,
+    "camera.npz/x": true,
+    "camera.npz/ids": true,
+    "camera.npz/values": true,
+    "camera.npz/landmarks": true,
+    "matrices.npz/t": true,
+    "matrices.npz/tags": true,
+    "matrices.npz/P": true,
+    "matrices.npz/x": true,
+    "matrices.npz/ids": true,
+    "matrices.npz/eigen": true,
+    "matrices.npz/symmetry": true,
+    "input/imu": true,
+    "input/bearings": true
+  },
+  "pass": true,
+  "excluded": "wall-clock costs; unused pose-prior arrays in ZERO mode; file headers differ with horizon"
+}

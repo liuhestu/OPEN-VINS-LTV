@@ -1,0 +1,12 @@
+{
+  "REGULAR": {
+    "events_identical": true,
+    "max_absolute_state_difference": 4.705800193960386e-10,
+    "interpretation": "ideal triangulation residual; not exact floating point equality"
+  },
+  "FAST": {
+    "events_identical": true,
+    "max_absolute_state_difference": 5.782823109257151e-10,
+    "interpretation": "ideal triangulation residual; not exact floating point equality"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "velocity": {
+    "last_bad": 28.75,
+    "first_bad_after20": 21.9,
+    "max_after20": 0.05469799349821249,
+    "terminal_good_start": 28.755,
+    "remaining_validation": 1.245000000000001,
+    "bad_sample_sides_after20": 136
+  },
+  "gravity_angle": {
+    "last_bad": 10.2,
+    "first_bad_after20": null,
+    "max_after20": 0.3101076242342663,
+    "terminal_good_start": 10.205,
+    "remaining_validation": 19.795,
+    "bad_sample_sides_after20": 0
+  },
+  "gravity_magnitude": {
+    "last_bad": 9.35,
+    "first_bad_after20": null,
+    "max_after20": 0.0783437883296294,
+    "terminal_good_start": 9.355,
+    "remaining_validation": 20.645,
+    "bad_sample_sides_after20": 0
+  }
+}

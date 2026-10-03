@@ -1,0 +1,32 @@
+{
+  "E1": {
+    "run": "59_PAPER_SPLIT_REF_C0",
+    "role": "SUPPLEMENTAL_DIAGNOSTIC",
+    "identity": "60315c27d45204f3bd582fc08bb79ad8c9904d5436157224f79a48f2a226ae7d"
+  },
+  "E2": {
+    "run": "60_PAPER_CORE_C0",
+    "role": "SUPPLEMENTAL_DIAGNOSTIC",
+    "identity": "e5552cccc7409b67b71979a620b48bca3e5a260ce94fd7153166bbe7874e4249"
+  },
+  "E3": {
+    "run": "61_REGULAR_EXPERIMENTAL_C2",
+    "role": "EXPLORATORY_GAIN_TRADEOFF",
+    "identity": "a4890d6ad0fe6510e82e1d7e536d1247589937b9a9cff3ca44358a6c3978b81b"
+  },
+  "E4": {
+    "run": "62_FAST_EXPERIMENTAL_C2",
+    "role": "EXPLORATORY_GAIN_TRADEOFF",
+    "identity": "31f8a5e05fcb0c4bdd7f35f7bf962e8900bcfec0f7c2524d4a299bbb0950e878"
+  },
+  "E5": {
+    "run": "63_PAPER_EXPERIMENTAL_C0",
+    "role": "SUPPLEMENTAL_DIAGNOSTIC",
+    "identity": "3c612fcf3382a840099bcaef9b9baa455c012c870cef00a47f5a24e60b1de606"
+  },
+  "E6": {
+    "run": "64_PAPER_EXPERIMENTAL_C0",
+    "role": "SUPPLEMENTAL_DIAGNOSTIC",
+    "identity": "83228590b9eaf8f4fbe732132d9d1f1b41959e26f8903ea39eebc72f8a89807e"
+  }
+}
