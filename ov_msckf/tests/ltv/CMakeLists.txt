@@ -6,6 +6,10 @@ target_include_directories(ltv_phase0_core PUBLIC ../../src)
 add_executable(test_ltv_core_parity ../../../docs/ltv_handover/parity_fixture/harness.cpp)
 target_link_libraries(test_ltv_core_parity ltv_phase0_core)
 add_executable(test_ltv_alias test_ltv_alias.cpp)
-install(TARGETS test_ltv_core_parity test_ltv_alias DESTINATION lib/${PROJECT_NAME})
+add_executable(test_ltv_alias_fixed test_ltv_alias_fixed.cpp)
+target_link_libraries(test_ltv_alias_fixed ltv_phase0_core)
+install(TARGETS test_ltv_core_parity test_ltv_alias test_ltv_alias_fixed DESTINATION lib/${PROJECT_NAME})
 
-# Native T1/T2/T3/T5 targets are deferred at the alias stop gate.
+add_executable(test_ltv_core_lifecycle test_ltv_core_lifecycle.cpp)
+target_link_libraries(test_ltv_core_lifecycle ltv_phase0_core)
+install(TARGETS test_ltv_core_lifecycle DESTINATION lib/${PROJECT_NAME})
