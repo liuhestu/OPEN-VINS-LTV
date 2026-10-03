@@ -1,0 +1,78 @@
+{
+  "baseline": "43215b84e90c18d79d55528c811d85ab22fc04a8",
+  "output": "/home/he/output/ltv_standalone_convergence_v2",
+  "maximum_runs": 64,
+  "maximum_simulators": 2,
+  "blas_threads": 1,
+  "stage_caps": {
+    "fixed": 14,
+    "discretization": 4,
+    "gains": 19,
+    "lifecycle": 11,
+    "initialization": 8,
+    "diagnostic": 8
+  },
+  "candidates": {
+    "C0": [
+      1,
+      1,
+      1
+    ],
+    "C1": [
+      0.1,
+      1,
+      1
+    ],
+    "C2": [
+      10,
+      1,
+      1
+    ],
+    "C3": [
+      1,
+      0.1,
+      1
+    ],
+    "C4": [
+      1,
+      10,
+      1
+    ],
+    "C5": [
+      1,
+      1,
+      100
+    ],
+    "C6": [
+      1,
+      1,
+      10000
+    ]
+  },
+  "solver": {
+    "method": "DOP853",
+    "rtol": 1e-09,
+    "atol": 1e-11,
+    "max_step": 0.005,
+    "tight_rtol": 1e-11,
+    "tight_atol": 1e-13,
+    "tight_max_step": 0.0025,
+    "P_scale": 1
+  },
+  "reference_state_and_full_P_tolerance": 1e-06,
+  "algebra_tolerance": 1e-08,
+  "spectrum_relative_roundoff": 1e-10,
+  "selection": "wide t_VG at .005 s resolution, otherwise 50-60 s J_tail; continuous nondegradation and discrete benefit required; peaks may increase",
+  "input_boundary": "truth -> sensor arrays; only labelled initialization uses pose/point priors",
+  "commands": [
+    "freeze",
+    "verify",
+    "fixed",
+    "discretization",
+    "gains",
+    "lifecycle",
+    "initialization",
+    "report"
+  ],
+  "execution_spec_sha": "7a45cafa2e9180da6783f3468174746770581593449a5d7e13f64f3168ec0dff"
+}

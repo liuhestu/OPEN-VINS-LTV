@@ -1,0 +1,44 @@
+--- production/ltv_observer.h
++++ experimental_core/ltv_observer.h
+@@ -2,6 +2,7 @@
+ 
+ #include "ltv_types.h"
+ 
++#include <functional>
+ #include <unordered_map>
+ #include <vector>
+ 
+@@ -10,6 +11,9 @@
+ class LtvObserver {
+ public:
+   LtvObserver();
++  std::function<void(Eigen::VectorXd &, const std::unordered_map<int, int> &)> mean_hook;
++  long protection_count = 0;
++  double protection_norm = 0, minimum_before_protection = 0;
+ 
+   void configure(const LtvConfig &config);
+   void reset(LtvResetReason reason = LtvResetReason::EstimatorReset);
+--- production/ltv_observer.cpp
++++ experimental_core/ltv_observer.cpp
+@@ -260,6 +260,8 @@
+   }
+ 
+   updateFeatureLifecycle(observations);
++  if (mean_hook)
++    mean_hook(state_, feature_to_slot_);
+ 
+   std::unordered_map<int, Eigen::Vector3d> coordinate_by_id;
+   for (const auto &observation : observations) {
+@@ -359,7 +361,12 @@
+   if (solver.eigenvalues().minCoeff() < config_.covariance_failure_threshold * spectral_scale)
+     return false;
+ 
++  minimum_before_protection = std::min(minimum_before_protection, solver.eigenvalues().minCoeff());
+   Eigen::VectorXd eigenvalues = solver.eigenvalues().cwiseMax(config_.covariance_floor);
++  const double adjustment = (eigenvalues - solver.eigenvalues()).norm();
++  if (adjustment > 0)
++    ++protection_count;
++  protection_norm += adjustment;
+   covariance_ = solver.eigenvectors() * eigenvalues.asDiagonal() * solver.eigenvectors().transpose();
+   covariance_ = (0.5 * (covariance_ + covariance_.transpose())).eval();
+   return covariance_.allFinite();
