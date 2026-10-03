@@ -1,0 +1,19 @@
+# Synthetic feature-readiness harness
+
+Estimation is the actual C++ `LtvFeaturePipeline`, `LtvLandmarkManager` and `LtvObserver`; Python only generates explicit inputs, assembles known joint pose covariance, records outputs, and evaluates truth in a separate command. `run.py` never imports the truth model or opens `labels.npz`. Current stereo right observations are seed-only; dynamic LTV correction remains cam0.
+
+The main shared scheduler owns all full-run reservations. These commands are interfaces, not permission to bypass `budget.run`:
+
+- `generate.py --out INPUT --scene REGULAR --seed 42 --lifetime 1` freezes a 60s input and a separate evaluator truth archive. Default sensor noise and shared OU+jitter priors follow the frozen protocol. Optional `--no-noise` is only a declared positive-control input.
+- `run.py --input INPUT --out RUN --library LIB --method OLD|SEL|SEED_TEMPORAL|SEED_STEREO --max-risk 0.05` consumes the entire sensor/prior stream and records actual C++ output. C0 gain and design P are not options.
+- `evaluate.py --input INPUT --run RUN [--baseline OLD_RUN]` reads labels only after estimation and evaluates same input/time supports. All scientific runs require parent budget reservation including failed/retried attempts.
+
+Confirmation seeds 101/102 require `--confirmation-freeze-sha` exactly matching the main frozen_config.json. The main dispatcher must also bind the chosen method/threshold/library to that frozen schema before running confirmation. Full simulations have not been executed by the harness author.
+
+Input schema: midpoint IMU at200Hz, camera timestamps20Hz, actual current IDs and normalized cam0/cam1 bearings, world/body pose means, fixed camera extrinsics, and the exact synthetic OU covariance parameters. The camera-center/right-camera error maps into right-body/world-position errors with lever-arm rotation–translation cross blocks. Every context contains at most the preceding1s plus current frame. It has no GT points, true poses, future lifespans, or quality labels. The complete NPZ contains future frames for storage; the C++ estimator receives only the causal frame/context slice.
+
+Output schema: `states.npz` includes200Hz time/x/IDs/actual dimension; rows pad to96 states/30IDs only for storage. The actual v/g offsets are d−6/d−3, not always90/93. `matrices.npz` saves full actual P and x at every camera before/after correction (therefore every whole second too), plus exception snapshot when available. `events.jsonl` records opportunities, reasons, admissions, seed source/value/risk, mature counts and readiness. `run.json` records identity, duration, consumed-input count and completion/failure; completion means estimator execution, not task success.
+
+Evaluation: seed identities are checked against a separate per-observation physical index map, not assumed from modulo alone. Opportunity denominator precedes final risk/geometry gates. Last-visible deadlines exclude core missing-frame retention. Lifetime success requires a0.10s hold and passing every last-visible pre/post check; terminal0.10s hold is also reported. No GT controls readiness. Old baseline errors are evaluated at the identical NEW ready support. Failed/missing output cannot be evaluated as success.
+
+Verification: shared-library build attempt31 and0.2s unit fixture attempt33 passed. No-noise/noisy OLD and STEREO each consumed41 physical ticks with10 full camera P records. ABI mapping of IDs, both bearings, coherent poses and full P was bitwise exact. During clean estimator runs, the truth archive was physically renamed away. The accepted no-noise seed had relative error2.18e−11; its low count reflects frozen geometry thresholds and is not a coverage success. Earlier build23 naming conflict and test25 import-shadow failure remain in the ledger; retries were recorded. Details: `/home/he/output/ltv_feature_readiness_passive/synthetic_short_02/unit_result.json`.

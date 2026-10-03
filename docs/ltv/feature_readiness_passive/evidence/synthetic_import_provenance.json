@@ -1,0 +1,9 @@
+{
+  "imported_file": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_standalone_study/truth_model.py",
+  "sha256": "2bfe9e7dcccde4f4bfd1c41c2c687fa6408a17d605eeb514d0703ba2e83b5747",
+  "source": "unchanged frozen historical numerical source; generator calls only, estimator never imports truth",
+  "applies_to": [
+    "REGULAR_42_1s"
+  ],
+  "no_input_regeneration": true
+}

@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "sequences": [
+    {
+      "sequence": "V1_01_easy",
+      "status": "PASS",
+      "packets": 2912,
+      "events": 2912,
+      "admitted": 1562,
+      "candidate_ttl": 4000,
+      "admitted_removals": 1532,
+      "replay_attempt": 222,
+      "cache_sha256": "bf41b7ce1fba59b873efdc35cc7707c0745c709e2f090524ce0e0e2e4d8d6e34"
+    },
+    {
+      "sequence": "V2_02_medium",
+      "status": "PASS",
+      "packets": 2348,
+      "events": 2348,
+      "admitted": 2535,
+      "candidate_ttl": 4362,
+      "admitted_removals": 2505,
+      "replay_attempt": 223,
+      "cache_sha256": "021886c30de0087cd146b02d79d81f7d40c1fc9607e0ef6c4bc439f8cb358dac"
+    },
+    {
+      "sequence": "indoor_forward_3",
+      "status": "PASS",
+      "packets": 2552,
+      "events": 2552,
+      "admitted": 2210,
+      "candidate_ttl": 2136,
+      "admitted_removals": 2191,
+      "replay_attempt": 224,
+      "cache_sha256": "ea796de4d8c8ffe6c1a4e4ea91a1306b49e18353419b727b110fb6770640a7c2"
+    },
+    {
+      "sequence": "V1_03_difficult",
+      "status": "PASS",
+      "packets": 2149,
+      "events": 2149,
+      "admitted": 2746,
+      "candidate_ttl": 3554,
+      "admitted_removals": 2726,
+      "replay_attempt": 225,
+      "cache_sha256": "9db99c6131b9f4d904a68b1420773b23af45b54331bd7a607cb591dc152cfa04"
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "status": "PASS",
+      "packets": 1921,
+      "events": 1921,
+      "admitted": 2727,
+      "candidate_ttl": 4110,
+      "admitted_removals": 2716,
+      "replay_attempt": 226,
+      "cache_sha256": "d7ed7de4b55628dac6eb27b065d12e46dac5074870b9f77d094cf068e54ed488"
+    },
+    {
+      "sequence": "indoor_forward_6",
+      "status": "PASS",
+      "packets": 1970,
+      "events": 1970,
+      "admitted": 1573,
+      "candidate_ttl": 1861,
+      "admitted_removals": 1560,
+      "replay_attempt": 227,
+      "cache_sha256": "3f8d8d06603c33163e5a808497bdab993e10772d166b7c7709087ae147a932ae"
+    }
+  ],
+  "repeats": [
+    {
+      "sequence": "V2_03_difficult",
+      "status": "IDENTICAL_INPUT_INFERENCE_ONLY",
+      "basis": "/home/he/output/ltv_feature_readiness_passive/attempts/0168/stdout.log",
+      "additional_recovery_repeat_executed": false
+    },
+    {
+      "sequence": "indoor_forward_6",
+      "status": "IDENTICAL_INPUT_INFERENCE_ONLY",
+      "basis": "/home/he/output/ltv_feature_readiness_passive/attempts/0176/stdout.log",
+      "additional_recovery_repeat_executed": false
+    }
+  ],
+  "scientific_metrics_exact": true,
+  "nonmanagement_packets_exact": true,
+  "GT_accessed": false,
+  "cache_bytes_rehashed": false,
+  "cache_proof": "Exact replay and bound overlay validation already checked original cache bytes; independent audit crosschecks recorded cache SHA with prescribed repeat evidence.",
+  "manifest_sha256": "1841c27395b93fe734f074db157f37b68d95fd7fbcda3432da64d3dc77aad858"
+}

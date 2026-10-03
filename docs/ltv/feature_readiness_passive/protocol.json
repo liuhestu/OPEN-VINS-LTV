@@ -1,0 +1,131 @@
+{
+  "task": "feature_readiness_passive",
+  "version": 1,
+  "baseline": "a8c56c8cb488046d5b57bba329894e0f8b5a16fb",
+  "goal_sha256": "59c76159e7258a04ab37862a1c8e546a71c55239487b94be2cc11e538206ee33",
+  "created_utc": "2026-10-03T18:00:57.077752+00:00",
+  "output_root": "/home/he/output/ltv_feature_readiness_passive",
+  "limits": {
+    "synthetic": 48,
+    "real": 36,
+    "short_real": 16,
+    "geometry": 25000,
+    "candidate": 6,
+    "heavy_concurrency": 2
+  },
+  "reserve": {
+    "synthetic_confirmation": 16,
+    "real_final": 20
+  },
+  "short_real_max_input_seconds": 10,
+  "threads": 1,
+  "failed_and_retried_attempts_count": true,
+  "confirmation_seeds": [
+    101,
+    102
+  ],
+  "development_seeds": [
+    42,
+    43
+  ],
+  "synthetic_scenarios": [
+    "REGULAR",
+    "FAST"
+  ],
+  "synthetic_duration_seconds": 60,
+  "synthetic_confirmation_lifetimes": [
+    0.5,
+    1.0
+  ],
+  "imu_hz": 200,
+  "camera_hz": 20,
+  "gain": "C0",
+  "sensor_noise_std": {
+    "accel_m_s2": 0.02,
+    "gyro_rad_s": 0.002,
+    "bearing_tangent_deg": 0.05
+  },
+  "pose_noise": {
+    "coordinate": "camera-center world translation and right camera rotation; shared across features per frame",
+    "model": "stationary Gaussian OU plus independent jitter",
+    "recursion": "a=exp(-dt/0.5); n_k=a*n_(k-1)+sqrt(1-a*a)*sigma*z_k; n_0=sigma*z_0; add independent jitter",
+    "correlation_seconds": 0.5,
+    "position_std_m": 0.01,
+    "rotation_std_deg": 0.1,
+    "position_jitter_std_m": 0.002,
+    "rotation_jitter_std_deg": 0.02,
+    "covariance": "Cov(n_i,n_j)=sigma^2 exp(-abs(t_i-t_j)/0.5) I + delta_ij jitter^2 I; map camera pose error through nonzero lever arm; same execution pose index reused"
+  },
+  "stereo_if_used": {
+    "baseline_camera_x_m": 0.11,
+    "rotation_between_cameras": "identity",
+    "cam0_motion_unchanged": true,
+    "right_bearing_noise_deg": 0.05,
+    "extrinsics": "fixed known synthetic; real fixed calibration, approximation disclosed",
+    "right_only_for_seed": true
+  },
+  "real_development": [
+    "V1_01_easy",
+    "V2_02_medium",
+    "indoor_forward_3"
+  ],
+  "real_confirmation": [
+    "V1_03_difficult",
+    "V2_03_difficult",
+    "indoor_forward_6"
+  ],
+  "repeat_P_NEW": [
+    "V2_03_difficult",
+    "indoor_forward_6"
+  ],
+  "real_modes": [
+    "B",
+    "P_OLD",
+    "P_NEW"
+  ],
+  "max_real_development_candidates": 2,
+  "confirmation_policy": "one frozen method; no outcome-based retuning after confirmation begins",
+  "injection_G": false,
+  "injection_V": false,
+  "initial_candidates": [
+    "P_OLD",
+    "SEL",
+    "SEED_TEMPORAL"
+  ],
+  "conditional_candidates": "at most three more, evidence and identity registered before results",
+  "geometry_MC": {
+    "maximum_windows": 250,
+    "maximum_draws_per_window": 100,
+    "sampling": "time/parallax strata fixed before truth error labels",
+    "shared_pose_noise": true,
+    "resampling": "time blocks, never independent feature pose noise"
+  },
+  "numerical_tests": {
+    "composite_J_absolute_tolerance": 2e-05,
+    "finite_difference_steps": [
+      1e-05,
+      1e-06
+    ],
+    "old_new_off": "exact x/P/slot/event equality",
+    "bypass": "exact full state/P/FEJ/visual ID and trajectory digest equality",
+    "cache": "exact deterministic input/seed/state/event equality; no silent tolerance relaxation"
+  },
+  "uncertainty_claim": "uncalibrated local directional risk until evidence supports probability intervals",
+  "initial_manager": {
+    "min_history_frames": 3,
+    "min_history_span_s": 0.1,
+    "history_window_s": 1.0,
+    "candidate_ttl_s": 2.0,
+    "candidate_capacity": 256,
+    "parallax_deg": 0.5,
+    "max_condition": 100000000.0,
+    "max_residual_deg": 0.5,
+    "max_relative_risk": 0.05,
+    "coasting_frames": 2,
+    "max_active": 30,
+    "min_features": 15,
+    "maturity_s": 0.1
+  },
+  "GT": "offline evaluator only; no selector/cache GT",
+  "legacy_outputs_readonly": true
+}

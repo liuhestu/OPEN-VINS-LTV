@@ -1,0 +1,52 @@
+{
+  "52": {
+    "status": "PASS",
+    "exact_files": [
+      "audit.csv",
+      "trajectory.csv",
+      "unmatched_camera.csv"
+    ],
+    "runs": [
+      {
+        "mode": "B",
+        "camera_packets": 200,
+        "trajectory_rows": 88,
+        "complete": false,
+        "zero_injection": true,
+        "status": "PASS"
+      },
+      {
+        "mode": "P_OLD",
+        "camera_packets": 200,
+        "trajectory_rows": 88,
+        "complete": false,
+        "zero_injection": true,
+        "status": "PASS"
+      },
+      {
+        "mode": "P_NEW",
+        "camera_packets": 200,
+        "trajectory_rows": 88,
+        "complete": false,
+        "zero_injection": true,
+        "status": "PASS"
+      }
+    ]
+  },
+  "cache_OLD": {
+    "status": "PASS",
+    "imu_events": 1992,
+    "process_events": 88,
+    "pause_events": 112,
+    "compared_events": 200,
+    "comparison": "exact_non_wallclock"
+  },
+  "cache_NEW": {
+    "status": "PASS",
+    "imu_events": 1992,
+    "process_events": 88,
+    "pause_events": 112,
+    "compared_events": 200,
+    "comparison": "exact_non_wallclock"
+  }
+}

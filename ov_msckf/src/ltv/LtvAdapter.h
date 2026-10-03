@@ -1,4 +1,5 @@
 #pragma once
+#include "LtvFeaturePipeline.h"
 #include "LtvOptions.h"
 #include "ltv_observer.h"
 #include "utils/sensor_data.h"
@@ -22,6 +23,8 @@ struct LtvFrame {
   int64_t camera_ns = 0;
   double camera_time = 0, imu_time = 0, cursor = 0;
   bool available = false;
+  bool ready_G = false, ready_V = false;
+  size_t mature_features = 0;
   std::string reason = "not_started";
   ltv::LtvSnapshot snapshot;
   uint64_t integrated_steps = 0;
@@ -32,16 +35,22 @@ public:
   explicit LtvAdapter(const LtvOptions &options);
   void feed_imu(const ov_core::ImuData &sample);
   LtvFrame process(double camera_time, const std::vector<LtvBearing> &bearings, const LtvCalibration &calibration,
-                   const Eigen::Vector3d &ba, const Eigen::Vector3d &bg, uint64_t version);
+                   const Eigen::Vector3d &ba, const Eigen::Vector3d &bg, uint64_t version,
+                   const ltv::FeaturePipelineContext *feature_context = nullptr);
   LtvFrame pause(double camera_time, const std::string &reason, uint64_t version);
   void reset();
   bool claim(const LtvFrame &frame);
   const ltv::LtvObserver &core() const { return observer_; }
+  const ltv::FeaturePipelineFrame &feature_frame() const { return feature_frame_; }
+  const ltv::LtvFeaturePipeline *feature_pipeline() const { return feature_pipeline_.get(); }
+  const std::map<size_t, int> &feature_ids() const { return ids_; }
   static ov_core::ImuData correct(const ov_core::ImuData &, const LtvCalibration &, const Eigen::Vector3d &, const Eigen::Vector3d &);
 
 private:
   LtvOptions options_;
   ltv::LtvObserver observer_;
+  std::unique_ptr<ltv::LtvFeaturePipeline> feature_pipeline_;
+  ltv::FeaturePipelineFrame feature_frame_;
   std::mutex mutex_;
   std::deque<ov_core::ImuData> imu_;
   bool input_fault_ = false, paused_ = true;

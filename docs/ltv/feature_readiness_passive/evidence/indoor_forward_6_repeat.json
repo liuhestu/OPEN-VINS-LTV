@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "exact_files": [
+    "audit.csv",
+    "trajectory.csv",
+    "unmatched_camera.csv"
+  ],
+  "runs": [
+    {
+      "mode": "P_NEW",
+      "camera_packets": 1970,
+      "trajectory_rows": 1781,
+      "complete": true,
+      "zero_injection": true,
+      "status": "PASS"
+    },
+    {
+      "mode": "P_NEW",
+      "camera_packets": 1970,
+      "trajectory_rows": 1781,
+      "complete": true,
+      "zero_injection": true,
+      "status": "PASS"
+    }
+  ],
+  "repeated_auxiliary_exact": true,
+  "auxiliary_sha256": {
+    "features.jsonl": "b9e80cf02d491a484372ee65cdab9be5d4cdeda25b2d65cce8f08d6c95192dea",
+    "cache.bin": "3f8d8d06603c33163e5a808497bdab993e10772d166b7c7709087ae147a932ae"
+  },
+  "paths": [
+    "/home/he/output/ltv_feature_readiness_passive/real_runs/indoor_forward_6_P_NEW_dddf6774f4e2",
+    "/home/he/output/ltv_feature_readiness_passive/real_runs/indoor_forward_6_P_NEW_fe11b396a9d2"
+  ],
+  "sequence": "indoor_forward_6",
+  "identity": {
+    "sequence": "indoor_forward_6",
+    "mode": "P_NEW",
+    "source": "STEREO_THEN_TEMPORAL",
+    "short_seconds": null,
+    "repeat": 0,
+    "binary_sha": "2cb8d88f3c7ee792f11a46499bfc04392d4f48a90146079db53c06ed42e40c0f",
+    "library_sha": "93bd667d91c7f48613f38ce349605b33277bd32fa048e617b98c9f6206d256c2",
+    "runtime": "/home/he/output/ltv_feature_readiness_passive/runtime/65059350d802b5964e3409231c53b8953e2078bfbcfb196b2fd04ae0f8a78e5e",
+    "runtime_manifest_sha": "2da5f69a13604f48895b2a7f94b132ca58f3db82bbc5be4657afb648439576a0",
+    "config_tree_sha": {
+      "estimator_config.yaml": "d6de9e59714e75b2b0bb245611e232045612ef4291b73a2ce34bb431c6e261ba",
+      "kalibr_imu_chain.yaml": "c2628ea491e0fad2804e37952d3a808c161d98a67bfab698cc82359ed377b0ac",
+      "kalibr_imucam_chain.yaml": "d94c73ba11927dadcc76e691f9a560c2f4efc60070aefb6a12e6c95f38399826"
+    },
+    "config_sha": "d6de9e59714e75b2b0bb245611e232045612ef4291b73a2ce34bb431c6e261ba",
+    "sensor_csv_sha": {
+      "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_forward_6/cam0/data.csv": "bbc0d97988b104c72be0bceb31dab01cdccadb030297ba97d259038a2e0cb864",
+      "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_forward_6/cam1/data.csv": "03727b04232e214b5deec815f4a56b78d210272e4f095758bc6e74840a5dd18e",
+      "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_forward_6/imu0/data.csv": "9c75b49b31281d6a13f6addaed70191ea40f256dbaae5629fafe073cac3b2957"
+    },
+    "phase": "confirmation",
+    "freeze_sha": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97"
+  },
+  "repeat_indices": [
+    0,
+    1
+  ]
+}

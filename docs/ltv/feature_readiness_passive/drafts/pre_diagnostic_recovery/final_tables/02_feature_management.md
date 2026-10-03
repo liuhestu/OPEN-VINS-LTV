@@ -1,0 +1,16 @@
+| phase | domain | sequence | method | candidates | admitted | retired | mean_active | mean_mature | ready_G_fraction | ready_V_fraction | ready_G_seconds | ready_V_seconds | longest_G_gap_s | longest_V_gap_s | epoch_transitions | lifetime_s | seed | completed_tracks | right_censored_tracks |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| frozen_confirmation_with_development_context | real | V1_01_easy | STEREO_THEN_TEMPORAL | 6142 | 1246 | 1221 | 29.9407 | 27.4671 | 0.981786 | 0.989643 | 136.45 | 137.55 | 2.2 | 1.1 | 0 | N/A | N/A | N/A | N/A |
+| frozen_confirmation_with_development_context | real | V2_02_medium | STEREO_THEN_TEMPORAL | 11662 | 1455 | 1499 | 29.5613 | 24.56 | 0.921889 | 0.931598 | 103.75 | 104.85 | 2.9 | 2.9 | 0 | N/A | N/A | N/A | N/A |
+| frozen_confirmation_with_development_context | real | indoor_forward_3 | STEREO_THEN_TEMPORAL | 9305 | 2210 | 2191 | 24.2444 | 19.1393 | 0.658901 | 0.671648 | 24.537 | 24.4707 | 2.81985 | 1.99053 | 0 | N/A | N/A | N/A | N/A |
+| frozen_confirmation_with_development_context | real | V1_03_difficult | STEREO_THEN_TEMPORAL | 13854 | 1788 | 1846 | 28.1466 | 21.9596 | 0.723192 | 0.734165 | 71.5499 | 72.6499 | 4.2 | 4.2 | 0 | N/A | N/A | N/A | N/A |
+| frozen_confirmation_with_development_context | real | V2_03_difficult | STEREO_THEN_TEMPORAL | 14445 | 1478 | 1603 | 25.876 | 19.6074 | 0.615725 | 0.627353 | 55.6 | 56.65 | 10.9 | 10.9 | 0 | N/A | N/A | N/A | N/A |
+| frozen_confirmation_with_development_context | real | indoor_forward_6 | STEREO_THEN_TEMPORAL | 7441 | 2 | 2 | 21.6996 | 17.0803 | 0.451432 | 0.451432 | 4.90719 | 4.84096 | 5.73892 | 5.73892 | 0 | N/A | N/A | N/A | N/A |
+| frozen_confirmation_with_development_context | synthetic | REGULAR | SEED_HYBRID | 3630 | 820 | N/A | 2.48959 | 0.103247 | 0 | 0 | 0 | 0 | 60 | 60 | N/A | 0.5 | 101 | 3600 | 30 |
+| frozen_confirmation_with_development_context | synthetic | FAST | SEED_HYBRID | 3630 | 3399 | N/A | 23.0933 | 11.8535 | 0.349709 | 0.353039 | 21 | 21.2 | 4.35 | 4.35 | N/A | 0.5 | 101 | 3600 | 30 |
+| frozen_confirmation_with_development_context | synthetic | REGULAR | SEED_HYBRID | 1830 | 1527 | N/A | 12.9342 | 7.90591 | 0.0183181 | 0.0183181 | 1.1 | 1.1 | 13.75 | 13.75 | N/A | 1 | 101 | 1800 | 30 |
+| frozen_confirmation_with_development_context | synthetic | FAST | SEED_HYBRID | 1830 | 1809 | N/A | 26.2723 | 20.2998 | 0.800167 | 0.825978 | 48 | 49.55 | 2.6 | 1.8 | N/A | 1 | 101 | 1800 | 30 |
+| frozen_confirmation_with_development_context | synthetic | REGULAR | SEED_HYBRID | 3630 | 817 | N/A | 2.5254 | 0.124063 | 0 | 0 | 0 | 0 | 60 | 60 | N/A | 0.5 | 102 | 3600 | 30 |
+| frozen_confirmation_with_development_context | synthetic | FAST | SEED_HYBRID | 3630 | 3387 | N/A | 23.0441 | 11.8393 | 0.334721 | 0.337219 | 20.1 | 20.25 | 4.35 | 4.35 | N/A | 0.5 | 102 | 3600 | 30 |
+| frozen_confirmation_with_development_context | synthetic | REGULAR | SEED_HYBRID | 1830 | 1532 | N/A | 12.9284 | 7.89509 | 0.0149875 | 0.0149875 | 0.9 | 0.9 | 13.85 | 13.85 | N/A | 1 | 102 | 1800 | 30 |
+| frozen_confirmation_with_development_context | synthetic | FAST | SEED_HYBRID | 1830 | 1807 | N/A | 26.224 | 20.2548 | 0.78851 | 0.814321 | 47.3 | 48.85 | 2.6 | 1.75 | N/A | 1 | 102 | 1800 | 30 |

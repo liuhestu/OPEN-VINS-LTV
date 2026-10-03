@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "exact_files": [
+    "audit.csv",
+    "trajectory.csv",
+    "unmatched_camera.csv"
+  ],
+  "runs": [
+    {
+      "mode": "P_NEW",
+      "camera_packets": 1921,
+      "trajectory_rows": 1806,
+      "complete": true,
+      "zero_injection": true,
+      "status": "PASS"
+    },
+    {
+      "mode": "P_NEW",
+      "camera_packets": 1921,
+      "trajectory_rows": 1806,
+      "complete": true,
+      "zero_injection": true,
+      "status": "PASS"
+    }
+  ],
+  "repeated_auxiliary_exact": true,
+  "auxiliary_sha256": {
+    "features.jsonl": "9326e319b7ad7c61a826c021fd5cd5b4368cd7f3f686d0a09637e289aad72d6e",
+    "cache.bin": "d7ed7de4b55628dac6eb27b065d12e46dac5074870b9f77d094cf068e54ed488"
+  },
+  "paths": [
+    "/home/he/output/ltv_feature_readiness_passive/real_runs/V2_03_difficult_P_NEW_37b2c47edc88",
+    "/home/he/output/ltv_feature_readiness_passive/real_runs/V2_03_difficult_P_NEW_178dba7f11e5"
+  ],
+  "sequence": "V2_03_difficult",
+  "identity": {
+    "sequence": "V2_03_difficult",
+    "mode": "P_NEW",
+    "source": "STEREO_THEN_TEMPORAL",
+    "short_seconds": null,
+    "repeat": 0,
+    "binary_sha": "2cb8d88f3c7ee792f11a46499bfc04392d4f48a90146079db53c06ed42e40c0f",
+    "library_sha": "93bd667d91c7f48613f38ce349605b33277bd32fa048e617b98c9f6206d256c2",
+    "runtime": "/home/he/output/ltv_feature_readiness_passive/runtime/65059350d802b5964e3409231c53b8953e2078bfbcfb196b2fd04ae0f8a78e5e",
+    "runtime_manifest_sha": "2da5f69a13604f48895b2a7f94b132ca58f3db82bbc5be4657afb648439576a0",
+    "config_tree_sha": {
+      "estimator_config.yaml": "704459f919221004e55ecf4a664448fba597650539dabdc14e1de37f74f445a7",
+      "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+      "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+    },
+    "config_sha": "704459f919221004e55ecf4a664448fba597650539dabdc14e1de37f74f445a7",
+    "sensor_csv_sha": {
+      "/home/he/output/openvins_ltv_value_study_20261003/inputs/V2_03_difficult/cam0/data.csv": "cd6cff0133762b2f015e0af0c86e6c05251be1e8dc2d9f1341f70fdf41a03cda",
+      "/home/he/output/openvins_ltv_value_study_20261003/inputs/V2_03_difficult/cam1/data.csv": "1defc6ab426684c2c3893c9362d88854ee165d044a5152bdc4d5cfc9706a4185",
+      "/home/he/output/openvins_ltv_value_study_20261003/inputs/V2_03_difficult/imu0/data.csv": "c70d9b0b6418d30ca53270092b6258cebbe9517fc8191d0c7dd3946a1ba43095"
+    },
+    "phase": "confirmation",
+    "freeze_sha": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97"
+  },
+  "repeat_indices": [
+    0,
+    1
+  ]
+}

@@ -33,6 +33,7 @@
 
 #include "VioManagerOptions.h"
 #include "ltv/LtvAdapter.h"
+#include "ltv/LtvPassiveCache.h"
 #include "ltv/ValueDiagnostics.h"
 #include "update/UpdaterLTV.h"
 
@@ -140,6 +141,12 @@ public:
   }
 
 protected:
+  // Read-only audit bookkeeping; populated identically in all Passive study modes.
+  std::vector<size_t> passive_msckf_input_ids, passive_msckf_used_ids, passive_slam_update_ids, passive_slam_init_ids;
+  uint64_t passive_auxiliary_receipts = 0, passive_gravity_submissions = 0, passive_velocity_submissions = 0;
+  LtvFrame passive_ltv_frame;
+  std::shared_ptr<LtvPassiveCacheWriter> passive_cache;
+  std::vector<ltv::HistoryObservation> passive_current_observations;
   std::shared_ptr<ValueDiagnostics> value_diagnostics;
   std::shared_ptr<LtvAdapter> ltv_adapter;
   std::shared_ptr<UpdaterLTV> updater_ltv;

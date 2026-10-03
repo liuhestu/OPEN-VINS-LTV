@@ -2,10 +2,33 @@
 
 #include "ltv_types.h"
 
+#include <string>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 namespace ltv {
+
+struct LtvLandmarkSeed {
+  int feature_id = -1;
+  bool apply_mean = true;
+  Eigen::Vector3d mean_body = Eigen::Vector3d::Zero();
+};
+
+// Manager supplies the exact retained set, including unobserved coasting slots.
+// Every new ID has exactly one birth; old IDs can never be reseeded in an epoch.
+struct LtvControlledFeatures {
+  uint64_t epoch = 0;
+  double imu_timestamp = 0.0;
+  std::vector<int> retained_ids;
+  std::vector<LtvLandmarkSeed> births;
+};
+
+struct LtvControlledResult {
+  bool accepted = false;
+  std::string reason;
+  LtvSnapshot snapshot;
+};
 
 class LtvObserver {
 public:
@@ -21,6 +44,13 @@ public:
   LtvSnapshot updateFeatures(double frame_timestamp, double imu_timestamp, const std::vector<LtvFeatureObservation> &observations,
                              const Eigen::Matrix3d &rotation_body_camera, const Eigen::Vector3d &position_body_camera);
 
+  // Explicit opt-in after start(), before any camera event. reset() disables it.
+  bool enableControlledFeatures(uint64_t epoch);
+  LtvControlledResult updateFeaturesControlled(double frame_timestamp, double imu_timestamp,
+                                               const std::vector<LtvFeatureObservation> &observations,
+                                               const Eigen::Matrix3d &rotation_body_camera, const Eigen::Vector3d &position_body_camera,
+                                               const LtvControlledFeatures &control);
+
   LtvSnapshot snapshot(double frame_timestamp = 0.0) const;
   bool enabled() const;
   bool started() const;
@@ -31,6 +61,9 @@ public:
   int slotForFeature(int feature_id) const;
 
 private:
+  LtvSnapshot updateFeaturesImpl(double frame_timestamp, double imu_timestamp, const std::vector<LtvFeatureObservation> &observations,
+                                 const Eigen::Matrix3d &rotation_body_camera, const Eigen::Vector3d &position_body_camera,
+                                 const LtvControlledFeatures *control);
   void initializeBaseState();
   void updateFeatureLifecycle(const std::vector<LtvFeatureObservation> &observations);
   void rebuildState(const std::vector<int> &feature_ids);
@@ -58,6 +91,9 @@ private:
   std::unordered_map<int, int> feature_to_slot_;
   std::unordered_map<int, int> missed_frames_;
   std::unordered_map<int, int> candidate_age_;
+  bool controlled_features_ = false;
+  uint64_t controlled_epoch_ = 0;
+  std::unordered_set<int> admitted_ids_;
 };
 
 } // namespace ltv

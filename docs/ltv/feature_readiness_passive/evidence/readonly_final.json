@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "baseline_files": 382,
+  "unchanged_files": 372,
+  "authorized_changes": {
+    "ov_msckf/cmake/ROS1.cmake": {
+      "initial": "44a1b071e607d8140fb6e608e3e9063820f25dcd4879bbf6b355cfcef2367c37",
+      "current": "053bef12bb52b2accd3e64bc5c34372370eea49241cbb52a586c53f14f854f01"
+    },
+    "ov_msckf/cmake/ROS2.cmake": {
+      "initial": "28ad0288e9cde664b895ef942e6e6a5441dc5d0410050534a7f153c421301c7b",
+      "current": "461d1ae020fb2869a87cb7dd449ba21e42e85bee2ea795121bd0777c90f5e2e6"
+    },
+    "ov_msckf/src/core/VioManager.cpp": {
+      "initial": "a8cf7e5d420aac185079eaf829219e1607f657c41bdb75304bb82dacce07b96f",
+      "current": "99030f36ff7e0a2b0a4ce418fb72d9d135cc2e9e9a0cb92cb5e1a76f546961a6"
+    },
+    "ov_msckf/src/core/VioManager.h": {
+      "initial": "77d7821ff82a4fa7b0eb6e9c54e9eabf6dcb0e81aafb9cf9654ca6d23f16eba2",
+      "current": "19bbb256e7b8529408d2e5506530e66bcf0f89fb9c3df5135ef43c74d85aeef9"
+    },
+    "ov_msckf/src/ltv/LtvAdapter.cpp": {
+      "initial": "c4de7992b5f4ad8785a277e2192dbb600a00df94a6974a02046d69c316b5cc5b",
+      "current": "3032dde5c4f58c3c0cb0c44c16f4573fa1dd237046a7f7e7349f702fd2da2484"
+    },
+    "ov_msckf/src/ltv/LtvAdapter.h": {
+      "initial": "f1a198facd0cd43b6f9d41b98a0ad17a823f1a7a434ae945e8770911de03fe2c",
+      "current": "b7cfa707f2e679d28e504eb7cc9bc7711ed8ffc365f7dab24ad6cc58ec449cfe"
+    },
+    "ov_msckf/src/ltv/LtvOptions.h": {
+      "initial": "8975aa84be2358453e6f008ea0c261acba28e354562491a79d8ab684a6e2a4b0",
+      "current": "b2b8b41885cd74dd67d8a487732e5f74e58700501ed928d3aa999be722735883"
+    },
+    "ov_msckf/src/ltv/ltv_observer.cpp": {
+      "initial": "5a01ba09bec8ab61cb206ab4358b9952503c0e9bedd8b2c05f16bfdd8173beba",
+      "current": "61503d859f696774c6a7c3013327b34ab471215bb89aa1c482cdcd023bdda2fb"
+    },
+    "ov_msckf/src/ltv/ltv_observer.h": {
+      "initial": "0ecef65a2af566dd721282c4349208704853a65e66203c78cc9e2b955579de30",
+      "current": "6f9d66e7e7bdea88f0f806aa15bc4aee52a18f1c0122773870d1436819c89a7d"
+    },
+    "ov_msckf/tests/ltv/CMakeLists.txt": {
+      "initial": "654c3fc707cf7c1a36f0b7d6b28a940f8c0e804db3a51dcab08fcaa8ca9e3a46",
+      "current": "f50e8138d84b5f137fa7588fcb025ab5b08d8889270d4462599b4152bbb6aff9"
+    }
+  },
+  "historical_experiments_repeated": false
+}

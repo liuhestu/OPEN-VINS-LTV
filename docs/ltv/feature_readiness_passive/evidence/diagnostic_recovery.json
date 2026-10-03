@@ -1,0 +1,298 @@
+{
+  "status": "PASS",
+  "freeze_sha256": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97",
+  "scope": "Six selected real-input cache recoveries and management-only offline overlays; all raw/scientific criteria unchanged",
+  "sequences": [
+    {
+      "sequence": "V1_01_easy",
+      "old_metrics": "/home/he/output/ltv_feature_readiness_passive/real_metrics/V1_01_easy_HYBRID_dev_v1/metrics.json",
+      "metrics": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/V1_01_easy/overlay/metrics.json",
+      "metrics_sha256": "a12888942ef54c65a0aed9da02d36674518ccdb9d870ef25efc51dcb8ff7627c",
+      "exact_replay": {
+        "status": "PASS",
+        "comparison": "exact_frozen_cache_non_wallclock",
+        "imu_events": 29120,
+        "process_events": 2800,
+        "pause_events": 112,
+        "compared_events": 2912
+      },
+      "binding": {
+        "task": "diagnostic_recovery_full_cache",
+        "sequence": "V1_01_easy",
+        "freeze_sha": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97",
+        "original_run": "/home/he/output/ltv_feature_readiness_passive/real_runs/V1_01_easy_P_NEW_2b579f65d564",
+        "binary_sha": "c59bba8a41d6f9541f511e7c3169bb73a6354e479aa31091bfe6bfa58ec92baa",
+        "runtime": "/home/he/output/ltv_feature_readiness_passive/runtime/65059350d802b5964e3409231c53b8953e2078bfbcfb196b2fd04ae0f8a78e5e",
+        "original_identity_sha": "a89da7fe8291018e16c724673878833529c46a8dd956001817e44e04676742f5",
+        "attempt": {
+          "id": 222,
+          "exit_code": 0,
+          "directory": "/home/he/output/ltv_feature_readiness_passive/attempts/0222"
+        },
+        "recovered_sha256": "110520ab5230bcf6e6088e75fc0eae2a1bd892dcd7220e0b4e40c98478e4b7a6",
+        "cache_sha256": "bf41b7ce1fba59b873efdc35cc7707c0745c709e2f090524ce0e0e2e4d8d6e34",
+        "report_sha256": "d6f0398200921783671f7562f80c1662069f46d8731db1c142cbaba6e0092024",
+        "buildproof_sha256": "140edf830113bb182b1e4e094b770dac12593a4d573992a43c78458ec0061b94",
+        "buildproof": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/build_8b5e086edb8c55dd42f6d2b2efde24d51d2d3278d6d82a9599cb639ca4d98004.json"
+      },
+      "overlay_audit": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/V1_01_easy/overlay/recovery_audit.json",
+      "overlay_audit_sha256": "91e0473fec7c9195e879d684a0db8c0025845e01f770a55f0e588eaa2d0f7bf9",
+      "matched_camera_events": 2912,
+      "old_guard_exact_overlap_events": 2240,
+      "old_admitted_tracks": 1246,
+      "corrected_admitted_tracks": 1562,
+      "active_removals": 1532,
+      "never_admitted_candidate_ttl": 4000,
+      "raw_metrics_and_error_curves_unchanged": true,
+      "sources": {
+        "STEREO": 790,
+        "TEMPORAL_POSE": 772
+      }
+    },
+    {
+      "sequence": "V2_02_medium",
+      "old_metrics": "/home/he/output/ltv_feature_readiness_passive/real_metrics/V2_02_medium_HYBRID_dev_v1/metrics.json",
+      "metrics": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/V2_02_medium/overlay/metrics.json",
+      "metrics_sha256": "afd65b166ad408426119eec3c733b73ddee49baefd4f7c629f51158a2443cb7f",
+      "exact_replay": {
+        "status": "PASS",
+        "comparison": "exact_frozen_cache_non_wallclock",
+        "imu_events": 23490,
+        "process_events": 2266,
+        "pause_events": 82,
+        "compared_events": 2348
+      },
+      "binding": {
+        "task": "diagnostic_recovery_full_cache",
+        "sequence": "V2_02_medium",
+        "freeze_sha": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97",
+        "original_run": "/home/he/output/ltv_feature_readiness_passive/real_runs/V2_02_medium_P_NEW_a19cf59091be",
+        "binary_sha": "c59bba8a41d6f9541f511e7c3169bb73a6354e479aa31091bfe6bfa58ec92baa",
+        "runtime": "/home/he/output/ltv_feature_readiness_passive/runtime/65059350d802b5964e3409231c53b8953e2078bfbcfb196b2fd04ae0f8a78e5e",
+        "original_identity_sha": "eb8948110d3fa34d4f5979cde10bb426989abbfe912eb93381f949aa20bffc7e",
+        "attempt": {
+          "id": 223,
+          "exit_code": 0,
+          "directory": "/home/he/output/ltv_feature_readiness_passive/attempts/0223"
+        },
+        "recovered_sha256": "05c28dec05750fb71ed8bfbc7343b025913ce65e0bbbff8e49c0de66fb33c188",
+        "cache_sha256": "021886c30de0087cd146b02d79d81f7d40c1fc9607e0ef6c4bc439f8cb358dac",
+        "report_sha256": "94e027247443f3cf442cae60f131c8331b328fb6f0defae3308133f3fafe8c54",
+        "buildproof_sha256": "140edf830113bb182b1e4e094b770dac12593a4d573992a43c78458ec0061b94",
+        "buildproof": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/build_8b5e086edb8c55dd42f6d2b2efde24d51d2d3278d6d82a9599cb639ca4d98004.json"
+      },
+      "overlay_audit": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/V2_02_medium/overlay/recovery_audit.json",
+      "overlay_audit_sha256": "f08dc0c6610e3d9d92b56b86a879ec15fb1644d2da7f3f00dfa2762acb10a3b2",
+      "matched_camera_events": 2348,
+      "old_guard_exact_overlap_events": 1359,
+      "old_admitted_tracks": 1455,
+      "corrected_admitted_tracks": 2535,
+      "active_removals": 2505,
+      "never_admitted_candidate_ttl": 4362,
+      "raw_metrics_and_error_curves_unchanged": true,
+      "sources": {
+        "STEREO": 1074,
+        "TEMPORAL_POSE": 1461
+      }
+    },
+    {
+      "sequence": "indoor_forward_3",
+      "old_metrics": "/home/he/output/ltv_feature_readiness_passive/real_metrics/indoor_forward_3_HYBRID_dev_v1/metrics.json",
+      "metrics": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/indoor_forward_3/overlay/metrics.json",
+      "metrics_sha256": "d5032bdc8d573c748aa49522216f0cfb219ce4055ae4ec4431747d77f6db5dca",
+      "exact_replay": {
+        "status": "PASS",
+        "comparison": "exact_frozen_cache_non_wallclock",
+        "imu_events": 46053,
+        "process_events": 2275,
+        "pause_events": 277,
+        "compared_events": 2552
+      },
+      "binding": {
+        "task": "diagnostic_recovery_full_cache",
+        "sequence": "indoor_forward_3",
+        "freeze_sha": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97",
+        "original_run": "/home/he/output/ltv_feature_readiness_passive/real_runs/indoor_forward_3_P_NEW_a6f5a9d8bc53",
+        "binary_sha": "c59bba8a41d6f9541f511e7c3169bb73a6354e479aa31091bfe6bfa58ec92baa",
+        "runtime": "/home/he/output/ltv_feature_readiness_passive/runtime/65059350d802b5964e3409231c53b8953e2078bfbcfb196b2fd04ae0f8a78e5e",
+        "original_identity_sha": "2c8a60fa5e7e1c55b157f3afa5c7791c6398d2672470bf24ff0a8cb1b307c5b5",
+        "attempt": {
+          "id": 224,
+          "exit_code": 0,
+          "directory": "/home/he/output/ltv_feature_readiness_passive/attempts/0224"
+        },
+        "recovered_sha256": "118b30bc91c3c16153d75424141304d9b9b2c866a8bb029c4906350babea116f",
+        "cache_sha256": "ea796de4d8c8ffe6c1a4e4ea91a1306b49e18353419b727b110fb6770640a7c2",
+        "report_sha256": "b2db8515f73b94046786729b5882e2618af394ea50e6a88d4ecc59b38e137938",
+        "buildproof_sha256": "140edf830113bb182b1e4e094b770dac12593a4d573992a43c78458ec0061b94",
+        "buildproof": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/build_8b5e086edb8c55dd42f6d2b2efde24d51d2d3278d6d82a9599cb639ca4d98004.json"
+      },
+      "overlay_audit": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/indoor_forward_3/overlay/recovery_audit.json",
+      "overlay_audit_sha256": "fffd27cb0cceb1d29a19595122b822ed147a3dff9481ca860e1c0ecc031ec119",
+      "matched_camera_events": 2552,
+      "old_guard_exact_overlap_events": 2275,
+      "old_admitted_tracks": 2210,
+      "corrected_admitted_tracks": 2210,
+      "active_removals": 2191,
+      "never_admitted_candidate_ttl": 2136,
+      "raw_metrics_and_error_curves_unchanged": true,
+      "sources": {
+        "STEREO": 192,
+        "TEMPORAL_POSE": 2018
+      }
+    },
+    {
+      "sequence": "V1_03_difficult",
+      "old_metrics": "/home/he/output/ltv_feature_readiness_passive/real_metrics/V1_03_difficult_HYBRID_confirmation_f992d6d2e422/metrics.json",
+      "metrics": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/V1_03_difficult/overlay/metrics.json",
+      "metrics_sha256": "4dd4bb9294e9cb7c9470fa2e19bb4ecb8f6c82f4436408988ac5759538c8089c",
+      "exact_replay": {
+        "status": "PASS",
+        "comparison": "exact_frozen_cache_non_wallclock",
+        "imu_events": 21500,
+        "process_events": 2005,
+        "pause_events": 144,
+        "compared_events": 2149
+      },
+      "binding": {
+        "task": "diagnostic_recovery_full_cache",
+        "sequence": "V1_03_difficult",
+        "freeze_sha": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97",
+        "original_run": "/home/he/output/ltv_feature_readiness_passive/real_runs/V1_03_difficult_P_NEW_0ff98f1261ce",
+        "binary_sha": "c59bba8a41d6f9541f511e7c3169bb73a6354e479aa31091bfe6bfa58ec92baa",
+        "runtime": "/home/he/output/ltv_feature_readiness_passive/runtime/65059350d802b5964e3409231c53b8953e2078bfbcfb196b2fd04ae0f8a78e5e",
+        "original_identity_sha": "29c287a7d83e56922c7cd7c4b9498518a21fecafdacb4d7dc3db2b425ff01d42",
+        "attempt": {
+          "id": 225,
+          "exit_code": 0,
+          "directory": "/home/he/output/ltv_feature_readiness_passive/attempts/0225"
+        },
+        "recovered_sha256": "61e992cd49fe0c1a23f1d9c0556498a754ecb4758d9815dc9126c8de65175fbf",
+        "cache_sha256": "9db99c6131b9f4d904a68b1420773b23af45b54331bd7a607cb591dc152cfa04",
+        "report_sha256": "a3ee0b7dc6d8cc0edb76d497e460ecc4878dc4bb19a4912f2e6a30ba18466952",
+        "buildproof_sha256": "140edf830113bb182b1e4e094b770dac12593a4d573992a43c78458ec0061b94",
+        "buildproof": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/build_8b5e086edb8c55dd42f6d2b2efde24d51d2d3278d6d82a9599cb639ca4d98004.json"
+      },
+      "overlay_audit": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/V1_03_difficult/overlay/recovery_audit.json",
+      "overlay_audit_sha256": "7f37f0eed464492e0f750896798d08e5aeb10de3ca14d90ff1be7d6b5c857180",
+      "matched_camera_events": 2149,
+      "old_guard_exact_overlap_events": 1404,
+      "old_admitted_tracks": 1788,
+      "corrected_admitted_tracks": 2746,
+      "active_removals": 2726,
+      "never_admitted_candidate_ttl": 3554,
+      "raw_metrics_and_error_curves_unchanged": true,
+      "sources": {
+        "STEREO": 1388,
+        "TEMPORAL_POSE": 1358
+      }
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "old_metrics": "/home/he/output/ltv_feature_readiness_passive/real_metrics/V2_03_difficult_HYBRID_confirmation_f992d6d2e422/metrics.json",
+      "metrics": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/V2_03_difficult/overlay/metrics.json",
+      "metrics_sha256": "b93885190bc9876230a66244a1a5b8ac9e228cf88d8d7a4a5c3a6d09c37522a9",
+      "exact_replay": {
+        "status": "PASS",
+        "comparison": "exact_frozen_cache_non_wallclock",
+        "imu_events": 23370,
+        "process_events": 1806,
+        "pause_events": 115,
+        "compared_events": 1921
+      },
+      "binding": {
+        "task": "diagnostic_recovery_full_cache",
+        "sequence": "V2_03_difficult",
+        "freeze_sha": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97",
+        "original_run": "/home/he/output/ltv_feature_readiness_passive/real_runs/V2_03_difficult_P_NEW_37b2c47edc88",
+        "binary_sha": "c59bba8a41d6f9541f511e7c3169bb73a6354e479aa31091bfe6bfa58ec92baa",
+        "runtime": "/home/he/output/ltv_feature_readiness_passive/runtime/65059350d802b5964e3409231c53b8953e2078bfbcfb196b2fd04ae0f8a78e5e",
+        "original_identity_sha": "a66cd4141841d1e9191275383a9cc517a543e2380d1a1175dbbe3f57764d8ed5",
+        "attempt": {
+          "id": 226,
+          "exit_code": 0,
+          "directory": "/home/he/output/ltv_feature_readiness_passive/attempts/0226"
+        },
+        "recovered_sha256": "639384c2f7742f27cde4b2f6f82f1103fbc95eedd807d4a5dd4cfd46ef82f2a8",
+        "cache_sha256": "d7ed7de4b55628dac6eb27b065d12e46dac5074870b9f77d094cf068e54ed488",
+        "report_sha256": "ce1fb79d395116916540dea5c19f36f64290b9309bd7e4126d2ece8eaea4bcb8",
+        "buildproof_sha256": "140edf830113bb182b1e4e094b770dac12593a4d573992a43c78458ec0061b94",
+        "buildproof": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/build_8b5e086edb8c55dd42f6d2b2efde24d51d2d3278d6d82a9599cb639ca4d98004.json"
+      },
+      "overlay_audit": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/V2_03_difficult/overlay/recovery_audit.json",
+      "overlay_audit_sha256": "3831440bcebf0d45242045a8c48576b9a0010c538109dfaf545769fdb09ea41a",
+      "matched_camera_events": 1921,
+      "old_guard_exact_overlap_events": 1081,
+      "old_admitted_tracks": 1478,
+      "corrected_admitted_tracks": 2727,
+      "active_removals": 2716,
+      "never_admitted_candidate_ttl": 4110,
+      "raw_metrics_and_error_curves_unchanged": true,
+      "sources": {
+        "STEREO": 1532,
+        "TEMPORAL_POSE": 1195
+      }
+    },
+    {
+      "sequence": "indoor_forward_6",
+      "old_metrics": "/home/he/output/ltv_feature_readiness_passive/real_metrics/indoor_forward_6_HYBRID_confirmation_f992d6d2e422/metrics.json",
+      "metrics": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/indoor_forward_6/overlay/metrics.json",
+      "metrics_sha256": "cefd4818820305d791c073bb405ae1dd63a540c812e92db9d8178e4b0ab4271b",
+      "exact_replay": {
+        "status": "PASS",
+        "comparison": "exact_frozen_cache_non_wallclock",
+        "imu_events": 34815,
+        "process_events": 1781,
+        "pause_events": 189,
+        "compared_events": 1970
+      },
+      "binding": {
+        "task": "diagnostic_recovery_full_cache",
+        "sequence": "indoor_forward_6",
+        "freeze_sha": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97",
+        "original_run": "/home/he/output/ltv_feature_readiness_passive/real_runs/indoor_forward_6_P_NEW_dddf6774f4e2",
+        "binary_sha": "c59bba8a41d6f9541f511e7c3169bb73a6354e479aa31091bfe6bfa58ec92baa",
+        "runtime": "/home/he/output/ltv_feature_readiness_passive/runtime/65059350d802b5964e3409231c53b8953e2078bfbcfb196b2fd04ae0f8a78e5e",
+        "original_identity_sha": "879d4f323f96a7507c56972eeb169914cd957da194a2ee211214ed462a102596",
+        "attempt": {
+          "id": 227,
+          "exit_code": 0,
+          "directory": "/home/he/output/ltv_feature_readiness_passive/attempts/0227"
+        },
+        "recovered_sha256": "8144809396a2aa307298d469adae46a0c96c50a203c6d5adf92fbb39b4fccdcf",
+        "cache_sha256": "3f8d8d06603c33163e5a808497bdab993e10772d166b7c7709087ae147a932ae",
+        "report_sha256": "f29c3226fa57c3ca1027df2cc66afe98043338453165e159b9a926d09a7ffd7b",
+        "buildproof_sha256": "140edf830113bb182b1e4e094b770dac12593a4d573992a43c78458ec0061b94",
+        "buildproof": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/build_8b5e086edb8c55dd42f6d2b2efde24d51d2d3278d6d82a9599cb639ca4d98004.json"
+      },
+      "overlay_audit": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/indoor_forward_6/overlay/recovery_audit.json",
+      "overlay_audit_sha256": "42063af8512fe9360e1b70d31849895c1c6f89d5117f990bc63bf5340601d5c6",
+      "matched_camera_events": 1970,
+      "old_guard_exact_overlap_events": 4,
+      "old_admitted_tracks": 2,
+      "corrected_admitted_tracks": 1573,
+      "active_removals": 1560,
+      "never_admitted_candidate_ttl": 1861,
+      "raw_metrics_and_error_curves_unchanged": true,
+      "sources": {
+        "STEREO": 250,
+        "TEMPORAL_POSE": 1323
+      }
+    }
+  ],
+  "replay_index": "/home/he/output/ltv_feature_readiness_passive/diagnostic_recovery/full/replays.json",
+  "replay_index_sha256": "76768924096c704ea2131ff6944545d649718d1ce4a02d0f8fdb3ae576e5e90e",
+  "repair_sources": {
+    "scripts/ltv_feature_passive/diagnostic_recovery/merge_overlay.py": "f455e4bcbd89d0a2ac30fe7b3d0a571a6011edce4834e895e8137d0f18c54498",
+    "scripts/ltv_feature_passive/diagnostic_recovery/merge_all.py": "eb8c33023315eb81f4e730f40e7e7c0d6c6244b809ce07c51159397eb4f19493",
+    "scripts/ltv_feature_passive/diagnostic_recovery/README.md": "8f645c6964fdac1e95a01ab07471419f5b13d8edba45c5187b975537226b4f6b",
+    "scripts/ltv_feature_passive/diagnostic_recovery/provenance.json": "87754a112da3576f11697e883fcfdf4b4b1da7524015f8457eeb637610b51b4f",
+    "scripts/ltv_feature_passive/diagnostic_recovery/runner_logging_only.patch": "d3ba87bfb5714ccac662d992029022d626b704b052cb9e0a5688bffba076f7f5",
+    "scripts/ltv_feature_passive/diagnostic_recovery/recover.cpp": "8b5e086edb8c55dd42f6d2b2efde24d51d2d3278d6d82a9599cb639ca4d98004",
+    "scripts/ltv_feature_passive/diagnostic_recovery/tests_overlay.py": "21b068ed6b8551b056c1263815b7cddefa2623d8e0560e3964f6461c4bd69f96",
+    "scripts/ltv_feature_passive/diagnostic_recovery/recover_all.py": "9156946270663f6152bd240764c917c25e93b8f5c832fc44e0bf2e7ee7c26079",
+    "scripts/ltv_feature_passive/diagnostic_recovery/build_recovery.py": "a0d80bf6069bb3fd31dd9ab2bedb94e8c6ef23c7bcaa487c2375d6347911b50e"
+  },
+  "known_live_logger_limitation": "Frozen runner supplemental log incomplete; use SHA-bound recovery overlays; unapplied patch is not claimed as an executed fix",
+  "repeat_inference": "Two prescribed repeated original caches are byte-identical; deterministic recovery equivalence follows, no extra replay claimed"
+}

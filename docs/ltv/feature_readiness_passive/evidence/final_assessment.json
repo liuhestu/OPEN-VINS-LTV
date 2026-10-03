@@ -1,0 +1,75 @@
+{
+  "status": "COMPLETED_WITH_LIMITATIONS",
+  "screening": "MET",
+  "output_quality": "NOT_MET",
+  "passive_engineering": "PASS",
+  "confirmation_coverage_all": false,
+  "confirmation_qualifying_sequences": 2,
+  "confirmation_raw_non_degradation_all": true,
+  "seeds": {
+    "('REGULAR', 101, 0.5)": {
+      "accepted": 820,
+      "acceptance": 0.22664455500276395,
+      "reliable10": 0.95,
+      "reliable5": 0.625609756097561,
+      "pass": true
+    },
+    "('FAST', 101, 0.5)": {
+      "accepted": 3399,
+      "acceptance": 0.939469320066335,
+      "reliable10": 0.971756398940865,
+      "reliable5": 0.7449249779346867,
+      "pass": true
+    },
+    "('REGULAR', 101, 1.0)": {
+      "accepted": 1527,
+      "acceptance": 0.837171052631579,
+      "reliable10": 0.9469548133595285,
+      "reliable5": 0.6673215455140799,
+      "pass": true
+    },
+    "('FAST', 101, 1.0)": {
+      "accepted": 1809,
+      "acceptance": 0.9917763157894737,
+      "reliable10": 0.9723604201216142,
+      "reliable5": 0.7258153676064124,
+      "pass": true
+    },
+    "('REGULAR', 102, 0.5)": {
+      "accepted": 817,
+      "acceptance": 0.22581536760641238,
+      "reliable10": 0.9596083231334149,
+      "reliable5": 0.6523867809057528,
+      "pass": true
+    },
+    "('FAST', 102, 0.5)": {
+      "accepted": 3387,
+      "acceptance": 0.9361525704809287,
+      "reliable10": 0.9760850310008857,
+      "reliable5": 0.7413640389725421,
+      "pass": true
+    },
+    "('REGULAR', 102, 1.0)": {
+      "accepted": 1532,
+      "acceptance": 0.8399122807017544,
+      "reliable10": 0.9647519582245431,
+      "reliable5": 0.7336814621409922,
+      "pass": true
+    },
+    "('FAST', 102, 1.0)": {
+      "accepted": 1807,
+      "acceptance": 0.9906798245614035,
+      "reliable10": 0.9673491975650249,
+      "reliable5": 0.7415605976757056,
+      "pass": true
+    }
+  },
+  "budget": {
+    "synthetic": 30,
+    "real": 36,
+    "short_real": 7,
+    "geometry": 8160,
+    "candidate": 5
+  },
+  "freeze_sha": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97"
+}

@@ -1,0 +1,178 @@
+[
+  {
+    "scene": "FAST",
+    "seed": 101,
+    "lifetime_s": 0.5,
+    "accepted": 3399,
+    "opportunities": 3618,
+    "acceptance_pct": 93.9469320066335,
+    "reliable10_pct": 97.1756398940865,
+    "reliable5_pct": 74.49249779346867,
+    "risk_median": 0.0444824488301081,
+    "parallel_RMSE_m": 0.6968268860697433,
+    "transverse_RMSE_m": 0.019928981248969684,
+    "wait_median_s": 0.15000000000000568,
+    "remaining_visible_median_s_EVALUATOR_ONLY": 0.29999999999999716,
+    "source_counts": {
+      "TEMPORAL_POSE": 3399
+    },
+    "readyV_pct": 35.30391340549542,
+    "raw_v_OLD": 4.909988019076489,
+    "raw_v_NEW": 1.616189784216909,
+    "metrics": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_101_SEED_HYBRID_3e33bc7a4242/metrics.json"
+  },
+  {
+    "scene": "FAST",
+    "seed": 102,
+    "lifetime_s": 0.5,
+    "accepted": 3387,
+    "opportunities": 3618,
+    "acceptance_pct": 93.61525704809287,
+    "reliable10_pct": 97.60850310008857,
+    "reliable5_pct": 74.13640389725421,
+    "risk_median": 0.044300463436316356,
+    "parallel_RMSE_m": 0.6825636210652232,
+    "transverse_RMSE_m": 0.020055974734737372,
+    "wait_median_s": 0.15000000000000568,
+    "remaining_visible_median_s_EVALUATOR_ONLY": 0.29999999999999716,
+    "source_counts": {
+      "TEMPORAL_POSE": 3387
+    },
+    "readyV_pct": 33.72189841798502,
+    "raw_v_OLD": 4.910126628703214,
+    "raw_v_NEW": 1.6617530384861197,
+    "metrics": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_102_SEED_HYBRID_385f3e65266e/metrics.json"
+  },
+  {
+    "scene": "FAST",
+    "seed": 101,
+    "lifetime_s": 1.0,
+    "accepted": 1809,
+    "opportunities": 1824,
+    "acceptance_pct": 99.17763157894737,
+    "reliable10_pct": 97.23604201216142,
+    "reliable5_pct": 72.58153676064124,
+    "risk_median": 0.04442894633818045,
+    "parallel_RMSE_m": 0.7082559644034977,
+    "transverse_RMSE_m": 0.020398392828118363,
+    "wait_median_s": 0.15000000000000568,
+    "remaining_visible_median_s_EVALUATOR_ONLY": 0.75,
+    "source_counts": {
+      "TEMPORAL_POSE": 1809
+    },
+    "readyV_pct": 82.59783513738552,
+    "raw_v_OLD": 4.8702205652227555,
+    "raw_v_NEW": 1.2314603092770138,
+    "metrics": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_101_SEED_HYBRID_78d27f9317bb/metrics.json"
+  },
+  {
+    "scene": "FAST",
+    "seed": 102,
+    "lifetime_s": 1.0,
+    "accepted": 1807,
+    "opportunities": 1824,
+    "acceptance_pct": 99.06798245614034,
+    "reliable10_pct": 96.73491975650249,
+    "reliable5_pct": 74.15605976757055,
+    "risk_median": 0.04422358426597633,
+    "parallel_RMSE_m": 0.7161302319975397,
+    "transverse_RMSE_m": 0.02108819781725871,
+    "wait_median_s": 0.15000000000000568,
+    "remaining_visible_median_s_EVALUATOR_ONLY": 0.75,
+    "source_counts": {
+      "TEMPORAL_POSE": 1807
+    },
+    "readyV_pct": 81.43213988343048,
+    "raw_v_OLD": 4.8703486778507195,
+    "raw_v_NEW": 1.2288257432646632,
+    "metrics": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_102_SEED_HYBRID_977b992a0a51/metrics.json"
+  },
+  {
+    "scene": "REGULAR",
+    "seed": 101,
+    "lifetime_s": 0.5,
+    "accepted": 820,
+    "opportunities": 3618,
+    "acceptance_pct": 22.664455500276397,
+    "reliable10_pct": 95.0,
+    "reliable5_pct": 62.5609756097561,
+    "risk_median": 0.04802040493121461,
+    "parallel_RMSE_m": 0.7557274410248093,
+    "transverse_RMSE_m": 0.023294837209069056,
+    "wait_median_s": 0.4000000000000057,
+    "remaining_visible_median_s_EVALUATOR_ONLY": 0.0,
+    "source_counts": {
+      "TEMPORAL_POSE": 820
+    },
+    "readyV_pct": 0.0,
+    "raw_v_OLD": 2.0645963020573737,
+    "raw_v_NEW": 12.399378035298094,
+    "metrics": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_101_SEED_HYBRID_4a4f32856574/metrics.json"
+  },
+  {
+    "scene": "REGULAR",
+    "seed": 102,
+    "lifetime_s": 0.5,
+    "accepted": 817,
+    "opportunities": 3618,
+    "acceptance_pct": 22.58153676064124,
+    "reliable10_pct": 95.9608323133415,
+    "reliable5_pct": 65.23867809057528,
+    "risk_median": 0.04807674002531388,
+    "parallel_RMSE_m": 0.7141903331085899,
+    "transverse_RMSE_m": 0.020976824731807103,
+    "wait_median_s": 0.40000000000000213,
+    "remaining_visible_median_s_EVALUATOR_ONLY": 0.04999999999999716,
+    "source_counts": {
+      "TEMPORAL_POSE": 817
+    },
+    "readyV_pct": 0.0,
+    "raw_v_OLD": 2.064583563988069,
+    "raw_v_NEW": 15.397618151776369,
+    "metrics": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_102_SEED_HYBRID_34d8f91accad/metrics.json"
+  },
+  {
+    "scene": "REGULAR",
+    "seed": 101,
+    "lifetime_s": 1.0,
+    "accepted": 1527,
+    "opportunities": 1824,
+    "acceptance_pct": 83.7171052631579,
+    "reliable10_pct": 94.69548133595285,
+    "reliable5_pct": 66.73215455140799,
+    "risk_median": 0.048345015234648174,
+    "parallel_RMSE_m": 0.7697275292084487,
+    "transverse_RMSE_m": 0.026484299508907762,
+    "wait_median_s": 0.5500000000000043,
+    "remaining_visible_median_s_EVALUATOR_ONLY": 0.3500000000000014,
+    "source_counts": {
+      "TEMPORAL_POSE": 1527
+    },
+    "readyV_pct": 1.8318068276436303,
+    "raw_v_OLD": 1.9438359066589024,
+    "raw_v_NEW": 2.538401890518904,
+    "metrics": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_101_SEED_HYBRID_a73a685200da/metrics.json"
+  },
+  {
+    "scene": "REGULAR",
+    "seed": 102,
+    "lifetime_s": 1.0,
+    "accepted": 1532,
+    "opportunities": 1824,
+    "acceptance_pct": 83.99122807017544,
+    "reliable10_pct": 96.47519582245431,
+    "reliable5_pct": 73.36814621409921,
+    "risk_median": 0.048356139902194416,
+    "parallel_RMSE_m": 0.6791812675309221,
+    "transverse_RMSE_m": 0.025066746748430603,
+    "wait_median_s": 0.5500000000000043,
+    "remaining_visible_median_s_EVALUATOR_ONLY": 0.3999999999999986,
+    "source_counts": {
+      "TEMPORAL_POSE": 1532
+    },
+    "readyV_pct": 1.4987510407993339,
+    "raw_v_OLD": 1.943858148952344,
+    "raw_v_NEW": 2.640743859878973,
+    "metrics": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_102_SEED_HYBRID_a670390a5c42/metrics.json"
+  }
+]

@@ -56,6 +56,13 @@ list(APPEND ament_libraries
 list(APPEND LIBRARY_SOURCES
         src/ltv/ltv_observer.cpp
         src/ltv/LtvAdapter.cpp
+        src/ltv/LtvPassiveCache.cpp
+        src/ltv/LtvFeatureHistory.cpp
+        src/ltv/LtvFeatureQuality.cpp
+        src/ltv/LtvLandmarkManager.cpp
+        src/ltv/LtvSeedEstimator.cpp
+        src/ltv/LtvSeedUncertainty.cpp
+        src/ltv/LtvFeaturePipeline.cpp
         src/ltv/ValueDiagnostics.cpp
         src/dummy.cpp
         src/sim/Simulator.cpp

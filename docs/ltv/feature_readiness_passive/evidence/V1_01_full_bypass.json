@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "exact_files": [
+    "audit.csv",
+    "trajectory.csv",
+    "unmatched_camera.csv"
+  ],
+  "runs": [
+    {
+      "mode": "B",
+      "camera_packets": 2912,
+      "trajectory_rows": 2800,
+      "complete": true,
+      "zero_injection": true,
+      "status": "PASS"
+    },
+    {
+      "mode": "P_OLD",
+      "camera_packets": 2912,
+      "trajectory_rows": 2800,
+      "complete": true,
+      "zero_injection": true,
+      "status": "PASS"
+    },
+    {
+      "mode": "P_NEW",
+      "camera_packets": 2912,
+      "trajectory_rows": 2800,
+      "complete": true,
+      "zero_injection": true,
+      "status": "PASS"
+    }
+  ]
+}

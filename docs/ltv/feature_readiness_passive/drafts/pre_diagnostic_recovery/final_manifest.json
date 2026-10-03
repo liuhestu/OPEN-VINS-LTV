@@ -1,0 +1,38 @@
+{
+  "phase": "frozen_confirmation_with_development_context",
+  "freeze_sha": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97",
+  "real_metrics": {
+    "V1_01_easy": "/home/he/output/ltv_feature_readiness_passive/real_metrics/V1_01_easy_HYBRID_dev_v1/metrics.json",
+    "V2_02_medium": "/home/he/output/ltv_feature_readiness_passive/real_metrics/V2_02_medium_HYBRID_dev_v1/metrics.json",
+    "indoor_forward_3": "/home/he/output/ltv_feature_readiness_passive/real_metrics/indoor_forward_3_HYBRID_dev_v1/metrics.json",
+    "V1_03_difficult": "/home/he/output/ltv_feature_readiness_passive/real_metrics/V1_03_difficult_HYBRID_confirmation_f992d6d2e422/metrics.json",
+    "V2_03_difficult": "/home/he/output/ltv_feature_readiness_passive/real_metrics/V2_03_difficult_HYBRID_confirmation_f992d6d2e422/metrics.json",
+    "indoor_forward_6": "/home/he/output/ltv_feature_readiness_passive/real_metrics/indoor_forward_6_HYBRID_confirmation_f992d6d2e422/metrics.json"
+  },
+  "synthetic_metrics": [
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_101_SEED_HYBRID_4a4f32856574/metrics.json",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_101_SEED_HYBRID_3e33bc7a4242/metrics.json",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_101_SEED_HYBRID_a73a685200da/metrics.json",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_101_SEED_HYBRID_78d27f9317bb/metrics.json",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_102_SEED_HYBRID_34d8f91accad/metrics.json",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_102_SEED_HYBRID_385f3e65266e/metrics.json",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_102_SEED_HYBRID_a670390a5c42/metrics.json",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_102_SEED_HYBRID_977b992a0a51/metrics.json"
+  ],
+  "synthetic_pairs": {
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_101_SEED_HYBRID_4a4f32856574/metrics.json": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_101_OLD_e4765f21f9a4",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_101_SEED_HYBRID_3e33bc7a4242/metrics.json": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_101_OLD_fbd4da2704dc",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_101_SEED_HYBRID_a73a685200da/metrics.json": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_101_OLD_baf5e8047068",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_101_SEED_HYBRID_78d27f9317bb/metrics.json": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_101_OLD_efb191e6eb66",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_102_SEED_HYBRID_34d8f91accad/metrics.json": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_102_OLD_7d08417172fa",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_102_SEED_HYBRID_385f3e65266e/metrics.json": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_102_OLD_05bc33e7c51a",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_102_SEED_HYBRID_a670390a5c42/metrics.json": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_102_OLD_c69b85e1d9b7",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_102_SEED_HYBRID_977b992a0a51/metrics.json": "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_102_OLD_304fc374d216"
+  },
+  "repeat_checks": {
+    "V2_03_difficult": "/home/he/output/ltv_feature_readiness_passive/attempts/0168/stdout.log",
+    "indoor_forward_6": "/home/he/output/ltv_feature_readiness_passive/attempts/0176/stdout.log"
+  },
+  "cache_check": "/home/he/output/ltv_feature_readiness_passive/V1_01_hybrid_full_cache_parity.json",
+  "readonly_check": "/home/he/output/ltv_feature_readiness_passive/attempts/0208/stdout.log"
+}

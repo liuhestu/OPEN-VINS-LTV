@@ -1,0 +1,49 @@
+{
+  "source": "goal.md sections 10 and 13",
+  "engineering": [
+    "geometry_and_gauge",
+    "jacobian_and_shared_noise_MC",
+    "causality",
+    "seed_once_before_first_correction",
+    "lifecycle_full_cross_blocks",
+    "off_exact_regression",
+    "main_state_P_FEJ_clones_visual_trajectory_equal",
+    "actual_G_V_submissions_zero",
+    "cache_bridge_exact",
+    "resume_budget_and_no_duplicate_IMU_seed",
+    "all_formal_inputs_consumed"
+  ],
+  "seed": {
+    "correct_ID": true,
+    "positive_ray": true,
+    "relative_3d_error_max": 0.1,
+    "also_report": 0.05,
+    "reliable_fraction_min": 0.9,
+    "opportunity_acceptance_min": 0.2,
+    "accepted_per_confirmation_scenario_min": 100,
+    "denominator": "all legal tracked candidates with fixed history/stereo opportunity, before final risk gate",
+    "report_birth_denominator": true,
+    "nominal_95_if_claimed_coverage_min": 0.9
+  },
+  "real": {
+    "ready_G_and_V_coverage_min": 0.2,
+    "GT_supported_ready_seconds_min": 10,
+    "improved_sequences_min": 2,
+    "confirmation_sequences": 3,
+    "speed_or_eta_rmse_reduction_min": 0.2,
+    "other_and_raw_degradation_max": "max(5% OLD RMSE, 0.01 m/s velocity or 0.05 m/s2 eta)",
+    "same_support": true,
+    "wide_readiness_truth": {
+      "v_m_s": 0.1,
+      "gravity_angle_deg": 1,
+      "gravity_magnitude_m_s2": 0.2
+    }
+  },
+  "statuses": [
+    "GOAL_ACHIEVED",
+    "COMPLETED_WITH_LIMITATIONS",
+    "BLOCKED_CORRECTNESS",
+    "BLOCKED_DATA",
+    "BUDGET_EXHAUSTED"
+  ]
+}

@@ -43,6 +43,9 @@ void LtvObserver::reset(LtvResetReason reason) {
   feature_to_slot_.clear();
   missed_frames_.clear();
   candidate_age_.clear();
+  controlled_features_ = false;
+  controlled_epoch_ = 0;
+  admitted_ids_.clear();
   initializeBaseState();
 }
 
@@ -231,6 +234,73 @@ void LtvObserver::rebuildState(const std::vector<int> &feature_ids) {
 LtvSnapshot LtvObserver::updateFeatures(double frame_timestamp, double imu_timestamp,
                                         const std::vector<LtvFeatureObservation> &observations, const Eigen::Matrix3d &rotation_body_camera,
                                         const Eigen::Vector3d &position_body_camera) {
+  if (controlled_features_)
+    return snapshot(frame_timestamp);
+  return updateFeaturesImpl(frame_timestamp, imu_timestamp, observations, rotation_body_camera, position_body_camera, nullptr);
+}
+
+bool LtvObserver::enableControlledFeatures(uint64_t epoch) {
+  if (!enabled() || !started_ || controlled_features_ || last_frame_timestamp_ >= 0.0 || !feature_to_slot_.empty())
+    return false;
+  controlled_features_ = true;
+  controlled_epoch_ = epoch;
+  return true;
+}
+
+LtvControlledResult LtvObserver::updateFeaturesControlled(double frame_timestamp, double imu_timestamp,
+                                                          const std::vector<LtvFeatureObservation> &observations,
+                                                          const Eigen::Matrix3d &rotation_body_camera,
+                                                          const Eigen::Vector3d &position_body_camera,
+                                                          const LtvControlledFeatures &control) {
+  LtvControlledResult result;
+  result.snapshot = snapshot(frame_timestamp);
+  auto reject = [&result](const char *reason) {
+    result.reason = reason;
+    return result;
+  };
+  if (!enabled() || !started_ || !controlled_features_)
+    return reject("controlled_mode_inactive");
+  if (control.epoch != controlled_epoch_)
+    return reject("stale_epoch");
+  if (!std::isfinite(frame_timestamp) || !std::isfinite(imu_timestamp) || !std::isfinite(control.imu_timestamp) ||
+      std::abs(control.imu_timestamp - imu_timestamp) > config_.timestamp_tolerance ||
+      std::abs(imu_timestamp - imu_timestamp_) > config_.timestamp_tolerance ||
+      (last_frame_timestamp_ >= 0.0 && frame_timestamp <= last_frame_timestamp_) ||
+      (last_camera_imu_timestamp_ >= 0.0 && imu_timestamp - last_camera_imu_timestamp_ > config_.reset_gap))
+    return reject("stale_or_invalid_time");
+  if (!rotation_body_camera.allFinite() || !position_body_camera.allFinite() ||
+      !(rotation_body_camera * rotation_body_camera.transpose()).isApprox(Eigen::Matrix3d::Identity(), 1e-6) ||
+      rotation_body_camera.determinant() <= 0.0)
+    return reject("invalid_calibration");
+  std::set<int> retained(control.retained_ids.begin(), control.retained_ids.end());
+  if (retained.size() != control.retained_ids.size() || retained.size() > static_cast<size_t>(config_.max_features) ||
+      (!retained.empty() && *retained.begin() < 0))
+    return reject("invalid_retained_set");
+  std::set<int> visible, births;
+  for (const auto &observation : observations) {
+    if (!retained.count(observation.feature_id) || !visible.insert(observation.feature_id).second ||
+        !observation.normalized_coordinate.allFinite() || observation.normalized_coordinate.norm() <= 1e-12)
+      return reject("invalid_observation");
+  }
+  for (const auto &birth : control.births) {
+    if (!retained.count(birth.feature_id) || !visible.count(birth.feature_id) || !births.insert(birth.feature_id).second ||
+        admitted_ids_.count(birth.feature_id) || feature_to_slot_.count(birth.feature_id) || !birth.mean_body.allFinite())
+      return reject("duplicate_or_invalid_birth");
+  }
+  for (int id : retained) {
+    if (!feature_to_slot_.count(id) && (!births.count(id) || admitted_ids_.count(id)))
+      return reject("missing_birth_or_retired_id");
+  }
+  result.snapshot = updateFeaturesImpl(frame_timestamp, imu_timestamp, observations, rotation_body_camera, position_body_camera, &control);
+  result.accepted = started_ && controlled_features_;
+  result.reason = result.accepted ? "accepted" : "observer_reset";
+  return result;
+}
+
+LtvSnapshot LtvObserver::updateFeaturesImpl(double frame_timestamp, double imu_timestamp,
+                                            const std::vector<LtvFeatureObservation> &observations,
+                                            const Eigen::Matrix3d &rotation_body_camera, const Eigen::Vector3d &position_body_camera,
+                                            const LtvControlledFeatures *control) {
   const auto update_start = std::chrono::steady_clock::now();
   if (!enabled() || !started_)
     return snapshot(frame_timestamp);
@@ -259,7 +329,16 @@ LtvSnapshot LtvObserver::updateFeatures(double frame_timestamp, double imu_times
     return snapshot(frame_timestamp);
   }
 
-  updateFeatureLifecycle(observations);
+  if (control) {
+    rebuildState(control->retained_ids);
+    for (const auto &birth : control->births) {
+      if (birth.apply_mean)
+        state_.segment<3>(3 * feature_to_slot_.at(birth.feature_id)) = birth.mean_body;
+      admitted_ids_.insert(birth.feature_id);
+    }
+  } else {
+    updateFeatureLifecycle(observations);
+  }
 
   std::unordered_map<int, Eigen::Vector3d> coordinate_by_id;
   for (const auto &observation : observations) {

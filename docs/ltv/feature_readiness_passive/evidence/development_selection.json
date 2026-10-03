@@ -1,0 +1,73 @@
+{
+  "method": "SEED_HYBRID",
+  "source": "STEREO_THEN_TEMPORAL",
+  "real_metrics": {
+    "V1_01_easy": "/home/he/output/ltv_feature_readiness_passive/real_metrics/V1_01_easy_HYBRID_dev_v1/metrics.json",
+    "V2_02_medium": "/home/he/output/ltv_feature_readiness_passive/real_metrics/V2_02_medium_HYBRID_dev_v1/metrics.json",
+    "indoor_forward_3": "/home/he/output/ltv_feature_readiness_passive/real_metrics/indoor_forward_3_HYBRID_dev_v1/metrics.json"
+  },
+  "synthetic_metrics": [
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_42_SEED_HYBRID_5081ad1bef2b/metrics.json",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/FAST_43_SEED_HYBRID_16389c9952e2/metrics.json",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_42_SEED_HYBRID_fb8a29107274/metrics.json",
+    "/home/he/output/ltv_feature_readiness_passive/synthetic_runs/REGULAR_43_SEED_HYBRID_b7502ee10c46/metrics.json"
+  ],
+  "engineering_tests": {
+    "geometry_uncertainty": [
+      147
+    ],
+    "causality_lifecycle": [
+      150,
+      106
+    ],
+    "controlled_seed": [
+      105
+    ],
+    "old_off_equivalence": [
+      148
+    ],
+    "pose_convention": [
+      107
+    ],
+    "timing_options": [
+      103,
+      104
+    ],
+    "cache_equivalence": [
+      35,
+      53,
+      54,
+      125
+    ],
+    "passive_bypass": [
+      52,
+      128,
+      130,
+      136
+    ],
+    "resource_recovery": [
+      97,
+      109,
+      123
+    ],
+    "hybrid_route": [
+      82,
+      106
+    ],
+    "evaluation_criteria": [
+      43,
+      83,
+      123,
+      138,
+      141
+    ]
+  },
+  "choice": "Unchanged risk/history/maturity: current stereo if reliable, otherwise causal temporal geometry. All three real development sequences meet output/coverage targets; far-scene seed quality improves over stereo-only. REGULAR short-life shared-observer readiness remains poor, explicitly retained as limitation. Candidate6 unused; no further search.",
+  "confirmation_not_yet_accessed": true,
+  "calibration_attempt": 9,
+  "early_test_provenance_replacements": {
+    "3": 147,
+    "13": 148,
+    "4": 150
+  }
+}

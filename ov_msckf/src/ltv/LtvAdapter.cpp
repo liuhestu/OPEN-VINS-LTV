@@ -5,6 +5,23 @@ LtvAdapter::LtvAdapter(const LtvOptions &options) : options_(options) {
   auto config = options.observer;
   config.enable = options.enabled;
   observer_.configure(config);
+  if (options.feature_readiness_enabled) {
+    if (!options.enabled || options.enable_gravity || options.enable_velocity)
+      throw std::invalid_argument("Feature readiness requires passive observer");
+    ltv::FeaturePipelineConfig pipeline;
+    pipeline.manager = options.feature_manager;
+    pipeline.manager.apply_seed = options.feature_apply_seed;
+    if (options.feature_seed_source == "STEREO")
+      pipeline.source = ltv::FeatureSeedSource::Stereo;
+    else if (options.feature_seed_source == "STEREO_THEN_TEMPORAL")
+      pipeline.source = ltv::FeatureSeedSource::StereoThenTemporal;
+    else if (options.feature_seed_source == "TEMPORAL_POSE")
+      pipeline.source = ltv::FeatureSeedSource::TemporalPose;
+    else
+      throw std::invalid_argument("Unsupported feature seed source");
+    pipeline.bearing_sigma_rad = options.feature_bearing_sigma_rad;
+    feature_pipeline_.reset(new ltv::LtvFeaturePipeline(pipeline));
+  }
 }
 void LtvAdapter::feed_imu(const ov_core::ImuData &sample) {
   std::lock_guard<std::mutex> lock(mutex_);
@@ -30,6 +47,15 @@ LtvFrame LtvAdapter::frame(double t, uint64_t version, const std::string &reason
   f.cursor = cursor_;
   f.reason = reason;
   f.snapshot = observer_.snapshot(t);
+  if (feature_pipeline_) {
+    f.mature_features = feature_frame_.management.mature_visible;
+    const bool mature = feature_frame_.management.accepted_input && feature_frame_.management.enough_mature && !paused_;
+    f.ready_G = mature && f.snapshot.gravity_valid;
+    f.ready_V = mature && f.snapshot.velocity_valid;
+  } else {
+    f.ready_G = !paused_ && f.snapshot.gravity_valid;
+    f.ready_V = !paused_ && f.snapshot.velocity_valid;
+  }
   f.integrated_steps = steps_;
   f.integrated_seconds = seconds_;
   return f;
@@ -41,6 +67,7 @@ LtvFrame LtvAdapter::pause(double t, const std::string &reason, uint64_t version
     paused_ = true;
     ids_.clear();
     next_id_ = 0;
+    feature_frame_ = ltv::FeaturePipelineFrame();
   }
   last_camera_ = std::max(last_camera_, t);
   return frame(t, version, reason);
@@ -55,6 +82,9 @@ void LtvAdapter::reset() {
   last_camera_ = -1;
   input_fault_ = false;
   ++epoch_;
+  if (feature_pipeline_)
+    feature_pipeline_->reset(epoch_);
+  feature_frame_ = ltv::FeaturePipelineFrame();
   claimed_ = sequence_;
 }
 ov_core::ImuData LtvAdapter::correct(const ov_core::ImuData &raw, const LtvCalibration &c, const Eigen::Vector3d &ba,
@@ -66,7 +96,12 @@ ov_core::ImuData LtvAdapter::correct(const ov_core::ImuData &raw, const LtvCalib
   return x;
 }
 LtvFrame LtvAdapter::process(double t, const std::vector<LtvBearing> &bearings, const LtvCalibration &c, const Eigen::Vector3d &ba,
-                             const Eigen::Vector3d &bg, uint64_t version) {
+                             const Eigen::Vector3d &bg, uint64_t version, const ltv::FeaturePipelineContext *feature_context) {
+  if (feature_pipeline_ && (options_.enable_gravity || options_.enable_velocity))
+    throw std::runtime_error("Passive feature path cannot submit G/V");
+  if (feature_pipeline_ && (!feature_context || !std::isfinite(feature_context->time) ||
+                            std::abs(feature_context->time - (t + c.offset)) > 1e-9 || feature_context->version != version))
+    throw std::invalid_argument("Missing or stale feature context");
   if (!std::isfinite(t) || !std::isfinite(c.offset) || !ba.allFinite() || !bg.allFinite() || !c.Da.allFinite() || !c.Dw.allFinite() ||
       !c.Tg.allFinite() || !c.R_ACCtoIMU.allFinite() || !c.R_GYROtoIMU.allFinite() || !c.R_BC.allFinite() || !c.p_BC.allFinite())
     throw std::invalid_argument("non-finite LTV context");
@@ -122,6 +157,12 @@ LtvFrame LtvAdapter::process(double t, const std::vector<LtvBearing> &bearings, 
   if (paused_) {
     ++epoch_;
     observer_.start(target);
+    if (feature_pipeline_) {
+      feature_pipeline_->reset(epoch_);
+      feature_frame_ = ltv::FeaturePipelineFrame();
+      if (!observer_.enableControlledFeatures(epoch_))
+        throw std::runtime_error("Cannot enable controlled feature admission");
+    }
     cursor_ = target;
     paused_ = false;
     ids_.clear();
@@ -137,8 +178,22 @@ LtvFrame LtvAdapter::process(double t, const std::vector<LtvBearing> &bearings, 
       return pause(t, "core_imu_reset", version);
   }
   cursor_ = target;
+  std::vector<LtvBearing> managed_bearings;
+  ltv::LtvControlledFeatures control;
+  if (feature_pipeline_) {
+    auto context = *feature_context;
+    context.epoch = epoch_;
+    feature_frame_ = feature_pipeline_->process(context);
+    if (!feature_frame_.management.accepted_input)
+      throw std::runtime_error("Invalid feature pipeline context: " + feature_frame_.management.reason);
+    for (const auto &o : feature_frame_.management.observations)
+      if (o.camera_id == 0)
+        managed_bearings.push_back({o.feature_id, o.bearing});
+    control.epoch = epoch_;
+    control.imu_timestamp = target;
+  }
   std::vector<ltv::LtvFeatureObservation> features;
-  for (const auto &bearing : bearings) {
+  for (const auto &bearing : feature_pipeline_ ? managed_bearings : bearings) {
     if (!bearing.coordinate.allFinite() || bearing.coordinate.norm() < 1e-12)
       return pause(t, "invalid_bearing", version);
     if (!ids_.count(bearing.id)) {
@@ -151,7 +206,24 @@ LtvFrame LtvAdapter::process(double t, const std::vector<LtvBearing> &bearings, 
     f.normalized_coordinate = bearing.coordinate;
     features.push_back(f);
   }
-  observer_.updateFeatures(t, target, features, c.R_BC, c.p_BC);
+  if (feature_pipeline_) {
+    for (size_t id : feature_frame_.management.retained_ids)
+      control.retained_ids.push_back(ids_.at(id));
+    for (const auto &birth : feature_frame_.management.births) {
+      if (birth.seed.epoch != epoch_ || std::abs(birth.seed.time - target) > 1e-9)
+        throw std::runtime_error("Stale seed execution context");
+      ltv::LtvLandmarkSeed seed;
+      seed.feature_id = ids_.at(birth.feature_id);
+      seed.apply_mean = birth.apply_seed;
+      seed.mean_body = birth.seed.landmark_B;
+      control.births.push_back(seed);
+    }
+    const auto result = observer_.updateFeaturesControlled(t, target, features, c.R_BC, c.p_BC, control);
+    if (!result.accepted && observer_.started())
+      throw std::runtime_error("Controlled feature rejection: " + result.reason);
+  } else {
+    observer_.updateFeatures(t, target, features, c.R_BC, c.p_BC);
+  }
   if (!observer_.started())
     return pause(t, "core_camera_reset", version);
   ++sequence_;

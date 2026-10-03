@@ -1,0 +1,11 @@
+--- a/ov_msckf/tests/ltv/tools/run_ltv_feature_passive.cpp
++++ b/ov_msckf/tests/ltv/tools/run_ltv_feature_passive.cpp
+@@ -230,7 +230,7 @@
+     out << ",\"current_stereo_ids\":";
+     id_array(out, passive_current_stereo_ids);
+     out << ",\"retained_ids\":[";
+-    const bool new_path = params.ltv_options.feature_readiness_enabled && bool(ltv_adapter) && f.available && f.camera_ns == camera_ns;
++    const bool new_path = params.ltv_options.feature_readiness_enabled && bool(ltv_adapter) && f.available && f.camera_time == camera_ns * 1e-9;
+     if (new_path) {
+       const auto &management = ltv_adapter->feature_frame().management;
+       for (size_t k = 0; k < management.retained_ids.size(); ++k) {

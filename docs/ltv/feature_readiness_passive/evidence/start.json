@@ -1,0 +1,8 @@
+{
+  "protocol_sha256": "c6ef8ecdb14204ad57cb6feda66fbe92ebcf1437b33ee49a60fbb45bcffd8c83",
+  "acceptance_sha256": "74ce05834e6218692ea864a03200de90fda555a765073a99c72b1d1f95009d6a",
+  "baseline_manifest": "/home/he/output/ltv_feature_readiness_passive/baseline_sha256.json",
+  "baseline_manifest_sha256": "324b7464b2401600cfa1892f9cb686558dfec6978e66434968f4e03a3213275b",
+  "new_runs": 0,
+  "legacy_full_runs": 64
+}

@@ -1,0 +1,9 @@
+{
+  "name": "SEED_HYBRID",
+  "source": "STEREO_THEN_TEMPORAL",
+  "gain": "C0",
+  "max_relative_risk": 0.05,
+  "manager": "unchanged initial manager protocol",
+  "rule": "For each currently visible candidate, use stereo if its geometry passes unchanged geometric quality thresholds; otherwise compute temporal geometry from causal history. Shared history/capacity/maturity/once rules unchanged. Record actual source per seed.",
+  "rationale": "REGULAR stereo accepts0 vs temporal1515/1824 with96.83%10pct reliability; V1_01 near-camera stereo giveshighcoverage andsame-supportspeed benefit. Geometries need complementary sources."
+}

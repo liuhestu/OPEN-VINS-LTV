@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "historical_manifest_entries": 990,
+  "authorized_new_task_interface_changes": [
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/ltv_observer.cpp",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/ov_msckf/src/ltv/ltv_observer.h"
+  ],
+  "unexpected_changes": [],
+  "closeout_artifacts_checked": 39
+}

@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "repair": "read-only diagnostic recovery; frozen input, estimator, selection, comparison unchanged",
+  "cache_source": "ov_msckf/src/ltv/LtvPassiveCache.cpp",
+  "cache_source_sha256": "b1efbd062b0d9031b08826256c44f9585a1b6eb108ed19a4ccf1b48446b77249",
+  "runner_source": "ov_msckf/tests/ltv/tools/run_ltv_feature_passive.cpp",
+  "runner_source_sha256": "f315d1225fe04a5a1e4e85beaab6fddea90998fa15d403c273fa8b3a1754cfbf",
+  "freeze_sha256": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97",
+  "runtime": "/home/he/output/ltv_feature_readiness_passive/runtime/65059350d802b5964e3409231c53b8953e2078bfbcfb196b2fd04ae0f8a78e5e",
+  "static_copy_audit": {
+    "binary_decoder_exact": true,
+    "evidence_comparator_exact": true,
+    "replay_algorithm_exact_except_after_comparison_logging": true
+  },
+  "recovery_source_sha256": "8b5e086edb8c55dd42f6d2b2efde24d51d2d3278d6d82a9599cb639ca4d98004",
+  "repair_schema_additions": [
+    "never_admitted_candidate_ttl_ids",
+    "admitted_retired_ids"
+  ]
+}
