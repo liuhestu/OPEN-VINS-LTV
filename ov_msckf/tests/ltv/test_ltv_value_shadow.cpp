@@ -33,6 +33,7 @@ int main() {
     frame.camera_time = frame.imu_time = frame.cursor = 1;
     frame.snapshot.imu_timestamp = frame.imu_time;
     frame.snapshot.frame_timestamp = frame.camera_time;
+    frame.ready_G = frame.ready_V = true;
     frame.snapshot.valid = frame.snapshot.gravity_valid = frame.snapshot.velocity_valid = true;
     frame.snapshot.gravity_body = exp_so3(Eigen::Vector3d(0.01, -0.02, 0.005)) * state->_imu->Rot() * Eigen::Vector3d(0, 0, -9.81);
     frame.snapshot.velocity_body = state->_imu->Rot() * state->_imu->vel() + Eigen::Vector3d(0.03, -0.01, 0.02);

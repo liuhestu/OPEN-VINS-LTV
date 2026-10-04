@@ -15,6 +15,7 @@ LtvFrame candidate(const std::shared_ptr<State> &s) {
   f.cursor = s->_timestamp;
   f.snapshot.imu_timestamp = f.imu_time;
   f.snapshot.frame_timestamp = f.camera_time;
+  f.ready_G = f.ready_V = true;
   f.snapshot.valid = true;
   f.snapshot.velocity_valid = true;
   f.snapshot.gravity_valid = true;
@@ -36,10 +37,12 @@ int main() {
     s->_timestamp = 1;
     StateHelper::augment_clone(s, Eigen::Vector3d::Zero());
     auto f = candidate(s);
-    f.snapshot.gravity_valid = mask & 1;
-    f.snapshot.velocity_valid = mask & 2;
+    f.ready_G = mask & 1;
+    f.ready_V = mask & 2;
     auto block = updater.build(s, f);
     require(block.res.size() == ((mask & 1) ? 2 : 0) + ((mask & 2) ? 3 : 0), "independent G/V acceptance");
+    require((mask & 1) || block.receipt->diagnostics.gravity_reason == "not_ready_G", "explicit G readiness reason");
+    require((mask & 2) || block.receipt->diagnostics.velocity_reason == "not_ready_V", "explicit V readiness reason");
     const auto before = StateHelper::get_full_covariance(s);
     const auto value = s->_imu->value();
     UpdaterOptions native;
@@ -48,6 +51,8 @@ int main() {
     std::vector<std::shared_ptr<ov_core::Feature>> features;
     msckf.update(s, features, &block);
     require(block.receipt->diagnostics.ekf_calls == (mask ? 1 : 0), "empty visual 0/1 joint calls");
+    require(block.receipt->diagnostics.consumed == block.receipt->consumed, "diagnostic tracks actual receipt consumption");
+    require((block.receipt->diagnostics.submit_reason == "joint_applied") == bool(mask), "actual zero-innovation update has a receipt");
     auto after = StateHelper::get_full_covariance(s);
     require((value - s->_imu->value()).norm() < 1e-12, "zero innovation preserves nominal");
     if (mask)
@@ -61,6 +66,31 @@ int main() {
   auto clone = s->_clones_IMU.at(1);
   auto f = candidate(s);
   auto block = updater.build(s, f);
+  require(block.R.topRightCorner(2, 3).norm() == 0 && block.R.bottomLeftCorner(3, 2).norm() == 0,
+          "GV noise deliberately excludes LTV cross covariance");
+  for (int mismatch = 0; mismatch < 8; ++mismatch) {
+    auto token = f;
+    if (mismatch == 0)
+      token.camera_time += 0.01;
+    if (mismatch == 1)
+      token.imu_time += 0.01;
+    if (mismatch == 2)
+      token.cursor += 0.01;
+    if (mismatch == 3)
+      token.snapshot.imu_timestamp += 0.01;
+    if (mismatch == 4)
+      token.snapshot.frame_timestamp += 0.01;
+    if (mismatch == 5)
+      token.epoch = 0;
+    if (mismatch == 6)
+      token.sequence = 0;
+    if (mismatch == 7)
+      token.available = false;
+    auto rejected = updater.build(s, token);
+    require(rejected.empty() && rejected.receipt->diagnostics.gravity_reason == "time_or_token" &&
+                rejected.receipt->diagnostics.velocity_reason == "time_or_token",
+            "ready branches retain all physical time and token checks");
+  }
   auto ctx = updater.context(*s);
   metric("tangent_orthogonal", (ctx.T.transpose() * ctx.R_linearization * ctx.gamma).norm(), 1e-12);
   metric("tangent_orthonormal", (ctx.T.transpose() * ctx.T - Eigen::Matrix2d::Identity()).norm(), 1e-12);

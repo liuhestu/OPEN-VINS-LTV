@@ -1,0 +1,9 @@
+{
+  "command": [
+    "bash",
+    "/tmp/ltv_gv_evaluation/build.sh"
+  ],
+  "exit_code": 0,
+  "log": "/tmp/ltv_gv_evaluation/build_05.log",
+  "purpose": "only suppress Passive injection assertions in evaluation instrumentation mode; retain all other validation"
+}

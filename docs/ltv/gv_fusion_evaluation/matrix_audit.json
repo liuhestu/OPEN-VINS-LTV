@@ -1,0 +1,112 @@
+{
+  "V2_02_medium_GV_01": {
+    "actual_updates_checked": 1606,
+    "max_full_Joseph_relative_error": 2.591894273018106e-16,
+    "max_native_IMU_mean_error": 6.924085413875272e-15,
+    "max_innovation_relative_error": 5.129850463995772e-12,
+    "max_joint_NIS_relative_error": 1.3178512980873175e-15,
+    "max_contribution_error": 1.5246593050577406e-20,
+    "block_diagonal_noise_exact": true,
+    "tolerance": 1e-09,
+    "tolerance_source": "existing test_ltv_joint_covariance"
+  },
+  "V2_02_medium_GV_02": {
+    "actual_updates_checked": 1606,
+    "max_full_Joseph_relative_error": 2.591894273018106e-16,
+    "max_native_IMU_mean_error": 6.924085413875272e-15,
+    "max_innovation_relative_error": 5.129850463995772e-12,
+    "max_joint_NIS_relative_error": 1.3178512980873175e-15,
+    "max_contribution_error": 1.5246593050577406e-20,
+    "block_diagonal_noise_exact": true,
+    "tolerance": 1e-09,
+    "tolerance_source": "existing test_ltv_joint_covariance"
+  },
+  "V2_02_medium_G_01": {
+    "actual_updates_checked": 1606,
+    "max_full_Joseph_relative_error": 2.596726475893918e-16,
+    "max_native_IMU_mean_error": 6.970850265851689e-15,
+    "max_innovation_relative_error": 5.604587117743371e-12,
+    "max_joint_NIS_relative_error": 1.0221743270933432e-15,
+    "max_contribution_error": 5.082197683525802e-21,
+    "block_diagonal_noise_exact": true,
+    "tolerance": 1e-09,
+    "tolerance_source": "existing test_ltv_joint_covariance"
+  },
+  "V2_02_medium_OFF_01": {
+    "actual_updates_checked": 0,
+    "max_full_Joseph_relative_error": 0.0,
+    "max_native_IMU_mean_error": 0.0,
+    "max_innovation_relative_error": 0.0,
+    "max_joint_NIS_relative_error": 0.0,
+    "max_contribution_error": 0.0,
+    "block_diagonal_noise_exact": true,
+    "tolerance": 1e-09,
+    "tolerance_source": "existing test_ltv_joint_covariance"
+  },
+  "V2_02_medium_V_01": {
+    "actual_updates_checked": 1571,
+    "max_full_Joseph_relative_error": 2.235378058970861e-16,
+    "max_native_IMU_mean_error": 8.654623739450393e-15,
+    "max_innovation_relative_error": 5.330297602272608e-12,
+    "max_joint_NIS_relative_error": 1.05440112311641e-15,
+    "max_contribution_error": 1.3552527156068805e-20,
+    "block_diagonal_noise_exact": true,
+    "tolerance": 1e-09,
+    "tolerance_source": "existing test_ltv_joint_covariance"
+  },
+  "V2_03_difficult_GV_01": {
+    "actual_updates_checked": 706,
+    "max_full_Joseph_relative_error": 1.9675433899426812e-16,
+    "max_native_IMU_mean_error": 6.72894859259673e-15,
+    "max_innovation_relative_error": 2.6073158528610657e-12,
+    "max_joint_NIS_relative_error": 9.979683395180794e-16,
+    "max_contribution_error": 1.5246593050577406e-20,
+    "block_diagonal_noise_exact": true,
+    "tolerance": 1e-09,
+    "tolerance_source": "existing test_ltv_joint_covariance"
+  },
+  "V2_03_difficult_GV_02": {
+    "actual_updates_checked": 706,
+    "max_full_Joseph_relative_error": 1.9675433899426812e-16,
+    "max_native_IMU_mean_error": 6.72894859259673e-15,
+    "max_innovation_relative_error": 2.6073158528610657e-12,
+    "max_joint_NIS_relative_error": 9.979683395180794e-16,
+    "max_contribution_error": 1.5246593050577406e-20,
+    "block_diagonal_noise_exact": true,
+    "tolerance": 1e-09,
+    "tolerance_source": "existing test_ltv_joint_covariance"
+  },
+  "V2_03_difficult_G_01": {
+    "actual_updates_checked": 706,
+    "max_full_Joseph_relative_error": 1.507704289334129e-16,
+    "max_native_IMU_mean_error": 9.5882113367395e-15,
+    "max_innovation_relative_error": 2.7012606297496833e-12,
+    "max_joint_NIS_relative_error": 1.0205918305509485e-15,
+    "max_contribution_error": 3.3881317890172014e-21,
+    "block_diagonal_noise_exact": true,
+    "tolerance": 1e-09,
+    "tolerance_source": "existing test_ltv_joint_covariance"
+  },
+  "V2_03_difficult_OFF_01": {
+    "actual_updates_checked": 0,
+    "max_full_Joseph_relative_error": 0.0,
+    "max_native_IMU_mean_error": 0.0,
+    "max_innovation_relative_error": 0.0,
+    "max_joint_NIS_relative_error": 0.0,
+    "max_contribution_error": 0.0,
+    "block_diagonal_noise_exact": true,
+    "tolerance": 1e-09,
+    "tolerance_source": "existing test_ltv_joint_covariance"
+  },
+  "V2_03_difficult_V_01": {
+    "actual_updates_checked": 637,
+    "max_full_Joseph_relative_error": 1.6403744952627985e-16,
+    "max_native_IMU_mean_error": 7.606296258026844e-15,
+    "max_innovation_relative_error": 2.4500088618921415e-12,
+    "max_joint_NIS_relative_error": 1.1368005815472023e-15,
+    "max_contribution_error": 1.1011428314305904e-20,
+    "block_diagonal_noise_exact": true,
+    "tolerance": 1e-09,
+    "tolerance_source": "existing test_ltv_joint_covariance"
+  }
+}

@@ -93,3 +93,10 @@ foreach(test_target IN LISTS ltv_test_targets)
         target_compile_options(${test_target} PRIVATE -UNDEBUG)
     endif()
 endforeach()
+
+# Same deterministic input/audit path; only the Passive assertion mode differs.
+add_executable(run_ltv_gv_evaluation tools/run_ltv_feature_passive.cpp)
+target_compile_definitions(run_ltv_gv_evaluation PRIVATE LTV_GV_EVALUATION=1)
+ament_target_dependencies(run_ltv_gv_evaluation ${ament_libraries})
+target_link_libraries(run_ltv_gv_evaluation ov_msckf_lib ${thirdparty_libraries})
+install(TARGETS run_ltv_gv_evaluation DESTINATION lib/${PROJECT_NAME})

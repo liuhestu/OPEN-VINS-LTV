@@ -3,11 +3,12 @@
 #include <climits>
 namespace ov_msckf {
 LtvAdapter::LtvAdapter(const LtvOptions &options) : options_(options) {
-  if (options.active_consistency.enabled &&
-      (!options.feature_readiness_enabled || !options.enabled || options.enable_gravity || options.enable_velocity))
+  if (options.active_consistency.enabled && (!options.feature_readiness_enabled || !options.enabled ||
+                                             (options.passive_assert_no_injection && (options.enable_gravity || options.enable_velocity))))
     throw std::invalid_argument("Active consistency requires managed Passive LTV");
   if (options.passive_hardening_enabled) {
-    if (!options.feature_readiness_enabled || !options.enabled || options.enable_gravity || options.enable_velocity)
+    if (!options.feature_readiness_enabled || !options.enabled ||
+        (options.passive_assert_no_injection && (options.enable_gravity || options.enable_velocity)))
       throw std::invalid_argument("Hardening requires managed Passive LTV");
     auto health_config = options.hardening_readiness;
     health_config.enabled = true;
@@ -20,7 +21,7 @@ LtvAdapter::LtvAdapter(const LtvOptions &options) : options_(options) {
   config.enable = options.enabled;
   observer_.configure(config);
   if (options.feature_readiness_enabled) {
-    if (!options.enabled || options.enable_gravity || options.enable_velocity)
+    if (!options.enabled || (options.passive_assert_no_injection && (options.enable_gravity || options.enable_velocity)))
       throw std::invalid_argument("Feature readiness requires passive observer");
     ltv::FeaturePipelineConfig pipeline;
     pipeline.manager = options.feature_manager;
@@ -152,7 +153,7 @@ LtvFrame LtvAdapter::process(double t, const std::vector<LtvBearing> &bearings, 
     result.compute_time_ms = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - begin).count();
     return result;
   }
-  if (feature_pipeline_ && (options_.enable_gravity || options_.enable_velocity))
+  if (feature_pipeline_ && options_.passive_assert_no_injection && (options_.enable_gravity || options_.enable_velocity))
     throw std::runtime_error("Passive feature path cannot submit G/V");
   if (feature_pipeline_ && (!feature_context || !std::isfinite(feature_context->time) ||
                             std::abs(feature_context->time - (t + c.offset)) > 1e-9 || feature_context->version != version))

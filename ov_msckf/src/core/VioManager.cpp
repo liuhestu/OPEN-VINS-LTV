@@ -294,9 +294,12 @@ void VioManager::track_image_and_update(const ov_core::CameraData &message_const
     passive_slam_init_ids.clear();
     passive_current_observations.clear();
     passive_ltv_frame = LtvFrame();
+    evaluation_ltv_block = MeasurementBlock();
+    ltv_diagnostics = LtvDiagnostics();
     passive_auxiliary_receipts = passive_gravity_submissions = passive_velocity_submissions = 0;
   }
-  if ((params.ltv_options.feature_readiness_enabled || params.ltv_options.passive_audit_enabled) &&
+  if (params.ltv_options.passive_assert_no_injection &&
+      (params.ltv_options.feature_readiness_enabled || params.ltv_options.passive_audit_enabled) &&
       (params.ltv_options.enable_gravity || params.ltv_options.enable_velocity))
     throw std::runtime_error("Passive study injection enabled");
   if (ltv_adapter) {
@@ -444,7 +447,7 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   if (ltv_adapter) {
     ltv_diagnostics = LtvDiagnostics();
     const auto input = makeLtvOpenVinsInput(state, trackFEATS->get_feature_database()->features_containing(message.timestamp),
-                                           message.timestamp, ltv_state_version, params.ltv_options.feature_readiness_enabled);
+                                            message.timestamp, ltv_state_version, params.ltv_options.feature_readiness_enabled);
     const auto &c = input.calibration;
     const auto &feature_context = input.feature_context;
     const auto &bearings = input.bearings;
@@ -623,7 +626,9 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   if ((int)featsup_MSCKF.size() > state->_options.max_msckf_in_update)
     featsup_MSCKF.erase(featsup_MSCKF.begin(), featsup_MSCKF.end() - state->_options.max_msckf_in_update);
   if (ltv_adapter && (params.ltv_options.enable_gravity || params.ltv_options.enable_velocity))
-    ltv_block = updater_ltv->build(state, ltv_frame);
+    ltv_block = updater_ltv->build(state, ltv_frame, params.ltv_options.gv_evaluation_diagnostics ? &evaluation_ltv_block : nullptr);
+  if (params.ltv_options.gv_evaluation_diagnostics)
+    evaluation_ltv_block = ltv_block;
   std::function<void(const MeasurementBlock &)> diagnostic_before;
   if (value_diagnostics)
     diagnostic_before = [&](const MeasurementBlock &visual) { value_diagnostics->before(state, visual, ltv_frame); };
@@ -641,7 +646,8 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
       passive_gravity_submissions = ltv_block.receipt->diagnostics.gravity_rows > 0;
       passive_velocity_submissions = ltv_block.receipt->diagnostics.velocity_rows > 0;
     }
-    if (passive_auxiliary_receipts || passive_gravity_submissions || passive_velocity_submissions)
+    if (params.ltv_options.passive_assert_no_injection &&
+        (passive_auxiliary_receipts || passive_gravity_submissions || passive_velocity_submissions))
       throw std::runtime_error("Passive audit observed auxiliary submission");
   }
   if (value_diagnostics)

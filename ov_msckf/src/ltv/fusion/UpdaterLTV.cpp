@@ -96,7 +96,7 @@ MeasurementBlock UpdaterLTV::velocity(const State &s, const LtvContext &c, const
   b.R = options_.sigma_velocity_mps * options_.sigma_velocity_mps * Eigen::Matrix3d::Identity();
   return b;
 }
-MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const LtvFrame &f) const {
+MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const LtvFrame &f, MeasurementBlock *diagnostic) const {
   MeasurementBlock b;
   b.H.resize(0, 0);
   b.R.resize(0, 0);
@@ -108,7 +108,10 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
   b.prior_fej = state->_imu->fej();
   for (const auto &clone : state->_clones_IMU)
     b.prior_clones.emplace(clone.first, std::make_pair(clone.second->value(), clone.second->fej()));
+  if (diagnostic)
+    *diagnostic = b; // Preserve the frozen prior and live receipt even if build throws.
   auto &d = b.receipt->diagnostics;
+  d.capture_matrices = options_.gv_evaluation_diagnostics;
   d.prior_rotation_difference = (state->_imu->Rot() - state->_imu->Rot_fej()).norm();
   d.prior_velocity_difference = (state->_imu->vel() - state->_imu->vel_fej()).norm();
   d.gravity_variance = std::pow(options_.sigma_gravity_deg * std::acos(-1.0) / 180, 2);
@@ -151,11 +154,24 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
     std::string why;
     if (!validate(state, block, why)) {
       reason = why;
+      if (options_.gv_evaluation_diagnostics && why == "nonSPD_S") {
+        d.joint_H = block.H;
+        d.joint_R = block.R;
+        d.joint_res = block.res;
+        d.joint_S = innovation_matrix(block.H, StateHelper::get_marginal_covariance(state, block.order), block.R);
+        for (const auto &type : block.order) {
+          d.joint_ids.push_back(type->id());
+          d.joint_sizes.push_back(type->size());
+        }
+        throw std::runtime_error("branch innovation decomposition failed");
+      }
       return false;
     }
     value = nis(state, block);
     if (value < 0) {
       reason = "invalid_nis";
+      if (options_.gv_evaluation_diagnostics)
+        throw std::runtime_error("branch innovation NIS invalid");
       return false;
     }
     if (options_.enable_nis_gate && value > threshold) {
@@ -176,7 +192,9 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
     }
     variance = block.R(0, 0);
   };
-  if (options_.enable_gravity) {
+  if (options_.enable_gravity && !f.ready_G)
+    d.gravity_reason = "not_ready_G";
+  if (options_.enable_gravity && f.ready_G) {
     d.gravity_reason = "eta_invalid";
     const double norm = snap.gravity_body.norm();
     if (snap.gravity_valid && snap.gravity_body.allFinite() && norm >= options_.observer.gravity_norm_min &&
@@ -187,6 +205,7 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
       if (std::acos(cosine) <= options_.max_gravity_angle_deg * std::acos(-1.0) / 180 && u.dot(c.R_linearization * c.gamma) > 0) {
         d.gravity_eligible = true;
         auto g = gravity(*state, c, snap);
+        d.gravity_residual_vector = g.res;
         d.gravity_residual = g.res.norm();
         d.gravity_quality =
             !options_.enable_quality_gate ||
@@ -201,11 +220,14 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
       }
     }
   }
-  if (options_.enable_velocity) {
+  if (options_.enable_velocity && !f.ready_V)
+    d.velocity_reason = "not_ready_V";
+  if (options_.enable_velocity && f.ready_V) {
     d.velocity_reason = "velocity_invalid";
     if (snap.velocity_valid && snap.velocity_body.allFinite()) {
       d.velocity_eligible = true;
       auto v = velocity(*state, c, snap);
+      d.velocity_residual_vector = v.res;
       d.velocity_residual = v.res.norm();
       d.velocity_quality = !options_.enable_quality_gate ||
                            (snap.observed_features >= options_.quality_min_features &&
@@ -219,6 +241,8 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
       }
     }
   }
+  if (!b.empty())
+    d.gv_nis = nis(state, b); // Diagnostic only: no additional joint gate.
   return b;
 }
 MeasurementBlock UpdaterLTV::merge(const MeasurementBlock &a, const MeasurementBlock &b) {
@@ -313,6 +337,7 @@ bool UpdaterLTV::apply_joint(const std::shared_ptr<State> &state, const Measurem
     return false;
   receipt.consumed = true;
   auto &d = receipt.diagnostics;
+  d.consumed = true;
   d.visual_rows = visual.res.size();
   MeasurementBlock combined = visual;
   bool accepted = !auxiliary.empty();
@@ -338,10 +363,23 @@ bool UpdaterLTV::apply_joint(const std::shared_ptr<State> &state, const Measurem
       d.submit_reason = e.what();
     }
   }
+  if (d.capture_matrices) {
+    d.joint_H = combined.H;
+    d.joint_R = combined.R;
+    d.joint_res = combined.res;
+    if (!combined.empty())
+      d.joint_S = innovation_matrix(combined.H, StateHelper::get_marginal_covariance(state, combined.order), combined.R);
+    for (const auto &type : combined.order) {
+      d.joint_ids.push_back(type->id());
+      d.joint_sizes.push_back(type->size());
+    }
+  }
   std::string reason;
   if (accepted && !validate(state, combined, reason)) {
     accepted = false;
     d.submit_reason = reason;
+    if (d.capture_matrices && reason == "nonSPD_S")
+      throw std::runtime_error("joint innovation decomposition failed");
   }
   if (!accepted) {
     combined = visual;
@@ -361,6 +399,7 @@ bool UpdaterLTV::apply_joint(const std::shared_ptr<State> &state, const Measurem
       offset += type->size();
     }
     const Eigen::MatrixXd K = P * Hd.transpose() * S.llt().solve(Eigen::MatrixXd::Identity(S.rows(), S.cols()));
+    d.joint_nis = combined.res.dot(S.llt().solve(combined.res));
     d.update_norm = (K * combined.res).norm();
     int start = visual.res.size();
     if (d.gravity_rows) {
@@ -378,6 +417,10 @@ bool UpdaterLTV::apply_joint(const std::shared_ptr<State> &state, const Measurem
   ++d.ekf_calls;
   d.p_checked = true;
   const auto posterior = StateHelper::get_full_covariance(state);
+  if (d.capture_matrices) {
+    d.joint_post_P = posterior;
+    d.joint_post_imu = state->_imu->value();
+  }
   if (!state->_imu->value().allFinite() || !covariance(posterior, d.p_symmetry, d.p_min_eigenvalue))
     throw std::runtime_error("nonfinite/invalid native joint posterior");
   return true;

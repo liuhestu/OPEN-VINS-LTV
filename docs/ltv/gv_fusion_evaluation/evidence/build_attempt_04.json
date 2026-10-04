@@ -1,0 +1,9 @@
+{
+  "command": [
+    "bash",
+    "/tmp/ltv_gv_evaluation/build.sh"
+  ],
+  "exit_code": 0,
+  "log": "/tmp/ltv_gv_evaluation/build_04.log",
+  "purpose": "force recompile overlapping header/source object"
+}

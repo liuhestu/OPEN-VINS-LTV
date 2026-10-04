@@ -10,6 +10,8 @@ struct LtvOptions {
   bool enable_quality_gate = false, enable_nis_gate = true, log_enabled = false;
   bool enable_huber = false;
   bool feature_readiness_enabled = false, feature_apply_seed = true, passive_audit_enabled = false;
+  // Replay instrumentation only; defaults preserve Passive zero-injection enforcement.
+  bool passive_assert_no_injection = true, gv_evaluation_diagnostics = false;
   bool passive_hardening_enabled = false, hardening_health_readiness = true, hardening_initial_warmup = false;
   bool hardening_preserve_constrained_state = false, hardening_ready_soft_grace = false;
   ltv::LtvReadinessConfig hardening_readiness;
@@ -108,10 +110,11 @@ struct LtvOptions {
 #undef CORE
   }
   void validate(const StateOptions &state) const {
-    if (passive_hardening_enabled && (!feature_readiness_enabled || !enabled || enable_gravity || enable_velocity))
+    if (passive_hardening_enabled &&
+        (!feature_readiness_enabled || !enabled || (passive_assert_no_injection && (enable_gravity || enable_velocity))))
       throw std::invalid_argument("Passive hardening requires managed Passive LTV");
     if (feature_readiness_enabled) {
-      if (!enabled || enable_gravity || enable_velocity)
+      if (!enabled || (passive_assert_no_injection && (enable_gravity || enable_velocity)))
         throw std::invalid_argument("Feature readiness requires Passive LTV with G/V injection OFF");
       if (feature_seed_source != "TEMPORAL_POSE" && feature_seed_source != "STEREO" && feature_seed_source != "STEREO_THEN_TEMPORAL")
         throw std::invalid_argument("Unsupported feature seed source");
@@ -124,7 +127,7 @@ struct LtvOptions {
       if (!std::isfinite(feature_bearing_sigma_rad) || feature_bearing_sigma_rad <= 0)
         throw std::invalid_argument("Invalid feature bearing uncertainty");
     }
-    if (passive_audit_enabled && (enable_gravity || enable_velocity))
+    if (passive_audit_enabled && passive_assert_no_injection && (enable_gravity || enable_velocity))
       throw std::invalid_argument("Passive audit forbids auxiliary injection");
     if ((enable_gravity || enable_velocity) && (!enabled || !allow_correlated_pseudomeasurements))
       throw std::invalid_argument("LTV auxiliary requires enabled and explicit correlated pseudomeasurement acceptance");

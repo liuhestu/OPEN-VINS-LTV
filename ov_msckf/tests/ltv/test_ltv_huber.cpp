@@ -7,6 +7,7 @@ int main() {
   f.epoch = f.sequence = f.version = 1;
   f.camera_time = f.imu_time = f.cursor = 1;
   f.snapshot.frame_timestamp = f.snapshot.imu_timestamp = 1;
+  f.ready_G = f.ready_V = true;
   f.snapshot.valid = f.snapshot.velocity_valid = f.snapshot.gravity_valid = true;
   f.snapshot.observed_features = 30;
   f.snapshot.gravity_body = state->_imu->Rot() * Eigen::Vector3d(0, 0, -9.81);

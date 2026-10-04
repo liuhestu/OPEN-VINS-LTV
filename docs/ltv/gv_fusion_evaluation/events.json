@@ -1,0 +1,1790 @@
+{
+  "V2_02_medium/OFF": {
+    "counts": {
+      "G": {
+        "requests": 0,
+        "receipts": 0,
+        "attempted_gates": 0,
+        "gate_accepts": 0,
+        "reasons": {},
+        "actual_updates": 0,
+        "submit_rejects": 0
+      },
+      "V": {
+        "requests": 0,
+        "receipts": 0,
+        "attempted_gates": 0,
+        "gate_accepts": 0,
+        "reasons": {},
+        "actual_updates": 0,
+        "submit_rejects": 0
+      }
+    },
+    "first_divergence": {
+      "main_digest": null,
+      "covariance_digest": null,
+      "observer_digest": null,
+      "event": null
+    },
+    "camera_events": 2348,
+    "actual_joint_updates": 0,
+    "submit_reasons": {
+      "none": 2348
+    }
+  },
+  "V2_02_medium/G": {
+    "counts": {
+      "G": {
+        "requests": 2348,
+        "receipts": 2266,
+        "attempted_gates": 1606,
+        "gate_accepts": 1606,
+        "reasons": {
+          "no_update_stage:uninitialized": 78,
+          "no_update_stage:waiting_clones": 4,
+          "warmup_or_core_invalid": 140,
+          "not_ready_G": 520,
+          "accepted": 1606
+        },
+        "actual_updates": 1606,
+        "submit_rejects": 0
+      },
+      "V": {
+        "requests": 0,
+        "receipts": 0,
+        "attempted_gates": 0,
+        "gate_accepts": 0,
+        "reasons": {},
+        "actual_updates": 0,
+        "submit_rejects": 0
+      }
+    },
+    "first_divergence": {
+      "main_digest": {
+        "camera_ns": 1413393894105760512,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413393894105760512,
+          "requested_G": 1,
+          "requested_V": 0,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 0,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "accepted",
+          "V_reason": "disabled",
+          "submit_reason": "joint_applied",
+          "G_rows": 2,
+          "V_rows": 0,
+          "visual_rows": 36,
+          "ekf_calls": 1,
+          "G_nis": 0.001587687813159347,
+          "V_nis": -1,
+          "GV_nis": 0.001587687813159347,
+          "joint_nis": 9.51499125680024,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -4.210197494958205e-18,
+          "G_update_norm": 5.288848651904221e-06,
+          "V_update_norm": 0,
+          "G_gain_norm": 0.001832759989975178,
+          "V_gain_norm": 0,
+          "G_residual": [
+            [
+              -0.0011371911875782438
+            ],
+            [
+              0.006861020836791423
+            ]
+          ],
+          "V_residual": [],
+          "main_digest": "b549cdc75d6f6421ebad929dd45b53e19f7ffb29",
+          "covariance_digest": "185ab1406eaf76a961d0e9d07cc1fbae15fbd2dc",
+          "observer_digest": "04f4ffeec33b80c8d784f3f535065ab8bf110b53"
+        }
+      },
+      "covariance_digest": {
+        "camera_ns": 1413393894105760512,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413393894105760512,
+          "requested_G": 1,
+          "requested_V": 0,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 0,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "accepted",
+          "V_reason": "disabled",
+          "submit_reason": "joint_applied",
+          "G_rows": 2,
+          "V_rows": 0,
+          "visual_rows": 36,
+          "ekf_calls": 1,
+          "G_nis": 0.001587687813159347,
+          "V_nis": -1,
+          "GV_nis": 0.001587687813159347,
+          "joint_nis": 9.51499125680024,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -4.210197494958205e-18,
+          "G_update_norm": 5.288848651904221e-06,
+          "V_update_norm": 0,
+          "G_gain_norm": 0.001832759989975178,
+          "V_gain_norm": 0,
+          "G_residual": [
+            [
+              -0.0011371911875782438
+            ],
+            [
+              0.006861020836791423
+            ]
+          ],
+          "V_residual": [],
+          "main_digest": "b549cdc75d6f6421ebad929dd45b53e19f7ffb29",
+          "covariance_digest": "185ab1406eaf76a961d0e9d07cc1fbae15fbd2dc",
+          "observer_digest": "04f4ffeec33b80c8d784f3f535065ab8bf110b53"
+        }
+      },
+      "observer_digest": {
+        "camera_ns": 1413393894155760384,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413393894155760384,
+          "requested_G": 1,
+          "requested_V": 0,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 0,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "accepted",
+          "V_reason": "disabled",
+          "submit_reason": "joint_applied",
+          "G_rows": 2,
+          "V_rows": 0,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": 0.0018357039481423315,
+          "V_nis": -1,
+          "GV_nis": 0.0018357039481423315,
+          "joint_nis": 23.062133457409512,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -4.994216153121e-18,
+          "G_update_norm": 5.240773385959994e-06,
+          "V_update_norm": 0,
+          "G_gain_norm": 0.0018054816803850387,
+          "V_gain_norm": 0,
+          "G_residual": [
+            [
+              -0.0008171862206862009
+            ],
+            [
+              0.007433330867943391
+            ]
+          ],
+          "V_residual": [],
+          "main_digest": "aacaa9d7e60b49bf84785d594c07e1339d9b1f53",
+          "covariance_digest": "a0caf08075eacfc12e284060b9692dff3f623af5",
+          "observer_digest": "25d3fd58eef8bb9cdc800aa5cd53331d53d709f7"
+        }
+      },
+      "event": {
+        "camera_ns": 1413393890105760512,
+        "own": {
+          "camera_ns": 1413393890105760512,
+          "requested_G": 1,
+          "requested_V": 0,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 0,
+          "ready_V": 0,
+          "readiness_reason_G": "not_ready_G",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "warmup_or_core_invalid",
+          "V_reason": "disabled",
+          "submit_reason": "none",
+          "G_rows": 0,
+          "V_rows": 0,
+          "visual_rows": 12,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": -1,
+          "GV_nis": -1,
+          "joint_nis": -1,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -1.0501288619578057e-17,
+          "G_update_norm": 0,
+          "V_update_norm": 0,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0,
+          "G_residual": [],
+          "V_residual": [],
+          "main_digest": "c0ab09ec02fb8581064ca96f53eea1f941d01629",
+          "covariance_digest": "8d1ca076501845a3f6337a608eb77bb80d33646c",
+          "observer_digest": "8b06a4d211be926e8d346a8f5867f5dbd0cfd6d8"
+        },
+        "off": {
+          "camera_ns": 1413393890105760512,
+          "requested_G": 0,
+          "requested_V": 0,
+          "receipt": 0,
+          "consumed": 0,
+          "ready_G": 0,
+          "ready_V": 0,
+          "readiness_reason_G": "not_ready_G",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "bootstrap_committed_confirming",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "disabled",
+          "submit_reason": "none",
+          "G_rows": 0,
+          "V_rows": 0,
+          "visual_rows": 12,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": -1,
+          "GV_nis": -1,
+          "joint_nis": -1,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0,
+          "V_variance": 0,
+          "p_checked": 0,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": 0,
+          "G_update_norm": 0,
+          "V_update_norm": 0,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0,
+          "G_residual": [],
+          "V_residual": [],
+          "main_digest": "c0ab09ec02fb8581064ca96f53eea1f941d01629",
+          "covariance_digest": "8d1ca076501845a3f6337a608eb77bb80d33646c",
+          "observer_digest": "8b06a4d211be926e8d346a8f5867f5dbd0cfd6d8"
+        }
+      }
+    },
+    "camera_events": 2348,
+    "actual_joint_updates": 1606,
+    "submit_reasons": {
+      "none": 742,
+      "joint_applied": 1606
+    }
+  },
+  "V2_02_medium/V": {
+    "counts": {
+      "G": {
+        "requests": 0,
+        "receipts": 0,
+        "attempted_gates": 0,
+        "gate_accepts": 0,
+        "reasons": {},
+        "actual_updates": 0,
+        "submit_rejects": 0
+      },
+      "V": {
+        "requests": 2348,
+        "receipts": 2266,
+        "attempted_gates": 1571,
+        "gate_accepts": 1571,
+        "reasons": {
+          "no_update_stage:uninitialized": 78,
+          "no_update_stage:waiting_clones": 4,
+          "warmup_or_core_invalid": 140,
+          "not_ready_V": 555,
+          "accepted": 1571
+        },
+        "actual_updates": 1571,
+        "submit_rejects": 0
+      }
+    },
+    "first_divergence": {
+      "main_digest": {
+        "camera_ns": 1413393895555760384,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413393895555760384,
+          "requested_G": 0,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 1,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "ready",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "accepted",
+          "submit_reason": "joint_applied",
+          "G_rows": 0,
+          "V_rows": 3,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": 0.0017521607670290325,
+          "GV_nis": 0.0017521607670290325,
+          "joint_nis": 51.324943879336104,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -1.1636883806846576e-18,
+          "G_update_norm": 0,
+          "V_update_norm": 3.952642696476435e-06,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0.00010502550011148456,
+          "G_residual": [],
+          "V_residual": [
+            [
+              0.006527433922731168
+            ],
+            [
+              -0.010448516944334296
+            ],
+            [
+              -0.04000582772257122
+            ]
+          ],
+          "main_digest": "8f26ff4159cad38ab5ea75f7119e52d8c3872417",
+          "covariance_digest": "b70cf629fde8609dfc3e1c4859e65587a79ad371",
+          "observer_digest": "d727d999a650d1f8dfd6191d2a348848fefdc95a"
+        }
+      },
+      "covariance_digest": {
+        "camera_ns": 1413393895555760384,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413393895555760384,
+          "requested_G": 0,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 1,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "ready",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "accepted",
+          "submit_reason": "joint_applied",
+          "G_rows": 0,
+          "V_rows": 3,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": 0.0017521607670290325,
+          "GV_nis": 0.0017521607670290325,
+          "joint_nis": 51.324943879336104,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -1.1636883806846576e-18,
+          "G_update_norm": 0,
+          "V_update_norm": 3.952642696476435e-06,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0.00010502550011148456,
+          "G_residual": [],
+          "V_residual": [
+            [
+              0.006527433922731168
+            ],
+            [
+              -0.010448516944334296
+            ],
+            [
+              -0.04000582772257122
+            ]
+          ],
+          "main_digest": "8f26ff4159cad38ab5ea75f7119e52d8c3872417",
+          "covariance_digest": "b70cf629fde8609dfc3e1c4859e65587a79ad371",
+          "observer_digest": "d727d999a650d1f8dfd6191d2a348848fefdc95a"
+        }
+      },
+      "observer_digest": {
+        "camera_ns": 1413393895605760512,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413393895605760512,
+          "requested_G": 0,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 1,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "ready",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "accepted",
+          "submit_reason": "joint_applied",
+          "G_rows": 0,
+          "V_rows": 3,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": 0.001377237065806602,
+          "GV_nis": 0.001377237065806602,
+          "joint_nis": 31.278176907816267,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -1.3240454777286127e-18,
+          "G_update_norm": 0,
+          "V_update_norm": 3.240379673515628e-06,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0.00011046942286922414,
+          "G_residual": [],
+          "V_residual": [
+            [
+              0.014782095082358157
+            ],
+            [
+              -0.009596483441914383
+            ],
+            [
+              -0.032660010360872294
+            ]
+          ],
+          "main_digest": "986702896f7e9bfd9e9d10bd24138c90b3287625",
+          "covariance_digest": "14e868fec08c58e5f920ca34c53676ee98e5efe9",
+          "observer_digest": "afbf698ba36e1f7a41d32191df99288c5a7ccd69"
+        }
+      },
+      "event": {
+        "camera_ns": 1413393890105760512,
+        "own": {
+          "camera_ns": 1413393890105760512,
+          "requested_G": 0,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 0,
+          "ready_V": 0,
+          "readiness_reason_G": "not_ready_G",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "warmup_or_core_invalid",
+          "submit_reason": "none",
+          "G_rows": 0,
+          "V_rows": 0,
+          "visual_rows": 12,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": -1,
+          "GV_nis": -1,
+          "joint_nis": -1,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -1.0501288619578057e-17,
+          "G_update_norm": 0,
+          "V_update_norm": 0,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0,
+          "G_residual": [],
+          "V_residual": [],
+          "main_digest": "c0ab09ec02fb8581064ca96f53eea1f941d01629",
+          "covariance_digest": "8d1ca076501845a3f6337a608eb77bb80d33646c",
+          "observer_digest": "8b06a4d211be926e8d346a8f5867f5dbd0cfd6d8"
+        },
+        "off": {
+          "camera_ns": 1413393890105760512,
+          "requested_G": 0,
+          "requested_V": 0,
+          "receipt": 0,
+          "consumed": 0,
+          "ready_G": 0,
+          "ready_V": 0,
+          "readiness_reason_G": "not_ready_G",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "bootstrap_committed_confirming",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "disabled",
+          "submit_reason": "none",
+          "G_rows": 0,
+          "V_rows": 0,
+          "visual_rows": 12,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": -1,
+          "GV_nis": -1,
+          "joint_nis": -1,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0,
+          "V_variance": 0,
+          "p_checked": 0,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": 0,
+          "G_update_norm": 0,
+          "V_update_norm": 0,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0,
+          "G_residual": [],
+          "V_residual": [],
+          "main_digest": "c0ab09ec02fb8581064ca96f53eea1f941d01629",
+          "covariance_digest": "8d1ca076501845a3f6337a608eb77bb80d33646c",
+          "observer_digest": "8b06a4d211be926e8d346a8f5867f5dbd0cfd6d8"
+        }
+      }
+    },
+    "camera_events": 2348,
+    "actual_joint_updates": 1571,
+    "submit_reasons": {
+      "none": 777,
+      "joint_applied": 1571
+    }
+  },
+  "V2_02_medium/GV": {
+    "counts": {
+      "G": {
+        "requests": 2348,
+        "receipts": 2266,
+        "attempted_gates": 1606,
+        "gate_accepts": 1606,
+        "reasons": {
+          "no_update_stage:uninitialized": 78,
+          "no_update_stage:waiting_clones": 4,
+          "warmup_or_core_invalid": 140,
+          "not_ready_G": 520,
+          "accepted": 1606
+        },
+        "actual_updates": 1606,
+        "submit_rejects": 0
+      },
+      "V": {
+        "requests": 2348,
+        "receipts": 2266,
+        "attempted_gates": 1571,
+        "gate_accepts": 1571,
+        "reasons": {
+          "no_update_stage:uninitialized": 78,
+          "no_update_stage:waiting_clones": 4,
+          "warmup_or_core_invalid": 140,
+          "not_ready_V": 555,
+          "accepted": 1571
+        },
+        "actual_updates": 1571,
+        "submit_rejects": 0
+      }
+    },
+    "first_divergence": {
+      "main_digest": {
+        "camera_ns": 1413393894105760512,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413393894105760512,
+          "requested_G": 1,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 0,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "accepted",
+          "V_reason": "not_ready_V",
+          "submit_reason": "joint_applied",
+          "G_rows": 2,
+          "V_rows": 0,
+          "visual_rows": 36,
+          "ekf_calls": 1,
+          "G_nis": 0.001587687813159347,
+          "V_nis": -1,
+          "GV_nis": 0.001587687813159347,
+          "joint_nis": 9.51499125680024,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -4.210197494958205e-18,
+          "G_update_norm": 5.288848651904221e-06,
+          "V_update_norm": 0,
+          "G_gain_norm": 0.001832759989975178,
+          "V_gain_norm": 0,
+          "G_residual": [
+            [
+              -0.0011371911875782438
+            ],
+            [
+              0.006861020836791423
+            ]
+          ],
+          "V_residual": [],
+          "main_digest": "b549cdc75d6f6421ebad929dd45b53e19f7ffb29",
+          "covariance_digest": "185ab1406eaf76a961d0e9d07cc1fbae15fbd2dc",
+          "observer_digest": "04f4ffeec33b80c8d784f3f535065ab8bf110b53"
+        }
+      },
+      "covariance_digest": {
+        "camera_ns": 1413393894105760512,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413393894105760512,
+          "requested_G": 1,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 0,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "accepted",
+          "V_reason": "not_ready_V",
+          "submit_reason": "joint_applied",
+          "G_rows": 2,
+          "V_rows": 0,
+          "visual_rows": 36,
+          "ekf_calls": 1,
+          "G_nis": 0.001587687813159347,
+          "V_nis": -1,
+          "GV_nis": 0.001587687813159347,
+          "joint_nis": 9.51499125680024,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -4.210197494958205e-18,
+          "G_update_norm": 5.288848651904221e-06,
+          "V_update_norm": 0,
+          "G_gain_norm": 0.001832759989975178,
+          "V_gain_norm": 0,
+          "G_residual": [
+            [
+              -0.0011371911875782438
+            ],
+            [
+              0.006861020836791423
+            ]
+          ],
+          "V_residual": [],
+          "main_digest": "b549cdc75d6f6421ebad929dd45b53e19f7ffb29",
+          "covariance_digest": "185ab1406eaf76a961d0e9d07cc1fbae15fbd2dc",
+          "observer_digest": "04f4ffeec33b80c8d784f3f535065ab8bf110b53"
+        }
+      },
+      "observer_digest": {
+        "camera_ns": 1413393894155760384,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413393894155760384,
+          "requested_G": 1,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 0,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "accepted",
+          "V_reason": "not_ready_V",
+          "submit_reason": "joint_applied",
+          "G_rows": 2,
+          "V_rows": 0,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": 0.0018357039481423315,
+          "V_nis": -1,
+          "GV_nis": 0.0018357039481423315,
+          "joint_nis": 23.062133457409512,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -4.994216153121e-18,
+          "G_update_norm": 5.240773385959994e-06,
+          "V_update_norm": 0,
+          "G_gain_norm": 0.0018054816803850387,
+          "V_gain_norm": 0,
+          "G_residual": [
+            [
+              -0.0008171862206862009
+            ],
+            [
+              0.007433330867943391
+            ]
+          ],
+          "V_residual": [],
+          "main_digest": "aacaa9d7e60b49bf84785d594c07e1339d9b1f53",
+          "covariance_digest": "a0caf08075eacfc12e284060b9692dff3f623af5",
+          "observer_digest": "25d3fd58eef8bb9cdc800aa5cd53331d53d709f7"
+        }
+      },
+      "event": {
+        "camera_ns": 1413393890105760512,
+        "own": {
+          "camera_ns": 1413393890105760512,
+          "requested_G": 1,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 0,
+          "ready_V": 0,
+          "readiness_reason_G": "not_ready_G",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "warmup_or_core_invalid",
+          "V_reason": "warmup_or_core_invalid",
+          "submit_reason": "none",
+          "G_rows": 0,
+          "V_rows": 0,
+          "visual_rows": 12,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": -1,
+          "GV_nis": -1,
+          "joint_nis": -1,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -1.0501288619578057e-17,
+          "G_update_norm": 0,
+          "V_update_norm": 0,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0,
+          "G_residual": [],
+          "V_residual": [],
+          "main_digest": "c0ab09ec02fb8581064ca96f53eea1f941d01629",
+          "covariance_digest": "8d1ca076501845a3f6337a608eb77bb80d33646c",
+          "observer_digest": "8b06a4d211be926e8d346a8f5867f5dbd0cfd6d8"
+        },
+        "off": {
+          "camera_ns": 1413393890105760512,
+          "requested_G": 0,
+          "requested_V": 0,
+          "receipt": 0,
+          "consumed": 0,
+          "ready_G": 0,
+          "ready_V": 0,
+          "readiness_reason_G": "not_ready_G",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "bootstrap_committed_confirming",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "disabled",
+          "submit_reason": "none",
+          "G_rows": 0,
+          "V_rows": 0,
+          "visual_rows": 12,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": -1,
+          "GV_nis": -1,
+          "joint_nis": -1,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0,
+          "V_variance": 0,
+          "p_checked": 0,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": 0,
+          "G_update_norm": 0,
+          "V_update_norm": 0,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0,
+          "G_residual": [],
+          "V_residual": [],
+          "main_digest": "c0ab09ec02fb8581064ca96f53eea1f941d01629",
+          "covariance_digest": "8d1ca076501845a3f6337a608eb77bb80d33646c",
+          "observer_digest": "8b06a4d211be926e8d346a8f5867f5dbd0cfd6d8"
+        }
+      }
+    },
+    "camera_events": 2348,
+    "actual_joint_updates": 1606,
+    "submit_reasons": {
+      "none": 742,
+      "joint_applied": 1606
+    }
+  },
+  "V2_03_difficult/OFF": {
+    "counts": {
+      "G": {
+        "requests": 0,
+        "receipts": 0,
+        "attempted_gates": 0,
+        "gate_accepts": 0,
+        "reasons": {},
+        "actual_updates": 0,
+        "submit_rejects": 0
+      },
+      "V": {
+        "requests": 0,
+        "receipts": 0,
+        "attempted_gates": 0,
+        "gate_accepts": 0,
+        "reasons": {},
+        "actual_updates": 0,
+        "submit_rejects": 0
+      }
+    },
+    "first_divergence": {
+      "main_digest": null,
+      "covariance_digest": null,
+      "observer_digest": null,
+      "event": null
+    },
+    "camera_events": 1921,
+    "actual_joint_updates": 0,
+    "submit_reasons": {
+      "none": 1921
+    }
+  },
+  "V2_03_difficult/G": {
+    "counts": {
+      "G": {
+        "requests": 1921,
+        "receipts": 1806,
+        "attempted_gates": 706,
+        "gate_accepts": 706,
+        "reasons": {
+          "no_update_stage:uninitialized": 111,
+          "no_update_stage:waiting_clones": 4,
+          "warmup_or_core_invalid": 725,
+          "not_ready_G": 375,
+          "accepted": 706
+        },
+        "actual_updates": 706,
+        "submit_rejects": 0
+      },
+      "V": {
+        "requests": 0,
+        "receipts": 0,
+        "attempted_gates": 0,
+        "gate_accepts": 0,
+        "reasons": {},
+        "actual_updates": 0,
+        "submit_rejects": 0
+      }
+    },
+    "first_divergence": {
+      "main_digest": {
+        "camera_ns": 1413394894105760512,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413394894105760512,
+          "requested_G": 1,
+          "requested_V": 0,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 1,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "ready",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "accepted",
+          "V_reason": "disabled",
+          "submit_reason": "joint_applied",
+          "G_rows": 2,
+          "V_rows": 0,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": 0.003325298410755742,
+          "V_nis": -1,
+          "GV_nis": 0.003325298410755742,
+          "joint_nis": 33.77205086305135,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -2.0204693288945875e-18,
+          "G_update_norm": 5.1193658760268865e-06,
+          "V_update_norm": 0,
+          "G_gain_norm": 0.0006845725563651467,
+          "V_gain_norm": 0,
+          "G_residual": [
+            [
+              -0.008983846535073774
+            ],
+            [
+              0.004537456608805067
+            ]
+          ],
+          "V_residual": [],
+          "main_digest": "300ddda11f1bf3cc50d1b005af4d45c4d4af36a5",
+          "covariance_digest": "cd3475f58bac4901a91a97915acdaf5133f829b7",
+          "observer_digest": "9b619a9448bee2a572cbf7d37ccb8332e4789178"
+        }
+      },
+      "covariance_digest": {
+        "camera_ns": 1413394894105760512,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413394894105760512,
+          "requested_G": 1,
+          "requested_V": 0,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 1,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "ready",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "accepted",
+          "V_reason": "disabled",
+          "submit_reason": "joint_applied",
+          "G_rows": 2,
+          "V_rows": 0,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": 0.003325298410755742,
+          "V_nis": -1,
+          "GV_nis": 0.003325298410755742,
+          "joint_nis": 33.77205086305135,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -2.0204693288945875e-18,
+          "G_update_norm": 5.1193658760268865e-06,
+          "V_update_norm": 0,
+          "G_gain_norm": 0.0006845725563651467,
+          "V_gain_norm": 0,
+          "G_residual": [
+            [
+              -0.008983846535073774
+            ],
+            [
+              0.004537456608805067
+            ]
+          ],
+          "V_residual": [],
+          "main_digest": "300ddda11f1bf3cc50d1b005af4d45c4d4af36a5",
+          "covariance_digest": "cd3475f58bac4901a91a97915acdaf5133f829b7",
+          "observer_digest": "9b619a9448bee2a572cbf7d37ccb8332e4789178"
+        }
+      },
+      "observer_digest": {
+        "camera_ns": 1413394894155760384,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413394894155760384,
+          "requested_G": 1,
+          "requested_V": 0,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 1,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "ready",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "accepted",
+          "V_reason": "disabled",
+          "submit_reason": "joint_applied",
+          "G_rows": 2,
+          "V_rows": 0,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": 0.0036720232408843424,
+          "V_nis": -1,
+          "GV_nis": 0.0036720232408843424,
+          "joint_nis": 62.496227307178444,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -2.2537059127766496e-18,
+          "G_update_norm": 5.26232024264351e-06,
+          "V_update_norm": 0,
+          "G_gain_norm": 0.0006661719084492138,
+          "V_gain_norm": 0,
+          "G_residual": [
+            [
+              -0.009516700662520347
+            ],
+            [
+              0.004614380673657476
+            ]
+          ],
+          "V_residual": [],
+          "main_digest": "809d93101e0efeb0a8a6315f3ee6c73909662735",
+          "covariance_digest": "f57bb84df0a87290b7b08275e0138afad28acc76",
+          "observer_digest": "2dd656ce6c822e881cae66c1fbfa5deb1424d497"
+        }
+      },
+      "event": {
+        "camera_ns": 1413394887355760384,
+        "own": {
+          "camera_ns": 1413394887355760384,
+          "requested_G": 1,
+          "requested_V": 0,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 0,
+          "ready_V": 0,
+          "readiness_reason_G": "not_ready_G",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "warmup_or_core_invalid",
+          "V_reason": "disabled",
+          "submit_reason": "none",
+          "G_rows": 0,
+          "V_rows": 0,
+          "visual_rows": 5,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": -1,
+          "GV_nis": -1,
+          "joint_nis": -1,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -2.724234482181465e-18,
+          "G_update_norm": 0,
+          "V_update_norm": 0,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0,
+          "G_residual": [],
+          "V_residual": [],
+          "main_digest": "3cc0a8dab3e3672a1f4ca24c932c307ffc99a129",
+          "covariance_digest": "98d0cc0643d500b2d5b8e1dc135c2531c7d63740",
+          "observer_digest": "8b06a4d211be926e8d346a8f5867f5dbd0cfd6d8"
+        },
+        "off": {
+          "camera_ns": 1413394887355760384,
+          "requested_G": 0,
+          "requested_V": 0,
+          "receipt": 0,
+          "consumed": 0,
+          "ready_G": 0,
+          "ready_V": 0,
+          "readiness_reason_G": "not_ready_G",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "bootstrap_committed_confirming",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "disabled",
+          "submit_reason": "none",
+          "G_rows": 0,
+          "V_rows": 0,
+          "visual_rows": 5,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": -1,
+          "GV_nis": -1,
+          "joint_nis": -1,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0,
+          "V_variance": 0,
+          "p_checked": 0,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": 0,
+          "G_update_norm": 0,
+          "V_update_norm": 0,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0,
+          "G_residual": [],
+          "V_residual": [],
+          "main_digest": "3cc0a8dab3e3672a1f4ca24c932c307ffc99a129",
+          "covariance_digest": "98d0cc0643d500b2d5b8e1dc135c2531c7d63740",
+          "observer_digest": "8b06a4d211be926e8d346a8f5867f5dbd0cfd6d8"
+        }
+      }
+    },
+    "camera_events": 1921,
+    "actual_joint_updates": 706,
+    "submit_reasons": {
+      "none": 1215,
+      "joint_applied": 706
+    }
+  },
+  "V2_03_difficult/V": {
+    "counts": {
+      "G": {
+        "requests": 0,
+        "receipts": 0,
+        "attempted_gates": 0,
+        "gate_accepts": 0,
+        "reasons": {},
+        "actual_updates": 0,
+        "submit_rejects": 0
+      },
+      "V": {
+        "requests": 1921,
+        "receipts": 1806,
+        "attempted_gates": 637,
+        "gate_accepts": 637,
+        "reasons": {
+          "no_update_stage:uninitialized": 111,
+          "no_update_stage:waiting_clones": 4,
+          "warmup_or_core_invalid": 725,
+          "not_ready_V": 444,
+          "accepted": 637
+        },
+        "actual_updates": 637,
+        "submit_rejects": 0
+      }
+    },
+    "first_divergence": {
+      "main_digest": {
+        "camera_ns": 1413394894105760512,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413394894105760512,
+          "requested_G": 0,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 1,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "ready",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "accepted",
+          "submit_reason": "joint_applied",
+          "G_rows": 0,
+          "V_rows": 3,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": 0.0010289121119745324,
+          "GV_nis": 0.0010289121119745324,
+          "joint_nis": 33.76903238369198,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -2.9144992416978966e-18,
+          "G_update_norm": 0,
+          "V_update_norm": 1.972346344487367e-06,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0.00012940565610576886,
+          "G_residual": [],
+          "V_residual": [
+            [
+              -0.01175987439793641
+            ],
+            [
+              -0.014706141587808474
+            ],
+            [
+              -0.025968927666483614
+            ]
+          ],
+          "main_digest": "eb0e8bafb5ec9310c9ee6ce04de4c3736d2bc0f8",
+          "covariance_digest": "69ea56d7cc1c036e59f39f7cff04cd60e37fd22a",
+          "observer_digest": "9b619a9448bee2a572cbf7d37ccb8332e4789178"
+        }
+      },
+      "covariance_digest": {
+        "camera_ns": 1413394894105760512,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413394894105760512,
+          "requested_G": 0,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 1,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "ready",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "accepted",
+          "submit_reason": "joint_applied",
+          "G_rows": 0,
+          "V_rows": 3,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": 0.0010289121119745324,
+          "GV_nis": 0.0010289121119745324,
+          "joint_nis": 33.76903238369198,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -2.9144992416978966e-18,
+          "G_update_norm": 0,
+          "V_update_norm": 1.972346344487367e-06,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0.00012940565610576886,
+          "G_residual": [],
+          "V_residual": [
+            [
+              -0.01175987439793641
+            ],
+            [
+              -0.014706141587808474
+            ],
+            [
+              -0.025968927666483614
+            ]
+          ],
+          "main_digest": "eb0e8bafb5ec9310c9ee6ce04de4c3736d2bc0f8",
+          "covariance_digest": "69ea56d7cc1c036e59f39f7cff04cd60e37fd22a",
+          "observer_digest": "9b619a9448bee2a572cbf7d37ccb8332e4789178"
+        }
+      },
+      "observer_digest": {
+        "camera_ns": 1413394894155760384,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413394894155760384,
+          "requested_G": 0,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 1,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "ready",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "accepted",
+          "submit_reason": "joint_applied",
+          "G_rows": 0,
+          "V_rows": 3,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": 0.0011030681145265718,
+          "GV_nis": 0.0011030681145265718,
+          "joint_nis": 63.14549155542828,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -3.3999003387978017e-18,
+          "G_update_norm": 0,
+          "V_update_norm": 2.1498145524873374e-06,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0.0001300197518058002,
+          "G_residual": [],
+          "V_residual": [
+            [
+              -0.009705161933108226
+            ],
+            [
+              -0.019963376924713394
+            ],
+            [
+              -0.02470595861308357
+            ]
+          ],
+          "main_digest": "9006c017f3a6e42ebc1c3b882ca9a1471a6603e9",
+          "covariance_digest": "9206f11106f834caced1acece35860ab484b43b1",
+          "observer_digest": "247fe859a0f119409befcbb67c93f1ca38ccb8ac"
+        }
+      },
+      "event": {
+        "camera_ns": 1413394887355760384,
+        "own": {
+          "camera_ns": 1413394887355760384,
+          "requested_G": 0,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 0,
+          "ready_V": 0,
+          "readiness_reason_G": "not_ready_G",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "warmup_or_core_invalid",
+          "submit_reason": "none",
+          "G_rows": 0,
+          "V_rows": 0,
+          "visual_rows": 5,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": -1,
+          "GV_nis": -1,
+          "joint_nis": -1,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -2.724234482181465e-18,
+          "G_update_norm": 0,
+          "V_update_norm": 0,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0,
+          "G_residual": [],
+          "V_residual": [],
+          "main_digest": "3cc0a8dab3e3672a1f4ca24c932c307ffc99a129",
+          "covariance_digest": "98d0cc0643d500b2d5b8e1dc135c2531c7d63740",
+          "observer_digest": "8b06a4d211be926e8d346a8f5867f5dbd0cfd6d8"
+        },
+        "off": {
+          "camera_ns": 1413394887355760384,
+          "requested_G": 0,
+          "requested_V": 0,
+          "receipt": 0,
+          "consumed": 0,
+          "ready_G": 0,
+          "ready_V": 0,
+          "readiness_reason_G": "not_ready_G",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "bootstrap_committed_confirming",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "disabled",
+          "submit_reason": "none",
+          "G_rows": 0,
+          "V_rows": 0,
+          "visual_rows": 5,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": -1,
+          "GV_nis": -1,
+          "joint_nis": -1,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0,
+          "V_variance": 0,
+          "p_checked": 0,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": 0,
+          "G_update_norm": 0,
+          "V_update_norm": 0,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0,
+          "G_residual": [],
+          "V_residual": [],
+          "main_digest": "3cc0a8dab3e3672a1f4ca24c932c307ffc99a129",
+          "covariance_digest": "98d0cc0643d500b2d5b8e1dc135c2531c7d63740",
+          "observer_digest": "8b06a4d211be926e8d346a8f5867f5dbd0cfd6d8"
+        }
+      }
+    },
+    "camera_events": 1921,
+    "actual_joint_updates": 637,
+    "submit_reasons": {
+      "none": 1284,
+      "joint_applied": 637
+    }
+  },
+  "V2_03_difficult/GV": {
+    "counts": {
+      "G": {
+        "requests": 1921,
+        "receipts": 1806,
+        "attempted_gates": 706,
+        "gate_accepts": 706,
+        "reasons": {
+          "no_update_stage:uninitialized": 111,
+          "no_update_stage:waiting_clones": 4,
+          "warmup_or_core_invalid": 725,
+          "not_ready_G": 375,
+          "accepted": 706
+        },
+        "actual_updates": 706,
+        "submit_rejects": 0
+      },
+      "V": {
+        "requests": 1921,
+        "receipts": 1806,
+        "attempted_gates": 637,
+        "gate_accepts": 637,
+        "reasons": {
+          "no_update_stage:uninitialized": 111,
+          "no_update_stage:waiting_clones": 4,
+          "warmup_or_core_invalid": 725,
+          "not_ready_V": 444,
+          "accepted": 637
+        },
+        "actual_updates": 637,
+        "submit_rejects": 0
+      }
+    },
+    "first_divergence": {
+      "main_digest": {
+        "camera_ns": 1413394894105760512,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413394894105760512,
+          "requested_G": 1,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 1,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "ready",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "accepted",
+          "V_reason": "accepted",
+          "submit_reason": "joint_applied",
+          "G_rows": 2,
+          "V_rows": 3,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": 0.003325298410755742,
+          "V_nis": 0.0010289121119745324,
+          "GV_nis": 0.004354239564114098,
+          "joint_nis": 33.772847100442846,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -3.7874167552376014e-18,
+          "G_update_norm": 5.119282684548946e-06,
+          "V_update_norm": 1.972302475215201e-06,
+          "G_gain_norm": 0.0006845625287096353,
+          "V_gain_norm": 0.0001294040401969714,
+          "G_residual": [
+            [
+              -0.008983846535073774
+            ],
+            [
+              0.004537456608805067
+            ]
+          ],
+          "V_residual": [
+            [
+              -0.01175987439793641
+            ],
+            [
+              -0.014706141587808474
+            ],
+            [
+              -0.025968927666483614
+            ]
+          ],
+          "main_digest": "bdb70001985365d229af732e864c774deee5cf47",
+          "covariance_digest": "4ff91bd187b3702454a75fec9c429d5a5dff23a0",
+          "observer_digest": "9b619a9448bee2a572cbf7d37ccb8332e4789178"
+        }
+      },
+      "covariance_digest": {
+        "camera_ns": 1413394894105760512,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413394894105760512,
+          "requested_G": 1,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 1,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "ready",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "accepted",
+          "V_reason": "accepted",
+          "submit_reason": "joint_applied",
+          "G_rows": 2,
+          "V_rows": 3,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": 0.003325298410755742,
+          "V_nis": 0.0010289121119745324,
+          "GV_nis": 0.004354239564114098,
+          "joint_nis": 33.772847100442846,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -3.7874167552376014e-18,
+          "G_update_norm": 5.119282684548946e-06,
+          "V_update_norm": 1.972302475215201e-06,
+          "G_gain_norm": 0.0006845625287096353,
+          "V_gain_norm": 0.0001294040401969714,
+          "G_residual": [
+            [
+              -0.008983846535073774
+            ],
+            [
+              0.004537456608805067
+            ]
+          ],
+          "V_residual": [
+            [
+              -0.01175987439793641
+            ],
+            [
+              -0.014706141587808474
+            ],
+            [
+              -0.025968927666483614
+            ]
+          ],
+          "main_digest": "bdb70001985365d229af732e864c774deee5cf47",
+          "covariance_digest": "4ff91bd187b3702454a75fec9c429d5a5dff23a0",
+          "observer_digest": "9b619a9448bee2a572cbf7d37ccb8332e4789178"
+        }
+      },
+      "observer_digest": {
+        "camera_ns": 1413394894155760384,
+        "actual_fusion": true,
+        "event": {
+          "camera_ns": 1413394894155760384,
+          "requested_G": 1,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 1,
+          "ready_V": 1,
+          "readiness_reason_G": "ready",
+          "readiness_reason_V": "ready",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "accepted",
+          "V_reason": "accepted",
+          "submit_reason": "joint_applied",
+          "G_rows": 2,
+          "V_rows": 3,
+          "visual_rows": 72,
+          "ekf_calls": 1,
+          "G_nis": 0.003672028334671741,
+          "V_nis": 0.0011030749983279152,
+          "GV_nis": 0.0047751174119553,
+          "joint_nis": 61.77722099176745,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -3.4476519258527157e-18,
+          "G_update_norm": 5.262186284309868e-06,
+          "V_update_norm": 2.1497033903065456e-06,
+          "G_gain_norm": 0.0006661541972447187,
+          "V_gain_norm": 0.00013001673540454268,
+          "G_residual": [
+            [
+              -0.009516750163078843
+            ],
+            [
+              0.004614295391574485
+            ]
+          ],
+          "V_residual": [
+            [
+              -0.00970548192048603
+            ],
+            [
+              -0.019962290031170227
+            ],
+            [
+              -0.024706850436682554
+            ]
+          ],
+          "main_digest": "aa2d69641699580c8a8972b5c734cd5a23374b3e",
+          "covariance_digest": "8af5bb5d67ede4a62d3fb6cddf3832dcd8668043",
+          "observer_digest": "4171542ddc460de9f6c7b81db95c21828a280fc4"
+        }
+      },
+      "event": {
+        "camera_ns": 1413394887355760384,
+        "own": {
+          "camera_ns": 1413394887355760384,
+          "requested_G": 1,
+          "requested_V": 1,
+          "receipt": 1,
+          "consumed": 1,
+          "ready_G": 0,
+          "ready_V": 0,
+          "readiness_reason_G": "not_ready_G",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "update_stage",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "warmup_or_core_invalid",
+          "V_reason": "warmup_or_core_invalid",
+          "submit_reason": "none",
+          "G_rows": 0,
+          "V_rows": 0,
+          "visual_rows": 5,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": -1,
+          "GV_nis": -1,
+          "joint_nis": -1,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0.030461741978670857,
+          "V_variance": 1,
+          "p_checked": 1,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": -2.724234482181465e-18,
+          "G_update_norm": 0,
+          "V_update_norm": 0,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0,
+          "G_residual": [],
+          "V_residual": [],
+          "main_digest": "3cc0a8dab3e3672a1f4ca24c932c307ffc99a129",
+          "covariance_digest": "98d0cc0643d500b2d5b8e1dc135c2531c7d63740",
+          "observer_digest": "8b06a4d211be926e8d346a8f5867f5dbd0cfd6d8"
+        },
+        "off": {
+          "camera_ns": 1413394887355760384,
+          "requested_G": 0,
+          "requested_V": 0,
+          "receipt": 0,
+          "consumed": 0,
+          "ready_G": 0,
+          "ready_V": 0,
+          "readiness_reason_G": "not_ready_G",
+          "readiness_reason_V": "not_ready_V",
+          "trigger_reason": "bootstrap_committed_confirming",
+          "grace_G": 0,
+          "grace_V": 0,
+          "G_reason": "disabled",
+          "V_reason": "disabled",
+          "submit_reason": "none",
+          "G_rows": 0,
+          "V_rows": 0,
+          "visual_rows": 5,
+          "ekf_calls": 1,
+          "G_nis": -1,
+          "V_nis": -1,
+          "GV_nis": -1,
+          "joint_nis": -1,
+          "G_dof": 2,
+          "V_dof": 3,
+          "G_variance": 0,
+          "V_variance": 0,
+          "p_checked": 0,
+          "p_symmetry": 0,
+          "p_min_eigenvalue": 0,
+          "G_update_norm": 0,
+          "V_update_norm": 0,
+          "G_gain_norm": 0,
+          "V_gain_norm": 0,
+          "G_residual": [],
+          "V_residual": [],
+          "main_digest": "3cc0a8dab3e3672a1f4ca24c932c307ffc99a129",
+          "covariance_digest": "98d0cc0643d500b2d5b8e1dc135c2531c7d63740",
+          "observer_digest": "8b06a4d211be926e8d346a8f5867f5dbd0cfd6d8"
+        }
+      }
+    },
+    "camera_events": 1921,
+    "actual_joint_updates": 706,
+    "submit_reasons": {
+      "none": 1215,
+      "joint_applied": 706
+    }
+  }
+}

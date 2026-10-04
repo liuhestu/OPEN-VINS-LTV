@@ -9,6 +9,13 @@ struct LtvDiagnostics {
   double gravity_variance = 0, velocity_variance = 0, p_symmetry = 0, p_min_eigenvalue = 0;
   double gravity_update_norm = 0, velocity_update_norm = 0, gravity_gain_norm = 0, velocity_gain_norm = 0;
   double prior_rotation_difference = 0, prior_velocity_difference = 0;
+  Eigen::VectorXd gravity_residual_vector, velocity_residual_vector;
+  Eigen::MatrixXd joint_H, joint_R, joint_S, joint_post_P;
+  Eigen::VectorXd joint_post_imu;
+  std::vector<int> joint_ids, joint_sizes;
+  Eigen::VectorXd joint_res;
+  double gv_nis = -1, joint_nis = -1;
+  bool consumed = false, capture_matrices = false;
   bool p_checked = false;
   int gravity_rows = 0, velocity_rows = 0, visual_rows = 0, columns = 0, ekf_calls = 0;
 };
@@ -41,7 +48,7 @@ public:
   // Pure un-gated model functions; fixed T is retained for finite differences.
   MeasurementBlock gravity(const State &, const LtvContext &, const ltv::LtvSnapshot &) const;
   MeasurementBlock velocity(const State &, const LtvContext &, const ltv::LtvSnapshot &) const;
-  MeasurementBlock build(const std::shared_ptr<State> &state, const LtvFrame &snapshot) const;
+  MeasurementBlock build(const std::shared_ptr<State> &state, const LtvFrame &snapshot, MeasurementBlock *diagnostic = nullptr) const;
   static MeasurementBlock merge(const MeasurementBlock &, const MeasurementBlock &);
   static bool validate(const std::shared_ptr<State> &, const MeasurementBlock &, std::string &reason);
   // Returns false only for an already consumed receipt; never retries its auxiliary.

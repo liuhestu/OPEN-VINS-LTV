@@ -1,0 +1,7 @@
+{
+  "issue": "header changed while UpdaterLTV.cpp compilation was already in progress; object ended newer than header, so Make skipped rebuild",
+  "fix": "touch UpdaterLTV.cpp to force recompilation after all headers finalized",
+  "affected_object": "ov_msckf_lib.dir/src/ltv/fusion/UpdaterLTV.cpp.o",
+  "real_replays_before_fix": 0,
+  "test_failure": "empty visual 0/1 joint calls"
+}

@@ -1,0 +1,14 @@
+{
+  "V2_02_medium/PASSIVE": true,
+  "V2_03_difficult/PASSIVE": true,
+  "V2_02_medium/OFF": true,
+  "V2_03_difficult/OFF": true,
+  "V2_02_medium/G": true,
+  "V2_03_difficult/G": true,
+  "V2_02_medium/V": true,
+  "V2_03_difficult/V": true,
+  "V2_02_medium/GV": true,
+  "V2_03_difficult/GV": true,
+  "V2_02_medium/GV_REPEAT": true,
+  "V2_03_difficult/GV_REPEAT": true
+}

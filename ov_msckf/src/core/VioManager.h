@@ -32,10 +32,10 @@
 #include <string>
 
 #include "VioManagerOptions.h"
-#include "ltv/observer/LtvAdapter.h"
 #include "ltv/diagnostics/LtvPassiveCache.h"
 #include "ltv/diagnostics/ValueDiagnostics.h"
 #include "ltv/fusion/UpdaterLTV.h"
+#include "ltv/observer/LtvAdapter.h"
 
 namespace ov_core {
 struct ImuData;
@@ -145,6 +145,7 @@ protected:
   std::vector<size_t> passive_msckf_input_ids, passive_msckf_used_ids, passive_slam_update_ids, passive_slam_init_ids;
   uint64_t passive_auxiliary_receipts = 0, passive_gravity_submissions = 0, passive_velocity_submissions = 0;
   LtvFrame passive_ltv_frame;
+  MeasurementBlock evaluation_ltv_block;
   std::shared_ptr<LtvPassiveCacheWriter> passive_cache;
   std::vector<ltv::HistoryObservation> passive_current_observations;
   std::shared_ptr<ValueDiagnostics> value_diagnostics;

@@ -176,10 +176,102 @@ public:
       passive_cache->finish();
   }
   void assert_passive() {
+    if (!params.ltv_options.passive_assert_no_injection)
+      return;
     if (params.ltv_options.enable_gravity || params.ltv_options.enable_velocity || passive_auxiliary_receipts ||
         passive_gravity_submissions || passive_velocity_submissions)
       throw std::runtime_error("PASSIVE VIOLATION: actual auxiliary receipt/submission");
   }
+  static void matrix(std::ostream &out, const Eigen::MatrixXd &m) {
+    out << "[";
+    for (int i = 0; i < m.rows(); ++i) {
+      if (i)
+        out << ",";
+      out << "[";
+      for (int j = 0; j < m.cols(); ++j) {
+        if (j)
+          out << ",";
+        number(out, m(i, j));
+      }
+      out << "]";
+    }
+    out << "]";
+  }
+  void fusion_row(std::ostream &out, std::ostream &matrices, int64_t ns) {
+    const auto &b = evaluation_ltv_block;
+    const auto &d = b.receipt ? b.receipt->diagnostics : ltv_diagnostics;
+    const auto &f = passive_ltv_frame;
+    const auto P = StateHelper::get_full_covariance(state);
+    Digest state_hash, covariance_hash, observer_hash;
+    state_hash.matrix(state->_imu->value());
+    state_hash.matrix(state->_imu->fej());
+    covariance_hash.matrix(P);
+    if (ltv_adapter) {
+      observer_hash.matrix(ltv_adapter->core().state());
+      observer_hash.matrix(ltv_adapter->core().covariance());
+    }
+    out << std::setprecision(17) << "{\"camera_ns\":" << ns << ",\"requested_G\":" << params.ltv_options.enable_gravity
+        << ",\"requested_V\":" << params.ltv_options.enable_velocity << ",\"receipt\":" << bool(b.receipt) << ",\"consumed\":" << d.consumed
+        << ",\"ready_G\":" << f.ready_G << ",\"ready_V\":" << f.ready_V << ",\"readiness_reason_G\":\""
+        << (f.ready_G ? "ready" : "not_ready_G") << "\",\"readiness_reason_V\":\"" << (f.ready_V ? "ready" : "not_ready_V")
+        << "\",\"trigger_reason\":\"" << (b.receipt ? "update_stage" : f.reason) << "\",\"grace_G\":" << f.health.grace_G
+        << ",\"grace_V\":" << f.health.grace_V << ",\"G_reason\":\"" << d.gravity_reason << "\",\"V_reason\":\"" << d.velocity_reason
+        << "\",\"submit_reason\":\"" << d.submit_reason << "\",\"G_rows\":" << d.gravity_rows << ",\"V_rows\":" << d.velocity_rows
+        << ",\"visual_rows\":" << d.visual_rows << ",\"ekf_calls\":" << d.ekf_calls << ",\"G_nis\":" << d.gravity_nis
+        << ",\"V_nis\":" << d.velocity_nis << ",\"GV_nis\":" << d.gv_nis << ",\"joint_nis\":" << d.joint_nis
+        << ",\"G_dof\":2,\"V_dof\":3,\"G_variance\":" << d.gravity_variance << ",\"V_variance\":" << d.velocity_variance
+        << ",\"p_checked\":" << d.p_checked << ",\"p_symmetry\":" << d.p_symmetry << ",\"p_min_eigenvalue\":" << d.p_min_eigenvalue
+        << ",\"G_update_norm\":" << d.gravity_update_norm << ",\"V_update_norm\":" << d.velocity_update_norm
+        << ",\"G_gain_norm\":" << d.gravity_gain_norm << ",\"V_gain_norm\":" << d.velocity_gain_norm << ",\"G_residual\":";
+    matrix(out, d.gravity_residual_vector);
+    out << ",\"V_residual\":";
+    matrix(out, d.velocity_residual_vector);
+    out << ",\"main_digest\":\"" << state_hash.finish() << "\",\"covariance_digest\":\"" << covariance_hash.finish()
+        << "\",\"observer_digest\":\"" << observer_hash.finish() << "\"}\n";
+    matrices << std::setprecision(17) << "{\"camera_ns\":" << ns << ",\"prior_imu\":";
+    matrix(matrices, b.prior_imu);
+    matrices << ",\"prior_fej\":";
+    matrix(matrices, b.prior_fej);
+    matrices << ",\"prior_P\":";
+    matrix(matrices, b.prior_P);
+    matrices << ",\"joint_H\":";
+    matrix(matrices, d.joint_H);
+    matrices << ",\"joint_R\":";
+    matrix(matrices, d.joint_R);
+    matrices << ",\"joint_res\":";
+    matrix(matrices, d.joint_res);
+    matrices << ",\"joint_S\":";
+    matrix(matrices, d.joint_S);
+    matrices << ",\"joint_ids\":[";
+    for (size_t k = 0; k < d.joint_ids.size(); ++k) {
+      if (k)
+        matrices << ",";
+      matrices << d.joint_ids[k];
+    }
+    matrices << "],\"joint_sizes\":[";
+    for (size_t k = 0; k < d.joint_sizes.size(); ++k) {
+      if (k)
+        matrices << ",";
+      matrices << d.joint_sizes[k];
+    }
+    matrices << "]";
+    matrices << ",\"joint_post_P\":";
+    matrix(matrices, d.joint_post_P);
+    matrices << ",\"joint_post_imu\":";
+    matrix(matrices, d.joint_post_imu);
+    matrices << ",\"post_imu\":";
+    matrix(matrices, state->_imu->value());
+    matrices << ",\"post_P\":";
+    matrix(matrices, StateHelper::get_full_covariance(state));
+    matrices << "}\n";
+    Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> eig(P);
+    const double scale = eig.info() == Eigen::Success ? std::max(1.0, eig.eigenvalues().cwiseAbs().maxCoeff()) : 1.0;
+    if (!state->_imu->value().allFinite() || !P.allFinite() || eig.info() != Eigen::Success ||
+        (P - P.transpose()).cwiseAbs().maxCoeff() > 1e-10 * scale || eig.eigenvalues().minCoeff() < -1e-10 * scale)
+      throw std::runtime_error("evaluation camera-boundary state/covariance invalid");
+  }
+  uint64_t gravity_submissions() const { return passive_gravity_submissions; }
+  uint64_t velocity_submissions() const { return passive_velocity_submissions; }
   static void number(std::ostream &out, double x) {
     if (std::isfinite(x))
       out << x;
@@ -416,7 +508,14 @@ int main(int argc, char **argv) {
       throw std::runtime_error(
           "usage: run_ltv_feature_passive config.yaml sensor_ASL_root output_dir B|P_OLD|P_NEW [short_input_seconds<=10]");
     const std::string root = argv[2], out = argv[3];
-    const std::string mode = argv[4];
+    const std::string requested_mode = argv[4];
+#ifdef LTV_GV_EVALUATION
+    if (requested_mode != "OFF" && requested_mode != "G" && requested_mode != "V" && requested_mode != "GV")
+      throw std::runtime_error("usage: run_ltv_gv_evaluation config.yaml sensor_ASL_root output_dir OFF|G|V|GV [seconds<=10]");
+    const std::string mode = "P_NEW";
+#else
+    const std::string mode = requested_mode;
+#endif
     const double limit = argc == 6 ? std::stod(argv[5]) : 0;
     if ((mode != "B" && mode != "P_OLD" && mode != "P_NEW") || !std::isfinite(limit) || limit < 0 || limit > 10 ||
         (argc == 6 && limit == 0))
@@ -437,6 +536,14 @@ int main(int argc, char **argv) {
     if (c0.q_landmark != 1e-4 || c0.v_landmark != 1e6 || c0.v_velocity != 1e6 || c0.v_gravity != 1e6 || c0.initial_p_landmark != 1 ||
         c0.initial_p_velocity != 1 || c0.initial_p_gravity != 1 || c0.max_features != 30 || c0.min_features != 15)
       throw std::runtime_error("observer must retain C0 Q/V/P0 and 30/15 feature limits");
+#ifdef LTV_GV_EVALUATION
+    // Input YAML remains byte-identical. Only G/V algorithm switches vary.
+    options.ltv_options.passive_assert_no_injection = false;
+    options.ltv_options.gv_evaluation_diagnostics = true;
+    options.ltv_options.enable_gravity = requested_mode == "G" || requested_mode == "GV";
+    options.ltv_options.enable_velocity = requested_mode == "V" || requested_mode == "GV";
+    options.ltv_options.validate(options.state_options);
+#endif
     cv::setNumThreads(1);
     options.use_multi_threading_subs = false;
     options.use_multi_threading_pubs = false;
@@ -507,6 +614,15 @@ int main(int argc, char **argv) {
     effective.close();
     ov_core::Printer::setPrintLevel("WARNING");
     ReplayManager app(options);
+    std::ofstream fusion, matrices;
+#ifdef LTV_GV_EVALUATION
+    fusion.open(out + "/fusion.jsonl");
+    matrices.open(out + "/matrices.jsonl");
+    if (!fusion || !matrices)
+      throw std::runtime_error("cannot open fusion diagnostics");
+    std::ofstream instrument(out + "/instrumentation.json");
+    instrument << "{\"passive_assert_no_injection\":false,\"gv_evaluation_diagnostics\":true,\"mode\":\"" << requested_mode << "\"}\n";
+#endif
     app.assert_passive();
     const auto raw_left = images(root + "/cam0/data.csv"), raw_right = images(root + "/cam1/data.csv");
     // Exact-time synchronization tolerates missing messages, never pairs different headers.
@@ -564,6 +680,7 @@ int main(int argc, char **argv) {
     const double sensor_end = limit ? sensor_start + limit : std::numeric_limits<double>::infinity();
     double last_input_time = sensor_start;
     size_t cursor = 0, packets = 0, outputs = 0;
+    uint64_t total_G = 0, total_V = 0;
     for (size_t i = 0; i < left.size(); ++i) {
       double t = left[i].ns * 1e-9;
       double target = t + options.calib_camimu_dt;
@@ -589,7 +706,24 @@ int main(int argc, char **argv) {
         camera.masks.push_back(options.use_mask ? options.masks.at(camera.masks.size()).clone() : cv::Mat::zeros(image.size(), CV_8UC1));
       }
       app.begin_camera_receipt(left[i].ns, right[i].ns, t);
-      app.feed_measurement_camera(camera);
+      try {
+        app.feed_measurement_camera(camera);
+      } catch (const std::exception &error) {
+#ifdef LTV_GV_EVALUATION
+        app.fusion_row(fusion, matrices, left[i].ns);
+        fusion.flush();
+        matrices.flush();
+        std::ofstream anomaly(out + "/anomaly.json");
+        anomaly << "{\"camera_ns\":" << left[i].ns << ",\"imu_cursor\":" << cursor
+                << ",\"call_path\":\"feed_measurement_camera / MSCKF / apply_joint\",\"error\":\"" << error.what() << "\"}\n";
+#endif
+        throw;
+      }
+#ifdef LTV_GV_EVALUATION
+      app.fusion_row(fusion, matrices, left[i].ns);
+#endif
+      total_G += app.gravity_submissions();
+      total_V += app.velocity_submissions();
       app.assert_passive();
       last_input_time = std::max(last_input_time, target);
       if (cursor)
@@ -632,8 +766,8 @@ int main(int argc, char **argv) {
          << ",\"unmatched_right_images\":" << raw_right.size() - right.size() << ",\"camera_packets\":" << packets
          << ",\"input_camera_packets\":" << left.size() << ",\"imu_consumed\":" << cursor << ",\"input_imu_samples\":" << imus.size()
          << ",\"output_rows\":" << outputs << ",\"input_span_seconds\":" << std::setprecision(17) << last_input_time - sensor_start
-         << ",\"short_limit_seconds\":" << limit << ",\"mode\":\"" << mode
-         << "\",\"actual_G_submissions\":0,\"actual_V_submissions\":0,\"complete\":" << (!limit ? "true" : "false") << "}\n";
+         << ",\"short_limit_seconds\":" << limit << ",\"mode\":\"" << mode << "\",\"actual_G_submissions\":" << total_G
+         << ",\"actual_V_submissions\":" << total_V << ",\"complete\":" << (!limit ? "true" : "false") << "}\n";
     meta.flush();
     if (!meta)
       throw std::runtime_error("replay metadata write failed");

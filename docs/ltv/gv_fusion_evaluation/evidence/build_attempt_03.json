@@ -1,0 +1,10 @@
+{
+  "command": [
+    "bash",
+    "/tmp/ltv_gv_evaluation/build.sh"
+  ],
+  "exit_code": 0,
+  "seconds": 25.267294883728027,
+  "log": "/tmp/ltv_gv_evaluation/build_03.log",
+  "purpose": "incremental dependency reconciliation after diagnostic fields completed during full build"
+}

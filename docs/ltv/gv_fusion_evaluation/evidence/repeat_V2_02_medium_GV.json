@@ -1,0 +1,23 @@
+{
+  "audit": 2348,
+  "trajectory": 2266,
+  "unmatched": 0,
+  "features": {
+    "rows": 2348,
+    "canonical_sha": "77c8bb0ae5ad30707212a677f2a1f3823b2b215c744a566f8440409f2d2ca505"
+  },
+  "cache": {
+    "counts": {
+      "imu": 23490,
+      "process": 2266,
+      "pause": 82
+    },
+    "sha256": "e6fa2b368cf5d0f3b14127456d676412669c4371a272c0f0b7c08a92e9b685ae",
+    "full_serialized_payload_exact": true
+  },
+  "fusion.jsonl": "dd1ad25e2b064c42721e33eb5824efe7c9a866c2fde450f438d026b6f72c696f",
+  "matrices.jsonl": "de8fd763dc84ee2c78bc37a24b44bd5947c956b05babdf4c0c05281b2e93fea8",
+  "effective_options.json": "ead0a708a9ba09b2cd8005f74fbd156986f9acf940c9404a28a8ec3bf5ec67e0",
+  "replay.json": "f45af9313adb7a6c6793e14b62af18e1489edc644292ae59edda416ae2529e0f",
+  "instrumentation.json": "6766dc7936f49d22d0cf9f5e222b453b40b3f637b72a025d963d84145ab76012"
+}

@@ -1,0 +1,23 @@
+{
+  "audit": 1921,
+  "trajectory": 1806,
+  "unmatched": 416,
+  "features": {
+    "rows": 1921,
+    "canonical_sha": "33b3d193c209b7a895933ae145f57454e0a19f2beb12003491f5e1af6f8e1406"
+  },
+  "cache": {
+    "counts": {
+      "imu": 23370,
+      "process": 1806,
+      "pause": 115
+    },
+    "sha256": "4a529e3ebb91700f58182e684bae912fb8468244172d26f04b904c5ecf92294a",
+    "full_serialized_payload_exact": true
+  },
+  "fusion.jsonl": "25950bcb8ea4e3d63a8b027c0f62bf3f80d557be3d3031c9f2851bb4a672c970",
+  "matrices.jsonl": "622b39c1196a4e14c2747402503a0c52cf53061ff149c9d56a398880dfaffa50",
+  "effective_options.json": "ead0a708a9ba09b2cd8005f74fbd156986f9acf940c9404a28a8ec3bf5ec67e0",
+  "replay.json": "8a7861dcb477c7630616958887dc3882cc0681c2d7778f9a225f6a1df08c7960",
+  "instrumentation.json": "6766dc7936f49d22d0cf9f5e222b453b40b3f637b72a025d963d84145ab76012"
+}

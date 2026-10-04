@@ -1,0 +1,13 @@
+{
+  "command": [
+    "bash",
+    "/tmp/ltv_gv_evaluation/build.sh"
+  ],
+  "status": "interrupted_after_child_exit_wait_stall",
+  "signal": "SIGINT",
+  "colcon_pid": 2135763,
+  "last_stage": "ov_core cmake install completed, no child remained",
+  "started_log": "/tmp/ltv_gv_evaluation/log/build_2026-10-05_02-31-29",
+  "time": 1791139183.7977161,
+  "exit_code": 2
+}

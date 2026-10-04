@@ -1,0 +1,46 @@
+{
+  "V2_02_medium/G": {
+    "ltv_enable_gravity": [
+      0,
+      1
+    ]
+  },
+  "V2_02_medium/V": {
+    "ltv_enable_velocity": [
+      0,
+      1
+    ]
+  },
+  "V2_02_medium/GV": {
+    "ltv_enable_gravity": [
+      0,
+      1
+    ],
+    "ltv_enable_velocity": [
+      0,
+      1
+    ]
+  },
+  "V2_03_difficult/G": {
+    "ltv_enable_gravity": [
+      0,
+      1
+    ]
+  },
+  "V2_03_difficult/V": {
+    "ltv_enable_velocity": [
+      0,
+      1
+    ]
+  },
+  "V2_03_difficult/GV": {
+    "ltv_enable_gravity": [
+      0,
+      1
+    ],
+    "ltv_enable_velocity": [
+      0,
+      1
+    ]
+  }
+}

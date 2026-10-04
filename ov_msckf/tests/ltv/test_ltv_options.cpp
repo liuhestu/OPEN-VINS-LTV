@@ -52,5 +52,35 @@ int main() {
     }
   }
   require(rejected == 5, "invalid/unsupported configuration fails explicitly");
+  auto managed = LtvOptions();
+  managed.enabled = managed.feature_readiness_enabled = managed.passive_hardening_enabled = managed.passive_audit_enabled = true;
+  managed.enable_gravity = managed.enable_velocity = managed.allow_correlated_pseudomeasurements = true;
+  bool passive_rejected = false;
+  try {
+    managed.validate(StateOptions());
+  } catch (const std::invalid_argument &) {
+    passive_rejected = true;
+  }
+  require(passive_rejected, "default Passive assertion still forbids managed injection");
+  managed.active_consistency.enabled = true;
+  managed.passive_assert_no_injection = false;
+  managed.validate(StateOptions());
+  LtvAdapter managed_adapter(managed);
+  require(managed_adapter.landmark_adapter() != nullptr, "evaluation can construct frozen managed/active observer");
+  auto unbounded = managed;
+  unbounded.passive_hardening_enabled = false;
+  LtvAdapter unbounded_adapter(unbounded);
+  ltv::FeaturePipelineContext empty_context;
+  empty_context.time = 1;
+  empty_context.version = 1;
+  unbounded_adapter.process(1, {}, LtvCalibration(), Eigen::Vector3d::Zero(), Eigen::Vector3d::Zero(), 1, &empty_context);
+  managed.enabled = false;
+  bool disabled_rejected = false;
+  try {
+    managed.validate(StateOptions());
+  } catch (const std::invalid_argument &) {
+    disabled_rejected = true;
+  }
+  require(disabled_rejected, "evaluation assertion mode retains managed observer requirements");
   std::remove(file.c_str());
 }

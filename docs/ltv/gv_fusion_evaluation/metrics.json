@@ -1,0 +1,482 @@
+[
+  {
+    "sequence": "V2_02_medium",
+    "mode": "OFF",
+    "status": "VALID",
+    "output_rows": 2266,
+    "target_sensor_rows": 2266,
+    "target_gt_rows": 2252,
+    "gt_time_fraction": 0.9938217122683142,
+    "scale": 1.0,
+    "gt_sha": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+    "evaluator_sha": "be8a3ab4500e07f9b161adef2f92a7881ecbd91b960e4d3825a1ad074a241a31",
+    "protocol": "nearest_GT_20ms; fixed_OFF_support; SE3_no_scale; output_match_1us; >=99pct",
+    "coverage": 1.0,
+    "sensor_coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "missing_rows": 0,
+    "longest_missing_packets": 0,
+    "reason": null,
+    "ate_rmse_m": 0.05197520957067538,
+    "samples": 2252,
+    "alignment_R": [
+      [
+        -0.9973916316384436,
+        0.07135173388779706,
+        0.010902440497814601
+      ],
+      [
+        -0.07120258537431882,
+        -0.9973704342661648,
+        0.013505876044731017
+      ],
+      [
+        0.011837439487331528,
+        0.012694365794626978,
+        0.9998493527044247
+      ]
+    ],
+    "alignment_t": [
+      -0.9830317808242417,
+      0.4889284631038609,
+      1.3107198438117316
+    ],
+    "raw_metrics_conditional_on_available": false,
+    "rotation_rmse_deg": 1.3639876647236366,
+    "rpe": {
+      "1.0": {
+        "pairs": 2232,
+        "translation_rmse_m": 0.02428377967193025,
+        "rotation_rmse_deg": 0.30020530394321804
+      },
+      "5.0": {
+        "pairs": 2152,
+        "translation_rmse_m": 0.04930234957068469,
+        "rotation_rmse_deg": 0.9158687646174204
+      }
+    },
+    "gt_extent_m": 8.389834574681972,
+    "localization_status": "VALID",
+    "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); raw metrics retained"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "G",
+    "status": "VALID",
+    "output_rows": 2266,
+    "target_sensor_rows": 2266,
+    "target_gt_rows": 2252,
+    "gt_time_fraction": 0.9938217122683142,
+    "scale": 1.0,
+    "gt_sha": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+    "evaluator_sha": "be8a3ab4500e07f9b161adef2f92a7881ecbd91b960e4d3825a1ad074a241a31",
+    "protocol": "nearest_GT_20ms; fixed_OFF_support; SE3_no_scale; output_match_1us; >=99pct",
+    "coverage": 1.0,
+    "sensor_coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "missing_rows": 0,
+    "longest_missing_packets": 0,
+    "reason": null,
+    "ate_rmse_m": 0.05197842468428711,
+    "samples": 2252,
+    "alignment_R": [
+      [
+        -0.997391476147134,
+        0.07135362310684101,
+        0.01090430092066684
+      ],
+      [
+        -0.07120445122147347,
+        -0.9973703013904058,
+        0.013505851719144198
+      ],
+      [
+        0.01183931734900194,
+        0.012694186619772018,
+        0.9998493327450746
+      ]
+    ],
+    "alignment_t": [
+      -0.9830252079722619,
+      0.4889251688372851,
+      1.3106679726976136
+    ],
+    "raw_metrics_conditional_on_available": false,
+    "rotation_rmse_deg": 1.3639650603712383,
+    "rpe": {
+      "1.0": {
+        "pairs": 2232,
+        "translation_rmse_m": 0.024283246704877103,
+        "rotation_rmse_deg": 0.30008532658632403
+      },
+      "5.0": {
+        "pairs": 2152,
+        "translation_rmse_m": 0.04930027682373031,
+        "rotation_rmse_deg": 0.9157710841708463
+      }
+    },
+    "gt_extent_m": 8.389834574681972,
+    "localization_status": "VALID",
+    "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); raw metrics retained"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "V",
+    "status": "VALID",
+    "output_rows": 2266,
+    "target_sensor_rows": 2266,
+    "target_gt_rows": 2252,
+    "gt_time_fraction": 0.9938217122683142,
+    "scale": 1.0,
+    "gt_sha": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+    "evaluator_sha": "be8a3ab4500e07f9b161adef2f92a7881ecbd91b960e4d3825a1ad074a241a31",
+    "protocol": "nearest_GT_20ms; fixed_OFF_support; SE3_no_scale; output_match_1us; >=99pct",
+    "coverage": 1.0,
+    "sensor_coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "missing_rows": 0,
+    "longest_missing_packets": 0,
+    "reason": null,
+    "ate_rmse_m": 0.051973334269027276,
+    "samples": 2252,
+    "alignment_R": [
+      [
+        -0.9973917342427896,
+        0.07135008726954901,
+        0.010903830097058802
+      ],
+      [
+        -0.07120090523193283,
+        -0.9973705360065441,
+        0.013507220297709219
+      ],
+      [
+        0.011838900215438514,
+        0.012695627304125986,
+        0.9998493193921967
+      ]
+    ],
+    "alignment_t": [
+      -0.9830576170992621,
+      0.48894564417647324,
+      1.3107131046511717
+    ],
+    "raw_metrics_conditional_on_available": false,
+    "rotation_rmse_deg": 1.3640760671938073,
+    "rpe": {
+      "1.0": {
+        "pairs": 2232,
+        "translation_rmse_m": 0.024281627068829456,
+        "rotation_rmse_deg": 0.3002003770912739
+      },
+      "5.0": {
+        "pairs": 2152,
+        "translation_rmse_m": 0.04930050127890645,
+        "rotation_rmse_deg": 0.9158568217098235
+      }
+    },
+    "gt_extent_m": 8.389834574681972,
+    "localization_status": "VALID",
+    "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); raw metrics retained"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "GV",
+    "status": "VALID",
+    "output_rows": 2266,
+    "target_sensor_rows": 2266,
+    "target_gt_rows": 2252,
+    "gt_time_fraction": 0.9938217122683142,
+    "scale": 1.0,
+    "gt_sha": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+    "evaluator_sha": "be8a3ab4500e07f9b161adef2f92a7881ecbd91b960e4d3825a1ad074a241a31",
+    "protocol": "nearest_GT_20ms; fixed_OFF_support; SE3_no_scale; output_match_1us; >=99pct",
+    "coverage": 1.0,
+    "sensor_coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "missing_rows": 0,
+    "longest_missing_packets": 0,
+    "reason": null,
+    "ate_rmse_m": 0.05197700157903096,
+    "samples": 2252,
+    "alignment_R": [
+      [
+        -0.9973916630267822,
+        0.07135081055720241,
+        0.010905611284996806
+      ],
+      [
+        -0.07120160861829382,
+        -0.997370488914671,
+        0.013506989756323945
+      ],
+      [
+        0.011840669526532142,
+        0.012695261909087992,
+        0.9998493030803307
+      ]
+    ],
+    "alignment_t": [
+      -0.9830516628911863,
+      0.4889394866304104,
+      1.3106600201739145
+    ],
+    "raw_metrics_conditional_on_available": false,
+    "rotation_rmse_deg": 1.3640605205913248,
+    "rpe": {
+      "1.0": {
+        "pairs": 2232,
+        "translation_rmse_m": 0.024281106019787148,
+        "rotation_rmse_deg": 0.3000807911783298
+      },
+      "5.0": {
+        "pairs": 2152,
+        "translation_rmse_m": 0.0492985676893958,
+        "rotation_rmse_deg": 0.9157613378324877
+      }
+    },
+    "gt_extent_m": 8.389834574681972,
+    "localization_status": "VALID",
+    "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); raw metrics retained"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "OFF",
+    "status": "VALID",
+    "output_rows": 1806,
+    "target_sensor_rows": 1806,
+    "target_gt_rows": 1799,
+    "gt_time_fraction": 0.9961240310077519,
+    "scale": 1.0,
+    "gt_sha": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+    "evaluator_sha": "be8a3ab4500e07f9b161adef2f92a7881ecbd91b960e4d3825a1ad074a241a31",
+    "protocol": "nearest_GT_20ms; fixed_OFF_support; SE3_no_scale; output_match_1us; >=99pct",
+    "coverage": 1.0,
+    "sensor_coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "missing_rows": 0,
+    "longest_missing_packets": 0,
+    "reason": null,
+    "ate_rmse_m": 0.20742761529144607,
+    "samples": 1799,
+    "alignment_R": [
+      [
+        -0.998679979137031,
+        0.05135805431849416,
+        -0.0008059326746755278
+      ],
+      [
+        -0.051364354917858686,
+        -0.998541903275704,
+        0.016606337537384643
+      ],
+      [
+        4.811163839367992e-05,
+        0.016625813037319796,
+        0.9998617804607368
+      ]
+    ],
+    "alignment_t": [
+      -0.784712113515256,
+      0.2027333280427487,
+      1.3563879802123742
+    ],
+    "raw_metrics_conditional_on_available": false,
+    "rotation_rmse_deg": 1.4360633525720778,
+    "rpe": {
+      "1.0": {
+        "pairs": 1685,
+        "translation_rmse_m": 0.044782294279990066,
+        "rotation_rmse_deg": 0.4533680634323443
+      },
+      "5.0": {
+        "pairs": 1449,
+        "translation_rmse_m": 0.09882610092988672,
+        "rotation_rmse_deg": 0.9685680046976816
+      }
+    },
+    "gt_extent_m": 7.906022529991297,
+    "localization_status": "VALID",
+    "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); raw metrics retained"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "G",
+    "status": "VALID",
+    "output_rows": 1806,
+    "target_sensor_rows": 1806,
+    "target_gt_rows": 1799,
+    "gt_time_fraction": 0.9961240310077519,
+    "scale": 1.0,
+    "gt_sha": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+    "evaluator_sha": "be8a3ab4500e07f9b161adef2f92a7881ecbd91b960e4d3825a1ad074a241a31",
+    "protocol": "nearest_GT_20ms; fixed_OFF_support; SE3_no_scale; output_match_1us; >=99pct",
+    "coverage": 1.0,
+    "sensor_coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "missing_rows": 0,
+    "longest_missing_packets": 0,
+    "reason": null,
+    "ate_rmse_m": 0.2072451406965429,
+    "samples": 1799,
+    "alignment_R": [
+      [
+        -0.9986874067279348,
+        0.05121339396932635,
+        -0.0008074163576806542
+      ],
+      [
+        -0.05121973594654782,
+        -0.9985481413786008,
+        0.016677769602275336
+      ],
+      [
+        4.788108189029451e-05,
+        0.016697234126741685,
+        0.9998605903224289
+      ]
+    ],
+    "alignment_t": [
+      -0.7845254267260058,
+      0.20324482920895698,
+      1.3565866442255103
+    ],
+    "raw_metrics_conditional_on_available": false,
+    "rotation_rmse_deg": 1.4428117433196714,
+    "rpe": {
+      "1.0": {
+        "pairs": 1685,
+        "translation_rmse_m": 0.04451609732778806,
+        "rotation_rmse_deg": 0.45311606203733545
+      },
+      "5.0": {
+        "pairs": 1449,
+        "translation_rmse_m": 0.09814453988828438,
+        "rotation_rmse_deg": 0.9682721923048132
+      }
+    },
+    "gt_extent_m": 7.906022529991297,
+    "localization_status": "VALID",
+    "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); raw metrics retained"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "V",
+    "status": "VALID",
+    "output_rows": 1806,
+    "target_sensor_rows": 1806,
+    "target_gt_rows": 1799,
+    "gt_time_fraction": 0.9961240310077519,
+    "scale": 1.0,
+    "gt_sha": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+    "evaluator_sha": "be8a3ab4500e07f9b161adef2f92a7881ecbd91b960e4d3825a1ad074a241a31",
+    "protocol": "nearest_GT_20ms; fixed_OFF_support; SE3_no_scale; output_match_1us; >=99pct",
+    "coverage": 1.0,
+    "sensor_coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "missing_rows": 0,
+    "longest_missing_packets": 0,
+    "reason": null,
+    "ate_rmse_m": 0.20723497040821132,
+    "samples": 1799,
+    "alignment_R": [
+      [
+        -0.9986876060241696,
+        0.05120956380602636,
+        -0.0008038336328188671
+      ],
+      [
+        -0.05121584665778561,
+        -0.9985483934857727,
+        0.01667461897939532
+      ],
+      [
+        5.12331818854116e-05,
+        0.01669390432997432,
+        0.9998606457568888
+      ]
+    ],
+    "alignment_t": [
+      -0.7845144461680575,
+      0.20328481537191156,
+      1.3565543574595238
+    ],
+    "raw_metrics_conditional_on_available": false,
+    "rotation_rmse_deg": 1.4426640055925422,
+    "rpe": {
+      "1.0": {
+        "pairs": 1685,
+        "translation_rmse_m": 0.04451279011184382,
+        "rotation_rmse_deg": 0.4530892484355452
+      },
+      "5.0": {
+        "pairs": 1449,
+        "translation_rmse_m": 0.0981360699581655,
+        "rotation_rmse_deg": 0.9681977729652405
+      }
+    },
+    "gt_extent_m": 7.906022529991297,
+    "localization_status": "VALID",
+    "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); raw metrics retained"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "GV",
+    "status": "VALID",
+    "output_rows": 1806,
+    "target_sensor_rows": 1806,
+    "target_gt_rows": 1799,
+    "gt_time_fraction": 0.9961240310077519,
+    "scale": 1.0,
+    "gt_sha": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+    "evaluator_sha": "be8a3ab4500e07f9b161adef2f92a7881ecbd91b960e4d3825a1ad074a241a31",
+    "protocol": "nearest_GT_20ms; fixed_OFF_support; SE3_no_scale; output_match_1us; >=99pct",
+    "coverage": 1.0,
+    "sensor_coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "missing_rows": 0,
+    "longest_missing_packets": 0,
+    "reason": null,
+    "ate_rmse_m": 0.2072436318718205,
+    "samples": 1799,
+    "alignment_R": [
+      [
+        -0.9986868302221734,
+        0.05122463392229299,
+        -0.0008074777489010944
+      ],
+      [
+        -0.05123097543514986,
+        -0.9985475919375828,
+        0.016676144387067677
+      ],
+      [
+        4.7924429754472864e-05,
+        0.016695613650966314,
+        0.9998606173802761
+      ]
+    ],
+    "alignment_t": [
+      -0.7845455321949464,
+      0.20327075378796966,
+      1.3565985758279888
+    ],
+    "raw_metrics_conditional_on_available": false,
+    "rotation_rmse_deg": 1.442706179160064,
+    "rpe": {
+      "1.0": {
+        "pairs": 1685,
+        "translation_rmse_m": 0.044513813346217755,
+        "rotation_rmse_deg": 0.453081140803232
+      },
+      "5.0": {
+        "pairs": 1449,
+        "translation_rmse_m": 0.09814038685872391,
+        "rotation_rmse_deg": 0.9681695255664073
+      }
+    },
+    "gt_extent_m": 7.906022529991297,
+    "localization_status": "VALID",
+    "gross_failure_rule": "ATE > max(5m, GT bounding-box diagonal); raw metrics retained"
+  }
+]
