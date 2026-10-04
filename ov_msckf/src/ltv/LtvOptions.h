@@ -1,5 +1,6 @@
 #pragma once
 #include "LtvLandmarkManager.h"
+#include "LtvReadiness.h"
 #include "ltv_types.h"
 #include "state/StateOptions.h"
 #include <stdexcept>
@@ -9,6 +10,8 @@ struct LtvOptions {
   bool enable_quality_gate = false, enable_nis_gate = true, log_enabled = false;
   bool enable_huber = false;
   bool feature_readiness_enabled = false, feature_apply_seed = true, passive_audit_enabled = false;
+  bool passive_hardening_enabled = false, hardening_health_readiness = true, hardening_initial_warmup = false;
+  ltv::LtvReadinessConfig hardening_readiness;
   std::string feature_seed_source = "TEMPORAL_POSE";
   std::string passive_cache_path;
   double feature_bearing_sigma_rad = 0.0008726646259971648;
@@ -28,6 +31,9 @@ struct LtvOptions {
 #define FIELD(x) p->parse_config("ltv_" #x, x, false)
     FIELD(value_diagnostics_enabled);
     FIELD(feature_readiness_enabled);
+    FIELD(passive_hardening_enabled);
+    FIELD(hardening_health_readiness);
+    FIELD(hardening_initial_warmup);
     FIELD(feature_apply_seed);
     FIELD(passive_audit_enabled);
     FIELD(feature_seed_source);
@@ -57,6 +63,9 @@ struct LtvOptions {
     FIELD(quality_velocity_disagreement);
     FIELD(quality_min_features);
 #undef FIELD
+    p->parse_config("ltv_hardening_prediction_angle_limit_rad", hardening_readiness.prediction_angle_limit_rad, false);
+    p->parse_config("ltv_hardening_velocity_correction_rate_limit", hardening_readiness.velocity_correction_rate_limit, false);
+    p->parse_config("ltv_hardening_gravity_correction_rate_limit", hardening_readiness.gravity_correction_rate_limit, false);
     p->parse_config("ltv_feature_max_relative_risk", feature_manager.quality.max_relative_risk, false);
     p->parse_config("ltv_feature_min_history_span", feature_manager.quality.min_history_span, false);
     p->parse_config("ltv_feature_maturity_seconds", feature_manager.maturity_seconds, false);
@@ -84,6 +93,8 @@ struct LtvOptions {
 #undef CORE
   }
   void validate(const StateOptions &state) const {
+    if (passive_hardening_enabled && (!feature_readiness_enabled || !enabled || enable_gravity || enable_velocity))
+      throw std::invalid_argument("Passive hardening requires managed Passive LTV");
     if (feature_readiness_enabled) {
       if (!enabled || enable_gravity || enable_velocity)
         throw std::invalid_argument("Feature readiness requires Passive LTV with G/V injection OFF");

@@ -257,6 +257,35 @@ std::string evidence(const LtvFrame &original, const LtvAdapter &adapter) {
     b.scalar(d.uncertainty.sigma_parallel);
     b.scalar(d.uncertainty.relative_parallel_risk);
   }
+  // Conditional suffix preserves legacy byte identity when hardening is OFF.
+  if (f.hardened) {
+    std::string schema = "HARDENING_V1";
+    b.text(schema);
+    b.scalar(f.raw_current);
+    auto h = f.health;
+    auto availability = static_cast<int>(h.state);
+    b.scalar(availability);
+    b.scalar(h.accepted_time);
+    b.scalar(h.pool_ready);
+    b.scalar(h.observer_valid);
+    b.scalar(h.ready_G);
+    b.scalar(h.ready_V);
+    b.scalar(h.joint_ready);
+    b.scalar(h.request_bootstrap);
+    b.scalar(h.bootstrap_is_physical_recovery);
+    b.scalar(h.request_dormant);
+    b.scalar(h.last_bootstrap_time);
+    b.text(h.last_bootstrap_source);
+    b.text(h.reason);
+    b.scalar(h.bootstrap_count);
+    b.scalar(h.physical_fault_count);
+    b.scalar(f.prediction_angle_p95_rad);
+    b.scalar(f.velocity_correction_rate);
+    b.scalar(f.gravity_correction_rate);
+    b.scalar(f.correction_diagnostics_valid);
+    b.scalar(f.actual_corrections);
+    b.count(management.eligible_seeds);
+  }
   return out.str();
 }
 void same(const std::string &expected, const LtvFrame &f, const LtvAdapter &adapter, uint64_t event) {

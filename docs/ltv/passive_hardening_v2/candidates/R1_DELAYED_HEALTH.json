@@ -1,0 +1,29 @@
+{
+  "id": "R1_DELAYED_HEALTH_C0_ZERO_START",
+  "round": 1,
+  "registration_attempt": 51,
+  "development_seed": 42,
+  "configuration": {
+    "passive_hardening_enabled": true,
+    "hardening_health_readiness": true,
+    "feature_seed_source": "STEREO_THEN_TEMPORAL",
+    "bootstrap_source": "ZERO_DELAYED_START",
+    "gain": "C0_unchanged"
+  },
+  "runtime": "be06713f866eac6f361c95d5ab489639f64fb6766ef4875b21f22d78335063f7",
+  "wrapper_sha256": "0a8e556010b1beac2a531697c5d21c829cd0fba7aa0e523a118adef0c900902b",
+  "source_sha256": {
+    "ov_msckf/src/ltv/LtvAdapterHardened.cpp": "ba397d2534ca895f1a1aaa75c08ab56a262264b4404bf3e79fd18c46bd0628e2",
+    "ov_msckf/src/ltv/LtvReadiness.cpp": "ad3d56af9721f8709ab7349594221c90dfa20155e8b64fbe376176233091b1fe",
+    "ov_msckf/src/ltv/LtvOptions.h": "77810d5460921b6aaae47635b59b15193774be08c403a00bdeae63cbc855d26d",
+    "scripts/ltv_passive_hardening/synthetic_wrapper.cpp": "d89e7572889a1ffd8b74839ec4563f5418b8e0d397e95eefe932cf465af55c08"
+  },
+  "hypothesis": "Avoid unobserved pre-seed drift and reject unhealthy shared state; no guaranteed accuracy claim",
+  "baseline": "P_PREV same frozen sensor/prior arrays through actual legacy Adapter; no identity reuse from midpoint experiments",
+  "confirmation_seeds_unread": [
+    201,
+    202,
+    301,
+    302
+  ]
+}

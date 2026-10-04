@@ -33,7 +33,7 @@ void LtvLandmarkManager::reset(uint64_t epoch) {
 }
 LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint64_t version,
                                               const std::vector<HistoryObservation> &observations,
-                                              const std::vector<FeatureSeedCandidate> &candidates) {
+                                              const std::vector<FeatureSeedCandidate> &candidates, bool allow_admission) {
   LandmarkManagerFrame out;
   out.epoch = epoch;
   out.time = time;
@@ -109,13 +109,14 @@ LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint6
     } else
       m.phase = LandmarkPhase::Candidate;
   }
+  out.eligible_seeds = ready.size();
   std::array<size_t, 4> sectors{{0, 0, 0, 0}};
   for (size_t id : retained_)
     if (visible.count(id))
       ++sectors[sector(visible.at(id).bearing)];
   // Existing states never get displaced to improve image distribution. New points
   // prefer sparsely occupied quadrants, then lower risk, then deterministic ID.
-  while (retained_.size() < config_.max_active && !ready.empty()) {
+  while (allow_admission && retained_.size() < config_.max_active && !ready.empty()) {
     auto best = std::min_element(ready.begin(), ready.end(), [&](const Ready &a, const Ready &b) {
       if (sectors[a.sector] != sectors[b.sector])
         return sectors[a.sector] < sectors[b.sector];
@@ -135,7 +136,7 @@ LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint6
     ready.erase(best);
   }
   for (const auto &r : ready)
-    landmarks_.at(r.id).reason = "capacity";
+    landmarks_.at(r.id).reason = allow_admission ? "capacity" : "waiting_observer_start";
   // Expired candidates keep lightweight lifetime/denominator records but no image
   // history. Admitted retired identities remain tombstoned until explicit reset.
   for (auto &entry : landmarks_) {

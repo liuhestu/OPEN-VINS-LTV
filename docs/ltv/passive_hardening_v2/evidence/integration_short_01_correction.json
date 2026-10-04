@@ -1,0 +1,6 @@
+{
+  "status": "FAIL_LOG_SCHEMA",
+  "supersedes": "result.json overall interpretation; numeric comparison remains valid",
+  "reason": "HARDENED live rows omit hardening schema; initial validator skipped absent fields",
+  "next_action": "Recompile runner after source changed during compilation; rerun stricter checker; preserve all attempts"
+}

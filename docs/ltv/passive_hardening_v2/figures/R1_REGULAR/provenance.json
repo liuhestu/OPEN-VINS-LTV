@@ -1,0 +1,13 @@
+{
+  "title": "REGULAR near, 0.5 s identities, seed 42",
+  "inputs": {
+    "/home/he/output/ltv_passive_hardening_v2/R1/REGULAR_42_05/P_PREV_evaluation_v2/error_curves.npz": "1c23c4af42e22e0e5ece531621a9841e29e094199d60a804a58fb22a9916bceb",
+    "/home/he/output/ltv_passive_hardening_v2/R1/REGULAR_42_05/P_NEW_evaluation_v2/error_curves.npz": "1e9a997791c9ea049174fac41a54e5d437ea0d389a6744105cd72d2296bc0dee"
+  },
+  "source_sha": "5c4fe1d84c81e65b5877db3b0956c4a556b399b13d3d107485e33245c67a9b3d",
+  "complete_domain": [
+    0.0,
+    60.0
+  ],
+  "no_startup_or_recovery_trim": true
+}

@@ -9,7 +9,7 @@ LtvFeaturePipeline::LtvFeaturePipeline(const FeaturePipelineConfig &config) : co
     throw std::invalid_argument("unsupported feature pipeline configuration");
 }
 void LtvFeaturePipeline::reset(uint64_t epoch) { manager_.reset(epoch); }
-FeaturePipelineFrame LtvFeaturePipeline::process(const FeaturePipelineContext &ctx) {
+FeaturePipelineFrame LtvFeaturePipeline::process(const FeaturePipelineContext &ctx, bool allow_admission) {
   FeaturePipelineFrame out;
   out.management.epoch = ctx.epoch;
   out.management.time = ctx.time;
@@ -158,7 +158,7 @@ FeaturePipelineFrame LtvFeaturePipeline::process(const FeaturePipelineContext &c
     candidates.push_back(s);
     out.seeds.push_back(std::move(d));
   }
-  out.management = manager_.step(ctx.epoch, ctx.time, ctx.version, ctx.observations, candidates);
+  out.management = manager_.step(ctx.epoch, ctx.time, ctx.version, ctx.observations, candidates, allow_admission);
   return out;
 }
 } // namespace ltv

@@ -78,6 +78,8 @@ endif ()
 list(APPEND LIBRARY_SOURCES
         src/ltv/ltv_observer.cpp
         src/ltv/LtvAdapter.cpp
+    src/ltv/LtvAdapterHardened.cpp
+    src/ltv/LtvReadiness.cpp
         src/ltv/LtvPassiveCache.cpp
         src/ltv/LtvFeatureHistory.cpp
         src/ltv/LtvFeatureQuality.cpp

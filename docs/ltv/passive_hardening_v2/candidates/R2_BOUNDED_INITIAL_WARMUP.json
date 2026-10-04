@@ -1,0 +1,30 @@
+{
+  "id": "R2_BOUNDED_INITIAL_ZERO_WARMUP_C0",
+  "round": 2,
+  "registration_attempt": 99,
+  "runtime": "67a97cc62d86f380e7910e42b4ad4195a6677c8057ff691b746a9078393b638b",
+  "wrapper": "synthetic_wrapper_02.so",
+  "wrapper_sha256": "4e4d3d47cf066e744d2606b8973630f3cb3a3eca558884c304b3ed65382bb13d",
+  "mechanism": "Preserve the baseline initial causal x/P and slots; gate initial availability by health and one-second shortage; record same-event warm bootstrap and quality cooldown; no shared VIO copy.",
+  "configuration": {
+    "ltv_passive_hardening_enabled": true,
+    "ltv_hardening_initial_warmup": true,
+    "gain": "C0 unchanged"
+  },
+  "hypothesis": "Avoid the R1 extra raw eta startup regression while keeping zero severe ready errors.",
+  "engineering_attempts": [
+    85,
+    91,
+    94,
+    95,
+    96,
+    97,
+    98
+  ],
+  "source_sha": {
+    "ov_msckf/src/ltv/LtvAdapterHardened.cpp": "a795129d7f0fdbd5f35fea82ef79bc8697de48cd5a570bb42384696f47d084dc",
+    "ov_msckf/src/ltv/LtvReadiness.cpp": "c0b5db411403da84f847b8fe9460d6eb9a46558add7f5215bb59291803aa5412",
+    "ov_msckf/src/ltv/LtvOptions.h": "74ecbf701a2ed3c26613b62da51a8eb0b216413f309f505a190688dbb80ab795",
+    "scripts/ltv_passive_hardening/synthetic_wrapper.cpp": "27a94a8d8dfdac69d1ff231fc92b374e802e22196a735a5aef369db004b24d5b"
+  }
+}

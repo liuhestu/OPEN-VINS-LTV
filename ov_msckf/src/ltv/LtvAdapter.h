@@ -25,6 +25,11 @@ struct LtvFrame {
   bool available = false;
   bool ready_G = false, ready_V = false;
   size_t mature_features = 0;
+  bool hardened = false, raw_current = false;
+  ltv::LtvReadinessOutput health;
+  double prediction_angle_p95_rad = 0, velocity_correction_rate = 0, gravity_correction_rate = 0;
+  bool correction_diagnostics_valid = false;
+  uint64_t actual_corrections = 0;
   std::string reason = "not_started";
   ltv::LtvSnapshot snapshot;
   uint64_t integrated_steps = 0;
@@ -48,6 +53,17 @@ public:
 
 private:
   LtvOptions options_;
+  std::unique_ptr<ltv::LtvReadiness> readiness_;
+  ltv::LtvReadinessOutput health_;
+  bool hardening_new_epoch_pending_ = false, initial_warm_attempted_ = false;
+  double last_correction_time_ = -1, hardening_offset_ = 0;
+  uint64_t actual_corrections_ = 0;
+  double prediction_angle_ = 0, velocity_correction_rate_ = 0, gravity_correction_rate_ = 0;
+  bool correction_diagnostics_valid_ = false;
+  LtvFrame processHardened(double, const std::vector<LtvBearing> &, const LtvCalibration &, const Eigen::Vector3d &,
+                           const Eigen::Vector3d &, uint64_t, const ltv::FeaturePipelineContext *);
+  LtvFrame pauseHardened(double, const std::string &, uint64_t);
+  void suspendHardened(double target);
   ltv::LtvObserver observer_;
   std::unique_ptr<ltv::LtvFeaturePipeline> feature_pipeline_;
   ltv::FeaturePipelineFrame feature_frame_;

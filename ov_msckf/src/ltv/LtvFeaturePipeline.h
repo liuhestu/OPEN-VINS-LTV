@@ -37,7 +37,7 @@ class LtvFeaturePipeline {
 public:
   explicit LtvFeaturePipeline(const FeaturePipelineConfig &config = {});
   void reset(uint64_t epoch);
-  FeaturePipelineFrame process(const FeaturePipelineContext &context);
+  FeaturePipelineFrame process(const FeaturePipelineContext &context, bool allow_admission = true);
   const LtvLandmarkManager &manager() const { return manager_; }
 
 private:

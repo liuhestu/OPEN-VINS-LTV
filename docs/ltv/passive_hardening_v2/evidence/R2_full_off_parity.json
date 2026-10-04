@@ -1,0 +1,51 @@
+{
+  "status": "PASS_FULL_NUMERICAL_PARITY",
+  "previous": "/home/he/output/ltv_passive_hardening_v2/R1/REGULAR_42_05/P_PREV",
+  "current": "/home/he/output/ltv_passive_hardening_v2/R2/REGULAR_42_05/P_PREV",
+  "arrays": {
+    "states.npz/t": [
+      12001
+    ],
+    "states.npz/x": [
+      12001,
+      96
+    ],
+    "states.npz/ids": [
+      12001,
+      30
+    ],
+    "states.npz/dimension": [
+      12001
+    ],
+    "states.npz/observer_cursor": [
+      12001
+    ],
+    "states.npz/raw_current": [
+      12001
+    ],
+    "matrices.npz/t": [
+      2402
+    ],
+    "matrices.npz/tags": [
+      2402
+    ],
+    "matrices.npz/P": [
+      2402,
+      96,
+      96
+    ],
+    "matrices.npz/x": [
+      2402,
+      96
+    ],
+    "matrices.npz/ids": [
+      2402,
+      30
+    ],
+    "matrices.npz/dimension": [
+      2402
+    ]
+  },
+  "tolerance": 0,
+  "padding_nan_compared_as_padding": true
+}

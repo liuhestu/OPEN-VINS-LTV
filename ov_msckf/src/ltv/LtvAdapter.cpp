@@ -2,6 +2,14 @@
 #include <climits>
 namespace ov_msckf {
 LtvAdapter::LtvAdapter(const LtvOptions &options) : options_(options) {
+  if (options.passive_hardening_enabled) {
+    if (!options.feature_readiness_enabled || !options.enabled || options.enable_gravity || options.enable_velocity)
+      throw std::invalid_argument("Hardening requires managed Passive LTV");
+    auto health_config = options.hardening_readiness;
+    health_config.enabled = true;
+    health_config.initial_unseeded_warmup = options.hardening_initial_warmup;
+    readiness_.reset(new ltv::LtvReadiness(health_config));
+  }
   auto config = options.observer;
   config.enable = options.enabled;
   observer_.configure(config);
@@ -56,11 +64,28 @@ LtvFrame LtvAdapter::frame(double t, uint64_t version, const std::string &reason
     f.ready_G = !paused_ && f.snapshot.gravity_valid;
     f.ready_V = !paused_ && f.snapshot.velocity_valid;
   }
+  if (readiness_) {
+    f.hardened = true;
+    f.raw_current = observer_.started() && !paused_ && std::isfinite(cursor_) && observer_.state().allFinite() &&
+                    observer_.covariance().allFinite() && std::abs(f.snapshot.imu_timestamp - cursor_) <= 1e-9 && t == last_camera_;
+    f.health = health_;
+    if (options_.hardening_health_readiness) {
+      f.ready_G = f.raw_current && health_.ready_G;
+      f.ready_V = f.raw_current && health_.ready_V;
+    }
+    f.prediction_angle_p95_rad = prediction_angle_;
+    f.velocity_correction_rate = velocity_correction_rate_;
+    f.gravity_correction_rate = gravity_correction_rate_;
+    f.correction_diagnostics_valid = correction_diagnostics_valid_;
+    f.actual_corrections = actual_corrections_;
+  }
   f.integrated_steps = steps_;
   f.integrated_seconds = seconds_;
   return f;
 }
 LtvFrame LtvAdapter::pause(double t, const std::string &reason, uint64_t version) {
+  if (readiness_)
+    return pauseHardened(t, reason, version);
   if (!paused_) {
     if (observer_.started())
       observer_.reset();
@@ -85,6 +110,15 @@ void LtvAdapter::reset() {
   if (feature_pipeline_)
     feature_pipeline_->reset(epoch_);
   feature_frame_ = ltv::FeaturePipelineFrame();
+  if (readiness_) {
+    readiness_->reset();
+    health_ = ltv::LtvReadinessOutput();
+    hardening_new_epoch_pending_ = false;
+    initial_warm_attempted_ = false;
+    last_correction_time_ = -1;
+    actual_corrections_ = 0;
+    correction_diagnostics_valid_ = false;
+  }
   claimed_ = sequence_;
 }
 ov_core::ImuData LtvAdapter::correct(const ov_core::ImuData &raw, const LtvCalibration &c, const Eigen::Vector3d &ba,
@@ -97,6 +131,8 @@ ov_core::ImuData LtvAdapter::correct(const ov_core::ImuData &raw, const LtvCalib
 }
 LtvFrame LtvAdapter::process(double t, const std::vector<LtvBearing> &bearings, const LtvCalibration &c, const Eigen::Vector3d &ba,
                              const Eigen::Vector3d &bg, uint64_t version, const ltv::FeaturePipelineContext *feature_context) {
+  if (readiness_)
+    return processHardened(t, bearings, c, ba, bg, version, feature_context);
   if (feature_pipeline_ && (options_.enable_gravity || options_.enable_velocity))
     throw std::runtime_error("Passive feature path cannot submit G/V");
   if (feature_pipeline_ && (!feature_context || !std::isfinite(feature_context->time) ||

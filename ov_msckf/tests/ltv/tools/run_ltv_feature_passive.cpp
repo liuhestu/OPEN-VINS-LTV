@@ -207,7 +207,11 @@ public:
     const auto &f = passive_ltv_frame;
     camera_receipt_.validate(camera_ns, f.camera_time, f.available, f.epoch, f.sequence);
     const bool frame_matches = f.camera_time == camera_receipt_.physical_camera_time;
-    const bool new_path = params.ltv_options.feature_readiness_enabled && bool(ltv_adapter) && f.available;
+    const bool managed_event = ltv_adapter && ltv_adapter->feature_frame().management.accepted_input && frame_matches &&
+                               ltv_adapter->feature_frame().management.epoch == f.epoch &&
+                               ltv_adapter->feature_frame().management.time == f.imu_time;
+    const bool new_path =
+        params.ltv_options.feature_readiness_enabled && bool(ltv_adapter) && (f.available || (f.hardened && managed_event));
     if (new_path && (!frame_matches || !ltv_adapter->feature_pipeline()))
       throw std::runtime_error("Current feature event missing its management diagnostics");
     if (new_path &&
@@ -241,9 +245,30 @@ public:
         << ",\"observed_features\":" << f.snapshot.observed_features << ",\"mature_features\":" << f.mature_features
         << ",\"healthy_updates\":" << f.snapshot.healthy_camera_updates << ",\"camera_substeps\":" << f.snapshot.camera_substeps
         << ",\"v_body\":";
-    vector(out, f.snapshot.velocity_body);
+    if (!f.hardened || f.raw_current)
+      vector(out, f.snapshot.velocity_body);
+    else
+      out << "null";
     out << ",\"eta_body\":";
-    vector(out, f.snapshot.gravity_body);
+    if (!f.hardened || f.raw_current)
+      vector(out, f.snapshot.gravity_body);
+    else
+      out << "null";
+    if (f.hardened) {
+      out << ",\"hardening\":true,\"raw_current\":" << f.raw_current << ",\"availability_state\":\"" << ltv::toString(f.health.state)
+          << "\",\"pool_ready\":" << f.health.pool_ready << ",\"observer_valid\":" << f.health.observer_valid
+          << ",\"joint_ready\":" << (f.ready_G && f.ready_V) << ",\"bootstrap_count\":" << f.health.bootstrap_count
+          << ",\"physical_fault_count\":" << f.health.physical_fault_count << ",\"last_bootstrap_time\":" << f.health.last_bootstrap_time
+          << ",\"last_bootstrap_source\":\"" << f.health.last_bootstrap_source
+          << "\",\"eligible_seeds\":" << ltv_adapter->feature_frame().management.eligible_seeds
+          << ",\"actual_corrections\":" << f.actual_corrections << ",\"correction_diagnostics_valid\":" << f.correction_diagnostics_valid
+          << ",\"prediction_angle_p95_rad\":";
+      number(out, f.prediction_angle_p95_rad);
+      out << ",\"velocity_correction_rate\":";
+      number(out, f.velocity_correction_rate);
+      out << ",\"gravity_correction_rate\":";
+      number(out, f.gravity_correction_rate);
+    }
     out << ",\"current_cam0_ids\":";
     id_array(out, passive_current_cam0_ids);
     out << ",\"current_stereo_ids\":";

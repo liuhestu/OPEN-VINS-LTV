@@ -1,0 +1,50 @@
+{
+  "HARDENED": {
+    "attempt": {
+      "id": 44,
+      "exit_code": 0,
+      "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0044"
+    },
+    "cache_attempt": {
+      "id": 45,
+      "exit_code": 0,
+      "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0045"
+    },
+    "passive": {
+      "status": "PASS",
+      "exact_files": [
+        "audit.csv",
+        "trajectory.csv",
+        "unmatched_camera.csv"
+      ],
+      "runs": [
+        {
+          "mode": "P_NEW",
+          "camera_packets": 200,
+          "trajectory_rows": 88,
+          "complete": false,
+          "zero_injection": true,
+          "status": "PASS"
+        },
+        {
+          "mode": "P_NEW",
+          "camera_packets": 200,
+          "trajectory_rows": 88,
+          "complete": false,
+          "zero_injection": true,
+          "status": "PASS"
+        }
+      ]
+    },
+    "receipts": {
+      "status": "PASS",
+      "camera_receipts": 200,
+      "available_complete_rows": 83,
+      "unique_births": 59,
+      "roundtrip_mismatch_packets": 40,
+      "overlay_used": false,
+      "cold_management_rows": 5,
+      "raw_rows": 83
+    }
+  }
+}

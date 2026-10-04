@@ -1,0 +1,18 @@
+{
+  "passive": {
+    "mode": "P_NEW",
+    "camera_packets": 2912,
+    "trajectory_rows": 2800,
+    "complete": true,
+    "zero_injection": true,
+    "status": "PASS"
+  },
+  "log": {
+    "status": "PASS_ENGINEERING_ONLY",
+    "receipts": 2912,
+    "raw_rows": 2795,
+    "cold_management_rows": 5,
+    "births": 1570
+  },
+  "precision": "NOT_YET_EVALUATED"
+}

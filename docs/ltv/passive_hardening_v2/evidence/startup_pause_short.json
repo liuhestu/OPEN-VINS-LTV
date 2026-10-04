@@ -1,0 +1,43 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "native_attempt": 61,
+  "cache_attempt": {
+    "id": 64,
+    "exit_code": 0,
+    "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0064"
+  },
+  "strict_log": {
+    "status": "PASS_ENGINEERING_ONLY",
+    "receipts": 200,
+    "raw_rows": 83,
+    "cold_management_rows": 5,
+    "births": 59
+  },
+  "passive": {
+    "status": "PASS",
+    "exact_files": [
+      "audit.csv",
+      "trajectory.csv",
+      "unmatched_camera.csv"
+    ],
+    "runs": [
+      {
+        "mode": "P_NEW",
+        "camera_packets": 200,
+        "trajectory_rows": 88,
+        "complete": false,
+        "zero_injection": true,
+        "status": "PASS"
+      },
+      {
+        "mode": "P_NEW",
+        "camera_packets": 200,
+        "trajectory_rows": 88,
+        "complete": false,
+        "zero_injection": true,
+        "status": "PASS"
+      }
+    ]
+  },
+  "orchestrator_fix": "The obsolete duplicate inline assertion required management during external initialization pause. Replaced by standalone strict schema checker; no native rerun."
+}

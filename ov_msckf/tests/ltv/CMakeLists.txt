@@ -76,3 +76,11 @@ add_executable(replay_ltv_feature_cache tools/replay_ltv_feature_cache.cpp)
 ament_target_dependencies(replay_ltv_feature_cache ${ament_libraries})
 target_link_libraries(replay_ltv_feature_cache ov_msckf_lib ${thirdparty_libraries})
 install(TARGETS replay_ltv_feature_cache DESTINATION lib/${PROJECT_NAME})
+
+# Passive hardening policy and actual adapter transaction tests.
+foreach(test_name test_ltv_readiness test_ltv_adapter_hardened)
+    add_executable(${test_name} ${test_name}.cpp)
+    ament_target_dependencies(${test_name} ${ament_libraries})
+    target_link_libraries(${test_name} ov_msckf_lib ${thirdparty_libraries})
+    install(TARGETS ${test_name} DESTINATION lib/${PROJECT_NAME})
+endforeach()

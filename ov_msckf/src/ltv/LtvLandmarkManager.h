@@ -34,7 +34,7 @@ struct LandmarkManagerFrame {
   std::vector<HistoryObservation> observations;
   std::vector<LandmarkBirth> births;
   std::vector<size_t> retired_ids;
-  size_t mature_visible = 0, opportunity_tracks = 0, admitted_tracks = 0;
+  size_t mature_visible = 0, opportunity_tracks = 0, admitted_tracks = 0, eligible_seeds = 0;
   bool enough_mature = false;
 };
 // Pure causal state machine; it cannot access observer x/P or modify the tracker.
@@ -44,7 +44,7 @@ public:
   explicit LtvLandmarkManager(const LandmarkManagerConfig &config = {});
   void reset(uint64_t epoch);
   LandmarkManagerFrame step(uint64_t epoch, double time, uint64_t context_version, const std::vector<HistoryObservation> &observations,
-                            const std::vector<FeatureSeedCandidate> &candidates);
+                            const std::vector<FeatureSeedCandidate> &candidates, bool allow_admission = true);
   const LtvFeatureHistory &history() const { return history_; }
   const std::map<size_t, ManagedLandmark> &landmarks() const { return landmarks_; }
 

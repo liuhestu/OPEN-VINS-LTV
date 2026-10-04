@@ -1,0 +1,13 @@
+{
+  "title": "FAST near, 1 s identities, seed 42",
+  "inputs": {
+    "/home/he/output/ltv_passive_hardening_v2/R1/FAST_42_1/P_PREV_evaluation_v1/error_curves.npz": "a1c0425357d77658a2375a77bc44b88dd7df4b9a0fa65f5c3bf9caae05506d9d",
+    "/home/he/output/ltv_passive_hardening_v2/R1/FAST_42_1/P_NEW_evaluation_v1/error_curves.npz": "0b2a196da58f942d33fd21c9addcf4b996b75a30e7510c9f3e8708ae30d9535f"
+  },
+  "source_sha": "5c4fe1d84c81e65b5877db3b0956c4a556b399b13d3d107485e33245c67a9b3d",
+  "complete_domain": [
+    0.0,
+    60.0
+  ],
+  "no_startup_or_recovery_trim": true
+}
