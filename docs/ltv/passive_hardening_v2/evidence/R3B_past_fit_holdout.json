@@ -1,0 +1,218 @@
+{
+  "attempts": [
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307
+  ],
+  "geometry_solves": 2,
+  "tool_error_attempts": [
+    302
+  ],
+  "GT_read": false,
+  "results": [
+    {
+      "status": "FIT_DIAGNOSTIC_ONLY",
+      "point_W": [
+        0.9596203340725424,
+        3.5392303668566245,
+        -0.2835865321613916
+      ],
+      "normal_eigenvalues": [
+        0.013945027983552894,
+        10.98612012120605,
+        10.99993485081039
+      ],
+      "condition": 788.8069399203775,
+      "actual_baseline_m": 0.4473126476707807,
+      "past_nonpositive_ray_count": 0,
+      "current_nonpositive_ray": false,
+      "past_count": 11,
+      "past_span": 0.5,
+      "past_angle_rad": [
+        0.001384344308685303,
+        0.0019143188403167254,
+        0.0020720752147275804,
+        0.0013237161828975796,
+        0.0004156378702009098,
+        0.001446521676221052,
+        0.0022782486747283583,
+        0.002349445623873156,
+        0.002365515138801556,
+        0.0009131891113696453,
+        0.0021008043892186056
+      ],
+      "past_max_angle_rad": 0.002365515138801556,
+      "past_median_angle_rad": 0.0019143188403167254,
+      "past_signed_ray_distances": [
+        3.137051872861943,
+        3.164344421274846,
+        3.1881538402681033,
+        3.2092480746313647,
+        3.228646382454513,
+        3.248609274299239,
+        3.2701733980838714,
+        3.2949215707148047,
+        3.322847984690433,
+        3.353088498298855,
+        3.385156122238996
+      ],
+      "heldout_current_angle_rad": 0.35026253137678987,
+      "current_signed_ray_distance": 3.2105949379753014,
+      "current_range": 3.418135006609121,
+      "id": 27537,
+      "camera_ns": 1413394964105760512,
+      "missing_clone_times": [
+        1413394963.1057606,
+        1413394963.1557605,
+        1413394963.2057607,
+        1413394963.2557604,
+        1413394963.3057606,
+        1413394963.3557606,
+        1413394963.4057605,
+        1413394963.4557605,
+        1413394963.5057607
+      ],
+      "ltv_pre_angle_rad": 0.34921437737497946,
+      "fitted_landmark_B": [
+        0.5715406506120132,
+        0.7611240490869244,
+        3.273219395730061
+      ],
+      "ltv_minus_fit_body": [
+        0.05038211670478099,
+        0.0773506721043955,
+        0.32227152522039804
+      ],
+      "ltv_minus_fit_parallel": 0.3161248397800633,
+      "ltv_minus_fit_transverse": 0.11155942721512524
+    },
+    {
+      "status": "FIT_DIAGNOSTIC_ONLY",
+      "point_W": [
+        -1.49565487668721,
+        0.7198217126742152,
+        0.45162786506901514
+      ],
+      "normal_eigenvalues": [
+        0.02009338725491553,
+        10.98051025160908,
+        10.999396361135998
+      ],
+      "condition": 547.4137447107216,
+      "actual_baseline_m": 0.2037508835255159,
+      "past_nonpositive_ray_count": 0,
+      "current_nonpositive_ray": false,
+      "past_count": 11,
+      "past_span": 0.5,
+      "past_angle_rad": [
+        0.17539932943678455,
+        0.14888324911553819,
+        0.12711716389605465,
+        0.10460094021156374,
+        0.04159272402720479,
+        0.011769800510459017,
+        0.02640563510388846,
+        0.057493787833774825,
+        0.08859033662586671,
+        0.11935655937289076,
+        0.14987666990220969
+      ],
+      "past_max_angle_rad": 0.17539932943678455,
+      "past_median_angle_rad": 0.10460094021156374,
+      "past_signed_ray_distances": [
+        0.33212879055528965,
+        0.33702056134444247,
+        0.34475072362390535,
+        0.35490016269141583,
+        0.3678298192838152,
+        0.3808353142354649,
+        0.3948152602087335,
+        0.4111301193863418,
+        0.4302996362168106,
+        0.4526522043469947,
+        0.4782626935643195
+      ],
+      "heldout_current_angle_rad": 0.2970014152458954,
+      "current_signed_ray_distance": 0.4925405317476772,
+      "current_range": 0.5150921223762308,
+      "id": 29636,
+      "camera_ns": 1413394966255760384,
+      "missing_clone_times": [
+        1413394965.3557606,
+        1413394965.4057605,
+        1413394965.4557605,
+        1413394965.5057607,
+        1413394965.5557604,
+        1413394965.6057606,
+        1413394965.6557605
+      ],
+      "ltv_pre_angle_rad": 0.16358390699672432,
+      "fitted_landmark_B": [
+        0.04203964448888667,
+        -0.0029002723176759825,
+        0.5172044794996064
+      ],
+      "ltv_minus_fit_body": [
+        0.08344655279195143,
+        -0.21510861724534444,
+        3.4735356530549537
+      ],
+      "ltv_minus_fit_parallel": 3.440835261916266,
+      "ltv_minus_fit_transverse": 0.5285240560121978
+    }
+  ],
+  "independent_audit": {
+    "status": "PASS_SAVED_POINT_SUPPORT_AND_RESIDUALS",
+    "new_point_solves": 0,
+    "GT_read": false,
+    "results": [
+      {
+        "id": 27537,
+        "camera_ns": 1413394964105760512,
+        "single_current_version": 1409,
+        "past_count": 11,
+        "missing_clone_count": 9,
+        "past_span_s": 0.5,
+        "minimum_past_offset_s": -0.5500001907348633,
+        "maximum_past_offset_s": -0.05000019073486328,
+        "max_saved_prediction_difference": 5.34226092183121e-13,
+        "heldout_angle_rad": 0.35026253137678987,
+        "past_max_angle_rad": 0.0023655151387546223
+      },
+      {
+        "id": 29636,
+        "camera_ns": 1413394966255760384,
+        "single_current_version": 1452,
+        "past_count": 11,
+        "missing_clone_count": 7,
+        "past_span_s": 0.5,
+        "minimum_past_offset_s": -0.5499997138977051,
+        "maximum_past_offset_s": -0.04999971389770508,
+        "max_saved_prediction_difference": 4.2049697057677804e-15,
+        "heldout_angle_rad": 0.2970014152458954,
+        "past_max_angle_rad": 0.17539932943678518
+      }
+    ],
+    "provenance": {
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_passive_hardening/tests/audit_holdout_saved_point.py": "458d70be90fa35fa740b2db2ec9a09acc6e23dbea4d3fee520c42a5df09fb870",
+      "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_holdout_support_02/support.json": "a08191a321884c410473ac450ca141ff6325f630d0c3d7dbb30b7652edd6d089",
+      "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_holdout_support_02/contexts.jsonl": "5a92b93671f3e3da77f9424ce60d2fb223b7761752feb11889fbae09ab69b1b9",
+      "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_holdout_fits_01/results.json": "4a4436eeb10f24b5b0ba6efae0434f8bc1fc01b8e4415ce2fe9cfea388d8d288"
+    },
+    "limits": [
+      "Independent numerical check uses saved point_W, not an independent triangulation solver.",
+      "Onlytwo registered points and actual current-pose contexts; no covariance calibration."
+    ]
+  },
+  "artifacts": {
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_holdout_support_02/support.json": "a08191a321884c410473ac450ca141ff6325f630d0c3d7dbb30b7652edd6d089",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_holdout_support_02/contexts.jsonl": "5a92b93671f3e3da77f9424ce60d2fb223b7761752feb11889fbae09ab69b1b9",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_holdout_fits_01/results.json": "4a4436eeb10f24b5b0ba6efae0434f8bc1fc01b8e4415ce2fe9cfea388d8d288",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_holdout_fits_01/independent_saved_point_audit.json": "407d10350e309783a3dce160376bcdf14a6e90c1747c5e49c824495a4aba6f56"
+  }
+}

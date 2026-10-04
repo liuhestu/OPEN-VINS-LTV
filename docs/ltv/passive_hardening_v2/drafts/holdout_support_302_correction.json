@@ -1,0 +1,9 @@
+{
+  "original_attempt": 302,
+  "status": "TOOL_HISTORY_BOUNDARY_ERROR",
+  "reason": "selector lower bound t-1.000000001 violated strict frozen t-1.0; clone match tolerance is separate",
+  "old_output_preserved": "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_holdout_support_01",
+  "replacement_attempt": 305,
+  "replacement_output": "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_holdout_support_02",
+  "actual_fit_not_performed_under_old_selector": true
+}
