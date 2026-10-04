@@ -1,0 +1,130 @@
+diff --git a/scripts/ltv_passive_hardening/freeze_candidate.py b/scripts/ltv_passive_hardening/freeze_candidate.py
+index 788d81f..fecf7ef 100644
+--- a/scripts/ltv_passive_hardening/freeze_candidate.py
++++ b/scripts/ltv_passive_hardening/freeze_candidate.py
+@@ -15,9 +15,11 @@ from legacy import artifacts
+ from real_confirm import HARDENING_FLAGS
+ 
+ 
+-def freeze(revision, runtime, wrapper, ready_soft_grace=False):
+-    if type(ready_soft_grace) is not bool:
+-        raise ValueError('ready_soft_grace must be an explicit boolean')
++def freeze(revision, runtime, wrapper, ready_soft_grace=False, ready_causal_window=False):
++    if type(ready_soft_grace) is not bool or type(ready_causal_window) is not bool:
++        raise ValueError('Readiness interventions must each be an explicit boolean')
++    if ready_soft_grace and ready_causal_window:
++        raise ValueError('Soft grace and causal window are mutually exclusive')
+     destination = budget.DOC / 'frozen_config.json'
+     if destination.exists():
+         raise FileExistsError('Preserve the previous frozen revision; never overwrite it')
+@@ -62,7 +64,8 @@ def freeze(revision, runtime, wrapper, ready_soft_grace=False):
+                   wrapper_dependencies={k: {'path':str(p), 'sha256':artifacts.sha(p)} for k,p in dependencies.items()},
+                   base_config=str(base), base_config_tree_sha=artifacts.tree(base),
+                   input_metadata_sha=artifacts.sha(budget.OUT / 'input_metadata.json'),
+-                  hardening_flags={key:(ready_soft_grace if key == 'ltv_hardening_ready_soft_grace' else True) for key in HARDENING_FLAGS},
++                  hardening_flags={key:({'ltv_hardening_ready_soft_grace':ready_soft_grace,
++                                        'ltv_hardening_ready_causal_window':ready_causal_window}.get(key,True)) for key in HARDENING_FLAGS},
+                   git_head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=budget.ROOT,text=True).strip(),
+                   source_manifest=str(root/'source_manifest.json'), source_manifest_sha=artifacts.sha(root/'source_manifest.json'),
+                   source_archive=str(archive), source_archive_sha=artifacts.sha(archive),
+@@ -76,5 +79,6 @@ def freeze(revision, runtime, wrapper, ready_soft_grace=False):
+ 
+ if __name__ == '__main__':
+     p=argparse.ArgumentParser(description=__doc__)
+-    p.add_argument('--ready-soft-grace',action='store_true');p.add_argument('revision');p.add_argument('--runtime',required=True);p.add_argument('--wrapper',required=True)
++    p.add_argument('--ready-soft-grace',action='store_true');p.add_argument('--ready-causal-window',action='store_true')
++    p.add_argument('revision');p.add_argument('--runtime',required=True);p.add_argument('--wrapper',required=True)
+     print(json.dumps(freeze(**vars(p.parse_args())),indent=2))
+diff --git a/scripts/ltv_passive_hardening/tests/test_freeze_candidate.py b/scripts/ltv_passive_hardening/tests/test_freeze_candidate.py
+index 7fa4dcc..f77f0ca 100644
+--- a/scripts/ltv_passive_hardening/tests/test_freeze_candidate.py
++++ b/scripts/ltv_passive_hardening/tests/test_freeze_candidate.py
+@@ -41,7 +41,8 @@ class FreezeContract(unittest.TestCase):
+                 self.assertEqual(json.loads(Path(frozen['source_manifest']).read_text())['ov_msckf/src/ltv/fixture.cpp'],f.artifacts.sha(source))
+                 self.assertEqual(Path(frozen['wrapper']).read_bytes(),wrapper.read_bytes())
+                 self.assertFalse(frozen['hardening_flags']['ltv_hardening_ready_soft_grace'])
+-                self.assertTrue(all(value for key,value in frozen['hardening_flags'].items() if key != 'ltv_hardening_ready_soft_grace'))
++                self.assertFalse(frozen['hardening_flags']['ltv_hardening_ready_causal_window'])
++                self.assertTrue(all(value for key,value in frozen['hardening_flags'].items() if key not in ('ltv_hardening_ready_soft_grace','ltv_hardening_ready_causal_window')))
+                 self.assertEqual(frozen['source_archive_sha'],f.artifacts.sha(frozen['source_archive']))
+                 with self.assertRaises(FileExistsError):f.freeze('confirmation_1',runtime,wrapper)
+                 self.assertEqual((out/'logger_short/config/estimator_config.yaml').read_text(),'fixture: true\n')
+@@ -58,8 +59,8 @@ class FreezeContract(unittest.TestCase):
+ 
+     def test_explicit_soft_grace_is_frozen_and_configured(self):
+         import real_confirm
+-        for enabled in (False,True):
+-            with self.subTest(enabled=enabled),tempfile.TemporaryDirectory() as tmp:
++        for enabled,window in ((False,False),(True,False),(False,True)):
++            with self.subTest(enabled=enabled,window=window),tempfile.TemporaryDirectory() as tmp:
+                 repo,doc,out,runtime,wrapper,lib,source=self.fixture(Path(tmp))
+                 def output(args,**kwargs):
+                     return 'fixture-head\n' if kwargs.get('text') else b'fixture patch'
+@@ -67,16 +68,24 @@ class FreezeContract(unittest.TestCase):
+                      patch.object(f.artifacts,'verify',return_value={}), \
+                      patch.object(f.artifacts,'dependencies',return_value={'libov_msckf_lib.so':lib}), \
+                      patch.object(f.subprocess,'check_output',side_effect=output):
+-                    frozen=f.freeze('confirmation_1',runtime,wrapper,ready_soft_grace=enabled)
++                    frozen=f.freeze('confirmation_1',runtime,wrapper,ready_soft_grace=enabled,ready_causal_window=window)
+                 stored=json.loads((doc/'frozen_config.json').read_text())
+                 self.assertIs(stored['hardening_flags']['ltv_hardening_ready_soft_grace'],enabled)
++                self.assertIs(stored['hardening_flags']['ltv_hardening_ready_causal_window'],window)
+                 config=real_confirm.configure(Path(frozen['base_config']),out/'configured','P_NEW',stored['hardening_flags'])
+                 self.assertIn('ltv_hardening_ready_soft_grace: '+str(enabled).lower(),config.read_text())
++                self.assertIn('ltv_hardening_ready_causal_window: '+str(window).lower(),config.read_text())
+ 
+     def test_non_boolean_soft_grace_rejected_before_freeze(self):
+         for value in ('false','true',1,None):
+             with self.assertRaisesRegex(ValueError,'explicit boolean'):
+                 f.freeze('confirmation_1','unused','unused',ready_soft_grace=value)
++            with self.assertRaisesRegex(ValueError,'explicit boolean'):
++                f.freeze('confirmation_1','unused','unused',ready_causal_window=value)
++
++    def test_readiness_interventions_mutually_exclusive(self):
++        with self.assertRaisesRegex(ValueError,'mutually exclusive'):
++            f.freeze('confirmation_1','unused','unused',ready_soft_grace=True,ready_causal_window=True)
+ 
+ 
+ if __name__=='__main__':unittest.main()
+diff --git a/scripts/ltv_passive_hardening/tests/test_real_confirm.py b/scripts/ltv_passive_hardening/tests/test_real_confirm.py
+index b68cb67..b5663ee 100644
+--- a/scripts/ltv_passive_hardening/tests/test_real_confirm.py
++++ b/scripts/ltv_passive_hardening/tests/test_real_confirm.py
+@@ -24,6 +24,7 @@ class ConfirmationEntry(unittest.TestCase):
+   (self.doc/'acceptance.json').write_text('{}')
+   source=self.root/'source_manifest.json';source.write_text('{}')
+   flags={k:True for k in r.HARDENING_FLAGS}
++  flags['ltv_hardening_ready_soft_grace']=False;flags['ltv_hardening_ready_causal_window']=False
+   frozen={'runtime':str(runtime),'manifest_sha':r.artifacts.sha(runtime/'manifest.json'),'base_config':str(base),'base_config_tree_sha':r.artifacts.tree(base),'revision':'fixture','hardening_flags':flags,'input_metadata_sha':r.artifacts.sha(metadata)}
+   frozen.update(protocol_sha=r.artifacts.sha(self.doc/'protocol.json'),acceptance_sha=r.artifacts.sha(self.doc/'acceptance.json'),source_manifest=str(source),source_manifest_sha=r.artifacts.sha(source))
+   (self.doc/'frozen_config.json').write_text(json.dumps(frozen));return base,flags
+@@ -51,7 +52,7 @@ class ConfirmationEntry(unittest.TestCase):
+   for mode in ('B','P_PREV','P_NEW'):
+    config=r.configure(base,self.root/mode,mode,flags);s=config.read_text()
+    self.assertIn('native_param: 11',s)
+-   for flag in r.HARDENING_FLAGS:self.assertIn(flag+': '+str(mode=='P_NEW').lower(),s)
++   for flag in r.HARDENING_FLAGS:self.assertIn(flag+': '+str(flags[flag] and mode=='P_NEW').lower(),s)
+    self.assertIn('ltv_enabled: '+str(mode!='B').lower(),s)
+    self.assertIn('ltv_feature_readiness_enabled: '+str(mode!='B').lower(),s)
+    self.assertIn('ltv_enable_gravity: false',s);self.assertIn('ltv_enable_velocity: false',s)
+@@ -65,4 +66,20 @@ class ConfirmationEntry(unittest.TestCase):
+     config=r.configure(base,self.root/(mode+str(enabled)),mode,flags)
+     lines=[line for line in config.read_text().splitlines() if line.startswith('ltv_hardening_ready_soft_grace:')]
+     self.assertEqual(lines,['ltv_hardening_ready_soft_grace: '+str(enabled and mode=='P_NEW').lower()])
++ def test_causal_window_explicit_config_and_mutual_preflight_reject(self):
++  base,flags=self.fixture()
++  with (base/'estimator_config.yaml').open('a') as out:out.write('ltv_hardening_ready_causal_window: true\n')
++  for enabled in (False,True):
++   flags['ltv_hardening_ready_causal_window']=enabled
++   for mode in ('B','P_PREV','P_NEW'):
++    config=r.configure(base,self.root/('window'+mode+str(enabled)),mode,flags)
++    lines=[line for line in config.read_text().splitlines() if line.startswith('ltv_hardening_ready_causal_window:')]
++    self.assertEqual(lines,['ltv_hardening_ready_causal_window: '+str(enabled and mode=='P_NEW').lower()])
++  frozen_path=self.doc/'frozen_config.json';frozen=json.loads(frozen_path.read_text())
++  frozen['hardening_flags']['ltv_hardening_ready_soft_grace']=True
++  frozen['hardening_flags']['ltv_hardening_ready_causal_window']=True
++  frozen_path.write_text(json.dumps(frozen))
++  with patch.object(r.artifacts,'verify',return_value={}):
++   with self.assertRaises(ValueError):r.preflight('run','MH_01_easy','P_NEW',self.doc,self.out)
++  self.assertFalse((self.out/'real_confirmation').exists())
+ if __name__=='__main__':unittest.main()

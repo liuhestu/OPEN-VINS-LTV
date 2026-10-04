@@ -1,0 +1,179 @@
+{
+  "status": "DESCRIPTIVE_ONLY",
+  "window_seconds": 1.0,
+  "time_origin": {
+    "definition": "first initialized original feature receipt physical imu_time",
+    "value": 1413394887.3557606
+  },
+  "window_interval": "(t-1s,t], transported to current body coordinates; no gap-spanning across reset/pause/bootstrap",
+  "gap_contract": {
+    "max_imu_dt": 0.05,
+    "reset_gap": 0.2,
+    "irregular_camera_cadence": "actual dt retained below frozen physical gap; no invented camera outputs"
+  },
+  "breaks": {
+    "pause": 115,
+    "first_state": 1
+  },
+  "max_homogeneous_eta_prediction_difference": 8.881784197001252e-15,
+  "all": {
+    "frames": 1805,
+    "complete_window_frames": 1786,
+    "v": {
+      "norm_of_sum": {
+        "median": 0.12952370046328887,
+        "p95": 0.4913573061801159,
+        "maximum": 10.089230515144495
+      },
+      "sum_of_norms": {
+        "median": 0.3056453593123246,
+        "p95": 0.9665436157412597,
+        "maximum": 10.178223538932986
+      },
+      "max_transported_single_norm": {
+        "median": 0.04632377812883909,
+        "p95": 0.25812610095970384,
+        "maximum": 0.700755418581081
+      },
+      "max_original_single_rate": {
+        "median": 0.5589257299704585,
+        "p95": 3.3566056947315692,
+        "maximum": 9.170325990740857
+      }
+    },
+    "eta": {
+      "norm_of_sum": {
+        "median": 0.06798860978676607,
+        "p95": 0.23629366598737883,
+        "maximum": 4.494106541151013
+      },
+      "sum_of_norms": {
+        "median": 0.16072107296027072,
+        "p95": 0.4478295957020717,
+        "maximum": 4.510569824875063
+      },
+      "max_transported_single_norm": {
+        "median": 0.023944913050587577,
+        "p95": 0.11896914043240057,
+        "maximum": 0.25568860909214247
+      },
+      "max_original_single_rate": {
+        "median": 0.3968277109574816,
+        "p95": 2.094109353471326,
+        "maximum": 5.111550148999402
+      }
+    }
+  },
+  "fixed_windows": {
+    "pool_early": {
+      "start_s": 5.8,
+      "end_s": 13.95,
+      "frames": 164,
+      "complete_window_frames": 164,
+      "v": {
+        "norm_of_sum": {
+          "median": 0.17437563873292977,
+          "p95": 0.30687208384158465,
+          "maximum": 0.34720318090591684
+        },
+        "sum_of_norms": {
+          "median": 0.3253222604167021,
+          "p95": 0.6915541794860549,
+          "maximum": 0.7633152875631828
+        },
+        "max_transported_single_norm": {
+          "median": 0.04624721712493901,
+          "p95": 0.14659703569454796,
+          "maximum": 0.16048474991166703
+        },
+        "max_original_single_rate": {
+          "median": 0.679609439820811,
+          "p95": 2.2055155613564272,
+          "maximum": 2.2055155613564272
+        }
+      },
+      "eta": {
+        "norm_of_sum": {
+          "median": 0.09478039777358845,
+          "p95": 0.16884655796892858,
+          "maximum": 0.1903173079872524
+        },
+        "sum_of_norms": {
+          "median": 0.1813030104454008,
+          "p95": 0.34399773412358864,
+          "maximum": 0.3672295904542393
+        },
+        "max_transported_single_norm": {
+          "median": 0.023609584745851075,
+          "p95": 0.06308196271139142,
+          "maximum": 0.06310827204175594
+        },
+        "max_original_single_rate": {
+          "median": 0.47207555530551626,
+          "p95": 1.2608521541009896,
+          "maximum": 1.2608521541009896
+        }
+      }
+    },
+    "pool_late": {
+      "start_s": 72.15,
+      "end_s": 81.7,
+      "frames": 192,
+      "complete_window_frames": 192,
+      "v": {
+        "norm_of_sum": {
+          "median": 0.16114775295232364,
+          "p95": 0.32402445744535785,
+          "maximum": 0.3630148255075245
+        },
+        "sum_of_norms": {
+          "median": 0.4314392962261324,
+          "p95": 0.8562207147948855,
+          "maximum": 1.1933862256597096
+        },
+        "max_transported_single_norm": {
+          "median": 0.07834537508802686,
+          "p95": 0.22287512580299362,
+          "maximum": 0.2584139071375953
+        },
+        "max_original_single_rate": {
+          "median": 1.3691947217733025,
+          "p95": 3.4512376107578806,
+          "maximum": 3.4512376107578806
+        }
+      },
+      "eta": {
+        "norm_of_sum": {
+          "median": 0.09007399736693529,
+          "p95": 0.1814176684189047,
+          "maximum": 0.2367787030035333
+        },
+        "sum_of_norms": {
+          "median": 0.23996415681586275,
+          "p95": 0.45381246265016595,
+          "maximum": 0.5761785483105883
+        },
+        "max_transported_single_norm": {
+          "median": 0.04766765683125646,
+          "p95": 0.10480685650417201,
+          "maximum": 0.10491563148224664
+        },
+        "max_original_single_rate": {
+          "median": 0.9523550358052264,
+          "p95": 2.094109353471326,
+          "maximum": 2.094109353471326
+        }
+      }
+    }
+  },
+  "interpretation": "Signed cancellation describes corrections only; neither accuracy nor readiness. v and eta norms reported separately because units differ.",
+  "identity": {
+    "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/P_NEW/cache.bin": "812b2043c1c290c3d5bdafa6a389e12cd8804de347aed3ee34595d26b22d377d",
+    "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/P_NEW/features.jsonl": "9aa9d82bb468f899f256e184bb5e43044018277327ca3cb14599e497000c0ffa",
+    "/home/he/output/ltv_passive_hardening_v2/export_prediction_cache_01": "49bfd08c87eb5adf2f99792d0ac7c531a4b892967e664b35bc746da17d7433e4",
+    "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/estimator_config.yaml": "a5b8b09ffe50af46a0de2d725f117751549cced2436a1d60f5173d36d4bceac6",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_passive_hardening/diagnostics/shared_transition.py": "cc18126e7dd76cc1615626e4152ce673cd5d50ef136bd42206ac797f2ab44380",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_V2_03_prediction_01/summary.json": "079dc7c2f4be1875e6b3fcdd1001aa036f6ca5fff5fab6d34e4f78383de1d5ed",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_V2_03_prediction_01/camera_diagnostics.jsonl": "703ad67bc6e87779f120039bc1ad86cf6eab2760b92c31759362cbc01aaf2dd0"
+  }
+}

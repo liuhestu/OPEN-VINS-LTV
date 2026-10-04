@@ -1,0 +1,260 @@
+diff --git a/ov_msckf/src/ltv/LtvReadiness.cpp b/ov_msckf/src/ltv/LtvReadiness.cpp
+index 73cc114..d746049 100644
+--- a/ov_msckf/src/ltv/LtvReadiness.cpp
++++ b/ov_msckf/src/ltv/LtvReadiness.cpp
+@@ -24,6 +24,8 @@ const char *toString(LtvAvailability s) {
+   return "UNKNOWN";
+ }
+ LtvReadiness::LtvReadiness(const LtvReadinessConfig &c) : config_(c) {
++  if (c.ready_causal_window && c.ready_soft_grace)
++    throw std::invalid_argument("mutually exclusive readiness policies");
+   if (c.min_features < 15 || c.min_features > 30 || !c.bootstrap_confirm_frames || !c.ready_confirm_frames || !c.min_actual_corrections)
+     throw std::invalid_argument("invalid readiness counts");
+   for (double v :
+@@ -38,11 +40,105 @@ void LtvReadiness::clearGrace() {
+   soft_G_ = soft_V_ = 0;
+   last_good_G_ = last_good_V_ = -1;
+ }
++void LtvReadiness::clearWindow() {
++  window_size_ = 0;
++  window_anchor_ = window_cursor_ = -1;
++  window_epoch_ = 0;
++}
++const char *LtvReadiness::updateWindow(const LtvReadinessInput &i, LtvReadinessOutput &o, bool hard) {
++  auto reject = [&](const char *reason) {
++    clearWindow();
++    gravity_frames_ = velocity_frames_ = 0;
++    return reason;
++  };
++  if (!hard) return reject("window_shared_hard_failure");
++  if (!i.window_transition_valid || i.window_transition_version != 1 || !std::isfinite(i.window_from) ||
++      !std::isfinite(i.window_to) || i.window_to != i.time || i.window_from > i.window_to)
++    return reject("window_transition_invalid");
++  for (double x : i.window_phi) if (!std::isfinite(x)) return reject("window_transition_nonfinite");
++  for (double x : i.window_delta) if (!std::isfinite(x)) return reject("window_delta_nonfinite");
++  if (window_anchor_ >= 0 && (i.window_epoch != window_epoch_ || i.window_from != window_cursor_))
++    return reject("window_transition_identity_mismatch");
++  if (window_anchor_ < 0) {
++    window_anchor_ = i.time;
++    window_epoch_ = i.window_epoch;
++    window_cursor_ = i.time;
++  }
++  const double left = i.time - 1.0;
++  size_t keep = 0;
++  for (size_t j = 0; j < window_size_; ++j)
++    if (window_[j].to > left) window_[keep++] = window_[j];
++  window_size_ = keep;
++  if (window_size_ == window_.size()) return reject("window_capacity_exceeded");
++  for (size_t j = 0; j < window_size_; ++j) {
++    std::array<double, 6> value{};
++    for (size_t r = 0; r < 6; ++r)
++      for (size_t c = 0; c < 6; ++c) value[r] += i.window_phi[6*r+c] * window_[j].transported[c];
++    for (double x : value) if (!std::isfinite(x)) return reject("window_transport_nonfinite");
++    window_[j].transported = value;
++  }
++  auto norm = [](const std::array<double, 6> &x, size_t offset) {
++    return std::hypot(std::hypot(x[offset], x[offset+1]), x[offset+2]);
++  };
++  WindowEntry entry;
++  entry.from = window_cursor_;
++  entry.to = i.time;
++  entry.angle = i.prediction_angle_p95_rad;
++  entry.transported = i.window_delta;
++  entry.impulse_V = norm(i.window_delta, 0);
++  entry.impulse_G = norm(i.window_delta, 3);
++  window_[window_size_++] = entry;
++  window_cursor_ = i.time;
++  o.window_samples = static_cast<unsigned>(window_size_);
++  o.window_coverage = i.time - window_anchor_;
++  const bool complete = o.window_coverage >= 1.0;
++  long double weight = 0, angle = 0, activity_v = 0, activity_g = 0;
++  std::array<long double, 6> sum{};
++  double covered_to = std::max(left, window_anchor_);
++  for (size_t j = 0; j < window_size_; ++j) {
++    const auto &e = window_[j];
++    const double a = std::max(e.from, left), b = std::min(e.to, i.time);
++    if (b > a) {
++      if (a != covered_to) return reject("window_uncovered_interval");
++      covered_to = b;
++      const long double w = static_cast<long double>(b) - static_cast<long double>(a);
++      weight += w; angle += w * e.angle;
++    }
++    if (e.to > left) {
++      for (size_t k = 0; k < 6; ++k) sum[k] += e.transported[k];
++      activity_v += norm(e.transported, 0); activity_g += norm(e.transported, 3);
++      o.window_impulse_V = std::max(o.window_impulse_V, e.impulse_V);
++      o.window_impulse_G = std::max(o.window_impulse_G, e.impulse_G);
++    }
++  }
++  if (complete && covered_to != i.time) return reject("window_uncovered_interval");
++  o.window_complete = complete;
++  o.window_coverage = std::min(o.window_coverage, 1.0);
++  o.window_angle_mean = weight > 0 ? static_cast<double>(angle / weight) : 0;
++  o.window_net_V = static_cast<double>(std::sqrt(sum[0]*sum[0]+sum[1]*sum[1]+sum[2]*sum[2]));
++  o.window_net_G = static_cast<double>(std::sqrt(sum[3]*sum[3]+sum[4]*sum[4]+sum[5]*sum[5]));
++  o.window_activity_V = static_cast<double>(activity_v);
++  o.window_activity_G = static_cast<double>(activity_g);
++  for (double x : {o.window_net_V, o.window_net_G, o.window_activity_V, o.window_activity_G,
++                   o.window_impulse_V, o.window_impulse_G, o.window_angle_mean})
++    if (!std::isfinite(x)) return reject("window_aggregate_nonfinite");
++  const bool good_G = complete && o.window_angle_mean <= .02 && o.window_net_G <= 1.0 &&
++      o.window_activity_G <= 2.0 && o.window_impulse_G <= 1.0;
++  const bool good_V = good_G && o.window_net_V <= .5 && o.window_activity_V <= 1.0 && o.window_impulse_V <= .5;
++  gravity_frames_ = good_G ? std::min(gravity_frames_ + 1, config_.ready_confirm_frames) : 0;
++  velocity_frames_ = good_V ? std::min(velocity_frames_ + 1, config_.ready_confirm_frames) : 0;
++  o.window_confirmation_G = gravity_frames_; o.window_confirmation_V = velocity_frames_;
++  o.ready_G = gravity_frames_ >= config_.ready_confirm_frames;
++  o.ready_V = velocity_frames_ >= config_.ready_confirm_frames;
++  return !complete ? "window_filling" : !good_G ? "window_gravity_budget" : !good_V ? "window_velocity_budget" :
++      !(o.ready_G && o.ready_V) ? "window_confirming" : "ready";
++}
+ void LtvReadiness::reset() {
+   state_ = LtvAvailability::Collecting;
+   last_time_ = shortage_since_ = last_bootstrap_ = last_quality_bootstrap_ = -1;
+   supply_frames_ = gravity_frames_ = velocity_frames_ = 0;
+   clearGrace();
++  clearWindow();
+   pending_physical_ = pending_initial_warmup_ = false;
+   awaiting_bootstrap_ = bootstrapped_ = dormant_requested_ = physical_recovery_ = fault_latched_ = false;
+   bootstrap_count_ = physical_fault_count_ = 0;
+@@ -72,6 +168,7 @@ void LtvReadiness::commit(const LtvReadinessInput &i) {
+   awaiting_bootstrap_ = physical_recovery_ = dormant_requested_ = false;
+   supply_frames_ = gravity_frames_ = velocity_frames_ = 0;
+   clearGrace();
++  clearWindow();
+   shortage_since_ = pending_initial_warmup_ && !(i.geometry_valid && i.observed_features >= config_.min_features) ? i.time : -1;
+   pending_initial_warmup_ = false;
+   state_ = LtvAvailability::Bootstrapping;
+@@ -83,6 +180,7 @@ LtvReadinessOutput LtvReadiness::acknowledgeBootstrap(const LtvReadinessInput &i
+   commit(i);
+   LtvReadinessOutput o;
+   o.ready_soft_grace_enabled = config_.ready_soft_grace;
++  o.window_enabled = config_.ready_causal_window;
+   o.accepted_time = true;
+   o.state = state_;
+   o.observer_valid = true;
+@@ -96,6 +194,7 @@ LtvReadinessOutput LtvReadiness::acknowledgeBootstrap(const LtvReadinessInput &i
+ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
+   LtvReadinessOutput o;
+   o.ready_soft_grace_enabled = config_.ready_soft_grace;
++  o.window_enabled = config_.ready_causal_window;
+   auto finish = [&](const char *reason) {
+     o.state = state_;
+     o.reason = reason;
+@@ -127,6 +226,7 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
+     physical_recovery_ = true;
+     supply_frames_ = gravity_frames_ = velocity_frames_ = 0;
+     clearGrace();
++  clearWindow();
+     state_ = LtvAvailability::Dormant;
+     if (!dormant_requested_) {
+       o.request_dormant = true;
+@@ -139,6 +239,7 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
+     awaiting_bootstrap_ = false;
+     supply_frames_ = gravity_frames_ = velocity_frames_ = 0;
+     clearGrace();
++  clearWindow();
+   }
+   const bool supply = i.geometry_valid && i.eligible_seeds >= config_.min_features;
+   supply_frames_ = supply ? std::min(supply_frames_ + 1, config_.bootstrap_confirm_frames) : 0;
+@@ -150,6 +251,7 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
+     awaiting_bootstrap_ = false;
+     gravity_frames_ = velocity_frames_ = 0;
+     clearGrace();
++  clearWindow();
+     state_ = LtvAvailability::Dormant;
+     o.observer_valid = false;
+     if (!dormant_requested_) {
+@@ -195,12 +297,14 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
+     shortage_since_ = -1;
+     gravity_frames_ = velocity_frames_ = 0;
+     clearGrace();
++  clearWindow();
+     state_ = LtvAvailability::Degraded;
+     return finish("thin_observations_state_preserved_not_ready");
+   }
+   if (!adequate || !current) {
+     gravity_frames_ = velocity_frames_ = 0;
+     clearGrace();
++  clearWindow();
+     if (shortage_since_ < 0)
+       shortage_since_ = i.time;
+     const double duration = i.time - shortage_since_;
+@@ -226,6 +330,15 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
+   const bool good_G = common && gravity_physical && i.gravity_correction_rate <= config_.gravity_correction_rate_limit;
+   const bool good_V = common && gravity_physical && i.velocity_correction_rate <= config_.velocity_correction_rate_limit &&
+                       i.gravity_correction_rate <= config_.gravity_correction_rate_limit;
++  if (config_.ready_causal_window) {
++    const bool hard = o.pool_ready && current && gravity_physical && i.actual_corrections >= config_.min_actual_corrections &&
++        i.correction_diagnostics_valid && std::isfinite(i.prediction_angle_p95_rad) && i.prediction_angle_p95_rad >= 0 &&
++        i.prediction_angle_p95_rad <= .04 && std::isfinite(i.velocity_correction_rate) && i.velocity_correction_rate >= 0 &&
++        std::isfinite(i.gravity_correction_rate) && i.gravity_correction_rate >= 0;
++    const char *reason = updateWindow(i, o, hard);
++    state_ = (o.ready_G || o.ready_V) ? LtvAvailability::Tracking : LtvAvailability::Bootstrapping;
++    return finish(reason);
++  }
+   if (!config_.ready_soft_grace) {
+     gravity_frames_ = good_G ? std::min(gravity_frames_ + 1, config_.ready_confirm_frames) : 0;
+     velocity_frames_ = good_V ? std::min(velocity_frames_ + 1, config_.ready_confirm_frames) : 0;
+diff --git a/ov_msckf/src/ltv/LtvReadiness.h b/ov_msckf/src/ltv/LtvReadiness.h
+index a5de42a..a164324 100644
+--- a/ov_msckf/src/ltv/LtvReadiness.h
++++ b/ov_msckf/src/ltv/LtvReadiness.h
+@@ -1,5 +1,6 @@
+ #pragma once
+ #include <Eigen/Dense>
++#include <array>
+ #include <cstdint>
+ #include <string>
+ namespace ltv {
+@@ -11,6 +12,7 @@ struct LtvReadinessConfig {
+   bool initial_unseeded_warmup = false;
+   bool preserve_constrained_state = false;
+   bool ready_soft_grace = false;
++  bool ready_causal_window = false;
+   size_t min_features = 15;
+   unsigned int bootstrap_confirm_frames = 3, ready_confirm_frames = 20;
+   unsigned int min_actual_corrections = 20;
+@@ -32,6 +34,13 @@ struct LtvReadinessInput {
+   // before this packet's correction; rates refer only to correction delta / dt.
+   bool correction_diagnostics_valid = false;
+   double prediction_angle_p95_rad = 0, velocity_correction_rate = 0, gravity_correction_rate = 0;
++  // Version 1: actual ordered shared prediction transition, row-major [v,eta].
++  bool window_transition_valid = false;
++  uint32_t window_transition_version = 0;
++  uint64_t window_epoch = 0;
++  double window_from = 0, window_to = 0;
++  std::array<double, 36> window_phi{};
++  std::array<double, 6> window_delta{};
+   // Legacy delayed-ack marker is rejected by update(). Use same-event
+   // acknowledgeBootstrap() after a successful adapter transaction.
+   bool bootstrap_committed = false, bootstrap_was_physical_recovery = false;
+@@ -46,6 +55,11 @@ struct LtvReadinessOutput {
+   bool ready_soft_grace_enabled = false, grace_G = false, grace_V = false;
+   unsigned int soft_failure_frames_G = 0, soft_failure_frames_V = 0;
+   double last_strict_good_G = -1, last_strict_good_V = -1;
++  bool window_enabled = false, window_complete = false;
++  unsigned window_samples = 0, window_confirmation_G = 0, window_confirmation_V = 0;
++  double window_coverage = 0, window_angle_mean = 0;
++  double window_net_V = 0, window_net_G = 0, window_activity_V = 0, window_activity_G = 0;
++  double window_impulse_V = 0, window_impulse_G = 0;
+   double last_bootstrap_time = -1;
+   std::string last_bootstrap_source, reason = "disabled";
+   uint64_t bootstrap_count = 0, physical_fault_count = 0;
+@@ -62,6 +76,16 @@ public:
+   LtvReadinessOutput acknowledgeBootstrap(const LtvReadinessInput &input);
+ 
+ private:
++  struct WindowEntry {
++    double from = 0, to = 0, angle = 0, impulse_V = 0, impulse_G = 0;
++    std::array<double, 6> transported{};
++  };
++  std::array<WindowEntry, 64> window_{};
++  size_t window_size_ = 0;
++  double window_anchor_ = -1, window_cursor_ = -1;
++  uint64_t window_epoch_ = 0;
++  void clearWindow();
++  const char *updateWindow(const LtvReadinessInput &, LtvReadinessOutput &, bool hard);
+   void clearGrace();
+   void validateCommit(const LtvReadinessInput &input) const;
+   void commit(const LtvReadinessInput &input);

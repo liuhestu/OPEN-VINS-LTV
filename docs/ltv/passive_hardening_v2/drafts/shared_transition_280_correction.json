@@ -1,0 +1,13 @@
+{
+  "attempt": 280,
+  "corrected_status": "TOOL_WINDOW_ORIGIN_ERROR",
+  "invalid_scope": "all fixed_windows statistics and interpretations",
+  "retained_scope": "whole epoch statistics, per-frame Phi and unfiltered geometry; no algorithm or source input change",
+  "reason": "registered windows use first initialized physical imu_time, not first raw camera receipt",
+  "original_summary": "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_V2_03_shared_transition_01/summary.json",
+  "original_summary_sha": "e4b888f6901004cb808184ed984961bf27e157e320ae7c6ff90df9415e31a175",
+  "replacement_attempt": 282,
+  "replacement_summary": "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_V2_03_shared_transition_02/summary.json",
+  "replacement_summary_sha": "aecc435596522866927c20850ecd2ff1ffa2a740e07ad72c4970df73a21470de",
+  "old_outputs_overwritten": false
+}

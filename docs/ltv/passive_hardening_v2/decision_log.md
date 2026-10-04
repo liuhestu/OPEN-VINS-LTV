@@ -98,3 +98,13 @@ Same-identity historical bridge P_PREV222/224 and new analyses223/225 complete. 
 ## R3B development: grace alone does not resolve continuity
 
 Candidate237, native261, evaluation265: fixed two-packet/0.10s grace modestly increases ready coverage but joint longest episode stays2.85s. All other single-sequence gates pass. Full numerical cache266 matches repaired R3 exactly, so there is no estimator accuracy change. Held-only audit268 reports G14/V12 events, original severe thresholds exceeded0 times; this does not establish confirmation safety. Preserve the negative outcome and do not sweep grace settings. Next inspect actual camera cadence and mature/observed pool interruptions separately; only a causally supported remaining R3 intervention can justify another candidate. Formal seeds and all11 confirmation stay unopened.
+
+## R3C counterexample review and next diagnostic
+
+Facts: registered286 causal-window proposal, tested as frozen offline policy291, still fails joint5s (3.05s). User-selected events288–293 show that76.75s actual camera correction worsens velocity error0.106985→0.251884m/s; at78.90s vector components trade off and gravity-vector error worsens. Both targets are rejected by prior hard-reset waiting, while their partial numeric window budgets pass. Cancellation is not evidence of correct state. Full conclusion and exact joins: drafts/user_events_conclusion.md.
+
+Decision: retain R3C negative result and registration count, hold its implementation/full observer runs, archive unverified source drafts and restore verified implementation. No threshold, gap convention, GT support or candidate constants change. This is a failed candidate, not abandonment or completion of the active goal.
+
+Next discriminating diagnostic: inspect whether cached preceding full P, actual IMU/calibration, lifecycle mapping and frozen correction inputs can reconstruct the actual per-substep shared correction contributions. Require reconstructed full posterior x/P and substep count agreement before attributing contributions. A sum of contributions along the actual joint update is not a point-removal counterfactual; it cannot justify a gate without separate evidence. No new full experiment or candidate is registered by this diagnostic. Independent review checks remaining round3 scope before another mechanism is selected.
+
+Budget through293: synthetic20/80, real7/72, short_real12/24, candidates5/12. Final reserve remains24 synthetic/40 real minimum. No unseen confirmation labels opened. Previous goal turn made progress by completing the user-selected event audit and changing the next action.

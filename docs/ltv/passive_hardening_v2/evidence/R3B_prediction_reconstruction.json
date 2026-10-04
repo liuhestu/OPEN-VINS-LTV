@@ -1,0 +1,33 @@
+{
+  "status": "ALIGNED",
+  "tolerance": 1e-09,
+  "observer_invoked": false,
+  "P_propagated": false,
+  "GT_read": false,
+  "checked": 1805,
+  "valid_diagnostics": 1472,
+  "skip_reasons": {
+    "pause_event": 115,
+    "first_state_after_pause_or_startup": 1
+  },
+  "epochs": {
+    "1": {
+      "checked": 1805,
+      "valid": 1472,
+      "first_time": 1413394887.4057605,
+      "last_time": 1413394998.3057606
+    }
+  },
+  "max_scalar_difference": {
+    "prediction_angle_p95_rad": 1.337788387012484e-13,
+    "velocity_correction_rate": 0.0,
+    "gravity_correction_rate": 0.0
+  },
+  "failures": [],
+  "identity": {
+    "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/P_NEW/cache.bin": "812b2043c1c290c3d5bdafa6a389e12cd8804de347aed3ee34595d26b22d377d",
+    "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/P_NEW/features.jsonl": "9aa9d82bb468f899f256e184bb5e43044018277327ca3cb14599e497000c0ffa",
+    "/home/he/output/ltv_passive_hardening_v2/export_prediction_cache_01": "49bfd08c87eb5adf2f99792d0ac7c531a4b892967e664b35bc746da17d7433e4",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_passive_hardening/diagnostics/reconstruct_prediction.py": "727800df03953cc2dafee0a149262a3dec6d570bfb51217e313357db408c2b90"
+  }
+}

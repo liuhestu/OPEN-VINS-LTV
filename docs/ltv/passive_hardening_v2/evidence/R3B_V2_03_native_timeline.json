@@ -1,0 +1,32 @@
+{
+  "sequence": "V2_03_difficult",
+  "status": "NOT_MET",
+  "domain_seconds_relative_initialized": [
+    -5.749999872,
+    110.95000004768372
+  ],
+  "evaluated_domain_seconds": [
+    0,
+    110.95000004768372
+  ],
+  "preinit_packets": 115,
+  "initialized_packets": 1806,
+  "packet_gaps_over_1p5_median": 414,
+  "reference_missing_packets": 7,
+  "limitations": [
+    "No interpolation across physical gaps or reference NaNs.",
+    "Readiness bars cover at most one nominal outgoing packet interval; no held status invented through gaps.",
+    "Pre-initialization is visibly unevaluated; no error values invented.",
+    "R3B and prior raw overlap by exact numerical equality; only latest readiness shown.",
+    "Scientific decisions remain original evaluator output."
+  ],
+  "attempt": 274,
+  "exit_code": 0,
+  "visual_inspection": "PNG opened and inspected: all seven panels cover complete domain; startup peaks and preinitialization shown, gaps rendered as disconnected markers/segments.",
+  "provenance": "/home/he/output/ltv_passive_hardening_v2/native_plots/R3B_V2_03_full_v1/provenance.json",
+  "provenance_sha256": "6432519e384ef321b6b9651138bf59fd36c07179442eb09aa49bfb765ab27ffa",
+  "outputs": {
+    "/home/he/output/ltv_passive_hardening_v2/native_plots/R3B_V2_03_full_v1/native_full_timeline.png": "fa39ab31bd4da594f6bef6a8219ea8b95f0c94b88f0858691f3c38e73fd5fc47",
+    "/home/he/output/ltv_passive_hardening_v2/native_plots/R3B_V2_03_full_v1/native_full_timeline.pdf": "81ead804d97b4538267cbfdbbaa2b104864fddbe75ebc069527bcafe4b5d5e07"
+  }
+}

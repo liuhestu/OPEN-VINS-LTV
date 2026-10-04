@@ -1,0 +1,152 @@
+{
+  "status": "NOT_MET",
+  "decision": "Hold R3C implementation and full experiments; no threshold changes",
+  "attempts": [
+    288,
+    289,
+    290,
+    291,
+    292,
+    293
+  ],
+  "targets": [
+    {
+      "camera_ns": 1413394964105760512,
+      "time": 1413394964.1057606,
+      "relative_initialized_s": 76.75,
+      "ready_G": false,
+      "ready_V": false,
+      "quantities": {
+        "v": {
+          "reference_valid": true,
+          "previous_post_error_norm": 0.09815955711898393,
+          "pre_error_norm": 0.10698525698605738,
+          "post_error_norm": 0.2518844050925288,
+          "OpenVINS_error_norm": 0.01698322215823979,
+          "pre_error_vector": [
+            -0.0133767484724171,
+            -0.010577015093797937,
+            0.10561739707256562
+          ],
+          "post_error_vector": [
+            0.04066822887335508,
+            0.09782976949686506,
+            0.22851955034375462
+          ],
+          "delta": [
+            0.05404497734577218,
+            0.108406784590663,
+            0.122902153271189
+          ],
+          "delta_norm": 0.17256253880922787,
+          "squared_error_change": 0.05199990831644441,
+          "twice_pre_error_dot_delta": 0.02222207851615814,
+          "squared_delta_norm": 0.029777829800286273,
+          "same_time_correction_error_norm_change": 0.14489914810647142,
+          "previous_to_prediction_error_norm_change": 0.008825699867073447
+        },
+        "eta": {
+          "reference_valid": true,
+          "previous_post_error_norm": 0.16490509036695208,
+          "pre_error_norm": 0.1598807780874398,
+          "post_error_norm": 0.20331192560506428,
+          "OpenVINS_error_norm": 0.13986642627813253,
+          "pre_error_vector": [
+            -0.009715629302689877,
+            0.05552830638015874,
+            0.14961309080307483
+          ],
+          "post_error_vector": [
+            0.009325153453326962,
+            0.12450153638081865,
+            0.16046229477708085
+          ],
+          "delta": [
+            0.01904078275601684,
+            0.06897323000065991,
+            0.010849203974006016
+          ],
+          "delta_norm": 0.07237101002166095,
+          "squared_error_change": 0.015773875891394014,
+          "twice_pre_error_dot_delta": 0.010536312799838667,
+          "squared_delta_norm": 0.005237563091555349,
+          "same_time_correction_error_norm_change": 0.043431147517624474,
+          "previous_to_prediction_error_norm_change": -0.0050243122795122774
+        }
+      }
+    },
+    {
+      "camera_ns": 1413394966255760384,
+      "time": 1413394966.2557604,
+      "relative_initialized_s": 78.89999985694885,
+      "ready_G": false,
+      "ready_V": false,
+      "quantities": {
+        "v": {
+          "reference_valid": true,
+          "previous_post_error_norm": 0.11467371139402291,
+          "pre_error_norm": 0.11912373913617234,
+          "post_error_norm": 0.11971250596652307,
+          "OpenVINS_error_norm": 0.01329463753677649,
+          "pre_error_vector": [
+            0.057258126085536265,
+            -0.032949777944493,
+            -0.09912761651711532
+          ],
+          "post_error_vector": [
+            0.11913925374655981,
+            -0.005220630926521197,
+            -0.010472216299652337
+          ],
+          "delta": [
+            0.06188112766102355,
+            0.0277291470179718,
+            0.08865540021746299
+          ],
+          "delta_norm": 0.11161522988670823,
+          "squared_error_change": 0.000140618859001981,
+          "twice_pre_error_dot_delta": -0.012317340683660746,
+          "squared_delta_norm": 0.012457959542662725,
+          "same_time_correction_error_norm_change": 0.0005887668303507232,
+          "previous_to_prediction_error_norm_change": 0.004450027742149434
+        },
+        "eta": {
+          "reference_valid": true,
+          "previous_post_error_norm": 0.10960904006908914,
+          "pre_error_norm": 0.11062835924882007,
+          "post_error_norm": 0.1597050891281855,
+          "OpenVINS_error_norm": 0.17069930497302901,
+          "pre_error_vector": [
+            0.044286411289853334,
+            0.1013706633842792,
+            -0.0011559628813673228
+          ],
+          "post_error_vector": [
+            0.09667008058982418,
+            0.11534671203108153,
+            0.05343919007448861
+          ],
+          "delta": [
+            0.05238366929997085,
+            0.013976048646802325,
+            0.05459515295585593
+          ],
+          "delta_norm": 0.07694159779585942,
+          "squared_error_change": 0.013267081623355681,
+          "twice_pre_error_dot_delta": 0.007347072151975882,
+          "squared_delta_norm": 0.005920009471379798,
+          "same_time_correction_error_norm_change": 0.04907672987936544,
+          "previous_to_prediction_error_norm_change": 0.0010193191797309292
+        }
+      }
+    }
+  ],
+  "artifacts": {
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_user_events_same_time_01/decomposition.json": "45c22237b10003868f856940139ddaf015b249b76c667ca5cab33466d110544e",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_exact_local_error_01/audit.json": "bee9bb8706aa376b7ad60611a8c9a28b55c0385f9c2c1cb2341ca0c7de4e649a",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_user_motion_events_01/summary.json": "f665a20f1ee48fbdebb9c2cfd67bf325f8ee5b1342aa3cd284272201a1f2046f",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3C_shadow_01/policy_provenance.json": "25c55e49081395e59e8d1725686d2e35c3dde2c5dbf1f30aff66154af9a87257",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3C_shadow_01/error_association.json": "986b02a5216508b01383f9be06ffc6cd20bc2ae10812e50c5f21661d1d68e410",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3C_shadow_01/independent_scientific_audit.json": "fbd809c0b52f2f7282329a1606733cddee6eb889acec02c6b167f9e43b3f43cb"
+  }
+}

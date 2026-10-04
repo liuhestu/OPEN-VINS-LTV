@@ -1,0 +1,21 @@
+{
+  "name": "R3C_CAUSAL_CORRECTION_BUDGET",
+  "round": 3,
+  "candidate_within_round": 3,
+  "development": true,
+  "contract": "docs/ltv/passive_hardening_v2/drafts/r3c_causal_window_proposal.md",
+  "contract_sha256": "4cd7c440d5c62a9f3d0433774d87904247040c37ca770d640a98457b8160d357",
+  "review": "docs/ltv/passive_hardening_v2/drafts/r3c_causal_window_independent_review.md",
+  "review_sha256": "4ff499314e3a9fd3b67150bd9606c17175c3da0e09a5a8c65b7ff51777d7532e",
+  "parent": "R3_PRESERVE_CONSTRAINED_SHARED_STATE_history_compat",
+  "ready_soft_grace": false,
+  "ready_causal_window": true,
+  "horizon_seconds": 1.0,
+  "capacity": 64,
+  "confirm_frames_after_full_window": 20,
+  "gain_seed_core_changes": false,
+  "scientific_threshold_changes": false,
+  "confirmation_inputs_opened": false,
+  "stop_rule": "One fixed causal-budget candidate; no window/threshold/confirmation sweep to force the known V2_03 outcome. Full V2_03 follows independent correctness, then other development and negative/recovery checks only if justified.",
+  "mechanism": "New temporal health statistic with signed shared correction transport, activity and impulse budgets; not an inherited grace guarantee."
+}
