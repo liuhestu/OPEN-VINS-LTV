@@ -11,7 +11,7 @@ ROOT=Path(__file__).resolve().parents[2]
 DOC=ROOT/'docs/ltv/active_landmark_consistency_r4'
 OUT=Path('/home/he/output/ltv_active_landmark_consistency_r4')
 LIMITS={'synthetic':12,'real':100,'short_real':16,'geometry':29998,'candidate':4}
-FINAL_RESERVE={'real':22,'synthetic':8}
+FINAL_RESERVE={'real':29,'synthetic':8}
 spec=importlib.util.spec_from_file_location('_verified_scheduler',ROOT/'scripts/ltv_feature_passive/budget.py')
 base=importlib.util.module_from_spec(spec);spec.loader.exec_module(base)
 base.DOC=DOC;base.OUT=OUT;base.LIMITS=LIMITS

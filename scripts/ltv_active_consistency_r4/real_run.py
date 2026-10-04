@@ -8,13 +8,15 @@ def load(p):return json.loads(Path(p).read_text())
 def helper(path,name):
  s=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
 
-def run(name,sequence,config,runtime,enabled,angle,phase):
+def run(name,sequence,config,runtime,enabled,angle,phase,baseline=False):
  if not re.fullmatch(r'[A-Za-z0-9_.-]+',name):raise ValueError('safe run name required')
  if angle not in (.02,.04,.08):raise ValueError('outside authorized angular candidates')
+ if baseline and enabled:raise ValueError('baseline cannot enable consistency')
  if phase=='confirmation':
   frozen=load(budget.DOC/'frozen_config.json')
   if angle!=frozen['angle'] or sequence not in frozen['sequences']:raise ValueError('frozen candidate mismatch')
   if not enabled and not frozen['allow_passive_off_controls']:raise ValueError('frozen OFF control not authorized')
+  if baseline and not frozen.get('allow_new_B_controls',False):raise ValueError('frozen B control not authorized')
   if Path(runtime).resolve()!=Path(frozen['runtime']).resolve() or artifacts.sha(Path(runtime)/'manifest.json')!=frozen['manifest_sha']:raise ValueError('frozen runtime mismatch')
   if artifacts.tree(config)!=frozen['base_config_tree_sha']:raise ValueError('frozen base config mismatch')
   for k in ('protocol','acceptance'):
@@ -33,6 +35,8 @@ def run(name,sequence,config,runtime,enabled,angle,phase):
  updates=dict(ltv_active_consistency_enabled=enabled,ltv_active_consistency_min_history_frames=5,
   ltv_active_consistency_min_history_span_s=.2,ltv_active_consistency_max_history_residual_rad=angle,
   ltv_active_consistency_max_holdout_residual_rad=angle,ltv_active_consistency_retire_after_consecutive_failures=2)
+ if baseline:
+  updates.update(ltv_enabled=False,ltv_feature_readiness_enabled=False,ltv_passive_hardening_enabled=False)
  for key,value in updates.items():
   loc=[k for k,l in enumerate(lines) if re.match(r'^\s*'+re.escape(key)+r'\s*:',l)]
   if len(loc)>1:raise ValueError('duplicate option '+key)
@@ -40,20 +44,21 @@ def run(name,sequence,config,runtime,enabled,angle,phase):
   if loc:lines[loc[0]]=text
   else:lines.append(text)
  path.write_text('\n'.join(lines)+'\n')
- out=root/'P_NEW';out.mkdir()
- identity=dict(sequence=sequence,mode='P_NEW' if enabled else 'P_PREV',phase=phase,revision='R4_ACTIVE_CONSISTENCY',
+ out=root/('B' if baseline else 'P_NEW');out.mkdir()
+ identity=dict(sequence=sequence,mode='B' if baseline else ('P_NEW' if enabled else 'P_PREV'),phase=phase,revision='R4_ACTIVE_CONSISTENCY',
   runtime=str(runtime),manifest_sha=artifacts.sha(Path(runtime)/'manifest.json'),config_path=str(path),
   config_sha=artifacts.tree(path.parent),inputs=inputs,source_sha=budget.source_identity(),active_config=updates,
   baseline_config_tree_sha=artifacts.tree(config),protocol_sha=artifacts.sha(budget.DOC/'protocol.json'))
  if phase=='confirmation':identity['freeze_sha']=artifacts.sha(budget.DOC/'frozen_config.json')
  for p in (root/'identity.json',out/'identity.json'):p.write_text(json.dumps(identity,indent=2)+'\n')
- command=artifacts.command(runtime,'run_ltv_feature_passive')+[str(path),inputs['root'],str(out),'P_NEW']
+ command=artifacts.command(runtime,'run_ltv_feature_passive')+[str(path),inputs['root'],str(out),'B' if baseline else 'P_NEW']
  attempt=budget.run('real',command,identity,phase=phase)
  (root/'attempt.json').write_text(json.dumps(attempt,indent=2)+'\n')
  if attempt['exit_code']:raise RuntimeError('failed native attempt preserved')
  audit=helper(budget.ROOT/'scripts/ltv_feature_passive/audit/passive_outputs.py','_r4_passive_audit')
  log=helper(budget.ROOT/'scripts/ltv_passive_hardening/check_hardened_log.py','_r4_log_check')
- engineering=dict(passive=audit.inspect(out),live_log=log.check(out))
+ engineering=dict(passive=audit.inspect(out))
+ if not baseline:engineering['live_log']=log.check(out)
  if enabled:engineering['active_log']=check_active(out/'features.jsonl')
  else:
   for line in (out/'features.jsonl').read_text().splitlines():
@@ -63,4 +68,4 @@ def run(name,sequence,config,runtime,enabled,angle,phase):
  (root/'engineering.json').write_text(json.dumps(engineering,indent=2)+'\n')
  print(json.dumps(dict(output=str(out),attempt=attempt,engineering=engineering)))
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('name');p.add_argument('sequence');p.add_argument('--config',type=Path,required=True);p.add_argument('--runtime',type=Path,required=True);p.add_argument('--enabled',action='store_true');p.add_argument('--angle',type=float,default=.04);p.add_argument('--phase',choices=['development','confirmation'],default='development');run(**vars(p.parse_args()))
+ p=argparse.ArgumentParser();p.add_argument('name');p.add_argument('sequence');p.add_argument('--config',type=Path,required=True);p.add_argument('--runtime',type=Path,required=True);p.add_argument('--enabled',action='store_true');p.add_argument('--baseline',action='store_true');p.add_argument('--angle',type=float,default=.04);p.add_argument('--phase',choices=['development','confirmation'],default='development');run(**vars(p.parse_args()))

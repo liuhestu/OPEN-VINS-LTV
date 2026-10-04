@@ -13,7 +13,7 @@
     "geometry": 29998
   },
   "final_reserve": {
-    "real": 22,
+    "real": 29,
     "synthetic": 8
   },
   "concurrency": {
@@ -42,5 +42,101 @@
     "previous_cap": 24,
     "current_cap": 100,
     "previous_attempts_remain_counted": true
-  }
+  },
+  "real_final": [
+    "MH_01_easy",
+    "MH_02_easy",
+    "MH_03_medium",
+    "MH_04_difficult",
+    "MH_05_difficult",
+    "V1_01_easy",
+    "V1_02_medium",
+    "V1_03_difficult",
+    "V2_01_easy",
+    "V2_02_medium",
+    "V2_03_difficult"
+  ],
+  "formal_plan": {
+    "ON": 11,
+    "new_matched_R3B_OFF": 9,
+    "new_B": 7,
+    "representative_repeats": 2,
+    "old_B_reuse": [
+      "V1_01_easy",
+      "V1_03_difficult",
+      "V2_02_medium",
+      "V2_03_difficult"
+    ],
+    "no_parameter_search_after_freeze": true
+  },
+  "confirmation_seeds": [
+    201,
+    202
+  ],
+  "synthetic_confirmation_cases": [
+    {
+      "name": "STEREO_REGULAR_1_201",
+      "scene": "REGULAR",
+      "lifetime": 1,
+      "condition": "STEREO",
+      "source": "HYBRID",
+      "seed": 201
+    },
+    {
+      "name": "STEREO_FAST_05_202",
+      "scene": "FAST",
+      "lifetime": 0.5,
+      "condition": "STEREO",
+      "source": "HYBRID",
+      "seed": 202
+    },
+    {
+      "name": "STEREO_FAST_1_201",
+      "scene": "FAST",
+      "lifetime": 1,
+      "condition": "STEREO",
+      "source": "HYBRID",
+      "seed": 201
+    },
+    {
+      "name": "TEMPORAL_FAST_1_202",
+      "scene": "FAST",
+      "lifetime": 1,
+      "condition": "TEMPORAL",
+      "source": "TEMPORAL",
+      "seed": 202
+    },
+    {
+      "name": "WRONG_MATCH_REGULAR_1_201",
+      "scene": "REGULAR",
+      "lifetime": 1,
+      "condition": "WRONG_MATCH",
+      "source": "HYBRID",
+      "seed": 201
+    },
+    {
+      "name": "STEREO_DROPOUT_REGULAR_1_202",
+      "scene": "REGULAR",
+      "lifetime": 1,
+      "condition": "STEREO_DROPOUT",
+      "source": "HYBRID",
+      "seed": 202
+    },
+    {
+      "name": "TIME_ERROR_REGULAR_1_201",
+      "scene": "REGULAR",
+      "lifetime": 1,
+      "condition": "TIME_ERROR",
+      "source": "HYBRID",
+      "seed": 201
+    },
+    {
+      "name": "PRESSURE_REGULAR_05_202",
+      "scene": "REGULAR",
+      "lifetime": 0.5,
+      "condition": "PRESSURE",
+      "source": "HYBRID",
+      "seed": 202
+    }
+  ]
 }
