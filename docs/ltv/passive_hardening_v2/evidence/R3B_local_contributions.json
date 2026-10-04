@@ -1,0 +1,68 @@
+{
+  "attempts": [
+    294,
+    295,
+    297,
+    298
+  ],
+  "status": "ALIGNED_LOCAL_RECONSTRUCTION",
+  "frames": 42,
+  "max_x_relative_error": 8.040755081333302e-15,
+  "max_P_relative_error": 1.3948271456428435e-13,
+  "max_delta_absolute_error": 1.4835355166553654e-14,
+  "targets": [
+    {
+      "camera_ns": 1413394964105760512,
+      "total_delta_v_norm": 0.17256253880924108,
+      "dominant_point": {
+        "id": 27537,
+        "delta_v_norm": 0.1909413567903324,
+        "projection_along_total_delta_v": 0.18994749372690628,
+        "fraction_along_total": 1.100745822573249,
+        "rest_fraction": -0.10074582257324893,
+        "pre_angle_rad": 0.3492143773749791,
+        "post_angle_rad": 0.21645818261440636,
+        "delta_shared": [
+          0.06097156692823117,
+          0.10446077875080834,
+          0.1477464566817895,
+          0.023864841693347714,
+          0.06598052785985463,
+          0.027876958528559235
+        ]
+      }
+    },
+    {
+      "camera_ns": 1413394966255760384,
+      "total_delta_v_norm": 0.11161522988670529,
+      "dominant_point": {
+        "id": 29636,
+        "delta_v_norm": 0.11289850303387801,
+        "projection_along_total_delta_v": 0.11214973598246664,
+        "fraction_along_total": 1.0047888276206025,
+        "rest_fraction": -0.004788827620602509,
+        "pre_angle_rad": 0.16358390699672362,
+        "post_angle_rad": 0.09149957094715412,
+        "delta_shared": [
+          0.0725235728398016,
+          0.022238128655213178,
+          0.08361739653777042,
+          0.06050680800346284,
+          0.010359786878044345,
+          0.05182245838854223
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Only42 events in two fixed windows; each resets to actual preceding cached x/P.",
+    "Actual-path additive terms, not deleting-point counterfactual.",
+    "This audit checks serialized slot identity sets and corrected IDs; final x/P numerical oracle was evaluated by source reconstruction.",
+    "Current float-time key uniqueness verified; not arbitrary nanosecond mapping assurance."
+  ],
+  "artifacts": {
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_local_contributions_01/summary.json": "4956ba141e087a9d9af912788ba1a5b5e5121e1c592eac40851a5418f79f24a9",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_local_contributions_01/events.jsonl": "75a5ff4799aa1f98a31768fa685c18d6935a5c684a532b5cf03a6296df537e2a",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_local_contributions_01/independent_contribution_audit.json": "01b54d994e974200836a37e5ed4de19ecd60cdc7a959e77be2a0fc8276445fb6"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "attempt": 296,
+  "visual_inspection": "Six panels inspected: readable axes, exact target lines, all 21 rows per window, no readiness filtering",
+  "artifacts": {
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_user_events_same_time_plot_01/receipt.json": "9303503d63d4e315ec25e0778f7c0ba2eaaf62a07010f403c97592d406d108ac",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_user_events_same_time_plot_01/local_correction_error.png": "de3ec4d1e3a98faba90dbd2b80605c32a47a026f3355f2e0ac9b33fd509b139a",
+    "/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_user_events_same_time_plot_01/local_correction_error.pdf": "ae9f5b81d930a68ad7c77c774a7d3e7bef1e0547e025d7fe0b7fb59be72838da"
+  }
+}

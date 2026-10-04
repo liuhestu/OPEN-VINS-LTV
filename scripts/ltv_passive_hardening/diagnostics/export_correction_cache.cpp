@@ -247,10 +247,14 @@ void decode(const std::string &expected, const LtvCalibration &c, const Eigen::V
     b.scalar(birth.apply_seed);
     seed(b, birth.seed);
   }
+  if (std::abs(f.camera_time - 1413394964105760512LL * 1e-9) > .550001 && std::abs(f.camera_time - 1413394966255760384LL * 1e-9) > .550001)
+    return;
   std::cout << "{\"kind\":\"camera\",\"time\":" << f.camera_time << ",\"target\":" << f.imu_time << ",\"cursor\":" << f.cursor
             << ",\"epoch\":" << f.epoch << ",\"sequence\":" << f.sequence << ",\"available\":" << f.available
             << ",\"camera_substeps\":" << s.camera_substeps << ",\"x\":";
   array(x);
+  std::cout << ",\"P\":";
+  array(P);
   std::cout << ",\"slots\":[";
   for (size_t i = 0; i < slots.size(); ++i) {
     if (i)

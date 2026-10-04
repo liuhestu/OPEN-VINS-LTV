@@ -21,6 +21,8 @@ analysis292 对每个事件用相同当前参考比较预测和后验，并验�
 
 这些是观测与状态不一致的证据，尚不能区分错误匹配、路标估计误差、先验误差各自贡献，也不能证明单个点造成共享校正。没有据此删除点、实现种子 Gate 或调增益。逐点因果分解还需实际校正算子、完整交叉协方差及更新顺序。
 
+后续 analysis297 补齐了实际校正算子的加法分解：两个固定邻域42帧各自从缓存前一后验完整 x/P 起算，重建实际 IMU 子步、生命周期及所有相机校正子步。最大归一化 x/P 差分别8.04e-15、1.40e-13，共享修正复原绝对差1.49e-14，通过预定1e-9界限。76.75 s 的27537速度贡献为[0.060972,0.104461,0.147746] m/s，模长0.190941，其他点合计抵消一部分才得到总修正0.172563；78.90 s 的29636贡献模长0.112899，总修正0.111615。当帧五个新生点共享贡献近零，符合新生 P 零交叉块。该结论提升了“哪些点贡献当前校正”的证据，仍不是删点后的反事实，也未区分错误 bearing 与 LTV 路标估计偏差。独立审查另存，不将局部对齐宣称为任意输入正确性。
+
 ## 窗口 readiness 是否放行
 
 R3B 两处 G/V-ready 都为 false。冻结286合同的离线 R3C shadow 也都为 false：76.20/78.55 s 的 P95 超过0.04 rad，清除窗口；重新锚定后，目标时刻分别只有0.50/0.30 s历史，不满足完整1 s再20事件确认。
@@ -41,3 +43,4 @@ R3B 两处 G/V-ready 都为 false。冻结286合同的离线 R3C shadow 也都�
 - [全域独立审计](R3C_shadow_independent_audit.md)，analysis293。
 - 同时间分解：`/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_user_events_same_time_01/decomposition.json`，analysis292，含固定±0.5 s完整邻域及输入/脚本 SHA。
 - 结构化证据索引：`../evidence/R3B_user_events_conclusion.json`。
+- analysis296 图示：`/home/he/output/ltv_passive_hardening_v2/diagnostics/R3B_user_events_same_time_plot_01/local_correction_error.png`（另存 PDF）；保留每个固定邻域全部21个采样，展示校正前后模长与分量，无 ready 筛选。可视检查通过，索引 `../evidence/R3B_user_events_plot.json`。

@@ -133,20 +133,9 @@ void seed(Binary &b, ltv::FeatureSeedCandidate &s) {
   b.scalar(s.relative_risk);
   b.scalar(s.check_residual_rad);
 }
-template <typename D> void array(const Eigen::MatrixBase<D> &v) {
-  std::cout << "[";
-  for (int i = 0; i < v.rows(); ++i)
-    for (int j = 0; j < v.cols(); ++j) {
-      if (i || j)
-        std::cout << ",";
-      std::cout << v(i, j);
-    }
-  std::cout << "]";
-}
-void decode(const std::string &expected, const LtvCalibration &c, const Eigen::Vector3d &ba, const Eigen::Vector3d &bg) {
-  std::istringstream input(expected, std::ios::binary);
-  Binary b(static_cast<std::istream &>(input));
-  LtvFrame f;
+template<typename D> void array(const Eigen::MatrixBase<D>&v){std::cout<<"[";for(int i=0;i<v.rows();++i)for(int j=0;j<v.cols();++j){if(i||j)std::cout<<",";std::cout<<v(i,j);}std::cout<<"]";}
+void decode(const std::string &expected,const LtvCalibration &c,const Eigen::Vector3d &ba,const Eigen::Vector3d &bg){
+ std::istringstream input(expected,std::ios::binary);Binary b(static_cast<std::istream&>(input));LtvFrame f;
 #define FIELD(x) b.scalar(f.x)
   FIELD(epoch);
   FIELD(version);
@@ -211,158 +200,27 @@ void decode(const std::string &expected, const LtvCalibration &c, const Eigen::V
   FIELD(velocity_oracle_pass);
 #undef FIELD
 
-  Eigen::VectorXd x;
-  Eigen::MatrixXd P;
-  b.matrix(x);
-  b.matrix(P);
-  size_t n = 0;
-  b.count(n);
-  std::vector<std::pair<size_t, int>> slots;
-  for (size_t i = 0; i < n; ++i) {
-    size_t id = 0;
-    int core, slot;
-    b.count(id, UINT64_MAX);
-    b.scalar(core);
-    b.scalar(slot);
-    slots.emplace_back(id, slot);
-  }
-  ltv::LandmarkManagerFrame m;
-  b.scalar(m.accepted_input);
-  b.text(m.reason);
-  b.scalar(m.epoch);
-  b.scalar(m.time);
-  for (auto *v : {&m.retained_ids, &m.retired_ids}) {
-    n = 0;
-    b.count(n);
-    v->resize(n);
-    for (auto &id : *v)
-      b.count(id, UINT64_MAX);
-  }
-  observations(b, m.observations);
-  n = 0;
-  b.count(n);
-  m.births.resize(n);
-  for (auto &birth : m.births) {
-    b.count(birth.feature_id, UINT64_MAX);
-    b.scalar(birth.apply_seed);
-    seed(b, birth.seed);
-  }
-  std::cout << "{\"kind\":\"camera\",\"time\":" << f.camera_time << ",\"target\":" << f.imu_time << ",\"cursor\":" << f.cursor
-            << ",\"epoch\":" << f.epoch << ",\"sequence\":" << f.sequence << ",\"available\":" << f.available
-            << ",\"camera_substeps\":" << s.camera_substeps << ",\"x\":";
-  array(x);
-  std::cout << ",\"slots\":[";
-  for (size_t i = 0; i < slots.size(); ++i) {
-    if (i)
-      std::cout << ",";
-    std::cout << "[" << slots[i].first << "," << slots[i].second << "]";
-  }
-  std::cout << "],\"observations\":[";
-  for (size_t i = 0; i < m.observations.size(); ++i) {
-    if (i)
-      std::cout << ",";
-    auto &o = m.observations[i];
-    std::cout << "{\"id\":" << o.feature_id << ",\"camera\":" << o.camera_id << ",\"bearing\":";
-    array(o.bearing);
-    std::cout << "}";
-  }
-  std::cout << "],\"births\":[";
-  for (size_t i = 0; i < m.births.size(); ++i) {
-    if (i)
-      std::cout << ",";
-    auto &birth = m.births[i];
-    std::cout << "{\"id\":" << birth.feature_id << ",\"apply_seed\":" << birth.apply_seed << ",\"mean\":";
-    array(birth.seed.landmark_B);
-    std::cout << "}";
-  }
-  std::cout << "],\"calibration\":{";
-#define MAT(name)                                                                                                                          \
-  std::cout << "\"" #name "\":";                                                                                                           \
-  array(c.name);                                                                                                                           \
-  std::cout << ",";
-  MAT(Da)
-      MAT(Dw) MAT(Tg) MAT(R_ACCtoIMU) MAT(R_GYROtoIMU) MAT(R_BC)
+
+ Eigen::VectorXd x;Eigen::MatrixXd P;b.matrix(x);b.matrix(P);size_t n=0;b.count(n);
+ std::vector<std::pair<size_t,int>> slots;
+ for(size_t i=0;i<n;++i){size_t id=0;int core,slot;b.count(id,UINT64_MAX);b.scalar(core);b.scalar(slot);slots.emplace_back(id,slot);}
+ ltv::LandmarkManagerFrame m;b.scalar(m.accepted_input);b.text(m.reason);b.scalar(m.epoch);b.scalar(m.time);
+ for(auto *v:{&m.retained_ids,&m.retired_ids}){n=0;b.count(n);v->resize(n);for(auto &id:*v)b.count(id,UINT64_MAX);}
+ observations(b,m.observations);n=0;b.count(n);m.births.resize(n);for(auto &birth:m.births){b.count(birth.feature_id,UINT64_MAX);b.scalar(birth.apply_seed);seed(b,birth.seed);}
+ if(std::abs(f.camera_time-1413394964105760512LL*1e-9)>.550001 && std::abs(f.camera_time-1413394966255760384LL*1e-9)>.550001)return;
+ std::cout<<"{\"kind\":\"camera\",\"time\":"<<f.camera_time<<",\"target\":"<<f.imu_time<<",\"cursor\":"<<f.cursor<<",\"epoch\":"<<f.epoch<<",\"sequence\":"<<f.sequence<<",\"available\":"<<f.available<<",\"camera_substeps\":"<<s.camera_substeps<<",\"x\":";array(x);std::cout<<",\"P\":";array(P);
+ std::cout<<",\"slots\":[";for(size_t i=0;i<slots.size();++i){if(i)std::cout<<",";std::cout<<"["<<slots[i].first<<","<<slots[i].second<<"]";}std::cout<<"],\"observations\":[";
+ for(size_t i=0;i<m.observations.size();++i){if(i)std::cout<<",";auto&o=m.observations[i];std::cout<<"{\"id\":"<<o.feature_id<<",\"camera\":"<<o.camera_id<<",\"bearing\":";array(o.bearing);std::cout<<"}";}
+ std::cout<<"],\"births\":[";for(size_t i=0;i<m.births.size();++i){if(i)std::cout<<",";auto&birth=m.births[i];std::cout<<"{\"id\":"<<birth.feature_id<<",\"apply_seed\":"<<birth.apply_seed<<",\"mean\":";array(birth.seed.landmark_B);std::cout<<"}";}
+ std::cout<<"],\"calibration\":{";
+#define MAT(name) std::cout<<"\"" #name "\":";array(c.name);std::cout<<",";
+ MAT(Da) MAT(Dw) MAT(Tg) MAT(R_ACCtoIMU) MAT(R_GYROtoIMU) MAT(R_BC)
 #undef MAT
-          std::cout
-      << "\"p_BC\":";
-  array(c.p_BC);
-  std::cout << ",\"offset\":" << c.offset << "},\"ba\":";
-  array(ba);
-  std::cout << ",\"bg\":";
-  array(bg);
-  std::cout << "}\n";
+ std::cout<<"\"p_BC\":";array(c.p_BC);std::cout<<",\"offset\":"<<c.offset<<"},\"ba\":";array(ba);std::cout<<",\"bg\":";array(bg);std::cout<<"}\n";
 }
-} // namespace
-} // namespace ov_msckf
-int main(int argc, char **argv) {
-  try {
-    using namespace ov_msckf;
-    if (argc != 2)
-      return 2;
-    std::cout << std::setprecision(17);
-    std::ifstream in(argv[1], std::ios::binary);
-    char magic[sizeof(MAGIC)];
-    in.read(magic, sizeof(magic));
-    if (std::memcmp(magic, MAGIC, sizeof(magic)))
-      throw std::runtime_error("magic");
-    Binary outer(static_cast<std::istream &>(in));
-    for (;;) {
-      uint8_t type;
-      std::string payload;
-      outer.scalar(type);
-      outer.text(payload);
-      if (!type) {
-        if (in.peek() != EOF)
-          throw std::runtime_error("trailing cache bytes");
-        break;
-      }
-      std::istringstream data(payload, std::ios::binary);
-      Binary b(static_cast<std::istream &>(data));
-      if (type == 1) {
-        ov_core::ImuData s;
-        sample(b, s);
-        std::cout << "{\"kind\":\"imu\",\"time\":" << s.timestamp << ",\"am\":";
-        array(s.am);
-        std::cout << ",\"wm\":";
-        array(s.wm);
-        std::cout << "}\n";
-        continue;
-      }
-      if (type == 3) {
-        std::cout << "{\"kind\":\"pause\"}\n";
-        continue;
-      }
-      if (type != 2)
-        throw std::runtime_error("unknown event");
-      double time;
-      uint64_t version;
-      b.scalar(time);
-      b.scalar(version);
-      size_t n = 0;
-      b.count(n);
-      for (size_t i = 0; i < n; ++i) {
-        size_t id = 0;
-        Eigen::Vector3d v;
-        b.count(id, UINT64_MAX);
-        b.matrix(v);
-      }
-      LtvCalibration c;
-      calibration(b, c);
-      Eigen::Vector3d ba, bg;
-      b.matrix(ba);
-      b.matrix(bg);
-      bool present;
-      b.scalar(present);
-      ltv::FeaturePipelineContext ctx;
-      if (present)
-        context(b, ctx);
-      std::string expected;
-      b.text(expected);
-      decode(expected, c, ba, bg);
-    }
-    return 0;
-  } catch (const std::exception &e) {
-    std::cerr << e.what() << "\n";
-    return 1;
-  }
-}
+}}
+int main(int argc,char**argv){try{using namespace ov_msckf;if(argc!=2)return 2;std::cout<<std::setprecision(17);std::ifstream in(argv[1],std::ios::binary);char magic[sizeof(MAGIC)];in.read(magic,sizeof(magic));if(std::memcmp(magic,MAGIC,sizeof(magic)))throw std::runtime_error("magic");Binary outer(static_cast<std::istream&>(in));for(;;){uint8_t type;std::string payload;outer.scalar(type);outer.text(payload);if(!type){if(in.peek()!=EOF)throw std::runtime_error("trailing cache bytes");break;}std::istringstream data(payload,std::ios::binary);Binary b(static_cast<std::istream&>(data));
+ if(type==1){ov_core::ImuData s;sample(b,s);std::cout<<"{\"kind\":\"imu\",\"time\":"<<s.timestamp<<",\"am\":";array(s.am);std::cout<<",\"wm\":";array(s.wm);std::cout<<"}\n";continue;}
+ if(type==3){std::cout<<"{\"kind\":\"pause\"}\n";continue;}
+ if(type!=2)throw std::runtime_error("unknown event");double time;uint64_t version;b.scalar(time);b.scalar(version);size_t n=0;b.count(n);for(size_t i=0;i<n;++i){size_t id=0;Eigen::Vector3d v;b.count(id,UINT64_MAX);b.matrix(v);}LtvCalibration c;calibration(b,c);Eigen::Vector3d ba,bg;b.matrix(ba);b.matrix(bg);bool present;b.scalar(present);ltv::FeaturePipelineContext ctx;if(present)context(b,ctx);std::string expected;b.text(expected);decode(expected,c,ba,bg);
+ }return 0;}catch(const std::exception&e){std::cerr<<e.what()<<"\n";return 1;}}
