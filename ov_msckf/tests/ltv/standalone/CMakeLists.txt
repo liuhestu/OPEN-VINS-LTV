@@ -11,6 +11,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 enable_testing()
 set(ltv_dir "${LTV_SOURCE_ROOT}/ov_msckf/src/ltv")
+if(EXISTS "${ltv_dir}/observer/ltv_observer.cpp")
+    include("${ltv_dir}/sources.cmake")
+    set(passive_sources ${LTV_PRODUCTION_SOURCES})
+    list(FILTER passive_sources EXCLUDE REGEX "/(UpdaterLTV|ValueDiagnostics|LtvOpenVinsInput)\\.cpp$")
+    list(TRANSFORM passive_sources PREPEND "${LTV_SOURCE_ROOT}/ov_msckf/")
+    add_library(ltv_passive STATIC
+        ${LTV_SOURCE_ROOT}/ov_core/src/utils/print.cpp ${passive_sources})
+else()
 add_library(ltv_passive STATIC
     ${LTV_SOURCE_ROOT}/ov_core/src/utils/print.cpp
     ${ltv_dir}/ltv_observer.cpp
@@ -25,6 +33,7 @@ add_library(ltv_passive STATIC
     ${ltv_dir}/LtvAdapter.cpp
     ${ltv_dir}/LtvAdapterHardened.cpp
     ${ltv_dir}/LtvPassiveCache.cpp)
+endif()
 set_target_properties(ltv_passive PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_include_directories(ltv_passive PUBLIC
     "${LTV_SOURCE_ROOT}/ov_msckf/src" "${LTV_SOURCE_ROOT}/ov_core/src" ${OpenCV_INCLUDE_DIRS})

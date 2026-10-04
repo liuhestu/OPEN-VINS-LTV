@@ -1,0 +1,20 @@
+{
+  "event_counts": {
+    "1": 3239,
+    "3": 4,
+    "2": 76,
+    "0": 1
+  },
+  "process_reasons": {
+    "bootstrap_committed_confirming": 1,
+    "finite_coast_not_ready": 1,
+    "pool_not_mature": 3,
+    "prediction_or_correction_unhealthy": 32,
+    "confirming_observer_health": 26,
+    "ready": 12,
+    "ready_soft_grace_G": 1
+  },
+  "available_processes": 76,
+  "maximum_mature_features": 30,
+  "maximum_observer_features": 30
+}

@@ -29,7 +29,7 @@
 #include <string>
 #include <vector>
 
-#include "ltv/LtvOptions.h"
+#include "ltv/config/LtvOptions.h"
 #include "state/StateOptions.h"
 #include "update/UpdaterOptions.h"
 #include "utils/NoiseManager.h"

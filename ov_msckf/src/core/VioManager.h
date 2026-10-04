@@ -32,10 +32,10 @@
 #include <string>
 
 #include "VioManagerOptions.h"
-#include "ltv/LtvAdapter.h"
-#include "ltv/LtvPassiveCache.h"
-#include "ltv/ValueDiagnostics.h"
-#include "update/UpdaterLTV.h"
+#include "ltv/observer/LtvAdapter.h"
+#include "ltv/diagnostics/LtvPassiveCache.h"
+#include "ltv/diagnostics/ValueDiagnostics.h"
+#include "ltv/fusion/UpdaterLTV.h"
 
 namespace ov_core {
 struct ImuData;

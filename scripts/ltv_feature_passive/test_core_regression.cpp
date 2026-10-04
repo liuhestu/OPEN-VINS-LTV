@@ -1,6 +1,6 @@
-#include "ltv/ltv_observer.h"
+#include "ltv/observer/ltv_observer.h"
 #define ltv ltv_baseline
-#include "ltv_observer.h"
+#include "ltv/observer/ltv_observer.h"
 #undef ltv
 #include <cassert>
 #include <iostream>

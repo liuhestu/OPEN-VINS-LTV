@@ -1,6 +1,6 @@
 // Input-only ABI for the actual deployed LtvAdapter. No truth/phase arguments.
-#include "ltv/LtvAdapter.h"
-#include "ltv/LtvBoundedDiagnostics.h"
+#include "ltv/observer/LtvAdapter.h"
+#include "ltv/diagnostics/LtvBoundedDiagnostics.h"
 #include <iomanip>
 #include <memory>
 #include <set>

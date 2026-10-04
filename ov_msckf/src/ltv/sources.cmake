@@ -1,0 +1,18 @@
+# One production source list shared by ROS 1 and ROS 2.
+set(LTV_PRODUCTION_SOURCES
+    src/ltv/landmark_adapter/LtvFeatureHistory.cpp
+    src/ltv/landmark_adapter/LtvSeedEstimator.cpp
+    src/ltv/landmark_adapter/LtvSeedUncertainty.cpp
+    src/ltv/landmark_adapter/LtvFeatureQuality.cpp
+    src/ltv/landmark_adapter/LtvLandmarkManager.cpp
+    src/ltv/landmark_adapter/LtvActiveConsistency.cpp
+    src/ltv/landmark_adapter/LtvLandmarkAdapter.cpp
+    src/ltv/observer/ltv_observer.cpp
+    src/ltv/observer/LtvAdapter.cpp
+    src/ltv/observer/LtvAdapterHardened.cpp
+    src/ltv/observer/LtvReadiness.cpp
+    src/ltv/diagnostics/LtvPassiveCache.cpp
+    src/ltv/diagnostics/ValueDiagnostics.cpp
+    src/ltv/fusion/UpdaterLTV.cpp
+    src/ltv/observer/LtvOpenVinsInput.cpp
+)

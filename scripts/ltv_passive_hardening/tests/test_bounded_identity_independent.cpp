@@ -1,7 +1,7 @@
 #define main manager_fixture_main
 #include "../../../ov_msckf/tests/ltv/test_ltv_manager_bounded.cpp"
 #undef main
-#include "ltv/ltv_observer.h"
+#include "ltv/observer/ltv_observer.h"
 #include <limits>
 
 static void core_checks() {

@@ -1,0 +1,216 @@
+{
+  "parent": "df5b67d11d6f32c0b6d137db36e975d2cb19ca67",
+  "migrated": [
+    {
+      "before": "ov_msckf/src/ltv/LtvFeatureHistory.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvFeatureHistory.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "fd2f6aff35794f410db7b22d0347c8d1ea10ca1ecf2dfd11241dff0964d57933"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvFeatureHistory.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvFeatureHistory.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "bf9a9a626b1052f7b62102fcd34b61e7658b91ad8aa6c9c8b74d3ce27214e356"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvSeedEstimator.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvSeedEstimator.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "fae61c40e31a2560a9e42ee9140d283073548866a9b666342490980abc538569"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvSeedEstimator.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvSeedEstimator.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "19fffe7ed0efb2e570ff8b6f513356129acdf9168e8755667f5d6b2e0ae91982"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvSeedUncertainty.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvSeedUncertainty.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "8d92dd225fbd94dce7affb9fa62eb8c6016a5130238db44b483c9a823b4135d0"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvSeedUncertainty.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvSeedUncertainty.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "45f8cde817d3cb13d2e0e0389994bd9296f8e1afb5ff86d3b37f19868209d0d7"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvFeatureQuality.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvFeatureQuality.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "0f87035db8e7afc005c274b227a90165b2f220c03367c56033a648647ae9c7ef"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvFeatureQuality.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvFeatureQuality.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "27c0da4a4f08b0e5fcabf3de5dae78a10d8a040c2e1204934e18765107c0e337"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvLandmarkManager.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvLandmarkManager.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "e8107bbe58f333e7e755c862290e7f9416d660509b42bd55738063b63ebb0ddd"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvLandmarkManager.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvLandmarkManager.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "8615ce298db97b07019316ea08ec663d0904b7706b9bc8dc9ff2a1806f44e6a6"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvIdentityGuard.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvIdentityGuard.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "ee02f4976df3df995f676724b7a75a8d59c205bd750382a625c373a17d0ce5e8"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvActiveConsistency.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvActiveConsistency.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "4c38b25d610a539c4c9a6622a1003e50de3c0affbe28b281734262f520a8eef1"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvActiveConsistency.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvActiveConsistency.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "3756f83e41062c2b79aa8f6df07176a4262dc7b5fa9719f6664404db99cac078"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvLandmarkAdapter.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvLandmarkAdapter.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "bec2ea951e19a3e8455dd0392aacfbb0fdef85d00e00a89357c99d6f3feef8ad"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvLandmarkContext.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvLandmarkContext.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "a03757cfdab356321fe386e09f501b13842d04f70806989ad8361a76b254e3c6"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvFeaturePipeline.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvFeaturePipeline.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "47421b66131b08081b2539f381744e358e04258f7013d6303d128657eb9d30cc"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvFeaturePipeline.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvLandmarkAdapter.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "014cad6f93573a2994db7d371d9623df8320987838c58cce81b13b1dabca2b7d"
+    },
+    {
+      "before": "ov_msckf/src/ltv/ltv_observer.h",
+      "after": "ov_msckf/src/ltv/observer/ltv_observer.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "43d2544fe63af118d3db1691e0e1d2423a33584a2b3b9430717e63579a09a1d0"
+    },
+    {
+      "before": "ov_msckf/src/ltv/ltv_observer.cpp",
+      "after": "ov_msckf/src/ltv/observer/ltv_observer.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "413f369c64667fc1e2696e77addf49f237033e01fb96a07220d32e84d73bf368"
+    },
+    {
+      "before": "ov_msckf/src/ltv/ltv_types.h",
+      "after": "ov_msckf/src/ltv/observer/ltv_types.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "27359035ecd0fba18cc6a89051b70e4740013ce271b3058a780961a222dcb136"
+    },
+    {
+      "before": "ov_msckf/src/ltv/ltv_controlled_features.h",
+      "after": "ov_msckf/src/ltv/observer/ltv_controlled_features.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "5ee0215783ec4fcee857cfd0fecd1a352fcedfbf3001088aed3925a5fa1c0c14"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvAdapter.h",
+      "after": "ov_msckf/src/ltv/observer/LtvAdapter.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "b978942f2f404475aece031c4b7bbda6dd3d57eccdcfc96e1cf00bfc9e8afa98"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvAdapter.cpp",
+      "after": "ov_msckf/src/ltv/observer/LtvAdapter.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "1b3b1f15cd06baa2af1c3c4c04c4553d02d528c472ce272a73e187493d7750b3"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvAdapterHardened.cpp",
+      "after": "ov_msckf/src/ltv/observer/LtvAdapterHardened.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "17aaf50f59dd5578a5ce5842506eafcc37cf9f3bde4a5cc9a1dc39234bd63ac9"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvReadiness.h",
+      "after": "ov_msckf/src/ltv/observer/LtvReadiness.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "5a5e2b7f77f736c38bab83ce92656f3d4e5ff5c9c2be504ead7c7286c763ba07"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvReadiness.cpp",
+      "after": "ov_msckf/src/ltv/observer/LtvReadiness.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "4a250b2a0ff71d47e821c7047df9f5500149e556ae5be4dae06bdacb4fe9bf2d"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvBoundedDiagnostics.h",
+      "after": "ov_msckf/src/ltv/diagnostics/LtvBoundedDiagnostics.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "25ccef6fed428d330b0400907222d0f7c38aed5c39352ba0468100b573d0c00e"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvPassiveCache.h",
+      "after": "ov_msckf/src/ltv/diagnostics/LtvPassiveCache.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "e0d93a4a053e23093eda18f3a793320f1afb2a50143990ebfd623937ba440f6f"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvPassiveCache.cpp",
+      "after": "ov_msckf/src/ltv/diagnostics/LtvPassiveCache.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "f69371d5d0678a64d2978c762d5eef52ef993e5dad0b07e5aa62c5a993ce746f"
+    },
+    {
+      "before": "ov_msckf/src/ltv/ValueDiagnostics.h",
+      "after": "ov_msckf/src/ltv/diagnostics/ValueDiagnostics.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "d91bf0f973f3e615d3fa287d9ce6bbf0df9533ddca27a679403cbfcddf1c8918"
+    },
+    {
+      "before": "ov_msckf/src/ltv/ValueDiagnostics.cpp",
+      "after": "ov_msckf/src/ltv/diagnostics/ValueDiagnostics.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "3008c2ef4c21379991748faea885c2cd67661b7ab36cd90e6b727313fea326d2"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvOptions.h",
+      "after": "ov_msckf/src/ltv/config/LtvOptions.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "4164ffc0355b0c9dc65ea47e65d9b5d1842bc0c441b71517527f20323a38832f"
+    },
+    {
+      "before": "ov_msckf/src/update/UpdaterLTV.cpp",
+      "after": "ov_msckf/src/ltv/fusion/UpdaterLTV.cpp",
+      "change": "path_and_includes_only",
+      "body_sha256": "0e4686b796f7809a1cd1829bf98b5361ce89274994a8fe3ff20a63eec8a2e017"
+    },
+    {
+      "before": "ov_msckf/src/update/UpdaterLTV.h",
+      "after": "ov_msckf/src/ltv/fusion/UpdaterLTV.h",
+      "change": "path_and_includes_only",
+      "body_sha256": "b0911d4539d4b319408c082828c03cd7efd5ba1fd823ebb561c7f291e0d10ab1"
+    }
+  ],
+  "protected_unchanged": [
+    "ov_core",
+    "ov_init",
+    "ov_msckf/src/state",
+    "config",
+    "ov_data"
+  ]
+}

@@ -1,4 +1,4 @@
-#include "ltv/LtvAdapter.h"
+#include "ltv/observer/LtvAdapter.h"
 #include <iostream>
 #include <stdexcept>
 using namespace ov_msckf;

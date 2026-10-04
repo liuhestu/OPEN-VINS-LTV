@@ -1,4 +1,4 @@
-#include "ltv/ltv_observer.h"
+#include "ltv/observer/ltv_observer.h"
 #include <iostream>
 int main() {
   ltv::LtvObserver o;

@@ -1,7 +1,7 @@
 // TEST ONLY: cached after-lifecycle anchor, not a production state setter.
-#include "ltv/LtvActiveConsistency.h"
-#include "ltv/LtvFeaturePipeline.h"
-#include "ltv/ltv_observer.h"
+#include "ltv/landmark_adapter/LtvActiveConsistency.h"
+#include "ltv/landmark_adapter/LtvFeaturePipeline.h"
+#include "ltv/observer/ltv_observer.h"
 #include <fstream>
 #include <iostream>
 #include <nlohmann/json.hpp>

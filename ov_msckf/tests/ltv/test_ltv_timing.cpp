@@ -1,4 +1,4 @@
-#include "ltv/LtvAdapter.h"
+#include "ltv/observer/LtvAdapter.h"
 #include "native_test_support.h"
 using namespace ov_msckf;
 void feed(LtvAdapter &a, double begin, double end, double step = 0.005) {

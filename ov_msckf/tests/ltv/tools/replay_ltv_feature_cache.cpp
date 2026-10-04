@@ -1,4 +1,4 @@
-#include "ltv/LtvPassiveCache.h"
+#include "ltv/diagnostics/LtvPassiveCache.h"
 #include <fstream>
 #include <iostream>
 #include <iterator>

@@ -1,7 +1,7 @@
 #define main fixture_main
 #include "../../../ov_msckf/tests/ltv/test_ltv_adapter_hardened.cpp"
 #undef main
-#include "ltv/LtvPassiveCache.h"
+#include "ltv/diagnostics/LtvPassiveCache.h"
 #include <cstdint>
 int main(int argc,char **argv){try{
  if(argc!=2)throw std::runtime_error("unique cache output path required");

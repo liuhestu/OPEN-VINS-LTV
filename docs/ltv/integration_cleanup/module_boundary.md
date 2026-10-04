@@ -1,5 +1,9 @@
 # Frozen Passive LTV module boundary
 
+First-stage interface record (df5b67d). The subsequent physical layout and
+OpenVINS input cleanup are documented in [the current source README](../../../ov_msckf/src/ltv/README.md)
+and [second-stage verification](layout_and_openvins_input/validation.md).
+
 Base: `f3e055ab2dc185d3a5910c9fa60c505dd912671d`.
 This branch reorganizes the existing R4 implementation. It does not change its
 algorithms, parameters, C02 thresholds, working domain or acceptance status.

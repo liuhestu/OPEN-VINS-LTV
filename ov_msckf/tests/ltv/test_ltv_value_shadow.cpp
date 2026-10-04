@@ -1,4 +1,4 @@
-#include "ltv/ValueDiagnostics.h"
+#include "ltv/diagnostics/ValueDiagnostics.h"
 #include "native_test_support.h"
 int main() {
   std::mt19937 generator(42);

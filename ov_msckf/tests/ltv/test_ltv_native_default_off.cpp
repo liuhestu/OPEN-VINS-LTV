@@ -1,4 +1,5 @@
-// Deterministic native main-estimator regression. LTV remains entirely disabled.
+// Deterministic native main-estimator regression: default-off or Passive C02.
+// Passive mode also writes the lossless input/observer cache for exact comparison.
 // Simulation initializes the main filter with GT, as upstream run_simulation does.
 #include "core/VioManager.h"
 #include "sim/Simulator.h"
@@ -59,6 +60,10 @@ public:
 class RegressionManager : public VioManager {
 public:
   using VioManager::VioManager;
+  void finish_cache() {
+    if (passive_cache)
+      passive_cache->finish();
+  }
   std::string state_digest() {
     Digest h;
     h.scalar(state->_timestamp);
@@ -85,14 +90,28 @@ public:
   }
 };
 int main(int argc, char **argv) {
-  if (argc != 3)
+  if (argc != 3 && argc != 4)
     return 2;
+  const bool passive = argc == 4 && std::string(argv[3]) == "--passive-c02";
+  if (argc == 4 && !passive)
+    return 2;
+  const int frame_limit = passive ? 80 : 40;
   auto parser = std::make_shared<ov_core::YamlParser>(argv[1]);
   ov_core::Printer::setPrintLevel("SILENT");
   VioManagerOptions params;
   params.print_and_load(parser);
   params.print_and_load_simulation(parser);
-  if (params.ltv_options.enabled || params.ltv_options.enable_gravity || params.ltv_options.enable_velocity)
+  const auto &o = params.ltv_options;
+  if (o.enable_gravity || o.enable_velocity)
+    throw std::runtime_error("regression forbids G/V injection");
+  if (passive) {
+    if (!o.enabled || !o.feature_readiness_enabled || !o.passive_hardening_enabled || !o.hardening_initial_warmup ||
+        !o.hardening_preserve_constrained_state || !o.hardening_ready_soft_grace || !o.active_consistency.enabled ||
+        o.active_consistency.max_history_residual_rad != .02 || o.active_consistency.max_holdout_residual_rad != .02 ||
+        o.feature_seed_source != "STEREO_THEN_TEMPORAL")
+      throw std::runtime_error("passive regression requires frozen C02");
+    params.ltv_options.passive_cache_path = std::string(argv[2]) + ".ltvcache";
+  } else if (o.enabled)
     throw std::runtime_error("default-off regression requires LTV disabled");
   params.num_opencv_threads = 0;
   params.use_multi_threading_pubs = false;
@@ -111,7 +130,7 @@ int main(int argc, char **argv) {
   std::vector<int> cameras;
   std::vector<std::vector<std::pair<size_t, Eigen::VectorXf>>> features;
   int frames = 0, imu_count = 0;
-  while (sim->ok() && frames < 40) {
+  while (sim->ok() && frames < frame_limit) {
     ov_core::ImuData imu;
     if (sim->get_next_imu(imu.timestamp, imu.wm, imu.am)) {
       sys.feed_measurement_imu(imu);
@@ -130,7 +149,8 @@ int main(int argc, char **argv) {
       features = std::move(next_features);
     }
   }
-  if (frames != 40 || imu_count < 40 || !StateHelper::get_full_covariance(sys.get_state()).allFinite())
+  if (frames != frame_limit || imu_count < 40 || !StateHelper::get_full_covariance(sys.get_state()).allFinite())
     throw std::runtime_error("incomplete/nonfinite native regression");
+  sys.finish_cache();
   output << "frames=" << frames << " imu=" << imu_count << '\n';
 }

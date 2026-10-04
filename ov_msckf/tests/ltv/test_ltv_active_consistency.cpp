@@ -1,5 +1,5 @@
-#include "ltv/LtvActiveConsistency.h"
-#include "ltv/LtvFeaturePipeline.h"
+#include "ltv/landmark_adapter/LtvActiveConsistency.h"
+#include "ltv/landmark_adapter/LtvFeaturePipeline.h"
 #include <Eigen/Geometry>
 #include <iostream>
 #include <stdexcept>

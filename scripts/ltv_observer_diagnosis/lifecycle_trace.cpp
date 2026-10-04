@@ -1,5 +1,5 @@
 // Optional read-only interception of the actual core's feature selection, for diagnosis only.
-#include "ltv/ltv_observer.h"
+#include "ltv/observer/ltv_observer.h"
 #include <cstdio>
 #include <cstdlib>
 #include <dlfcn.h>

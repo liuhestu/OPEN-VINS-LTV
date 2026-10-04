@@ -1,4 +1,4 @@
-#include "ltv/LtvBoundedDiagnostics.h"
+#include "ltv/diagnostics/LtvBoundedDiagnostics.h"
 // Deterministic ASL input adapter: no GT enters the estimator, no ROS transport drops.
 #include "LtvEventReceipt.h"
 #include "core/VioManager.h"

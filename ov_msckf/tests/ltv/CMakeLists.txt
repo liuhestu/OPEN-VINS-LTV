@@ -1,5 +1,5 @@
 # Independent core archive for parity/alias tests; production links its own observer source.
-add_library(ltv_phase0_core STATIC ../../src/ltv/ltv_observer.cpp)
+add_library(ltv_phase0_core STATIC ../../src/ltv/observer/ltv_observer.cpp)
 ament_target_dependencies(ltv_phase0_core ov_core)
 target_include_directories(ltv_phase0_core PUBLIC ../../src)
 

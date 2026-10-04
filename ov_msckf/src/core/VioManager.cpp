@@ -37,6 +37,7 @@
 #include "init/InertialInitializer.h"
 #include <iomanip>
 
+#include "ltv/observer/LtvOpenVinsInput.h"
 #include "state/Propagator.h"
 #include "state/State.h"
 #include "state/StateHelper.h"
@@ -442,76 +443,11 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   MeasurementBlock ltv_block;
   if (ltv_adapter) {
     ltv_diagnostics = LtvDiagnostics();
-    LtvCalibration c;
-    c.Da = State::Dm(state->_options.imu_model, state->_calib_imu_da->value());
-    c.Dw = State::Dm(state->_options.imu_model, state->_calib_imu_dw->value());
-    c.Tg = State::Tg(state->_calib_imu_tg->value());
-    c.R_ACCtoIMU = state->_calib_imu_ACCtoIMU->Rot();
-    c.R_GYROtoIMU = state->_calib_imu_GYROtoIMU->Rot();
-    c.R_BC = state->_calib_IMUtoCAM.at(0)->Rot().transpose();
-    c.p_BC = -c.R_BC * state->_calib_IMUtoCAM.at(0)->pos();
-    c.offset = state->_calib_dt_CAMtoIMU->value()(0);
-    ltv::FeaturePipelineContext feature_context;
-    if (params.ltv_options.feature_readiness_enabled) {
-      feature_context.version = ltv_state_version;
-      feature_context.time = message.timestamp + c.offset;
-      std::vector<std::shared_ptr<ov_type::Type>> pose_order;
-      bool execution_pose_found = false;
-      for (const auto &entry : state->_clones_IMU) {
-        ltv::SeedPose pose;
-        pose.t = entry.first + c.offset;
-        pose.R_WB = entry.second->Rot().transpose();
-        pose.p_WB = entry.second->pos();
-        if (entry.first == message.timestamp) {
-          feature_context.execution_pose_index = feature_context.poses.size();
-          execution_pose_found = true;
-        }
-        feature_context.poses.push_back(pose);
-        pose_order.push_back(entry.second);
-      }
-      if (!execution_pose_found)
-        throw std::runtime_error("Feature context lacks current execution clone");
-      // JPL's left delta on R_BW is exp(-[dtheta]) R_BW. Thus R_WB
-      // has the right positive body delta used by the geometric Jacobian.
-      // PoseJPL position error is additive in world coordinates. No sign flip
-      // or block-diagonal approximation: retain all clone cross-covariances.
-      feature_context.pose_covariance = StateHelper::get_marginal_covariance(state, pose_order);
-      for (int camera = 0; camera < state->_options.num_cameras; ++camera) {
-        ltv::SeedCamera seed_camera;
-        const auto &extrinsic = state->_calib_IMUtoCAM.at(camera);
-        seed_camera.R_BC = extrinsic->Rot().transpose();
-        seed_camera.p_BC = -seed_camera.R_BC * extrinsic->pos();
-        feature_context.cameras.push_back(seed_camera);
-      }
-    }
-    std::vector<LtvBearing> bearings;
-    for (const auto &feature : trackFEATS->get_feature_database()->features_containing(message.timestamp)) {
-      if (params.ltv_options.feature_readiness_enabled) {
-        for (int camera = 0; camera < state->_options.num_cameras; ++camera) {
-          const auto history = feature->timestamps.find(camera);
-          if (history == feature->timestamps.end())
-            continue;
-          const auto current = std::find(history->second.begin(), history->second.end(), message.timestamp);
-          if (current == history->second.end())
-            continue;
-          const auto uv = feature->uvs_norm.at(camera).at(std::distance(history->second.begin(), current));
-          ltv::HistoryObservation observation;
-          observation.feature_id = feature->featid;
-          observation.camera_id = camera;
-          observation.bearing = Eigen::Vector3d(uv(0), uv(1), 1);
-          feature_context.observations.push_back(observation);
-        }
-      }
-      const auto times = feature->timestamps.find(0);
-      if (times == feature->timestamps.end())
-        continue;
-      auto it = std::find(times->second.begin(), times->second.end(), message.timestamp);
-      if (it == times->second.end())
-        continue;
-      const auto uv = feature->uvs_norm.at(0).at(std::distance(times->second.begin(), it));
-      bearings.push_back({feature->featid, Eigen::Vector3d(uv(0), uv(1), 1)});
-    }
-    std::sort(bearings.begin(), bearings.end(), [](const LtvBearing &a, const LtvBearing &b) { return a.id < b.id; });
+    const auto input = makeLtvOpenVinsInput(state, trackFEATS->get_feature_database()->features_containing(message.timestamp),
+                                           message.timestamp, ltv_state_version, params.ltv_options.feature_readiness_enabled);
+    const auto &c = input.calibration;
+    const auto &feature_context = input.feature_context;
+    const auto &bearings = input.bearings;
     ltv_frame = ltv_adapter->process(message.timestamp, bearings, c, ltv_ba, ltv_bg, ltv_state_version,
                                      params.ltv_options.feature_readiness_enabled ? &feature_context : nullptr);
     if (ltv_frame.available && !ltv_adapter->claim(ltv_frame))

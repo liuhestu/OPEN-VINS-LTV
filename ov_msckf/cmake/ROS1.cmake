@@ -75,20 +75,9 @@ endif ()
 # Make the shared library
 ##################################################
 
+include(${CMAKE_CURRENT_LIST_DIR}/../src/ltv/sources.cmake)
 list(APPEND LIBRARY_SOURCES
-        src/ltv/ltv_observer.cpp
-        src/ltv/LtvAdapter.cpp
-    src/ltv/LtvAdapterHardened.cpp
-    src/ltv/LtvReadiness.cpp
-        src/ltv/LtvPassiveCache.cpp
-        src/ltv/LtvFeatureHistory.cpp
-        src/ltv/LtvFeatureQuality.cpp
-        src/ltv/LtvLandmarkManager.cpp
-        src/ltv/LtvSeedEstimator.cpp
-        src/ltv/LtvSeedUncertainty.cpp
-        src/ltv/LtvFeaturePipeline.cpp
-        src/ltv/LtvActiveConsistency.cpp
-        src/ltv/ValueDiagnostics.cpp
+        ${LTV_PRODUCTION_SOURCES}
         src/dummy.cpp
         src/sim/Simulator.cpp
         src/state/State.cpp
@@ -97,7 +86,6 @@ list(APPEND LIBRARY_SOURCES
         src/core/VioManager.cpp
         src/core/VioManagerHelper.cpp
         src/update/UpdaterHelper.cpp
-        src/update/UpdaterLTV.cpp
         src/update/UpdaterMSCKF.cpp
         src/update/UpdaterSLAM.cpp
         src/update/UpdaterZeroVelocity.cpp

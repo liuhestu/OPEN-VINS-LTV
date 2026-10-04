@@ -1,5 +1,5 @@
 // Deterministic noise-free diagnosis, linked to the actual unchanged observer.
-#include "ltv/ltv_observer.h"
+#include "ltv/observer/ltv_observer.h"
 #include <Eigen/Geometry>
 #include <cmath>
 #include <fstream>

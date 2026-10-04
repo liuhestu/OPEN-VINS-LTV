@@ -1,0 +1,57 @@
+{
+  "baseline_ref": "f3e055ab2dc185d3a5910c9fa60c505dd912671d",
+  "parent_ref": "df5b67d11d6f32c0b6d137db36e975d2cb19ca67",
+  "native_build": "ENABLE_ROS=OFF Release GCC 13.3 Eigen 3.4 OpenCV 4.6 Boost 1.83 Ceres 2.2",
+  "tests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "native_main_default_off": {
+    "status": "PASS_EXACT_FULL_MAIN_STATE_AND_COVARIANCE",
+    "sha256": "dd388151369850961ba8e24ad8fb9bc279d646c0e8bed7c13592414dc22cece7",
+    "counts": "frames=40 imu=1639"
+  },
+  "native_passive_c02": {
+    "status": "PASS_EXACT_FULL_MAIN_STATE_AND_COVARIANCE",
+    "sha256": "581875936c78199776fd8b0934419be9f1a665d76e7ef61fe75a49ed94293459",
+    "counts": "frames=80 imu=3239",
+    "input_config_changes_from_rpng_sim": {
+      "sim_traj_path": "absolute same checked-in trajectory",
+      "calib_cam_extrinsics": false,
+      "calib_cam_intrinsics": false,
+      "calib_cam_timeoffset": false,
+      "calib_imu_intrinsics": false,
+      "calib_imu_g_sensitivity": false,
+      "ltv_enabled": true,
+      "ltv_feature_readiness_enabled": true,
+      "ltv_feature_seed_source": "STEREO_THEN_TEMPORAL",
+      "ltv_passive_hardening_enabled": true,
+      "ltv_hardening_initial_warmup": true,
+      "ltv_hardening_preserve_constrained_state": true,
+      "ltv_hardening_ready_soft_grace": true,
+      "ltv_active_consistency_enabled": true,
+      "ltv_active_consistency_max_history_residual_rad": 0.02,
+      "ltv_active_consistency_max_holdout_residual_rad": 0.02,
+      "ltv_enable_gravity": false,
+      "ltv_enable_velocity": false
+    }
+  },
+  "production_config_changes": false,
+  "fusion_enabled": false,
+  "real_euroc_status": "NOT_RUN_DATA_UNAVAILABLE",
+  "ros_status": "NOT_RUN_ROS_UNAVAILABLE",
+  "files": {
+    "../build-native/libov_msckf_lib.so": {
+      "sha256": "4d878d47e85c7fc1ad85590c351439aeb1b7d2dfb9e85e9ee4d0c9a97e7a2235"
+    },
+    "../build-native-baseline/libov_msckf_lib.so": {
+      "sha256": "e8bcc14b191200389f6759324f385f21a64000d38cb8caa98abccb0a9f2fca78"
+    },
+    "../native-passive-config/estimator_config.yaml": {
+      "sha256": "461ac1eeff2bb37c44c5d2a73180b4e5edb06a9f9bfa9daa1ac60d21b390f260"
+    },
+    "../native-config/estimator_config.yaml": {
+      "sha256": "a59a9be7c5b90ed14eb91d654614d7dc5ecc52cd225c6a2b193c6c9fdef9154b"
+    }
+  }
+}

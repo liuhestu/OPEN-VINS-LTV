@@ -1,4 +1,4 @@
-#include "ltv/LtvFeaturePipeline.h"
+#include "ltv/landmark_adapter/LtvFeaturePipeline.h"
 #include <iostream>
 #include <stdexcept>
 using namespace ltv;

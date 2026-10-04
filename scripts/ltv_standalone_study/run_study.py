@@ -18,7 +18,7 @@ def write(path,obj):
     path.parent.mkdir(parents=True,exist_ok=True); tmp=path.with_suffix('.tmp'); tmp.write_text(json.dumps(obj,indent=2,allow_nan=False)); tmp.replace(path)
 def code_identity():
     names=['truth_model.py','continuous_reference.py','split_reference.py','core.py','geometry_seed.py','experiment.py','evaluate.py','core_runner.cpp']
-    files=[HERE/n for n in names]+list((HERE/'experimental_core').glob('*'))+[ROOT/'ov_msckf/src/ltv'/n for n in ['ltv_observer.h','ltv_observer.cpp','ltv_types.h']]+[ROOT/'ov_core/src/utils/quat_ops.h']
+    files=[HERE/n for n in names]+list((HERE/'experimental_core').glob('*'))+[ROOT/'ov_msckf/src/ltv/observer'/n for n in ['ltv_observer.h','ltv_observer.cpp','ltv_types.h','ltv_controlled_features.h']]+[ROOT/'ov_core/src/utils/quat_ops.h']
     return {str(p.relative_to(ROOT)):digest(p.read_bytes()) for p in files}
 def frozen_check():
     freeze=json.loads((DOC/'evidence/frozen_manifest.json').read_text())
@@ -35,13 +35,13 @@ def freeze(out):
     write(DOC/'protocol.json',protocol)
     patch=''
     for name in ['ltv_observer.h','ltv_observer.cpp','ltv_types.h']:
-        patch+=''.join(difflib.unified_diff((ROOT/'ov_msckf/src/ltv'/name).read_text().splitlines(True),(HERE/'experimental_core'/name).read_text().splitlines(True),fromfile='production/'+name,tofile='experimental_core/'+name,n=0))
+        patch+=''.join(difflib.unified_diff((ROOT/'ov_msckf/src/ltv/observer'/name).read_text().splitlines(True),(HERE/'experimental_core'/name).read_text().splitlines(True),fromfile='production/'+name,tofile='experimental_core/'+name,n=0))
     (HERE/'experimental_core.patch').write_text(patch)
     return check
 
 def build(out):
-    for kind,path in [('core',ROOT/'ov_msckf/src/ltv'),('experimental',HERE/'experimental_core')]:
-        cmd=['g++','-std=c++14','-O2','-DNDEBUG','-shared','-fPIC','-I'+str(path),'-I'+str(ROOT/'ov_core/src'),'-I/usr/include/eigen3',str(path/'ltv_observer.cpp'),str(HERE/'core_runner.cpp'),'-o',str(out/(kind+'.so'))]
+    for kind,path in [('core',ROOT/'ov_msckf/src/ltv/observer'),('experimental',HERE/'experimental_core')]:
+        cmd=['g++','-std=c++14','-O2','-DNDEBUG','-shared','-fPIC','-I'+str(path),'-I'+str(ROOT/'ov_msckf/src'),'-I'+str(ROOT/'ov_core/src'),'-I/usr/include/eigen3',str(path/'ltv_observer.cpp'),str(HERE/'core_runner.cpp'),'-o',str(out/(kind+'.so'))]
         if kind=='experimental': cmd.insert(1,'-DEXPERIMENTAL')
         result=subprocess.run(cmd,capture_output=True,text=True)
         write(out/(kind+'_build.json'),{'command':cmd,'exit_code':result.returncode,'stdout':result.stdout,'stderr':result.stderr})

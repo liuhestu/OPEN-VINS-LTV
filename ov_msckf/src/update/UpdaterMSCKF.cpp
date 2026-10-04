@@ -20,7 +20,7 @@
  */
 
 #include "UpdaterMSCKF.h"
-#include "UpdaterLTV.h"
+#include "ltv/fusion/UpdaterLTV.h"
 
 #include "UpdaterHelper.h"
 

@@ -1,0 +1,46 @@
+{
+  "baseline": "f3e055ab2dc185d3a5910c9fa60c505dd912671d",
+  "input_sha": "3be7c10d57aca4fc4fb274a98c55555599b9624a88f6131f0abf724bf799904e",
+  "comparison": "exact_full_state_P_slots_and_non_wallclock_event_JSON",
+  "excluded_fields": [
+    "compute_time_ms"
+  ],
+  "process_isolation": "spawned_process_per_library_no_shared_SONAME_reuse",
+  "libraries": {
+    "before": "2092c84dd9a1c156e6a55cfd08cfd52c82fed4906d9779b33ba5f2fb825f288c",
+    "after": "876d823c267e50b14526e06fe1b51b846aed48a3a0d8987d79c41edb5a89c196"
+  },
+  "modes": [
+    {
+      "mode": 0,
+      "frames": 201,
+      "imu_samples": 2001,
+      "mean_writes": 323,
+      "consistency_skips": 0,
+      "consistency_retires": 0,
+      "numeric_sha": "9ff7fe3f96c8d6e148cf6a843c7f9299eb5b211b5cd11fc39fb12f9b345bf6f5",
+      "status": "PASS_EXACT"
+    },
+    {
+      "mode": 4,
+      "frames": 201,
+      "imu_samples": 2001,
+      "mean_writes": 323,
+      "consistency_skips": 0,
+      "consistency_retires": 0,
+      "numeric_sha": "becf626019182a6d7a836acda6145ea0fd3c44140e28250d34935b7d1c353059",
+      "status": "PASS_EXACT"
+    },
+    {
+      "mode": 5,
+      "frames": 201,
+      "imu_samples": 2001,
+      "mean_writes": 323,
+      "consistency_skips": 29,
+      "consistency_retires": 20,
+      "numeric_sha": "0e796d7d0e06b0657ee7853bcb15cb30208dacec99f920e27bb347f2bc9f986a",
+      "status": "PASS_EXACT"
+    }
+  ],
+  "status": "PASS_EXACT_TESTED_INPUT"
+}

@@ -1,5 +1,9 @@
 // Standalone C ABI: Python owns input generation and files; the actual core owns estimation.
+#ifdef EXPERIMENTAL
 #include "ltv_observer.h"
+#else
+#include "ltv/observer/ltv_observer.h"
+#endif
 #include <Eigen/Geometry>
 #include <algorithm>
 #ifdef EXPERIMENTAL

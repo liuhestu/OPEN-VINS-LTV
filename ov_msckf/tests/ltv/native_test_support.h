@@ -2,7 +2,7 @@
 #include "state/Propagator.h"
 #include "state/State.h"
 #include "state/StateHelper.h"
-#include "update/UpdaterLTV.h"
+#include "ltv/fusion/UpdaterLTV.h"
 #include <iomanip>
 #include <iostream>
 #include <random>

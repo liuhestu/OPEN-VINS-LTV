@@ -1,5 +1,5 @@
-#include "ltv/LtvLandmarkManager.h"
-#include "ltv/ltv_observer.h"
+#include "ltv/landmark_adapter/LtvLandmarkManager.h"
+#include "ltv/observer/ltv_observer.h"
 #include <iostream>
 #include <stdexcept>
 using namespace ltv;

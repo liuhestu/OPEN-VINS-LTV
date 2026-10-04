@@ -1,6 +1,6 @@
 // Synthetic harness ABI. All estimation executes deployed C++ modules.
-#include "LtvFeaturePipeline.h"
-#include "ltv_observer.h"
+#include "ltv/landmark_adapter/LtvFeaturePipeline.h"
+#include "ltv/observer/ltv_observer.h"
 #include <iomanip>
 #include <memory>
 #include <set>
