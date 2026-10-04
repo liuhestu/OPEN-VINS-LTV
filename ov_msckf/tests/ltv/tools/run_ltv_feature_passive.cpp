@@ -269,7 +269,11 @@ public:
       number(out, f.velocity_correction_rate);
       out << ",\"gravity_correction_rate\":";
       number(out, f.gravity_correction_rate);
-      out << ",\"camera_substeps\":" << f.snapshot.camera_substeps << ",\"corrected_ids\":";
+      out << ",\"ready_soft_grace_enabled\":" << f.health.ready_soft_grace_enabled << ",\"grace_G\":" << f.health.grace_G
+          << ",\"grace_V\":" << f.health.grace_V << ",\"soft_failure_frames_G\":" << f.health.soft_failure_frames_G
+          << ",\"soft_failure_frames_V\":" << f.health.soft_failure_frames_V << ",\"last_strict_good_G\":" << f.health.last_strict_good_G
+          << ",\"last_strict_good_V\":" << f.health.last_strict_good_V;
+      out << ",\"corrected_ids\":";
       std::vector<size_t> corrected_ids;
       if (f.available && f.raw_current && f.snapshot.camera_substeps > 0)
         for (const auto &observation : ltv_adapter->feature_frame().management.observations)

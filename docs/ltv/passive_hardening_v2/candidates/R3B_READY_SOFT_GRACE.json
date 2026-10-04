@@ -1,0 +1,36 @@
+{
+  "name": "R3B_READY_SOFT_GRACE",
+  "round": 3,
+  "candidate_within_round": 2,
+  "development": true,
+  "parent": "R3_PRESERVE_CONSTRAINED_SHARED_STATE_history_compat",
+  "mechanism": "Availability exit hysteresis after confirmed ready; explicit new policy, not a compatibility bug fix",
+  "source_evidence_attempts": [
+    227,
+    231,
+    232,
+    235,
+    236
+  ],
+  "soft_failure_max_frames": 2,
+  "soft_failure_max_since_last_good_seconds": 0.1,
+  "soft_failure_max_threshold_factor": 2.0,
+  "initial_and_reentry_confirm_frames": 20,
+  "min_current_and_mature_features": 15,
+  "same_hard_conditions": [
+    "current finite causal state",
+    "geometry and mature pool",
+    "valid finite nonnegative correction diagnostics",
+    "gravity norm8\u201311.5",
+    "min20 actual corrections",
+    "existing physical/time fault contract"
+  ],
+  "branch_rules": "G uses prediction angle and eta correction rate; V uses prediction angle and both correction rates. Strict good refreshes last_good; grace never refreshes it. Any hard failure, larger soft excursion, third soft packet or elapsed beyond0.10 immediately revokes and requires20strict-good frames again.",
+  "default_off": true,
+  "core_mean_P_seed_gain_changes": false,
+  "scientific_acceptance_changes": false,
+  "new_confirmation_inputs_opened": false,
+  "known_risk": "Alternating good and soft failures may extend readiness; all held outputs and severe errors must be reported. No claim two-frame grace will attain5s.",
+  "stop_rule": "One fixed grace setting, no sweep of frame count/time/factor. Assess development3real conditions plus negative/recovery behavior before any final freeze.",
+  "floating_time_boundary": "deadline=std::nextafter(last_strict_good + 0.10, +infinity); time<=deadline; next representable value above deadline rejected; one ULP predeclared, no post-hoc tolerance"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "receipts": 200,
+  "nonempty_correction_events": 85,
+  "no_current_correction_events": 115,
+  "last_actual_corrections_per_epoch": {
+    "1": 85
+  },
+  "identical_duplicate_keys": {},
+  "limitation": "IDs describe actual accepted camera correction input, not nonzero gain or accuracy for each ray; no GT used."
+}

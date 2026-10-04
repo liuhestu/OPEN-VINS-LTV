@@ -13,7 +13,8 @@ from legacy import artifacts, passive_outputs
 from check_hardened_log import check as check_hardened
 
 HARDENING_FLAGS = ('ltv_passive_hardening_enabled', 'ltv_hardening_initial_warmup',
-                   'ltv_hardening_health_readiness', 'ltv_hardening_preserve_constrained_state')
+                   'ltv_hardening_health_readiness', 'ltv_hardening_preserve_constrained_state',
+                   'ltv_hardening_ready_soft_grace')
 
 
 def load(path):
@@ -32,6 +33,18 @@ def preflight(name, sequence, mode, doc=None, output=None):
     if not freeze_path.is_file():
         raise RuntimeError('Main-authored frozen_config.json required before confirmation')
     frozen = load(freeze_path)
+    # Scientific contract and executable scripts are part of the frozen identity.
+    # Reporting prose may evolve, but estimator/evaluator code cannot drift.
+    for name in ('protocol', 'acceptance'):
+        if artifacts.sha(doc / (name + '.json')) != frozen[name + '_sha']:
+            raise ValueError('Frozen scientific contract changed: ' + name)
+    source_manifest = Path(frozen['source_manifest'])
+    if artifacts.sha(source_manifest) != frozen['source_manifest_sha']:
+        raise ValueError('Frozen source manifest changed')
+    for relative, digest in load(source_manifest).items():
+        if relative.startswith(('ov_core/', 'ov_init/', 'ov_msckf/', 'scripts/ltv_passive_hardening/', 'scripts/ltv_feature_passive/', 'scripts/ltv_standalone_study/')):
+            if artifacts.sha(budget.ROOT / relative) != digest:
+                raise ValueError('Frozen execution source changed: ' + relative)
     runtime = Path(frozen['runtime'])
     base = Path(frozen['base_config'])
     if not runtime.is_absolute() or not base.is_absolute() or not frozen.get('revision'):

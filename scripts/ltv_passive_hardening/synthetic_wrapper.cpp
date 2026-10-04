@@ -13,7 +13,8 @@ ov_msckf::LtvOptions options(int hardened, int source, double sigma) {
   o.enabled = o.observer.enable = o.feature_readiness_enabled = true;
   o.passive_hardening_enabled = hardened;
   o.hardening_initial_warmup = hardened >= 2;
-  o.hardening_preserve_constrained_state = hardened == 3;
+  o.hardening_preserve_constrained_state = hardened >= 3;
+  o.hardening_ready_soft_grace = hardened == 4;
   o.feature_seed_source = source == 0 ? "TEMPORAL_POSE" : (source == 1 ? "STEREO" : "STEREO_THEN_TEMPORAL");
   o.feature_bearing_sigma_rad = sigma;
   return o;
@@ -57,7 +58,7 @@ template <class T> void ids(std::ostream &out, const T &list) {
 extern "C" {
 void *ph_create(int hardened, int source, double sigma) {
   try {
-    if (hardened < 0 || hardened > 3 || source < 0 || source > 2)
+    if (hardened < 0 || hardened > 4 || source < 0 || source > 2)
       return nullptr;
     return new Harness(hardened, source, sigma);
   } catch (...) {
@@ -164,6 +165,10 @@ int ph_frame(void *ptr, int64_t camera_ns, double time, int count, const int64_t
         if (observation.camera_id == 0)
           corrected_ids.insert(observation.feature_id);
     ids(out, corrected_ids);
+    out << ",\"ready_soft_grace_enabled\":" << f.health.ready_soft_grace_enabled << ",\"grace_G\":" << f.health.grace_G
+        << ",\"grace_V\":" << f.health.grace_V << ",\"soft_failure_frames_G\":" << f.health.soft_failure_frames_G
+        << ",\"soft_failure_frames_V\":" << f.health.soft_failure_frames_V << ",\"last_strict_good_G\":" << f.health.last_strict_good_G
+        << ",\"last_strict_good_V\":" << f.health.last_strict_good_V;
     out << ",\"raw_v\":";
     if (raw)
       vector(out, f.snapshot.velocity_body);

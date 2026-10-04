@@ -1,4 +1,5 @@
 #include "ltv/LtvReadiness.h"
+#include <cmath>
 #include <iostream>
 #include <limits>
 #include <stdexcept>
@@ -335,6 +336,96 @@ int main() {
     stale_thin.observer_time = 0;
     o = stale_preserved.update(stale_thin);
     require(o.request_dormant && !o.observer_valid, "thin count cannot preserve stale observer");
+    LtvReadinessConfig grace_config = warm_config;
+    grace_config.ready_soft_grace = true;
+    auto primed = [&](double origin) {
+      LtvReadiness policy(grace_config);
+      auto i = healthy(origin);
+      i.bootstrap_source = "BOUNDED_INITIAL_ZERO_WARMUP";
+      policy.update(i);
+      policy.acknowledgeBootstrap(i);
+      for (int k = 1; k <= 20; ++k) {
+        auto result = policy.update(healthy(origin + k * .05));
+        require(result.ready_G == (k == 20), "grace preserves original twenty-frame startup confirmation");
+      }
+      return policy;
+    };
+    for (double origin : {0.0, 1.4e9}) {
+      auto base = primed(origin);
+      const double last = origin + 1.;
+      const double deadline = std::nextafter(last + .10, std::numeric_limits<double>::infinity());
+      auto soft = healthy(last + .05);
+      soft.prediction_angle_p95_rad = .04;
+      auto bounded_time = base;
+      o = bounded_time.update(soft);
+      require(o.ready_G && o.ready_V && o.grace_G && o.grace_V && o.soft_failure_frames_G == 1 && o.last_strict_good_G == last,
+              "first soft event retains but never refreshes last strict good");
+      soft.time = soft.observer_time = deadline;
+      o = bounded_time.update(soft);
+      require(o.grace_G && o.soft_failure_frames_G == 2, "predeclared upward one-ULP deadline included");
+      auto beyond = base;
+      soft.time = soft.observer_time = std::nextafter(deadline, std::numeric_limits<double>::infinity());
+      o = beyond.update(soft);
+      require(!o.ready_G && !o.ready_V, "next representable time beyond frozen deadline excluded");
+      auto packets = base;
+      for (int k = 1; k <= 3; ++k) {
+        soft.time = soft.observer_time = last + .02 * k;
+        o = packets.update(soft);
+        require(o.ready_G == (k < 3), "third soft event revokes even within sixty milliseconds");
+      }
+      for (int k = 1; k <= 20; ++k) {
+        o = packets.update(healthy(last + .1 + k * .05));
+        require(o.ready_G == (k == 20), "revoked grace needs twenty new strict-good events");
+      }
+    }
+    auto independent_grace = primed(0);
+    auto v_only = healthy(1.05);
+    v_only.velocity_correction_rate = .75;
+    o = independent_grace.update(v_only);
+    require(o.ready_G && !o.grace_G && o.ready_V && o.grace_V && o.last_strict_good_G == 1.05 && o.last_strict_good_V == 1.,
+            "G strict good and V soft grace maintain independent clocks");
+    v_only.time = v_only.observer_time = 1.1;
+    v_only.velocity_correction_rate = 1.01;
+    o = independent_grace.update(v_only);
+    require(o.ready_G && !o.ready_V && o.soft_failure_frames_V == 0, "V excess cannot revoke independent healthy G");
+    v_only = healthy(1.15);
+    v_only.gravity_correction_rate = 1.5;
+    o = independent_grace.update(v_only);
+    require(o.ready_G && o.grace_G && !o.ready_V, "G hold cannot resurrect already revoked V");
+    for (int which = 0; which < 7; ++which) {
+      auto hard_exit = primed(0);
+      auto bad = healthy(1.05);
+      bad.prediction_angle_p95_rad = .03;
+      hard_exit.update(bad);
+      bad.time = bad.observer_time = 1.1;
+      if (which == 0)
+        bad.observed_features = 14;
+      if (which == 1)
+        bad.mature_observed_features = 14;
+      if (which == 2)
+        bad.correction_diagnostics_valid = false;
+      if (which == 3)
+        bad.gravity.setZero();
+      if (which == 4)
+        bad.velocity_correction_rate = -1;
+      if (which == 5)
+        bad.physical_input_fault = true;
+      if (which == 6)
+        bad.observer_time = 1.0;
+      o = hard_exit.update(bad);
+      require(!o.ready_G && !o.ready_V && !o.grace_G && !o.grace_V && o.soft_failure_frames_G == 0 && o.soft_failure_frames_V == 0,
+              "hard invalidity cannot be hidden by active soft grace");
+    }
+    auto refreshed_grace = primed(0);
+    auto slight = healthy(1.05);
+    slight.prediction_angle_p95_rad = .03;
+    refreshed_grace.update(slight);
+    o = refreshed_grace.update(healthy(1.1));
+    require(o.ready_G && !o.grace_G && o.soft_failure_frames_G == 0 && o.last_strict_good_G == 1.1,
+            "actual good clears grace and updates last-good time");
+    refreshed_grace.reset();
+    o = refreshed_grace.update(healthy(0));
+    require(!o.ready_G && o.last_strict_good_G == -1 && o.soft_failure_frames_G == 0, "explicit reset clears all grace state");
     std::cout << "readiness PASS collecting/atomic bootstrap/confirmation/revocation/dormancy/cooldown/physical faults\n";
   } catch (const std::exception &e) {
     std::cerr << e.what() << '\n';

@@ -6,7 +6,8 @@ from check_live_receipts import check
 from check_hardened_log import check as check_hardened
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('name');parser.add_argument('--hardened-only',action='store_true');parser.add_argument('--r3',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('name');parser.add_argument('--hardened-only',action='store_true');parser.add_argument('--r3',action='store_true');parser.add_argument('--r3-grace',action='store_true');args=parser.parse_args()
+    if args.r3_grace:args.r3=True
     root=budget.OUT/args.name
     if root.exists():raise FileExistsError('A new counted name is required for retry')
     root.mkdir()
@@ -21,6 +22,7 @@ def main():
         with (config/'estimator_config.yaml').open('a') as f:
             f.write('\nltv_passive_hardening_enabled: '+str(enabled).lower()+'\n')
             if enabled and args.r3:f.write('ltv_hardening_initial_warmup: true\nltv_hardening_preserve_constrained_state: true\n')
+            if enabled and args.r3_grace:f.write('ltv_hardening_ready_soft_grace: true\n')
         out=root/label;out.mkdir()
         identity={'stage':'engineering_integrated_prefix','label':label,'runtime':str(runtime),
                   'runtime_manifest_sha':artifacts.sha(runtime/'manifest.json'),

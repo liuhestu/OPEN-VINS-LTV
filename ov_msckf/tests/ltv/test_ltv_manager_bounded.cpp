@@ -1,5 +1,6 @@
 #include "ltv/LtvLandmarkManager.h"
 #include <iostream>
+#include <limits>
 #include <stdexcept>
 using namespace ltv;
 static void require(bool value, const char *message) {
@@ -60,21 +61,21 @@ int main() {
             "expired candidates erased with independent cumulative count");
     require(f.identity_guard_insertions == 30 && f.retirement_events.size() == 15, "overflow IDs never enter identity guard");
     f = staged.step(1, 2.25, 7, observations(0, 40), seeds(1, 2.25, 0, 40));
-    require(f.identity_guard_rejected_ids.size() == 30 && f.births.empty() && f.exact_records == 10,
-            "retired IDs rejected but previously unaccepted capacity IDs may try again");
-    for (int k = 1; k <= 2; ++k) {
-      const double t = 2.25 + .05 * k;
+    require(f.identity_guard_rejected_ids.size() == 30 && f.births.empty() && f.exact_records == 0 && f.capacity_rejected_ids.size() == 10,
+            "retired IDs rejected for admission but still compete for original history capacity");
+    for (int k = 0; k < 3; ++k) {
+      const double t = 4.30 + .05 * k;
       f = staged.step(1, t, 7 + k, observations(30, 10), seeds(1, t, 30, 10));
     }
     require(f.births.size() == 10 && f.admitted_tracks == 25 && f.identity_guard_insertions == 40,
             "capacity retry admits once with exact cumulative counts");
     const auto before = f.identity_guard_insertions;
-    require(!staged.step(1, 2.4, 10, {}, seeds(1, 2.4, 1000, config.history.max_observations_per_packet + 1)).accepted_input,
+    require(!staged.step(1, 4.45, 10, {}, seeds(1, 4.45, 1000, config.history.max_observations_per_packet + 1)).accepted_input,
             "oversized candidate vector rejected before map construction");
     auto invalid = observations(100, 1);
     invalid.push_back(invalid.front());
-    require(!staged.step(1, 2.4, 10, invalid, {}).accepted_input, "invalid packet rejected before mutation");
-    f = staged.step(1, 2.4, 10, observations(30, 10), seeds(1, 2.4, 30, 10));
+    require(!staged.step(1, 4.45, 10, invalid, {}).accepted_input, "invalid packet rejected before mutation");
+    f = staged.step(1, 4.45, 10, observations(30, 10), seeds(1, 4.45, 30, 10));
     require(f.accepted_input && f.identity_guard_insertions == before && f.births.empty(), "rejection consumes neither time nor bits");
     bool rejected = false;
     try {
@@ -109,11 +110,21 @@ int main() {
                 f.retirement_events.front().kind == LandmarkRetirementKind::NeverAdmittedCandidateTtl,
             "same-event returning expired candidate emits permanent typed TTL");
     require(f.identity_guard_insertions == 1 && f.identity_guard_rejected_ids == std::vector<size_t>{77} && f.exact_records == 0 &&
-                !gap_expiry.history().find(77) && f.births.empty(),
-            "long-gap return cannot recreate expired identity history");
+                gap_expiry.history().find(77) && gap_expiry.history().find(77)->last_time == 2.1 && f.births.empty(),
+            "long-gap input history may refresh but expired manager identity cannot revive");
     f = gap_expiry.step(1, 2.15, 2, observations(77, 1), {});
-    require(f.retirement_events.empty() && f.identity_guard_insertions == 1 && f.candidate_ttl_total == 1 && f.exact_records == 0,
+    require(f.retirement_events.empty() && f.identity_guard_insertions == 1 && f.candidate_ttl_total == 1 && f.exact_records == 0 &&
+                f.births.empty() && gap_expiry.history().find(77) && gap_expiry.history().find(77)->last_time == 2.15,
             "TTL event and guard insertion occur exactly once");
+    auto guarded_invalid = observations(77, 1);
+    guarded_invalid.front().bearing.x() = std::numeric_limits<double>::quiet_NaN();
+    require(!gap_expiry.step(1, 2.2, 3, guarded_invalid, {}).accepted_input,
+            "guarded old identity cannot hide a nonfinite original observation");
+    require(gap_expiry.history().find(77)->last_time == 2.15, "guarded invalid packet preserves history time");
+    f = gap_expiry.step(1, 2.2, 3, observations(77, 1), {});
+    require(f.accepted_input && f.identity_guard_insertions == 1 && f.candidate_ttl_total == 1 && f.births.empty() &&
+                gap_expiry.landmarks().empty() && gap_expiry.history().find(77)->last_time == 2.2,
+            "same-time valid retry refreshes only input history without duplicate exit or seed");
     // Ten minutes of candidate turnover remains finite; no full observer simulation.
     LtvLandmarkManager churn(config);
     churn.reset(1);

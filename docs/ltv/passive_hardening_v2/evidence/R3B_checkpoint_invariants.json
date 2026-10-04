@@ -1,0 +1,25 @@
+{
+  "status": "PASS_CHECKPOINT_ONLY",
+  "baseline": "f76f32f8c1d5ece23ce23e10e65560b80ec0a4f9",
+  "protected_paths": [
+    "ov_core",
+    "ov_init",
+    "config",
+    "ov_msckf/src/state",
+    "ov_msckf/src/update/UpdaterMSCKF.cpp",
+    "ov_msckf/src/update/UpdaterSLAM.cpp",
+    "docs/ltv/standalone_convergence_v2",
+    "docs/ltv/feature_readiness_passive"
+  ],
+  "changed_protected_paths": [],
+  "original_goal_sha_matches": true,
+  "confirmation_unstarted": true,
+  "budget": {
+    "synthetic": 20,
+    "real": 6,
+    "short_real": 12,
+    "candidate": 4
+  },
+  "runtime": "/home/he/output/ltv_passive_hardening_v2/runtime/27e4aa028b9944a84ba55987a8179fd90ad392306593211b659b5a90b08e5af5",
+  "limits": "Not a final completion audit. LTV lifecycle/readiness and bounded-ID interfaces are deliberately modified; original state propagation/visual updates/config/history paths above remain unchanged. Actual native main-state parity is separately supported by265."
+}

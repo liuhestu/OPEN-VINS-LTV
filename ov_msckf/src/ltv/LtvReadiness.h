@@ -10,6 +10,7 @@ struct LtvReadinessConfig {
   // Preserve the first finite current core trajectory, once per explicit reset.
   bool initial_unseeded_warmup = false;
   bool preserve_constrained_state = false;
+  bool ready_soft_grace = false;
   size_t min_features = 15;
   unsigned int bootstrap_confirm_frames = 3, ready_confirm_frames = 20;
   unsigned int min_actual_corrections = 20;
@@ -42,6 +43,9 @@ struct LtvReadinessOutput {
   bool ready_G = false, ready_V = false, joint_ready = false;
   bool request_bootstrap = false, bootstrap_is_physical_recovery = false;
   bool request_dormant = false;
+  bool ready_soft_grace_enabled = false, grace_G = false, grace_V = false;
+  unsigned int soft_failure_frames_G = 0, soft_failure_frames_V = 0;
+  double last_strict_good_G = -1, last_strict_good_V = -1;
   double last_bootstrap_time = -1;
   std::string last_bootstrap_source, reason = "disabled";
   uint64_t bootstrap_count = 0, physical_fault_count = 0;
@@ -58,12 +62,15 @@ public:
   LtvReadinessOutput acknowledgeBootstrap(const LtvReadinessInput &input);
 
 private:
+  void clearGrace();
   void validateCommit(const LtvReadinessInput &input) const;
   void commit(const LtvReadinessInput &input);
   LtvReadinessConfig config_;
   LtvAvailability state_ = LtvAvailability::Collecting;
   double last_time_ = -1, shortage_since_ = -1, last_bootstrap_ = -1, last_quality_bootstrap_ = -1;
   unsigned int supply_frames_ = 0, gravity_frames_ = 0, velocity_frames_ = 0;
+  unsigned int soft_G_ = 0, soft_V_ = 0;
+  double last_good_G_ = -1, last_good_V_ = -1;
   bool pending_physical_ = false, pending_initial_warmup_ = false;
   bool awaiting_bootstrap_ = false, bootstrapped_ = false, dormant_requested_ = false, physical_recovery_ = false, fault_latched_ = false;
   uint64_t bootstrap_count_ = 0, physical_fault_count_ = 0;

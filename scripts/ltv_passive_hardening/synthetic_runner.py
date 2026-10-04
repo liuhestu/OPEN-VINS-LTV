@@ -97,7 +97,7 @@ def run(input_dir,out,library,mode='P_NEW',source='HYBRID',max_seconds=None,diag
     if sha(input_dir/'inputs.npz')!=identity['input_sha']:raise ValueError('Input SHA mismatch')
     with np.load(input_dir/'inputs.npz',allow_pickle=False) as z:data={k:z[k] for k in z.files}
     if int(data['schema_version'])!=2:raise ValueError('CSR schema version required')
-    if mode not in ('P_PREV','P_NEW','P_NEW_WARMUP','P_NEW_PRESERVE'):raise ValueError('Unknown mode')
+    if mode not in ('P_PREV','P_NEW','P_NEW_WARMUP','P_NEW_PRESERVE','P_NEW_GRACE'):raise ValueError('Unknown mode')
     if 'imu_sample_times' not in data or 'imu_samples' not in data:raise ValueError('Adapter requires explicit timestamped IMU samples; do not relabel midpoint values')
     out.mkdir(parents=True,exist_ok=False)
     metadata={'mode':mode,'source':source,'input_sha':identity['input_sha'],'library_sha':sha(library),'runner_sha':sha(__file__),
@@ -106,7 +106,7 @@ def run(input_dir,out,library,mode='P_NEW',source='HYBRID',max_seconds=None,diag
               'between_camera_contract':'Held internal snapshot with actual camera cursor, never a new current estimate',
               'max_seconds':max_seconds,'heavy_diagnostics':bool(diagnostics)}
     (out/'run.json').write_text(json.dumps(metadata,indent=2))
-    adapter=Adapter(library,{'P_PREV':0,'P_NEW':1,'P_NEW_WARMUP':2,'P_NEW_PRESERVE':3}[mode],source,float(data['bearing_sigma_rad']),diagnostics)
+    adapter=Adapter(library,{'P_PREV':0,'P_NEW':1,'P_NEW_WARMUP':2,'P_NEW_PRESERVE':3,'P_NEW_GRACE':4}[mode],source,float(data['bearing_sigma_rad']),diagnostics)
     samples=[];dims=[];sample_ids=[];times=[];cursors=[];current=[]
     matrices=[];matrix_x=[];matrix_ids=[];matrix_dims=[];matrix_t=[];matrix_tags=[]
     cursor=0;k=0;frame={'cursor':0.,'raw_current':False};started=time.monotonic()
@@ -150,7 +150,7 @@ def run(input_dir,out,library,mode='P_NEW',source='HYBRID',max_seconds=None,diag
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--input-dir',required=True);p.add_argument('--out',required=True);p.add_argument('--library',required=True)
-    p.add_argument('--mode',choices=['P_PREV','P_NEW','P_NEW_WARMUP','P_NEW_PRESERVE'],default='P_NEW');p.add_argument('--source',choices=['TEMPORAL','STEREO','HYBRID'],default='HYBRID')
+    p.add_argument('--mode',choices=['P_PREV','P_NEW','P_NEW_WARMUP','P_NEW_PRESERVE','P_NEW_GRACE'],default='P_NEW');p.add_argument('--source',choices=['TEMPORAL','STEREO','HYBRID'],default='HYBRID')
     p.add_argument('--light-diagnostics',action='store_false',dest='diagnostics',default=True)
     p.add_argument('--max-seconds',type=float)
     print(json.dumps(run(**vars(p.parse_args())),indent=2))

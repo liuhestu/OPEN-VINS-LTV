@@ -1,0 +1,446 @@
+{
+  "schema": "SOFT_GRACE_REPORT_V1",
+  "branches": {
+    "G": {
+      "held_packets": 14,
+      "ready_packets": 557,
+      "held_fraction_of_ready": 0.025134649910233394,
+      "missing_grace_field_packets": 0,
+      "episodes": [
+        {
+          "epoch": 1,
+          "start": 1413394897.2057607,
+          "end": 1413394897.2557604,
+          "packets": 2,
+          "duration": 0.04999971389770508
+        },
+        {
+          "epoch": 1,
+          "start": 1413394899.6557605,
+          "end": 1413394899.7057607,
+          "packets": 2,
+          "duration": 0.05000019073486328
+        },
+        {
+          "epoch": 1,
+          "start": 1413394904.7057607,
+          "end": 1413394904.7057607,
+          "packets": 1,
+          "duration": 0.0
+        },
+        {
+          "epoch": 1,
+          "start": 1413394915.7057607,
+          "end": 1413394915.7057607,
+          "packets": 1,
+          "duration": 0.0
+        },
+        {
+          "epoch": 1,
+          "start": 1413394916.0057607,
+          "end": 1413394916.0057607,
+          "packets": 1,
+          "duration": 0.0
+        },
+        {
+          "epoch": 1,
+          "start": 1413394946.5557604,
+          "end": 1413394946.5557604,
+          "packets": 1,
+          "duration": 0.0
+        },
+        {
+          "epoch": 1,
+          "start": 1413394960.9557605,
+          "end": 1413394960.9557605,
+          "packets": 1,
+          "duration": 0.0
+        },
+        {
+          "epoch": 1,
+          "start": 1413394963.2057607,
+          "end": 1413394963.2557604,
+          "packets": 2,
+          "duration": 0.04999971389770508
+        },
+        {
+          "epoch": 1,
+          "start": 1413394982.8057606,
+          "end": 1413394982.8057606,
+          "packets": 1,
+          "duration": 0.0
+        },
+        {
+          "epoch": 1,
+          "start": 1413394982.9057605,
+          "end": 1413394982.9057605,
+          "packets": 1,
+          "duration": 0.0
+        },
+        {
+          "epoch": 1,
+          "start": 1413394995.4057605,
+          "end": 1413394995.4057605,
+          "packets": 1,
+          "duration": 0.0
+        }
+      ],
+      "longest_consecutive_held_packets": 2,
+      "longest_consecutive_held_seconds": 0.05000019073486328,
+      "constraint_status": "PASS",
+      "violations": [],
+      "held_records": [
+        {
+          "receipt_id": 313,
+          "epoch": 1,
+          "time": 1413394897.2057607,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394897.1557605,
+          "error": 0.9609424748900016,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 314,
+          "epoch": 1,
+          "time": 1413394897.2557604,
+          "soft_failure_frames": 2,
+          "last_strict_good": 1413394897.1557605,
+          "error": 0.935181100747887,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 362,
+          "epoch": 1,
+          "time": 1413394899.6557605,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394899.6057606,
+          "error": 0.9346617484999036,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 363,
+          "epoch": 1,
+          "time": 1413394899.7057607,
+          "soft_failure_frames": 2,
+          "last_strict_good": 1413394899.6057606,
+          "error": 0.8885198712010948,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 457,
+          "epoch": 1,
+          "time": 1413394904.7057607,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394904.6557605,
+          "error": 0.42172027931001604,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 677,
+          "epoch": 1,
+          "time": 1413394915.7057607,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394915.6557605,
+          "error": 1.2555482411026675,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 683,
+          "epoch": 1,
+          "time": 1413394916.0057607,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394915.9557605,
+          "error": 1.236160120666743,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1157,
+          "epoch": 1,
+          "time": 1413394946.5557604,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394946.4557605,
+          "error": 0.38914970842814783,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1346,
+          "epoch": 1,
+          "time": 1413394960.9557605,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394960.9057605,
+          "error": 0.11990194134652256,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1391,
+          "epoch": 1,
+          "time": 1413394963.2057607,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394963.1557605,
+          "error": 0.37741483329853065,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1392,
+          "epoch": 1,
+          "time": 1413394963.2557604,
+          "soft_failure_frames": 2,
+          "last_strict_good": 1413394963.1557605,
+          "error": 0.4469133070113665,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1725,
+          "epoch": 1,
+          "time": 1413394982.8057606,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394982.7557604,
+          "error": 0.5597906621713084,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1727,
+          "epoch": 1,
+          "time": 1413394982.9057605,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394982.8557606,
+          "error": 0.36008227644573854,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1892,
+          "epoch": 1,
+          "time": 1413394995.4057605,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394995.3057606,
+          "error": 0.4905782863521873,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        }
+      ],
+      "reference_available_packets": 14,
+      "reference_missing_packets": 0,
+      "held_error_RMSE": 0.7528543218173445,
+      "held_error_P95": 1.2429459628193165,
+      "held_severe_fraction": 0.0,
+      "error_units": "degrees"
+    },
+    "V": {
+      "held_packets": 12,
+      "ready_packets": 409,
+      "held_fraction_of_ready": 0.029339853300733496,
+      "missing_grace_field_packets": 0,
+      "episodes": [
+        {
+          "epoch": 1,
+          "start": 1413394897.2057607,
+          "end": 1413394897.2557604,
+          "packets": 2,
+          "duration": 0.04999971389770508
+        },
+        {
+          "epoch": 1,
+          "start": 1413394915.7057607,
+          "end": 1413394915.7057607,
+          "packets": 1,
+          "duration": 0.0
+        },
+        {
+          "epoch": 1,
+          "start": 1413394916.0057607,
+          "end": 1413394916.0057607,
+          "packets": 1,
+          "duration": 0.0
+        },
+        {
+          "epoch": 1,
+          "start": 1413394946.0557604,
+          "end": 1413394946.0557604,
+          "packets": 1,
+          "duration": 0.0
+        },
+        {
+          "epoch": 1,
+          "start": 1413394963.1557605,
+          "end": 1413394963.2057607,
+          "packets": 2,
+          "duration": 0.05000019073486328
+        },
+        {
+          "epoch": 1,
+          "start": 1413394982.6057606,
+          "end": 1413394982.6557605,
+          "packets": 2,
+          "duration": 0.04999995231628418
+        },
+        {
+          "epoch": 1,
+          "start": 1413394982.8057606,
+          "end": 1413394982.8557606,
+          "packets": 2,
+          "duration": 0.04999995231628418
+        },
+        {
+          "epoch": 1,
+          "start": 1413394995.4057605,
+          "end": 1413394995.4057605,
+          "packets": 1,
+          "duration": 0.0
+        }
+      ],
+      "longest_consecutive_held_packets": 2,
+      "longest_consecutive_held_seconds": 0.05000019073486328,
+      "constraint_status": "PASS",
+      "violations": [],
+      "held_records": [
+        {
+          "receipt_id": 313,
+          "epoch": 1,
+          "time": 1413394897.2057607,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394897.1557605,
+          "error": 0.057822193685325256,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 314,
+          "epoch": 1,
+          "time": 1413394897.2557604,
+          "soft_failure_frames": 2,
+          "last_strict_good": 1413394897.1557605,
+          "error": 0.06254736045739825,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 677,
+          "epoch": 1,
+          "time": 1413394915.7057607,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394915.6557605,
+          "error": 0.05559242532875423,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 683,
+          "epoch": 1,
+          "time": 1413394916.0057607,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394915.9557605,
+          "error": 0.05449181867616571,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1151,
+          "epoch": 1,
+          "time": 1413394946.0557604,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394946.0057607,
+          "error": 0.05952764986330775,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1390,
+          "epoch": 1,
+          "time": 1413394963.1557605,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394963.1057606,
+          "error": 0.02838353604229664,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1391,
+          "epoch": 1,
+          "time": 1413394963.2057607,
+          "soft_failure_frames": 2,
+          "last_strict_good": 1413394963.1057606,
+          "error": 0.026813407020994478,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1721,
+          "epoch": 1,
+          "time": 1413394982.6057606,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394982.5557604,
+          "error": 0.03629380967525192,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1722,
+          "epoch": 1,
+          "time": 1413394982.6557605,
+          "soft_failure_frames": 2,
+          "last_strict_good": 1413394982.5557604,
+          "error": 0.059357985272462103,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1725,
+          "epoch": 1,
+          "time": 1413394982.8057606,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394982.7557604,
+          "error": 0.060017030197855904,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1726,
+          "epoch": 1,
+          "time": 1413394982.8557606,
+          "soft_failure_frames": 2,
+          "last_strict_good": 1413394982.7557604,
+          "error": 0.027970169558684504,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        },
+        {
+          "receipt_id": 1892,
+          "epoch": 1,
+          "time": 1413394995.4057605,
+          "soft_failure_frames": 1,
+          "last_strict_good": 1413394995.3057606,
+          "error": 0.027957190327281483,
+          "reference_status": "EXISTING_EVALUATOR_FINITE_REFERENCE",
+          "severe": false
+        }
+      ],
+      "reference_available_packets": 12,
+      "reference_missing_packets": 0,
+      "held_error_RMSE": 0.048639977794491605,
+      "held_error_P95": 0.061155678814649964,
+      "held_severe_fraction": 0.0,
+      "error_units": "m/s"
+    }
+  },
+  "evaluation_changes": false,
+  "limits": "two consecutive held camera events and time<=nextafter(last_strict_good+0.10,+infinity); existing severe cutoffs G>5deg,V>1m/s",
+  "scope": "Held-only descriptive subset of existing ready output; never replaces overall ready acceptance; missing/invalid reference remains null",
+  "provenance": {
+    "source_sha": "9aa9d82bb468f899f256e184bb5e43044018277327ca3cb14599e497000c0ffa",
+    "tool_sha": "bc5ee64b0d5724a7f560f86de83782997c327c8b1d80778fa73efd21830f52e3",
+    "existing_error_curves_sha": "08ad1a5e676502c341bba853702f2ea6b7e51b503b9e6a5726cd92303ba5f1fd"
+  }
+}

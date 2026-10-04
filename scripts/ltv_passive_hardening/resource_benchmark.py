@@ -15,15 +15,17 @@ import time
 import numpy as np
 import synthetic_inputs as generator
 import synthetic_runner as runner
+from pressure_inputs import validate_seed
 
 
 def rss_bytes():
     return int(Path('/proc/self/statm').read_text().split()[1])*os.sysconf('SC_PAGE_SIZE')
 
 
-def run(out,library,calibration,seconds=600.,seed=42,mode='P_NEW_PRESERVE'):
-    if seconds<=0 or seconds>600 or seed not in (42,43):raise ValueError('Unregistered resource fixture scope')
-    if mode not in ('P_NEW','P_NEW_WARMUP','P_NEW_PRESERVE'):raise ValueError('Bounded hardening mode required')
+def run(out,library,calibration,seconds=600.,seed=42,mode='P_NEW_PRESERVE',confirmation_freeze_sha=None):
+    validate_seed(seed,confirmation_freeze_sha)
+    if seconds<=0 or seconds>600:raise ValueError('Unregistered resource fixture scope')
+    if mode not in ('P_NEW','P_NEW_WARMUP','P_NEW_PRESERVE','P_NEW_GRACE'):raise ValueError('Bounded hardening mode required')
     out=Path(out);out.mkdir(parents=True,exist_ok=False)
     cameras,T=generator.calibration(calibration);Rbc=T[:,:3,:3];pc=T[:,:3,3]
     rngs=[np.random.default_rng(s) for s in np.random.SeedSequence([seed,600,3]).spawn(5)]
@@ -34,8 +36,9 @@ def run(out,library,calibration,seconds=600.,seed=42,mode='P_NEW_PRESERVE'):
     previous_active=set();previous_ttl=set();last_bits=None;last_epoch=None;last_highwater=None
     max_counts={};violations=0;frames=0;rss_start=rss_bytes();peak_rss=rss_start
     coverage={'guard_rejected_ids':0,'active_retirement_events':0,'candidate_ttl_events':0,'old_input_identity_reappearances':0}
-    native=runner.Adapter(library,{'P_NEW':1,'P_NEW_WARMUP':2,'P_NEW_PRESERVE':3}[mode],'HYBRID',np.deg2rad(.05),False)
+    native=runner.Adapter(library,{'P_NEW':1,'P_NEW_WARMUP':2,'P_NEW_PRESERVE':3,'P_NEW_GRACE':4}[mode],'HYBRID',np.deg2rad(.05),False)
     metadata={'status':'RUNNING','seconds':seconds,'seed':seed,'mode':mode,'library_sha':runner.sha(library),
+              'confirmation_freeze_sha':confirmation_freeze_sha,
               'script_sha':runner.sha(__file__),'calibration_sha':runner.sha(calibration),'generator_math_sha':runner.sha(generator.math.__file__),
               'runner_sha':runner.sha(runner.__file__),'input_contract':'REGULAR analytic motion; actual EuRoC extrinsics; 30 near points, staggered0.5s IDs;10 far TTL candidates per3s visible0.2s; up to3 original IDs absent from primary input for>=0.5s reappear each1s; no observations15<=t<30',
               'noise_contract':'200Hz endpoint acc.02/gyro.002; bearing.05deg; shared camera pose OU.5s std .01m/.1deg plus .002m/.02deg jitter',
@@ -161,5 +164,6 @@ def run(out,library,calibration,seconds=600.,seed=42,mode='P_NEW_PRESERVE'):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',required=True);p.add_argument('--library',required=True)
     p.add_argument('--calibration',required=True);p.add_argument('--seconds',type=float,default=600);p.add_argument('--seed',type=int,default=42)
-    p.add_argument('--mode',default='P_NEW_PRESERVE',choices=['P_NEW','P_NEW_WARMUP','P_NEW_PRESERVE'])
+    p.add_argument('--mode',default='P_NEW_PRESERVE',choices=['P_NEW','P_NEW_WARMUP','P_NEW_PRESERVE','P_NEW_GRACE'])
+    p.add_argument('--confirmation-freeze-sha')
     print(json.dumps(run(**vars(p.parse_args())),indent=2))

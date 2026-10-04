@@ -1,0 +1,100 @@
+{
+  "OFF": {
+    "attempt": {
+      "id": 255,
+      "exit_code": 0,
+      "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0255"
+    },
+    "cache_attempt": {
+      "id": 256,
+      "exit_code": 0,
+      "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0256"
+    },
+    "passive": {
+      "status": "PASS",
+      "exact_files": [
+        "audit.csv",
+        "trajectory.csv",
+        "unmatched_camera.csv"
+      ],
+      "runs": [
+        {
+          "mode": "P_NEW",
+          "camera_packets": 200,
+          "trajectory_rows": 88,
+          "complete": false,
+          "zero_injection": true,
+          "status": "PASS"
+        },
+        {
+          "mode": "P_NEW",
+          "camera_packets": 200,
+          "trajectory_rows": 88,
+          "complete": false,
+          "zero_injection": true,
+          "status": "PASS"
+        }
+      ]
+    },
+    "receipts": {
+      "status": "PASS",
+      "camera_receipts": 200,
+      "available_complete_rows": 88,
+      "unique_births": 61,
+      "roundtrip_mismatch_packets": 40,
+      "overlay_used": false
+    }
+  },
+  "HARDENED": {
+    "attempt": {
+      "id": 257,
+      "exit_code": 0,
+      "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0257"
+    },
+    "cache_attempt": {
+      "id": 258,
+      "exit_code": 0,
+      "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0258"
+    },
+    "passive": {
+      "status": "PASS",
+      "exact_files": [
+        "audit.csv",
+        "trajectory.csv",
+        "unmatched_camera.csv"
+      ],
+      "runs": [
+        {
+          "mode": "P_NEW",
+          "camera_packets": 200,
+          "trajectory_rows": 88,
+          "complete": false,
+          "zero_injection": true,
+          "status": "PASS"
+        },
+        {
+          "mode": "P_NEW",
+          "camera_packets": 200,
+          "trajectory_rows": 88,
+          "complete": false,
+          "zero_injection": true,
+          "status": "PASS"
+        }
+      ]
+    },
+    "receipts": {
+      "status": "PASS_ENGINEERING_ONLY",
+      "camera_receipts": 200,
+      "available_complete_rows": 88,
+      "unique_births": 61,
+      "roundtrip_mismatch_packets": 40,
+      "overlay_used": false,
+      "receipts": 200,
+      "raw_rows": 88,
+      "cold_management_rows": 0,
+      "births": 61
+    }
+  },
+  "scope": "Engineering short-prefix only; not full sequence or grace-held scientific accuracy acceptance.",
+  "runtime": "/home/he/output/ltv_passive_hardening_v2/runtime/27e4aa028b9944a84ba55987a8179fd90ad392306593211b659b5a90b08e5af5"
+}

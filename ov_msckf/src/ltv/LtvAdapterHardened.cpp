@@ -54,6 +54,11 @@ LtvFrame LtvAdapter::processHardened(double t, const std::vector<LtvBearing> &, 
   if (t <= last_camera_) {
     auto f = frame(t, version, "duplicate_or_backward_camera");
     f.raw_current = f.ready_G = f.ready_V = false;
+    // Reject only this return value; a duplicate must not consume policy state.
+    f.health.accepted_time = f.health.observer_valid = false;
+    f.health.ready_G = f.health.ready_V = f.health.joint_ready = false;
+    f.health.grace_G = f.health.grace_V = false;
+    f.health.reason = "duplicate_or_backward_camera";
     return f;
   }
   last_camera_ = t;

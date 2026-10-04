@@ -1,0 +1,34 @@
+{
+  "new": {
+    "births": [
+      4446
+    ],
+    "sectors_before_birth": [
+      3,
+      7,
+      8,
+      10
+    ],
+    "candidate_sectors": {
+      "4371": 1,
+      "4446": 0
+    },
+    "ray_ids": 81
+  },
+  "prev": {
+    "births": [
+      4371
+    ],
+    "sectors_before_birth": [
+      3,
+      7,
+      8,
+      10
+    ],
+    "candidate_sectors": {
+      "4371": 1,
+      "4446": 0
+    },
+    "ray_ids": 81
+  }
+}

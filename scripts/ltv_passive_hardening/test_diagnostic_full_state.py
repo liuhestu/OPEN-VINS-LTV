@@ -8,15 +8,15 @@ import synthetic_inputs
 from synthetic_runner import Adapter
 
 
-def check(library):
+def check(library, mode=3):
     with tempfile.TemporaryDirectory() as folder:
         p=Path(folder)/'inputs'
         synthetic_inputs.generate(p,synthetic_inputs.ROOT/'config/ltv_euroc/kalibr_imucam_chain.yaml',
                                   'REGULAR',42,.5,'STEREO',3.)
         (p/'labels.npz').rename(p/'labels_estimator_unavailable.npz')
         with np.load(p/'inputs.npz') as data:inputs={key:data[key] for key in data.files}
-        heavy=Adapter(library,3,'HYBRID',float(inputs['bearing_sigma_rad']),True)
-        light=Adapter(library,3,'HYBRID',float(inputs['bearing_sigma_rad']),False)
+        heavy=Adapter(library,mode,'HYBRID',float(inputs['bearing_sigma_rad']),True)
+        light=Adapter(library,mode,'HYBRID',float(inputs['bearing_sigma_rad']),False)
         cursor=0;births=retirements=0;max_corrections=0;frames=0
         try:
             for k,t in enumerate(inputs['camera_times']):
@@ -47,5 +47,5 @@ def check(library):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--library',required=True)
-    print(json.dumps(check(p.parse_args().library),indent=2))
+    p=argparse.ArgumentParser();p.add_argument('--library',required=True);p.add_argument('--mode',type=int,choices=(3,4),default=3)
+    print(json.dumps(check(**vars(p.parse_args())),indent=2))

@@ -10,6 +10,7 @@ LtvAdapter::LtvAdapter(const LtvOptions &options) : options_(options) {
     health_config.enabled = true;
     health_config.initial_unseeded_warmup = options.hardening_initial_warmup;
     health_config.preserve_constrained_state = options.hardening_preserve_constrained_state;
+    health_config.ready_soft_grace = options.hardening_ready_soft_grace;
     readiness_.reset(new ltv::LtvReadiness(health_config));
   }
   auto config = options.observer;

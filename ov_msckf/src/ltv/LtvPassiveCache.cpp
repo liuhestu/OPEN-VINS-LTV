@@ -316,6 +316,17 @@ std::string evidence(const LtvFrame &original, const LtvAdapter &adapter) {
       b.scalar(r.seed_written);
       b.text(r.reason);
     }
+    // Optional policy suffix: disabled modes retain their exact old evidence.
+    if (h.ready_soft_grace_enabled) {
+      std::string grace_schema = "READINESS_SOFT_GRACE_V1";
+      b.text(grace_schema);
+      b.scalar(h.grace_G);
+      b.scalar(h.grace_V);
+      b.scalar(h.soft_failure_frames_G);
+      b.scalar(h.soft_failure_frames_V);
+      b.scalar(h.last_strict_good_G);
+      b.scalar(h.last_strict_good_V);
+    }
   }
   return out.str();
 }

@@ -36,3 +36,17 @@
 6. 本轮有限差分/协方差/gauge回归不证明全时间PE、任意噪声鲁棒性、真实闭环收益或ATE；不授权G/V反馈。所有真实输出仍要求实际零提交/零接受，而非仅配置开关。
 
 结论：未发现阻止标注为“R3开发检查点”的新增正确性阻断；上述未验项阻止将其标注为最终科学验收完成。
+
+## 后续cd3 native日志短段补证
+
+独立runtime.verify及snapshot身份校验后，`engineering_short.py R3_logger_cd3_short --r3 --hardened-only` 完成179(native)/180(cache)，均exit0。200 receipts、88 raw包，主audit/trajectory exact、实际零注入、cache精确重放。新增`tests/audit_live_corrections.py`在analysis185通过：85个有校正事件、115个无当前校正事件；corrected IDs唯一、属于retained/currentcam0且数量等于observed_features；actual_corrections每次增长对应真实子步和至少15个输入。该字段是实际接受校正的输入ID，不证明每条ray非零增益或准确性。此前“最新native字段短段未验”缺口现有本段证据补齐，不改变其余未验项。
+
+发现当前native每行camera_substeps输出两次，但均来自同一snapshot且实测200行值完全相等；审计强制拒绝冲突重复并显式记录同值重复。当前Python消费结果一致；严格要求唯一JSON对象键的下游仍需去重兼容修复，未修改受测二进制。证据目录 `/home/he/output/ltv_passive_hardening_v2/R3_logger_cd3_short`。
+
+## 后续R3 V2_03开发负结果
+
+按既定候选及cd3 runtime，full186完整exit0：1921事件、1806初始化包且全部raw，实际零注入。独立离线188严格校验历史B/P_PREV输入、配置及主audit/trajectory精确一致，工程通过；科学状态 **NOT_MET**。联合ready最长2.80s不足5s；raw V RMSE从0.3340292818升至0.3528339000，增加0.0188046182超过允许0.0167014641。不得将此单序列从有效分母排除，也不能靠覆盖率通过宣称完整通过。
+
+通过的分项仍分别列出：G/V coverage27.1318%/21.4286%、有效参考24.5000/19.3500s；ready V RMSE/P95为0.0502889/0.0940306m/s；ready G角RMSE/P95为0.847533/1.179854°；严重错误比例均0；raw eta/角回归通过。没有改阈值、warmup或误差窗口。
+
+生命周期189通过逐帧守恒：2947出生（STEREO1619/TEMPORAL1328），2937active退役、5555candidate TTL、3352guard拒绝。full校正字段190通过（仅对旧cd3显式允许同值重复键）；默认新日志检查现严格拒绝所有重复键。证据目录 `/home/he/output/ltv_passive_hardening_v2/real_development/R3_V2_03_01/evaluation_v1`。这补充了开发负证据，不等于正式all11已执行。

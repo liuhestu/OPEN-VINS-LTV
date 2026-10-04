@@ -64,6 +64,7 @@ LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint6
     }
   }
   std::vector<HistoryObservation> filtered;
+  std::set<size_t> expired_candidates;
   const auto *effective_observations = &observations;
   if (config_.bounded_memory) {
     // Validate the whole original packet; a guarded ID cannot hide bad input.
@@ -74,7 +75,6 @@ LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint6
     // Capture expiry against the previous history before update can erase and
     // recreate a same-ID observation after a long camera gap. No mutation until
     // the entire history input has been accepted below.
-    std::set<size_t> expired_candidates;
     for (const auto &entry : landmarks_) {
       if (retained_.count(entry.first) || entry.second.entered >= 0)
         continue;
@@ -100,7 +100,9 @@ LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint6
     out.identity_guard_rejected_ids.assign(rejected.begin(), rejected.end());
     effective_observations = &filtered;
   }
-  if (!history_.update(epoch, time, version, *effective_observations, retained_)) {
+  // Historical cache occupancy is input-driven, independent of admission guard.
+  // Retired/rejected observations retain the legacy ordering and TTL competition.
+  if (!history_.update(epoch, time, version, observations, retained_)) {
     out.reason = "invalid_history_input";
     return out;
   }
@@ -143,7 +145,7 @@ LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint6
         ++it;
         continue;
       }
-      if (it->second.phase == LandmarkPhase::Retired || !history_.find(it->first)) {
+      if (it->second.phase == LandmarkPhase::Retired || expired_candidates.count(it->first) || !history_.find(it->first)) {
         if (it->second.entered < 0) {
           it->second.phase = LandmarkPhase::Retired;
           it->second.reason = "candidate_ttl";
@@ -151,7 +153,6 @@ LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint6
           ++candidate_ttl_total_;
           out.retirement_events.push_back({it->first, LandmarkRetirementKind::NeverAdmittedCandidateTtl, time, it->second});
         }
-        history_.forget(it->first);
         it = landmarks_.erase(it);
       } else {
         ++it;
@@ -180,7 +181,6 @@ LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint6
     }
     if (config_.bounded_memory && !landmarks_.count(id) && landmarks_.size() >= config_.history.max_candidates) {
       out.capacity_rejected_ids.push_back(id);
-      history_.forget(id);
       continue;
     }
     auto inserted = landmarks_.emplace(id, ManagedLandmark{});

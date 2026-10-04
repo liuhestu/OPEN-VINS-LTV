@@ -1,6 +1,7 @@
 #include "LtvReadiness.h"
 #include <algorithm>
 #include <cmath>
+#include <limits>
 #include <stdexcept>
 namespace ltv {
 const char *toString(LtvAvailability s) {
@@ -33,10 +34,15 @@ LtvReadiness::LtvReadiness(const LtvReadinessConfig &c) : config_(c) {
   if (c.dormant_seconds < c.coast_seconds || c.quality_bootstrap_interval < 30 || c.gravity_norm_min >= c.gravity_norm_max)
     throw std::invalid_argument("invalid readiness recovery limits");
 }
+void LtvReadiness::clearGrace() {
+  soft_G_ = soft_V_ = 0;
+  last_good_G_ = last_good_V_ = -1;
+}
 void LtvReadiness::reset() {
   state_ = LtvAvailability::Collecting;
   last_time_ = shortage_since_ = last_bootstrap_ = last_quality_bootstrap_ = -1;
   supply_frames_ = gravity_frames_ = velocity_frames_ = 0;
+  clearGrace();
   pending_physical_ = pending_initial_warmup_ = false;
   awaiting_bootstrap_ = bootstrapped_ = dormant_requested_ = physical_recovery_ = fault_latched_ = false;
   bootstrap_count_ = physical_fault_count_ = 0;
@@ -65,6 +71,7 @@ void LtvReadiness::commit(const LtvReadinessInput &i) {
   bootstrapped_ = true;
   awaiting_bootstrap_ = physical_recovery_ = dormant_requested_ = false;
   supply_frames_ = gravity_frames_ = velocity_frames_ = 0;
+  clearGrace();
   shortage_since_ = pending_initial_warmup_ && !(i.geometry_valid && i.observed_features >= config_.min_features) ? i.time : -1;
   pending_initial_warmup_ = false;
   state_ = LtvAvailability::Bootstrapping;
@@ -75,6 +82,7 @@ LtvReadinessOutput LtvReadiness::acknowledgeBootstrap(const LtvReadinessInput &i
   validateCommit(i);
   commit(i);
   LtvReadinessOutput o;
+  o.ready_soft_grace_enabled = config_.ready_soft_grace;
   o.accepted_time = true;
   o.state = state_;
   o.observer_valid = true;
@@ -87,6 +95,7 @@ LtvReadinessOutput LtvReadiness::acknowledgeBootstrap(const LtvReadinessInput &i
 }
 LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
   LtvReadinessOutput o;
+  o.ready_soft_grace_enabled = config_.ready_soft_grace;
   auto finish = [&](const char *reason) {
     o.state = state_;
     o.reason = reason;
@@ -95,6 +104,10 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
     o.bootstrap_count = bootstrap_count_;
     o.physical_fault_count = physical_fault_count_;
     o.joint_ready = o.ready_G && o.ready_V;
+    o.soft_failure_frames_G = soft_G_;
+    o.soft_failure_frames_V = soft_V_;
+    o.last_strict_good_G = last_good_G_;
+    o.last_strict_good_V = last_good_V_;
     return o;
   };
   if (!config_.enabled)
@@ -113,6 +126,7 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
     fault_latched_ = true;
     physical_recovery_ = true;
     supply_frames_ = gravity_frames_ = velocity_frames_ = 0;
+    clearGrace();
     state_ = LtvAvailability::Dormant;
     if (!dormant_requested_) {
       o.request_dormant = true;
@@ -124,6 +138,7 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
   if (gap) {
     awaiting_bootstrap_ = false;
     supply_frames_ = gravity_frames_ = velocity_frames_ = 0;
+    clearGrace();
   }
   const bool supply = i.geometry_valid && i.eligible_seeds >= config_.min_features;
   supply_frames_ = supply ? std::min(supply_frames_ + 1, config_.bootstrap_confirm_frames) : 0;
@@ -134,6 +149,7 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
   if (config_.preserve_constrained_state && current && (i.velocity.norm() > 100.0 || i.gravity.norm() > 50.0)) {
     awaiting_bootstrap_ = false;
     gravity_frames_ = velocity_frames_ = 0;
+    clearGrace();
     state_ = LtvAvailability::Dormant;
     o.observer_valid = false;
     if (!dormant_requested_) {
@@ -178,11 +194,13 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
     // Only a new complete loss starts the no-observation dormant clock.
     shortage_since_ = -1;
     gravity_frames_ = velocity_frames_ = 0;
+    clearGrace();
     state_ = LtvAvailability::Degraded;
     return finish("thin_observations_state_preserved_not_ready");
   }
   if (!adequate || !current) {
     gravity_frames_ = velocity_frames_ = 0;
+    clearGrace();
     if (shortage_since_ < 0)
       shortage_since_ = i.time;
     const double duration = i.time - shortage_since_;
@@ -208,11 +226,44 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
   const bool good_G = common && gravity_physical && i.gravity_correction_rate <= config_.gravity_correction_rate_limit;
   const bool good_V = common && gravity_physical && i.velocity_correction_rate <= config_.velocity_correction_rate_limit &&
                       i.gravity_correction_rate <= config_.gravity_correction_rate_limit;
-  gravity_frames_ = good_G ? std::min(gravity_frames_ + 1, config_.ready_confirm_frames) : 0;
-  velocity_frames_ = good_V ? std::min(velocity_frames_ + 1, config_.ready_confirm_frames) : 0;
-  o.ready_G = gravity_frames_ >= config_.ready_confirm_frames;
-  o.ready_V = velocity_frames_ >= config_.ready_confirm_frames;
+  if (!config_.ready_soft_grace) {
+    gravity_frames_ = good_G ? std::min(gravity_frames_ + 1, config_.ready_confirm_frames) : 0;
+    velocity_frames_ = good_V ? std::min(velocity_frames_ + 1, config_.ready_confirm_frames) : 0;
+    o.ready_G = gravity_frames_ >= config_.ready_confirm_frames;
+    o.ready_V = velocity_frames_ >= config_.ready_confirm_frames;
+  } else {
+    const bool finite_diagnostics = i.correction_diagnostics_valid && std::isfinite(i.prediction_angle_p95_rad) &&
+                                    i.prediction_angle_p95_rad >= 0 && std::isfinite(i.velocity_correction_rate) &&
+                                    i.velocity_correction_rate >= 0 && std::isfinite(i.gravity_correction_rate) &&
+                                    i.gravity_correction_rate >= 0;
+    const bool hard =
+        o.pool_ready && current && gravity_physical && finite_diagnostics && i.actual_corrections >= config_.min_actual_corrections;
+    const bool envelope_G = hard && i.prediction_angle_p95_rad <= 2 * config_.prediction_angle_limit_rad &&
+                            i.gravity_correction_rate <= 2 * config_.gravity_correction_rate_limit;
+    const bool envelope_V = envelope_G && i.velocity_correction_rate <= 2 * config_.velocity_correction_rate_limit;
+    auto branch = [&](bool strict_good, bool envelope, unsigned int &confirm, unsigned int &soft, double &last_good, bool &held) {
+      if (strict_good) {
+        confirm = std::min(confirm + 1, config_.ready_confirm_frames);
+        soft = 0;
+        last_good = i.time;
+        return confirm >= config_.ready_confirm_frames;
+      }
+      const double deadline = std::nextafter(last_good + .10, std::numeric_limits<double>::infinity());
+      if (confirm >= config_.ready_confirm_frames && envelope && soft < 2 && last_good >= 0 && i.time <= deadline) {
+        ++soft;
+        held = true;
+        return true;
+      }
+      confirm = soft = 0;
+      last_good = -1;
+      return false;
+    };
+    o.ready_G = branch(good_G, envelope_G, gravity_frames_, soft_G_, last_good_G_, o.grace_G);
+    o.ready_V = branch(good_V, envelope_V, velocity_frames_, soft_V_, last_good_V_, o.grace_V);
+  }
   state_ = (o.ready_G || o.ready_V) ? LtvAvailability::Tracking : LtvAvailability::Bootstrapping;
+  if (o.grace_G || o.grace_V)
+    return finish(o.grace_G && o.grace_V ? "ready_soft_grace_GV" : o.grace_G ? "ready_soft_grace_G" : "ready_soft_grace_V");
   return finish(!o.pool_ready               ? "pool_not_mature"
                 : !diagnostics              ? "prediction_or_correction_unhealthy"
                 : !gravity_physical         ? "gravity_not_physical"

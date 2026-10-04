@@ -1,0 +1,258 @@
+{
+  "selection_status": "METADATA_LIST_FROZEN",
+  "selected": [
+    "indoor_forward_3",
+    "indoor_forward_6"
+  ],
+  "selection_priority": [
+    "indoor_forward_3",
+    "indoor_forward_6",
+    "indoor_45_14",
+    "indoor_45_2",
+    "outdoor_forward_1",
+    "outdoor_forward_5"
+  ],
+  "selection_rule": "existing supported indoor_forward_3 then indoor_forward_6, then other previously verified v3 names lexicographically; first two eligible; fixed before new candidate error inspection",
+  "reference_support_rule": "timestamps only; split gap>.010000001 s, erode each segment by .05 s at both ends, at least11 samples, intersect sensor time spans; conservative duration for fixed0.1s derivative, no fitted derivative or error computed",
+  "release_manifest": "docs/ltv/evidence/value_study/gt_release_verification.json",
+  "release_manifest_sha256": "4bb5631930e6edef3fe69a4766d1ccdb2ba1279de92e319aa1bb6769c593d7b4",
+  "reads_new_errors": false,
+  "reads_gt_values_beyond_timestamps": false,
+  "established_uzh_performance": false,
+  "candidates": [
+    {
+      "sequence": "indoor_forward_3",
+      "gt_path": "/home/he/datasets/uzhfpv/archives/indoor_forward_3_snapdragon_with_gt/groundtruth.txt",
+      "gt_sha256": "671b8b04ea577feb075f01cc671e08ccdd354758d99082d2f3787c70f5bc2b51",
+      "release_verified": true,
+      "release_url": "https://download.ifi.uzh.ch/rpg/web/datasets/uzh-fpv-newer-versions/v3/indoor_forward_3_snapdragon_with_gt.zip",
+      "gt_rows": 24750,
+      "ordered_finite_timestamps": true,
+      "gt_span_s": 49.49799999999959,
+      "valid_contiguous_segments": 1,
+      "conservative_derivative_supported_sensor_intersection_s": 49.39799999999923,
+      "sensors": {
+        "cam0": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_forward_3/cam0/data.csv",
+          "sha256": "dd73062ce5771260afc168ee5840beaf627c11a669b0fb789748639d3cb54c93",
+          "rows": 2552,
+          "first_ns": 4878802975732,
+          "last_ns": 4970892067498,
+          "missing_images": 0
+        },
+        "cam1": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_forward_3/cam1/data.csv",
+          "sha256": "03f61040743a144d031c77c2cc274ff42cd5af883e17a35e78515438dfcb021b",
+          "rows": 2552,
+          "first_ns": 4878802975732,
+          "last_ns": 4970892067498,
+          "missing_images": 0
+        },
+        "imu0": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_forward_3/imu0/data.csv",
+          "sha256": "5b8947dd6bd0192e3bba60d82273e601436de2a1f9ae68e8bac9f182ff294a29",
+          "rows": 46053,
+          "first_ns": 4878790299000,
+          "last_ns": 4970894298000,
+          "missing_images": 0
+        }
+      },
+      "eligible": true
+    },
+    {
+      "sequence": "indoor_forward_6",
+      "gt_path": "/home/he/datasets/uzhfpv/archives/indoor_forward_6_snapdragon_with_gt/groundtruth.txt",
+      "gt_sha256": "0d417f83866b335f5e3f9cf1a37f007d82e1f2362ba6c0fe44cc8e3a03dddd7c",
+      "release_verified": true,
+      "release_url": "https://download.ifi.uzh.ch/rpg/web/datasets/uzh-fpv-newer-versions/v3/indoor_forward_6_snapdragon_with_gt.zip",
+      "gt_rows": 15100,
+      "ordered_finite_timestamps": true,
+      "gt_span_s": 30.197999954223633,
+      "valid_contiguous_segments": 1,
+      "conservative_derivative_supported_sensor_intersection_s": 30.098000049591064,
+      "sensors": {
+        "cam0": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_forward_6/cam0/data.csv",
+          "sha256": "bbc0d97988b104c72be0bceb31dab01cdccadb030297ba97d259038a2e0cb864",
+          "rows": 1970,
+          "first_ns": 1540821358224332571,
+          "last_ns": 1540821427821733236,
+          "missing_images": 0
+        },
+        "cam1": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_forward_6/cam1/data.csv",
+          "sha256": "03727b04232e214b5deec815f4a56b78d210272e4f095758bc6e74840a5dd18e",
+          "rows": 1970,
+          "first_ns": 1540821358224332571,
+          "last_ns": 1540821427821733236,
+          "missing_images": 0
+        },
+        "imu0": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_forward_6/imu0/data.csv",
+          "sha256": "9c75b49b31281d6a13f6addaed70191ea40f256dbaae5629fafe073cac3b2957",
+          "rows": 34815,
+          "first_ns": 1540821358195877075,
+          "last_ns": 1540821427823875904,
+          "missing_images": 0
+        }
+      },
+      "eligible": true
+    },
+    {
+      "sequence": "indoor_45_14",
+      "gt_path": "/home/he/datasets/uzhfpv/archives/indoor_45_14_snapdragon_with_gt/groundtruth.txt",
+      "gt_sha256": "5b2b2e3b6aec5214e09ba12a506393904fb01217706bfa9677e35e8e991e2db2",
+      "release_verified": true,
+      "release_url": "https://download.ifi.uzh.ch/rpg/web/datasets/uzh-fpv-newer-versions/v3/indoor_45_14_snapdragon_with_gt.zip",
+      "gt_rows": 18500,
+      "ordered_finite_timestamps": true,
+      "gt_span_s": 36.997999999999934,
+      "valid_contiguous_segments": 1,
+      "conservative_derivative_supported_sensor_intersection_s": 36.898000000000025,
+      "sensors": {
+        "cam0": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_45_14/cam0/data.csv",
+          "sha256": "319b7d7eee9fb651613ba2f106c41b89a983b20924316153f9787289991abe87",
+          "rows": 1836,
+          "first_ns": 929554036978,
+          "last_ns": 994076979635,
+          "missing_images": 0
+        },
+        "cam1": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_45_14/cam1/data.csv",
+          "sha256": "a33ed0d2642faebd0b3bb3b11a21bcee3296a9c30771f9447d44fa29f01fc780",
+          "rows": 1836,
+          "first_ns": 929554036978,
+          "last_ns": 994076979635,
+          "missing_images": 0
+        },
+        "imu0": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_45_14/imu0/data.csv",
+          "sha256": "8b7f8229b934e35c0cfbddd621838585d8f25f5dea04c61d8b44247a197c15be",
+          "rows": 32269,
+          "first_ns": 929546298000,
+          "last_ns": 994082300000,
+          "missing_images": 0
+        }
+      },
+      "eligible": true
+    },
+    {
+      "sequence": "indoor_45_2",
+      "gt_path": "/home/he/datasets/uzhfpv/archives/indoor_45_2_snapdragon_with_gt/groundtruth.txt",
+      "gt_sha256": "ecab8a2a6de523164bdfcd56a2518d393334125256929b64a714fb6a35eaa97e",
+      "release_verified": true,
+      "release_url": "https://download.ifi.uzh.ch/rpg/web/datasets/uzh-fpv-newer-versions/v3/indoor_45_2_snapdragon_with_gt.zip",
+      "gt_rows": 24700,
+      "ordered_finite_timestamps": true,
+      "gt_span_s": 49.39800000000014,
+      "valid_contiguous_segments": 1,
+      "conservative_derivative_supported_sensor_intersection_s": 49.29800000000023,
+      "sensors": {
+        "cam0": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_45_2/cam0/data.csv",
+          "sha256": "28fabfdc5e04f4128c7ecca656fcd2f0945ca80e4bea1d54c53384188fc610e9",
+          "rows": 1965,
+          "first_ns": 1398526170378,
+          "last_ns": 1473167697113,
+          "missing_images": 0
+        },
+        "cam1": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_45_2/cam1/data.csv",
+          "sha256": "fa950e0ffc233660c8428beeb661e8f51d08a59e7efea00df846cc6a4eed5873",
+          "rows": 1965,
+          "first_ns": 1398526170378,
+          "last_ns": 1473167697113,
+          "missing_images": 0
+        },
+        "imu0": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/indoor_45_2/imu0/data.csv",
+          "sha256": "5e1d2f3590603ff45266360977e4ca2d18843f9289e472f4deae0f836a38592c",
+          "rows": 37339,
+          "first_ns": 1398501542000,
+          "last_ns": 1473177544000,
+          "missing_images": 0
+        }
+      },
+      "eligible": true
+    },
+    {
+      "sequence": "outdoor_forward_1",
+      "gt_path": "/home/he/datasets/uzhfpv/archives/outdoor_forward_1_snapdragon_with_gt/groundtruth.txt",
+      "gt_sha256": "67ecd68298d1463e730c131a1ca845981452a9b0ba7cea031f320e6c4c8dd08c",
+      "release_verified": true,
+      "release_url": "https://download.ifi.uzh.ch/rpg/web/datasets/uzh-fpv-newer-versions/v3/outdoor_forward_1_snapdragon_with_gt.zip",
+      "gt_rows": 21300,
+      "ordered_finite_timestamps": true,
+      "gt_span_s": 42.59800000000007,
+      "valid_contiguous_segments": 1,
+      "conservative_derivative_supported_sensor_intersection_s": 42.49800000000016,
+      "sensors": {
+        "cam0": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/outdoor_forward_1/cam0/data.csv",
+          "sha256": "f8da680cfe6f898ac831f1f4ced552be50c9228444e30e676acaecd0ac945404",
+          "rows": 2390,
+          "first_ns": 523101846309,
+          "last_ns": 608820763815,
+          "missing_images": 0
+        },
+        "cam1": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/outdoor_forward_1/cam1/data.csv",
+          "sha256": "0d42e3a10cad6ccb952ba8487525461d2e636c79312f23603b33532ff1a5b9cf",
+          "rows": 2390,
+          "first_ns": 523101846309,
+          "last_ns": 608820763815,
+          "missing_images": 0
+        },
+        "imu0": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/outdoor_forward_1/imu0/data.csv",
+          "sha256": "251df52531a75e605d8ea442b5435481ffa9659e982f1e8fb97e9da01a6f24d1",
+          "rows": 42878,
+          "first_ns": 523077220000,
+          "last_ns": 608831217000,
+          "missing_images": 0
+        }
+      },
+      "eligible": true
+    },
+    {
+      "sequence": "outdoor_forward_5",
+      "gt_path": "/home/he/datasets/uzhfpv/archives/outdoor_forward_5_snapdragon_with_gt/groundtruth.txt",
+      "gt_sha256": "7e2c952ca60431d5c138a2a5aa2306740d8dc5c5aab21b115b2e760acd799e41",
+      "release_verified": true,
+      "release_url": "https://download.ifi.uzh.ch/rpg/web/datasets/uzh-fpv-newer-versions/v3/outdoor_forward_5_snapdragon_with_gt.zip",
+      "gt_rows": 8800,
+      "ordered_finite_timestamps": true,
+      "gt_span_s": 17.59800000000007,
+      "valid_contiguous_segments": 1,
+      "conservative_derivative_supported_sensor_intersection_s": 17.49800000000016,
+      "sensors": {
+        "cam0": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/outdoor_forward_5/cam0/data.csv",
+          "sha256": "655325fe07fbc24246b16c378f893ff0d95256043f74d476ee66dfd437a012bd",
+          "rows": 2457,
+          "first_ns": 526017002373,
+          "last_ns": 617176375797,
+          "missing_images": 0
+        },
+        "cam1": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/outdoor_forward_5/cam1/data.csv",
+          "sha256": "7745e3ed432a18e32a3bb0ae22a8c28a47b8febcc608a3e30385756a97f25b40",
+          "rows": 2457,
+          "first_ns": 526017002373,
+          "last_ns": 617176375797,
+          "missing_images": 0
+        },
+        "imu0": {
+          "path": "/home/he/output/openvins_ltv_value_study_20261003/inputs/outdoor_forward_5/imu0/data.csv",
+          "sha256": "501e4ed537ca30511b48ee2848ea6f25ca471815c59e628ea593a798adf10085",
+          "rows": 45585,
+          "first_ns": 526005993000,
+          "last_ns": 617173991000,
+          "missing_images": 0
+        }
+      },
+      "eligible": false
+    }
+  ]
+}

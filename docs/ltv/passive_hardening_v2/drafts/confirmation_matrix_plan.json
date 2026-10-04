@@ -1,0 +1,163 @@
+{
+  "status": "PLAN_NOT_FROZEN_OR_EXECUTED",
+  "confirmation_groups": [
+    [
+      201,
+      202
+    ],
+    [
+      301,
+      302
+    ]
+  ],
+  "default_duration_s": 60,
+  "synthetic_profiles": [
+    {
+      "name": "normal_stereo_REGULAR_0.5",
+      "generator": "synthetic_inputs",
+      "scene": "REGULAR",
+      "lifetime": 0.5,
+      "condition": "STEREO",
+      "methods": [
+        "P_PREV",
+        "P_NEW_PRESERVE"
+      ],
+      "primary_seed_source": "STEREO",
+      "negative": false
+    },
+    {
+      "name": "normal_stereo_REGULAR_1",
+      "generator": "synthetic_inputs",
+      "scene": "REGULAR",
+      "lifetime": 1.0,
+      "condition": "STEREO",
+      "methods": [
+        "P_NEW_PRESERVE"
+      ],
+      "primary_seed_source": "STEREO",
+      "negative": false
+    },
+    {
+      "name": "normal_stereo_FAST_0.5",
+      "generator": "synthetic_inputs",
+      "scene": "FAST",
+      "lifetime": 0.5,
+      "condition": "STEREO",
+      "methods": [
+        "P_NEW_PRESERVE"
+      ],
+      "primary_seed_source": "STEREO",
+      "negative": false
+    },
+    {
+      "name": "normal_stereo_FAST_1",
+      "generator": "synthetic_inputs",
+      "scene": "FAST",
+      "lifetime": 1.0,
+      "condition": "STEREO",
+      "methods": [
+        "P_NEW_PRESERVE"
+      ],
+      "primary_seed_source": "STEREO",
+      "negative": false
+    },
+    {
+      "name": "normal_temporal_REGULAR_1",
+      "generator": "synthetic_inputs",
+      "scene": "REGULAR",
+      "lifetime": 1.0,
+      "condition": "TEMPORAL",
+      "methods": [
+        "P_NEW_PRESERVE"
+      ],
+      "primary_seed_source": "TEMPORAL_POSE",
+      "negative": false
+    },
+    {
+      "name": "normal_temporal_FAST_1",
+      "generator": "synthetic_inputs",
+      "scene": "FAST",
+      "lifetime": 1.0,
+      "condition": "TEMPORAL",
+      "methods": [
+        "P_PREV",
+        "P_NEW_PRESERVE"
+      ],
+      "primary_seed_source": "TEMPORAL_POSE",
+      "negative": false
+    },
+    {
+      "name": "pressure_REGULAR_0.5",
+      "generator": "pressure_inputs",
+      "scene": "REGULAR",
+      "lifetime": 0.5,
+      "methods": [
+        "P_NEW_PRESERVE"
+      ],
+      "negative": true,
+      "geometry": "original far fixed points; explicit midpoint bridge"
+    },
+    {
+      "name": "bad_match_and_heavy_tail",
+      "generator": "synthetic_inputs",
+      "scene": "REGULAR",
+      "lifetime": 1.0,
+      "condition": "WRONG_MATCH",
+      "methods": [
+        "P_NEW_PRESERVE"
+      ],
+      "negative": true
+    },
+    {
+      "name": "stereo_dropout",
+      "generator": "synthetic_inputs",
+      "scene": "REGULAR",
+      "lifetime": 1.0,
+      "condition": "STEREO_DROPOUT",
+      "methods": [
+        "P_NEW_PRESERVE"
+      ],
+      "negative": true
+    },
+    {
+      "name": "invalid_time",
+      "generator": "synthetic_inputs",
+      "scene": "REGULAR",
+      "lifetime": 1.0,
+      "condition": "TIME_ERROR",
+      "methods": [
+        "P_NEW_PRESERVE"
+      ],
+      "negative": true
+    },
+    {
+      "name": "normal15_weak15_recover30",
+      "generator": "synthetic_inputs",
+      "scene": "REGULAR",
+      "lifetime": 1.0,
+      "condition": "RECOVERY",
+      "methods": [
+        "P_NEW_PRESERVE"
+      ],
+      "negative": "only predefined weak15 interval",
+      "recovery": "all continuous input-supply episodes listed, no splicing or relabeling"
+    },
+    {
+      "name": "resource600s",
+      "generator": "resource_benchmark",
+      "scene": "REGULAR",
+      "duration": 600,
+      "methods": [
+        "P_NEW_PRESERVE"
+      ],
+      "negative": false,
+      "purpose": "engineering boundedness and compute cost; adversarial branches explicitly identified"
+    }
+  ],
+  "full_synthetic_per_group": 28,
+  "normal_source_reporting": "Report all primary and incidental sources separately, including low-count and zero-opportunity groups; do not claim incidental source contract from fewer than100 samples. Dedicated source profiles establish the required source-specific evidence.",
+  "real_plan": "All11 B/P_PREV/P_NEW fresh native runs with one frozen config, then actual P_NEW repeats V1_03/V2_03. UZH selected by separate prior metadata artifact, never candidate error.",
+  "no_execution_authorized_by_this_file": true,
+  "baseline_scope": "Two declared normal-source contrasts receive same-input P_PREV at each confirmation seed. Other profiles establish absolute seed/accuracy/recovery/resource contracts, not a new raw regression claim. All11 real sequences retain mandatory B/P_PREV/P_NEW comparisons. Historical bridges are separate development regressions.",
+  "budget_rationale": "28 full synthetic per confirmation preserves room within80 for the18 completed development runs, targeted compatibility regression, and a second confirmation if needed. No input or result has been opened to select this allocation."
+}

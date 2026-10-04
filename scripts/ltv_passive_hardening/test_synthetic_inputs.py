@@ -1,5 +1,6 @@
 """Small generation-only contract checks; run under the new shared budget."""
 import tempfile
+import json
 import unittest
 from unittest.mock import patch
 from pathlib import Path
@@ -130,6 +131,17 @@ class SyntheticInputContract(unittest.TestCase):
         directory=self.root/'normal_sha_check'
         generate.generate(directory,self.calibration,'REGULAR',42,.5,'STEREO',60.)
         self.assertEqual(generate.sha(directory/'inputs.npz'),expected)
+
+    def test_matching_freeze_wrong_confirmation_group_rejected(self):
+        fake_root=self.root/'fake_repository'
+        frozen=fake_root/'docs/ltv/passive_hardening_v2/frozen_config.json'
+        frozen.parent.mkdir(parents=True)
+        frozen.write_text(json.dumps({'confirmation_seeds':[201,202]}))
+        target=self.root/'must_not_generate_confirmation'
+        with patch.object(generate,'ROOT',fake_root):
+            with self.assertRaisesRegex(ValueError,'outside the current frozen group'):
+                generate.generate(target,self.calibration,'REGULAR',301,.5,'STEREO',.2,generate.sha(frozen))
+        self.assertFalse(target.exists())
 
 
 if __name__ == '__main__':

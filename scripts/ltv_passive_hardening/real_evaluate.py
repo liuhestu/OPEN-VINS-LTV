@@ -88,7 +88,7 @@ def sensor_equivalence(old_identity,new_identity):
 
 # Exact allowlist: only newly authorized hardening engineering controls may differ.
 HARDENING_KEYS = {'ltv_passive_hardening_enabled', 'ltv_hardening_health_readiness',
-                 'ltv_hardening_initial_warmup', 'ltv_hardening_preserve_constrained_state', 'ltv_hardening_prediction_angle_limit_rad',
+                 'ltv_hardening_initial_warmup', 'ltv_hardening_preserve_constrained_state', 'ltv_hardening_ready_soft_grace', 'ltv_hardening_prediction_angle_limit_rad',
                  'ltv_hardening_velocity_correction_rate_limit', 'ltv_hardening_gravity_correction_rate_limit'}
 
 def yaml_values(path):

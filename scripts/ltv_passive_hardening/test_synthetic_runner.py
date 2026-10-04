@@ -18,7 +18,7 @@ def check(library):
                                       'REGULAR',42,.5,condition,.2)
             # The actual estimator must run successfully with evaluator labels absent.
             (inputs/'labels.npz').rename(inputs/'labels_not_available_to_estimation.npz')
-            for mode in ('P_PREV','P_NEW','P_NEW_WARMUP','P_NEW_PRESERVE'):
+            for mode in ('P_PREV','P_NEW','P_NEW_WARMUP','P_NEW_PRESERVE','P_NEW_GRACE'):
                 out=root/(condition+'_'+mode)
                 result=synthetic_runner.run(inputs,out,library,mode)
                 rows=[json.loads(line) for line in (out/'events.jsonl').read_text().splitlines()]
@@ -42,8 +42,8 @@ def check(library):
                     for d,P in zip(matrices['dimension'],matrices['P']):
                         if d:assert np.isfinite(P[:d,:d]).all()
                 evidence.append({'condition':condition,'mode':mode,'events':len(rows),'status':'PASS'})
-            light_out=root/(condition+'_P_NEW_PRESERVE_LIGHT')
-            synthetic_runner.run(inputs,light_out,library,'P_NEW_PRESERVE',diagnostics=False)
+            light_out=root/(condition+'_P_NEW_GRACE_LIGHT')
+            synthetic_runner.run(inputs,light_out,library,'P_NEW_GRACE',diagnostics=False)
             light_rows=[json.loads(line) for line in (light_out/'events.jsonl').read_text().splitlines()]
             assert all(not r['heavy_diagnostics'] and not r['seeds'] and not r['tracks'] for r in light_rows)
             assert all('resource_diagnostics' in r and 'compute_time_ms' in r and 'births' in r for r in light_rows)
@@ -55,7 +55,7 @@ def check(library):
                 np.testing.assert_array_equal(light['ids'],heavy['ids'])
             with np.load(light_out/'matrices.npz') as matrices:
                 assert len(matrices['t'])==0
-            evidence.append({'condition':condition,'mode':'P_NEW_PRESERVE_LIGHT','events':len(light_rows),'status':'PASS'})
+            evidence.append({'condition':condition,'mode':'P_NEW_GRACE_LIGHT','events':len(light_rows),'status':'PASS'})
     return evidence
 
 

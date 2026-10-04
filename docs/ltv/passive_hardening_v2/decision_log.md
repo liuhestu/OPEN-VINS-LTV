@@ -60,3 +60,41 @@ Recovery160/evaluation169 retains the30.1–31.5 interrupted supply episode. Sta
 Historical input bridges165–167 preserve archived inputs, truth and original midpoint timestamps, with explicitly declared endpoint guard samples; they create a new Adapter integration identity, not an exact historical reproduction. Negative-only heavy-tail tests171 preserve normal input SHA. Native logger163/runtime164 adds actual corrected IDs and substeps; wrapper rebuild and fixtures are required before use. No formal confirmation data have been examined.
 
 Wrapper04 build173 and ten input-isolation/receipt/logging fixtures174 pass against immutable cd3. Test175 verifies exact complete x/P/slot plus corrected-ID/substep equality with heavy diagnostics on/off. These are short correctness tests, not new full simulations or final acceptance.
+
+## R3 expanded development and an unresolved resource-semantics regression
+
+Historical bridge full181/183 and evaluation182/184 completed. REGULAR pressure: 1201 events, raw only0–2s, peak velocity error19.026m/s, no ready, prolonged no-observation Dormant after2s. This is rejection evidence, not accuracy success. Historical FAST: full raw support, V-ready1.998%, joint0.35s; all limitations retained. These runs have explicit new midpoint interpolation identities, not old numerical equivalence or unseen-seed evidence.
+
+Native cd3 short179/180 and field audit185 pass. Same-value duplicate camera_substeps JSON key was found; logger-only fix187 preserves observer library and yields immutable native runtime b45ffa972a2c4953ddb53d40e490d7e6ddc698fdb8062690b2a269ffbb8e9861. New short193, cache194 and strict unique-key/correction audit195 pass. Original duplicate-key outputs remain unchanged.
+
+V2_03 full186/evaluation188 is NOT_MET: joint-ready2.8s<5s and raw velocity RMSE0.3340292818→0.3528339000 exceeds the frozen max(5%,0.01) margin. All1806 initialized rows have raw; main state/P/FEJ/trajectory exact and zero injection. Absolute ready accuracy/coverage and typed events189 pass. Longest joint episode ends at a real0.1s camera gap, not immediate health failure; later health withdrawal is separately recorded. No sequence exclusion or threshold change.
+
+Offline192 plus direct cache decode201/202 establish the first selection divergence at initialization+1.75s: NEW admits4446, PREV4371, despite identical bearings and prebirth sector counts[3,7,8,10]. NEW4446 has accumulated history since1.60s, whereas old manager has no history record for4446; seed geometry diagnostics alone do not prove candidate eligibility. Earlier bounded-history deletion and guarded-observation filtering change capacity availability. This is a source-supported causal hypothesis for the divergence, not proof from a serialized full history map (which was not saved). Minimal legacy history TTL/capacity compatibility repair is being independently designed before any new full run. It remains within R3 resource correction, with fixed capacities, identity protection, gains and readiness thresholds.
+
+Input tools191 pass old-vs-new far pressure42 exact arrays and frozen-seed rejection. Unseen confirmation seeds remain unopened. UZH metadata-only selection freezes indoor_forward_3/6 with49.398/30.098s reference support; no candidate error used and no UZH success claim. Point-lifecycle fixtures198 and analyses199/200 pass, while197 fixture message mismatch remains recorded; unavailable old corrected-ID counts remain null. Freeze/contract tool fixtures196/203 pass; no actual candidate freeze has been created.
+
+The compatibility counterexample fails before the fix (205) and passes after
+(208). The bounded-manager fixture210 initially encoded the eager-release
+behavior; its revised assertions preserve retirement, identity rejection and
+original history occupancy, then require successful admission after natural TTL.
+Tests212/214/216 pass bounded manager, old manager and history. Independent final
+source review and cache comparator fixtures220/221 pass; the latter rejects a
+single-double state mutation without running the observer. Integrated build218
+is still active. No full repaired-version numerical or scientific pass is claimed.
+
+Confirmation matrix planning uses28 full synthetic runs per revision, preserving
+capacity for a second allowed revision. All registered profiles retain both noise
+seeds; two declared normal-source contrasts receive paired P_PREV. Other profiles
+establish absolute contracts, without claiming unmeasured raw regression. All11
+real B/P_PREV/P_NEW comparisons remain mandatory. This allocation was written
+before any confirmation inputs or errors were opened.
+
+Integrated218/test226 pass. Repaired runtime1d5c04fef6f0a5f56570480484eec9e46c04437e946db5527340b3c10a70e236 and wrapper05 build228 are immutable. Fixtures229/230 and bounded streaming233 pass. Native V2_03 full227, evaluation231, full cache comparison232 and typed/unique-key234 pass engineering and restore raw v/eta/angle exactly to P_PREV. Full1921 camera/23370 IMU records have identical input bytes, physical times, entire x/P, active external/internal IDs and slots plus controlled lifecycle events. Inactive historical map and health metadata differences are separately reported.
+
+V2_03 remains NOT_MET solely forjoint2.85s<5s; no ready or continuity threshold changed. Investigation now separates input continuity upper bound from instantaneous health, confirmation delay and actual online withdrawal causes. This is diagnostic, not selection on confirmation outcomes.
+
+Same-identity historical bridge P_PREV222/224 and new analyses223/225 complete. FAST raw and same-ready-support errors equal the prior R3 method; ready support is more conservative, not a raw improvement. Pressure common first2s errors match, but NEW stops raw thereafter and both methods have no ready; common-support numerical pass cannot hide96.586% NEW raw absence. These remain pre-repair development identities.
+
+## R3B development: grace alone does not resolve continuity
+
+Candidate237, native261, evaluation265: fixed two-packet/0.10s grace modestly increases ready coverage but joint longest episode stays2.85s. All other single-sequence gates pass. Full numerical cache266 matches repaired R3 exactly, so there is no estimator accuracy change. Held-only audit268 reports G14/V12 events, original severe thresholds exceeded0 times; this does not establish confirmation safety. Preserve the negative outcome and do not sweep grace settings. Next inspect actual camera cadence and mature/observed pool interruptions separately; only a causally supported remaining R3 intervention can justify another candidate. Formal seeds and all11 confirmation stay unopened.

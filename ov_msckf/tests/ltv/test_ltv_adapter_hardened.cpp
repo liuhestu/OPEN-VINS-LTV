@@ -109,6 +109,10 @@ int main() {
     auto duplicate = h.frame(24, true);
     require(!duplicate.raw_current && !duplicate.ready_G && !duplicate.ready_V && !duplicate.available,
             "duplicate packet cannot publish current result");
+    require(!duplicate.health.accepted_time && !duplicate.health.observer_valid && !duplicate.health.ready_G && !duplicate.health.ready_V &&
+                !duplicate.health.joint_ready && !duplicate.health.grace_G && !duplicate.health.grace_V &&
+                duplicate.health.reason == "duplicate_or_backward_camera",
+            "duplicate return diagnostics cannot inherit accepted readiness");
     require((x - h.adapter.core().state()).norm() == 0 && (P - h.adapter.core().covariance()).norm() == 0,
             "duplicate packet preserves full x/P");
     for (int k = 25; k < 29; ++k) {

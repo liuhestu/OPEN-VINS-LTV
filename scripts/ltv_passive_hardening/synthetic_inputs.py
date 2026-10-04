@@ -107,6 +107,8 @@ def generate(out, calibration_path, scene, seed, lifetime, condition, duration=6
         frozen = ROOT / 'docs/ltv/passive_hardening_v2/frozen_config.json'
         if not frozen.exists() or confirmation_sha != sha(frozen):
             raise ValueError('Confirmation input requires the current new-task freeze SHA')
+        if seed not in json.loads(frozen.read_text()).get('confirmation_seeds',[]):
+            raise ValueError('Confirmation seed is outside the current frozen group')
     out = Path(out)
     if out.exists():
         raise FileExistsError(out)

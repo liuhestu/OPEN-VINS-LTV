@@ -1,0 +1,467 @@
+{
+  "status": "EVALUATED",
+  "run": "/home/he/output/ltv_passive_hardening_v2/R3/BRIDGE_pressure_REGULAR_101_05/P_NEW_PRESERVE",
+  "input_identity": {
+    "scene": "REGULAR",
+    "seed": 101,
+    "lifetime": 0.5,
+    "duration": 60.0,
+    "noise": true,
+    "imu_hz": 200,
+    "camera_hz": 20,
+    "stereo_baseline_camera_x_m": 0.11,
+    "protocol_sha": "c6ef8ecdb14204ad57cb6feda66fbe92ebcf1437b33ee49a60fbb45bcffd8c83",
+    "generator_sha": "180ef627889932ad6f19baad569fda520c09e23b41871da1ea6cb8e84da46c67",
+    "truth_model_sha": "2bfe9e7dcccde4f4bfd1c41c2c687fa6408a17d605eeb514d0703ba2e83b5747",
+    "confirmation_freeze_sha": "f992d6d2e4220f0bb70dcd4e02b7ce2823d42cdcd6b6068a372116e651c1ec97",
+    "input_sha": "b194959b396a9796c79fc6357f95b80b94e9a282e2502dfd963b197f7dd7445f",
+    "labels_sha": "3cd753ceabb7585ac9c320c3437824a2e3022d768b7f41826696bd858aa50271",
+    "schema_version": 2,
+    "historical_input_sha": "682be573bf934ae55437473c69960895e7fe1fc77098b146ee6c5a67a24a0f19",
+    "historical_labels_sha": "f7b6622ab771090fc004531269c801aa29f604e8f99199ce1f4d76ccd1b5955e",
+    "historical_identity_sha": "2784bd3cec34e0ad359e17ea5c0a7a929a5e571860a689ee5d213074bd5de5fb",
+    "historical_source": "/home/he/output/ltv_feature_readiness_passive/synthetic_inputs/REGULAR_101_0.5s",
+    "bridge_sha": "c3afed007cb7f7a1678f932d45ba560774aac6aca2cc7df2ac717a7e1bc7a50d",
+    "geometry_name": "HISTORICAL_FAR_ORIGINAL_UNCHANGED",
+    "condition": "PRESSURE",
+    "negative_control": true,
+    "unseen_confirmation": false,
+    "original_feature_ids_mapping": "historical_feature_ids[k,j] == feature_ids[offset[k]+2*j:offset[k]+2*j+2]; cam0/cam1 alternating",
+    "original_bearing_mapping": "bearings[offset[k]+2*j+c] equals original bearings_left/right[k,j] bit-for-bit",
+    "adapter_imu_contract": "Original midpoint sample values at (j+.5)/200 seconds; two declared constant boundary guards; Adapter interpolates timestamped samples",
+    "boundary_augmentation": {
+      "sample_times": [
+        -0.0025,
+        60.0025
+      ],
+      "values": "copies of first/last original IMU row; no truth-derived replacement/no new noise"
+    },
+    "numerical_identity": "NEW: linear sample interpolation and Adapter subinterval propagation; not historical direct interval-midpoint reproduction",
+    "opportunity_contract": {
+      "stereo": "all original legal synchronous two-view IDs before risk/history/capacity",
+      "temporal": "same ID cam0 >=3 consecutive frames spanning .10s before risk/capacity"
+    },
+    "labels_mapping": "Original truth archive copied byte-for-byte; mapped truth v/eta are final six state columns; physical point by saved physical_indices",
+    "recovery_supply": "Not defined for historical input; no recovery claim",
+    "estimator_payload": "inputs.npz only; historical labels and identity are provenance/evaluator only"
+  },
+  "mode": "P_NEW_PRESERVE",
+  "support": "all camera receipts; inclusive checked episode endpoints, left-sample duration; held 200Hz snapshots excluded",
+  "raw_missing_samples": 1160,
+  "raw_missing_fraction": 0.9658617818484596,
+  "supports": {
+    "raw": {
+      "errors": {
+        "samples": 41,
+        "v": {
+          "finite_samples": 41,
+          "invalid_samples": 0,
+          "RMSE": 10.97753774534181,
+          "P95": 18.050667736318164
+        },
+        "eta": {
+          "finite_samples": 41,
+          "invalid_samples": 0,
+          "RMSE": 9.802945578430192,
+          "P95": 9.812027309914972
+        },
+        "angle": {
+          "finite_samples": 34,
+          "invalid_samples": 7,
+          "RMSE": 63.853260255689605,
+          "P95": 98.31851781923037
+        },
+        "norm": {
+          "finite_samples": 41,
+          "invalid_samples": 0,
+          "RMSE": 9.795933101082916,
+          "P95": 9.809999999999999
+        },
+        "wide_v_fraction": 0.0,
+        "wide_g_fraction": 0.0,
+        "severe_v_fraction": 1.0,
+        "severe_g_fraction": 1.0
+      },
+      "coverage": {
+        "samples": 41,
+        "fraction": 0.03413821815154038,
+        "left_sample_seconds": 2.05,
+        "episodes": [
+          {
+            "start": 0.0,
+            "end": 2.0,
+            "duration": 2.0,
+            "samples": 41
+          }
+        ],
+        "longest_episode_seconds": 2.0,
+        "longest_gap_seconds": 57.95
+      }
+    },
+    "ready_G": {
+      "errors": {
+        "samples": 0,
+        "v": {
+          "finite_samples": 0,
+          "invalid_samples": 0,
+          "RMSE": null,
+          "P95": null
+        },
+        "eta": {
+          "finite_samples": 0,
+          "invalid_samples": 0,
+          "RMSE": null,
+          "P95": null
+        },
+        "angle": {
+          "finite_samples": 0,
+          "invalid_samples": 0,
+          "RMSE": null,
+          "P95": null
+        },
+        "norm": {
+          "finite_samples": 0,
+          "invalid_samples": 0,
+          "RMSE": null,
+          "P95": null
+        },
+        "wide_v_fraction": null,
+        "wide_g_fraction": null,
+        "severe_v_fraction": null,
+        "severe_g_fraction": null
+      },
+      "coverage": {
+        "samples": 0,
+        "fraction": 0.0,
+        "left_sample_seconds": 0.0,
+        "episodes": [],
+        "longest_episode_seconds": 0.0,
+        "longest_gap_seconds": 60.0
+      }
+    },
+    "ready_V": {
+      "errors": {
+        "samples": 0,
+        "v": {
+          "finite_samples": 0,
+          "invalid_samples": 0,
+          "RMSE": null,
+          "P95": null
+        },
+        "eta": {
+          "finite_samples": 0,
+          "invalid_samples": 0,
+          "RMSE": null,
+          "P95": null
+        },
+        "angle": {
+          "finite_samples": 0,
+          "invalid_samples": 0,
+          "RMSE": null,
+          "P95": null
+        },
+        "norm": {
+          "finite_samples": 0,
+          "invalid_samples": 0,
+          "RMSE": null,
+          "P95": null
+        },
+        "wide_v_fraction": null,
+        "wide_g_fraction": null,
+        "severe_v_fraction": null,
+        "severe_g_fraction": null
+      },
+      "coverage": {
+        "samples": 0,
+        "fraction": 0.0,
+        "left_sample_seconds": 0.0,
+        "episodes": [],
+        "longest_episode_seconds": 0.0,
+        "longest_gap_seconds": 60.0
+      }
+    },
+    "joint_ready": {
+      "errors": {
+        "samples": 0,
+        "v": {
+          "finite_samples": 0,
+          "invalid_samples": 0,
+          "RMSE": null,
+          "P95": null
+        },
+        "eta": {
+          "finite_samples": 0,
+          "invalid_samples": 0,
+          "RMSE": null,
+          "P95": null
+        },
+        "angle": {
+          "finite_samples": 0,
+          "invalid_samples": 0,
+          "RMSE": null,
+          "P95": null
+        },
+        "norm": {
+          "finite_samples": 0,
+          "invalid_samples": 0,
+          "RMSE": null,
+          "P95": null
+        },
+        "wide_v_fraction": null,
+        "wide_g_fraction": null,
+        "severe_v_fraction": null,
+        "severe_g_fraction": null
+      },
+      "coverage": {
+        "samples": 0,
+        "fraction": 0.0,
+        "left_sample_seconds": 0.0,
+        "episodes": [],
+        "longest_episode_seconds": 0.0,
+        "longest_gap_seconds": 60.0
+      }
+    }
+  },
+  "gravity_ready_physical_valid": true,
+  "severe_ready_pass": {
+    "V": false,
+    "G": false
+  },
+  "absolute_contract": {
+    "ready_G": {
+      "accuracy": false,
+      "coverage": false
+    },
+    "ready_V": {
+      "accuracy": false,
+      "coverage": false
+    },
+    "joint_5s": false
+  },
+  "transient_windows": {
+    "1": {
+      "samples": 21,
+      "v": {
+        "finite_samples": 21,
+        "invalid_samples": 0,
+        "RMSE": 5.498672866653602,
+        "P95": 8.834510676216194
+      },
+      "eta": {
+        "finite_samples": 21,
+        "invalid_samples": 0,
+        "RMSE": 9.809215882010792,
+        "P95": 9.812027600762814
+      },
+      "angle": {
+        "finite_samples": 14,
+        "invalid_samples": 7,
+        "RMSE": 89.29478107521832,
+        "P95": 99.81312566228785
+      },
+      "norm": {
+        "finite_samples": 21,
+        "invalid_samples": 0,
+        "RMSE": 9.798755096964321,
+        "P95": 9.809999999999999
+      },
+      "wide_v_fraction": 0.0,
+      "wide_g_fraction": 0.0,
+      "severe_v_fraction": 1.0,
+      "severe_g_fraction": 1.0
+    },
+    "5": {
+      "samples": 41,
+      "v": {
+        "finite_samples": 41,
+        "invalid_samples": 0,
+        "RMSE": 10.97753774534181,
+        "P95": 18.050667736318164
+      },
+      "eta": {
+        "finite_samples": 41,
+        "invalid_samples": 0,
+        "RMSE": 9.802945578430192,
+        "P95": 9.812027309914972
+      },
+      "angle": {
+        "finite_samples": 34,
+        "invalid_samples": 7,
+        "RMSE": 63.853260255689605,
+        "P95": 98.31851781923037
+      },
+      "norm": {
+        "finite_samples": 41,
+        "invalid_samples": 0,
+        "RMSE": 9.795933101082916,
+        "P95": 9.809999999999999
+      },
+      "wide_v_fraction": 0.0,
+      "wide_g_fraction": 0.0,
+      "severe_v_fraction": 1.0,
+      "severe_g_fraction": 1.0
+    },
+    "10": {
+      "samples": 41,
+      "v": {
+        "finite_samples": 41,
+        "invalid_samples": 0,
+        "RMSE": 10.97753774534181,
+        "P95": 18.050667736318164
+      },
+      "eta": {
+        "finite_samples": 41,
+        "invalid_samples": 0,
+        "RMSE": 9.802945578430192,
+        "P95": 9.812027309914972
+      },
+      "angle": {
+        "finite_samples": 34,
+        "invalid_samples": 7,
+        "RMSE": 63.853260255689605,
+        "P95": 98.31851781923037
+      },
+      "norm": {
+        "finite_samples": 41,
+        "invalid_samples": 0,
+        "RMSE": 9.795933101082916,
+        "P95": 9.809999999999999
+      },
+      "wide_v_fraction": 0.0,
+      "wide_g_fraction": 0.0,
+      "severe_v_fraction": 1.0,
+      "severe_g_fraction": 1.0
+    },
+    "20": {
+      "samples": 41,
+      "v": {
+        "finite_samples": 41,
+        "invalid_samples": 0,
+        "RMSE": 10.97753774534181,
+        "P95": 18.050667736318164
+      },
+      "eta": {
+        "finite_samples": 41,
+        "invalid_samples": 0,
+        "RMSE": 9.802945578430192,
+        "P95": 9.812027309914972
+      },
+      "angle": {
+        "finite_samples": 34,
+        "invalid_samples": 7,
+        "RMSE": 63.853260255689605,
+        "P95": 98.31851781923037
+      },
+      "norm": {
+        "finite_samples": 41,
+        "invalid_samples": 0,
+        "RMSE": 9.795933101082916,
+        "P95": 9.809999999999999
+      },
+      "wide_v_fraction": 0.0,
+      "wide_g_fraction": 0.0,
+      "severe_v_fraction": 1.0,
+      "severe_g_fraction": 1.0
+    },
+    "60": {
+      "samples": 41,
+      "v": {
+        "finite_samples": 41,
+        "invalid_samples": 0,
+        "RMSE": 10.97753774534181,
+        "P95": 18.050667736318164
+      },
+      "eta": {
+        "finite_samples": 41,
+        "invalid_samples": 0,
+        "RMSE": 9.802945578430192,
+        "P95": 9.812027309914972
+      },
+      "angle": {
+        "finite_samples": 34,
+        "invalid_samples": 7,
+        "RMSE": 63.853260255689605,
+        "P95": 98.31851781923037
+      },
+      "norm": {
+        "finite_samples": 41,
+        "invalid_samples": 0,
+        "RMSE": 9.795933101082916,
+        "P95": 9.809999999999999
+      },
+      "wide_v_fraction": 0.0,
+      "wide_g_fraction": 0.0,
+      "severe_v_fraction": 1.0,
+      "severe_g_fraction": 1.0
+    }
+  },
+  "raw_peaks": {
+    "v": {
+      "value": 19.026439123799516,
+      "time": 2.0
+    },
+    "eta": {
+      "value": 9.812176339470914,
+      "time": 0.7
+    },
+    "angle": {
+      "value": 102.58734077393947,
+      "time": 0.35
+    },
+    "norm": {
+      "value": 9.81,
+      "time": 0.25
+    }
+  },
+  "seeds": {
+    "STEREO": {
+      "accepted_writes": 0,
+      "unique_accepted_ids": 0,
+      "opportunity_ids": 3630,
+      "accepted_opportunity_ids": 0,
+      "all_birth_ids": 3630,
+      "opportunity_acceptance": 0.0,
+      "all_birth_acceptance": 0.0,
+      "reliable10": null,
+      "reliable5": null,
+      "parallel_RMSE": null,
+      "transverse_RMSE": null,
+      "normal_source_pass": false
+    },
+    "TEMPORAL_POSE": {
+      "accepted_writes": 32,
+      "unique_accepted_ids": 32,
+      "opportunity_ids": 3618,
+      "accepted_opportunity_ids": 32,
+      "all_birth_ids": 3630,
+      "opportunity_acceptance": 0.008844665561083471,
+      "all_birth_acceptance": 0.008815426997245178,
+      "reliable10": 0.96875,
+      "reliable5": 0.40625,
+      "parallel_RMSE": 0.8610985913168796,
+      "transverse_RMSE": 0.026365600525857964,
+      "normal_source_pass": false
+    }
+  },
+  "recovery": {
+    "applicable": false
+  },
+  "bootstrap_events": [
+    {
+      "t": 0,
+      "epoch": 1,
+      "bootstrap_count": 1,
+      "last_bootstrap_time": 0,
+      "bootstrap_source": "BOUNDED_INITIAL_ZERO_WARMUP",
+      "physical_fault_count": 0
+    }
+  ],
+  "provenance": {
+    "evaluator_sha": "96ebc4e10e967cefd9606bae62aea93e508d542200b2677c0a5447af10529df3",
+    "acceptance_sha": "92aa96dbee377359b936e5999b51df46434b61e27a5973bb9c4e920168b4ee8b",
+    "protocol_sha": "4f5942ce2f45794324c4da0510c1d16d0f9df07514677ef99cd2303f56c2ba12",
+    "run_sha": "898ae8ef40ac55ae7875a82c183ae86ad398d56ff8017feee74d97a7c4fdba8d",
+    "events_sha": "349e7800ea9f93ea25a937ce3d25e2d5e70ffca45e16e197b7274926960ecc99",
+    "states_sha": "bdc3c4ed6ab990c82063b1eddebe1d050bddede46af406878cb85352609c23ef"
+  }
+}
