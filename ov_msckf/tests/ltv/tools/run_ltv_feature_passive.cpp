@@ -1,4 +1,5 @@
 // Deterministic ASL input adapter: no GT enters the estimator, no ROS transport drops.
+#include "LtvEventReceipt.h"
 #include "core/VioManager.h"
 #include "feat/Feature.h"
 #include "feat/FeatureDatabase.h"
@@ -88,8 +89,11 @@ public:
   }
 };
 class ReplayManager : public VioManager {
+  LtvEventReceipt camera_receipt_;
+
 public:
   using VioManager::VioManager;
+  void begin_camera_receipt(int64_t left_ns, int64_t right_ns, double time) { camera_receipt_.begin(left_ns, right_ns, time); }
   std::string state_digest() {
     Digest h;
     h.scalar(state->_timestamp);
@@ -201,6 +205,14 @@ public:
   }
   void feature_row(std::ostream &out, int64_t camera_ns) {
     const auto &f = passive_ltv_frame;
+    camera_receipt_.validate(camera_ns, f.camera_time, f.available, f.epoch, f.sequence);
+    const bool frame_matches = f.camera_time == camera_receipt_.physical_camera_time;
+    const bool new_path = params.ltv_options.feature_readiness_enabled && bool(ltv_adapter) && f.available;
+    if (new_path && (!frame_matches || !ltv_adapter->feature_pipeline()))
+      throw std::runtime_error("Current feature event missing its management diagnostics");
+    if (new_path &&
+        (ltv_adapter->feature_frame().management.epoch != f.epoch || ltv_adapter->feature_frame().management.time != f.imu_time))
+      throw std::runtime_error("Management diagnostics belong to another observer event");
     std::vector<size_t> passive_current_cam0_ids, passive_current_stereo_ids;
     std::set<size_t> left_ids, right_ids;
     for (const auto &o : passive_current_observations) {
@@ -213,9 +225,16 @@ public:
     for (auto id : left_ids)
       if (right_ids.count(id))
         passive_current_stereo_ids.push_back(id);
-    out << std::setprecision(17) << "{\"camera_ns\":" << camera_ns << ",\"initialized\":" << initialized()
-        << ",\"state_time\":" << state->_timestamp << ",\"epoch\":" << f.epoch << ",\"sequence\":" << f.sequence
-        << ",\"target_imu_time\":" << camera_ns * 1e-9 + state->_calib_dt_CAMtoIMU->value()(0)
+    out << std::setprecision(17) << "{\"camera_ns\":" << camera_ns << ",\"receipt_id\":" << camera_receipt_.id
+        << ",\"right_camera_ns\":" << camera_receipt_.right_camera_ns << ",\"frame_matches_receipt\":" << frame_matches
+        << ",\"management_present\":" << new_path << ",\"management_status\":\""
+        << (new_path ? "CURRENT_EVENT"
+                     : (!ltv_adapter ? "LTV_DISABLED"
+                                     : (!params.ltv_options.feature_readiness_enabled
+                                            ? "LEGACY_FEATURE_PATH"
+                                            : (frame_matches ? "OBSERVER_UNAVAILABLE" : "NO_OBSERVER_EVENT"))))
+        << "\",\"initialized\":" << initialized() << ",\"state_time\":" << state->_timestamp << ",\"epoch\":" << f.epoch
+        << ",\"sequence\":" << f.sequence << ",\"target_imu_time\":" << camera_ns * 1e-9 + state->_calib_dt_CAMtoIMU->value()(0)
         << ",\"observer_started\":" << (ltv_adapter && ltv_adapter->core().started()) << ",\"imu_time\":" << f.imu_time
         << ",\"cursor\":" << f.cursor << ",\"available\":" << f.available << ",\"ready_G\":" << f.ready_G << ",\"ready_V\":" << f.ready_V
         << ",\"reason\":\"" << f.reason << "\",\"state_features\":" << f.snapshot.state_features
@@ -230,7 +249,6 @@ public:
     out << ",\"current_stereo_ids\":";
     id_array(out, passive_current_stereo_ids);
     out << ",\"retained_ids\":[";
-    const bool new_path = params.ltv_options.feature_readiness_enabled && bool(ltv_adapter) && f.available && f.camera_ns == camera_ns;
     if (new_path) {
       const auto &management = ltv_adapter->feature_frame().management;
       for (size_t k = 0; k < management.retained_ids.size(); ++k) {
@@ -310,7 +328,26 @@ public:
       out << "]";
     } else
       out << "]";
+    // Cumulative per-epoch sets allow exact offline event reconstruction without
+    // a second unbounded logger history. Candidate TTL never occupied a core slot.
+    std::vector<size_t> candidate_ttl, admitted_retired;
+    if (ltv_adapter && ltv_adapter->feature_pipeline())
+      for (const auto &entry : ltv_adapter->feature_pipeline()->manager().landmarks()) {
+        const auto &track = entry.second;
+        if (track.phase != ltv::LandmarkPhase::Retired)
+          continue;
+        if (track.entered >= 0)
+          admitted_retired.push_back(entry.first);
+        else if (track.reason == "candidate_ttl")
+          candidate_ttl.push_back(entry.first);
+      }
+    out << ",\"never_admitted_candidate_ttl_ids\":";
+    id_array(out, candidate_ttl);
+    out << ",\"admitted_retired_ids\":";
+    id_array(out, admitted_retired);
     out << "}\n";
+    LtvEventReceipt::require_written(out);
+    camera_receipt_.complete(camera_ns, f.camera_time, f.available, f.epoch, f.sequence);
   }
   void injection_row(std::ostream &out) {
     out << "," << passive_auxiliary_receipts << "," << passive_gravity_submissions << "," << passive_velocity_submissions;
@@ -494,6 +531,7 @@ int main(int argc, char **argv) {
         camera.images.push_back(image);
         camera.masks.push_back(options.use_mask ? options.masks.at(camera.masks.size()).clone() : cv::Mat::zeros(image.size(), CV_8UC1));
       }
+      app.begin_camera_receipt(left[i].ns, right[i].ns, t);
       app.feed_measurement_camera(camera);
       app.assert_passive();
       last_input_time = std::max(last_input_time, target);

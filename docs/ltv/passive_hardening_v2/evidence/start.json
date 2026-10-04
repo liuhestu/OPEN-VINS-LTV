@@ -1,0 +1,9 @@
+{
+  "baseline_commit": "f76f32f8c1d5ece23ce23e10e65560b80ec0a4f9",
+  "baseline_archive": "/home/he/output/ltv_passive_hardening_v2/baseline_source.tar",
+  "baseline_archive_sha256": "40d7f5d2f7dbc1a8f40274b16f5405d984c396ae8d12a6882f4929796d69ebbc",
+  "initial_status": "?? \"docs/04-LTV_v2_\\345\\205\\255\\351\\241\\271\\350\\241\\245\\345\\205\\205\\351\\252\\214\\350\\257\\201_Codex\\346\\211\\247\\350\\241\\214\\346\\226\\271\\346\\241\\210.md\"\n?? docs/ltv/passive_hardening_v2/\n",
+  "goal_sha256": "1da5dc723bf5ee43e687d06c841c308f51baa7739002d3b3f48c34eb69648cfa",
+  "protocol_sha256": "4f5942ce2f45794324c4da0510c1d16d0f9df07514677ef99cd2303f56c2ba12",
+  "acceptance_sha256": "92aa96dbee377359b936e5999b51df46434b61e27a5973bb9c4e920168b4ee8b"
+}

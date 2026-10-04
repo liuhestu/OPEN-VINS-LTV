@@ -1,0 +1,156 @@
+{
+  "status": "PASS",
+  "runs": {
+    "P_PREV": {
+      "stage": "logger_only_no_observer_changes",
+      "label": "P_PREV",
+      "runtime": "/home/he/output/ltv_feature_readiness_passive/runtime/65059350d802b5964e3409231c53b8953e2078bfbcfb196b2fd04ae0f8a78e5e",
+      "runtime_manifest_sha": "2da5f69a13604f48895b2a7f94b132ca58f3db82bbc5be4657afb648439576a0",
+      "config_sha": {
+        "estimator_config.yaml": "704459f919221004e55ecf4a664448fba597650539dabdc14e1de37f74f445a7",
+        "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+        "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      },
+      "inputs": {
+        "root": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+        "sensors": {
+          "cam0": {
+            "path": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0/cam0/data.csv",
+            "sha256": "fde68e2c385fba8b927023b912bf37ff48e33128035efe852e396e6dbb499877",
+            "rows": 2912,
+            "first_ns": 1403715273262142976,
+            "last_ns": 1403715418812143104,
+            "duration_s": 145.55000012800002,
+            "missing_images": 0
+          },
+          "cam1": {
+            "path": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0/cam1/data.csv",
+            "sha256": "fde68e2c385fba8b927023b912bf37ff48e33128035efe852e396e6dbb499877",
+            "rows": 2912,
+            "first_ns": 1403715273262142976,
+            "last_ns": 1403715418812143104,
+            "duration_s": 145.55000012800002,
+            "missing_images": 0
+          },
+          "imu0": {
+            "path": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0/imu0/data.csv",
+            "sha256": "4cef78a5cf7c8ee52016a160de4b50184da2a216d615feb7ebbbb3bc99efa89e",
+            "rows": 29120,
+            "first_ns": 1403715273262142976,
+            "last_ns": 1403715418857143040,
+            "duration_s": 145.595000064,
+            "missing_images": 0
+          }
+        },
+        "reference_metadata_only": {
+          "path": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+          "sha256": "701200e6924ba845ccdeea884bd717c82d1ed91f480913ea6e2e6ccb9c0fbf6d",
+          "rows": 28712,
+          "first_ns": 1403715274302142976,
+          "last_ns": 1403715417857143040,
+          "duration_s": 143.555000064,
+          "missing_images": 0
+        }
+      },
+      "short_seconds": 10,
+      "attempt": {
+        "id": 17,
+        "exit_code": 0,
+        "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0017"
+      }
+    },
+    "P_LOGGED": {
+      "stage": "logger_only_no_observer_changes",
+      "label": "P_LOGGED",
+      "runtime": "/home/he/output/ltv_passive_hardening_v2/runtime/33b00525af75f0a671e0b76cfcc58d2d018eeeb850a673f9074238829ac6994f",
+      "runtime_manifest_sha": "5f1cb695689d9541c581a13dc67a32042e925dd582ae177bd599a8b9387e661f",
+      "config_sha": {
+        "estimator_config.yaml": "704459f919221004e55ecf4a664448fba597650539dabdc14e1de37f74f445a7",
+        "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+        "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      },
+      "inputs": {
+        "root": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+        "sensors": {
+          "cam0": {
+            "path": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0/cam0/data.csv",
+            "sha256": "fde68e2c385fba8b927023b912bf37ff48e33128035efe852e396e6dbb499877",
+            "rows": 2912,
+            "first_ns": 1403715273262142976,
+            "last_ns": 1403715418812143104,
+            "duration_s": 145.55000012800002,
+            "missing_images": 0
+          },
+          "cam1": {
+            "path": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0/cam1/data.csv",
+            "sha256": "fde68e2c385fba8b927023b912bf37ff48e33128035efe852e396e6dbb499877",
+            "rows": 2912,
+            "first_ns": 1403715273262142976,
+            "last_ns": 1403715418812143104,
+            "duration_s": 145.55000012800002,
+            "missing_images": 0
+          },
+          "imu0": {
+            "path": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0/imu0/data.csv",
+            "sha256": "4cef78a5cf7c8ee52016a160de4b50184da2a216d615feb7ebbbb3bc99efa89e",
+            "rows": 29120,
+            "first_ns": 1403715273262142976,
+            "last_ns": 1403715418857143040,
+            "duration_s": 145.595000064,
+            "missing_images": 0
+          }
+        },
+        "reference_metadata_only": {
+          "path": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+          "sha256": "701200e6924ba845ccdeea884bd717c82d1ed91f480913ea6e2e6ccb9c0fbf6d",
+          "rows": 28712,
+          "first_ns": 1403715274302142976,
+          "last_ns": 1403715417857143040,
+          "duration_s": 143.555000064,
+          "missing_images": 0
+        }
+      },
+      "short_seconds": 10,
+      "attempt": {
+        "id": 18,
+        "exit_code": 0,
+        "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0018"
+      }
+    }
+  },
+  "passive": {
+    "status": "PASS",
+    "exact_files": [
+      "audit.csv",
+      "trajectory.csv",
+      "unmatched_camera.csv"
+    ],
+    "runs": [
+      {
+        "mode": "P_NEW",
+        "camera_packets": 200,
+        "trajectory_rows": 88,
+        "complete": false,
+        "zero_injection": true,
+        "status": "PASS"
+      },
+      {
+        "mode": "P_NEW",
+        "camera_packets": 200,
+        "trajectory_rows": 88,
+        "complete": false,
+        "zero_injection": true,
+        "status": "PASS"
+      }
+    ]
+  },
+  "live_receipts": {
+    "status": "PASS",
+    "camera_receipts": 200,
+    "available_complete_rows": 88,
+    "unique_births": 61,
+    "roundtrip_mismatch_packets": 40,
+    "overlay_used": false
+  },
+  "full_numeric_cache_byte_identical": true
+}

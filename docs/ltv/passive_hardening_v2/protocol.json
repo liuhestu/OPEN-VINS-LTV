@@ -1,0 +1,97 @@
+{
+  "task": "passive_hardening_v2",
+  "baseline_commit": "f76f32f8c1d5ece23ce23e10e65560b80ec0a4f9",
+  "goal_sha256": "1da5dc723bf5ee43e687d06c841c308f51baa7739002d3b3f48c34eb69648cfa",
+  "max_mechanism_rounds": 3,
+  "max_candidates_per_round": 4,
+  "max_final_confirmations": 2,
+  "budgets": {
+    "synthetic": 80,
+    "real": 72,
+    "short_real": 24,
+    "geometry": 30000,
+    "candidate": 12
+  },
+  "final_reserved": {
+    "synthetic": 24,
+    "real": 40
+  },
+  "max_heavy_jobs": 2,
+  "blas_threads": 1,
+  "real_development": [
+    "V1_01_easy",
+    "V2_02_medium",
+    "V2_03_difficult"
+  ],
+  "real_final": [
+    "MH_01_easy",
+    "MH_02_easy",
+    "MH_03_medium",
+    "MH_04_difficult",
+    "MH_05_difficult",
+    "V1_01_easy",
+    "V1_02_medium",
+    "V1_03_difficult",
+    "V2_01_easy",
+    "V2_02_medium",
+    "V2_03_difficult"
+  ],
+  "representative_repeats": [
+    "V1_03_difficult",
+    "V2_03_difficult"
+  ],
+  "methods": [
+    "B",
+    "P_PREV",
+    "P_NEW"
+  ],
+  "P_ZERO": "reuse historical only",
+  "confirmation_seed_groups": [
+    [
+      201,
+      202
+    ],
+    [
+      301,
+      302
+    ]
+  ],
+  "development_seeds": [
+    42,
+    43
+  ],
+  "synthetic_conditions": [
+    "normal_stereo_REGULAR_0.5",
+    "normal_stereo_REGULAR_1",
+    "normal_stereo_FAST_0.5",
+    "normal_stereo_FAST_1",
+    "normal_temporal_REGULAR_1",
+    "normal_temporal_FAST_1",
+    "pressure_REGULAR_0.5",
+    "bad_match_and_heavy_tail",
+    "stereo_dropout",
+    "invalid_time",
+    "normal15_weak15_recover30",
+    "resource600s"
+  ],
+  "negative_conditions_predeclared": [
+    "pressure_REGULAR_0.5",
+    "bad_match_and_heavy_tail",
+    "stereo_dropout",
+    "invalid_time",
+    "weak15_interval"
+  ],
+  "noise_contract": "Baseline bearing sigma and common pose noise shared across points; include time-correlated OU pose error (baseline generator parameters retained), two seeds. Near stereo geometry uses measured EuRoC calibration. Freeze input profiles before new outcomes; no GT or future labels in estimator.",
+  "quality_rebuild_cooldown_s": 30,
+  "G_health_norm_range": [
+    8.0,
+    11.5
+  ],
+  "minimum_points": 15,
+  "max_active": 30,
+  "default_model_gain": "C0",
+  "fusion_enabled": false,
+  "uzh_selection": "metadata only; existing verified version with total valid reference>=30s; maximum2; freeze before candidate error inspection",
+  "readonly_history": "all original evidence/config/golden and prior external outputs; baseline source archived before edits",
+  "baseline_invalid_contract": "Only native initialization/estimator/input failure prevents validity; poor NEW results never exclude sequence; no ATE-based threshold or VIO retuning."
+}
