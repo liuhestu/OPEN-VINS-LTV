@@ -1,0 +1,8 @@
+{
+  "failed_command": [
+    "python3",
+    "/home/he/output/ltv_integration_cleanup_real_20261005/check_build_identity.py"
+  ],
+  "failure": "Initial checker selected upstream test_sim_meas, which is not an assertions-enabled LTV target",
+  "fix": "Limit assertion flag check to tests/ltv/CMakeFiles/test_ targets; no compile flags, algorithm, parameters or numerical tolerance changed"
+}

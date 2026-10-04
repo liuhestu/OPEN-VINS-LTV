@@ -1,0 +1,211 @@
+{
+  "status": "PASS",
+  "parent": "df5b67d11d6f32c0b6d137db36e975d2cb19ca67",
+  "moved_files": [
+    {
+      "before": "ov_msckf/src/ltv/LtvFeatureHistory.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvFeatureHistory.h",
+      "non_include_exact": true,
+      "current_sha": "7ef17efff1b4215a38629f1dde37befccf497a9fa53518dadb47693f4ed49e93"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvFeatureHistory.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvFeatureHistory.cpp",
+      "non_include_exact": true,
+      "current_sha": "1b08f0a96a8eb9a7ba498b46e29079ac47ca3ffe0ad73036bd33d802bb0e2eab"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvSeedEstimator.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvSeedEstimator.h",
+      "non_include_exact": true,
+      "current_sha": "5a8f39d62ba365f866cfc126ea093576f9315e5a4030340976fd8f90855a40cc"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvSeedEstimator.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvSeedEstimator.cpp",
+      "non_include_exact": true,
+      "current_sha": "e1324bba1575b81553ee4629f47b3be764b0aed0b952bc06b962e92e828214e0"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvSeedUncertainty.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvSeedUncertainty.h",
+      "non_include_exact": true,
+      "current_sha": "017ae4bbf0a1e67f9fb69ce6e0f7ee8e28f706d05b37ee2ea33704acbaab3482"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvSeedUncertainty.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvSeedUncertainty.cpp",
+      "non_include_exact": true,
+      "current_sha": "80242d89be9b0f9df8e0a0ccfb300cf1c557827561bfd47e4fad9a443e350cd4"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvFeatureQuality.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvFeatureQuality.h",
+      "non_include_exact": true,
+      "current_sha": "d5a76ce7ddf1fbc170ea69240f4f158f7355721d91c04fca6a2c247eff21606f"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvFeatureQuality.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvFeatureQuality.cpp",
+      "non_include_exact": true,
+      "current_sha": "6d8b9ea0e42ab1f814e63045f5c614516322e7fb771e47667d564ff252d16068"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvLandmarkManager.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvLandmarkManager.h",
+      "non_include_exact": true,
+      "current_sha": "62dc7f3e2c2e50d266d31cbd7a672441a4f8df874786cf342a82e4c8f0971333"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvLandmarkManager.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvLandmarkManager.cpp",
+      "non_include_exact": true,
+      "current_sha": "fcfe1dcf5f8471b6614e82875232ac018916bec3549d59b108c88bb280a93d60"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvIdentityGuard.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvIdentityGuard.h",
+      "non_include_exact": true,
+      "current_sha": "279ad3f5bef159a270e40137c947afed2acf840f4a6f0c363bbd4b589bbbca7a"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvActiveConsistency.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvActiveConsistency.h",
+      "non_include_exact": true,
+      "current_sha": "f395bc09756ed2bdc3e0d69d75efdad3f45d65d51c710fa3e2895e303eac9693"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvActiveConsistency.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvActiveConsistency.cpp",
+      "non_include_exact": true,
+      "current_sha": "8e978163fdd2260dcbd410994c5ae1d4e9d828b9e0410494a4aa9a077a463f02"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvLandmarkAdapter.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvLandmarkAdapter.h",
+      "non_include_exact": true,
+      "current_sha": "dde85b99ad75f70c9954b4082cc27d2d77c07cedf09b58f52de127b3c5a37f82"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvLandmarkContext.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvLandmarkContext.h",
+      "non_include_exact": true,
+      "current_sha": "55504b6d75d29d5c54474a07441b84d3617d2a807583a9d4f6b67020155b7c4c"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvFeaturePipeline.h",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvFeaturePipeline.h",
+      "non_include_exact": true,
+      "current_sha": "370bf512eec622e1c14037dfcaff26ac6a42c0c16701e0c053942db0b20c331c"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvFeaturePipeline.cpp",
+      "after": "ov_msckf/src/ltv/landmark_adapter/LtvLandmarkAdapter.cpp",
+      "non_include_exact": true,
+      "current_sha": "505144378bb8c551449fdfb56bebb0c3b806763e8d3ffc2e1b4db9ad83136538"
+    },
+    {
+      "before": "ov_msckf/src/ltv/ltv_observer.h",
+      "after": "ov_msckf/src/ltv/observer/ltv_observer.h",
+      "non_include_exact": true,
+      "current_sha": "161231ad7c3feb103e0ec50ff9a6b66387887456462e5f12694c1e66f0f1aebd"
+    },
+    {
+      "before": "ov_msckf/src/ltv/ltv_observer.cpp",
+      "after": "ov_msckf/src/ltv/observer/ltv_observer.cpp",
+      "non_include_exact": true,
+      "current_sha": "9dbae5bb701fa2415ada372ae4662087a52b82133d1ee51bcb5c4427a08a160d"
+    },
+    {
+      "before": "ov_msckf/src/ltv/ltv_types.h",
+      "after": "ov_msckf/src/ltv/observer/ltv_types.h",
+      "non_include_exact": true,
+      "current_sha": "a59af2239b958473eef5b8a720ad45271c8da87ef6487332e66fb51d6bacc865"
+    },
+    {
+      "before": "ov_msckf/src/ltv/ltv_controlled_features.h",
+      "after": "ov_msckf/src/ltv/observer/ltv_controlled_features.h",
+      "non_include_exact": true,
+      "current_sha": "7d9735a5d69f6c12bb12cf8b56122cdbecada6a6915ede0f7ee46cef59c5cd95"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvAdapter.h",
+      "after": "ov_msckf/src/ltv/observer/LtvAdapter.h",
+      "non_include_exact": true,
+      "current_sha": "2d444de6e6e305172245ba78884105e5ae643bad8d7683a0496d971f26bbf6f8"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvAdapter.cpp",
+      "after": "ov_msckf/src/ltv/observer/LtvAdapter.cpp",
+      "non_include_exact": true,
+      "current_sha": "afac279ed2b7c0d59d032ff05a2353374db6c7186981c4befc3025a57cb3bf84"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvAdapterHardened.cpp",
+      "after": "ov_msckf/src/ltv/observer/LtvAdapterHardened.cpp",
+      "non_include_exact": true,
+      "current_sha": "8bef1359ef494a40644aae9e6c87fc13eca0b49c5cc5b3ab4c3f3f68a16d3f63"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvReadiness.h",
+      "after": "ov_msckf/src/ltv/observer/LtvReadiness.h",
+      "non_include_exact": true,
+      "current_sha": "01e19930c678002a7ba39eb56fc0403beee34cd3bb2716177d1d67186572b823"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvReadiness.cpp",
+      "after": "ov_msckf/src/ltv/observer/LtvReadiness.cpp",
+      "non_include_exact": true,
+      "current_sha": "3876b865e4f00aa250f63a50c8128a9dbef64e627a3c4e20dec8b1c10431877d"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvBoundedDiagnostics.h",
+      "after": "ov_msckf/src/ltv/diagnostics/LtvBoundedDiagnostics.h",
+      "non_include_exact": true,
+      "current_sha": "ed60ba1b0d5f25f682a17e2086d8df27141aa9bd13e5459788cb4ae20dabbc80"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvPassiveCache.h",
+      "after": "ov_msckf/src/ltv/diagnostics/LtvPassiveCache.h",
+      "non_include_exact": true,
+      "current_sha": "18b745da06860f4eae78abe138d39ec793bec45c8ccdd69eef00212798697e60"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvPassiveCache.cpp",
+      "after": "ov_msckf/src/ltv/diagnostics/LtvPassiveCache.cpp",
+      "non_include_exact": true,
+      "current_sha": "c9361b491c3b428bdb3522a7078cad30c6ff6d722cd8ccd383198a23812724e2"
+    },
+    {
+      "before": "ov_msckf/src/ltv/ValueDiagnostics.h",
+      "after": "ov_msckf/src/ltv/diagnostics/ValueDiagnostics.h",
+      "non_include_exact": true,
+      "current_sha": "1a29de2e1f1c7eac9fa9b839378a8d0ca3b1730f1e14ae6dfdebd6cf74c379b6"
+    },
+    {
+      "before": "ov_msckf/src/ltv/ValueDiagnostics.cpp",
+      "after": "ov_msckf/src/ltv/diagnostics/ValueDiagnostics.cpp",
+      "non_include_exact": true,
+      "current_sha": "b2887c139a8d3280051a1a88d6a6fdb0a0d850e3eff9b33161cb561bb8ddf2f6"
+    },
+    {
+      "before": "ov_msckf/src/ltv/LtvOptions.h",
+      "after": "ov_msckf/src/ltv/config/LtvOptions.h",
+      "non_include_exact": true,
+      "current_sha": "2d444581d23b55db4b7b8281a00d105a6592621f57229e6e7ed2b78b558b09b6"
+    },
+    {
+      "before": "ov_msckf/src/update/UpdaterLTV.cpp",
+      "after": "ov_msckf/src/ltv/fusion/UpdaterLTV.cpp",
+      "non_include_exact": true,
+      "current_sha": "9aae8d59fa41beb17ca08254d48849d53d33765dff7b59a94c715e634742fc26"
+    },
+    {
+      "before": "ov_msckf/src/update/UpdaterLTV.h",
+      "after": "ov_msckf/src/ltv/fusion/UpdaterLTV.h",
+      "non_include_exact": true,
+      "current_sha": "096d77bdc23a0a3370fc3ea7353b7c0a4600d8b2833098d27f24c620f0dc2de3"
+    }
+  ],
+  "ov_core_ov_init_production_config_unchanged": true
+}

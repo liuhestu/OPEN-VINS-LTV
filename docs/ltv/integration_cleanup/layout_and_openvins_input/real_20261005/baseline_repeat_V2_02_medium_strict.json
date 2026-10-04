@@ -1,0 +1,55 @@
+{
+  "status": "PASS_EXACT_NATIVE_PASSIVE",
+  "before": "/home/he/output/ltv_integration_cleanup_real_20261005/runs/baseline_V2_02_medium_01",
+  "after": "/home/he/output/ltv_integration_cleanup_real_20261005/runs/baseline_V2_02_medium_02",
+  "excluded_fields": [
+    "features.jsonl.compute_time_ms"
+  ],
+  "tolerance": 0,
+  "audit_rows": 2348,
+  "trajectory_rows": 2266,
+  "unmatched_camera_rows": 0,
+  "features": {
+    "rows": 2348,
+    "canonical_sha": "e736f11519ff5e170b5306cb82690021b7be4c449fc353ff471e4de536551954"
+  },
+  "cache": {
+    "counts": {
+      "imu": 23490,
+      "process": 2266,
+      "pause": 82
+    },
+    "sha256": "8f9d515b2fa823e704ec68b4fc1aed467bac5c1d64b53ddf1896e5ac289d3d85",
+    "full_serialized_payload_exact": true
+  },
+  "files": {
+    "audit.csv": {
+      "before_sha": "b566310b6ba669ef5eda221344ec1ae81dccf79c0f8ed945fe82ea18d080b44f",
+      "after_sha": "b566310b6ba669ef5eda221344ec1ae81dccf79c0f8ed945fe82ea18d080b44f"
+    },
+    "trajectory.csv": {
+      "before_sha": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+      "after_sha": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f"
+    },
+    "cache.bin": {
+      "before_sha": "8f9d515b2fa823e704ec68b4fc1aed467bac5c1d64b53ddf1896e5ac289d3d85",
+      "after_sha": "8f9d515b2fa823e704ec68b4fc1aed467bac5c1d64b53ddf1896e5ac289d3d85"
+    },
+    "features.jsonl": {
+      "before_sha": "569bfd609507b25d08bbd35181a697eaa4b899c1404285b8d5257db730c56af1",
+      "after_sha": "9799741c4326c69168783a69a8f358603da536e36885071ab25727f33b07874f"
+    },
+    "effective_options.json": {
+      "before_sha": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1",
+      "after_sha": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+    },
+    "replay.json": {
+      "before_sha": "57db1ab4ad65078fe080b889c45f49fdb75cd3c2b0602e76978661088d9d7600",
+      "after_sha": "57db1ab4ad65078fe080b889c45f49fdb75cd3c2b0602e76978661088d9d7600"
+    },
+    "unmatched_camera.csv": {
+      "before_sha": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3",
+      "after_sha": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3"
+    }
+  }
+}

@@ -77,10 +77,43 @@ native synthetic wrappers, the unchanged input directory and --output.
 Its original fixture identity remains the same; native_adapter_parity.json
 records library hashes and exact replay results.
 
-## Limits
+## Original environment limits
 
-No ROS installation or real V2_02/V2_03 dataset/cache is present here.
-ROS/colcon and real EuRoC Passive C02 regressions are not executed.
-These results establish equality on the tested inputs, not real-data acceptance.
+The original verification environment had no ROS installation or real
+V2_02/V2_03 dataset/cache, so its results above did not establish real-data
+acceptance. The local follow-up below closes that build/regression gap.
 R4 NOT_ACHIEVED and its existing unmet contracts are unchanged. G/V feedback
 remains disabled; moving Fusion does not enable it.
+
+## Local ROS and real Passive C02 follow-up — 2026-10-05
+
+**PASS:** actual ROS Humble/colcon builds, 24 related tests per revision, and
+complete real EuRoC V2_02/V2_03 regressions against an independent clean
+`f3e055ab2dc185d3a5910c9fa60c505dd912671d` worktree. Tested current source:
+`f1df9135a89056ebd38b981deffcd930ca7c42c4`, on this cleanup branch.
+
+Each baseline sequence ran twice and matched exactly before current-branch
+comparison. Both current runs then matched the baseline. No numerical tolerance,
+parameter/algorithm changes or frozen-cache fallback were needed. Entire LTV
+cache payloads, including full x/P and Active Consistency suffixes, were compared;
+OpenVINS main state/FEJ/full covariance digests and physical timestamps matched.
+The sole excluded numerical-output field was the top-level
+`features.jsonl.compute_time_ms` wall-clock duration.
+
+| Sequence | Camera packets | IMU samples | Process / pause | Baseline repeat | Current vs baseline |
+|---|---:|---:|---:|---|---|
+| V2_02_medium | 2348 | 23490 | 2266 / 82 | Exact | Exact |
+| V2_03_difficult | 1921 | 23370 | 1806 / 115 | Exact | Exact |
+
+Both builds completed with the same 13 existing compiler warnings after path
+normalization and no errors. Actual dependency-selected C++17 flags were equal;
+the project standard setting was not changed. All 15 migrated production source
+list entries compiled exactly once in the current library. Each runner loaded
+its own isolated workspace libraries and identical system dependencies.
+Production source, configuration and AGENTS.md were unchanged during this work.
+
+See [real validation details](real_validation.md) for commands, comparison scope,
+data/configuration identities and unexecuted items, and
+[the evidence manifest](real_20261005/manifest.json) for the saved proof chain.
+This establishes cleanup equivalence on these inputs. It does **not** change
+R4 NOT_ACHIEVED or enable G/V feedback.

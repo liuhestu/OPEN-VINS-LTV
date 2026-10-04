@@ -1,0 +1,54 @@
+[
+  {
+    "label": "baseline",
+    "source": "/home/he/output/ltv_integration_cleanup_real_20261005/baseline_f3e055ab",
+    "ref": "f3e055ab2dc185d3a5910c9fa60c505dd912671d",
+    "command": [
+      "/usr/bin/env",
+      "-u",
+      "CMAKE_PREFIX_PATH",
+      "-u",
+      "AMENT_PREFIX_PATH",
+      "-u",
+      "COLCON_PREFIX_PATH",
+      "-u",
+      "LD_LIBRARY_PATH",
+      "-u",
+      "PYTHONPATH",
+      "bash",
+      "--noprofile",
+      "--norc",
+      "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/build.sh"
+    ],
+    "started": 1791135270.7250993,
+    "pid": 2123688,
+    "exit_code": 0,
+    "seconds": 879.5697786808014
+  },
+  {
+    "label": "current",
+    "source": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "ref": "f1df9135a89056ebd38b981deffcd930ca7c42c4",
+    "command": [
+      "/usr/bin/env",
+      "-u",
+      "CMAKE_PREFIX_PATH",
+      "-u",
+      "AMENT_PREFIX_PATH",
+      "-u",
+      "COLCON_PREFIX_PATH",
+      "-u",
+      "LD_LIBRARY_PATH",
+      "-u",
+      "PYTHONPATH",
+      "bash",
+      "--noprofile",
+      "--norc",
+      "/home/he/output/ltv_integration_cleanup_real_20261005/current/build.sh"
+    ],
+    "started": 1791135270.7251673,
+    "pid": 2123690,
+    "exit_code": 0,
+    "seconds": 882.917496919632
+  }
+]

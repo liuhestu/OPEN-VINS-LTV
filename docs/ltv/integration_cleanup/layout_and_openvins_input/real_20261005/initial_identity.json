@@ -1,0 +1,10 @@
+{
+  "baseline": "/home/he/output/ltv_integration_cleanup_real_20261005/baseline_f3e055ab",
+  "baseline_ref": "f3e055ab2dc185d3a5910c9fa60c505dd912671d",
+  "current": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+  "current_ref": "f1df9135a89056ebd38b981deffcd930ca7c42c4",
+  "initial_status": "",
+  "ROS": "humble",
+  "compiler": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+  "workspace_out": "/home/he/output/ltv_integration_cleanup_real_20261005"
+}

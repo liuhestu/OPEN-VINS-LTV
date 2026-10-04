@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_integration_cleanup/test_real_output_checker.py"
+  ],
+  "exit_code": 0,
+  "stdout": "PASS: root timing-only difference accepted; state, covariance, nested fields, cache suffix, truncation and incomplete runs rejected\n",
+  "stderr": "",
+  "checker_sha": "62e1c9d9ec2c01566c134f0553d27eeab0774ae8f5c829906b6a89d63df7b9f9",
+  "selftest_sha": "5629fd085b870a268b1f33ce33761c104fda777e8788dc303507fc9bd696d5eb"
+}

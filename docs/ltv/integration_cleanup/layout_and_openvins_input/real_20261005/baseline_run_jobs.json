@@ -1,0 +1,257 @@
+{
+  "complete": true,
+  "results": [
+    {
+      "label": "baseline",
+      "sequence": "V2_02_medium",
+      "index": 1,
+      "source": "/home/he/output/ltv_integration_cleanup_real_20261005/baseline_f3e055ab",
+      "source_ref": "f3e055ab2dc185d3a5910c9fa60c505dd912671d",
+      "input_identity": {
+        "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+        "config": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+        "config_sha": {
+          "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+          "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+          "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+        },
+        "sensors": {
+          "cam0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam0/data.csv",
+            "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c"
+          },
+          "cam1": {
+            "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam1/data.csv",
+            "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c"
+          },
+          "imu0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/imu0/data.csv",
+            "sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e"
+          }
+        },
+        "frozen_C02_run_identity": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/P_NEW/identity.json",
+        "frozen_identity_sha": "6ff48925277e52bc592cb0ab99d688e0985b482ab279c4e27658ade37823c735",
+        "images_present": true,
+        "fusion_enabled": false,
+        "image_files": 4696,
+        "images_aggregate_sha": "8a0e951f1d67c498bac91b7d300751ffc6b193628087476b7d0ff5d0caebe95f"
+      },
+      "binary": "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/install/ov_msckf/lib/ov_msckf/run_ltv_feature_passive",
+      "binary_sha": "52fd2b37a68c88801707902316ab4a43ce944c4da2f65aea058c02ab9b597d38",
+      "command": [
+        "bash",
+        "--noprofile",
+        "--norc",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+        "regression",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/install",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/install/ov_msckf/lib/ov_msckf/run_ltv_feature_passive",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+        "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/runs/baseline_V2_02_medium_01",
+        "P_NEW"
+      ],
+      "cwd": "/home/he/output/ltv_integration_cleanup_real_20261005/runs/baseline_V2_02_medium_01",
+      "started": 1791136273.7290335,
+      "threads": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1"
+      },
+      "pid": 2128991,
+      "exit_code": 0,
+      "seconds": 56.4464066028595
+    },
+    {
+      "label": "baseline",
+      "sequence": "V2_03_difficult",
+      "index": 1,
+      "source": "/home/he/output/ltv_integration_cleanup_real_20261005/baseline_f3e055ab",
+      "source_ref": "f3e055ab2dc185d3a5910c9fa60c505dd912671d",
+      "input_identity": {
+        "root": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+        "config": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+        "config_sha": {
+          "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+          "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+          "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+        },
+        "sensors": {
+          "cam0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam0/data.csv",
+            "sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9"
+          },
+          "cam1": {
+            "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam1/data.csv",
+            "sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79"
+          },
+          "imu0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/imu0/data.csv",
+            "sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6"
+          }
+        },
+        "frozen_C02_run_identity": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/P_NEW/identity.json",
+        "frozen_identity_sha": "d26f3a209ba8c6fb36bd69984ed807930a5906ff0e53244f222d35760477f9b5",
+        "images_present": true,
+        "fusion_enabled": false,
+        "image_files": 4258,
+        "images_aggregate_sha": "f69dccde9978d9454989f920e42ac3821d538d91b94040c53029bf613731e655"
+      },
+      "binary": "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/install/ov_msckf/lib/ov_msckf/run_ltv_feature_passive",
+      "binary_sha": "52fd2b37a68c88801707902316ab4a43ce944c4da2f65aea058c02ab9b597d38",
+      "command": [
+        "bash",
+        "--noprofile",
+        "--norc",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+        "regression",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/install",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/install/ov_msckf/lib/ov_msckf/run_ltv_feature_passive",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+        "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/runs/baseline_V2_03_difficult_01",
+        "P_NEW"
+      ],
+      "cwd": "/home/he/output/ltv_integration_cleanup_real_20261005/runs/baseline_V2_03_difficult_01",
+      "started": 1791136273.7295938,
+      "threads": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1"
+      },
+      "pid": 2128992,
+      "exit_code": 0,
+      "seconds": 38.17933416366577
+    },
+    {
+      "label": "baseline",
+      "sequence": "V2_02_medium",
+      "index": 2,
+      "source": "/home/he/output/ltv_integration_cleanup_real_20261005/baseline_f3e055ab",
+      "source_ref": "f3e055ab2dc185d3a5910c9fa60c505dd912671d",
+      "input_identity": {
+        "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+        "config": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+        "config_sha": {
+          "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+          "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+          "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+        },
+        "sensors": {
+          "cam0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam0/data.csv",
+            "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c"
+          },
+          "cam1": {
+            "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam1/data.csv",
+            "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c"
+          },
+          "imu0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/imu0/data.csv",
+            "sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e"
+          }
+        },
+        "frozen_C02_run_identity": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/P_NEW/identity.json",
+        "frozen_identity_sha": "6ff48925277e52bc592cb0ab99d688e0985b482ab279c4e27658ade37823c735",
+        "images_present": true,
+        "fusion_enabled": false,
+        "image_files": 4696,
+        "images_aggregate_sha": "8a0e951f1d67c498bac91b7d300751ffc6b193628087476b7d0ff5d0caebe95f"
+      },
+      "binary": "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/install/ov_msckf/lib/ov_msckf/run_ltv_feature_passive",
+      "binary_sha": "52fd2b37a68c88801707902316ab4a43ce944c4da2f65aea058c02ab9b597d38",
+      "command": [
+        "bash",
+        "--noprofile",
+        "--norc",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+        "regression",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/install",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/install/ov_msckf/lib/ov_msckf/run_ltv_feature_passive",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+        "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/runs/baseline_V2_02_medium_02",
+        "P_NEW"
+      ],
+      "cwd": "/home/he/output/ltv_integration_cleanup_real_20261005/runs/baseline_V2_02_medium_02",
+      "started": 1791136311.9258795,
+      "threads": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1"
+      },
+      "pid": 2129281,
+      "exit_code": 0,
+      "seconds": 57.42135834693909
+    },
+    {
+      "label": "baseline",
+      "sequence": "V2_03_difficult",
+      "index": 2,
+      "source": "/home/he/output/ltv_integration_cleanup_real_20261005/baseline_f3e055ab",
+      "source_ref": "f3e055ab2dc185d3a5910c9fa60c505dd912671d",
+      "input_identity": {
+        "root": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+        "config": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+        "config_sha": {
+          "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+          "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+          "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+        },
+        "sensors": {
+          "cam0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam0/data.csv",
+            "sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9"
+          },
+          "cam1": {
+            "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam1/data.csv",
+            "sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79"
+          },
+          "imu0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/imu0/data.csv",
+            "sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6"
+          }
+        },
+        "frozen_C02_run_identity": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/P_NEW/identity.json",
+        "frozen_identity_sha": "d26f3a209ba8c6fb36bd69984ed807930a5906ff0e53244f222d35760477f9b5",
+        "images_present": true,
+        "fusion_enabled": false,
+        "image_files": 4258,
+        "images_aggregate_sha": "f69dccde9978d9454989f920e42ac3821d538d91b94040c53029bf613731e655"
+      },
+      "binary": "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/install/ov_msckf/lib/ov_msckf/run_ltv_feature_passive",
+      "binary_sha": "52fd2b37a68c88801707902316ab4a43ce944c4da2f65aea058c02ab9b597d38",
+      "command": [
+        "bash",
+        "--noprofile",
+        "--norc",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+        "regression",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/install",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/baseline/install/ov_msckf/lib/ov_msckf/run_ltv_feature_passive",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+        "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/runs/baseline_V2_03_difficult_02",
+        "P_NEW"
+      ],
+      "cwd": "/home/he/output/ltv_integration_cleanup_real_20261005/runs/baseline_V2_03_difficult_02",
+      "started": 1791136330.2114947,
+      "threads": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1"
+      },
+      "pid": 2129394,
+      "exit_code": 0,
+      "seconds": 38.92634725570679
+    }
+  ]
+}
