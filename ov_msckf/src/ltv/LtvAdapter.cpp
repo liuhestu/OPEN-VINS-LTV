@@ -3,6 +3,9 @@
 #include <climits>
 namespace ov_msckf {
 LtvAdapter::LtvAdapter(const LtvOptions &options) : options_(options) {
+  if (options.active_consistency.enabled &&
+      (!options.feature_readiness_enabled || !options.enabled || options.enable_gravity || options.enable_velocity))
+    throw std::invalid_argument("Active consistency requires managed Passive LTV");
   if (options.passive_hardening_enabled) {
     if (!options.feature_readiness_enabled || !options.enabled || options.enable_gravity || options.enable_velocity)
       throw std::invalid_argument("Hardening requires managed Passive LTV");
@@ -21,6 +24,8 @@ LtvAdapter::LtvAdapter(const LtvOptions &options) : options_(options) {
       throw std::invalid_argument("Feature readiness requires passive observer");
     ltv::FeaturePipelineConfig pipeline;
     pipeline.manager = options.feature_manager;
+    pipeline.active_consistency = options.active_consistency;
+    pipeline.active_consistency.history_window_s = options.feature_manager.history.history_window;
     pipeline.manager.apply_seed = options.feature_apply_seed;
     pipeline.manager.bounded_memory = options.passive_hardening_enabled;
     if (options.feature_seed_source == "STEREO")

@@ -367,6 +367,8 @@ public:
           emit_track(event.feature_id, event.record);
       }
       out << "]";
+      if (!f.hardened)
+        ltv::writeActiveConsistency(out, management);
       if (f.hardened) {
         ltv::writeBoundedManagement(out, management);
         out << ",\"compute_time_ms\":";

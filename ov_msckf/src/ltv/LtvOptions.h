@@ -13,6 +13,7 @@ struct LtvOptions {
   bool passive_hardening_enabled = false, hardening_health_readiness = true, hardening_initial_warmup = false;
   bool hardening_preserve_constrained_state = false, hardening_ready_soft_grace = false;
   ltv::LtvReadinessConfig hardening_readiness;
+  ltv::ActiveConsistencyConfig active_consistency;
   std::string feature_seed_source = "TEMPORAL_POSE";
   std::string passive_cache_path;
   double feature_bearing_sigma_rad = 0.0008726646259971648;
@@ -66,6 +67,17 @@ struct LtvOptions {
     FIELD(quality_velocity_disagreement);
     FIELD(quality_min_features);
 #undef FIELD
+    p->parse_config("ltv_active_consistency_enabled", active_consistency.enabled, false);
+    int active_min_history_frames = static_cast<int>(active_consistency.min_history_frames);
+    p->parse_config("ltv_active_consistency_min_history_frames", active_min_history_frames, false);
+    if (active_min_history_frames < 1)
+      throw std::invalid_argument("Invalid active consistency history frame count");
+    active_consistency.min_history_frames = static_cast<size_t>(active_min_history_frames);
+    p->parse_config("ltv_active_consistency_min_history_span_s", active_consistency.min_history_span_s, false);
+    p->parse_config("ltv_active_consistency_max_history_residual_rad", active_consistency.max_history_residual_rad, false);
+    p->parse_config("ltv_active_consistency_max_holdout_residual_rad", active_consistency.max_holdout_residual_rad, false);
+    p->parse_config("ltv_active_consistency_retire_after_consecutive_failures", active_consistency.retire_after_consecutive_failures,
+                    false);
     p->parse_config("ltv_hardening_prediction_angle_limit_rad", hardening_readiness.prediction_angle_limit_rad, false);
     p->parse_config("ltv_hardening_velocity_correction_rate_limit", hardening_readiness.velocity_correction_rate_limit, false);
     p->parse_config("ltv_hardening_gravity_correction_rate_limit", hardening_readiness.gravity_correction_rate_limit, false);

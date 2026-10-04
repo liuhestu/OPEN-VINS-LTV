@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "source": "goal.md sections9-10; fixed before new results",
+  "minimum_B_valid_sequences": 8,
+  "each_valid_sequence": {
+    "G_ready_fraction_min": 0.2,
+    "V_ready_fraction_min": 0.2,
+    "G_ready_reference_seconds_min": 10,
+    "V_ready_reference_seconds_min": 10,
+    "V_vector_RMSE_max_mps": 0.2,
+    "V_vector_P95_max_mps": 0.5,
+    "G_angle_RMSE_max_deg": 1,
+    "G_angle_P95_max_deg": 2,
+    "joint_ready_longest_episode_min_s": 5,
+    "severe_V_gt1mps_fraction_max": 0.01,
+    "severe_G_gt5deg_fraction_max": 0.01
+  },
+  "gravity_accuracy_exception": [
+    "V1_01_easy"
+  ],
+  "raw_regression": {
+    "v_allowed_increase": {
+      "relative": 0.05,
+      "absolute": 0.01
+    },
+    "eta_vector_allowed_increase": {
+      "relative": 0.05,
+      "absolute": 0.05
+    },
+    "gravity_angle_allowed_increase": {
+      "relative": 0.05,
+      "absolute": 0.1
+    },
+    "support": "Fixed initialized physical timeline; report per-method current raw missing and same-column support, never shrink denominator silently"
+  },
+  "seed_normal_each_condition": {
+    "reliable10_fraction_min": 0.9,
+    "acceptance_opportunity_fraction_min": 0.2,
+    "minimum_accepted_each_source": 100,
+    "report_reliable5": true,
+    "source_stratified": true
+  },
+  "recovery": {
+    "revoke_ready_max_camera_packets": 2,
+    "recovered_wide_ready_interval_min_s": 5,
+    "recovered_wide_ready_interval_end_deadline_s": 10,
+    "wide_v_max_mps": 0.1,
+    "wide_G_angle_max_deg": 1,
+    "wide_G_norm_error_max_mps2": 0.2,
+    "minimum_quality_rebuild_interval_s": 30,
+    "reset_reason_required": true,
+    "future_recovery_label_estimator_access": false
+  },
+  "pose_aided_if_used": {
+    "conditional_evidence_required": true,
+    "one_write_per_episode": true,
+    "exclude_first5s_also_report": true,
+    "no_rewrite_run_min_s": 20
+  },
+  "performance": {
+    "mean_camera_branch_ms_lt": 50,
+    "P95_camera_branch_ms_max": 100,
+    "resource_test_seconds_min": 600,
+    "bounded_memory_required": true
+  },
+  "engineering": {
+    "default_off_exact": true,
+    "main_state_P_FEJ_clone_visual_trajectory_times_exact": true,
+    "GV_injections": 0,
+    "live_logger_complete_without_overlay": true,
+    "actual_P_NEW_all11": true,
+    "deterministic_repeats_min": 2,
+    "logging_on_off_numeric_exact": true,
+    "all_input_consumed": true,
+    "independent_key_fix_review_before_confirmation": true
+  },
+  "statuses": [
+    "PASSIVE_READY_EUROC",
+    "PASSIVE_READY_EUROC_WITH_UZH_EVIDENCE",
+    "NOT_ACHIEVED_WITH_EVIDENCE",
+    "BLOCKED_CORRECTNESS",
+    "BLOCKED_INPUT",
+    "BUDGET_EXHAUSTED"
+  ],
+  "mandatory_reporting": {
+    "supports": [
+      "raw",
+      "ready_G",
+      "ready_V",
+      "joint_ready"
+    ],
+    "V_error_le_0_10_fraction": true,
+    "all_ready_episodes_and_longest_gaps": true,
+    "per_method_raw_missing_on_fixed_timeline": true,
+    "G_ready_finite_normalizable_and_fixed_norm_range": true,
+    "physical_health_range_from_protocol": true,
+    "bounded_or_explicit_dormant_in_insufficient_intervals": true,
+    "severe_ready_fraction_contract_also_applies_synthetic": true,
+    "performance_diagnostics_disabled_and_camera_period_reported": true,
+    "bootstrap_if_used_separate_ablation_and_sources": true
+  }
+}

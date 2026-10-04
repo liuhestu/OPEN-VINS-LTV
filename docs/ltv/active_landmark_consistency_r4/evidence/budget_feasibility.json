@@ -1,0 +1,53 @@
+{
+  "status": "PREFLIGHT_BUDGET_INSUFFICIENT_FOR_COMPLETE_FORMAL_MATRIX",
+  "scope": "lower bound; assumes all existing B identities remain reusable",
+  "current_limits": {
+    "real": 24,
+    "synthetic": 12,
+    "short_real": 16,
+    "candidate": 4,
+    "geometry": 29998
+  },
+  "current_usage": {
+    "synthetic": 4,
+    "real": 8,
+    "short_real": 3,
+    "geometry": 0,
+    "candidate": 2
+  },
+  "remaining_real": 16,
+  "matched_R3B_predecessors": [
+    "V2_02_medium",
+    "V2_03_difficult"
+  ],
+  "missing_matched_R3B_predecessors": [
+    "MH_01_easy",
+    "MH_02_easy",
+    "MH_03_medium",
+    "MH_04_difficult",
+    "MH_05_difficult",
+    "V1_01_easy",
+    "V1_02_medium",
+    "V1_03_difficult",
+    "V2_01_easy"
+  ],
+  "required_new_runs": {
+    "frozen_ON": 11,
+    "matched_OFF": 9,
+    "representative_repeats": 2
+  },
+  "minimum_new_real": 22,
+  "minimum_total_real": 30,
+  "constraint_sources": {
+    "goal_sha": "09862e57d59c03953fe6b924d930b53ec15d09e9e96e2b9164acfba8ab84746b",
+    "protocol_sha": "ce256eb03fdbb465e0c98a9ae2b265134701aa08df69d17c5aabc87be5755210",
+    "acceptance_sha": "92aa96dbee377359b936e5999b51df46434b61e27a5973bb9c4e920168b4ee8b",
+    "attempts_sha": "62cab50140ddac95f63716a38fba1c29a2aa7e2739a968596eead2ac00a7a973"
+  },
+  "prohibitions": [
+    "Do not relabel an older method as matching R3B",
+    "Do not ignore failed or retried attempts",
+    "Do not implicitly change the budget or count multi-observer work differently"
+  ],
+  "user_budget_question": "Pending; current cap stays 24 until an explicit answer"
+}

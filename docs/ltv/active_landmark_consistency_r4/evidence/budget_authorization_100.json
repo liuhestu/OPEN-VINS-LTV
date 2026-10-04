@@ -1,0 +1,16 @@
+{
+  "user_instruction": "允许扩大预算至100次",
+  "real_cap": 100,
+  "real_used_at_authorization": 8,
+  "real_remaining": 92,
+  "formal_minimum_new": 22,
+  "supersedes": "budget_feasibility.json preflight cap24",
+  "other_caps": {
+    "real": 100,
+    "synthetic": 12,
+    "short_real": 16,
+    "candidate": 4,
+    "geometry": 29998
+  },
+  "no_refunds_or_restarts": true
+}

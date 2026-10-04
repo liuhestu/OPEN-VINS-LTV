@@ -1,0 +1,7 @@
+{
+  "status": "PASS_CURRENT_PRODUCTION_SOURCE_MATCHES_BUILD_21",
+  "files_checked": 141,
+  "build_source_manifest": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0021/source_sha256.json",
+  "sha256": "5135f96add1e803f255409ecbd2debec362336844d337bfa627f563a4664f2dd",
+  "scope": "production core,adapter,pipeline,manager/options and native VIO sources; does not include subsequently written experimental tools"
+}

@@ -1,0 +1,16 @@
+{
+  "head": "258b0b6f7795cd5a5254d9961e178af887cdfe00",
+  "dirty_status": "?? \"docs/04-LTV_v2_\\345\\205\\255\\351\\241\\271\\350\\241\\245\\345\\205\\205\\351\\252\\214\\350\\257\\201_Codex\\346\\211\\247\\350\\241\\214\\346\\226\\271\\346\\241\\210.md\"\n?? docs/ltv/active_landmark_consistency_r4/\n?? docs/ltv/passive_hardening_v2/goal.md\n?? ltv.csv\n?? ov_msckf/src/ltv/LtvActiveConsistency.cpp\n?? ov_msckf/src/ltv/LtvActiveConsistency.h\n",
+  "runtime": "/home/he/output/ltv_passive_hardening_v2/runtime/27e4aa028b9944a84ba55987a8179fd90ad392306593211b659b5a90b08e5af5",
+  "parent_attempts_sha256": "31e7e11d4021ab837bb13aadec1c449857d29e7fc56572014bbdb8a07bffb75d",
+  "protected_files": {
+    "ov_msckf/src/ltv/ltv_observer.cpp": "aa167e83c5bb1c13c54a0b8d0687084b2efac795ab0f6ec684f409f663367909",
+    "ov_msckf/src/ltv/ltv_observer.h": "a1e09f2f66e0874ddd4b5d03397f1a92e399497a837a814511d194a008617805",
+    "docs/ltv/passive_hardening_v2/acceptance.json": "92aa96dbee377359b936e5999b51df46434b61e27a5973bb9c4e920168b4ee8b"
+  },
+  "user_untracked_preserved": [
+    "docs/04-LTV_v2_\u516d\u9879\u8865\u5145\u9a8c\u8bc1_Codex\u6267\u884c\u65b9\u6848.md",
+    "docs/ltv/passive_hardening_v2/goal.md",
+    "ltv.csv"
+  ]
+}

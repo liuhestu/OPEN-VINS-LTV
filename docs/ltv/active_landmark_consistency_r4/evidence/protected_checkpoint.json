@@ -1,0 +1,6 @@
+{
+  "ov_msckf/src/ltv/ltv_observer.cpp": true,
+  "ov_msckf/src/ltv/ltv_observer.h": true,
+  "docs/ltv/passive_hardening_v2/acceptance.json": true,
+  "parent_budget_ledger_unchanged": true
+}

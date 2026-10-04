@@ -1,0 +1,46 @@
+{
+  "task": "active_landmark_consistency_r4",
+  "baseline": "258b0b6f7795cd5a5254d9961e178af887cdfe00",
+  "goal_sha256": "09862e57d59c03953fe6b924d930b53ec15d09e9e96e2b9164acfba8ab84746b",
+  "acceptance_origin": "docs/ltv/passive_hardening_v2/acceptance.json",
+  "acceptance_sha256": "92aa96dbee377359b936e5999b51df46434b61e27a5973bb9c4e920168b4ee8b",
+  "out": "/home/he/output/ltv_active_landmark_consistency_r4",
+  "limits": {
+    "real": 100,
+    "synthetic": 12,
+    "short_real": 16,
+    "candidate": 4,
+    "geometry": 29998
+  },
+  "final_reserve": {
+    "real": 22,
+    "synthetic": 8
+  },
+  "concurrency": {
+    "subagents": 2,
+    "heavy": 2
+  },
+  "initial_config": {
+    "enabled": false,
+    "min_history_frames": 5,
+    "min_history_span_s": 0.2,
+    "history_window_s": 1.0,
+    "max_history_residual_rad": 0.04,
+    "max_holdout_residual_rad": 0.04,
+    "retire_after_consecutive_failures": 2
+  },
+  "unevaluable": "keep failure count and original observation behavior",
+  "fit_failed": "SeedEstimate.valid=false -> FitFailed and unevaluable; no new signed-ray gate",
+  "history": "existing raw observation history only; current/future rays excluded from fitting; all available same-current-version past poses; never stale poses",
+  "failure_count": "evaluable pass resets; evaluable failure increments; unevaluable leaves unchanged; invisible packets leave unchanged; reset epoch clears",
+  "protected_core": "ltv_observer.cpp/.h and main OpenVINS math remain unchanged",
+  "old_ledgers_read_only": true,
+  "acceptance_interpretation": "Exact existing acceptance.json including <=1% severe fractions; no reinterpretation from prose <1%",
+  "budget_authorization": {
+    "source": "user message: 允许扩大预算至100次",
+    "scope": "complete real/native/cache replays",
+    "previous_cap": 24,
+    "current_cap": 100,
+    "previous_attempts_remain_counted": true
+  }
+}

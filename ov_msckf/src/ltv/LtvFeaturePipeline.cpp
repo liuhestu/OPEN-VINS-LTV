@@ -4,7 +4,8 @@
 #include <set>
 #include <stdexcept>
 namespace ltv {
-LtvFeaturePipeline::LtvFeaturePipeline(const FeaturePipelineConfig &config) : config_(config), manager_(config.manager) {
+LtvFeaturePipeline::LtvFeaturePipeline(const FeaturePipelineConfig &config)
+    : config_(config), manager_(config.manager), active_consistency_(config.active_consistency) {
   if (!std::isfinite(config.bearing_sigma_rad) || config.bearing_sigma_rad < 0 || config.source == FeatureSeedSource::MsckfGeometry)
     throw std::invalid_argument("unsupported feature pipeline configuration");
 }
@@ -48,6 +49,15 @@ FeaturePipelineFrame LtvFeaturePipeline::process(const FeaturePipelineContext &c
     if (o.camera_id < 0 || static_cast<size_t>(o.camera_id) >= ctx.cameras.size() || !o.bearing.allFinite() || o.bearing.norm() < 1e-12 ||
         !current[o.feature_id].emplace(o.camera_id, o).second)
       return out;
+  }
+  std::map<size_t, ActiveConsistencyResult> consistency;
+  if (config_.active_consistency.enabled) {
+    for (size_t id : manager_.retained_ids()) {
+      auto visible = current.find(id);
+      const auto *history = manager_.history().find(id);
+      if (history && visible != current.end() && visible->second.count(0) && visible->second.at(0).match_valid)
+        consistency.emplace(id, active_consistency_.evaluate(id, ctx.time, *history, ctx));
+    }
   }
   std::vector<FeatureSeedCandidate> candidates;
   for (const auto &feature : current) {
@@ -163,7 +173,9 @@ FeaturePipelineFrame LtvFeaturePipeline::process(const FeaturePipelineContext &c
     candidates.push_back(s);
     out.seeds.push_back(std::move(d));
   }
-  out.management = manager_.step(ctx.epoch, ctx.time, ctx.version, ctx.observations, candidates, allow_admission);
+  out.management = manager_.step(ctx.epoch, ctx.time, ctx.version, ctx.observations, candidates, allow_admission,
+                                 config_.active_consistency.enabled ? &consistency : nullptr,
+                                 config_.active_consistency.retire_after_consecutive_failures);
   return out;
 }
 } // namespace ltv

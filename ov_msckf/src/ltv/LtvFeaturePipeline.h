@@ -14,6 +14,7 @@ struct FeaturePipelineContext {
 };
 struct FeaturePipelineConfig {
   LandmarkManagerConfig manager;
+  ActiveConsistencyConfig active_consistency;
   FeatureSeedSource source = FeatureSeedSource::TemporalPose;
   double bearing_sigma_rad = 0.0008726646259971648;
 };
@@ -43,5 +44,6 @@ public:
 private:
   FeaturePipelineConfig config_;
   LtvLandmarkManager manager_;
+  LtvActiveConsistency active_consistency_;
 };
 } // namespace ltv

@@ -328,6 +328,37 @@ std::string evidence(const LtvFrame &original, const LtvAdapter &adapter) {
       b.scalar(h.last_strict_good_V);
     }
   }
+  if (management.active_consistency_enabled) {
+    std::string schema = "ACTIVE_CONSISTENCY_V1";
+    b.text(schema);
+    b.count(management.consistency_active_count);
+    b.count(management.consistency_evaluable_count);
+    b.count(management.consistency_pass_count);
+    b.count(management.consistency_skip_count);
+    b.count(management.consistency_retire_count);
+    size_t count = management.active_consistency.size();
+    b.count(count);
+    for (auto d : management.active_consistency) {
+      auto &r = d.result;
+      b.count(r.feature_id, UINT64_MAX);
+      b.scalar(r.evaluable);
+      b.scalar(r.pass);
+      b.count(r.history_count);
+      b.count(r.missing_pose_count);
+      b.scalar(r.history_span_s);
+      b.scalar(r.history_max_residual_rad);
+      b.scalar(r.holdout_residual_rad);
+      b.scalar(r.fit_valid);
+      b.matrix(r.point_W);
+      b.scalar(r.fit_condition);
+      b.text(r.fit_reason);
+      int reason = static_cast<int>(r.reason);
+      b.scalar(reason);
+      b.scalar(d.fail_count);
+      b.scalar(d.reject_count);
+      b.text(d.action);
+    }
+  }
   return out.str();
 }
 void same(const std::string &expected, const LtvFrame &f, const LtvAdapter &adapter, uint64_t event) {

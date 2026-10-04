@@ -1,4 +1,5 @@
 #pragma once
+#include "LtvActiveConsistency.h"
 #include "LtvFeatureQuality.h"
 #include "LtvIdentityGuard.h"
 #include <map>
@@ -19,6 +20,8 @@ struct ManagedLandmark {
   LandmarkPhase phase = LandmarkPhase::Candidate;
   double first_seen = 0, entered = -1, seeded = -1, last_seen = 0;
   int missed_frames = 0;
+  int consistency_fail_count = 0;
+  uint64_t consistency_reject_count = 0;
   bool ever_opportunity = false, seed_written = false;
   std::string reason = "candidate";
 };
@@ -34,7 +37,17 @@ struct LandmarkRetirement {
   double time = 0;
   ManagedLandmark record;
 };
+struct ActiveConsistencyDiagnostic {
+  ActiveConsistencyResult result;
+  int fail_count = 0;
+  uint64_t reject_count = 0;
+  std::string action = "UPDATE";
+};
 struct LandmarkManagerFrame {
+  bool active_consistency_enabled = false;
+  size_t consistency_active_count = 0, consistency_evaluable_count = 0, consistency_pass_count = 0;
+  size_t consistency_skip_count = 0, consistency_retire_count = 0;
+  std::vector<ActiveConsistencyDiagnostic> active_consistency;
   bool accepted_input = false;
   std::string reason;
   uint64_t epoch = 0;
@@ -59,8 +72,10 @@ public:
   explicit LtvLandmarkManager(const LandmarkManagerConfig &config = {});
   void reset(uint64_t epoch);
   LandmarkManagerFrame step(uint64_t epoch, double time, uint64_t context_version, const std::vector<HistoryObservation> &observations,
-                            const std::vector<FeatureSeedCandidate> &candidates, bool allow_admission = true);
+                            const std::vector<FeatureSeedCandidate> &candidates, bool allow_admission = true,
+                            const std::map<size_t, ActiveConsistencyResult> *consistency = nullptr, int retire_after = 2);
   const LtvFeatureHistory &history() const { return history_; }
+  const std::set<size_t> &retained_ids() const { return retained_; }
   const std::map<size_t, ManagedLandmark> &landmarks() const { return landmarks_; }
 
 private:

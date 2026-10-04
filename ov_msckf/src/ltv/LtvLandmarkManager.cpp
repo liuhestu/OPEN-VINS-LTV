@@ -44,7 +44,8 @@ void LtvLandmarkManager::reset(uint64_t epoch) {
 }
 LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint64_t version,
                                               const std::vector<HistoryObservation> &observations,
-                                              const std::vector<FeatureSeedCandidate> &candidates, bool allow_admission) {
+                                              const std::vector<FeatureSeedCandidate> &candidates, bool allow_admission,
+                                              const std::map<size_t, ActiveConsistencyResult> *consistency, int retire_after) {
   LandmarkManagerFrame out;
   out.epoch = epoch;
   out.time = time;
@@ -55,6 +56,20 @@ LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint6
   if (config_.bounded_memory && candidates.size() > config_.history.max_observations_per_packet) {
     out.reason = "seed_candidate_packet_limit";
     return out;
+  }
+  if (consistency) {
+    if (retire_after < 1) {
+      out.reason = "invalid_consistency_config";
+      return out;
+    }
+    for (const auto &entry : *consistency) {
+      const auto &r = entry.second;
+      if (entry.first != r.feature_id || !retained_.count(entry.first) || (!r.evaluable && !r.pass) ||
+          (r.evaluable && (!std::isfinite(r.history_max_residual_rad) || (r.pass && !std::isfinite(r.holdout_residual_rad))))) {
+        out.reason = "invalid_consistency_input";
+        return out;
+      }
+    }
   }
   std::map<size_t, const FeatureSeedCandidate *> seeds;
   for (const auto &s : candidates) {
@@ -114,6 +129,9 @@ LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint6
   for (const auto &o : *effective_observations)
     if (o.camera_id == 0)
       visible.emplace(o.feature_id, o);
+  std::set<size_t> consistency_skipped;
+  out.active_consistency_enabled = consistency != nullptr;
+  out.consistency_active_count = retained_.size();
   for (auto it = retained_.begin(); it != retained_.end();) {
     auto &m = landmarks_.at(*it);
     auto v = visible.find(*it);
@@ -125,9 +143,36 @@ LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint6
       ++m.missed_frames;
       m.phase = LandmarkPhase::Coasting;
     }
-    if (m.missed_frames > config_.max_missed_frames || (v != visible.end() && !v->second.match_valid)) {
+    bool consistency_retire = false;
+    if (consistency && v != visible.end() && v->second.match_valid) {
+      const auto found = consistency->find(*it);
+      if (found != consistency->end()) {
+        const auto &r = found->second;
+        if (r.evaluable) {
+          ++out.consistency_evaluable_count;
+          if (r.pass) {
+            m.consistency_fail_count = 0;
+            ++out.consistency_pass_count;
+          } else {
+            ++m.consistency_fail_count;
+            ++m.consistency_reject_count;
+            consistency_skipped.insert(*it);
+            consistency_retire = m.consistency_fail_count >= retire_after;
+            if (consistency_retire)
+              ++out.consistency_retire_count;
+            else
+              ++out.consistency_skip_count;
+          }
+        }
+        out.active_consistency.push_back({r, m.consistency_fail_count, m.consistency_reject_count,
+                                          consistency_retire               ? "RETIRE"
+                                          : consistency_skipped.count(*it) ? "SKIP"
+                                                                           : "UPDATE"});
+      }
+    }
+    if (m.missed_frames > config_.max_missed_frames || (v != visible.end() && !v->second.match_valid) || consistency_retire) {
       m.phase = LandmarkPhase::Retired;
-      m.reason = "lost_or_identity_invalid";
+      m.reason = consistency_retire ? "active_consistency" : "lost_or_identity_invalid";
       if (config_.bounded_memory) {
         out.retirement_events.push_back({*it, LandmarkRetirementKind::ActiveRetired, time, m});
         ++active_retired_total_;
@@ -250,7 +295,7 @@ LandmarkManagerFrame LtvLandmarkManager::step(uint64_t epoch, double time, uint6
     }
   for (size_t id : retained_) {
     out.retained_ids.push_back(id);
-    if (visible.count(id) && visible.at(id).match_valid) {
+    if (visible.count(id) && visible.at(id).match_valid && !consistency_skipped.count(id)) {
       out.observations.push_back(visible.at(id));
       if (time - landmarks_.at(id).entered + 1e-12 >= config_.maturity_seconds)
         ++out.mature_visible;

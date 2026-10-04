@@ -1,0 +1,13 @@
+{
+  "status": "REQUIRED_DEPENDENCIES_PRESENT_NOT_FORMALLY_FROZEN",
+  "required": {
+    "scripts/ltv_passive_hardening/check_hardened_log.py": "ba3df05ede9151c6f114deb0ca7c5eda6eefb0573097fa44c8a0e0377847a9c0",
+    "scripts/ltv_passive_hardening/real_evaluate.py": "e4e858b1a25abdf80a32b6a5820d7c6edf2b06c1de1a3583bc1f9b95b2c5541a",
+    "scripts/ltv_passive_hardening/synthetic_inputs.py": "56a9c83eea76ef50d3cd3bf7cec9f66037eaf4234e614828725486c08ce9aed9",
+    "scripts/ltv_standalone_study/truth_model.py": "2bfe9e7dcccde4f4bfd1c41c2c687fa6408a17d605eeb514d0703ba2e83b5747",
+    "docs/ltv/passive_hardening_v2/protocol.json": "4f5942ce2f45794324c4da0510c1d16d0f9df07514677ef99cd2303f56c2ba12",
+    "scripts/ltv_active_consistency_r4/real_evaluate.py": "941fd4893606369a36fcad66720a336d423369cd3ba9840543180e589ecaeb90",
+    "scripts/ltv_active_consistency_r4/resource_benchmark.py": "8784773f375dbffafbbf9f90010d1c529cae12847bc3e6eeffe2ea3e70a331e2"
+  },
+  "source_file_count": 350
+}

@@ -65,6 +65,7 @@ list(APPEND LIBRARY_SOURCES
         src/ltv/LtvSeedEstimator.cpp
         src/ltv/LtvSeedUncertainty.cpp
         src/ltv/LtvFeaturePipeline.cpp
+        src/ltv/LtvActiveConsistency.cpp
         src/ltv/ValueDiagnostics.cpp
         src/dummy.cpp
         src/sim/Simulator.cpp
