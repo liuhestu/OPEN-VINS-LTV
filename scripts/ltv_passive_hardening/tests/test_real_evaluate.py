@@ -2,6 +2,7 @@ import importlib.util
 from pathlib import Path
 import unittest
 import tempfile
+import json
 import numpy as np
 spec=importlib.util.spec_from_file_location('new_real_eval',Path(__file__).resolve().parents[1]/'real_evaluate.py');e=importlib.util.module_from_spec(spec);spec.loader.exec_module(e)
 class Contracts(unittest.TestCase):
@@ -43,6 +44,46 @@ class Contracts(unittest.TestCase):
  def test_historical_gravity_health_not_retroactively_changed(self):
   row=dict(camera_ns=1,epoch=1,available=True,observer_started=True,imu_time=0,v_body=[0,0,0],eta_body=[0,0,-7.5],ready_G=True,ready_V=True)
   self.assertTrue(e.align([row],[1],[0],False)['ready_G'][0])
+ def test_R3_key_allowed_without_loosening_existing_parameters(self):
+  with tempfile.TemporaryDirectory() as folder:
+   a=Path(folder)/'a';b=Path(folder)/'b';a.write_text('ltv_q: 0.0001\n')
+   b.write_text(a.read_text()+'ltv_hardening_preserve_constrained_state: true\n')
+   self.assertTrue(e.config_equivalence(a,b)['nonhardening_yaml_exact'])
+ def test_all11_and_eight_baseline_valid(self):
+  records=[dict(sequence=n,baseline_valid=True,P_NEW_native_complete=True,engineering_pass=True,reference_valid=True,status='MEETS_SEQUENCE_CONTRACT') for n in e.PROTOCOL['real_final']]
+  self.assertEqual(e.assess_all11(records)['status'],'OUTPUT_CONTRACT_MET')
+  with self.assertRaises(ValueError):e.assess_all11(records[:-1])
+  for r in records[:3]:r.update(baseline_valid=False,baseline_invalid_reason='native_initialization_failure')
+  self.assertEqual(e.assess_all11(records)['baseline_valid'],8)
+  records[3].update(baseline_valid=False,baseline_invalid_reason='native_initialization_failure')
+  self.assertEqual(e.assess_all11(records)['status'],'BLOCKED_INPUT')
+ def test_NEW_failure_cannot_disqualify_baseline(self):
+  records=[dict(sequence=n,baseline_valid=True,P_NEW_native_complete=True,engineering_pass=True,reference_valid=True,status='MEETS_SEQUENCE_CONTRACT') for n in e.PROTOCOL['real_final']]
+  records[0].update(baseline_valid=False,baseline_invalid_reason='NEW_error_large')
+  with self.assertRaisesRegex(ValueError,'B-only'):e.assess_all11(records)
+ def test_incomplete_or_new_failure_cannot_hide_in_aggregate(self):
+  records=[dict(sequence=n,baseline_valid=True,P_NEW_native_complete=True,engineering_pass=True,reference_valid=True,status='MEETS_SEQUENCE_CONTRACT') for n in e.PROTOCOL['real_final']]
+  records[0]['status']='NOT_MET';self.assertEqual(e.assess_all11(records)['status'],'NOT_MET')
+  records[0]['P_NEW_native_complete']=False;self.assertEqual(e.assess_all11(records)['status'],'BLOCKED_CORRECTNESS')
+ def test_explicit_same_input_modes_and_parameter_binding(self):
+  with tempfile.TemporaryDirectory() as folder:
+   root=Path(folder);sensors={}
+   for sensor in ('cam0','cam1','imu0'):
+    d=root/'input'/sensor;d.mkdir(parents=True);csv=d/'data.csv'
+    if sensor=='imu0':csv.write_text('#imu\n1,0,0,0,0,0,9.81\n')
+    else:
+     (d/'data').mkdir();(d/'data/x.png').write_bytes(b'fixture');csv.write_text('#camera\n1,x.png\n')
+    sensors[sensor]={'path':str(csv),'sha256':e.sha(csv)}
+   paths={}
+   for mode in ('B','P_PREV','P_NEW'):
+    d=root/mode;d.mkdir();cfg=d/'estimator_config.yaml'
+    cfg.write_text('native_parameter: 3\nltv_q: 0.0001\n'+('ltv_passive_hardening_enabled: true\n' if mode=='P_NEW' else ''))
+    identity=dict(sequence='MH_01_easy',mode=mode,inputs={'sensors':sensors},config_path=str(cfg),config_sha={cfg.name:e.sha(cfg)})
+    (d/'identity.json').write_text(json.dumps(identity));paths[mode]=d
+   b,old,proof=e.resolve_explicit('MH_01_easy',paths['P_NEW'],paths['B'],paths['P_PREV'])
+   self.assertTrue(proof['configuration_equivalence']['nonhardening_yaml_exact'])
+   (paths['P_PREV']/'estimator_config.yaml').write_text('ltv_q: 0.001\n')
+   with self.assertRaisesRegex(ValueError,'tree changed'):e.resolve_explicit('MH_01_easy',paths['P_NEW'],paths['B'],paths['P_PREV'])
  def test_thresholds_inclusive(self):
   self.assertTrue(e.threshold(.2,.2));self.assertFalse(e.threshold(.2000001,.2));self.assertFalse(e.threshold(None,.2))
 if __name__=='__main__':unittest.main()

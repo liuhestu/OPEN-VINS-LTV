@@ -264,6 +264,77 @@ int main() {
     LtvReadiness default_warm(c);
     unseeded.time = unseeded.observer_time = 0;
     require(!default_warm.update(unseeded).request_bootstrap, "default R1 finite empty core still waits for seed supply");
+    LtvReadinessConfig preserve_config = warm_config;
+    preserve_config.preserve_constrained_state = true;
+    LtvReadiness preserve(preserve_config);
+    auto preserved = healthy(0);
+    preserved.bootstrap_source = "BOUNDED_INITIAL_ZERO_WARMUP";
+    require(preserve.update(preserved).request_bootstrap, "R3 initial warmup keeps atomic contract");
+    preserve.acknowledgeBootstrap(preserved);
+    for (int k = 1; k <= 200; ++k) {
+      preserved = healthy(.05 * k);
+      preserved.observed_features = preserved.mature_observed_features = 1 + k % 14;
+      o = preserve.update(preserved);
+      require(o.state == LtvAvailability::Degraded && o.observer_valid && !o.ready_G && !o.ready_V && !o.request_dormant,
+              "ten seconds of thin current observations preserve state without ready");
+    }
+    for (int k = 1; k <= 20; ++k) {
+      o = preserve.update(healthy(10 + .05 * k));
+      require(o.ready_V == (k == 20), "thin-state recovery requires full health reconfirmation");
+    }
+    for (int k = 0; k <= 20; ++k) {
+      preserved = healthy(11.05 + .05 * k);
+      preserved.observed_features = preserved.mature_observed_features = 0;
+      o = preserve.update(preserved);
+      require(!o.ready_G && !o.ready_V, "first empty packet revokes readiness");
+      require(o.request_dormant == (k == 20), "empty observation clock expires at one second, not earlier");
+    }
+    require(o.state == LtvAvailability::Dormant, "zero observations eventually dormant");
+    auto physical_preserve = healthy(12.1);
+    physical_preserve.physical_input_fault = true;
+    o = preserve.update(physical_preserve);
+    require(o.physical_fault_count == 1 && !o.ready_G && !o.observer_valid, "thin-state option never hides physical input fault");
+    for (int k = 0; k < 3; ++k) {
+      preserved = healthy(12.15 + .05 * k);
+      preserved.observer_started = false;
+      o = preserve.update(preserved);
+    }
+    require(o.request_bootstrap && o.bootstrap_is_physical_recovery, "physical repair still requires confirmed seed supply");
+    for (int axis = 0; axis < 2; ++axis) {
+      LtvReadiness bounded_norm(preserve_config);
+      auto normal = healthy(0);
+      normal.bootstrap_source = "BOUNDED_INITIAL_ZERO_WARMUP";
+      bounded_norm.update(normal);
+      bounded_norm.acknowledgeBootstrap(normal);
+      auto excessive = healthy(.05);
+      excessive.observed_features = 1;
+      if (axis == 0)
+        excessive.velocity = Eigen::Vector3d(100.01, 0, 0);
+      else
+        excessive.gravity = Eigen::Vector3d(0, 0, -50.01);
+      o = bounded_norm.update(excessive);
+      require(o.request_dormant && !o.observer_valid && o.reason == "observer_norm_guard", "finite extreme state stops immediately");
+    }
+    LtvReadiness invalid_geometry(preserve_config);
+    auto initial = healthy(0);
+    initial.bootstrap_source = "BOUNDED_INITIAL_ZERO_WARMUP";
+    invalid_geometry.update(initial);
+    invalid_geometry.acknowledgeBootstrap(initial);
+    for (int k = 1; k <= 21; ++k) {
+      auto bad_geometry = healthy(.05 * k);
+      bad_geometry.observed_features = 14;
+      bad_geometry.geometry_valid = false;
+      o = invalid_geometry.update(bad_geometry);
+    }
+    require(o.request_dormant && o.state == LtvAvailability::Dormant, "positive count without valid geometry does not preserve state");
+    LtvReadiness stale_preserved(preserve_config);
+    stale_preserved.update(initial);
+    stale_preserved.acknowledgeBootstrap(initial);
+    auto stale_thin = healthy(.05);
+    stale_thin.observed_features = 1;
+    stale_thin.observer_time = 0;
+    o = stale_preserved.update(stale_thin);
+    require(o.request_dormant && !o.observer_valid, "thin count cannot preserve stale observer");
     std::cout << "readiness PASS collecting/atomic bootstrap/confirmation/revocation/dormancy/cooldown/physical faults\n";
   } catch (const std::exception &e) {
     std::cerr << e.what() << '\n';

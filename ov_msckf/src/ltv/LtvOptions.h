@@ -11,6 +11,7 @@ struct LtvOptions {
   bool enable_huber = false;
   bool feature_readiness_enabled = false, feature_apply_seed = true, passive_audit_enabled = false;
   bool passive_hardening_enabled = false, hardening_health_readiness = true, hardening_initial_warmup = false;
+  bool hardening_preserve_constrained_state = false;
   ltv::LtvReadinessConfig hardening_readiness;
   std::string feature_seed_source = "TEMPORAL_POSE";
   std::string passive_cache_path;
@@ -34,6 +35,7 @@ struct LtvOptions {
     FIELD(passive_hardening_enabled);
     FIELD(hardening_health_readiness);
     FIELD(hardening_initial_warmup);
+    FIELD(hardening_preserve_constrained_state);
     FIELD(feature_apply_seed);
     FIELD(passive_audit_enabled);
     FIELD(feature_seed_source);

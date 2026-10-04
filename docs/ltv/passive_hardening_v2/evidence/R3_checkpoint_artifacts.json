@@ -1,0 +1,22 @@
+{
+  "R3_REGULAR_near_42_05.json": {
+    "source": "/home/he/output/ltv_passive_hardening_v2/R3/REGULAR_42_05/P_NEW_PRESERVE_evaluation_v1/metrics.json",
+    "sha256": "0131edcf7366399dd60bb18d366d10f0b098d351d4a6e93f26606c529e3adfe7"
+  },
+  "R3_TEMPORAL_REGULAR_42_1.json": {
+    "source": "/home/he/output/ltv_passive_hardening_v2/R3/TEMPORAL_REGULAR_42_1/P_NEW_PRESERVE_evaluation_v1/metrics.json",
+    "sha256": "9e116483da12bfbcb83d56796c01d29d0541ef82897b57ac84f84a86ae30857f"
+  },
+  "R3_RECOVERY_REGULAR_42_1.json": {
+    "source": "/home/he/output/ltv_passive_hardening_v2/R3/RECOVERY_REGULAR_42_1/P_NEW_PRESERVE_evaluation_v1/metrics.json",
+    "sha256": "acc2ba6cfe370c9ddc0308d7c15aed53ffe8dcb889761877903b3613737958f4"
+  },
+  "R3_resource_600s_aged_ids.json": {
+    "source": "/home/he/output/ltv_passive_hardening_v2/R3/resource_600s_aged_ids_42_analysis_01/metrics.json",
+    "sha256": "3617bcdda601962623a2596a7ee67fc14628f9cafa88d2eaabda96c2260dd74f"
+  },
+  "R3_V2_02_metrics.json": {
+    "source": "/home/he/output/ltv_passive_hardening_v2/real_development/R3_V2_02_01/evaluation_v1/metrics.json",
+    "sha256": "b7b96282c372d58c31c7237cea9f87ca2108d76ded66476059ec53ca132205aa"
+  }
+}

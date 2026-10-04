@@ -30,6 +30,7 @@ struct LtvFrame {
   double prediction_angle_p95_rad = 0, velocity_correction_rate = 0, gravity_correction_rate = 0;
   bool correction_diagnostics_valid = false;
   uint64_t actual_corrections = 0;
+  double compute_time_ms = 0; // Diagnostic only; excluded from exact numeric/cache comparisons.
   std::string reason = "not_started";
   ltv::LtvSnapshot snapshot;
   uint64_t integrated_steps = 0;
@@ -49,6 +50,10 @@ public:
   const ltv::FeaturePipelineFrame &feature_frame() const { return feature_frame_; }
   const ltv::LtvFeaturePipeline *feature_pipeline() const { return feature_pipeline_.get(); }
   const std::map<size_t, int> &feature_ids() const { return ids_; }
+  size_t bufferedImuSamples() {
+    std::lock_guard<std::mutex> lock(mutex_);
+    return imu_.size();
+  }
   static ov_core::ImuData correct(const ov_core::ImuData &, const LtvCalibration &, const Eigen::Vector3d &, const Eigen::Vector3d &);
 
 private:

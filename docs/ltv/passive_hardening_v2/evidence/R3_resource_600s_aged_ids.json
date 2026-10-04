@@ -1,0 +1,208 @@
+{
+  "status": "RESOURCE_TRACE_VALID_600S",
+  "error_count": 0,
+  "errors": [],
+  "duration_s": 600,
+  "frames": 12001,
+  "input_records": {
+    "context_models": 1,
+    "imu": 120002,
+    "camera": 12001
+  },
+  "once_seed_pass": true,
+  "per_epoch": {
+    "1": {
+      "admitted": 915,
+      "written": 915,
+      "active_retired": 915,
+      "candidate_ttl": 56,
+      "guard_rejections": 162,
+      "bits": 6792,
+      "insertions": 971,
+      "highwater": 914,
+      "frames": 321
+    },
+    "2": {
+      "admitted": 34206,
+      "written": 34206,
+      "active_retired": 34176,
+      "candidate_ttl": 1930,
+      "guard_rejections": 5697,
+      "bits": 249205,
+      "insertions": 36136,
+      "highwater": 34205,
+      "frames": 11680
+    }
+  },
+  "birth_sources": {
+    "STEREO": 34733,
+    "TEMPORAL_POSE": 388
+  },
+  "guard_rejections_known_inserted_identity": 5859,
+  "guard_rejections_possible_collision": 0,
+  "max_counts": {
+    "manager_records": 72,
+    "history_records": 72,
+    "max_samples_per_track": 10,
+    "total_history_samples": 323,
+    "adapter_map_size": 30,
+    "core_admission_history_size": 0,
+    "core_admission_high_water": 34205,
+    "imu_buffer_size": 2,
+    "retained_ids": 30,
+    "guard_capacity_bytes": 1048576
+  },
+  "bootstrap_events": [
+    {
+      "time": 0,
+      "source": "BOUNDED_INITIAL_ZERO_WARMUP",
+      "epoch": 1
+    },
+    {
+      "time": 30.2,
+      "source": "ZERO_DELAYED_START",
+      "epoch": 2
+    }
+  ],
+  "timings_ms": {
+    "construct_ms": {
+      "mean": 3.1223533864311315,
+      "p95": 3.458710154518485,
+      "max": 9.6328048966825
+    },
+    "abi_ms": {
+      "mean": 10.041742813812643,
+      "p95": 10.630123084411025,
+      "max": 15.824259025976062
+    },
+    "adapter_compute_ms": {
+      "mean": 9.995028287642695,
+      "p95": 10.572447,
+      "max": 15.738886
+    },
+    "parse_ms": {
+      "mean": 0.04119310580344858,
+      "p95": 0.05823303945362568,
+      "max": 0.18760398961603642
+    },
+    "write_ms": {
+      "mean": 0.14722032910021193,
+      "p95": 0.1914000604301691,
+      "max": 8.370558032765985
+    },
+    "whole_branch_ms": {
+      "mean": 13.164096200243774,
+      "p95": 13.923364924266934,
+      "max": 24.387989193201065
+    }
+  },
+  "performance_target": {
+    "whole_branch_mean_under50ms": true,
+    "whole_branch_p95_atmost100ms": true
+  },
+  "minute_bins": [
+    {
+      "minute_index": 0,
+      "samples": 1200,
+      "rss_min": 102150144,
+      "rss_median": 107646976.0,
+      "rss_max": 107687936,
+      "whole_branch_mean_ms": 10.766509611081952,
+      "whole_branch_p95_ms": 13.752777792979032
+    },
+    {
+      "minute_index": 1,
+      "samples": 1200,
+      "rss_min": 107687936,
+      "rss_median": 107687936.0,
+      "rss_max": 107687936,
+      "whole_branch_mean_ms": 13.402943652084408,
+      "whole_branch_p95_ms": 13.895536260679364
+    },
+    {
+      "minute_index": 2,
+      "samples": 1200,
+      "rss_min": 107687936,
+      "rss_median": 108408832.0,
+      "rss_max": 108408832,
+      "whole_branch_mean_ms": 13.407103630597703,
+      "whole_branch_p95_ms": 13.946620118804276
+    },
+    {
+      "minute_index": 3,
+      "samples": 1200,
+      "rss_min": 108408832,
+      "rss_median": 108408832.0,
+      "rss_max": 108408832,
+      "whole_branch_mean_ms": 13.421156504385484,
+      "whole_branch_p95_ms": 13.969168369658291
+    },
+    {
+      "minute_index": 4,
+      "samples": 1200,
+      "rss_min": 108408832,
+      "rss_median": 108408832.0,
+      "rss_max": 108408832,
+      "whole_branch_mean_ms": 13.428139024181291,
+      "whole_branch_p95_ms": 13.8804612448439
+    },
+    {
+      "minute_index": 5,
+      "samples": 1200,
+      "rss_min": 108408832,
+      "rss_median": 108408832.0,
+      "rss_max": 108408832,
+      "whole_branch_mean_ms": 13.436038992561711,
+      "whole_branch_p95_ms": 13.964525330811739
+    },
+    {
+      "minute_index": 6,
+      "samples": 1200,
+      "rss_min": 108408832,
+      "rss_median": 108408832.0,
+      "rss_max": 108408832,
+      "whole_branch_mean_ms": 13.43588706649219,
+      "whole_branch_p95_ms": 13.896888867020607
+    },
+    {
+      "minute_index": 7,
+      "samples": 1200,
+      "rss_min": 108408832,
+      "rss_median": 108408832.0,
+      "rss_max": 108408832,
+      "whole_branch_mean_ms": 13.423308610605696,
+      "whole_branch_p95_ms": 13.903200859203935
+    },
+    {
+      "minute_index": 8,
+      "samples": 1200,
+      "rss_min": 108408832,
+      "rss_median": 108408832.0,
+      "rss_max": 108408832,
+      "whole_branch_mean_ms": 13.49019676039461,
+      "whole_branch_p95_ms": 13.999096001498401
+    },
+    {
+      "minute_index": 9,
+      "samples": 1201,
+      "rss_min": 108408832,
+      "rss_median": 108408832.0,
+      "rss_max": 108408832,
+      "whole_branch_mean_ms": 13.429457016039537,
+      "whole_branch_p95_ms": 13.909620931372046
+    }
+  ],
+  "rss_first_minute_median": 107646976.0,
+  "rss_last_minute_median": 108408832.0,
+  "rss_interpretation": "/proc/self/statm resident pages of measured Python+C++ process, including shared runtime pages and allocator warmup; ordinary write-backed kernel page cache is not process RSS. No input arrays or whole log objects were loaded by benchmark; offline analysis sets/arrays are a different process. Flat RSS alone does not establish bounds; container invariants and source contract also checked.",
+  "performance_interpretation": "whole_branch_ms = input geometry/prior covariance construction + C ABI call including light JSON; adapter_compute_ms excludes bridge and serialization; parse/write separate. Synthetic construction may include generator work and thus is conservative for observer branch, not actual full VIO timing.",
+  "trace_identity": {
+    "run.json": "06f2d132dcbb4c6f7e917b28add486ce7fd5f3b526b4adbc3a3f8e15feb8ccc7",
+    "inputs.jsonl": "fe98e6818e66abbad59eac155901dd0d110a8df06de585ad590e3838cd8ca99d",
+    "events.jsonl": "36e7d54ad4298c8ee4b7068574ab3576b43932bce201fef5d17abc41cb4c09cc",
+    "resources.jsonl": "a78d5586d7eeaad02fc96e818397fa2fca8817935c2791738af1325b9f9b3ba7"
+  },
+  "analyzer_sha": "4a36692bf27cd17317d80218b7f9bbab797ca66cc7883bb73b50c39bba1aad9a",
+  "observer_executed": false,
+  "GT_read": false
+}

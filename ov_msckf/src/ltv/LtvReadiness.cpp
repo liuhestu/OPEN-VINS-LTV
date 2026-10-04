@@ -131,6 +131,17 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
   const bool current = i.observer_started && i.observer_finite && i.velocity.allFinite() && i.gravity.allFinite() &&
                        std::isfinite(i.observer_time) && std::abs(i.observer_time - i.time) <= config_.timestamp_tolerance;
   o.observer_valid = current && state_ != LtvAvailability::Dormant && state_ != LtvAvailability::Collecting;
+  if (config_.preserve_constrained_state && current && (i.velocity.norm() > 100.0 || i.gravity.norm() > 50.0)) {
+    awaiting_bootstrap_ = false;
+    gravity_frames_ = velocity_frames_ = 0;
+    state_ = LtvAvailability::Dormant;
+    o.observer_valid = false;
+    if (!dormant_requested_) {
+      o.request_dormant = true;
+      dormant_requested_ = true;
+    }
+    return finish("observer_norm_guard");
+  }
   // No reliable current state exists in collection/dormancy. Merely having a
   // finite stale vector cannot promote a stopped observer back to TRACKING.
   if (awaiting_bootstrap_ || !bootstrapped_ || state_ == LtvAvailability::Dormant || state_ == LtvAvailability::Collecting ||
@@ -162,6 +173,14 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
     return finish(!supply ? "insufficient_seed_supply" : !cooldown ? "quality_bootstrap_cooldown" : "confirming_seed_supply");
   }
   const bool adequate = i.geometry_valid && i.observed_features >= config_.min_features;
+  if (config_.preserve_constrained_state && current && i.geometry_valid && i.observed_features > 0 && !adequate) {
+    // Thin current constraints permit continued estimation, never readiness.
+    // Only a new complete loss starts the no-observation dormant clock.
+    shortage_since_ = -1;
+    gravity_frames_ = velocity_frames_ = 0;
+    state_ = LtvAvailability::Degraded;
+    return finish("thin_observations_state_preserved_not_ready");
+  }
   if (!adequate || !current) {
     gravity_frames_ = velocity_frames_ = 0;
     if (shortage_since_ < 0)

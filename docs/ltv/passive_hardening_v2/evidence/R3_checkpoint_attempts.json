@@ -1,0 +1,1143 @@
+{
+  "scope": "Development checkpoint, not final acceptance",
+  "through_id": 178,
+  "attempts": [
+    {
+      "id": 107,
+      "kind": "synthetic",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_runner.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_near_FAST_42_1",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R2/FAST_42_1/P_NEW_WARMUP",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_02.so",
+        "--mode",
+        "P_NEW_WARMUP"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0107"
+    },
+    {
+      "id": 108,
+      "kind": "real",
+      "command": [
+        "/usr/bin/env",
+        "LD_LIBRARY_PATH=/home/he/output/ltv_passive_hardening_v2/runtime/67a97cc62d86f380e7910e42b4ad4195a6677c8057ff691b746a9078393b638b/lib",
+        "/home/he/output/ltv_passive_hardening_v2/runtime/67a97cc62d86f380e7910e42b4ad4195a6677c8057ff691b746a9078393b638b/run_ltv_feature_passive",
+        "/home/he/output/ltv_passive_hardening_v2/real_development/R2_V1_01_01/config/estimator_config.yaml",
+        "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+        "/home/he/output/ltv_passive_hardening_v2/real_development/R2_V1_01_01/P_NEW",
+        "P_NEW"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0108"
+    },
+    {
+      "id": 109,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/real_evaluate.py",
+        "--sequence",
+        "V1_01_easy",
+        "--new",
+        "/home/he/output/ltv_passive_hardening_v2/real_development/R2_V1_01_01/P_NEW",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/real_development/R2_V1_01_01/evaluation_v1"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0109"
+    },
+    {
+      "id": 110,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_evaluate.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_near_FAST_42_1",
+        "--run-dir",
+        "/home/he/output/ltv_passive_hardening_v2/R2/FAST_42_1/P_NEW_WARMUP",
+        "--baseline",
+        "/home/he/output/ltv_passive_hardening_v2/R1/FAST_42_1/P_PREV",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R2/FAST_42_1/P_NEW_WARMUP_evaluation_v1"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0110"
+    },
+    {
+      "id": 111,
+      "kind": "build",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-I/usr/include/eigen3",
+        "-Iov_msckf/src",
+        "ov_msckf/tests/ltv/test_bounded_history.cpp",
+        "ov_msckf/src/ltv/LtvFeatureHistory.cpp",
+        "-o",
+        "/home/he/output/ltv_passive_hardening_v2/test_bounded_history_01"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0111"
+    },
+    {
+      "id": 112,
+      "kind": "test",
+      "command": [
+        "/home/he/output/ltv_passive_hardening_v2/test_bounded_history_01"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0112"
+    },
+    {
+      "id": 113,
+      "kind": "build",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O2",
+        "-I/usr/include/eigen3",
+        "-Iov_msckf/src",
+        "-Iov_core/src",
+        "ov_msckf/src/ltv/ltv_observer.cpp",
+        "scripts/ltv_passive_hardening/tests/test_bounded_core.cpp",
+        "-o",
+        "/home/he/output/ltv_passive_hardening_v2/test_bounded_core"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0113"
+    },
+    {
+      "id": 114,
+      "kind": "test",
+      "command": [
+        "/home/he/output/ltv_passive_hardening_v2/test_bounded_core"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0114"
+    },
+    {
+      "id": 115,
+      "kind": "build",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O2",
+        "-Iov_msckf/src",
+        "-I/usr/include/eigen3",
+        "ov_msckf/tests/ltv/test_ltv_manager_bounded.cpp",
+        "ov_msckf/src/ltv/LtvLandmarkManager.cpp",
+        "ov_msckf/src/ltv/LtvFeatureHistory.cpp",
+        "ov_msckf/src/ltv/LtvFeatureQuality.cpp",
+        "-o",
+        "/home/he/output/ltv_passive_hardening_v2/test_manager_bounded"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0115"
+    },
+    {
+      "id": 116,
+      "kind": "test",
+      "command": [
+        "/home/he/output/ltv_passive_hardening_v2/test_manager_bounded"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0116"
+    },
+    {
+      "id": 117,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_inputs.py",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_recovery_REGULAR_42_1",
+        "--calibration",
+        "config/ltv_euroc/kalibr_imucam_chain.yaml",
+        "--scene",
+        "REGULAR",
+        "--seed",
+        "42",
+        "--lifetime",
+        "1",
+        "--condition",
+        "RECOVERY",
+        "--duration",
+        "60"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0117"
+    },
+    {
+      "id": 118,
+      "kind": "synthetic",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_runner.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_recovery_REGULAR_42_1",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R2/RECOVERY_REGULAR_42_1/P_NEW_WARMUP",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_02.so",
+        "--mode",
+        "P_NEW_WARMUP"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0118"
+    },
+    {
+      "id": 119,
+      "kind": "synthetic",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_runner.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_recovery_REGULAR_42_1",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R2/RECOVERY_REGULAR_42_1/P_PREV",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_02.so",
+        "--mode",
+        "P_PREV"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0119"
+    },
+    {
+      "id": 120,
+      "kind": "build",
+      "command": [
+        "bash",
+        "scripts/ltv_passive_hardening/configure_native.sh"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0120"
+    },
+    {
+      "id": 121,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_evaluate.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_recovery_REGULAR_42_1",
+        "--run-dir",
+        "/home/he/output/ltv_passive_hardening_v2/R2/RECOVERY_REGULAR_42_1/P_NEW_WARMUP",
+        "--baseline",
+        "/home/he/output/ltv_passive_hardening_v2/R2/RECOVERY_REGULAR_42_1/P_PREV",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R2/RECOVERY_REGULAR_42_1/P_NEW_WARMUP_evaluation_v1"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0121"
+    },
+    {
+      "id": 122,
+      "kind": "build",
+      "command": [
+        "cmake",
+        "--build",
+        "/home/he/output/ltv_passive_hardening_v2/build",
+        "--target",
+        "run_ltv_feature_passive",
+        "replay_ltv_feature_cache",
+        "test_ltv_adapter_hardened",
+        "test_ltv_controlled",
+        "test_ltv_feature_manager",
+        "test_ltv_feature_pipeline",
+        "test_ltv_readiness",
+        "test_ltv_manager_bounded",
+        "test_bounded_history",
+        "test_identity_guard",
+        "-j2"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0122"
+    },
+    {
+      "id": 123,
+      "kind": "candidate",
+      "command": [
+        "python3",
+        "-c",
+        "import json; print(json.load(open(\"docs/ltv/passive_hardening_v2/candidates/R3_PRESERVE_CONSTRAINED_SHARED_STATE.json\"))[\"name\"])"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0123"
+    },
+    {
+      "id": 124,
+      "kind": "test",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess; from pathlib import Path; p=Path(\"/home/he/output/ltv_passive_hardening_v2/build/tests/ltv\"); names=[\"test_ltv_adapter_hardened\",\"test_ltv_controlled\",\"test_ltv_feature_manager\",\"test_ltv_feature_pipeline\",\"test_ltv_readiness\",\"test_ltv_manager_bounded\",\"test_bounded_history\",\"test_identity_guard\"]; [subprocess.run([str(p/n)],check=True) for n in names]"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0124"
+    },
+    {
+      "id": 125,
+      "kind": "build",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O2",
+        "-I/usr/include/eigen3",
+        "-Iov_msckf/src",
+        "ov_msckf/src/ltv/ltv_observer.cpp",
+        "ov_msckf/src/ltv/LtvLandmarkManager.cpp",
+        "ov_msckf/src/ltv/LtvFeatureHistory.cpp",
+        "ov_msckf/src/ltv/LtvFeatureQuality.cpp",
+        "scripts/ltv_passive_hardening/tests/test_bounded_identity_independent.cpp",
+        "-o",
+        "/home/he/output/ltv_passive_hardening_v2/test_bounded_identity_independent"
+      ],
+      "exit_code": 1,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0125"
+    },
+    {
+      "id": 126,
+      "kind": "build",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O2",
+        "-I/usr/include/eigen3",
+        "-Iov_msckf/src",
+        "-Iov_core/src",
+        "ov_msckf/src/ltv/ltv_observer.cpp",
+        "ov_msckf/src/ltv/LtvLandmarkManager.cpp",
+        "ov_msckf/src/ltv/LtvFeatureHistory.cpp",
+        "ov_msckf/src/ltv/LtvFeatureQuality.cpp",
+        "scripts/ltv_passive_hardening/tests/test_bounded_identity_independent.cpp",
+        "-o",
+        "/home/he/output/ltv_passive_hardening_v2/test_bounded_identity_independent"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0126"
+    },
+    {
+      "id": 127,
+      "kind": "test",
+      "command": [
+        "/home/he/output/ltv_passive_hardening_v2/test_bounded_identity_independent"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0127"
+    },
+    {
+      "id": 128,
+      "kind": "test",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/tests/test_real_evaluate.py"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0128"
+    },
+    {
+      "id": 129,
+      "kind": "build",
+      "command": [
+        "cmake",
+        "--build",
+        "/home/he/output/ltv_passive_hardening_v2/build",
+        "--target",
+        "run_ltv_feature_passive",
+        "replay_ltv_feature_cache",
+        "test_ltv_adapter_hardened",
+        "test_ltv_controlled",
+        "test_ltv_feature_manager",
+        "test_ltv_feature_pipeline",
+        "test_ltv_readiness",
+        "test_ltv_manager_bounded",
+        "test_bounded_history",
+        "test_identity_guard",
+        "-j2"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0129"
+    },
+    {
+      "id": 130,
+      "kind": "test",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/tests/test_real_evaluate.py"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0130"
+    },
+    {
+      "id": 131,
+      "kind": "test",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess; from pathlib import Path; p=Path(\"/home/he/output/ltv_passive_hardening_v2/build/tests/ltv\"); names=[\"test_ltv_adapter_hardened\",\"test_ltv_controlled\",\"test_ltv_feature_manager\",\"test_ltv_feature_pipeline\",\"test_ltv_readiness\",\"test_ltv_manager_bounded\",\"test_bounded_history\",\"test_identity_guard\"]; [subprocess.run([str(p/n)],check=True) for n in names]"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0131"
+    },
+    {
+      "id": 132,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "-c",
+        "import sys; sys.path.insert(0,\"scripts/ltv_passive_hardening\"); from legacy import artifacts; print(artifacts.snapshot())"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0132"
+    },
+    {
+      "id": 133,
+      "kind": "test",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/tests/test_real_confirm.py"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0133"
+    },
+    {
+      "id": 134,
+      "kind": "short_real",
+      "command": [
+        "/usr/bin/env",
+        "LD_LIBRARY_PATH=/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/run_ltv_feature_passive",
+        "/home/he/output/ltv_passive_hardening_v2/integration_short_R3_01/config_OFF/estimator_config.yaml",
+        "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+        "/home/he/output/ltv_passive_hardening_v2/integration_short_R3_01/OFF",
+        "P_NEW",
+        "10"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0134"
+    },
+    {
+      "id": 135,
+      "kind": "test",
+      "command": [
+        "/usr/bin/env",
+        "LD_LIBRARY_PATH=/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/replay_ltv_feature_cache",
+        "/home/he/output/ltv_passive_hardening_v2/integration_short_R3_01/config_OFF/estimator_config.yaml",
+        "/home/he/output/ltv_passive_hardening_v2/integration_short_R3_01/OFF/cache.bin",
+        "/home/he/output/ltv_passive_hardening_v2/integration_short_R3_01/OFF/cache_parity.json"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0135"
+    },
+    {
+      "id": 136,
+      "kind": "short_real",
+      "command": [
+        "/usr/bin/env",
+        "LD_LIBRARY_PATH=/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/run_ltv_feature_passive",
+        "/home/he/output/ltv_passive_hardening_v2/integration_short_R3_01/config_HARDENED/estimator_config.yaml",
+        "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+        "/home/he/output/ltv_passive_hardening_v2/integration_short_R3_01/HARDENED",
+        "P_NEW",
+        "10"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0136"
+    },
+    {
+      "id": 137,
+      "kind": "test",
+      "command": [
+        "/usr/bin/env",
+        "LD_LIBRARY_PATH=/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/replay_ltv_feature_cache",
+        "/home/he/output/ltv_passive_hardening_v2/integration_short_R3_01/config_HARDENED/estimator_config.yaml",
+        "/home/he/output/ltv_passive_hardening_v2/integration_short_R3_01/HARDENED/cache.bin",
+        "/home/he/output/ltv_passive_hardening_v2/integration_short_R3_01/HARDENED/cache_parity.json"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0137"
+    },
+    {
+      "id": 138,
+      "kind": "build",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O2",
+        "-shared",
+        "-fPIC",
+        "-I/usr/include/eigen3",
+        "-I/usr/include/opencv4",
+        "-Iov_msckf/src",
+        "-Iov_core/src",
+        "-Iov_init/src",
+        "scripts/ltv_passive_hardening/synthetic_wrapper.cpp",
+        "/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib/libov_msckf_lib.so",
+        "-Wl,--disable-new-dtags",
+        "-Wl,-rpath,/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "-o",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_03.so"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0138"
+    },
+    {
+      "id": 139,
+      "kind": "test",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/test_synthetic_runner.py",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_03.so"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0139"
+    },
+    {
+      "id": 140,
+      "kind": "test",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/resource_benchmark.py",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_03.so",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/resource_fixture_3s_01",
+        "--calibration",
+        "config/ltv_euroc/kalibr_imucam_chain.yaml",
+        "--seconds",
+        "3"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0140"
+    },
+    {
+      "id": 141,
+      "kind": "synthetic",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_runner.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_near_FAST_42_1",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/FAST_42_1/P_NEW_PRESERVE",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_03.so",
+        "--mode",
+        "P_NEW_PRESERVE"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0141"
+    },
+    {
+      "id": 142,
+      "kind": "build",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O2",
+        "-I/usr/include/eigen3",
+        "-Iov_msckf/src",
+        "-Iov_core/src",
+        "scripts/ltv_passive_hardening/tests/test_cache_large_ids_independent.cpp",
+        "-L/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "-Wl,-rpath,/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "-Wl,-rpath-link,/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "-lov_msckf_lib",
+        "-lov_core_lib",
+        "-o",
+        "/home/he/output/ltv_passive_hardening_v2/test_cache_large_ids_R3_a62b"
+      ],
+      "exit_code": 1,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0142"
+    },
+    {
+      "id": 143,
+      "kind": "build",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O2",
+        "-I/usr/include/eigen3",
+        "-I/usr/include/opencv4",
+        "-Iov_msckf/src",
+        "-Iov_core/src",
+        "scripts/ltv_passive_hardening/tests/test_cache_large_ids_independent.cpp",
+        "-L/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "-Wl,-rpath,/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "-Wl,-rpath-link,/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "-lov_msckf_lib",
+        "-lov_core_lib",
+        "-lopencv_core",
+        "-o",
+        "/home/he/output/ltv_passive_hardening_v2/test_cache_large_ids_R3_a62b"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0143"
+    },
+    {
+      "id": 144,
+      "kind": "build",
+      "command": [
+        "cmake",
+        "--build",
+        "/home/he/output/ltv_passive_hardening_v2/build",
+        "--target",
+        "test_ltv_adapter_hardened",
+        "test_ltv_controlled",
+        "test_ltv_feature_manager",
+        "test_ltv_feature_pipeline",
+        "test_ltv_readiness",
+        "test_ltv_manager_bounded",
+        "test_bounded_history",
+        "test_identity_guard",
+        "-j2"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0144"
+    },
+    {
+      "id": 145,
+      "kind": "test",
+      "command": [
+        "env",
+        "LD_LIBRARY_PATH=/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "/home/he/output/ltv_passive_hardening_v2/test_cache_large_ids_R3_a62b",
+        "/home/he/output/ltv_passive_hardening_v2/independent_high_uint64_R3_a62b.cache"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0145"
+    },
+    {
+      "id": 146,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_evaluate.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_near_FAST_42_1",
+        "--run-dir",
+        "/home/he/output/ltv_passive_hardening_v2/R3/FAST_42_1/P_NEW_PRESERVE",
+        "--baseline",
+        "/home/he/output/ltv_passive_hardening_v2/R1/FAST_42_1/P_PREV",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/FAST_42_1/P_NEW_PRESERVE_evaluation_v1"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0146"
+    },
+    {
+      "id": 147,
+      "kind": "real",
+      "command": [
+        "/usr/bin/env",
+        "LD_LIBRARY_PATH=/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/lib",
+        "/home/he/output/ltv_passive_hardening_v2/runtime/a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70/run_ltv_feature_passive",
+        "/home/he/output/ltv_passive_hardening_v2/real_development/R3_V2_02_01/config/estimator_config.yaml",
+        "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+        "/home/he/output/ltv_passive_hardening_v2/real_development/R3_V2_02_01/P_NEW",
+        "P_NEW"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0147"
+    },
+    {
+      "id": 148,
+      "kind": "test",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess; from pathlib import Path; p=Path(\"/home/he/output/ltv_passive_hardening_v2/build/tests/ltv\"); names=[\"test_ltv_adapter_hardened\",\"test_ltv_controlled\",\"test_ltv_feature_manager\",\"test_ltv_feature_pipeline\",\"test_ltv_readiness\",\"test_ltv_manager_bounded\",\"test_bounded_history\",\"test_identity_guard\"]; [subprocess.run([str(p/n)],check=True) for n in names]"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0148"
+    },
+    {
+      "id": 149,
+      "kind": "synthetic",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/resource_benchmark.py",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/resource_600s_42",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_03.so",
+        "--calibration",
+        "config/ltv_euroc/kalibr_imucam_chain.yaml",
+        "--seconds",
+        "600",
+        "--seed",
+        "42",
+        "--mode",
+        "P_NEW_PRESERVE"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0149"
+    },
+    {
+      "id": 150,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/real_evaluate.py",
+        "--sequence",
+        "V2_02_medium",
+        "--new",
+        "/home/he/output/ltv_passive_hardening_v2/real_development/R3_V2_02_01/P_NEW",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/real_development/R3_V2_02_01/evaluation_v1"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0150"
+    },
+    {
+      "id": 151,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/tests/audit_typed_log.py",
+        "/home/he/output/ltv_passive_hardening_v2/real_development/R3_V2_02_01/P_NEW",
+        "/home/he/output/ltv_passive_hardening_v2/real_development/R3_V2_02_01/evaluation_v1/typed_lifecycle_audit.json"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0151"
+    },
+    {
+      "id": 152,
+      "kind": "synthetic",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_runner.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_near_REGULAR_42_05",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/REGULAR_42_05/P_PREV",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_03.so",
+        "--mode",
+        "P_PREV"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0152"
+    },
+    {
+      "id": 153,
+      "kind": "synthetic",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_runner.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_near_REGULAR_42_05",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/REGULAR_42_05/P_NEW_PRESERVE",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_03.so",
+        "--mode",
+        "P_NEW_PRESERVE"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0153"
+    },
+    {
+      "id": 154,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/resource_analyze.py",
+        "--directory",
+        "/home/he/output/ltv_passive_hardening_v2/R3/resource_600s_42",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/resource_600s_42_analysis_01"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0154"
+    },
+    {
+      "id": 155,
+      "kind": "test",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/test_diagnostic_full_state.py",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_03.so"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0155"
+    },
+    {
+      "id": 156,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess; root=\"/home/he/output/ltv_passive_hardening_v2/\"; subprocess.run([\"python3\",\"scripts/ltv_passive_hardening/check_full_off_parity.py\",root+\"R2/REGULAR_42_05/P_PREV\",root+\"R3/REGULAR_42_05/P_PREV\"],check=True); [subprocess.run([\"python3\",\"scripts/ltv_passive_hardening/check_synthetic_numerics.py\",root+p],check=True) for p in [\"R3/REGULAR_42_05/P_PREV\",\"R3/REGULAR_42_05/P_NEW_PRESERVE\",\"R3/FAST_42_1/P_NEW_PRESERVE\"]]"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0156"
+    },
+    {
+      "id": 157,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_evaluate.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_near_REGULAR_42_05",
+        "--run-dir",
+        "/home/he/output/ltv_passive_hardening_v2/R3/REGULAR_42_05/P_NEW_PRESERVE",
+        "--baseline",
+        "/home/he/output/ltv_passive_hardening_v2/R3/REGULAR_42_05/P_PREV",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/REGULAR_42_05/P_NEW_PRESERVE_evaluation_v1"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0157"
+    },
+    {
+      "id": 158,
+      "kind": "test",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/resource_benchmark.py",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_03.so",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/resource_fixture_3s_aged_ids_01",
+        "--calibration",
+        "config/ltv_euroc/kalibr_imucam_chain.yaml",
+        "--seconds",
+        "3"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0158"
+    },
+    {
+      "id": 159,
+      "kind": "synthetic",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/resource_benchmark.py",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/resource_600s_aged_ids_42",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_03.so",
+        "--calibration",
+        "config/ltv_euroc/kalibr_imucam_chain.yaml",
+        "--seconds",
+        "600",
+        "--seed",
+        "42",
+        "--mode",
+        "P_NEW_PRESERVE"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0159"
+    },
+    {
+      "id": 160,
+      "kind": "synthetic",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_runner.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_recovery_REGULAR_42_1",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/RECOVERY_REGULAR_42_1/P_NEW_PRESERVE",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_03.so",
+        "--mode",
+        "P_NEW_PRESERVE"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0160"
+    },
+    {
+      "id": 161,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_inputs.py",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_temporal_REGULAR_42_1",
+        "--calibration",
+        "config/ltv_euroc/kalibr_imucam_chain.yaml",
+        "--scene",
+        "REGULAR",
+        "--seed",
+        "42",
+        "--lifetime",
+        "1",
+        "--condition",
+        "TEMPORAL",
+        "--duration",
+        "60"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0161"
+    },
+    {
+      "id": 162,
+      "kind": "synthetic",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_runner.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_temporal_REGULAR_42_1",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/TEMPORAL_REGULAR_42_1/P_NEW_PRESERVE",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_03.so",
+        "--mode",
+        "P_NEW_PRESERVE"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0162"
+    },
+    {
+      "id": 163,
+      "kind": "build",
+      "command": [
+        "cmake",
+        "--build",
+        "/home/he/output/ltv_passive_hardening_v2/build",
+        "--target",
+        "run_ltv_feature_passive",
+        "replay_ltv_feature_cache",
+        "-j2"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0163"
+    },
+    {
+      "id": 164,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "-c",
+        "import sys; sys.path.insert(0,\"scripts/ltv_passive_hardening\"); from legacy import artifacts; print(artifacts.snapshot())"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0164"
+    },
+    {
+      "id": 165,
+      "kind": "test",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/tests/test_historical_bridge.py"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0165"
+    },
+    {
+      "id": 166,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/bridge_historical_inputs.py",
+        "--profile",
+        "pressure_REGULAR_101_05",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/bridge_pressure_REGULAR_101_05"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0166"
+    },
+    {
+      "id": 167,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/bridge_historical_inputs.py",
+        "--profile",
+        "historical_FAST_101_1",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/bridge_historical_FAST_101_1"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0167"
+    },
+    {
+      "id": 168,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/resource_analyze.py",
+        "--directory",
+        "/home/he/output/ltv_passive_hardening_v2/R3/resource_600s_aged_ids_42",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/resource_600s_aged_ids_42_analysis_01"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0168"
+    },
+    {
+      "id": 169,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_evaluate.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_recovery_REGULAR_42_1",
+        "--run-dir",
+        "/home/he/output/ltv_passive_hardening_v2/R3/RECOVERY_REGULAR_42_1/P_NEW_PRESERVE",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/RECOVERY_REGULAR_42_1/P_NEW_PRESERVE_evaluation_v1",
+        "--baseline",
+        "/home/he/output/ltv_passive_hardening_v2/R2/RECOVERY_REGULAR_42_1/P_PREV"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0169"
+    },
+    {
+      "id": 170,
+      "kind": "analysis",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/synthetic_evaluate.py",
+        "--input-dir",
+        "/home/he/output/ltv_passive_hardening_v2/inputs/dev_temporal_REGULAR_42_1",
+        "--run-dir",
+        "/home/he/output/ltv_passive_hardening_v2/R3/TEMPORAL_REGULAR_42_1/P_NEW_PRESERVE",
+        "--out",
+        "/home/he/output/ltv_passive_hardening_v2/R3/TEMPORAL_REGULAR_42_1/P_NEW_PRESERVE_evaluation_v1"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0170"
+    },
+    {
+      "id": 171,
+      "kind": "test",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/test_synthetic_inputs.py"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0171"
+    },
+    {
+      "id": 172,
+      "kind": "build",
+      "command": [
+        "cmake",
+        "--build",
+        "/home/he/output/ltv_passive_hardening_v2/build",
+        "--target",
+        "test_ltv_pose_convention",
+        "test_ltv_gv_jacobian",
+        "test_ltv_gv_covariance",
+        "test_ltv_fej",
+        "test_ltv_joint_layout",
+        "test_ltv_joint_covariance",
+        "-j1"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0172"
+    },
+    {
+      "id": 173,
+      "kind": "build",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O2",
+        "-shared",
+        "-fPIC",
+        "-I/usr/include/eigen3",
+        "-I/usr/include/opencv4",
+        "-Iov_msckf/src",
+        "-Iov_core/src",
+        "-Iov_init/src",
+        "scripts/ltv_passive_hardening/synthetic_wrapper.cpp",
+        "/home/he/output/ltv_passive_hardening_v2/runtime/cd3bc7f4896d85fd629845e50a87ee56e5768d15672a8cfcbca6cc7760971123/lib/libov_msckf_lib.so",
+        "-Wl,--disable-new-dtags",
+        "-Wl,-rpath,/home/he/output/ltv_passive_hardening_v2/runtime/cd3bc7f4896d85fd629845e50a87ee56e5768d15672a8cfcbca6cc7760971123/lib",
+        "-o",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_04.so"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0173"
+    },
+    {
+      "id": 174,
+      "kind": "test",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/test_synthetic_runner.py",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_04.so"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0174"
+    },
+    {
+      "id": 175,
+      "kind": "test",
+      "command": [
+        "python3",
+        "scripts/ltv_passive_hardening/test_diagnostic_full_state.py",
+        "--library",
+        "/home/he/output/ltv_passive_hardening_v2/synthetic_wrapper_04.so"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0175"
+    },
+    {
+      "id": 176,
+      "kind": "test",
+      "command": [
+        "python3",
+        "-c",
+        "import os,subprocess; from pathlib import Path; p=Path(\"/home/he/output/ltv_passive_hardening_v2/build/tests/ltv\"); e=dict(os.environ,LD_LIBRARY_PATH=\"/home/he/output/ltv_passive_hardening_v2/runtime/cd3bc7f4896d85fd629845e50a87ee56e5768d15672a8cfcbca6cc7760971123/lib\"); names=[\"test_ltv_pose_convention\",\"test_ltv_gv_jacobian\",\"test_ltv_gv_covariance\",\"test_ltv_fej\",\"test_ltv_joint_layout\",\"test_ltv_joint_covariance\"]; [subprocess.run([str(p/n)],env=e,check=True) for n in names]"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0176"
+    },
+    {
+      "id": 177,
+      "kind": "build",
+      "command": [
+        "g++",
+        "-std=c++14",
+        "-O2",
+        "-UNDEBUG",
+        "-I/usr/include/eigen3",
+        "-Iov_msckf/src/ltv",
+        "scripts/ltv_feature_passive/geometry/test_geometry.cpp",
+        "-L/home/he/output/ltv_passive_hardening_v2/runtime/cd3bc7f4896d85fd629845e50a87ee56e5768d15672a8cfcbca6cc7760971123/lib",
+        "-Wl,-rpath,/home/he/output/ltv_passive_hardening_v2/runtime/cd3bc7f4896d85fd629845e50a87ee56e5768d15672a8cfcbca6cc7760971123/lib",
+        "-Wl,-rpath-link,/home/he/output/ltv_passive_hardening_v2/runtime/cd3bc7f4896d85fd629845e50a87ee56e5768d15672a8cfcbca6cc7760971123/lib",
+        "-lov_msckf_lib",
+        "-o",
+        "/home/he/output/ltv_passive_hardening_v2/independent_geometry_cd3"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0177"
+    },
+    {
+      "id": 178,
+      "kind": "test",
+      "command": [
+        "env",
+        "LD_LIBRARY_PATH=/home/he/output/ltv_passive_hardening_v2/runtime/cd3bc7f4896d85fd629845e50a87ee56e5768d15672a8cfcbca6cc7760971123/lib",
+        "/home/he/output/ltv_passive_hardening_v2/independent_geometry_cd3"
+      ],
+      "exit_code": 0,
+      "artifact_directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0178"
+    }
+  ]
+}

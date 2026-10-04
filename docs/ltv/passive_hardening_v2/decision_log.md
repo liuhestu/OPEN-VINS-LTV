@@ -26,3 +26,37 @@ Full REGULAR100/101 completed; evaluator102 (12 tests), analyses103/104 and full
 Checkpoint budget6 synthetic/1 real/6 short real/2 candidates. No final acceptance claim: bounded memory, all11 native, unseen seeds, recovery and runtime remain outstanding.
 
 Historical closeout tests rechecked as attempt106: exit0, no new full simulation. Three independent test sources were clang-formatted after execution; implementation source is unchanged.
+
+## R2 wider development evidence and resource implementation
+
+Previous goal turn made progress: verified/pushed3389ae2 checkpoint; no final acceptance claim. Full FAST107 and native V1_01 run108 completed; analyses109/110 establish native single-sequence success but FAST failure. V1 raw2800/2800 exactly matches P_PREV, V-ready RMSE0.055919/P950.098186, G/Vcoverage81.929%/79.107%, joint20.75s. G-reference exception stays diagnostic. FAST raw28.643%, G/Vready4.496%/3.747%, joint2.20s and repeated zero bootstrap at0/30/60s fail coverage and raw regression. Thus R2 is not a final candidate.
+
+Resource implementation is a required engineering correction, not a gain or acceptance change: hardening-only bounded history21samples/track,256totaltracks,512observations/packet,2cameras,32contextposes; IMU buffer4096 with explicit overflow fault. Manager uses nondeleting1MiB identity guard plus bounded exact live records and typed retirement events. Adapter maps only retained IDs; internal IDs monotonic, core uses high-water mark only by explicit opt-in. Old mode retains its set semantics. Header-level history111/112, core113/114 and manager115/116 tests passed; integrated build and independent review remain pending. Puremanager600s churn test is not a fullobserver600s resource acceptance.
+
+Independent recovery input117 was generated without estimator output, then fullruns118/119 completed. Evaluation pending. No unseen confirmation seeds were opened.
+
+### Release test-contract correction
+
+Inspection of generated flags found CMake Release uses -DNDEBUG. Several inherited assert-based tests (including controlled/history/manager) could report success without exercising assertions. Independently compiled115/116 and126/127 had no -DNDEBUG, and readiness/adapter use always-on require checks, so those proofs remain valid. Integrated assert-based results124/131 are not sufficient as correctness evidence. The test directory now adds -UNDEBUG only to test targets, preserving production flags; rebuild and active-assert rerun required. All original attempts remain recorded, not relabeled as full proof.
+
+## R3 preserve constrained state: first complete result
+
+Candidate123 was registered before R3 runs: preserve finite current x/P with1–14 current constraints while ready remainsfalse; no-observation1s, physical faults and fixed100m/s/50m/s² norm limits still enterDormant. No pose-aided V/G copy and no gain/P0 change.
+
+Build129 and always-on policy/adapter tests passed; frozen runtime132 is a62bdfabaf666de8b7b06a00ec65d394fc9fc9d3d53fe91813be534fd3764a70. Native short134/136 and cache135/137 pass; OFF full numerical cache remains byte-identical, main state/audit/trajectory exact. Wrapper138,10 shortfixtures139 and3s streaming sanity140 passed. Highuint64 cache independent143/145 passed66 events including typedTTL/retirement/rejected oldIDs and exactreplay; build142 missedOpenCV include, command-only repair retained.
+
+FullFAST141/evaluation146: all1201raw current, raw v/eta/angle metrics exactlyP_PREV, onlyt0bootstrap. At14.85s11observations nowDegraded and retainedx/P, no30/60srestart. Severe ready0; coverageG22.648%/V21.898%, jointmax2.30s. Scope mapping fromoriginal§10.2 vs§10.4 retained: EuRoC5s/coverage targets are extra synthetic diagnostics, severe/recovery remain synthetichardrequirements. No historical JSON or threshold altered.
+
+Assert-enabled test rebuild144 and full8-test rerun148 PASS. Rebuilt production librarySHA is identical to frozena62b library; only test flags changed. NativefullV2_02 run147 completed2348packets/2266initializedraw, precision evaluation pending. Full600s streaming resource149 now running; cannot claim long-run resource acceptance from3s fixture.
+
+## R3 development checkpoint through171
+
+REGULAR152/153 and evaluation157 have complete raw support and exact baseline raw metrics. Full OFF parity156 and full-state diagnostic parity155 pass. Native V2_02 evaluation150 and typed log audit151 pass the one-sequence contract and event conservation. This does not establish all11 acceptance.
+
+Resource149/154 had valid bounds/performance but missed retired-ID rejection because reappearing IDs were still coasting. Input fixture158 corrected the coverage, full retry159 counted normally; audit168 finds5859 guard rejects, all known retired IDs, with all bounds and runtime limits passing. Both attempts remain in the budget.
+
+Recovery160/evaluation169 retains the30.1–31.5 interrupted supply episode. Stable supply starts31.7, wide joint interval35.35–40.35 completes within41.7 deadline; the strict all-segment summary remainsfalse. TEMPORAL162/evaluation170 accepts1794 seeds, reliability96.767%, opportunity acceptance98.355%, no stereo opportunities. It has no same-input P_PREV and does not claim raw regression pass.
+
+Historical input bridges165–167 preserve archived inputs, truth and original midpoint timestamps, with explicitly declared endpoint guard samples; they create a new Adapter integration identity, not an exact historical reproduction. Negative-only heavy-tail tests171 preserve normal input SHA. Native logger163/runtime164 adds actual corrected IDs and substeps; wrapper rebuild and fixtures are required before use. No formal confirmation data have been examined.
+
+Wrapper04 build173 and ten input-isolation/receipt/logging fixtures174 pass against immutable cd3. Test175 verifies exact complete x/P/slot plus corrected-ID/substep equality with heavy diagnostics on/off. These are short correctness tests, not new full simulations or final acceptance.

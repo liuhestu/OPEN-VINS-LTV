@@ -1,0 +1,26 @@
+{
+  "name": "R3_PRESERVE_CONSTRAINED_SHARED_STATE",
+  "round": 3,
+  "development": true,
+  "parent": "R2_BOUNDED_INITIAL_WARMUP",
+  "mechanism": "Separate insufficient ready support from loss of all current observation constraints; retain causal full x/P under thin observations",
+  "fixed_ready_min_features": 15,
+  "continue_min_current_observations": 1,
+  "raw_velocity_norm_guard_mps": 100.0,
+  "raw_gravity_norm_guard_mps2": 50.0,
+  "no_observation_dormant_seconds": 1.0,
+  "quality_bootstrap_interval_seconds": 30.0,
+  "initial_warmup": true,
+  "equations_gains_P0": "unchanged C0",
+  "vio_vg_copy": false,
+  "GT_online": false,
+  "resource_correction": "bounded structures with exact normal-input numerical parity required separately",
+  "primary_counterfactual": "FAST shortage13.85-14.85 has11-14observed and finite healthy core; retain state instead of restarting at30s",
+  "negative_controls": [
+    "zero observation>=1s",
+    "nonfinite/current-time failure",
+    "physical timestamp/input failure",
+    "finite but norm beyond explicit bound"
+  ],
+  "evaluation": "same raw support/ready contract and all missing rows retained; no acceptance thresholds relaxed"
+}

@@ -9,6 +9,7 @@ struct LtvReadinessConfig {
   bool enabled = false;
   // Preserve the first finite current core trajectory, once per explicit reset.
   bool initial_unseeded_warmup = false;
+  bool preserve_constrained_state = false;
   size_t min_features = 15;
   unsigned int bootstrap_confirm_frames = 3, ready_confirm_frames = 20;
   unsigned int min_actual_corrections = 20;

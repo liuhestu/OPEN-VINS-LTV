@@ -1,4 +1,5 @@
 #include "LtvAdapter.h"
+#include <chrono>
 #include <climits>
 namespace ov_msckf {
 LtvAdapter::LtvAdapter(const LtvOptions &options) : options_(options) {
@@ -8,6 +9,7 @@ LtvAdapter::LtvAdapter(const LtvOptions &options) : options_(options) {
     auto health_config = options.hardening_readiness;
     health_config.enabled = true;
     health_config.initial_unseeded_warmup = options.hardening_initial_warmup;
+    health_config.preserve_constrained_state = options.hardening_preserve_constrained_state;
     readiness_.reset(new ltv::LtvReadiness(health_config));
   }
   auto config = options.observer;
@@ -19,6 +21,7 @@ LtvAdapter::LtvAdapter(const LtvOptions &options) : options_(options) {
     ltv::FeaturePipelineConfig pipeline;
     pipeline.manager = options.feature_manager;
     pipeline.manager.apply_seed = options.feature_apply_seed;
+    pipeline.manager.bounded_memory = options.passive_hardening_enabled;
     if (options.feature_seed_source == "STEREO")
       pipeline.source = ltv::FeatureSeedSource::Stereo;
     else if (options.feature_seed_source == "STEREO_THEN_TEMPORAL")
@@ -40,6 +43,12 @@ void LtvAdapter::feed_imu(const ov_core::ImuData &sample) {
   if (!imu_.empty() && sample.timestamp <= imu_.back().timestamp) {
     input_fault_ = true;
     return;
+  }
+  if (options_.passive_hardening_enabled && imu_.size() >= 4096) {
+    // Explicit input fault; preserve a bounded newest bracket, never silently
+    // integrate across discarded samples.
+    imu_.pop_front();
+    input_fault_ = true;
   }
   imu_.push_back(sample);
   while (imu_.size() > 2 && imu_[1].timestamp < sample.timestamp - 10.0)
@@ -131,8 +140,12 @@ ov_core::ImuData LtvAdapter::correct(const ov_core::ImuData &raw, const LtvCalib
 }
 LtvFrame LtvAdapter::process(double t, const std::vector<LtvBearing> &bearings, const LtvCalibration &c, const Eigen::Vector3d &ba,
                              const Eigen::Vector3d &bg, uint64_t version, const ltv::FeaturePipelineContext *feature_context) {
-  if (readiness_)
-    return processHardened(t, bearings, c, ba, bg, version, feature_context);
+  if (readiness_) {
+    const auto begin = std::chrono::steady_clock::now();
+    auto result = processHardened(t, bearings, c, ba, bg, version, feature_context);
+    result.compute_time_ms = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - begin).count();
+    return result;
+  }
   if (feature_pipeline_ && (options_.enable_gravity || options_.enable_velocity))
     throw std::runtime_error("Passive feature path cannot submit G/V");
   if (feature_pipeline_ && (!feature_context || !std::isfinite(feature_context->time) ||

@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <climits>
 #include <cmath>
+#include <set>
 namespace ov_msckf {
 void LtvAdapter::suspendHardened(double target) {
   // Keep the current event's x/P and lifecycle trace available for diagnostics.
@@ -40,6 +41,10 @@ LtvFrame LtvAdapter::processHardened(double t, const std::vector<LtvBearing> &, 
   if (!feature_context || !std::isfinite(feature_context->time) || std::abs(feature_context->time - target) > 1e-9 ||
       feature_context->version != version)
     throw std::invalid_argument("missing or stale hardened feature context");
+  const auto &history_limits = options_.feature_manager.history;
+  if (feature_context->observations.size() > history_limits.max_observations_per_packet ||
+      feature_context->cameras.size() > history_limits.max_camera_count || feature_context->poses.size() > 32)
+    throw std::invalid_argument("hardened context exceeds declared capacity");
   auto proper_rotation = [](const Eigen::Matrix3d &r) {
     return (r.transpose() * r - Eigen::Matrix3d::Identity()).norm() < 1e-8 && std::abs(r.determinant() - 1) < 1e-8;
   };
@@ -117,7 +122,7 @@ LtvFrame LtvAdapter::processHardened(double t, const std::vector<LtvBearing> &, 
     // it does not imply ready, and its quality cooldown applies immediately.
     initial_warm_attempted_ = true;
     observer_.start(target);
-    if (!observer_.enableControlledFeatures(epoch_))
+    if (!observer_.enableControlledFeatures(epoch_, true))
       throw std::runtime_error("Cannot start bounded initial warmup");
   }
   if (observer_.started()) {
@@ -165,7 +170,7 @@ LtvFrame LtvAdapter::processHardened(double t, const std::vector<LtvBearing> &, 
   int staged_next = next_id_;
   if (cold) {
     staged_core.start(target);
-    if (!staged_core.enableControlledFeatures(epoch_))
+    if (!staged_core.enableControlledFeatures(epoch_, true))
       throw std::runtime_error("controlled bootstrap failed");
   }
   ltv::LtvControlledFeatures control;
@@ -247,6 +252,15 @@ LtvFrame LtvAdapter::processHardened(double t, const std::vector<LtvBearing> &, 
   observer_ = std::move(staged_core);
   *feature_pipeline_ = std::move(staged_pipeline);
   feature_frame_ = std::move(staged_frame);
+  // Only retained slots need a mapping. Identity reuse is rejected upstream by
+  // the manager; local IDs never repeat within this observer epoch.
+  const std::set<size_t> retained(feature_frame_.management.retained_ids.begin(), feature_frame_.management.retained_ids.end());
+  for (auto it = staged_ids.begin(); it != staged_ids.end();) {
+    if (!retained.count(it->first))
+      it = staged_ids.erase(it);
+    else
+      ++it;
+  }
   ids_ = std::move(staged_ids);
   next_id_ = staged_next;
   last_correction_time_ = target;

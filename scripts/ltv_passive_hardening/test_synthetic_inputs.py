@@ -1,6 +1,7 @@
 """Small generation-only contract checks; run under the new shared budget."""
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 import numpy as np
 import synthetic_inputs as generate
@@ -95,6 +96,40 @@ class SyntheticInputContract(unittest.TestCase):
         wrong_ids=set(inputs['feature_ids'][labels['wrong_time']].tolist())
         self.assertFalse(wrong_ids&set(labels['reliable_supply_feature_ids'][:,1].tolist()))
         self.assertNotIn('sufficient_reliable_supply',inputs)
+
+    def test_negative_heavy_tail_fixed_profile(self):
+        directions=np.tile(np.array([0.,0.,1.]),(2,1000,1))
+        changed,mask=generate.heavy_tail_negative(directions,np.random.default_rng(np.random.SeedSequence([42,57031])))
+        self.assertTrue(mask.any())
+        np.testing.assert_array_equal(changed[~mask],directions[~mask])
+        np.testing.assert_allclose(np.linalg.norm(changed,axis=-1),1.,atol=1e-14)
+        again,again_mask=generate.heavy_tail_negative(directions,np.random.default_rng(np.random.SeedSequence([42,57031])))
+        np.testing.assert_array_equal(changed,again);np.testing.assert_array_equal(mask,again_mask)
+        with patch.object(generate,'heavy_tail_negative',side_effect=AssertionError('Normal condition used negative profile')):
+            normal,_=self.data('STEREO')
+        self.assertNotIn('heavy_tail_outlier',normal)
+        actual_masks=[]
+        real_profile=generate.heavy_tail_negative
+        def capture(bearings,rng):
+            values,flags=real_profile(bearings,rng);actual_masks.append(flags.copy());return values,flags
+        with patch.object(generate,'heavy_tail_negative',side_effect=capture):
+            inputs,labels=self.data('WRONG_MATCH')
+        self.assertNotIn('heavy_tail_outlier',inputs)
+        for k in range(len(inputs['camera_times'])):
+            start,stop=inputs['observation_offsets'][k:k+2]
+            for index in range(start,stop):
+                camera=inputs['camera_ids'][index];source_slot=int(labels['observation_physical_ids'][index]%30)
+                self.assertEqual(labels['heavy_tail_outlier'][index],actual_masks[k][camera,source_slot])
+
+    def test_frozen_normal_input_sha_unchanged(self):
+        frozen=Path('/home/he/output/ltv_passive_hardening_v2/inputs/dev_near_REGULAR_42_05/inputs.npz')
+        if not frozen.is_file():
+            self.skipTest('Immutable development input 52 is not installed')
+        expected='0c19416e7354b80968cbcc6fb38428aa954ccd50b75611ce572302e549cb870a'
+        self.assertEqual(generate.sha(frozen),expected)
+        directory=self.root/'normal_sha_check'
+        generate.generate(directory,self.calibration,'REGULAR',42,.5,'STEREO',60.)
+        self.assertEqual(generate.sha(directory/'inputs.npz'),expected)
 
 
 if __name__ == '__main__':

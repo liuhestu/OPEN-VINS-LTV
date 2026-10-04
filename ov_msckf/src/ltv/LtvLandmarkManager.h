@@ -1,5 +1,6 @@
 #pragma once
 #include "LtvFeatureQuality.h"
+#include "LtvIdentityGuard.h"
 #include <map>
 #include <set>
 namespace ltv {
@@ -12,6 +13,7 @@ struct LandmarkManagerConfig {
   int max_missed_frames = 2;
   double maturity_seconds = 0.10;
   bool apply_seed = true;
+  bool bounded_memory = false;
 };
 struct ManagedLandmark {
   LandmarkPhase phase = LandmarkPhase::Candidate;
@@ -25,6 +27,13 @@ struct LandmarkBirth {
   bool apply_seed = true;
   FeatureSeedCandidate seed;
 };
+enum class LandmarkRetirementKind { ActiveRetired, NeverAdmittedCandidateTtl };
+struct LandmarkRetirement {
+  size_t feature_id = 0;
+  LandmarkRetirementKind kind = LandmarkRetirementKind::ActiveRetired;
+  double time = 0;
+  ManagedLandmark record;
+};
 struct LandmarkManagerFrame {
   bool accepted_input = false;
   std::string reason;
@@ -36,6 +45,12 @@ struct LandmarkManagerFrame {
   std::vector<size_t> retired_ids;
   size_t mature_visible = 0, opportunity_tracks = 0, admitted_tracks = 0, eligible_seeds = 0;
   bool enough_mature = false;
+  // Bounded mode emits one-time typed transitions instead of storing tombstones.
+  std::vector<LandmarkRetirement> retirement_events;
+  std::vector<size_t> identity_guard_rejected_ids, capacity_rejected_ids;
+  uint64_t active_retired_total = 0, candidate_ttl_total = 0, identity_guard_rejections_total = 0;
+  uint64_t identity_guard_insertions = 0;
+  size_t identity_guard_set_bits = 0, exact_records = 0;
 };
 // Pure causal state machine; it cannot access observer x/P or modify the tracker.
 // Returned births must be installed by the controlled core before correction.
@@ -55,5 +70,9 @@ private:
   std::map<size_t, ManagedLandmark> landmarks_;
   std::set<size_t> retained_, retired_;
   uint64_t epoch_ = 0;
+  // Empty in legacy mode; vector copies provide independent transactional bits.
+  std::vector<LtvIdentityGuard> identity_guard_;
+  uint64_t opportunity_total_ = 0, admitted_total_ = 0, active_retired_total_ = 0, candidate_ttl_total_ = 0;
+  uint64_t guard_rejections_total_ = 0;
 };
 } // namespace ltv

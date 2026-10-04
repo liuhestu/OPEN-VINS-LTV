@@ -14,6 +14,11 @@ FeaturePipelineFrame LtvFeaturePipeline::process(const FeaturePipelineContext &c
   out.management.epoch = ctx.epoch;
   out.management.time = ctx.time;
   out.management.reason = "invalid_geometry_context";
+  if (config_.manager.bounded_memory && (ctx.observations.size() > config_.manager.history.max_observations_per_packet ||
+                                         ctx.cameras.size() > config_.manager.history.max_camera_count || ctx.poses.size() > 32)) {
+    out.management.reason = "context_capacity_exceeded";
+    return out;
+  }
   if (!std::isfinite(ctx.time) || ctx.time < 0 || ctx.epoch != manager_.history().epoch() || ctx.time <= manager_.history().time() ||
       ctx.execution_pose_index >= ctx.poses.size() || ctx.cameras.empty() ||
       std::abs(ctx.poses[ctx.execution_pose_index].t - ctx.time) > 1e-9 ||

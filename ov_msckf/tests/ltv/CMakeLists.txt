@@ -78,9 +78,18 @@ target_link_libraries(replay_ltv_feature_cache ov_msckf_lib ${thirdparty_librari
 install(TARGETS replay_ltv_feature_cache DESTINATION lib/${PROJECT_NAME})
 
 # Passive hardening policy and actual adapter transaction tests.
-foreach(test_name test_ltv_readiness test_ltv_adapter_hardened)
+foreach(test_name test_ltv_readiness test_ltv_adapter_hardened test_ltv_manager_bounded test_bounded_history test_identity_guard)
     add_executable(${test_name} ${test_name}.cpp)
     ament_target_dependencies(${test_name} ${ament_libraries})
     target_link_libraries(${test_name} ov_msckf_lib ${thirdparty_libraries})
     install(TARGETS ${test_name} DESTINATION lib/${PROJECT_NAME})
+endforeach()
+
+# Release builds must still execute assert-based standalone test contracts.
+# Keep production library flags unchanged.
+get_property(ltv_test_targets DIRECTORY PROPERTY BUILDSYSTEM_TARGETS)
+foreach(test_target IN LISTS ltv_test_targets)
+    if(test_target MATCHES "^test_")
+        target_compile_options(${test_target} PRIVATE -UNDEBUG)
+    endif()
 endforeach()

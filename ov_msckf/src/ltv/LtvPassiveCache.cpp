@@ -259,7 +259,7 @@ std::string evidence(const LtvFrame &original, const LtvAdapter &adapter) {
   }
   // Conditional suffix preserves legacy byte identity when hardening is OFF.
   if (f.hardened) {
-    std::string schema = "HARDENING_V1";
+    std::string schema = "HARDENING_BOUNDED_V2";
     b.text(schema);
     b.scalar(f.raw_current);
     auto h = f.health;
@@ -285,6 +285,37 @@ std::string evidence(const LtvFrame &original, const LtvAdapter &adapter) {
     b.scalar(f.correction_diagnostics_valid);
     b.scalar(f.actual_corrections);
     b.count(management.eligible_seeds);
+    b.scalar(management.active_retired_total);
+    b.scalar(management.candidate_ttl_total);
+    b.scalar(management.identity_guard_rejections_total);
+    b.scalar(management.identity_guard_insertions);
+    b.count(management.identity_guard_set_bits, UINT64_MAX);
+    b.count(management.exact_records);
+    for (auto *v : {&management.identity_guard_rejected_ids, &management.capacity_rejected_ids}) {
+      size_t n = v->size();
+      b.count(n);
+      for (auto id : *v)
+        b.count(id, UINT64_MAX);
+    }
+    size_t event_count = management.retirement_events.size();
+    b.count(event_count);
+    for (auto event : management.retirement_events) {
+      b.count(event.feature_id, UINT64_MAX);
+      int kind = static_cast<int>(event.kind);
+      b.scalar(kind);
+      b.scalar(event.time);
+      auto &r = event.record;
+      int phase = static_cast<int>(r.phase);
+      b.scalar(phase);
+      b.scalar(r.first_seen);
+      b.scalar(r.entered);
+      b.scalar(r.seeded);
+      b.scalar(r.last_seen);
+      b.scalar(r.missed_frames);
+      b.scalar(r.ever_opportunity);
+      b.scalar(r.seed_written);
+      b.text(r.reason);
+    }
   }
   return out.str();
 }

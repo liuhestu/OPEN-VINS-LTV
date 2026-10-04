@@ -1,0 +1,98 @@
+{
+  "OFF": {
+    "attempt": {
+      "id": 134,
+      "exit_code": 0,
+      "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0134"
+    },
+    "cache_attempt": {
+      "id": 135,
+      "exit_code": 0,
+      "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0135"
+    },
+    "passive": {
+      "status": "PASS",
+      "exact_files": [
+        "audit.csv",
+        "trajectory.csv",
+        "unmatched_camera.csv"
+      ],
+      "runs": [
+        {
+          "mode": "P_NEW",
+          "camera_packets": 200,
+          "trajectory_rows": 88,
+          "complete": false,
+          "zero_injection": true,
+          "status": "PASS"
+        },
+        {
+          "mode": "P_NEW",
+          "camera_packets": 200,
+          "trajectory_rows": 88,
+          "complete": false,
+          "zero_injection": true,
+          "status": "PASS"
+        }
+      ]
+    },
+    "receipts": {
+      "status": "PASS",
+      "camera_receipts": 200,
+      "available_complete_rows": 88,
+      "unique_births": 61,
+      "roundtrip_mismatch_packets": 40,
+      "overlay_used": false
+    }
+  },
+  "HARDENED": {
+    "attempt": {
+      "id": 136,
+      "exit_code": 0,
+      "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0136"
+    },
+    "cache_attempt": {
+      "id": 137,
+      "exit_code": 0,
+      "directory": "/home/he/output/ltv_passive_hardening_v2/attempts/0137"
+    },
+    "passive": {
+      "status": "PASS",
+      "exact_files": [
+        "audit.csv",
+        "trajectory.csv",
+        "unmatched_camera.csv"
+      ],
+      "runs": [
+        {
+          "mode": "P_NEW",
+          "camera_packets": 200,
+          "trajectory_rows": 88,
+          "complete": false,
+          "zero_injection": true,
+          "status": "PASS"
+        },
+        {
+          "mode": "P_NEW",
+          "camera_packets": 200,
+          "trajectory_rows": 88,
+          "complete": false,
+          "zero_injection": true,
+          "status": "PASS"
+        }
+      ]
+    },
+    "receipts": {
+      "status": "PASS_ENGINEERING_ONLY",
+      "camera_receipts": 200,
+      "available_complete_rows": 88,
+      "unique_births": 61,
+      "roundtrip_mismatch_packets": 40,
+      "overlay_used": false,
+      "receipts": 200,
+      "raw_rows": 88,
+      "cold_management_rows": 0,
+      "births": 61
+    }
+  }
+}

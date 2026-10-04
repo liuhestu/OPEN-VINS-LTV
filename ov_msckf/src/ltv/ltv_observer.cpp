@@ -46,6 +46,8 @@ void LtvObserver::reset(LtvResetReason reason) {
   controlled_features_ = false;
   controlled_epoch_ = 0;
   admitted_ids_.clear();
+  monotonic_local_ids_ = false;
+  admitted_high_water_ = -1;
   initializeBaseState();
 }
 
@@ -239,11 +241,12 @@ LtvSnapshot LtvObserver::updateFeatures(double frame_timestamp, double imu_times
   return updateFeaturesImpl(frame_timestamp, imu_timestamp, observations, rotation_body_camera, position_body_camera, nullptr);
 }
 
-bool LtvObserver::enableControlledFeatures(uint64_t epoch) {
+bool LtvObserver::enableControlledFeatures(uint64_t epoch, bool monotonic_local_ids) {
   if (!enabled() || !started_ || controlled_features_ || last_frame_timestamp_ >= 0.0 || !feature_to_slot_.empty())
     return false;
   controlled_features_ = true;
   controlled_epoch_ = epoch;
+  monotonic_local_ids_ = monotonic_local_ids;
   return true;
 }
 
@@ -282,17 +285,21 @@ LtvControlledResult LtvObserver::updateFeaturesControlled(double frame_timestamp
         !observation.normalized_coordinate.allFinite() || observation.normalized_coordinate.norm() <= 1e-12)
       return reject("invalid_observation");
   }
+  auto was_admitted = [&](int id) { return monotonic_local_ids_ ? id <= admitted_high_water_ : admitted_ids_.count(id) != 0; };
   for (const auto &birth : control.births) {
     if (!retained.count(birth.feature_id) || !visible.count(birth.feature_id) || !births.insert(birth.feature_id).second ||
-        admitted_ids_.count(birth.feature_id) || feature_to_slot_.count(birth.feature_id) || !birth.mean_body.allFinite())
+        was_admitted(birth.feature_id) || feature_to_slot_.count(birth.feature_id) || !birth.mean_body.allFinite())
       return reject("duplicate_or_invalid_birth");
   }
   for (int id : retained) {
-    if (!feature_to_slot_.count(id) && (!births.count(id) || admitted_ids_.count(id)))
+    if (!feature_to_slot_.count(id) && (!births.count(id) || was_admitted(id)))
       return reject("missing_birth_or_retired_id");
   }
   result.snapshot = updateFeaturesImpl(frame_timestamp, imu_timestamp, observations, rotation_body_camera, position_body_camera, &control);
   result.accepted = started_ && controlled_features_;
+  if (result.accepted && monotonic_local_ids_)
+    for (const auto &birth : control.births)
+      admitted_high_water_ = std::max(admitted_high_water_, birth.feature_id);
   result.reason = result.accepted ? "accepted" : "observer_reset";
   return result;
 }
@@ -334,7 +341,8 @@ LtvSnapshot LtvObserver::updateFeaturesImpl(double frame_timestamp, double imu_t
     for (const auto &birth : control->births) {
       if (birth.apply_mean)
         state_.segment<3>(3 * feature_to_slot_.at(birth.feature_id)) = birth.mean_body;
-      admitted_ids_.insert(birth.feature_id);
+      if (!monotonic_local_ids_)
+        admitted_ids_.insert(birth.feature_id);
     }
   } else {
     updateFeatureLifecycle(observations);

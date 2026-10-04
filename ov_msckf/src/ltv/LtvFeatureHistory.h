@@ -27,6 +27,8 @@ struct FeatureTrackHistory {
 struct FeatureHistoryConfig {
   size_t max_candidates = 256;
   double history_window = 1.0, candidate_ttl = 2.0;
+  bool bounded_memory = false;
+  size_t max_samples_per_track = 21, max_observations_per_packet = 512, max_camera_count = 2;
 };
 // Stores observations only. A caller must resolve all poses in one coherent context;
 // history does not pretend means from different optimization versions share a joint P.
@@ -36,6 +38,9 @@ public:
   bool update(uint64_t epoch, double time, uint64_t context_version, const std::vector<HistoryObservation> &observations,
               const std::set<size_t> &protected_ids = {});
   void reset(uint64_t epoch);
+  // Caller must commit its identity protection/retirement event first. This
+  // removes only one observation history; it cannot authorize ID reuse.
+  bool forget(size_t id);
   const std::map<size_t, FeatureTrackHistory> &tracks() const { return tracks_; }
   const FeatureTrackHistory *find(size_t id) const;
   uint64_t epoch() const { return epoch_; }

@@ -1,3 +1,4 @@
+#include "ltv/LtvBoundedDiagnostics.h"
 // Deterministic ASL input adapter: no GT enters the estimator, no ROS transport drops.
 #include "LtvEventReceipt.h"
 #include "core/VioManager.h"
@@ -268,6 +269,13 @@ public:
       number(out, f.velocity_correction_rate);
       out << ",\"gravity_correction_rate\":";
       number(out, f.gravity_correction_rate);
+      out << ",\"camera_substeps\":" << f.snapshot.camera_substeps << ",\"corrected_ids\":";
+      std::vector<size_t> corrected_ids;
+      if (f.available && f.raw_current && f.snapshot.camera_substeps > 0)
+        for (const auto &observation : ltv_adapter->feature_frame().management.observations)
+          if (observation.camera_id == 0)
+            corrected_ids.push_back(observation.feature_id);
+      id_array(out, corrected_ids);
     }
     out << ",\"current_cam0_ids\":";
     id_array(out, passive_current_cam0_ids);
@@ -336,21 +344,30 @@ public:
       const auto *manager = ltv_adapter->feature_pipeline() ? &ltv_adapter->feature_pipeline()->manager() : nullptr;
       if (manager) {
         bool first = true;
+        auto emit_track = [&](size_t id, const ltv::ManagedLandmark &track) {
+          if (!first)
+            out << ",";
+          first = false;
+          out << "{\"id\":" << id << ",\"phase\":\"" << ltv::toString(track.phase) << "\",\"reason\":\"" << track.reason
+              << "\",\"first_seen\":" << track.first_seen << ",\"entered\":" << track.entered << ",\"seeded\":" << track.seeded
+              << ",\"last_seen\":" << track.last_seen << ",\"missed_frames\":" << track.missed_frames
+              << ",\"ever_opportunity\":" << track.ever_opportunity << ",\"seed_written\":" << track.seed_written << "}";
+        };
         for (const auto &entry : manager->landmarks()) {
           if (entry.second.phase == ltv::LandmarkPhase::Retired &&
               std::find(management.retired_ids.begin(), management.retired_ids.end(), entry.first) == management.retired_ids.end())
             continue;
-          if (!first)
-            out << ",";
-          first = false;
-          const auto &track = entry.second;
-          out << "{\"id\":" << entry.first << ",\"phase\":\"" << ltv::toString(track.phase) << "\",\"reason\":\"" << track.reason
-              << "\",\"first_seen\":" << track.first_seen << ",\"entered\":" << track.entered << ",\"seeded\":" << track.seeded
-              << ",\"last_seen\":" << track.last_seen << ",\"missed_frames\":" << track.missed_frames
-              << ",\"ever_opportunity\":" << track.ever_opportunity << ",\"seed_written\":" << track.seed_written << "}";
+          emit_track(entry.first, entry.second);
         }
+        for (const auto &event : management.retirement_events)
+          emit_track(event.feature_id, event.record);
       }
       out << "]";
+      if (f.hardened) {
+        ltv::writeBoundedManagement(out, management);
+        out << ",\"compute_time_ms\":";
+        number(out, f.compute_time_ms);
+      }
     } else
       out << "]";
     // Cumulative per-epoch sets allow exact offline event reconstruction without
@@ -366,6 +383,15 @@ public:
         else if (track.reason == "candidate_ttl")
           candidate_ttl.push_back(entry.first);
       }
+    if (f.hardened && ltv_adapter) {
+      for (const auto &event : ltv_adapter->feature_frame().management.retirement_events) {
+        if (event.kind == ltv::LandmarkRetirementKind::ActiveRetired)
+          admitted_retired.push_back(event.feature_id);
+        else
+          candidate_ttl.push_back(event.feature_id);
+      }
+      out << ",\"retirement_ids_scope\":\"CURRENT_EVENT\"";
+    }
     out << ",\"never_admitted_candidate_ttl_ids\":";
     id_array(out, candidate_ttl);
     out << ",\"admitted_retired_ids\":";

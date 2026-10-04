@@ -45,7 +45,11 @@ public:
                              const Eigen::Matrix3d &rotation_body_camera, const Eigen::Vector3d &position_body_camera);
 
   // Explicit opt-in after start(), before any camera event. reset() disables it.
-  bool enableControlledFeatures(uint64_t epoch);
+  // Optional bounded history is valid only for caller-generated increasing IDs.
+  // Every new batch must be above the last committed high-water mark.
+  bool enableControlledFeatures(uint64_t epoch, bool monotonic_local_ids = false);
+  size_t admissionHistorySize() const { return admitted_ids_.size(); }
+  int admissionHighWaterMark() const { return admitted_high_water_; }
   LtvControlledResult updateFeaturesControlled(double frame_timestamp, double imu_timestamp,
                                                const std::vector<LtvFeatureObservation> &observations,
                                                const Eigen::Matrix3d &rotation_body_camera, const Eigen::Vector3d &position_body_camera,
@@ -94,6 +98,8 @@ private:
   bool controlled_features_ = false;
   uint64_t controlled_epoch_ = 0;
   std::unordered_set<int> admitted_ids_;
+  bool monotonic_local_ids_ = false;
+  int admitted_high_water_ = -1;
 };
 
 } // namespace ltv

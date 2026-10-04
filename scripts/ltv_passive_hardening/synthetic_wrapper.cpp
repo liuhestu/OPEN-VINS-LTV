@@ -1,5 +1,6 @@
 // Input-only ABI for the actual deployed LtvAdapter. No truth/phase arguments.
 #include "ltv/LtvAdapter.h"
+#include "ltv/LtvBoundedDiagnostics.h"
 #include <iomanip>
 #include <memory>
 #include <set>
@@ -11,7 +12,8 @@ ov_msckf::LtvOptions options(int hardened, int source, double sigma) {
   ov_msckf::LtvOptions o;
   o.enabled = o.observer.enable = o.feature_readiness_enabled = true;
   o.passive_hardening_enabled = hardened;
-  o.hardening_initial_warmup = hardened == 2;
+  o.hardening_initial_warmup = hardened >= 2;
+  o.hardening_preserve_constrained_state = hardened == 3;
   o.feature_seed_source = source == 0 ? "TEMPORAL_POSE" : (source == 1 ? "STEREO" : "STEREO_THEN_TEMPORAL");
   o.feature_bearing_sigma_rad = sigma;
   return o;
@@ -22,6 +24,7 @@ struct Harness {
   ov_msckf::LtvFrame frame;
   uint64_t receipt = 0;
   bool hardened;
+  bool diagnostics = true;
   Harness(int h, int s, double sigma) : adapter(options(h, s, sigma)), hardened(h) {}
 };
 void number(std::ostream &out, double value) {
@@ -54,7 +57,7 @@ template <class T> void ids(std::ostream &out, const T &list) {
 extern "C" {
 void *ph_create(int hardened, int source, double sigma) {
   try {
-    if (hardened < 0 || hardened > 2 || source < 0 || source > 2)
+    if (hardened < 0 || hardened > 3 || source < 0 || source > 2)
       return nullptr;
     return new Harness(hardened, source, sigma);
   } catch (...) {
@@ -62,6 +65,7 @@ void *ph_create(int hardened, int source, double sigma) {
   }
 }
 void ph_destroy(void *ptr) { delete static_cast<Harness *>(ptr); }
+void ph_set_diagnostics(void *ptr, int enabled) { static_cast<Harness *>(ptr)->diagnostics = enabled != 0; }
 const char *ph_error(void *ptr) { return static_cast<Harness *>(ptr)->error.c_str(); }
 const char *ph_json(void *ptr) { return static_cast<Harness *>(ptr)->json.c_str(); }
 int ph_imu(void *ptr, double time, const double *measurement) {
@@ -144,7 +148,8 @@ int ph_frame(void *ptr, int64_t camera_ns, double time, int count, const int64_t
         << f.reason << "\",\"pool_ready\":" << f.health.pool_ready << ",\"observer_valid\":" << f.health.observer_valid
         << ",\"last_bootstrap_time\":" << f.health.last_bootstrap_time << ",\"bootstrap_count\":" << f.health.bootstrap_count
         << ",\"bootstrap_source\":\"" << f.health.last_bootstrap_source << "\",\"physical_fault_count\":" << f.health.physical_fault_count
-        << ",\"actual_corrections\":" << f.actual_corrections << ",\"correction_diagnostics_valid\":" << f.correction_diagnostics_valid
+        << ",\"actual_corrections\":" << f.actual_corrections << ",\"compute_time_ms\":" << f.compute_time_ms
+        << ",\"heavy_diagnostics\":" << h.diagnostics << ",\"correction_diagnostics_valid\":" << f.correction_diagnostics_valid
         << ",\"prediction_angle_p95_rad\":";
     number(out, f.prediction_angle_p95_rad);
     out << ",\"velocity_correction_rate\":";
@@ -152,7 +157,14 @@ int ph_frame(void *ptr, int64_t camera_ns, double time, int count, const int64_t
     out << ",\"gravity_correction_rate\":";
     number(out, f.gravity_correction_rate);
     out << ",\"state_features\":" << f.snapshot.state_features << ",\"observed_features\":" << f.snapshot.observed_features
-        << ",\"mature_features\":" << f.mature_features << ",\"raw_v\":";
+        << ",\"mature_features\":" << f.mature_features << ",\"camera_substeps\":" << f.snapshot.camera_substeps << ",\"corrected_ids\":";
+    std::set<size_t> corrected_ids;
+    if (f.available && raw && f.snapshot.camera_substeps > 0)
+      for (const auto &observation : m.observations)
+        if (observation.camera_id == 0)
+          corrected_ids.insert(observation.feature_id);
+    ids(out, corrected_ids);
+    out << ",\"raw_v\":";
     if (raw)
       vector(out, f.snapshot.velocity_body);
     else
@@ -179,40 +191,41 @@ int ph_frame(void *ptr, int64_t camera_ns, double time, int count, const int64_t
     ids(out, m.retired_ids);
     out << ",\"seeds\":[";
     bool first = true;
-    for (const auto &d : pf.seeds) {
-      if (!first)
-        out << ',';
-      first = false;
-      const auto &s = d.candidate;
-      bool admitted = false, written = false;
-      for (const auto &b : m.births)
-        if (b.feature_id == s.feature_id) {
-          admitted = true;
-          written = b.apply_seed;
-        }
-      out << "{\"id\":" << s.feature_id << ",\"time\":" << s.time << ",\"source\":\"" << ltv::toString(s.source)
-          << "\",\"geometry_valid\":" << s.geometry_valid << ",\"admitted\":" << admitted << ",\"mean_written\":" << written
-          << ",\"reason\":\"" << d.estimate.reason << "\",\"landmark_B\":";
-      vector(out, s.landmark_B);
-      out << ",\"relative_risk\":";
-      number(out, s.relative_risk);
-      out << ",\"sigma_parallel\":";
-      number(out, d.uncertainty.sigma_parallel);
-      out << ",\"condition\":";
-      number(out, s.condition);
-      out << ",\"min_ray\":";
-      number(out, s.min_ray);
-      out << ",\"parallax_rad\":";
-      number(out, s.parallax_rad);
-      out << ",\"residual_rad\":";
-      number(out, s.residual_rad);
-      out << ",\"heldout_check_available\":" << d.heldout_check_available << ",\"heldout_max_residual_rad\":";
-      number(out, d.heldout_max_residual_rad);
-      out << '}';
-    }
+    if (h.diagnostics)
+      for (const auto &d : pf.seeds) {
+        if (!first)
+          out << ',';
+        first = false;
+        const auto &s = d.candidate;
+        bool admitted = false, written = false;
+        for (const auto &b : m.births)
+          if (b.feature_id == s.feature_id) {
+            admitted = true;
+            written = b.apply_seed;
+          }
+        out << "{\"id\":" << s.feature_id << ",\"time\":" << s.time << ",\"source\":\"" << ltv::toString(s.source)
+            << "\",\"geometry_valid\":" << s.geometry_valid << ",\"admitted\":" << admitted << ",\"mean_written\":" << written
+            << ",\"reason\":\"" << d.estimate.reason << "\",\"landmark_B\":";
+        vector(out, s.landmark_B);
+        out << ",\"relative_risk\":";
+        number(out, s.relative_risk);
+        out << ",\"sigma_parallel\":";
+        number(out, d.uncertainty.sigma_parallel);
+        out << ",\"condition\":";
+        number(out, s.condition);
+        out << ",\"min_ray\":";
+        number(out, s.min_ray);
+        out << ",\"parallax_rad\":";
+        number(out, s.parallax_rad);
+        out << ",\"residual_rad\":";
+        number(out, s.residual_rad);
+        out << ",\"heldout_check_available\":" << d.heldout_check_available << ",\"heldout_max_residual_rad\":";
+        number(out, d.heldout_max_residual_rad);
+        out << '}';
+      }
     out << "],\"tracks\":[";
     first = true;
-    if (h.adapter.feature_pipeline())
+    if (h.diagnostics && h.adapter.feature_pipeline())
       for (const auto &entry : h.adapter.feature_pipeline()->manager().landmarks()) {
         if (!first)
           out << ',';
@@ -223,7 +236,46 @@ int ph_frame(void *ptr, int64_t camera_ns, double time, int count, const int64_t
             << ",\"last_seen\":" << tr.last_seen << ",\"ever_opportunity\":" << tr.ever_opportunity
             << ",\"seed_written\":" << tr.seed_written << '}';
       }
-    out << "]}";
+    if (h.hardened && h.diagnostics)
+      for (const auto &event : m.retirement_events) {
+        if (!first)
+          out << ',';
+        first = false;
+        ltv::writeBoundedLandmarkRecord(out, event.feature_id, event.record);
+      }
+    out << ']';
+    out << ",\"births\":[";
+    first = true;
+    for (const auto &birth : m.births) {
+      if (!first)
+        out << ',';
+      first = false;
+      out << "{\"id\":" << birth.feature_id << ",\"apply_seed\":" << birth.apply_seed << ",\"source\":\""
+          << ltv::toString(birth.seed.source) << "\"}";
+    }
+    out << ']';
+    if (h.hardened)
+      ltv::writeBoundedManagement(out, m);
+    {
+      size_t manager_records = 0, history_records = 0, max_samples = 0, total_samples = 0;
+      if (h.adapter.feature_pipeline()) {
+        const auto &manager = h.adapter.feature_pipeline()->manager();
+        manager_records = manager.landmarks().size();
+        history_records = manager.history().tracks().size();
+        for (const auto &entry : manager.history().tracks()) {
+          max_samples = std::max(max_samples, entry.second.samples.size());
+          total_samples += entry.second.samples.size();
+        }
+      }
+      out << ",\"resource_diagnostics\":{\"manager_records\":" << manager_records << ",\"history_records\":" << history_records
+          << ",\"max_samples_per_track\":" << max_samples << ",\"total_history_samples\":" << total_samples
+          << ",\"adapter_map_size\":" << h.adapter.feature_ids().size()
+          << ",\"core_admission_history_size\":" << h.adapter.core().admissionHistorySize()
+          << ",\"core_admission_high_water\":" << h.adapter.core().admissionHighWaterMark()
+          << ",\"imu_buffer_size\":" << h.adapter.bufferedImuSamples() << ",\"retained_ids\":" << m.retained_ids.size()
+          << ",\"guard_capacity_bytes\":" << (h.hardened ? ltv::LtvIdentityGuard::capacityBytes() : 0) << '}';
+    }
+    out << '}';
     h.json = out.str();
     return 1;
   } catch (const std::exception &e) {
