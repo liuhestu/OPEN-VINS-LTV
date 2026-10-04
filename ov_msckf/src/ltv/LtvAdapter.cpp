@@ -37,7 +37,7 @@ LtvAdapter::LtvAdapter(const LtvOptions &options) : options_(options) {
     else
       throw std::invalid_argument("Unsupported feature seed source");
     pipeline.bearing_sigma_rad = options.feature_bearing_sigma_rad;
-    feature_pipeline_.reset(new ltv::LtvFeaturePipeline(pipeline));
+    feature_pipeline_.reset(new ltv::LtvLandmarkAdapter(pipeline));
   }
 }
 void LtvAdapter::feed_imu(const ov_core::ImuData &sample) {

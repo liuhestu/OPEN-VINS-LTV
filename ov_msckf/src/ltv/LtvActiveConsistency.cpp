@@ -1,5 +1,5 @@
 #include "LtvActiveConsistency.h"
-#include "LtvFeaturePipeline.h"
+#include "LtvLandmarkContext.h"
 #include "LtvSeedEstimator.h"
 #include <algorithm>
 #include <cmath>

@@ -1,16 +1,16 @@
-#include "LtvFeaturePipeline.h"
+#include "LtvLandmarkAdapter.h"
 #include <cmath>
 #include <map>
 #include <set>
 #include <stdexcept>
 namespace ltv {
-LtvFeaturePipeline::LtvFeaturePipeline(const FeaturePipelineConfig &config)
+LtvLandmarkAdapter::LtvLandmarkAdapter(const FeaturePipelineConfig &config)
     : config_(config), manager_(config.manager), active_consistency_(config.active_consistency) {
   if (!std::isfinite(config.bearing_sigma_rad) || config.bearing_sigma_rad < 0 || config.source == FeatureSeedSource::MsckfGeometry)
     throw std::invalid_argument("unsupported feature pipeline configuration");
 }
-void LtvFeaturePipeline::reset(uint64_t epoch) { manager_.reset(epoch); }
-FeaturePipelineFrame LtvFeaturePipeline::process(const FeaturePipelineContext &ctx, bool allow_admission) {
+void LtvLandmarkAdapter::reset(uint64_t epoch) { manager_.reset(epoch); }
+FeaturePipelineFrame LtvLandmarkAdapter::process(const FeaturePipelineContext &ctx, bool allow_admission) {
   FeaturePipelineFrame out;
   out.management.epoch = ctx.epoch;
   out.management.time = ctx.time;

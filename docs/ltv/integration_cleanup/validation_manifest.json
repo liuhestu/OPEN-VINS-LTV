@@ -1,0 +1,79 @@
+{
+  "baseline": "f3e055ab2dc185d3a5910c9fa60c505dd912671d",
+  "native_library_sha": {
+    "before": "e8bcc14b191200389f6759324f385f21a64000d38cb8caa98abccb0a9f2fca78",
+    "after": "4973dde46ae6c2bbf31c9afad5f6358576b36d1dc688d98cedd520fdb22bb29d"
+  },
+  "native_default_off": {
+    "frames": 40,
+    "imu_samples": 1639,
+    "digest_sha": "dd388151369850961ba8e24ad8fb9bc279d646c0e8bed7c13592414dc22cece7",
+    "after_digest_sha": "dd388151369850961ba8e24ad8fb9bc279d646c0e8bed7c13592414dc22cece7",
+    "result": "PASS_EXACT"
+  },
+  "ctest": {
+    "before": {
+      "tests": 15,
+      "failed": 0,
+      "log_sha": "cef62d7e676147ae888c08a3f9584477e3a225443929b984f72a3b3ef01fec96"
+    },
+    "after": {
+      "tests": 15,
+      "failed": 0,
+      "log_sha": "142f3971fd6d236d069a4f0741f9eafc9d2c2d2c9e4323885c3eef183fd8509c"
+    }
+  },
+  "build_logs": {
+    "build-native.log": {
+      "sha": "ba8c0c384893d4c36807f1660c0e1f8a231484366dea01bbd198c789de68416e",
+      "compiler_warnings": 0,
+      "compiler_errors": 0
+    },
+    "build-native-final.log": {
+      "sha": "e2a9c8e2471d4747764ab81b228d18df4e37f571bffb6b05297e2063489f0cdc",
+      "compiler_warnings": 0,
+      "compiler_errors": 0
+    },
+    "build-native-baseline.log": {
+      "sha": "fefeca61d2d77b9cc007f7dbcb2c37e06a53433d2a5ef34cce08e3e084b8932c",
+      "compiler_warnings": 0,
+      "compiler_errors": 0
+    },
+    "build-cleanup-final.log": {
+      "sha": "edc31e0141dade1031bc86567e83596e94c25300a05b9f226943ef9a41f9431c",
+      "compiler_warnings": 0,
+      "compiler_errors": 0
+    },
+    "build-baseline-final.log": {
+      "sha": "45fd1363b934411ffa4795b3099f7dfe8c3d731b19f76a1019c4797177066fe1",
+      "compiler_warnings": 0,
+      "compiler_errors": 0
+    },
+    "build-native-wrapper-cleanup.log": {
+      "sha": "354520bc868c64c8df2da5cd96e0aa27fa92bc5d0ac7be85c5bd3a059683a715",
+      "compiler_warnings": 0,
+      "compiler_errors": 0
+    },
+    "build-native-wrapper-baseline.log": {
+      "sha": "9ddcd53a0a26df996816454992ca10d1b2bbda88f2b68b0304a2d470fd86bf09",
+      "compiler_warnings": 0,
+      "compiler_errors": 0
+    }
+  },
+  "input": {
+    "duration_s": 10,
+    "generator": "scripts/ltv_active_consistency_r4/synthetic_inputs.py",
+    "generator_sha": "914020a9fb62853fd1b63445aa9a1931222192d90c65af7299d93f830d1596a8",
+    "condition": "WRONG_MATCH",
+    "scene": "REGULAR",
+    "seed": 42,
+    "lifetime_s": 1,
+    "input_sha": "3be7c10d57aca4fc4fb274a98c55555599b9624a88f6131f0abf724bf799904e"
+  },
+  "unverified": [
+    "ROS2_Humble_colcon",
+    "V2_02_medium_real_replay",
+    "V2_03_difficult_real_replay"
+  ],
+  "closed_loop_enabled": false
+}

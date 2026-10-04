@@ -1,10 +1,12 @@
 #pragma once
-#include "LtvFeaturePipeline.h"
+#include "LtvFeaturePipeline.h" // Legacy source-compatible name.
+#include "LtvLandmarkAdapter.h"
 #include "LtvOptions.h"
 #include "ltv_observer.h"
 #include "utils/sensor_data.h"
 #include <deque>
 #include <map>
+#include <memory>
 #include <mutex>
 namespace ov_msckf {
 struct LtvCalibration {
@@ -48,7 +50,8 @@ public:
   bool claim(const LtvFrame &frame);
   const ltv::LtvObserver &core() const { return observer_; }
   const ltv::FeaturePipelineFrame &feature_frame() const { return feature_frame_; }
-  const ltv::LtvFeaturePipeline *feature_pipeline() const { return feature_pipeline_.get(); }
+  const ltv::LtvLandmarkAdapter *landmark_adapter() const { return feature_pipeline_.get(); }
+  const ltv::LtvFeaturePipeline *feature_pipeline() const { return landmark_adapter(); }
   const std::map<size_t, int> &feature_ids() const { return ids_; }
   size_t bufferedImuSamples() {
     std::lock_guard<std::mutex> lock(mutex_);
@@ -70,7 +73,8 @@ private:
   LtvFrame pauseHardened(double, const std::string &, uint64_t);
   void suspendHardened(double target);
   ltv::LtvObserver observer_;
-  std::unique_ptr<ltv::LtvFeaturePipeline> feature_pipeline_;
+  // OpenVINS bridge owns the transaction; the landmark adapter owns feature policy.
+  std::unique_ptr<ltv::LtvLandmarkAdapter> feature_pipeline_;
   ltv::FeaturePipelineFrame feature_frame_;
   std::mutex mutex_;
   std::deque<ov_core::ImuData> imu_;

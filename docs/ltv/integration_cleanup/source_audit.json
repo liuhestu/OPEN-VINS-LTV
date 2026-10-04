@@ -1,0 +1,13 @@
+{
+  "baseline": "f3e055ab2dc185d3a5910c9fa60c505dd912671d",
+  "protected_files_compared": 294,
+  "changed_protected_files": [],
+  "implementation_text_checks": {
+    "ov_msckf/src/ltv/LtvFeaturePipeline.cpp": true,
+    "ov_msckf/src/ltv/LtvActiveConsistency.cpp": true,
+    "ov_msckf/src/ltv/LtvAdapter.cpp": true
+  },
+  "core_sha": "aa167e83c5bb1c13c54a0b8d0687084b2efac795ab0f6ec684f409f663367909",
+  "options_sha": "305695e4f03fe7123d3fccf9c92d13d71877cb37fbb8057067adbe6a00d7ab64",
+  "status": "PASS_UNCHANGED_BEHAVIOR_SOURCES"
+}
