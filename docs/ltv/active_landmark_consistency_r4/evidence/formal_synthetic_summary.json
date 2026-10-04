@@ -1,0 +1,2607 @@
+{
+  "status": "COMPLETED_EIGHT_ESTIMATION_RUNS_NOT_GLOBAL_ACCEPTANCE",
+  "jobs_sha": "678087054440f1ca3392b6c89231cdf0460fba6a59f9a05f1c63fcc25bfa6b11",
+  "freeze_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+  "baseline": "UNVERIFIED_NO_IDENTICAL_OFF",
+  "records": [
+    {
+      "case": {
+        "name": "STEREO_REGULAR_1_201",
+        "scene": "REGULAR",
+        "lifetime": 1,
+        "condition": "STEREO",
+        "source": "HYBRID",
+        "seed": 201
+      },
+      "attempts": [
+        {
+          "stage": "frozen_input_generation",
+          "attempt": {
+            "id": 103,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0103"
+          }
+        },
+        {
+          "stage": "frozen_complete_C02",
+          "attempt": {
+            "id": 105,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0105"
+          }
+        },
+        {
+          "stage": "frozen_offline_evaluation",
+          "attempt": {
+            "id": 108,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0108"
+          }
+        }
+      ],
+      "metrics_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_REGULAR_1_201/evaluation_v1/metrics.json",
+      "metrics_sha": "31b2761409fcdb630c137a3244d7b81956d6bfdda8471c9a491f2d88d2b5972f",
+      "run_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_REGULAR_1_201/P_NEW_ACTIVE/run.json",
+      "run_sha": "2f73f63320ceed6ac516bf4540e76d2a23141fe876bd1c50389799b1472bb8da",
+      "run_identity": {
+        "mode": "P_NEW_ACTIVE",
+        "source": "HYBRID",
+        "input_sha": "2ef59b33aa8b0aac159d9ad0da7e742ad47e0904c8a5a0a6d305048559150962",
+        "library_sha": "88684ca34b42c5c349e02e94f5b36a9eabc3a7bec50d4d92ab3b226ec4a520de",
+        "runner_sha": "422666df747443c4cf11a72bd271cae5246ef4eec5964f3e4062289d38b84b4e",
+        "prior_covariance_helper_sha": "23d0d45cbbae558d25b31c958cd85b77353d5438e098f67909c72b76c2ac462c",
+        "GT_estimator_access": false,
+        "status": "COMPLETED_ESTIMATION",
+        "imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "between_camera_contract": "Held internal snapshot with actual camera cursor, never a new current estimate",
+        "max_seconds": null,
+        "heavy_diagnostics": true,
+        "elapsed_seconds": 18.622988275950775,
+        "camera_events": 1201,
+        "samples": 12001,
+        "full_input_consumed": true,
+        "states_sha": "18f1a53a15841cb88274fc706145427ff18a9a8e2e5be34f66aa7bb6ffc263a4"
+      },
+      "input_identity": {
+        "scene": "REGULAR",
+        "geometry_name": "EUROC_CALIBRATED_NEAR_2_4M",
+        "seed": 201,
+        "lifetime": 1.0,
+        "condition": "STEREO",
+        "duration": 60.0,
+        "schema_version": 2,
+        "calibration": "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+        "calibration_sha": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+        "generator_sha": "914020a9fb62853fd1b63445aa9a1931222192d90c65af7299d93f830d1596a8",
+        "mathematical_functions_sha": "180ef627889932ad6f19baad569fda520c09e23b41871da1ea6cb8e84da46c67",
+        "truth_model_sha": "2bfe9e7dcccde4f4bfd1c41c2c687fa6408a17d605eeb514d0703ba2e83b5747",
+        "input_sha": "2ef59b33aa8b0aac159d9ad0da7e742ad47e0904c8a5a0a6d305048559150962",
+        "labels_sha": "bf8fc32df191308b7b72f58f3ff821dd0c29aebc110f4bf7611a2a3cd020977e",
+        "confirmation_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+        "negative_control": false,
+        "reliable_supply_contract": {
+          "min_points": 15,
+          "min_history_frames": 3,
+          "min_history_seconds": 0.1,
+          "min_ray_m": 0.1,
+          "min_parallax_rad": 0.008726646259971648,
+          "max_condition": 100000000.0,
+          "max_relative_parallel_risk": 0.05,
+          "bearing_sigma_rad": 0.0008726646259971648,
+          "source": "Input-only true stereo geometry and fixed noise model; same-ID synchronous lawful observations, causal history; not a probability guarantee, no candidate seed/output error/readiness used"
+        },
+        "opportunity_contract": {
+          "stereo": "current same-ID legal cam0+cam1, equal integer timestamp, before solver/risk/history/capacity",
+          "temporal": "current cam0 with >=3 consecutive frames spanning >=0.10s; before solver/parallax/risk/capacity",
+          "birth": "first actual cam0 visibility of ID; both sources also report all-birth denominator"
+        },
+        "estimator_payload": "inputs.npz only; labels and identity condition/lifetime fields evaluator/dispatcher only",
+        "adapter_imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "old_pressure_regression": "Reuse historical input path and exact SHA; not regenerated by this adapter"
+      },
+      "raw_missing_fraction": 0.0,
+      "supports": {
+        "raw": {
+          "coverage": {
+            "samples": 1201,
+            "fraction": 1.0,
+            "longest_episode_seconds": 60.0
+          },
+          "errors": {
+            "samples": 1201,
+            "v": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 0.8898245152105171,
+              "P95": 1.51522931746243
+            },
+            "eta": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.5406698475948912,
+              "P95": 1.4867491311614027
+            },
+            "angle": {
+              "finite_samples": 1198,
+              "invalid_samples": 3,
+              "RMSE": 7.6728021471249646,
+              "P95": 1.555431659276822
+            },
+            "norm": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.529423066823723,
+              "P95": 1.4677703939715894
+            },
+            "wide_v_fraction": 0.9100749375520399,
+            "wide_g_fraction": 0.925895087427144,
+            "severe_v_fraction": 0.05745212323064113,
+            "severe_g_fraction": 0.034970857618651124
+          }
+        },
+        "ready_G": {
+          "coverage": {
+            "samples": 1088,
+            "fraction": 0.9059117402164862,
+            "longest_episode_seconds": 27.85
+          },
+          "errors": {
+            "samples": 1088,
+            "v": {
+              "finite_samples": 1088,
+              "invalid_samples": 0,
+              "RMSE": 0.03480524019879768,
+              "P95": 0.05561468175608668
+            },
+            "eta": {
+              "finite_samples": 1088,
+              "invalid_samples": 0,
+              "RMSE": 0.02107627878238352,
+              "P95": 0.03083442355656177
+            },
+            "angle": {
+              "finite_samples": 1088,
+              "invalid_samples": 0,
+              "RMSE": 0.09359372945366526,
+              "P95": 0.1450447556696288
+            },
+            "norm": {
+              "finite_samples": 1088,
+              "invalid_samples": 0,
+              "RMSE": 0.013716188230403253,
+              "P95": 0.02148979540650256
+            },
+            "wide_v_fraction": 0.9862132352941176,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "ready_V": {
+          "coverage": {
+            "samples": 1068,
+            "fraction": 0.8892589508742714,
+            "longest_episode_seconds": 26.85
+          },
+          "errors": {
+            "samples": 1068,
+            "v": {
+              "finite_samples": 1068,
+              "invalid_samples": 0,
+              "RMSE": 0.028168349212970848,
+              "P95": 0.05324765094226004
+            },
+            "eta": {
+              "finite_samples": 1068,
+              "invalid_samples": 0,
+              "RMSE": 0.01654476065416058,
+              "P95": 0.028909238083932465
+            },
+            "angle": {
+              "finite_samples": 1068,
+              "invalid_samples": 0,
+              "RMSE": 0.07578207960651343,
+              "P95": 0.1405447586335338
+            },
+            "norm": {
+              "finite_samples": 1068,
+              "invalid_samples": 0,
+              "RMSE": 0.01026496058070213,
+              "P95": 0.01886048744891573
+            },
+            "wide_v_fraction": 1.0,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "joint_ready": {
+          "coverage": {
+            "samples": 1068,
+            "fraction": 0.8892589508742714,
+            "longest_episode_seconds": 26.85
+          },
+          "errors": {
+            "samples": 1068,
+            "v": {
+              "finite_samples": 1068,
+              "invalid_samples": 0,
+              "RMSE": 0.028168349212970848,
+              "P95": 0.05324765094226004
+            },
+            "eta": {
+              "finite_samples": 1068,
+              "invalid_samples": 0,
+              "RMSE": 0.01654476065416058,
+              "P95": 0.028909238083932465
+            },
+            "angle": {
+              "finite_samples": 1068,
+              "invalid_samples": 0,
+              "RMSE": 0.07578207960651343,
+              "P95": 0.1405447586335338
+            },
+            "norm": {
+              "finite_samples": 1068,
+              "invalid_samples": 0,
+              "RMSE": 0.01026496058070213,
+              "P95": 0.01886048744891573
+            },
+            "wide_v_fraction": 1.0,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        }
+      },
+      "raw_peaks": {
+        "v": {
+          "value": 5.258665621189006,
+          "time": 1.1
+        },
+        "eta": {
+          "value": 9.82060991995861,
+          "time": 0.3
+        },
+        "angle": {
+          "value": 108.77440336978498,
+          "time": 0.15
+        },
+        "norm": {
+          "value": 9.809999999999999,
+          "time": 0.0
+        }
+      },
+      "seeds": {
+        "STEREO": {
+          "accepted_writes": 1808,
+          "unique_accepted_ids": 1808,
+          "opportunity_ids": 1830,
+          "accepted_opportunity_ids": 1808,
+          "all_birth_ids": 1830,
+          "opportunity_acceptance": 0.9879781420765027,
+          "all_birth_acceptance": 0.9879781420765027,
+          "reliable10": 0.9928097345132744,
+          "reliable5": 0.8451327433628318,
+          "parallel_RMSE": 0.12533210672340567,
+          "transverse_RMSE": 0.00331500160524794,
+          "normal_source_pass": true
+        },
+        "TEMPORAL_POSE": {
+          "accepted_writes": 16,
+          "unique_accepted_ids": 16,
+          "opportunity_ids": 1824,
+          "accepted_opportunity_ids": 16,
+          "all_birth_ids": 1830,
+          "opportunity_acceptance": 0.008771929824561403,
+          "all_birth_acceptance": 0.008743169398907104,
+          "reliable10": 1.0,
+          "reliable5": 0.6875,
+          "parallel_RMSE": 0.17690657331235282,
+          "transverse_RMSE": 0.009509491703154127,
+          "normal_source_pass": false
+        }
+      },
+      "predeclared_normal_source": "STEREO",
+      "normal_source_contract_pass": true,
+      "raw_evaluator_absolute_contract": {
+        "ready_G": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "ready_V": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "joint_5s": true
+      },
+      "raw_evaluator_severe_ready_pass": {
+        "V": true,
+        "G": true
+      },
+      "recovery": {
+        "applicable": false
+      }
+    },
+    {
+      "case": {
+        "name": "STEREO_FAST_05_202",
+        "scene": "FAST",
+        "lifetime": 0.5,
+        "condition": "STEREO",
+        "source": "HYBRID",
+        "seed": 202
+      },
+      "attempts": [
+        {
+          "stage": "frozen_input_generation",
+          "attempt": {
+            "id": 102,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0102"
+          }
+        },
+        {
+          "stage": "frozen_complete_C02",
+          "attempt": {
+            "id": 104,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0104"
+          }
+        },
+        {
+          "stage": "frozen_offline_evaluation",
+          "attempt": {
+            "id": 106,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0106"
+          }
+        }
+      ],
+      "metrics_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_FAST_05_202/evaluation_v1/metrics.json",
+      "metrics_sha": "a5fdda6a64b92d2acfdbcb01cafe3cbb64894a097e05d5f8e3a4c848a35c3318",
+      "run_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_FAST_05_202/P_NEW_ACTIVE/run.json",
+      "run_sha": "881862bf8942cb07487af3ffb622c05cf34fe1f456abc772da540a5f2ca05645",
+      "run_identity": {
+        "mode": "P_NEW_ACTIVE",
+        "source": "HYBRID",
+        "input_sha": "4472fb06a84914b214b1158eae15352f656f13baefcb77cf7f81ecb4cf43f74f",
+        "library_sha": "88684ca34b42c5c349e02e94f5b36a9eabc3a7bec50d4d92ab3b226ec4a520de",
+        "runner_sha": "422666df747443c4cf11a72bd271cae5246ef4eec5964f3e4062289d38b84b4e",
+        "prior_covariance_helper_sha": "23d0d45cbbae558d25b31c958cd85b77353d5438e098f67909c72b76c2ac462c",
+        "GT_estimator_access": false,
+        "status": "COMPLETED_ESTIMATION",
+        "imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "between_camera_contract": "Held internal snapshot with actual camera cursor, never a new current estimate",
+        "max_seconds": null,
+        "heavy_diagnostics": true,
+        "elapsed_seconds": 18.2694269050844,
+        "camera_events": 1201,
+        "samples": 12001,
+        "full_input_consumed": true,
+        "states_sha": "a35cfd91c081dc74ecb12c0e753fa56427e0a1f4ef7e7f97ae692d47b5b9604a"
+      },
+      "input_identity": {
+        "scene": "FAST",
+        "geometry_name": "EUROC_CALIBRATED_NEAR_2_4M",
+        "seed": 202,
+        "lifetime": 0.5,
+        "condition": "STEREO",
+        "duration": 60.0,
+        "schema_version": 2,
+        "calibration": "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+        "calibration_sha": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+        "generator_sha": "914020a9fb62853fd1b63445aa9a1931222192d90c65af7299d93f830d1596a8",
+        "mathematical_functions_sha": "180ef627889932ad6f19baad569fda520c09e23b41871da1ea6cb8e84da46c67",
+        "truth_model_sha": "2bfe9e7dcccde4f4bfd1c41c2c687fa6408a17d605eeb514d0703ba2e83b5747",
+        "input_sha": "4472fb06a84914b214b1158eae15352f656f13baefcb77cf7f81ecb4cf43f74f",
+        "labels_sha": "2511d0e83b0604b4c93c075febad7c6e6c6a52ed0f31f899c5bcf99c565be774",
+        "confirmation_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+        "negative_control": false,
+        "reliable_supply_contract": {
+          "min_points": 15,
+          "min_history_frames": 3,
+          "min_history_seconds": 0.1,
+          "min_ray_m": 0.1,
+          "min_parallax_rad": 0.008726646259971648,
+          "max_condition": 100000000.0,
+          "max_relative_parallel_risk": 0.05,
+          "bearing_sigma_rad": 0.0008726646259971648,
+          "source": "Input-only true stereo geometry and fixed noise model; same-ID synchronous lawful observations, causal history; not a probability guarantee, no candidate seed/output error/readiness used"
+        },
+        "opportunity_contract": {
+          "stereo": "current same-ID legal cam0+cam1, equal integer timestamp, before solver/risk/history/capacity",
+          "temporal": "current cam0 with >=3 consecutive frames spanning >=0.10s; before solver/parallax/risk/capacity",
+          "birth": "first actual cam0 visibility of ID; both sources also report all-birth denominator"
+        },
+        "estimator_payload": "inputs.npz only; labels and identity condition/lifetime fields evaluator/dispatcher only",
+        "adapter_imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "old_pressure_regression": "Reuse historical input path and exact SHA; not regenerated by this adapter"
+      },
+      "raw_missing_fraction": 0.0,
+      "supports": {
+        "raw": {
+          "coverage": {
+            "samples": 1201,
+            "fraction": 1.0,
+            "longest_episode_seconds": 60.0
+          },
+          "errors": {
+            "samples": 1201,
+            "v": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.2274031621712183,
+              "P95": 1.968632711272979
+            },
+            "eta": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.5926366633999494,
+              "P95": 1.6374555503240513
+            },
+            "angle": {
+              "finite_samples": 1198,
+              "invalid_samples": 3,
+              "RMSE": 11.610758135655578,
+              "P95": 5.331517665712499
+            },
+            "norm": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.5684556485071448,
+              "P95": 1.3847908244659592
+            },
+            "wide_v_fraction": 0.8542880932556203,
+            "wide_g_fraction": 0.9184013322231473,
+            "severe_v_fraction": 0.061615320566194835,
+            "severe_g_fraction": 0.054954204829308906
+          }
+        },
+        "ready_G": {
+          "coverage": {
+            "samples": 464,
+            "fraction": 0.38634471273938387,
+            "longest_episode_seconds": 3.6499999999999986
+          },
+          "errors": {
+            "samples": 464,
+            "v": {
+              "finite_samples": 464,
+              "invalid_samples": 0,
+              "RMSE": 0.06033198725092799,
+              "P95": 0.11459480530336152
+            },
+            "eta": {
+              "finite_samples": 464,
+              "invalid_samples": 0,
+              "RMSE": 0.02951267982341439,
+              "P95": 0.05334016007720246
+            },
+            "angle": {
+              "finite_samples": 464,
+              "invalid_samples": 0,
+              "RMSE": 0.13962906863058516,
+              "P95": 0.261357232081378
+            },
+            "norm": {
+              "finite_samples": 464,
+              "invalid_samples": 0,
+              "RMSE": 0.017315431814825585,
+              "P95": 0.0334519996677602
+            },
+            "wide_v_fraction": 0.9245689655172413,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "ready_V": {
+          "coverage": {
+            "samples": 442,
+            "fraction": 0.3680266444629475,
+            "longest_episode_seconds": 3.549999999999999
+          },
+          "errors": {
+            "samples": 442,
+            "v": {
+              "finite_samples": 442,
+              "invalid_samples": 0,
+              "RMSE": 0.06160185750465919,
+              "P95": 0.11601224974048585
+            },
+            "eta": {
+              "finite_samples": 442,
+              "invalid_samples": 0,
+              "RMSE": 0.029955054556627485,
+              "P95": 0.05405696979486685
+            },
+            "angle": {
+              "finite_samples": 442,
+              "invalid_samples": 0,
+              "RMSE": 0.1414232679523188,
+              "P95": 0.2624899641420532
+            },
+            "norm": {
+              "finite_samples": 442,
+              "invalid_samples": 0,
+              "RMSE": 0.017645881144572117,
+              "P95": 0.03359356200811847
+            },
+            "wide_v_fraction": 0.920814479638009,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "joint_ready": {
+          "coverage": {
+            "samples": 442,
+            "fraction": 0.3680266444629475,
+            "longest_episode_seconds": 3.549999999999999
+          },
+          "errors": {
+            "samples": 442,
+            "v": {
+              "finite_samples": 442,
+              "invalid_samples": 0,
+              "RMSE": 0.06160185750465919,
+              "P95": 0.11601224974048585
+            },
+            "eta": {
+              "finite_samples": 442,
+              "invalid_samples": 0,
+              "RMSE": 0.029955054556627485,
+              "P95": 0.05405696979486685
+            },
+            "angle": {
+              "finite_samples": 442,
+              "invalid_samples": 0,
+              "RMSE": 0.1414232679523188,
+              "P95": 0.2624899641420532
+            },
+            "norm": {
+              "finite_samples": 442,
+              "invalid_samples": 0,
+              "RMSE": 0.017645881144572117,
+              "P95": 0.03359356200811847
+            },
+            "wide_v_fraction": 0.920814479638009,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        }
+      },
+      "raw_peaks": {
+        "v": {
+          "value": 7.1793892383363405,
+          "time": 1.05
+        },
+        "eta": {
+          "value": 9.919044277781241,
+          "time": 0.45
+        },
+        "angle": {
+          "value": 125.29180847025208,
+          "time": 0.3
+        },
+        "norm": {
+          "value": 9.809999999999999,
+          "time": 0.0
+        }
+      },
+      "seeds": {
+        "STEREO": {
+          "accepted_writes": 3334,
+          "unique_accepted_ids": 3334,
+          "opportunity_ids": 3630,
+          "accepted_opportunity_ids": 3334,
+          "all_birth_ids": 3630,
+          "opportunity_acceptance": 0.9184573002754821,
+          "all_birth_acceptance": 0.9184573002754821,
+          "reliable10": 0.9919016196760648,
+          "reliable5": 0.874625074985003,
+          "parallel_RMSE": 0.11699730591739971,
+          "transverse_RMSE": 0.003221957941813755,
+          "normal_source_pass": true
+        },
+        "TEMPORAL_POSE": {
+          "accepted_writes": 284,
+          "unique_accepted_ids": 284,
+          "opportunity_ids": 3618,
+          "accepted_opportunity_ids": 284,
+          "all_birth_ids": 3630,
+          "opportunity_acceptance": 0.07849640685461581,
+          "all_birth_acceptance": 0.07823691460055096,
+          "reliable10": 1.0,
+          "reliable5": 0.9084507042253521,
+          "parallel_RMSE": 0.12323452696779978,
+          "transverse_RMSE": 0.006768282654308231,
+          "normal_source_pass": false
+        }
+      },
+      "predeclared_normal_source": "STEREO",
+      "normal_source_contract_pass": true,
+      "raw_evaluator_absolute_contract": {
+        "ready_G": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "ready_V": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "joint_5s": false
+      },
+      "raw_evaluator_severe_ready_pass": {
+        "V": true,
+        "G": true
+      },
+      "recovery": {
+        "applicable": false
+      }
+    },
+    {
+      "case": {
+        "name": "STEREO_FAST_1_201",
+        "scene": "FAST",
+        "lifetime": 1,
+        "condition": "STEREO",
+        "source": "HYBRID",
+        "seed": 201
+      },
+      "attempts": [
+        {
+          "stage": "frozen_input_generation",
+          "attempt": {
+            "id": 107,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0107"
+          }
+        },
+        {
+          "stage": "frozen_complete_C02",
+          "attempt": {
+            "id": 111,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0111"
+          }
+        },
+        {
+          "stage": "frozen_offline_evaluation",
+          "attempt": {
+            "id": 114,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0114"
+          }
+        }
+      ],
+      "metrics_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_FAST_1_201/evaluation_v1/metrics.json",
+      "metrics_sha": "425905790e8a43f364d42f7e4849e183e73e177d16718a5e9b2e13f3e0d2e676",
+      "run_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_FAST_1_201/P_NEW_ACTIVE/run.json",
+      "run_sha": "7a6eb729d1ac774e32c76cc1d43aabf4921c282333c9a97a42a774ec5343885b",
+      "run_identity": {
+        "mode": "P_NEW_ACTIVE",
+        "source": "HYBRID",
+        "input_sha": "0b1b48114c9e38ec21fe20953b03088a81c4cff8796ab515df11b8e35489cbcf",
+        "library_sha": "88684ca34b42c5c349e02e94f5b36a9eabc3a7bec50d4d92ab3b226ec4a520de",
+        "runner_sha": "422666df747443c4cf11a72bd271cae5246ef4eec5964f3e4062289d38b84b4e",
+        "prior_covariance_helper_sha": "23d0d45cbbae558d25b31c958cd85b77353d5438e098f67909c72b76c2ac462c",
+        "GT_estimator_access": false,
+        "status": "COMPLETED_ESTIMATION",
+        "imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "between_camera_contract": "Held internal snapshot with actual camera cursor, never a new current estimate",
+        "max_seconds": null,
+        "heavy_diagnostics": true,
+        "elapsed_seconds": 12.686563828960061,
+        "camera_events": 1201,
+        "samples": 12001,
+        "full_input_consumed": true,
+        "states_sha": "f0b5d22cc54f0696a1cfb1978831c75939ba6e1a2fa1a4cada2e69c4cd6b7a02"
+      },
+      "input_identity": {
+        "scene": "FAST",
+        "geometry_name": "EUROC_CALIBRATED_NEAR_2_4M",
+        "seed": 201,
+        "lifetime": 1.0,
+        "condition": "STEREO",
+        "duration": 60.0,
+        "schema_version": 2,
+        "calibration": "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+        "calibration_sha": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+        "generator_sha": "914020a9fb62853fd1b63445aa9a1931222192d90c65af7299d93f830d1596a8",
+        "mathematical_functions_sha": "180ef627889932ad6f19baad569fda520c09e23b41871da1ea6cb8e84da46c67",
+        "truth_model_sha": "2bfe9e7dcccde4f4bfd1c41c2c687fa6408a17d605eeb514d0703ba2e83b5747",
+        "input_sha": "0b1b48114c9e38ec21fe20953b03088a81c4cff8796ab515df11b8e35489cbcf",
+        "labels_sha": "06a516b00dce574074564b683f833dcb2658b1e62b05ada82b587addd4c41718",
+        "confirmation_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+        "negative_control": false,
+        "reliable_supply_contract": {
+          "min_points": 15,
+          "min_history_frames": 3,
+          "min_history_seconds": 0.1,
+          "min_ray_m": 0.1,
+          "min_parallax_rad": 0.008726646259971648,
+          "max_condition": 100000000.0,
+          "max_relative_parallel_risk": 0.05,
+          "bearing_sigma_rad": 0.0008726646259971648,
+          "source": "Input-only true stereo geometry and fixed noise model; same-ID synchronous lawful observations, causal history; not a probability guarantee, no candidate seed/output error/readiness used"
+        },
+        "opportunity_contract": {
+          "stereo": "current same-ID legal cam0+cam1, equal integer timestamp, before solver/risk/history/capacity",
+          "temporal": "current cam0 with >=3 consecutive frames spanning >=0.10s; before solver/parallax/risk/capacity",
+          "birth": "first actual cam0 visibility of ID; both sources also report all-birth denominator"
+        },
+        "estimator_payload": "inputs.npz only; labels and identity condition/lifetime fields evaluator/dispatcher only",
+        "adapter_imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "old_pressure_regression": "Reuse historical input path and exact SHA; not regenerated by this adapter"
+      },
+      "raw_missing_fraction": 0.0,
+      "supports": {
+        "raw": {
+          "coverage": {
+            "samples": 1201,
+            "fraction": 1.0,
+            "longest_episode_seconds": 60.0
+          },
+          "errors": {
+            "samples": 1201,
+            "v": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.1685641870086358,
+              "P95": 1.422224420031983
+            },
+            "eta": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.5742032803936263,
+              "P95": 1.6209890930219342
+            },
+            "angle": {
+              "finite_samples": 1198,
+              "invalid_samples": 3,
+              "RMSE": 11.024706188862904,
+              "P95": 5.2902230264465695
+            },
+            "norm": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.5474031575584353,
+              "P95": 1.3383924928074276
+            },
+            "wide_v_fraction": 0.8026644462947544,
+            "wide_g_fraction": 0.9217318900915903,
+            "severe_v_fraction": 0.05745212323064113,
+            "severe_g_fraction": 0.05412156536219817
+          }
+        },
+        "ready_G": {
+          "coverage": {
+            "samples": 272,
+            "fraction": 0.22647793505412156,
+            "longest_episode_seconds": 2.25
+          },
+          "errors": {
+            "samples": 272,
+            "v": {
+              "finite_samples": 272,
+              "invalid_samples": 0,
+              "RMSE": 0.08256539386354536,
+              "P95": 0.12344294127027122
+            },
+            "eta": {
+              "finite_samples": 272,
+              "invalid_samples": 0,
+              "RMSE": 0.05387316226631421,
+              "P95": 0.07910936523174487
+            },
+            "angle": {
+              "finite_samples": 272,
+              "invalid_samples": 0,
+              "RMSE": 0.254683229423585,
+              "P95": 0.4473467752403122
+            },
+            "norm": {
+              "finite_samples": 272,
+              "invalid_samples": 0,
+              "RMSE": 0.031866604526040336,
+              "P95": 0.029564684722015584
+            },
+            "wide_v_fraction": 0.8823529411764706,
+            "wide_g_fraction": 0.9926470588235294,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "ready_V": {
+          "coverage": {
+            "samples": 262,
+            "fraction": 0.21815154038301415,
+            "longest_episode_seconds": 2.25
+          },
+          "errors": {
+            "samples": 262,
+            "v": {
+              "finite_samples": 262,
+              "invalid_samples": 0,
+              "RMSE": 0.06402344524926566,
+              "P95": 0.1057153120328411
+            },
+            "eta": {
+              "finite_samples": 262,
+              "invalid_samples": 0,
+              "RMSE": 0.035421784159045164,
+              "P95": 0.06078121178471133
+            },
+            "angle": {
+              "finite_samples": 262,
+              "invalid_samples": 0,
+              "RMSE": 0.19025522891498511,
+              "P95": 0.3525581328063104
+            },
+            "norm": {
+              "finite_samples": 262,
+              "invalid_samples": 0,
+              "RMSE": 0.013935920319615006,
+              "P95": 0.026399290985408184
+            },
+            "wide_v_fraction": 0.916030534351145,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "joint_ready": {
+          "coverage": {
+            "samples": 262,
+            "fraction": 0.21815154038301415,
+            "longest_episode_seconds": 2.25
+          },
+          "errors": {
+            "samples": 262,
+            "v": {
+              "finite_samples": 262,
+              "invalid_samples": 0,
+              "RMSE": 0.06402344524926566,
+              "P95": 0.1057153120328411
+            },
+            "eta": {
+              "finite_samples": 262,
+              "invalid_samples": 0,
+              "RMSE": 0.035421784159045164,
+              "P95": 0.06078121178471133
+            },
+            "angle": {
+              "finite_samples": 262,
+              "invalid_samples": 0,
+              "RMSE": 0.19025522891498511,
+              "P95": 0.3525581328063104
+            },
+            "norm": {
+              "finite_samples": 262,
+              "invalid_samples": 0,
+              "RMSE": 0.013935920319615006,
+              "P95": 0.026399290985408184
+            },
+            "wide_v_fraction": 0.916030534351145,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        }
+      },
+      "raw_peaks": {
+        "v": {
+          "value": 7.612436085254765,
+          "time": 1.05
+        },
+        "eta": {
+          "value": 9.920961564227724,
+          "time": 0.4
+        },
+        "angle": {
+          "value": 126.09730466101416,
+          "time": 0.3
+        },
+        "norm": {
+          "value": 9.809999999999999,
+          "time": 0.0
+        }
+      },
+      "seeds": {
+        "STEREO": {
+          "accepted_writes": 1688,
+          "unique_accepted_ids": 1688,
+          "opportunity_ids": 1830,
+          "accepted_opportunity_ids": 1688,
+          "all_birth_ids": 1830,
+          "opportunity_acceptance": 0.9224043715846995,
+          "all_birth_acceptance": 0.9224043715846995,
+          "reliable10": 0.990521327014218,
+          "reliable5": 0.8459715639810427,
+          "parallel_RMSE": 0.1228530162108987,
+          "transverse_RMSE": 0.003304266019041792,
+          "normal_source_pass": true
+        },
+        "TEMPORAL_POSE": {
+          "accepted_writes": 136,
+          "unique_accepted_ids": 136,
+          "opportunity_ids": 1824,
+          "accepted_opportunity_ids": 136,
+          "all_birth_ids": 1830,
+          "opportunity_acceptance": 0.07456140350877193,
+          "all_birth_acceptance": 0.07431693989071038,
+          "reliable10": 1.0,
+          "reliable5": 0.9411764705882353,
+          "parallel_RMSE": 0.11547617851938358,
+          "transverse_RMSE": 0.006633511483508645,
+          "normal_source_pass": false
+        }
+      },
+      "predeclared_normal_source": "STEREO",
+      "normal_source_contract_pass": true,
+      "raw_evaluator_absolute_contract": {
+        "ready_G": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "ready_V": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "joint_5s": false
+      },
+      "raw_evaluator_severe_ready_pass": {
+        "V": true,
+        "G": true
+      },
+      "recovery": {
+        "applicable": false
+      }
+    },
+    {
+      "case": {
+        "name": "TEMPORAL_FAST_1_202",
+        "scene": "FAST",
+        "lifetime": 1,
+        "condition": "TEMPORAL",
+        "source": "TEMPORAL",
+        "seed": 202
+      },
+      "attempts": [
+        {
+          "stage": "frozen_input_generation",
+          "attempt": {
+            "id": 109,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0109"
+          }
+        },
+        {
+          "stage": "frozen_complete_C02",
+          "attempt": {
+            "id": 110,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0110"
+          }
+        },
+        {
+          "stage": "frozen_offline_evaluation",
+          "attempt": {
+            "id": 112,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0112"
+          }
+        }
+      ],
+      "metrics_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/TEMPORAL_FAST_1_202/evaluation_v1/metrics.json",
+      "metrics_sha": "dcfa81de8ad14bfa25b68e7d520b68b29e5275dbadeb9e4a2afbc4951001a108",
+      "run_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/TEMPORAL_FAST_1_202/P_NEW_ACTIVE/run.json",
+      "run_sha": "a7dc8ce5befeeda29c9c239a698755fbc3818b817c0177031797aa6324e4dd7e",
+      "run_identity": {
+        "mode": "P_NEW_ACTIVE",
+        "source": "TEMPORAL",
+        "input_sha": "38504b44e6502d773ef281c96695676662f22c56abcbd48383c23c10d7918640",
+        "library_sha": "88684ca34b42c5c349e02e94f5b36a9eabc3a7bec50d4d92ab3b226ec4a520de",
+        "runner_sha": "422666df747443c4cf11a72bd271cae5246ef4eec5964f3e4062289d38b84b4e",
+        "prior_covariance_helper_sha": "23d0d45cbbae558d25b31c958cd85b77353d5438e098f67909c72b76c2ac462c",
+        "GT_estimator_access": false,
+        "status": "COMPLETED_ESTIMATION",
+        "imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "between_camera_contract": "Held internal snapshot with actual camera cursor, never a new current estimate",
+        "max_seconds": null,
+        "heavy_diagnostics": true,
+        "elapsed_seconds": 12.46125705493614,
+        "camera_events": 1201,
+        "samples": 12001,
+        "full_input_consumed": true,
+        "states_sha": "6e964c033dfca0e064624eac5768931927fbe16b69d02c6099f6d3c23b8f58f6"
+      },
+      "input_identity": {
+        "scene": "FAST",
+        "geometry_name": "EUROC_CALIBRATED_NEAR_2_4M",
+        "seed": 202,
+        "lifetime": 1.0,
+        "condition": "TEMPORAL",
+        "duration": 60.0,
+        "schema_version": 2,
+        "calibration": "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+        "calibration_sha": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+        "generator_sha": "914020a9fb62853fd1b63445aa9a1931222192d90c65af7299d93f830d1596a8",
+        "mathematical_functions_sha": "180ef627889932ad6f19baad569fda520c09e23b41871da1ea6cb8e84da46c67",
+        "truth_model_sha": "2bfe9e7dcccde4f4bfd1c41c2c687fa6408a17d605eeb514d0703ba2e83b5747",
+        "input_sha": "38504b44e6502d773ef281c96695676662f22c56abcbd48383c23c10d7918640",
+        "labels_sha": "1a10ad7fa597137a9edc09e0725064eeefde198fafa929dfc14262c9ece39204",
+        "confirmation_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+        "negative_control": false,
+        "reliable_supply_contract": {
+          "min_points": 15,
+          "min_history_frames": 3,
+          "min_history_seconds": 0.1,
+          "min_ray_m": 0.1,
+          "min_parallax_rad": 0.008726646259971648,
+          "max_condition": 100000000.0,
+          "max_relative_parallel_risk": 0.05,
+          "bearing_sigma_rad": 0.0008726646259971648,
+          "source": "Input-only true stereo geometry and fixed noise model; same-ID synchronous lawful observations, causal history; not a probability guarantee, no candidate seed/output error/readiness used"
+        },
+        "opportunity_contract": {
+          "stereo": "current same-ID legal cam0+cam1, equal integer timestamp, before solver/risk/history/capacity",
+          "temporal": "current cam0 with >=3 consecutive frames spanning >=0.10s; before solver/parallax/risk/capacity",
+          "birth": "first actual cam0 visibility of ID; both sources also report all-birth denominator"
+        },
+        "estimator_payload": "inputs.npz only; labels and identity condition/lifetime fields evaluator/dispatcher only",
+        "adapter_imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "old_pressure_regression": "Reuse historical input path and exact SHA; not regenerated by this adapter"
+      },
+      "raw_missing_fraction": 0.0,
+      "supports": {
+        "raw": {
+          "coverage": {
+            "samples": 1201,
+            "fraction": 1.0,
+            "longest_episode_seconds": 60.0
+          },
+          "errors": {
+            "samples": 1201,
+            "v": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.1668676574704484,
+              "P95": 1.3811211082989978
+            },
+            "eta": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.5719178065468893,
+              "P95": 1.5797870128672107
+            },
+            "angle": {
+              "finite_samples": 1198,
+              "invalid_samples": 3,
+              "RMSE": 11.136757305722758,
+              "P95": 5.070288376244783
+            },
+            "norm": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.545001263612293,
+              "P95": 1.317704458951603
+            },
+            "wide_v_fraction": 0.8692756036636137,
+            "wide_g_fraction": 0.9184013322231473,
+            "severe_v_fraction": 0.058284762697751874,
+            "severe_g_fraction": 0.05328892589508743
+          }
+        },
+        "ready_G": {
+          "coverage": {
+            "samples": 247,
+            "fraction": 0.20566194837635304,
+            "longest_episode_seconds": 2.1999999999999993
+          },
+          "errors": {
+            "samples": 247,
+            "v": {
+              "finite_samples": 247,
+              "invalid_samples": 0,
+              "RMSE": 0.07392673023974344,
+              "P95": 0.1126674211270054
+            },
+            "eta": {
+              "finite_samples": 247,
+              "invalid_samples": 0,
+              "RMSE": 0.04983467357911473,
+              "P95": 0.05753240260962031
+            },
+            "angle": {
+              "finite_samples": 247,
+              "invalid_samples": 0,
+              "RMSE": 0.23157572991697895,
+              "P95": 0.2908340393869138
+            },
+            "norm": {
+              "finite_samples": 247,
+              "invalid_samples": 0,
+              "RMSE": 0.030439510977755612,
+              "P95": 0.05689680318301828
+            },
+            "wide_v_fraction": 0.9271255060728745,
+            "wide_g_fraction": 0.979757085020243,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "ready_V": {
+          "coverage": {
+            "samples": 238,
+            "fraction": 0.19816819317235637,
+            "longest_episode_seconds": 2.1999999999999993
+          },
+          "errors": {
+            "samples": 238,
+            "v": {
+              "finite_samples": 238,
+              "invalid_samples": 0,
+              "RMSE": 0.04650064096981173,
+              "P95": 0.08829394158729618
+            },
+            "eta": {
+              "finite_samples": 238,
+              "invalid_samples": 0,
+              "RMSE": 0.027874091809501865,
+              "P95": 0.049496392183493984
+            },
+            "angle": {
+              "finite_samples": 238,
+              "invalid_samples": 0,
+              "RMSE": 0.13212865016654116,
+              "P95": 0.24930269921162235
+            },
+            "norm": {
+              "finite_samples": 238,
+              "invalid_samples": 0,
+              "RMSE": 0.016281958814072725,
+              "P95": 0.033346439829661435
+            },
+            "wide_v_fraction": 0.9621848739495799,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "joint_ready": {
+          "coverage": {
+            "samples": 238,
+            "fraction": 0.19816819317235637,
+            "longest_episode_seconds": 2.1999999999999993
+          },
+          "errors": {
+            "samples": 238,
+            "v": {
+              "finite_samples": 238,
+              "invalid_samples": 0,
+              "RMSE": 0.04650064096981173,
+              "P95": 0.08829394158729618
+            },
+            "eta": {
+              "finite_samples": 238,
+              "invalid_samples": 0,
+              "RMSE": 0.027874091809501865,
+              "P95": 0.049496392183493984
+            },
+            "angle": {
+              "finite_samples": 238,
+              "invalid_samples": 0,
+              "RMSE": 0.13212865016654116,
+              "P95": 0.24930269921162235
+            },
+            "norm": {
+              "finite_samples": 238,
+              "invalid_samples": 0,
+              "RMSE": 0.016281958814072725,
+              "P95": 0.033346439829661435
+            },
+            "wide_v_fraction": 0.9621848739495799,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        }
+      },
+      "raw_peaks": {
+        "v": {
+          "value": 7.621025869671467,
+          "time": 1.05
+        },
+        "eta": {
+          "value": 9.929359638554953,
+          "time": 0.4
+        },
+        "angle": {
+          "value": 126.36413597582964,
+          "time": 0.3
+        },
+        "norm": {
+          "value": 9.809999999999999,
+          "time": 0.0
+        }
+      },
+      "seeds": {
+        "STEREO": {
+          "accepted_writes": 0,
+          "unique_accepted_ids": 0,
+          "opportunity_ids": 0,
+          "accepted_opportunity_ids": 0,
+          "all_birth_ids": 1830,
+          "opportunity_acceptance": null,
+          "all_birth_acceptance": 0.0,
+          "reliable10": null,
+          "reliable5": null,
+          "parallel_RMSE": null,
+          "transverse_RMSE": null,
+          "normal_source_pass": false
+        },
+        "TEMPORAL_POSE": {
+          "accepted_writes": 1822,
+          "unique_accepted_ids": 1822,
+          "opportunity_ids": 1824,
+          "accepted_opportunity_ids": 1822,
+          "all_birth_ids": 1830,
+          "opportunity_acceptance": 0.9989035087719298,
+          "all_birth_acceptance": 0.9956284153005465,
+          "reliable10": 0.9950603732162459,
+          "reliable5": 0.9374313940724479,
+          "parallel_RMSE": 0.09113488839190427,
+          "transverse_RMSE": 0.005418256339430047,
+          "normal_source_pass": true
+        }
+      },
+      "predeclared_normal_source": "TEMPORAL_POSE",
+      "normal_source_contract_pass": true,
+      "raw_evaluator_absolute_contract": {
+        "ready_G": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "ready_V": {
+          "accuracy": true,
+          "coverage": false
+        },
+        "joint_5s": false
+      },
+      "raw_evaluator_severe_ready_pass": {
+        "V": true,
+        "G": true
+      },
+      "recovery": {
+        "applicable": false
+      }
+    },
+    {
+      "case": {
+        "name": "WRONG_MATCH_REGULAR_1_201",
+        "scene": "REGULAR",
+        "lifetime": 1,
+        "condition": "WRONG_MATCH",
+        "source": "HYBRID",
+        "seed": 201
+      },
+      "attempts": [
+        {
+          "stage": "frozen_input_generation",
+          "attempt": {
+            "id": 113,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0113"
+          }
+        },
+        {
+          "stage": "frozen_complete_C02",
+          "attempt": {
+            "id": 116,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0116"
+          }
+        },
+        {
+          "stage": "frozen_offline_evaluation",
+          "attempt": {
+            "id": 118,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0118"
+          }
+        }
+      ],
+      "metrics_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/WRONG_MATCH_REGULAR_1_201/evaluation_v1/metrics.json",
+      "metrics_sha": "e652a01294df5e27d0aceb347628cce7500d2d82b1e978e9a7c9ee30b2720ff0",
+      "run_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/WRONG_MATCH_REGULAR_1_201/P_NEW_ACTIVE/run.json",
+      "run_sha": "e6fa200a18ea5876c59deeeac357719413eb7b6c49d9265a19353222394e0040",
+      "run_identity": {
+        "mode": "P_NEW_ACTIVE",
+        "source": "HYBRID",
+        "input_sha": "08815323ae9217115789345b1e7c9b92675ac2b1a402e9be09b30375796c6507",
+        "library_sha": "88684ca34b42c5c349e02e94f5b36a9eabc3a7bec50d4d92ab3b226ec4a520de",
+        "runner_sha": "422666df747443c4cf11a72bd271cae5246ef4eec5964f3e4062289d38b84b4e",
+        "prior_covariance_helper_sha": "23d0d45cbbae558d25b31c958cd85b77353d5438e098f67909c72b76c2ac462c",
+        "GT_estimator_access": false,
+        "status": "COMPLETED_ESTIMATION",
+        "imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "between_camera_contract": "Held internal snapshot with actual camera cursor, never a new current estimate",
+        "max_seconds": null,
+        "heavy_diagnostics": true,
+        "elapsed_seconds": 17.244310623966157,
+        "camera_events": 1201,
+        "samples": 12001,
+        "full_input_consumed": true,
+        "states_sha": "58c33636cc08af068b7cd93594db2966dd2c94558c173629c467859fe05534dd"
+      },
+      "input_identity": {
+        "scene": "REGULAR",
+        "geometry_name": "EUROC_CALIBRATED_NEAR_2_4M",
+        "seed": 201,
+        "lifetime": 1.0,
+        "condition": "WRONG_MATCH",
+        "duration": 60.0,
+        "schema_version": 2,
+        "calibration": "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+        "calibration_sha": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+        "generator_sha": "914020a9fb62853fd1b63445aa9a1931222192d90c65af7299d93f830d1596a8",
+        "mathematical_functions_sha": "180ef627889932ad6f19baad569fda520c09e23b41871da1ea6cb8e84da46c67",
+        "truth_model_sha": "2bfe9e7dcccde4f4bfd1c41c2c687fa6408a17d605eeb514d0703ba2e83b5747",
+        "input_sha": "08815323ae9217115789345b1e7c9b92675ac2b1a402e9be09b30375796c6507",
+        "labels_sha": "5227503d4327bc1e39206ff2015df0d372d35b1d8f1deae77edb6cd45fd79398",
+        "confirmation_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+        "negative_control": true,
+        "reliable_supply_contract": {
+          "min_points": 15,
+          "min_history_frames": 3,
+          "min_history_seconds": 0.1,
+          "min_ray_m": 0.1,
+          "min_parallax_rad": 0.008726646259971648,
+          "max_condition": 100000000.0,
+          "max_relative_parallel_risk": 0.05,
+          "bearing_sigma_rad": 0.0008726646259971648,
+          "source": "Input-only true stereo geometry and fixed noise model; same-ID synchronous lawful observations, causal history; not a probability guarantee, no candidate seed/output error/readiness used"
+        },
+        "opportunity_contract": {
+          "stereo": "current same-ID legal cam0+cam1, equal integer timestamp, before solver/risk/history/capacity",
+          "temporal": "current cam0 with >=3 consecutive frames spanning >=0.10s; before solver/parallax/risk/capacity",
+          "birth": "first actual cam0 visibility of ID; both sources also report all-birth denominator"
+        },
+        "estimator_payload": "inputs.npz only; labels and identity condition/lifetime fields evaluator/dispatcher only",
+        "adapter_imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "old_pressure_regression": "Reuse historical input path and exact SHA; not regenerated by this adapter",
+        "negative_noise_profile": {
+          "name": "bad_match_and_heavy_tail",
+          "retains_gaussian_sigma_deg": 0.05,
+          "probability_per_camera_point": 0.02,
+          "student_t_df": 3,
+          "tangent_scale_deg": 0.5,
+          "independent_rng": "SeedSequence([seed,57031])",
+          "label": "heavy_tail_outlier maps actual source_slot after wrong-ID association",
+          "estimator_sigma_unchanged": true,
+          "normal_condition_inputs_unchanged": true
+        }
+      },
+      "raw_missing_fraction": 0.0,
+      "supports": {
+        "raw": {
+          "coverage": {
+            "samples": 1201,
+            "fraction": 1.0,
+            "longest_episode_seconds": 60.0
+          },
+          "errors": {
+            "samples": 1201,
+            "v": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 0.9166866477870008,
+              "P95": 1.6348730786494066
+            },
+            "eta": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.547179109355406,
+              "P95": 1.5151757869411562
+            },
+            "angle": {
+              "finite_samples": 1198,
+              "invalid_samples": 3,
+              "RMSE": 7.67746210096346,
+              "P95": 1.4789437015673883
+            },
+            "norm": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.5351901847532563,
+              "P95": 1.4958579521981807
+            },
+            "wide_v_fraction": 0.9100749375520399,
+            "wide_g_fraction": 0.9267277268942548,
+            "severe_v_fraction": 0.05745212323064113,
+            "severe_g_fraction": 0.034970857618651124
+          }
+        },
+        "ready_G": {
+          "coverage": {
+            "samples": 960,
+            "fraction": 0.7993338884263114,
+            "longest_episode_seconds": 18.15
+          },
+          "errors": {
+            "samples": 960,
+            "v": {
+              "finite_samples": 960,
+              "invalid_samples": 0,
+              "RMSE": 0.039451601995470535,
+              "P95": 0.07088343358850895
+            },
+            "eta": {
+              "finite_samples": 960,
+              "invalid_samples": 0,
+              "RMSE": 0.023794801352209405,
+              "P95": 0.03574005527876104
+            },
+            "angle": {
+              "finite_samples": 960,
+              "invalid_samples": 0,
+              "RMSE": 0.11333171021657415,
+              "P95": 0.17867480350045548
+            },
+            "norm": {
+              "finite_samples": 960,
+              "invalid_samples": 0,
+              "RMSE": 0.013798644301598703,
+              "P95": 0.02456052366598609
+            },
+            "wide_v_fraction": 0.984375,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "ready_V": {
+          "coverage": {
+            "samples": 938,
+            "fraction": 0.7810158201498751,
+            "longest_episode_seconds": 17.05
+          },
+          "errors": {
+            "samples": 938,
+            "v": {
+              "finite_samples": 938,
+              "invalid_samples": 0,
+              "RMSE": 0.03329415752609842,
+              "P95": 0.06663544311972569
+            },
+            "eta": {
+              "finite_samples": 938,
+              "invalid_samples": 0,
+              "RMSE": 0.019593389406451178,
+              "P95": 0.0334518868009077
+            },
+            "angle": {
+              "finite_samples": 938,
+              "invalid_samples": 0,
+              "RMSE": 0.0929131593301484,
+              "P95": 0.17008744180205207
+            },
+            "norm": {
+              "finite_samples": 938,
+              "invalid_samples": 0,
+              "RMSE": 0.011437989295554023,
+              "P95": 0.022956263851935964
+            },
+            "wide_v_fraction": 1.0,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "joint_ready": {
+          "coverage": {
+            "samples": 938,
+            "fraction": 0.7810158201498751,
+            "longest_episode_seconds": 17.05
+          },
+          "errors": {
+            "samples": 938,
+            "v": {
+              "finite_samples": 938,
+              "invalid_samples": 0,
+              "RMSE": 0.03329415752609842,
+              "P95": 0.06663544311972569
+            },
+            "eta": {
+              "finite_samples": 938,
+              "invalid_samples": 0,
+              "RMSE": 0.019593389406451178,
+              "P95": 0.0334518868009077
+            },
+            "angle": {
+              "finite_samples": 938,
+              "invalid_samples": 0,
+              "RMSE": 0.0929131593301484,
+              "P95": 0.17008744180205207
+            },
+            "norm": {
+              "finite_samples": 938,
+              "invalid_samples": 0,
+              "RMSE": 0.011437989295554023,
+              "P95": 0.022956263851935964
+            },
+            "wide_v_fraction": 1.0,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        }
+      },
+      "raw_peaks": {
+        "v": {
+          "value": 5.388798607979967,
+          "time": 1.1
+        },
+        "eta": {
+          "value": 9.820282769075561,
+          "time": 0.3
+        },
+        "angle": {
+          "value": 108.4693852134127,
+          "time": 0.15
+        },
+        "norm": {
+          "value": 9.809999999999999,
+          "time": 0.0
+        }
+      },
+      "seeds": {
+        "STEREO": {
+          "accepted_writes": 1625,
+          "unique_accepted_ids": 1625,
+          "opportunity_ids": 1830,
+          "accepted_opportunity_ids": 1625,
+          "all_birth_ids": 1830,
+          "opportunity_acceptance": 0.8879781420765027,
+          "all_birth_acceptance": 0.8879781420765027,
+          "reliable10": 0.9753846153846154,
+          "reliable5": 0.8252307692307692,
+          "parallel_RMSE": 0.15771367873462308,
+          "transverse_RMSE": 0.004505736257790052,
+          "normal_source_pass": true
+        },
+        "TEMPORAL_POSE": {
+          "accepted_writes": 186,
+          "unique_accepted_ids": 186,
+          "opportunity_ids": 1824,
+          "accepted_opportunity_ids": 186,
+          "all_birth_ids": 1830,
+          "opportunity_acceptance": 0.10197368421052631,
+          "all_birth_acceptance": 0.10163934426229508,
+          "reliable10": 0.946236559139785,
+          "reliable5": 0.6397849462365591,
+          "parallel_RMSE": 0.16303171860078586,
+          "transverse_RMSE": 0.008083941041741033,
+          "normal_source_pass": false
+        }
+      },
+      "predeclared_normal_source": null,
+      "normal_source_contract_pass": null,
+      "raw_evaluator_absolute_contract": {
+        "ready_G": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "ready_V": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "joint_5s": true
+      },
+      "raw_evaluator_severe_ready_pass": {
+        "V": true,
+        "G": true
+      },
+      "recovery": {
+        "applicable": false
+      }
+    },
+    {
+      "case": {
+        "name": "STEREO_DROPOUT_REGULAR_1_202",
+        "scene": "REGULAR",
+        "lifetime": 1,
+        "condition": "STEREO_DROPOUT",
+        "source": "HYBRID",
+        "seed": 202
+      },
+      "attempts": [
+        {
+          "stage": "frozen_input_generation",
+          "attempt": {
+            "id": 115,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0115"
+          }
+        },
+        {
+          "stage": "frozen_complete_C02",
+          "attempt": {
+            "id": 117,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0117"
+          }
+        },
+        {
+          "stage": "frozen_offline_evaluation",
+          "attempt": {
+            "id": 120,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0120"
+          }
+        }
+      ],
+      "metrics_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_DROPOUT_REGULAR_1_202/evaluation_v1/metrics.json",
+      "metrics_sha": "5dab44d372d414802640d6b39281dd9dc72034917fb8748ffe54508a046fd65d",
+      "run_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_DROPOUT_REGULAR_1_202/P_NEW_ACTIVE/run.json",
+      "run_sha": "2833e78592db3f1ebd7d334d1436c3a7ef0d3db3d624f3a80f04e0d3c9bb9361",
+      "run_identity": {
+        "mode": "P_NEW_ACTIVE",
+        "source": "HYBRID",
+        "input_sha": "e889674809dc30d00cfd49d02d33836e9fc535c8ff97239cbf080f136d87dff0",
+        "library_sha": "88684ca34b42c5c349e02e94f5b36a9eabc3a7bec50d4d92ab3b226ec4a520de",
+        "runner_sha": "422666df747443c4cf11a72bd271cae5246ef4eec5964f3e4062289d38b84b4e",
+        "prior_covariance_helper_sha": "23d0d45cbbae558d25b31c958cd85b77353d5438e098f67909c72b76c2ac462c",
+        "GT_estimator_access": false,
+        "status": "COMPLETED_ESTIMATION",
+        "imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "between_camera_contract": "Held internal snapshot with actual camera cursor, never a new current estimate",
+        "max_seconds": null,
+        "heavy_diagnostics": true,
+        "elapsed_seconds": 17.790787084959447,
+        "camera_events": 1201,
+        "samples": 12001,
+        "full_input_consumed": true,
+        "states_sha": "1f84bde60cfc4b24f2e05a50d5d25a1b520da0804fb30159f98f07dce07b8508"
+      },
+      "input_identity": {
+        "scene": "REGULAR",
+        "geometry_name": "EUROC_CALIBRATED_NEAR_2_4M",
+        "seed": 202,
+        "lifetime": 1.0,
+        "condition": "STEREO_DROPOUT",
+        "duration": 60.0,
+        "schema_version": 2,
+        "calibration": "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+        "calibration_sha": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+        "generator_sha": "914020a9fb62853fd1b63445aa9a1931222192d90c65af7299d93f830d1596a8",
+        "mathematical_functions_sha": "180ef627889932ad6f19baad569fda520c09e23b41871da1ea6cb8e84da46c67",
+        "truth_model_sha": "2bfe9e7dcccde4f4bfd1c41c2c687fa6408a17d605eeb514d0703ba2e83b5747",
+        "input_sha": "e889674809dc30d00cfd49d02d33836e9fc535c8ff97239cbf080f136d87dff0",
+        "labels_sha": "0d427fe2da1b92d3221cc77b1f6ab01b99e0ff05c7b476427a34e968247ac266",
+        "confirmation_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+        "negative_control": false,
+        "reliable_supply_contract": {
+          "min_points": 15,
+          "min_history_frames": 3,
+          "min_history_seconds": 0.1,
+          "min_ray_m": 0.1,
+          "min_parallax_rad": 0.008726646259971648,
+          "max_condition": 100000000.0,
+          "max_relative_parallel_risk": 0.05,
+          "bearing_sigma_rad": 0.0008726646259971648,
+          "source": "Input-only true stereo geometry and fixed noise model; same-ID synchronous lawful observations, causal history; not a probability guarantee, no candidate seed/output error/readiness used"
+        },
+        "opportunity_contract": {
+          "stereo": "current same-ID legal cam0+cam1, equal integer timestamp, before solver/risk/history/capacity",
+          "temporal": "current cam0 with >=3 consecutive frames spanning >=0.10s; before solver/parallax/risk/capacity",
+          "birth": "first actual cam0 visibility of ID; both sources also report all-birth denominator"
+        },
+        "estimator_payload": "inputs.npz only; labels and identity condition/lifetime fields evaluator/dispatcher only",
+        "adapter_imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "old_pressure_regression": "Reuse historical input path and exact SHA; not regenerated by this adapter"
+      },
+      "raw_missing_fraction": 0.0,
+      "supports": {
+        "raw": {
+          "coverage": {
+            "samples": 1201,
+            "fraction": 1.0,
+            "longest_episode_seconds": 60.0
+          },
+          "errors": {
+            "samples": 1201,
+            "v": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 0.8862359518033741,
+              "P95": 1.5052659507321504
+            },
+            "eta": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.539617258018159,
+              "P95": 1.480391651602315
+            },
+            "angle": {
+              "finite_samples": 1198,
+              "invalid_samples": 3,
+              "RMSE": 7.653208600481429,
+              "P95": 1.4759611959938692
+            },
+            "norm": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.5284538885235153,
+              "P95": 1.4635296347689604
+            },
+            "wide_v_fraction": 0.9109075770191507,
+            "wide_g_fraction": 0.925895087427144,
+            "severe_v_fraction": 0.05745212323064113,
+            "severe_g_fraction": 0.034970857618651124
+          }
+        },
+        "ready_G": {
+          "coverage": {
+            "samples": 976,
+            "fraction": 0.8126561199000832,
+            "longest_episode_seconds": 26.450000000000003
+          },
+          "errors": {
+            "samples": 976,
+            "v": {
+              "finite_samples": 976,
+              "invalid_samples": 0,
+              "RMSE": 0.03629328584793588,
+              "P95": 0.05829236078115399
+            },
+            "eta": {
+              "finite_samples": 976,
+              "invalid_samples": 0,
+              "RMSE": 0.02218309558040242,
+              "P95": 0.03382050457227597
+            },
+            "angle": {
+              "finite_samples": 976,
+              "invalid_samples": 0,
+              "RMSE": 0.10161252181478177,
+              "P95": 0.18860788588630084
+            },
+            "norm": {
+              "finite_samples": 976,
+              "invalid_samples": 0,
+              "RMSE": 0.013784713193455039,
+              "P95": 0.02248443928882038
+            },
+            "wide_v_fraction": 0.985655737704918,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "ready_V": {
+          "coverage": {
+            "samples": 949,
+            "fraction": 0.7901748542880933,
+            "longest_episode_seconds": 26.450000000000003
+          },
+          "errors": {
+            "samples": 949,
+            "v": {
+              "finite_samples": 949,
+              "invalid_samples": 0,
+              "RMSE": 0.03113633968772436,
+              "P95": 0.05429100440724643
+            },
+            "eta": {
+              "finite_samples": 949,
+              "invalid_samples": 0,
+              "RMSE": 0.0185454634079141,
+              "P95": 0.03087270986625339
+            },
+            "angle": {
+              "finite_samples": 949,
+              "invalid_samples": 0,
+              "RMSE": 0.08648832082978515,
+              "P95": 0.16090830608878337
+            },
+            "norm": {
+              "finite_samples": 949,
+              "invalid_samples": 0,
+              "RMSE": 0.01116473381823065,
+              "P95": 0.02122917548308577
+            },
+            "wide_v_fraction": 1.0,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "joint_ready": {
+          "coverage": {
+            "samples": 949,
+            "fraction": 0.7901748542880933,
+            "longest_episode_seconds": 26.450000000000003
+          },
+          "errors": {
+            "samples": 949,
+            "v": {
+              "finite_samples": 949,
+              "invalid_samples": 0,
+              "RMSE": 0.03113633968772436,
+              "P95": 0.05429100440724643
+            },
+            "eta": {
+              "finite_samples": 949,
+              "invalid_samples": 0,
+              "RMSE": 0.0185454634079141,
+              "P95": 0.03087270986625339
+            },
+            "angle": {
+              "finite_samples": 949,
+              "invalid_samples": 0,
+              "RMSE": 0.08648832082978515,
+              "P95": 0.16090830608878337
+            },
+            "norm": {
+              "finite_samples": 949,
+              "invalid_samples": 0,
+              "RMSE": 0.01116473381823065,
+              "P95": 0.02122917548308577
+            },
+            "wide_v_fraction": 1.0,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        }
+      },
+      "raw_peaks": {
+        "v": {
+          "value": 5.241166893540308,
+          "time": 1.05
+        },
+        "eta": {
+          "value": 9.820708521269827,
+          "time": 0.3
+        },
+        "angle": {
+          "value": 107.8902808855553,
+          "time": 0.15
+        },
+        "norm": {
+          "value": 9.809999999999999,
+          "time": 0.0
+        }
+      },
+      "seeds": {
+        "STEREO": {
+          "accepted_writes": 1372,
+          "unique_accepted_ids": 1372,
+          "opportunity_ids": 1408,
+          "accepted_opportunity_ids": 1372,
+          "all_birth_ids": 1830,
+          "opportunity_acceptance": 0.9744318181818182,
+          "all_birth_acceptance": 0.7497267759562841,
+          "reliable10": 0.9970845481049563,
+          "reliable5": 0.8418367346938775,
+          "parallel_RMSE": 0.12445515130606749,
+          "transverse_RMSE": 0.0032738251681465277,
+          "normal_source_pass": true
+        },
+        "TEMPORAL_POSE": {
+          "accepted_writes": 443,
+          "unique_accepted_ids": 443,
+          "opportunity_ids": 1824,
+          "accepted_opportunity_ids": 443,
+          "all_birth_ids": 1830,
+          "opportunity_acceptance": 0.24287280701754385,
+          "all_birth_acceptance": 0.24207650273224043,
+          "reliable10": 0.9729119638826185,
+          "reliable5": 0.7020316027088036,
+          "parallel_RMSE": 0.15218811944195226,
+          "transverse_RMSE": 0.0067374559670789974,
+          "normal_source_pass": true
+        }
+      },
+      "predeclared_normal_source": null,
+      "normal_source_contract_pass": null,
+      "raw_evaluator_absolute_contract": {
+        "ready_G": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "ready_V": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "joint_5s": true
+      },
+      "raw_evaluator_severe_ready_pass": {
+        "V": true,
+        "G": true
+      },
+      "recovery": {
+        "applicable": true,
+        "episodes": [
+          {
+            "supply_start": 30.0,
+            "supply_end": 31.5,
+            "deadline": 40.0,
+            "status": "SUPPLY_INTERRUPTED_BEFORE_DEADLINE",
+            "pass": false,
+            "first_interval": null
+          },
+          {
+            "supply_start": 31.7,
+            "supply_end": 60.0,
+            "deadline": 41.7,
+            "status": "PASS",
+            "pass": true,
+            "first_interval": {
+              "start": 33.55,
+              "end": 60.0,
+              "duration": 26.450000000000003,
+              "samples": 530
+            }
+          }
+        ],
+        "pass": false,
+        "status": "EVALUATED"
+      }
+    },
+    {
+      "case": {
+        "name": "TIME_ERROR_REGULAR_1_201",
+        "scene": "REGULAR",
+        "lifetime": 1,
+        "condition": "TIME_ERROR",
+        "source": "HYBRID",
+        "seed": 201
+      },
+      "attempts": [
+        {
+          "stage": "frozen_input_generation",
+          "attempt": {
+            "id": 119,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0119"
+          }
+        },
+        {
+          "stage": "frozen_complete_C02",
+          "attempt": {
+            "id": 123,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0123"
+          }
+        },
+        {
+          "stage": "frozen_offline_evaluation",
+          "attempt": {
+            "id": 125,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0125"
+          }
+        }
+      ],
+      "metrics_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/TIME_ERROR_REGULAR_1_201/evaluation_v1/metrics.json",
+      "metrics_sha": "69d3b8fadc7adfb073b71fd7ec78e0440b72278b56bc16bff826cf47ce8ec335",
+      "run_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/TIME_ERROR_REGULAR_1_201/P_NEW_ACTIVE/run.json",
+      "run_sha": "eecf47c82bb2a4f5533a95225abeebad4e754989c19237c9e9de367b56a11cc1",
+      "run_identity": {
+        "mode": "P_NEW_ACTIVE",
+        "source": "HYBRID",
+        "input_sha": "eecb12081fcae0cc63077f1d022778199dfe5b5f44cb16f62fac714234b270b4",
+        "library_sha": "88684ca34b42c5c349e02e94f5b36a9eabc3a7bec50d4d92ab3b226ec4a520de",
+        "runner_sha": "422666df747443c4cf11a72bd271cae5246ef4eec5964f3e4062289d38b84b4e",
+        "prior_covariance_helper_sha": "23d0d45cbbae558d25b31c958cd85b77353d5438e098f67909c72b76c2ac462c",
+        "GT_estimator_access": false,
+        "status": "COMPLETED_ESTIMATION",
+        "imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "between_camera_contract": "Held internal snapshot with actual camera cursor, never a new current estimate",
+        "max_seconds": null,
+        "heavy_diagnostics": true,
+        "elapsed_seconds": 18.117712245089933,
+        "camera_events": 1201,
+        "samples": 12001,
+        "full_input_consumed": true,
+        "states_sha": "322790a738201db770a4b6dd9e3372c267b1e6006269dc7ca010a488b50aa980"
+      },
+      "input_identity": {
+        "scene": "REGULAR",
+        "geometry_name": "EUROC_CALIBRATED_NEAR_2_4M",
+        "seed": 201,
+        "lifetime": 1.0,
+        "condition": "TIME_ERROR",
+        "duration": 60.0,
+        "schema_version": 2,
+        "calibration": "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+        "calibration_sha": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+        "generator_sha": "914020a9fb62853fd1b63445aa9a1931222192d90c65af7299d93f830d1596a8",
+        "mathematical_functions_sha": "180ef627889932ad6f19baad569fda520c09e23b41871da1ea6cb8e84da46c67",
+        "truth_model_sha": "2bfe9e7dcccde4f4bfd1c41c2c687fa6408a17d605eeb514d0703ba2e83b5747",
+        "input_sha": "eecb12081fcae0cc63077f1d022778199dfe5b5f44cb16f62fac714234b270b4",
+        "labels_sha": "f92bf67b4e8e9f90780722d04de3c628e2878ce5bfb341fc913de14e94ced07d",
+        "confirmation_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+        "negative_control": true,
+        "reliable_supply_contract": {
+          "min_points": 15,
+          "min_history_frames": 3,
+          "min_history_seconds": 0.1,
+          "min_ray_m": 0.1,
+          "min_parallax_rad": 0.008726646259971648,
+          "max_condition": 100000000.0,
+          "max_relative_parallel_risk": 0.05,
+          "bearing_sigma_rad": 0.0008726646259971648,
+          "source": "Input-only true stereo geometry and fixed noise model; same-ID synchronous lawful observations, causal history; not a probability guarantee, no candidate seed/output error/readiness used"
+        },
+        "opportunity_contract": {
+          "stereo": "current same-ID legal cam0+cam1, equal integer timestamp, before solver/risk/history/capacity",
+          "temporal": "current cam0 with >=3 consecutive frames spanning >=0.10s; before solver/parallax/risk/capacity",
+          "birth": "first actual cam0 visibility of ID; both sources also report all-birth denominator"
+        },
+        "estimator_payload": "inputs.npz only; labels and identity condition/lifetime fields evaluator/dispatcher only",
+        "adapter_imu_contract": "imu_sample_times/imu_samples are 200Hz endpoint measurements, independent SeedSequence([seed,200,2]); legacy imu is midpoint and cannot be treated as endpoint or reused across numerical identities",
+        "old_pressure_regression": "Reuse historical input path and exact SHA; not regenerated by this adapter"
+      },
+      "raw_missing_fraction": 0.0,
+      "supports": {
+        "raw": {
+          "coverage": {
+            "samples": 1201,
+            "fraction": 1.0,
+            "longest_episode_seconds": 60.0
+          },
+          "errors": {
+            "samples": 1201,
+            "v": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 0.8950323536758448,
+              "P95": 1.5517226409036178
+            },
+            "eta": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.5420681116551387,
+              "P95": 1.4972749654666258
+            },
+            "angle": {
+              "finite_samples": 1198,
+              "invalid_samples": 3,
+              "RMSE": 7.6509761523892506,
+              "P95": 1.5363489237667043
+            },
+            "norm": {
+              "finite_samples": 1201,
+              "invalid_samples": 0,
+              "RMSE": 1.5308101711485198,
+              "P95": 1.4781654242771793
+            },
+            "wide_v_fraction": 0.9100749375520399,
+            "wide_g_fraction": 0.925895087427144,
+            "severe_v_fraction": 0.05745212323064113,
+            "severe_g_fraction": 0.034970857618651124
+          }
+        },
+        "ready_G": {
+          "coverage": {
+            "samples": 1044,
+            "fraction": 0.8692756036636137,
+            "longest_episode_seconds": 26.85
+          },
+          "errors": {
+            "samples": 1044,
+            "v": {
+              "finite_samples": 1044,
+              "invalid_samples": 0,
+              "RMSE": 0.03475208848613363,
+              "P95": 0.05253655242852428
+            },
+            "eta": {
+              "finite_samples": 1044,
+              "invalid_samples": 0,
+              "RMSE": 0.02118618957717697,
+              "P95": 0.029412707678581833
+            },
+            "angle": {
+              "finite_samples": 1044,
+              "invalid_samples": 0,
+              "RMSE": 0.09726353882378555,
+              "P95": 0.15168017537482462
+            },
+            "norm": {
+              "finite_samples": 1044,
+              "invalid_samples": 0,
+              "RMSE": 0.013127740915945284,
+              "P95": 0.019258584579673152
+            },
+            "wide_v_fraction": 0.985632183908046,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "ready_V": {
+          "coverage": {
+            "samples": 1024,
+            "fraction": 0.8526228143213989,
+            "longest_episode_seconds": 25.85
+          },
+          "errors": {
+            "samples": 1024,
+            "v": {
+              "finite_samples": 1024,
+              "invalid_samples": 0,
+              "RMSE": 0.027891333891089474,
+              "P95": 0.04957887048428205
+            },
+            "eta": {
+              "finite_samples": 1024,
+              "invalid_samples": 0,
+              "RMSE": 0.016410329304047875,
+              "P95": 0.027708867004106706
+            },
+            "angle": {
+              "finite_samples": 1024,
+              "invalid_samples": 0,
+              "RMSE": 0.07690486846689397,
+              "P95": 0.13943091559523563
+            },
+            "norm": {
+              "finite_samples": 1024,
+              "invalid_samples": 0,
+              "RMSE": 0.009793962510534595,
+              "P95": 0.018591395374150197
+            },
+            "wide_v_fraction": 1.0,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        },
+        "joint_ready": {
+          "coverage": {
+            "samples": 1024,
+            "fraction": 0.8526228143213989,
+            "longest_episode_seconds": 25.85
+          },
+          "errors": {
+            "samples": 1024,
+            "v": {
+              "finite_samples": 1024,
+              "invalid_samples": 0,
+              "RMSE": 0.027891333891089474,
+              "P95": 0.04957887048428205
+            },
+            "eta": {
+              "finite_samples": 1024,
+              "invalid_samples": 0,
+              "RMSE": 0.016410329304047875,
+              "P95": 0.027708867004106706
+            },
+            "angle": {
+              "finite_samples": 1024,
+              "invalid_samples": 0,
+              "RMSE": 0.07690486846689397,
+              "P95": 0.13943091559523563
+            },
+            "norm": {
+              "finite_samples": 1024,
+              "invalid_samples": 0,
+              "RMSE": 0.009793962510534595,
+              "P95": 0.018591395374150197
+            },
+            "wide_v_fraction": 1.0,
+            "wide_g_fraction": 1.0,
+            "severe_v_fraction": 0.0,
+            "severe_g_fraction": 0.0
+          }
+        }
+      },
+      "raw_peaks": {
+        "v": {
+          "value": 5.26605176445989,
+          "time": 1.05
+        },
+        "eta": {
+          "value": 9.820287306730762,
+          "time": 0.3
+        },
+        "angle": {
+          "value": 108.4693852134127,
+          "time": 0.15
+        },
+        "norm": {
+          "value": 9.809999999999999,
+          "time": 0.0
+        }
+      },
+      "seeds": {
+        "STEREO": {
+          "accepted_writes": 1626,
+          "unique_accepted_ids": 1626,
+          "opportunity_ids": 1647,
+          "accepted_opportunity_ids": 1626,
+          "all_birth_ids": 1830,
+          "opportunity_acceptance": 0.9872495446265938,
+          "all_birth_acceptance": 0.8885245901639345,
+          "reliable10": 0.9920049200492005,
+          "reliable5": 0.8450184501845018,
+          "parallel_RMSE": 0.12543891161680043,
+          "transverse_RMSE": 0.0033210920108056852,
+          "normal_source_pass": true
+        },
+        "TEMPORAL_POSE": {
+          "accepted_writes": 195,
+          "unique_accepted_ids": 195,
+          "opportunity_ids": 1824,
+          "accepted_opportunity_ids": 195,
+          "all_birth_ids": 1830,
+          "opportunity_acceptance": 0.1069078947368421,
+          "all_birth_acceptance": 0.10655737704918032,
+          "reliable10": 0.9794871794871794,
+          "reliable5": 0.6512820512820513,
+          "parallel_RMSE": 0.15377951775302995,
+          "transverse_RMSE": 0.007878498529741295,
+          "normal_source_pass": false
+        }
+      },
+      "predeclared_normal_source": null,
+      "normal_source_contract_pass": null,
+      "raw_evaluator_absolute_contract": {
+        "ready_G": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "ready_V": {
+          "accuracy": true,
+          "coverage": true
+        },
+        "joint_5s": true
+      },
+      "raw_evaluator_severe_ready_pass": {
+        "V": true,
+        "G": true
+      },
+      "recovery": {
+        "applicable": false
+      }
+    },
+    {
+      "case": {
+        "name": "PRESSURE_REGULAR_05_202",
+        "scene": "REGULAR",
+        "lifetime": 0.5,
+        "condition": "PRESSURE",
+        "source": "HYBRID",
+        "seed": 202
+      },
+      "attempts": [
+        {
+          "stage": "frozen_input_generation",
+          "attempt": {
+            "id": 121,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0121"
+          }
+        },
+        {
+          "stage": "frozen_complete_C02",
+          "attempt": {
+            "id": 122,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0122"
+          }
+        },
+        {
+          "stage": "frozen_offline_evaluation",
+          "attempt": {
+            "id": 124,
+            "exit_code": 0,
+            "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0124"
+          }
+        }
+      ],
+      "metrics_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/PRESSURE_REGULAR_05_202/evaluation_v1/metrics.json",
+      "metrics_sha": "f31466f397c02b5ee9b94664f95334fecff1eaf196a3ccc2caaea2ed47044c31",
+      "run_path": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/PRESSURE_REGULAR_05_202/P_NEW_ACTIVE/run.json",
+      "run_sha": "9ac2a41a43eb1f213c8322e164a054d6a7a0d6128c0f25b3718b478da5c9b806",
+      "run_identity": {
+        "mode": "P_NEW_ACTIVE",
+        "source": "HYBRID",
+        "input_sha": "b00c518f9fad146fdfdc311d488bdc7af1f1f02e943eca1eb446338da1798e1e",
+        "library_sha": "88684ca34b42c5c349e02e94f5b36a9eabc3a7bec50d4d92ab3b226ec4a520de",
+        "runner_sha": "422666df747443c4cf11a72bd271cae5246ef4eec5964f3e4062289d38b84b4e",
+        "prior_covariance_helper_sha": "23d0d45cbbae558d25b31c958cd85b77353d5438e098f67909c72b76c2ac462c",
+        "GT_estimator_access": false,
+        "status": "COMPLETED_ESTIMATION",
+        "imu_contract": "Original midpoint sample values at (j+.5)/200 seconds; two declared constant boundary guards; Adapter interpolates timestamped samples",
+        "between_camera_contract": "Held internal snapshot with actual camera cursor, never a new current estimate",
+        "max_seconds": null,
+        "heavy_diagnostics": true,
+        "elapsed_seconds": 10.023571657948196,
+        "camera_events": 1201,
+        "samples": 12001,
+        "full_input_consumed": true,
+        "states_sha": "2caace97a16d3ae40d48b72309f322f32c1e482f360932bd1ce860e5c9c447af"
+      },
+      "input_identity": {
+        "scene": "REGULAR",
+        "seed": 202,
+        "lifetime": 0.5,
+        "duration": 60.0,
+        "noise": true,
+        "imu_hz": 200,
+        "camera_hz": 20,
+        "stereo_baseline_camera_x_m": 0.11,
+        "protocol_sha": "4f5942ce2f45794324c4da0510c1d16d0f9df07514677ef99cd2303f56c2ba12",
+        "generator_sha": "4a36c77e746bfb317a9f46fc1d9f9b08215f657cdc2ee51bceaf5db5253ba965",
+        "truth_model_sha": "2bfe9e7dcccde4f4bfd1c41c2c687fa6408a17d605eeb514d0703ba2e83b5747",
+        "confirmation_freeze_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+        "input_sha": "b00c518f9fad146fdfdc311d488bdc7af1f1f02e943eca1eb446338da1798e1e",
+        "labels_sha": "579de6dde6d9808b7f11969618a944f013bd3f31130b0c3642274fc4203a8da3",
+        "schema_version": 2,
+        "historical_input_sha": "f2b842c1d35aace9e02f77ecf28389847e2a8054b504c53ea752358a0df576bd",
+        "historical_labels_sha": "d6bcfbe377d2c92249ba7b297d1a90dcc0d8b8cf5f984913e43402534c24b682",
+        "historical_identity_sha": "88cbf9bb9d1cfcc37eeaea861c50122485af044fefa13b8dd562e23c77d8870d",
+        "historical_source": "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/PRESSURE_REGULAR_05_202_source",
+        "bridge_sha": "c3afed007cb7f7a1678f932d45ba560774aac6aca2cc7df2ac717a7e1bc7a50d",
+        "geometry_name": "ORIGINAL_FAR_REGULAR_NEW_RANDOM_SEED",
+        "condition": "PRESSURE",
+        "negative_control": true,
+        "unseen_confirmation": true,
+        "original_feature_ids_mapping": "historical_feature_ids[k,j] == feature_ids[offset[k]+2*j:offset[k]+2*j+2]; cam0/cam1 alternating",
+        "original_bearing_mapping": "bearings[offset[k]+2*j+c] equals original bearings_left/right[k,j] bit-for-bit",
+        "adapter_imu_contract": "Original midpoint sample values at (j+.5)/200 seconds; two declared constant boundary guards; Adapter interpolates timestamped samples",
+        "boundary_augmentation": {
+          "sample_times": [
+            -0.0025,
+            60.0025
+          ],
+          "values": "copies of first/last original IMU row; no truth-derived replacement/no new noise"
+        },
+        "numerical_identity": "NEW: linear sample interpolation and Adapter subinterval propagation; not historical direct interval-midpoint reproduction",
+        "opportunity_contract": {
+          "stereo": "all original legal synchronous two-view IDs before risk/history/capacity",
+          "temporal": "same ID cam0 >=3 consecutive frames spanning .10s before risk/capacity"
+        },
+        "labels_mapping": "Original truth archive copied byte-for-byte; mapped truth v/eta are final six state columns; physical point by saved physical_indices",
+        "recovery_supply": "Not defined for historical input; no recovery claim",
+        "estimator_payload": "inputs.npz only; historical labels and identity are provenance/evaluator only",
+        "producer_sha": "4a36c77e746bfb317a9f46fc1d9f9b08215f657cdc2ee51bceaf5db5253ba965",
+        "source_kind": "NEW_FAR_PRESSURE_FROM_HISTORICAL_FORMULAS",
+        "original_generator_sha": "180ef627889932ad6f19baad569fda520c09e23b41871da1ea6cb8e84da46c67",
+        "historical_prefix_note": "bridge archival prefix denotes pre-bridge source, not a reused historical experiment"
+      },
+      "raw_missing_fraction": 0.9658617818484596,
+      "supports": {
+        "raw": {
+          "coverage": {
+            "samples": 41,
+            "fraction": 0.03413821815154038,
+            "longest_episode_seconds": 2.0
+          },
+          "errors": {
+            "samples": 41,
+            "v": {
+              "finite_samples": 41,
+              "invalid_samples": 0,
+              "RMSE": 10.976043229631806,
+              "P95": 18.046651690224884
+            },
+            "eta": {
+              "finite_samples": 41,
+              "invalid_samples": 0,
+              "RMSE": 9.802002937485636,
+              "P95": 9.813883815092414
+            },
+            "angle": {
+              "finite_samples": 34,
+              "invalid_samples": 7,
+              "RMSE": 61.45113153591368,
+              "P95": 102.29223367674021
+            },
+            "norm": {
+              "finite_samples": 41,
+              "invalid_samples": 0,
+              "RMSE": 9.795452151570553,
+              "P95": 9.809999999999999
+            },
+            "wide_v_fraction": 0.0,
+            "wide_g_fraction": 0.0,
+            "severe_v_fraction": 1.0,
+            "severe_g_fraction": 1.0
+          }
+        },
+        "ready_G": {
+          "coverage": {
+            "samples": 0,
+            "fraction": 0.0,
+            "longest_episode_seconds": 0.0
+          },
+          "errors": {
+            "samples": 0,
+            "v": {
+              "finite_samples": 0,
+              "invalid_samples": 0,
+              "RMSE": null,
+              "P95": null
+            },
+            "eta": {
+              "finite_samples": 0,
+              "invalid_samples": 0,
+              "RMSE": null,
+              "P95": null
+            },
+            "angle": {
+              "finite_samples": 0,
+              "invalid_samples": 0,
+              "RMSE": null,
+              "P95": null
+            },
+            "norm": {
+              "finite_samples": 0,
+              "invalid_samples": 0,
+              "RMSE": null,
+              "P95": null
+            },
+            "wide_v_fraction": null,
+            "wide_g_fraction": null,
+            "severe_v_fraction": null,
+            "severe_g_fraction": null
+          }
+        },
+        "ready_V": {
+          "coverage": {
+            "samples": 0,
+            "fraction": 0.0,
+            "longest_episode_seconds": 0.0
+          },
+          "errors": {
+            "samples": 0,
+            "v": {
+              "finite_samples": 0,
+              "invalid_samples": 0,
+              "RMSE": null,
+              "P95": null
+            },
+            "eta": {
+              "finite_samples": 0,
+              "invalid_samples": 0,
+              "RMSE": null,
+              "P95": null
+            },
+            "angle": {
+              "finite_samples": 0,
+              "invalid_samples": 0,
+              "RMSE": null,
+              "P95": null
+            },
+            "norm": {
+              "finite_samples": 0,
+              "invalid_samples": 0,
+              "RMSE": null,
+              "P95": null
+            },
+            "wide_v_fraction": null,
+            "wide_g_fraction": null,
+            "severe_v_fraction": null,
+            "severe_g_fraction": null
+          }
+        },
+        "joint_ready": {
+          "coverage": {
+            "samples": 0,
+            "fraction": 0.0,
+            "longest_episode_seconds": 0.0
+          },
+          "errors": {
+            "samples": 0,
+            "v": {
+              "finite_samples": 0,
+              "invalid_samples": 0,
+              "RMSE": null,
+              "P95": null
+            },
+            "eta": {
+              "finite_samples": 0,
+              "invalid_samples": 0,
+              "RMSE": null,
+              "P95": null
+            },
+            "angle": {
+              "finite_samples": 0,
+              "invalid_samples": 0,
+              "RMSE": null,
+              "P95": null
+            },
+            "norm": {
+              "finite_samples": 0,
+              "invalid_samples": 0,
+              "RMSE": null,
+              "P95": null
+            },
+            "wide_v_fraction": null,
+            "wide_g_fraction": null,
+            "severe_v_fraction": null,
+            "severe_g_fraction": null
+          }
+        }
+      },
+      "raw_peaks": {
+        "v": {
+          "value": 19.02155329517151,
+          "time": 2.0
+        },
+        "eta": {
+          "value": 9.81388415702005,
+          "time": 0.7
+        },
+        "angle": {
+          "value": 106.02281733280499,
+          "time": 0.35
+        },
+        "norm": {
+          "value": 9.81,
+          "time": 0.25
+        }
+      },
+      "seeds": {
+        "STEREO": {
+          "accepted_writes": 0,
+          "unique_accepted_ids": 0,
+          "opportunity_ids": 3630,
+          "accepted_opportunity_ids": 0,
+          "all_birth_ids": 3630,
+          "opportunity_acceptance": 0.0,
+          "all_birth_acceptance": 0.0,
+          "reliable10": null,
+          "reliable5": null,
+          "parallel_RMSE": null,
+          "transverse_RMSE": null,
+          "normal_source_pass": false
+        },
+        "TEMPORAL_POSE": {
+          "accepted_writes": 26,
+          "unique_accepted_ids": 26,
+          "opportunity_ids": 3618,
+          "accepted_opportunity_ids": 26,
+          "all_birth_ids": 3630,
+          "opportunity_acceptance": 0.007186290768380321,
+          "all_birth_acceptance": 0.007162534435261708,
+          "reliable10": 1.0,
+          "reliable5": 0.6538461538461539,
+          "parallel_RMSE": 0.6742541696024892,
+          "transverse_RMSE": 0.021004697560364355,
+          "normal_source_pass": false
+        }
+      },
+      "predeclared_normal_source": null,
+      "normal_source_contract_pass": null,
+      "raw_evaluator_absolute_contract": {
+        "ready_G": {
+          "accuracy": false,
+          "coverage": false
+        },
+        "ready_V": {
+          "accuracy": false,
+          "coverage": false
+        },
+        "joint_5s": false
+      },
+      "raw_evaluator_severe_ready_pass": {
+        "V": false,
+        "G": false
+      },
+      "recovery": {
+        "applicable": false
+      }
+    }
+  ]
+}

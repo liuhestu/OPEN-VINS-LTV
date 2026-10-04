@@ -1,0 +1,79 @@
+[
+  {
+    "sequence": "MH_01_easy",
+    "baseline": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_01_easy/B",
+    "previous": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_01_easy/P_NEW",
+    "new": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_01_easy/P_NEW",
+    "out": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_01_easy/evaluation_v1"
+  },
+  {
+    "sequence": "MH_02_easy",
+    "baseline": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_02_easy/B",
+    "previous": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_02_easy/P_NEW",
+    "new": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_02_easy/P_NEW",
+    "out": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_02_easy/evaluation_v1"
+  },
+  {
+    "sequence": "MH_03_medium",
+    "baseline": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_03_medium/B",
+    "previous": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_03_medium/P_NEW",
+    "new": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_03_medium/P_NEW",
+    "out": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_03_medium/evaluation_v1"
+  },
+  {
+    "sequence": "MH_04_difficult",
+    "baseline": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_04_difficult/B",
+    "previous": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_04_difficult/P_NEW",
+    "new": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_04_difficult/P_NEW",
+    "out": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_04_difficult/evaluation_v1"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "baseline": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_05_difficult/B",
+    "previous": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_05_difficult/P_NEW",
+    "new": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_05_difficult/P_NEW",
+    "out": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_05_difficult/evaluation_v1"
+  },
+  {
+    "sequence": "V1_01_easy",
+    "baseline": "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/formal/V1_01_easy/B",
+    "previous": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V1_01_easy/P_NEW",
+    "new": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_01_easy/P_NEW",
+    "out": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_01_easy/evaluation_v1"
+  },
+  {
+    "sequence": "V1_02_medium",
+    "baseline": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_V1_02_medium/B",
+    "previous": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V1_02_medium/P_NEW",
+    "new": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_02_medium/P_NEW",
+    "out": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_02_medium/evaluation_v1"
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "baseline": "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/formal/V1_03_difficult/B",
+    "previous": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V1_03_difficult/P_NEW",
+    "new": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_03_difficult/P_NEW",
+    "out": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_03_difficult/evaluation_v1"
+  },
+  {
+    "sequence": "V2_01_easy",
+    "baseline": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_V2_01_easy/B",
+    "previous": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V2_01_easy/P_NEW",
+    "new": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_01_easy/P_NEW",
+    "out": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_01_easy/evaluation_v1"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "baseline": "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/formal/V2_02_medium/B",
+    "previous": "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/V2_02/P_PREV",
+    "new": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/P_NEW",
+    "out": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/evaluation_v1"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "baseline": "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/formal/V2_03_difficult/B",
+    "previous": "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/V2_03/P_PREV",
+    "new": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/P_NEW",
+    "out": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/evaluation_v1"
+  }
+]

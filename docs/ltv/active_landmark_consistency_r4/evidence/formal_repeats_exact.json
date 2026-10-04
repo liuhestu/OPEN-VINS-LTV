@@ -1,0 +1,44 @@
+{
+  "status": "PASS_TWO_FULL_NATIVE_REPEATS",
+  "freeze_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+  "rows": [
+    {
+      "sequence": "V1_03_difficult",
+      "status": "PASS_FULL_NATIVE_EXACT_REPEAT",
+      "files": {
+        "cache.bin": {
+          "original": "db3e11a2449d8d90cea6e776f021a3dc376911b017d9083a7306a496d5a357d7",
+          "repeat": "db3e11a2449d8d90cea6e776f021a3dc376911b017d9083a7306a496d5a357d7"
+        },
+        "audit.csv": {
+          "original": "388f2a52ed39a1e8abb09f25ff295847ad2a73a48e0ccb744b842ec25c66a2ff",
+          "repeat": "388f2a52ed39a1e8abb09f25ff295847ad2a73a48e0ccb744b842ec25c66a2ff"
+        },
+        "trajectory.csv": {
+          "original": "e6411a87e1c15792bef6d264585a964081d2552f6182d035a97a5987ca105f73",
+          "repeat": "e6411a87e1c15792bef6d264585a964081d2552f6182d035a97a5987ca105f73"
+        }
+      },
+      "scope": "All cache input/events and complete non-wallclock x/P/slot/ready/active evidence bytes, plus main audit/trajectory"
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "status": "PASS_FULL_NATIVE_EXACT_REPEAT",
+      "files": {
+        "cache.bin": {
+          "original": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf",
+          "repeat": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf"
+        },
+        "audit.csv": {
+          "original": "f0ee61373a178220ac661ec354a074d4dbeb5f0c2b88e489ba2834b55afd90ce",
+          "repeat": "f0ee61373a178220ac661ec354a074d4dbeb5f0c2b88e489ba2834b55afd90ce"
+        },
+        "trajectory.csv": {
+          "original": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+          "repeat": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3"
+        }
+      },
+      "scope": "All cache input/events and complete non-wallclock x/P/slot/ready/active evidence bytes, plus main audit/trajectory"
+    }
+  ]
+}

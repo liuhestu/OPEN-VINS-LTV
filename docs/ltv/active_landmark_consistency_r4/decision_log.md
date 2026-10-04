@@ -37,3 +37,11 @@ User authorization: “允许扩大预算至100次”. Interpret this as the com
 Formal freeze after budget override: only four exact historical B views could be established (analysis57), so seven new B runs are explicitly added;29 formal real runs reserved (11ON+9OFF+7B+2repeat) under cap100. This supersedes the earlier30-total lower bound which assumed every B reusable. Freeze SHA5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0 binds353 source files, actual native runtime/wrapper/baseconfig/metadata, C02 parameters, named matrix and synthetic profiles. Independent review accepts actual byte bindings and B-mode controls. Guard58 PASS. Checkpoint f20a310 pushed to origin/feature/ltv-passive-hardening-v2; no source tuning after freeze.
 
 CONTROLS supervisor started with two workers; each native child counted separately in the same ledger. New B disablesLTV/readiness/hardening in experimental config only and uses actual nativeB, with complete-input/zero-injection audit. Main production configs are not edited. Native failures or retries remain paid and will be preserved rather than replaced.
+
+## Formal closeout without further tuning
+
+All registered C02 confirmation work completed:16 controls,11 ON,2 native repeats,1 logger-only native ablation and8 synthetic cases. Complete matrix/evaluation identities retained; no gain/threshold/backend/ready change after freeze.
+
+Original frozen all11 output assessment remains NOT_MET (MH_04). Independent B-only review bridges its predeclared original native estimator failure with this round's exactly identical B trajectory/config/calibration/input; separate original-contract view has10 valid sequences and10 output passes. This view does not overwrite original metrics, erase NEW raw regression, or establish overall PASSIVE_READY_EUROC.
+
+Whole-task result NOT_ACHIEVED_WITH_EVIDENCE: exact local bad-observation blocking and real output benefits established; recovery's interrupted supply interval remains false; new synthetics lack exact-input OFF and complete per-condition paired seed confirmation. FAST continuous-ready and temporal coverage limitations retained; zero-ready pressure has null severe denominator. No additional simulations or next mechanism are launched.

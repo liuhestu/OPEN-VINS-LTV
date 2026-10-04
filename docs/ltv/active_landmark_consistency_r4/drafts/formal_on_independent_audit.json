@@ -1,0 +1,392 @@
+{
+  "status": "PASS_ON_IDENTITY_AND_RECORDED_ENGINEERING",
+  "freeze_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+  "scope": "Read-only identity/configuration/ledger/replay/engineering summaries, not rescanning large logs or scientific evaluation",
+  "runs": [
+    {
+      "sequence": "MH_01_easy",
+      "attempt": 75,
+      "exit_code": 0,
+      "camera_packets": 3682,
+      "imu_consumed": 36820,
+      "trajectory_rows": 2784,
+      "active_log": {
+        "status": "PASS_LIVE_COUNTERS_AND_LIFECYCLE",
+        "totals": {
+          "active": 82890,
+          "evaluable": 79458,
+          "pass": 79354,
+          "skip": 62,
+          "retire": 42,
+          "diagnostics": 79620,
+          "sent": 80654,
+          "frames": 2784
+        },
+        "reasons": {
+          "INSUFFICIENT_HISTORY": 133,
+          "PASS": 79354,
+          "HISTORY_INCONSISTENT": 29,
+          "HOLDOUT_INCONSISTENT": 75,
+          "FIT_FAILED": 29
+        },
+        "evaluable_fraction": 0.9979653353428787,
+        "reject_fraction": 0.0013088675778398652,
+        "min_active": 0,
+        "limitations": [
+          "active denominator includes coasting slots; diagnostics require a current visible valid observation",
+          "actual absent rejected observations are verified by native cache/core replay, not inferred from aggregate sent count"
+        ]
+      }
+    },
+    {
+      "sequence": "MH_02_easy",
+      "attempt": 76,
+      "exit_code": 0,
+      "camera_packets": 3040,
+      "imu_consumed": 30400,
+      "trajectory_rows": 2259,
+      "active_log": {
+        "status": "PASS_LIVE_COUNTERS_AND_LIFECYCLE",
+        "totals": {
+          "active": 67328,
+          "evaluable": 64341,
+          "pass": 64253,
+          "skip": 55,
+          "retire": 33,
+          "diagnostics": 64523,
+          "sent": 65414,
+          "frames": 2259
+        },
+        "reasons": {
+          "INSUFFICIENT_HISTORY": 124,
+          "PASS": 64253,
+          "HOLDOUT_INCONSISTENT": 58,
+          "HISTORY_INCONSISTENT": 30,
+          "FIT_FAILED": 58
+        },
+        "evaluable_fraction": 0.997179300404507,
+        "reject_fraction": 0.0013677126560047248,
+        "min_active": 0,
+        "limitations": [
+          "active denominator includes coasting slots; diagnostics require a current visible valid observation",
+          "actual absent rejected observations are verified by native cache/core replay, not inferred from aggregate sent count"
+        ]
+      }
+    },
+    {
+      "sequence": "MH_03_medium",
+      "attempt": 77,
+      "exit_code": 0,
+      "camera_packets": 2700,
+      "imu_consumed": 27008,
+      "trajectory_rows": 2311,
+      "active_log": {
+        "status": "PASS_LIVE_COUNTERS_AND_LIFECYCLE",
+        "totals": {
+          "active": 67937,
+          "evaluable": 62685,
+          "pass": 62603,
+          "skip": 54,
+          "retire": 28,
+          "diagnostics": 63236,
+          "sent": 64769,
+          "frames": 2311
+        },
+        "reasons": {
+          "INSUFFICIENT_HISTORY": 288,
+          "PASS": 62603,
+          "HOLDOUT_INCONSISTENT": 62,
+          "HISTORY_INCONSISTENT": 20,
+          "FIT_FAILED": 263
+        },
+        "evaluable_fraction": 0.9912866088936682,
+        "reject_fraction": 0.0013081279412937704,
+        "min_active": 0,
+        "limitations": [
+          "active denominator includes coasting slots; diagnostics require a current visible valid observation",
+          "actual absent rejected observations are verified by native cache/core replay, not inferred from aggregate sent count"
+        ]
+      }
+    },
+    {
+      "sequence": "MH_04_difficult",
+      "attempt": 78,
+      "exit_code": 0,
+      "camera_packets": 2032,
+      "imu_consumed": 20320,
+      "trajectory_rows": 1919,
+      "active_log": {
+        "status": "PASS_LIVE_COUNTERS_AND_LIFECYCLE",
+        "totals": {
+          "active": 361,
+          "evaluable": 177,
+          "pass": 76,
+          "skip": 51,
+          "retire": 50,
+          "diagnostics": 301,
+          "sent": 291,
+          "frames": 1919
+        },
+        "reasons": {
+          "HISTORY_INCONSISTENT": 99,
+          "FIT_FAILED": 72,
+          "INSUFFICIENT_HISTORY": 52,
+          "HOLDOUT_INCONSISTENT": 2,
+          "PASS": 76
+        },
+        "evaluable_fraction": 0.5880398671096345,
+        "reject_fraction": 0.5706214689265536,
+        "min_active": 0,
+        "limitations": [
+          "active denominator includes coasting slots; diagnostics require a current visible valid observation",
+          "actual absent rejected observations are verified by native cache/core replay, not inferred from aggregate sent count"
+        ]
+      }
+    },
+    {
+      "sequence": "MH_05_difficult",
+      "attempt": 79,
+      "exit_code": 0,
+      "camera_packets": 2273,
+      "imu_consumed": 22721,
+      "trajectory_rows": 1849,
+      "active_log": {
+        "status": "PASS_LIVE_COUNTERS_AND_LIFECYCLE",
+        "totals": {
+          "active": 53743,
+          "evaluable": 50488,
+          "pass": 50404,
+          "skip": 54,
+          "retire": 30,
+          "diagnostics": 50617,
+          "sent": 51605,
+          "frames": 1849
+        },
+        "reasons": {
+          "INSUFFICIENT_HISTORY": 104,
+          "PASS": 50404,
+          "HOLDOUT_INCONSISTENT": 56,
+          "HISTORY_INCONSISTENT": 28,
+          "FIT_FAILED": 25
+        },
+        "evaluable_fraction": 0.9974514491178853,
+        "reject_fraction": 0.0016637616859451752,
+        "min_active": 0,
+        "limitations": [
+          "active denominator includes coasting slots; diagnostics require a current visible valid observation",
+          "actual absent rejected observations are verified by native cache/core replay, not inferred from aggregate sent count"
+        ]
+      }
+    },
+    {
+      "sequence": "V1_01_easy",
+      "attempt": 80,
+      "exit_code": 0,
+      "camera_packets": 2912,
+      "imu_consumed": 29120,
+      "trajectory_rows": 2800,
+      "active_log": {
+        "status": "PASS_LIVE_COUNTERS_AND_LIFECYCLE",
+        "totals": {
+          "active": 83801,
+          "evaluable": 78663,
+          "pass": 78560,
+          "skip": 69,
+          "retire": 34,
+          "diagnostics": 79292,
+          "sent": 80756,
+          "frames": 2800
+        },
+        "reasons": {
+          "INSUFFICIENT_HISTORY": 208,
+          "PASS": 78560,
+          "HOLDOUT_INCONSISTENT": 52,
+          "HISTORY_INCONSISTENT": 51,
+          "FIT_FAILED": 421
+        },
+        "evaluable_fraction": 0.9920672955657569,
+        "reject_fraction": 0.001309383064464869,
+        "min_active": 0,
+        "limitations": [
+          "active denominator includes coasting slots; diagnostics require a current visible valid observation",
+          "actual absent rejected observations are verified by native cache/core replay, not inferred from aggregate sent count"
+        ]
+      }
+    },
+    {
+      "sequence": "V1_02_medium",
+      "attempt": 81,
+      "exit_code": 0,
+      "camera_packets": 1710,
+      "imu_consumed": 17100,
+      "trajectory_rows": 1611,
+      "active_log": {
+        "status": "PASS_LIVE_COUNTERS_AND_LIFECYCLE",
+        "totals": {
+          "active": 47230,
+          "evaluable": 40008,
+          "pass": 39840,
+          "skip": 125,
+          "retire": 43,
+          "diagnostics": 41047,
+          "sent": 43013,
+          "frames": 1611
+        },
+        "reasons": {
+          "INSUFFICIENT_HISTORY": 900,
+          "PASS": 39840,
+          "HOLDOUT_INCONSISTENT": 112,
+          "HISTORY_INCONSISTENT": 56,
+          "FIT_FAILED": 139
+        },
+        "evaluable_fraction": 0.9746875532925671,
+        "reject_fraction": 0.004199160167966407,
+        "min_active": 0,
+        "limitations": [
+          "active denominator includes coasting slots; diagnostics require a current visible valid observation",
+          "actual absent rejected observations are verified by native cache/core replay, not inferred from aggregate sent count"
+        ]
+      }
+    },
+    {
+      "sequence": "V1_03_difficult",
+      "attempt": 82,
+      "exit_code": 0,
+      "camera_packets": 2149,
+      "imu_consumed": 21500,
+      "trajectory_rows": 2005,
+      "active_log": {
+        "status": "PASS_LIVE_COUNTERS_AND_LIFECYCLE",
+        "totals": {
+          "active": 56028,
+          "evaluable": 45806,
+          "pass": 45623,
+          "skip": 126,
+          "retire": 57,
+          "diagnostics": 47958,
+          "sent": 50535,
+          "frames": 2005
+        },
+        "reasons": {
+          "INSUFFICIENT_HISTORY": 1935,
+          "PASS": 45623,
+          "HOLDOUT_INCONSISTENT": 117,
+          "HISTORY_INCONSISTENT": 66,
+          "FIT_FAILED": 217
+        },
+        "evaluable_fraction": 0.955127403144418,
+        "reject_fraction": 0.003995109810941798,
+        "min_active": 0,
+        "limitations": [
+          "active denominator includes coasting slots; diagnostics require a current visible valid observation",
+          "actual absent rejected observations are verified by native cache/core replay, not inferred from aggregate sent count"
+        ]
+      }
+    },
+    {
+      "sequence": "V2_01_easy",
+      "attempt": 83,
+      "exit_code": 0,
+      "camera_packets": 2280,
+      "imu_consumed": 22800,
+      "trajectory_rows": 2181,
+      "active_log": {
+        "status": "PASS_LIVE_COUNTERS_AND_LIFECYCLE",
+        "totals": {
+          "active": 62665,
+          "evaluable": 58184,
+          "pass": 57808,
+          "skip": 212,
+          "retire": 164,
+          "diagnostics": 59434,
+          "sent": 60317,
+          "frames": 2181
+        },
+        "reasons": {
+          "INSUFFICIENT_HISTORY": 372,
+          "PASS": 57808,
+          "HISTORY_INCONSISTENT": 164,
+          "HOLDOUT_INCONSISTENT": 212,
+          "FIT_FAILED": 878
+        },
+        "evaluable_fraction": 0.978968267321735,
+        "reject_fraction": 0.00646225766533755,
+        "min_active": 0,
+        "limitations": [
+          "active denominator includes coasting slots; diagnostics require a current visible valid observation",
+          "actual absent rejected observations are verified by native cache/core replay, not inferred from aggregate sent count"
+        ]
+      }
+    },
+    {
+      "sequence": "V2_02_medium",
+      "attempt": 84,
+      "exit_code": 0,
+      "camera_packets": 2348,
+      "imu_consumed": 23490,
+      "trajectory_rows": 2266,
+      "active_log": {
+        "status": "PASS_LIVE_COUNTERS_AND_LIFECYCLE",
+        "totals": {
+          "active": 66776,
+          "evaluable": 57829,
+          "pass": 57613,
+          "skip": 147,
+          "retire": 69,
+          "diagnostics": 59341,
+          "sent": 61699,
+          "frames": 2266
+        },
+        "reasons": {
+          "INSUFFICIENT_HISTORY": 1019,
+          "PASS": 57613,
+          "HOLDOUT_INCONSISTENT": 134,
+          "HISTORY_INCONSISTENT": 82,
+          "FIT_FAILED": 493
+        },
+        "evaluable_fraction": 0.9745201462732344,
+        "reject_fraction": 0.003735150184163655,
+        "min_active": 0,
+        "limitations": [
+          "active denominator includes coasting slots; diagnostics require a current visible valid observation",
+          "actual absent rejected observations are verified by native cache/core replay, not inferred from aggregate sent count"
+        ]
+      }
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "attempt": 85,
+      "exit_code": 0,
+      "camera_packets": 1921,
+      "imu_consumed": 23370,
+      "trajectory_rows": 1806,
+      "active_log": {
+        "status": "PASS_LIVE_COUNTERS_AND_LIFECYCLE",
+        "totals": {
+          "active": 45892,
+          "evaluable": 35780,
+          "pass": 35360,
+          "skip": 260,
+          "retire": 160,
+          "diagnostics": 38047,
+          "sent": 40411,
+          "frames": 1806
+        },
+        "reasons": {
+          "INSUFFICIENT_HISTORY": 2120,
+          "PASS": 35360,
+          "HISTORY_INCONSISTENT": 180,
+          "HOLDOUT_INCONSISTENT": 240,
+          "FIT_FAILED": 147
+        },
+        "evaluable_fraction": 0.9404158015086603,
+        "reject_fraction": 0.011738401341531582,
+        "min_active": 0,
+        "limitations": [
+          "active denominator includes coasting slots; diagnostics require a current visible valid observation",
+          "actual absent rejected observations are verified by native cache/core replay, not inferred from aggregate sent count"
+        ]
+      }
+    }
+  ]
+}

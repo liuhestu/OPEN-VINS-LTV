@@ -1,0 +1,41 @@
+{
+  "status": "PASS_FINAL_PROTECTED_FILES_AND_FROZEN_EXECUTION",
+  "baseline": "258b0b6f7795cd5a5254d9961e178af887cdfe00",
+  "protected_files_checked": 690,
+  "protected_manifest_sha": "56edafde631cfb13dd3b53a26e8a35ac13521aab8dfa89ce08c38c488e0648ad",
+  "frozen_source_files_checked": 353,
+  "freeze_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+  "parent_ledger_sha": "31e7e11d4021ab837bb13aadec1c449857d29e7fc56572014bbdb8a07bffb75d",
+  "usage": {
+    "synthetic": 12,
+    "real": 38,
+    "short_real": 3,
+    "geometry": 0,
+    "candidate": 2
+  },
+  "completed_attempts": 129,
+  "failed_attempts": [
+    4,
+    6,
+    11,
+    12,
+    14,
+    16,
+    19,
+    22,
+    45,
+    127
+  ],
+  "no_other_unfinished_registered_processes": true,
+  "user_files_excluded_from_commit": [
+    "docs/04-LTV_v2_\u516d\u9879\u8865\u5145\u9a8c\u8bc1_Codex\u6267\u884c\u65b9\u6848.md",
+    "docs/ltv/passive_hardening_v2/goal.md",
+    "ltv.csv"
+  ],
+  "final_audit_attempt": {
+    "id": 129,
+    "exit_code": 0
+  },
+  "no_unfinished_registered_processes": true,
+  "closed_ledger_sha": "d5b3b1db2c114aea575e9287d73f8676d6850d2b6cd79ca70e9020aff7d64dbb"
+}

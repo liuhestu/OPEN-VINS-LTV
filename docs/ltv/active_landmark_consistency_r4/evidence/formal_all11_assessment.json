@@ -1,0 +1,188 @@
+{
+  "status": "NOT_MET",
+  "baseline_valid": 11,
+  "total": 11,
+  "failed_sequences": [
+    "MH_04_difficult"
+  ],
+  "reference_unestablished": [],
+  "scope": "Outputs only; seed/recovery/resource/performance/freeze/repeat contracts remain independent.",
+  "records": [
+    {
+      "sequence": "MH_01_easy",
+      "status": "MEETS_SEQUENCE_CONTRACT",
+      "decisions": {
+        "coverage": true,
+        "V_absolute": true,
+        "G_absolute": true,
+        "joint_episode": true,
+        "severe_V": true,
+        "severe_G": true,
+        "raw_regression": true,
+        "raw_missing_explained": true,
+        "raw_support_no_unreviewed_loss": true
+      },
+      "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_01_easy/evaluation_v1/metrics.json"
+    },
+    {
+      "sequence": "MH_02_easy",
+      "status": "MEETS_SEQUENCE_CONTRACT",
+      "decisions": {
+        "coverage": true,
+        "V_absolute": true,
+        "G_absolute": true,
+        "joint_episode": true,
+        "severe_V": true,
+        "severe_G": true,
+        "raw_regression": true,
+        "raw_missing_explained": true,
+        "raw_support_no_unreviewed_loss": true
+      },
+      "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_02_easy/evaluation_v1/metrics.json"
+    },
+    {
+      "sequence": "MH_03_medium",
+      "status": "MEETS_SEQUENCE_CONTRACT",
+      "decisions": {
+        "coverage": true,
+        "V_absolute": true,
+        "G_absolute": true,
+        "joint_episode": true,
+        "severe_V": true,
+        "severe_G": true,
+        "raw_regression": true,
+        "raw_missing_explained": true,
+        "raw_support_no_unreviewed_loss": true
+      },
+      "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_03_medium/evaluation_v1/metrics.json"
+    },
+    {
+      "sequence": "MH_04_difficult",
+      "status": "NOT_MET",
+      "decisions": {
+        "coverage": false,
+        "V_absolute": false,
+        "G_absolute": false,
+        "joint_episode": false,
+        "severe_V": false,
+        "severe_G": false,
+        "raw_regression": false,
+        "raw_missing_explained": true,
+        "raw_support_no_unreviewed_loss": false
+      },
+      "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_04_difficult/evaluation_v1/metrics.json"
+    },
+    {
+      "sequence": "MH_05_difficult",
+      "status": "MEETS_SEQUENCE_CONTRACT",
+      "decisions": {
+        "coverage": true,
+        "V_absolute": true,
+        "G_absolute": true,
+        "joint_episode": true,
+        "severe_V": true,
+        "severe_G": true,
+        "raw_regression": true,
+        "raw_missing_explained": true,
+        "raw_support_no_unreviewed_loss": true
+      },
+      "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_05_difficult/evaluation_v1/metrics.json"
+    },
+    {
+      "sequence": "V1_01_easy",
+      "status": "MEETS_SEQUENCE_CONTRACT",
+      "decisions": {
+        "coverage": true,
+        "V_absolute": true,
+        "G_absolute": true,
+        "joint_episode": true,
+        "severe_V": true,
+        "severe_G": true,
+        "raw_regression": true,
+        "raw_missing_explained": true,
+        "raw_support_no_unreviewed_loss": true
+      },
+      "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_01_easy/evaluation_v1/metrics.json"
+    },
+    {
+      "sequence": "V1_02_medium",
+      "status": "MEETS_SEQUENCE_CONTRACT",
+      "decisions": {
+        "coverage": true,
+        "V_absolute": true,
+        "G_absolute": true,
+        "joint_episode": true,
+        "severe_V": true,
+        "severe_G": true,
+        "raw_regression": true,
+        "raw_missing_explained": true,
+        "raw_support_no_unreviewed_loss": true
+      },
+      "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_02_medium/evaluation_v1/metrics.json"
+    },
+    {
+      "sequence": "V1_03_difficult",
+      "status": "MEETS_SEQUENCE_CONTRACT",
+      "decisions": {
+        "coverage": true,
+        "V_absolute": true,
+        "G_absolute": true,
+        "joint_episode": true,
+        "severe_V": true,
+        "severe_G": true,
+        "raw_regression": true,
+        "raw_missing_explained": true,
+        "raw_support_no_unreviewed_loss": true
+      },
+      "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_03_difficult/evaluation_v1/metrics.json"
+    },
+    {
+      "sequence": "V2_01_easy",
+      "status": "MEETS_SEQUENCE_CONTRACT",
+      "decisions": {
+        "coverage": true,
+        "V_absolute": true,
+        "G_absolute": true,
+        "joint_episode": true,
+        "severe_V": true,
+        "severe_G": true,
+        "raw_regression": true,
+        "raw_missing_explained": true,
+        "raw_support_no_unreviewed_loss": true
+      },
+      "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_01_easy/evaluation_v1/metrics.json"
+    },
+    {
+      "sequence": "V2_02_medium",
+      "status": "MEETS_SEQUENCE_CONTRACT",
+      "decisions": {
+        "coverage": true,
+        "V_absolute": true,
+        "G_absolute": true,
+        "joint_episode": true,
+        "severe_V": true,
+        "severe_G": true,
+        "raw_regression": true,
+        "raw_missing_explained": true,
+        "raw_support_no_unreviewed_loss": true
+      },
+      "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/evaluation_v1/metrics.json"
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "status": "MEETS_SEQUENCE_CONTRACT",
+      "decisions": {
+        "coverage": true,
+        "V_absolute": true,
+        "G_absolute": true,
+        "joint_episode": true,
+        "severe_V": true,
+        "severe_G": true,
+        "raw_regression": true,
+        "raw_missing_explained": true,
+        "raw_support_no_unreviewed_loss": true
+      },
+      "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/evaluation_v1/metrics.json"
+    }
+  ]
+}

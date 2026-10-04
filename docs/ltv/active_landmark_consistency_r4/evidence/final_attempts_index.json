@@ -1,0 +1,3259 @@
+[
+  {
+    "id": 1,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-Iov_msckf/src",
+      "-I/usr/include/eigen3",
+      "ov_msckf/tests/ltv/test_ltv_active_consistency.cpp",
+      "ov_msckf/src/ltv/LtvActiveConsistency.cpp",
+      "ov_msckf/src/ltv/LtvSeedEstimator.cpp",
+      "-o",
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_ltv_active_consistency"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 3.599491596221924,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0001",
+    "files": {
+      "source_sha256.json": "7bd70f722258a3130e1c0809ea2d22f423b53a3cb13e0166d9d592a9d985e727",
+      "command_files_sha256.json": "359cae106b1536e074e43a12871442a2cf3e3c2d27d2b4048ddfb6da05a6cac5",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 2,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_ltv_active_consistency"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.0014736652374267578,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0002",
+    "files": {
+      "source_sha256.json": "7bd70f722258a3130e1c0809ea2d22f423b53a3cb13e0166d9d592a9d985e727",
+      "command_files_sha256.json": "1485f3ebb6c0b196d088c955d284db8532ca60c4a3f7f99b8e7d237a90886166",
+      "stdout.log": "083a150a5a5642251f760d867df78ec57e2ac63655b5eb20756010c19463bd18",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 3,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-Iov_msckf/src",
+      "-Iov_core/src",
+      "-I/usr/include/eigen3",
+      "ov_msckf/tests/ltv/test_ltv_active_lifecycle.cpp",
+      "ov_msckf/src/ltv/LtvLandmarkManager.cpp",
+      "ov_msckf/src/ltv/LtvFeatureHistory.cpp",
+      "ov_msckf/src/ltv/LtvFeatureQuality.cpp",
+      "ov_msckf/src/ltv/ltv_observer.cpp",
+      "-o",
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_ltv_active_lifecycle"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 8.906654834747314,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0003",
+    "files": {
+      "source_sha256.json": "22c01a1c22b0554a513b7e247c97c70dd8149dd7446ffe2079c197107eb04282",
+      "command_files_sha256.json": "21c3da87067fda5ed817e9f8e44f3cb869f470b35ae911b1dea763cd16ac40ac",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 4,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_ltv_active_lifecycle"
+    ],
+    "exit_code": -6,
+    "elapsed_seconds": 0.05241966247558594,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0004",
+    "files": {
+      "source_sha256.json": "7bc0d27dd0fbae17bd98fca5c52d35b95d3df5d1a7180306be09af7c76dc144c",
+      "command_files_sha256.json": "b93d9f50d0649af14cdfc7def71f7a8138f8dc6b74808b119702d65f2af2e7c1",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "112d6b4177b589e324d2425bc20feb75db2937b8e38f663b345d08b9135f9697"
+    }
+  },
+  {
+    "id": 5,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-Iov_msckf/src",
+      "-Iov_core/src",
+      "-I/usr/include/eigen3",
+      "ov_msckf/tests/ltv/test_ltv_active_lifecycle.cpp",
+      "ov_msckf/src/ltv/LtvLandmarkManager.cpp",
+      "ov_msckf/src/ltv/LtvFeatureHistory.cpp",
+      "ov_msckf/src/ltv/LtvFeatureQuality.cpp",
+      "ov_msckf/src/ltv/ltv_observer.cpp",
+      "-o",
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_ltv_active_lifecycle"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 8.816058158874512,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0005",
+    "files": {
+      "source_sha256.json": "c346dd063e40bdb981aa5fd9694c468df367034bf376e4226eb69fec1ba005d5",
+      "command_files_sha256.json": "26855cd3f1c65815b15b5a3919d4631c29a2a6572c367bbcbb8cb454f3d4c02e",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 6,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_ltv_active_lifecycle"
+    ],
+    "exit_code": -6,
+    "elapsed_seconds": 0.04865241050720215,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0006",
+    "files": {
+      "source_sha256.json": "c346dd063e40bdb981aa5fd9694c468df367034bf376e4226eb69fec1ba005d5",
+      "command_files_sha256.json": "fb8f9d8e343150f0cb81c950b54ea2265e3e48b131cbc4446b8313d14abca6c6",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "82246d965d65c57e5a1bc282d9d36b4006eecb5317cf61dc3ddf85b2a01b8ec8"
+    }
+  },
+  {
+    "id": 7,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-Iov_msckf/src",
+      "-Iov_core/src",
+      "-I/usr/include/eigen3",
+      "ov_msckf/tests/ltv/test_ltv_active_lifecycle.cpp",
+      "ov_msckf/src/ltv/LtvLandmarkManager.cpp",
+      "ov_msckf/src/ltv/LtvFeatureHistory.cpp",
+      "ov_msckf/src/ltv/LtvFeatureQuality.cpp",
+      "ov_msckf/src/ltv/ltv_observer.cpp",
+      "-o",
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_ltv_active_lifecycle"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 8.779858827590942,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0007",
+    "files": {
+      "source_sha256.json": "29f0e03a15b4e3cd1e7099dcb4a3c942555a1f88da5135e72c01147a87e1f111",
+      "command_files_sha256.json": "9fa77ccdc0cba3111c4f1ab10cde576b27cb7f759013981bcd0623aa2a31b29e",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 8,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_ltv_active_lifecycle"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.0023648738861083984,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0008",
+    "files": {
+      "source_sha256.json": "27aee24569b5aa91cc382fe8c116bfa62ffd6079065f2f98278f07d027676733",
+      "command_files_sha256.json": "9532ab9f6861b7f824cf4d16701811115ef13b544be36983659f75b8d4be0b21",
+      "stdout.log": "df27bc06b106a08add22e0fcb7afc1fc5bb2a55cf63b72e45b82e09448fd51e1",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 9,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-Iov_msckf/src",
+      "-I/usr/include/eigen3",
+      "ov_msckf/tests/ltv/test_ltv_active_consistency.cpp",
+      "ov_msckf/src/ltv/LtvActiveConsistency.cpp",
+      "ov_msckf/src/ltv/LtvSeedEstimator.cpp",
+      "-o",
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_ltv_active_consistency"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 3.5708086490631104,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0009",
+    "files": {
+      "source_sha256.json": "27aee24569b5aa91cc382fe8c116bfa62ffd6079065f2f98278f07d027676733",
+      "command_files_sha256.json": "20f561f1af114369903f9b8958770dbf20e878dcda4d8211d558390e7f01401f",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 10,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_ltv_active_consistency"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.0014605522155761719,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0010",
+    "files": {
+      "source_sha256.json": "27aee24569b5aa91cc382fe8c116bfa62ffd6079065f2f98278f07d027676733",
+      "command_files_sha256.json": "f497cdac1dd9c12b091b118c7f74a6aa3a3a79d8fd5944f2a6e88cc3dbcb4bec",
+      "stdout.log": "083a150a5a5642251f760d867df78ec57e2ac63655b5eb20756010c19463bd18",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 11,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "bash",
+      "scripts/ltv_active_consistency_r4/build_runtime.sh"
+    ],
+    "exit_code": 1,
+    "elapsed_seconds": 0.0027861595153808594,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0011",
+    "files": {
+      "source_sha256.json": "27aee24569b5aa91cc382fe8c116bfa62ffd6079065f2f98278f07d027676733",
+      "command_files_sha256.json": "097c4c954f878b1daf67f3c263d72758b84b6b55291ea4808b77bf4acff08b26",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "96f860d9c1e6c9d0206b6c3a428b479f3aec6be497e46586613c32f7c5f8c955"
+    }
+  },
+  {
+    "id": 12,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "bash",
+      "scripts/ltv_active_consistency_r4/build_runtime.sh"
+    ],
+    "exit_code": 2,
+    "elapsed_seconds": 1.5565004348754883,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0012",
+    "files": {
+      "source_sha256.json": "27aee24569b5aa91cc382fe8c116bfa62ffd6079065f2f98278f07d027676733",
+      "command_files_sha256.json": "2f2cfde858ae66199c20b8ac2129236808b82db22b3b95820f0d856d5ec3048e",
+      "stdout.log": "0e5204559763e1ee256c4c18be0091d953ccec582d912eda84503b8593455d9e",
+      "stderr.log": "b1d5a4e7f7a4a9179066408d9302358812b3035e10a508151c1a90e6b565020b"
+    }
+  },
+  {
+    "id": 13,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-Iov_msckf/src",
+      "-I/usr/include/eigen3",
+      "scripts/ltv_active_consistency_r4/tests/test_active_consistency_independent.cpp",
+      "ov_msckf/src/ltv/LtvActiveConsistency.cpp",
+      "ov_msckf/src/ltv/LtvFeaturePipeline.cpp",
+      "ov_msckf/src/ltv/LtvSeedEstimator.cpp",
+      "ov_msckf/src/ltv/LtvSeedUncertainty.cpp",
+      "ov_msckf/src/ltv/LtvLandmarkManager.cpp",
+      "ov_msckf/src/ltv/LtvFeatureHistory.cpp",
+      "ov_msckf/src/ltv/LtvFeatureQuality.cpp",
+      "-o",
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_independent_active_consistency"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 13.131951093673706,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0013",
+    "files": {
+      "source_sha256.json": "27aee24569b5aa91cc382fe8c116bfa62ffd6079065f2f98278f07d027676733",
+      "command_files_sha256.json": "178ab9c28c995b638c169548c80676ad9e04d6b8866f72380508eb97ea2fdd96",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 14,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_independent_active_consistency"
+    ],
+    "exit_code": -6,
+    "elapsed_seconds": 0.050823211669921875,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0014",
+    "files": {
+      "source_sha256.json": "27aee24569b5aa91cc382fe8c116bfa62ffd6079065f2f98278f07d027676733",
+      "command_files_sha256.json": "7d0796b79795872796cbecb952633bc4d694274d6c3ceeedda931640355de07d",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "c05146b15a074ae9352346115d2a8e50e8d1d5ed94b1eafaacb8cbecf861d523"
+    }
+  },
+  {
+    "id": 15,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-Iov_msckf/src",
+      "-I/usr/include/eigen3",
+      "scripts/ltv_active_consistency_r4/tests/test_active_consistency_independent.cpp",
+      "ov_msckf/src/ltv/LtvActiveConsistency.cpp",
+      "ov_msckf/src/ltv/LtvFeaturePipeline.cpp",
+      "ov_msckf/src/ltv/LtvSeedEstimator.cpp",
+      "ov_msckf/src/ltv/LtvSeedUncertainty.cpp",
+      "ov_msckf/src/ltv/LtvLandmarkManager.cpp",
+      "ov_msckf/src/ltv/LtvFeatureHistory.cpp",
+      "ov_msckf/src/ltv/LtvFeatureQuality.cpp",
+      "-o",
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_independent_active_consistency"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 13.054593563079834,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0015",
+    "files": {
+      "source_sha256.json": "c9ee23effa274dad9b18070ea15c05b65766e722cd90b6beb9bd3ee31b86e4ba",
+      "command_files_sha256.json": "81297126e51496e9fda64047c9fc29394a18a49c873f4021bb73cb425b4114c8",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 16,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_independent_active_consistency"
+    ],
+    "exit_code": -6,
+    "elapsed_seconds": 0.049458980560302734,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0016",
+    "files": {
+      "source_sha256.json": "f47a5684c707c026d8b71692903d8c48d78a9c6209655e04898accea07f22542",
+      "command_files_sha256.json": "d5410c0461d3e106e5799d5b67921184ab37bbf7fd4b89b9e7b62627fb3adff4",
+      "stdout.log": "5f312c6ea1ef653871d36001cc5bffbdcafabc43a68af4431c094b98472686da",
+      "stderr.log": "c05146b15a074ae9352346115d2a8e50e8d1d5ed94b1eafaacb8cbecf861d523"
+    }
+  },
+  {
+    "id": 17,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-Iov_msckf/src",
+      "-I/usr/include/eigen3",
+      "scripts/ltv_active_consistency_r4/tests/test_active_consistency_independent.cpp",
+      "ov_msckf/src/ltv/LtvActiveConsistency.cpp",
+      "ov_msckf/src/ltv/LtvFeaturePipeline.cpp",
+      "ov_msckf/src/ltv/LtvSeedEstimator.cpp",
+      "ov_msckf/src/ltv/LtvSeedUncertainty.cpp",
+      "ov_msckf/src/ltv/LtvLandmarkManager.cpp",
+      "ov_msckf/src/ltv/LtvFeatureHistory.cpp",
+      "ov_msckf/src/ltv/LtvFeatureQuality.cpp",
+      "-o",
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_independent_active_consistency"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 13.042863368988037,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0017",
+    "files": {
+      "source_sha256.json": "75dedb458334a75319b2650c71905191e1638e68c146e947af9d609ad689580d",
+      "command_files_sha256.json": "c343b4a6ae3effed5ad711e97ad44884c415d681679271bd6a104c4794264dd4",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 18,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "/home/he/output/ltv_active_landmark_consistency_r4/test_independent_active_consistency"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.0016469955444335938,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0018",
+    "files": {
+      "source_sha256.json": "75dedb458334a75319b2650c71905191e1638e68c146e947af9d609ad689580d",
+      "command_files_sha256.json": "9e9fad94241fad3e4a591c491da0a029e7ffb49e0279096325ae059050c02342",
+      "stdout.log": "fb58d5c8f66202a2bd395334a8742755a5dde476f1fc1b0ee0af213b29fc5ded",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 19,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "bash",
+      "scripts/ltv_active_consistency_r4/build_runtime.sh"
+    ],
+    "exit_code": 2,
+    "elapsed_seconds": 18.57470440864563,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0019",
+    "files": {
+      "source_sha256.json": "e1629ccbe6d271dfc07ea5a701023bd567afb9ddacbe8614d64f33f02690b2aa",
+      "command_files_sha256.json": "26153d53c1f30417e2851aaa35cf09d181ae69509de0cbe65807d928d093e306",
+      "stdout.log": "a5e68492f03bb5ac54927d6a32e00c8795ce44d23ed8f1947bcf4b838c5bcd11",
+      "stderr.log": "b1915f29e5ad3cf621a05b3620da39ee25ed20fef76e83461bc813598f28eefc"
+    }
+  },
+  {
+    "id": 20,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-Iov_msckf/src",
+      "-Iov_core/src",
+      "-I/usr/include/eigen3",
+      "scripts/ltv_active_consistency_r4/local_event_replay.cpp",
+      "ov_msckf/src/ltv/LtvActiveConsistency.cpp",
+      "ov_msckf/src/ltv/LtvSeedEstimator.cpp",
+      "ov_msckf/src/ltv/ltv_observer.cpp",
+      "-o",
+      "/home/he/output/ltv_active_landmark_consistency_r4/local_event_replay"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 11.043936252593994,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0020",
+    "files": {
+      "source_sha256.json": "e1629ccbe6d271dfc07ea5a701023bd567afb9ddacbe8614d64f33f02690b2aa",
+      "command_files_sha256.json": "36641b4a2ffd90648d480ef23018a54200579d3ef9c7e470690f5eb4992db03b",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 21,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "bash",
+      "scripts/ltv_active_consistency_r4/build_runtime.sh"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 332.72867035865784,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0021",
+    "files": {
+      "source_sha256.json": "5135f96add1e803f255409ecbd2debec362336844d337bfa627f563a4664f2dd",
+      "command_files_sha256.json": "26153d53c1f30417e2851aaa35cf09d181ae69509de0cbe65807d928d093e306",
+      "stdout.log": "cb2946a5985455d43784f12a24f976019e27682bed88dee3df8a05713ce23192",
+      "stderr.log": "a22ec49d60fa8d1473619c53541ac4a28c9f9f7a14a162474b355544e77a6c6a"
+    }
+  },
+  {
+    "id": 22,
+    "kind": "short_real",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/local_event_replay.py",
+      "--camera-ns",
+      "1413394964105760512",
+      "--binary",
+      "/home/he/output/ltv_active_landmark_consistency_r4/local_event_replay",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/local_events/27537_01"
+    ],
+    "exit_code": 1,
+    "elapsed_seconds": 4.262792110443115,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0022",
+    "files": {
+      "source_sha256.json": "5135f96add1e803f255409ecbd2debec362336844d337bfa627f563a4664f2dd",
+      "command_files_sha256.json": "ee17dd541205efb77722b5fabb9643f9fb20b116761e691c45a8c1155e6bfbd7",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "aeef17e5c9e99eca376c7775de5fe2111ac4ff7d4d40da41394deedf3ccd19d9"
+    }
+  },
+  {
+    "id": 23,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O1",
+      "-Iov_msckf/src",
+      "-Iov_core/src",
+      "-I/usr/include/eigen3",
+      "scripts/ltv_active_consistency_r4/local_event_replay.cpp",
+      "ov_msckf/src/ltv/LtvActiveConsistency.cpp",
+      "ov_msckf/src/ltv/LtvSeedEstimator.cpp",
+      "ov_msckf/src/ltv/ltv_observer.cpp",
+      "-o",
+      "/home/he/output/ltv_active_landmark_consistency_r4/local_event_replay"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 11.19738483428955,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0023",
+    "files": {
+      "source_sha256.json": "8f3e07d730edc043f814d0d32efbbf5b8faf0142c2543dba7e81e413e2b5a563",
+      "command_files_sha256.json": "c1cf4c947b0ddfa9203f36aee8118c1e282d6e5bad472acfc25a8c3683e69c48",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 24,
+    "kind": "short_real",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/local_event_replay.py",
+      "--camera-ns",
+      "1413394964105760512",
+      "--binary",
+      "/home/he/output/ltv_active_landmark_consistency_r4/local_event_replay",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/local_events/27537_02"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 4.076287269592285,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0024",
+    "files": {
+      "source_sha256.json": "8f3e07d730edc043f814d0d32efbbf5b8faf0142c2543dba7e81e413e2b5a563",
+      "command_files_sha256.json": "5f1aee585afb6312957714c5f64bca39dd7e3c0afb8241ec10f099f2b43f75b3",
+      "stdout.log": "3089a3871d5249f7b7bb9c8876fd854b666f4c822d43f754fc2e56c2bfdecc68",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 25,
+    "kind": "short_real",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/local_event_replay.py",
+      "--camera-ns",
+      "1413394966255760384",
+      "--binary",
+      "/home/he/output/ltv_active_landmark_consistency_r4/local_event_replay",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/local_events/29636_01"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 4.219043254852295,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0025",
+    "files": {
+      "source_sha256.json": "8f3e07d730edc043f814d0d32efbbf5b8faf0142c2543dba7e81e413e2b5a563",
+      "command_files_sha256.json": "5f1aee585afb6312957714c5f64bca39dd7e3c0afb8241ec10f099f2b43f75b3",
+      "stdout.log": "c05b343accdd934cea9af604fef3d6a0e77d200d5a6e9c5d40cc6084d22a9f80",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 26,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/evaluate_local_events.py",
+      "--results",
+      "/home/he/output/ltv_active_landmark_consistency_r4/local_events/27537_02/result.json",
+      "/home/he/output/ltv_active_landmark_consistency_r4/local_events/29636_01/result.json",
+      "--curves",
+      "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/evaluation_v1/error_curves.npz",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/local_events/error_comparison.json"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.06749653816223145,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0026",
+    "files": {
+      "source_sha256.json": "4be5e53d79497c57b7dcfcb696ffd497636d5190af8777b7a4f673f3e75fb90b",
+      "command_files_sha256.json": "79552d323381bd620da4440ae374202eca94f6a4c8082ebc49526a2d9555fa1f",
+      "stdout.log": "edbb2962cd28cc78b52d2675976bfb8ecbb470e879b4a915b8f88917a5a1fcc3",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 27,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/tests/audit_checker_gaps.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.017838001251220703,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0027",
+    "files": {
+      "source_sha256.json": "69cf020c33ff89606d751460cbd65734aeaa5da7577f02f067e9b5606b7231cb",
+      "command_files_sha256.json": "75f6d128f25c5a58e2c91e7a147b02167b2dde7e3026c8d790b93b4edca195d1",
+      "stdout.log": "136db3b9ddb126d68a254b3486375b3c64939e8c9baf59641cae5a0561c213f0",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 28,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/tests/test_runner_review.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.11391139030456543,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0028",
+    "files": {
+      "source_sha256.json": "00add73e0bf6cf97d8fc01d1716e86949bff127b332cd3c90329cc382524443b",
+      "command_files_sha256.json": "3a2125e5c43cd71637c3e06a010eb8ca7fc5eff118eb6ce50314fc35234ef625",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "100dffcea5e9922aae4402f092ad0d33e6735c7a4302c143fb53ad8942e8619d"
+    }
+  },
+  {
+    "id": 29,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/run_unit_checks.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.6775791645050049,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0029",
+    "files": {
+      "source_sha256.json": "699e6475ac3a6ab08a11411475153a23ea2c92053a7d193f824df89a911fdfc5",
+      "command_files_sha256.json": "037db12737cd22888f7ed94dc4d0c3223821f1a0c9ae3e51c72ee98be6b38493",
+      "stdout.log": "bfe3c1e3090beb6102eccfdf9863cdcb2d915680f15404517bd109c15ced439b",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 30,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/replay_ltv_feature_cache",
+      "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/estimator_config.yaml",
+      "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/P_NEW/cache.bin",
+      "/home/he/output/ltv_active_landmark_consistency_r4/default_off_full_cache.json"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 21.237547874450684,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0030",
+    "files": {
+      "source_sha256.json": "699e6475ac3a6ab08a11411475153a23ea2c92053a7d193f824df89a911fdfc5",
+      "command_files_sha256.json": "34a430819c57b0fd16c5252abc75cffc6160e4c0457c0f1d071fb92e271fd954",
+      "stdout.log": "1262db6b1fc6307f4633056b7c3953441d6f48f7b886bb293d878893fa19d597",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 31,
+    "kind": "candidate",
+    "units": 1,
+    "command": [
+      "/usr/bin/true"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.001369476318359375,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0031",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "79d44ee2700dfb847d5ef1143b59ff43b29cd54c05e315502d40d3e3c8e4cc4c",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 32,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C01_V2_03_01/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C01_V2_03_01/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 38.77313446998596,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0032",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "ad1ec49d39a351571951929033bf970e96a7af17c7e516975a64419f65e33744",
+      "stdout.log": "cd113d72450f7fe7f4cbc2d8536d1db9fe13f5323c58f32a9eef4ef4316c9eb6",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 33,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/OFF_V2_02_01/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/OFF_V2_02_01/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 57.12631869316101,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0033",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "89f8fba6ed9a94da95b951bebc0837a7a982d0efc51f7a1f93e06f9a9486adfc",
+      "stdout.log": "ce6330299322e15253affad7ee717a4b28958f242fd379ccf7fb80ba6ea5c2f5",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 34,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "V2_03_difficult",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C01_V2_03_01/P_NEW",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/V2_03/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/V2_03/P_PREV",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C01_V2_03_01/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 5.7301857471466064,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0034",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "6857fd294a1c2af4361fbca96ccec964cf52412d2985ff879064d2e082288aaa",
+      "stdout.log": "8c1df2e0cbb3c6373a2ad13df317931c19ec5c220118e8a718ee94e40a593b38",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 35,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/replay_ltv_feature_cache",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C01_V2_03_01/config/estimator_config.yaml",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C01_V2_03_01/P_NEW/cache.bin",
+      "/home/he/output/ltv_active_landmark_consistency_r4/C01_V2_03_exact_cache.json"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 21.67027997970581,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0035",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "13f321e713bff4a09f835e3c8dcbf883c755b955586be5ea6dd103b2fa4d5981",
+      "stdout.log": "1262db6b1fc6307f4633056b7c3953441d6f48f7b886bb293d878893fa19d597",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 36,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C01_V2_02_01/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C01_V2_02_01/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 54.90303325653076,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0036",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "b39e6b0999af0d4693b46f708353e4b3bdc981f7999821314df2e2a2bfcc9de1",
+      "stdout.log": "ce6330299322e15253affad7ee717a4b28958f242fd379ccf7fb80ba6ea5c2f5",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 37,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "V2_02_medium",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C01_V2_02_01/P_NEW",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/V2_02/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/V2_02/P_PREV",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C01_V2_02_01/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 8.107774257659912,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0037",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "6857fd294a1c2af4361fbca96ccec964cf52412d2985ff879064d2e082288aaa",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 38,
+    "kind": "candidate",
+    "units": 1,
+    "command": [
+      "/usr/bin/true"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.001489400863647461,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0038",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "79d44ee2700dfb847d5ef1143b59ff43b29cd54c05e315502d40d3e3c8e4cc4c",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 39,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C02_V2_02_01/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C02_V2_02_01/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 56.46736693382263,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0039",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "cf05bc9ebb6245dccc97df9cdee4b85597ec1646e2969880a3a84d88560ea1fe",
+      "stdout.log": "ce6330299322e15253affad7ee717a4b28958f242fd379ccf7fb80ba6ea5c2f5",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 40,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C02_V2_03_01/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C02_V2_03_01/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 39.87768507003784,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0040",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "3429a041e4b66fee56fb61f6a3c1d7112815e572212e42cb880b6da8e4c6c551",
+      "stdout.log": "cd113d72450f7fe7f4cbc2d8536d1db9fe13f5323c58f32a9eef4ef4316c9eb6",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 41,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "V2_03_difficult",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C02_V2_03_01/P_NEW",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/V2_03/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/V2_03/P_PREV",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C02_V2_03_01/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 5.715840816497803,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0041",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "6857fd294a1c2af4361fbca96ccec964cf52412d2985ff879064d2e082288aaa",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 42,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "V2_02_medium",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C02_V2_02_01/P_NEW",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/V2_02/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/V2_02/P_PREV",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C02_V2_02_01/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 7.999801874160767,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0042",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "6857fd294a1c2af4361fbca96ccec964cf52412d2985ff879064d2e082288aaa",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 43,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/replay_ltv_feature_cache",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C02_V2_03_01/config/estimator_config.yaml",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C02_V2_03_01/P_NEW/cache.bin",
+      "/home/he/output/ltv_active_landmark_consistency_r4/C02_V2_03_exact_cache.json"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 21.28226089477539,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0043",
+    "files": {
+      "source_sha256.json": "f72dc6d33dc46024eb8026aa646ad97900c4bec71c2eafa9c7b4161decfbb539",
+      "command_files_sha256.json": "b6e9b1d30fceb8292e2ef04510d98b981645a7454cc3526724967937aacf86b2",
+      "stdout.log": "1262db6b1fc6307f4633056b7c3953441d6f48f7b886bb293d878893fa19d597",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 44,
+    "kind": "build",
+    "units": 1,
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O2",
+      "-shared",
+      "-fPIC",
+      "-I/usr/include/eigen3",
+      "-I/usr/include/opencv4",
+      "-Iov_msckf/src",
+      "-Iov_core/src",
+      "-Iov_init/src",
+      "scripts/ltv_active_consistency_r4/synthetic_wrapper.cpp",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib/libov_msckf_lib.so",
+      "-Wl,--disable-new-dtags",
+      "-Wl,-rpath,/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "-o",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 2.756063938140869,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0044",
+    "files": {
+      "source_sha256.json": "94de0db443cc20b1656cb34a011f1df55d9c5de15991d62dae86725d8950448d",
+      "command_files_sha256.json": "c7ad1c960b6dd3da931240f78474b4aa1cece04b84dd8b81c52f2c40a0c53fa0",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 45,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/test_synthetic_wrapper_abi.py",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_abi.json"
+    ],
+    "exit_code": 1,
+    "elapsed_seconds": 0.11505508422851562,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0045",
+    "files": {
+      "source_sha256.json": "42cdd27bf69a2020dd054cc218e7133332f0b6214b7757eb9d3bf9850026ace1",
+      "command_files_sha256.json": "5a8150c503548886714b636ad0905bd0e360dd1b3e3d6dc4cb2351894af5b6de",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "054e299ee5f79324b74f27fa3b8ba029109141fc4a4b8502f683f83a640fcaa5"
+    }
+  },
+  {
+    "id": 46,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/test_synthetic_wrapper_abi.py",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_abi.json"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.0935060977935791,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0046",
+    "files": {
+      "source_sha256.json": "0de02f4c4880fc2667da49784faa6a3d18963c52cfde56f3ac362d69055f97e2",
+      "command_files_sha256.json": "7b6cb0bc2e6274be581dd47407d6014b2f170a9a4b23524504ed560e458cabaf",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 47,
+    "kind": "synthetic",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/synthetic_runner.py",
+      "--input-dir",
+      "/home/he/output/ltv_passive_hardening_v2/inputs/dev_near_REGULAR_42_05",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_development/C02_REGULAR05_42",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--mode",
+      "P_NEW_ACTIVE",
+      "--source",
+      "HYBRID"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 19.792640209197998,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0047",
+    "files": {
+      "source_sha256.json": "f176aec780cd9cb9d31b96d003a90219d169cae746f1240a3df9e8d7396d8d8b",
+      "command_files_sha256.json": "db0efe5b645bbc55badd22c95ab79f3cdcf9a8a2234ebf4d337c289e697315d0",
+      "stdout.log": "fc5d09aae202daeb6648886177c1bde0eb2311069c5d3be57521a5b3933b38a1",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 48,
+    "kind": "synthetic",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/resource_benchmark.py",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/resource_C02_600_42",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--calibration",
+      "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+      "--seconds",
+      "600",
+      "--seed",
+      "42",
+      "--mode",
+      "P_NEW_ACTIVE"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 172.35780358314514,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0048",
+    "files": {
+      "source_sha256.json": "f176aec780cd9cb9d31b96d003a90219d169cae746f1240a3df9e8d7396d8d8b",
+      "command_files_sha256.json": "9295d3cd466b9fc0276e55a11705a2ee017c286bc66dd70d8110a551cde72cee",
+      "stdout.log": "338cf81b64d9cca0b0bfebcd415825507ad097616bc45a8c5958420ee2349ba1",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 49,
+    "kind": "synthetic",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/synthetic_runner.py",
+      "--input-dir",
+      "/home/he/output/ltv_passive_hardening_v2/inputs/dev_recovery_REGULAR_42_1",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_development/C02_RECOVERY_42",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--mode",
+      "P_NEW_ACTIVE",
+      "--source",
+      "HYBRID"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 15.120733499526978,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0049",
+    "files": {
+      "source_sha256.json": "9c57b324bdd2c44f0a5302aaa07edfcc9cbead57c69d9626cfb9e22f7625ef4e",
+      "command_files_sha256.json": "db0efe5b645bbc55badd22c95ab79f3cdcf9a8a2234ebf4d337c289e697315d0",
+      "stdout.log": "1394ba0ac64cd549e3692d3a41ad6ab9bb47736ce651b0b832d2d4a3b23242f1",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 50,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/synthetic_evaluate.py",
+      "--input-dir",
+      "/home/he/output/ltv_passive_hardening_v2/inputs/dev_near_REGULAR_42_05",
+      "--run-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_development/C02_REGULAR05_42",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_development/C02_REGULAR05_42/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.4429185390472412,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0050",
+    "files": {
+      "source_sha256.json": "9c57b324bdd2c44f0a5302aaa07edfcc9cbead57c69d9626cfb9e22f7625ef4e",
+      "command_files_sha256.json": "72d55251ea3c073197e48ee7d64deb7288fc948a08b60acac1864776105db8f5",
+      "stdout.log": "68237b9fd7170dfb1d46e89582b8939c3b06863e24ffc8f6519483b9fea0a8bb",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 51,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/synthetic_evaluate.py",
+      "--input-dir",
+      "/home/he/output/ltv_passive_hardening_v2/inputs/dev_recovery_REGULAR_42_1",
+      "--run-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_development/C02_RECOVERY_42",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_development/C02_RECOVERY_42/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.302051305770874,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0051",
+    "files": {
+      "source_sha256.json": "9c57b324bdd2c44f0a5302aaa07edfcc9cbead57c69d9626cfb9e22f7625ef4e",
+      "command_files_sha256.json": "72d55251ea3c073197e48ee7d64deb7288fc948a08b60acac1864776105db8f5",
+      "stdout.log": "dcd5cc206afc7ab1f90d6fe727271cb70f5486a9a8469b95551a8d5c65df17e3",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 52,
+    "kind": "synthetic",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/synthetic_runner.py",
+      "--input-dir",
+      "/home/he/output/ltv_passive_hardening_v2/inputs/dev_temporal_REGULAR_42_1",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_development/C02_TEMPORAL_42",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--mode",
+      "P_NEW_ACTIVE",
+      "--source",
+      "TEMPORAL"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 16.171864986419678,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0052",
+    "files": {
+      "source_sha256.json": "9c57b324bdd2c44f0a5302aaa07edfcc9cbead57c69d9626cfb9e22f7625ef4e",
+      "command_files_sha256.json": "db0efe5b645bbc55badd22c95ab79f3cdcf9a8a2234ebf4d337c289e697315d0",
+      "stdout.log": "5487fc6e599e16e29f00e0edc6ae3ba43c637cfec5297745b2909fe4b3da2bb5",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 53,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/synthetic_evaluate.py",
+      "--input-dir",
+      "/home/he/output/ltv_passive_hardening_v2/inputs/dev_temporal_REGULAR_42_1",
+      "--run-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_development/C02_TEMPORAL_42",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_development/C02_TEMPORAL_42/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.5260128974914551,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0053",
+    "files": {
+      "source_sha256.json": "9c57b324bdd2c44f0a5302aaa07edfcc9cbead57c69d9626cfb9e22f7625ef4e",
+      "command_files_sha256.json": "72d55251ea3c073197e48ee7d64deb7288fc948a08b60acac1864776105db8f5",
+      "stdout.log": "a6fa45bbe98de141376f52fcad3ec6d345adffa3cbd9c451058a16664117bfad",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 54,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_passive_hardening/resource_analyze.py",
+      "--directory",
+      "/home/he/output/ltv_active_landmark_consistency_r4/resource_C02_600_42",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/resource_C02_600_42/analysis_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 3.846940755844116,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0054",
+    "files": {
+      "source_sha256.json": "9c57b324bdd2c44f0a5302aaa07edfcc9cbead57c69d9626cfb9e22f7625ef4e",
+      "command_files_sha256.json": "e064302b66aeec5f89a7fd8cbdb2df3348274bb349eb6d7b84aa5fead4510949",
+      "stdout.log": "f692a305bc34185806a2640f97cf079b7578b175cab54aea2c2927d0001b39c3",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 55,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/tests/test_runner_review.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.11670446395874023,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0055",
+    "files": {
+      "source_sha256.json": "59db78049b7215988f89e2bf594270f1889c79fd3e5b91a6baf416c4134a062e",
+      "command_files_sha256.json": "fc9f985da7f3ad23c8d6c87a53d9442c4580a61fcf26038606fb35b1d4d01f06",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "87586abe109d7a1efb25cb64b321d392952f8b492387bb6fec8dc7b051315cd3"
+    }
+  },
+  {
+    "id": 56,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/review_selected_lifecycles.py",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_development/C02_V2_03_01/P_NEW/features.jsonl",
+      "--old",
+      "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/P_NEW/features.jsonl",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/C02_target_lifecycles_and_rates.json"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 2.306468963623047,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0056",
+    "files": {
+      "source_sha256.json": "7714301b63e544bcc904b37173668a11c5b430c053bbf0865c12c4b8c7b44f32",
+      "command_files_sha256.json": "c06c577ed6b0814de3eb63b01ca62af0a6638ea01e87e2fc775b81921a5af3c4",
+      "stdout.log": "f4bfd0379ea09cb5dfdff2408470481e89b24c67369640745b5f99e5c2594637",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 57,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/prepare_baseline_views.py",
+      "--manifest",
+      "/home/he/output/ltv_feature_readiness_passive/final_manifest_recovered.json",
+      "--views",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/formal",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/B_reuse_manifest.json"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.7970597743988037,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0057",
+    "files": {
+      "source_sha256.json": "4e7ef8cf4ab10d39e0df25cb07af247d5f7e9ade9aa90ea5ad944a4b35c14fb6",
+      "command_files_sha256.json": "aafb0b882e7b17904015db14c374b6d7b431c1acb9b77b9d87248748c9a01ca8",
+      "stdout.log": "a12f67283c405784fec688b23a301ebe4c088550c25103599e2ab77417beec48",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 58,
+    "kind": "test",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/tests/test_runner_review.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.12149643898010254,
+    "phase": "development",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0058",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "fc9f985da7f3ad23c8d6c87a53d9442c4580a61fcf26038606fb35b1d4d01f06",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "87586abe109d7a1efb25cb64b321d392952f8b492387bb6fec8dc7b051315cd3"
+    }
+  },
+  {
+    "id": 59,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_02_easy/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_02_easy/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 112.40435338020325,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0059",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "eb8836c71c316a8426d8a7eea122af5bfa0d5d6ac029e6f347afc1ec3197ed20",
+      "stdout.log": "e437a7488cf331998d7d70cd438ac34beb6df8e6d806c9493cffaffb0e8ffdff",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 60,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_01_easy/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_01_easy/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 137.23422527313232,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0060",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "dead52e6046cd768eff87a81433516210989ccf2c8ae321fbbd1bdab31e0ba0d",
+      "stdout.log": "1cf1481d6aeedee77a5df95b2c57e8639c0183fcf38ddd7126c56c32c4bb03ab",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 61,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_03_medium/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_03_medium/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 123.92008900642395,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0061",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "85e06938165bfb2789678dc94296138c2b95c89da8f9794e3ea0da42a0139ce2",
+      "stdout.log": "e8f09bd04f2be086f85bf09019bc9780d20ce2a969e87edf2445ae59bef99c52",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 62,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_04_difficult/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_04_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_04_difficult/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 101.17552947998047,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0062",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "8f954a7a021a653c6c685150d5fb4e5545f0ad8a6bf1cd063ff36c1b43477d5a",
+      "stdout.log": "aa83e97d6d5d757aa52295ba82df51ca1e2fc6266b652ec61a1018e0e4237894",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 63,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_05_difficult/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_05_difficult/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 96.86707901954651,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0063",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "cc349ce85a2256c43a4c5d8abf05281b6c58dccd88ca2fd605f07c072ba2d368",
+      "stdout.log": "725fe04577e08be591f7655569b8a2a8d1ca8807ff7b47565997228aa1b338b0",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 64,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V1_01_easy/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V1_01_easy/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 94.53771257400513,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0064",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "95096464eebba43b8206864d83c0769d36abe66831fe2d7a0b112e3aec6db568",
+      "stdout.log": "87f5f31d45d7691436c34b36468a7b2c286ad7f0d256dd42d03ed2700f1d9a81",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 65,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V1_02_medium/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V1_02_medium/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 54.820271730422974,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0065",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "543e96b1c76976114c1e7d53680c1321a045172132d09781cc653401ee2f9637",
+      "stdout.log": "69cf8d5132abc43bddcd38bbf9b2ffdbe807147bebce789028f3745ae1d7b03b",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 66,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V1_03_difficult/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V1_03_difficult/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 64.11614418029785,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0066",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "581f72afb9d67cb91f36b35f1a303f184d830a60d34b50d158b294efde7e3583",
+      "stdout.log": "637e609750dd935ab933176b962105745fd4439a65e5a51ef15b2b3d878ac407",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 67,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V2_01_easy/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V2_01_easy/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 70.87872385978699,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0067",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "8ebb97e00bf90d0158b3a53796dcf2fef749a5baaa7eeeaa1efcaff67380f7af",
+      "stdout.log": "db08d5ea6c4f0cbd1f4978cafca51c8ea4e034667ab5ebdf4a9dbe566b2c2ec4",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 68,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_01_easy/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_01_easy/B",
+      "B"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 33.9354727268219,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0068",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "c72b723c66a84f9c1fda7670fd161ff6d043c84b0287f9e5c49bf0a830ee88d2",
+      "stdout.log": "1cf1481d6aeedee77a5df95b2c57e8639c0183fcf38ddd7126c56c32c4bb03ab",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 69,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_02_easy/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_02_easy/B",
+      "B"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 29.708081483840942,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0069",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "628d55ffc10223fcd5cf5d33ca0ff42144dee7e5db4b7358e322ac542beb00e5",
+      "stdout.log": "e437a7488cf331998d7d70cd438ac34beb6df8e6d806c9493cffaffb0e8ffdff",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 70,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_03_medium/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_03_medium/B",
+      "B"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 21.594664335250854,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0070",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "02f7627baab8bac456cb898e93c1710a1254d4a42c6155f005605bd66e4dbb31",
+      "stdout.log": "e8f09bd04f2be086f85bf09019bc9780d20ce2a969e87edf2445ae59bef99c52",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 71,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_04_difficult/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_04_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_04_difficult/B",
+      "B"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 14.769240140914917,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0071",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "98c82c2d1ab388c56dd0dd00c4b0fcf12da44e3a313d4a2cd89c11330f23e6b4",
+      "stdout.log": "aa83e97d6d5d757aa52295ba82df51ca1e2fc6266b652ec61a1018e0e4237894",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 72,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_05_difficult/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_05_difficult/B",
+      "B"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 17.628232955932617,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0072",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "a5250c978ec628acf7be573f8103e34b2f376f99d6383aefbc950898371cfd6b",
+      "stdout.log": "725fe04577e08be591f7655569b8a2a8d1ca8807ff7b47565997228aa1b338b0",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 73,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_V1_02_medium/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_V1_02_medium/B",
+      "B"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 13.84700345993042,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0073",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "ae571567f77aa07df7ab32089c84d816c45b170c0cbbeddb90e78f24aa82c442",
+      "stdout.log": "69cf8d5132abc43bddcd38bbf9b2ffdbe807147bebce789028f3745ae1d7b03b",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 74,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_V2_01_easy/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_V2_01_easy/B",
+      "B"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 17.727169275283813,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0074",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "aa4f156d358aa3d178a65977e14ae9d2715c80b73b5fa46850a6cf686e04231e",
+      "stdout.log": "db08d5ea6c4f0cbd1f4978cafca51c8ea4e034667ab5ebdf4a9dbe566b2c2ec4",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 75,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_01_easy/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_01_easy/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 152.58658456802368,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0075",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "af3b0ed01f226fba0276ca7bbcd3c2c4d042530bb62774c21f220f68f9f97bb5",
+      "stdout.log": "1cf1481d6aeedee77a5df95b2c57e8639c0183fcf38ddd7126c56c32c4bb03ab",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 76,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_02_easy/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_02_easy/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 126.05593729019165,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0076",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "3aa67b1a0d4e887e2636cf822ac993f0d87a17398e4115df8b88cedf5d2bc083",
+      "stdout.log": "e437a7488cf331998d7d70cd438ac34beb6df8e6d806c9493cffaffb0e8ffdff",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 77,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_03_medium/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_03_medium/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 148.89173316955566,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0077",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "71892c6fb6262cf5451c0b8a0818741be4fad57a350d32793569519ab4a925bd",
+      "stdout.log": "e8f09bd04f2be086f85bf09019bc9780d20ce2a969e87edf2445ae59bef99c52",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 78,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_04_difficult/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_04_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_04_difficult/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 126.46026110649109,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0078",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "f4f52ac4b91e9484e84ddb09906fe3dd229b6ad8056650d6e65e2d6d3fc13158",
+      "stdout.log": "aa83e97d6d5d757aa52295ba82df51ca1e2fc6266b652ec61a1018e0e4237894",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 79,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_05_difficult/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_05_difficult/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 105.37301349639893,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0079",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "acbf03939f0742a7390739b380f14c29df91062939be092ef28be6ef165568a4",
+      "stdout.log": "725fe04577e08be591f7655569b8a2a8d1ca8807ff7b47565997228aa1b338b0",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 80,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_01_easy/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_01_easy/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 111.2119791507721,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0080",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "7252e95695098f1d6656e22aa6cd466513b242dd16ac5f8940e9f33da2f28f94",
+      "stdout.log": "87f5f31d45d7691436c34b36468a7b2c286ad7f0d256dd42d03ed2700f1d9a81",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 81,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_02_medium/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_02_medium/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 45.645790815353394,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0081",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "ce359a682093eb7a0d9d20a7e13aeb8bcb7f657878fa88d64ea6b11ff315e4ff",
+      "stdout.log": "69cf8d5132abc43bddcd38bbf9b2ffdbe807147bebce789028f3745ae1d7b03b",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 82,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_03_difficult/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_03_difficult/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 55.13166069984436,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0082",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "97d0ae997c7fcf65f609768a768da76dcf1e20c24bfff38a655c39624fa343ad",
+      "stdout.log": "637e609750dd935ab933176b962105745fd4439a65e5a51ef15b2b3d878ac407",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 83,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_01_easy/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_01_easy/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 76.00512981414795,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0083",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "adf3ccc84879be8ecccd7047dc6e0b7c8ec6cb6aa508c3bbfeb09f455fada3ee",
+      "stdout.log": "db08d5ea6c4f0cbd1f4978cafca51c8ea4e034667ab5ebdf4a9dbe566b2c2ec4",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 84,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 58.068851709365845,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0084",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "17a21caae38f0d72f547bde2cda1abc3d4606d8e125f9d2b95bf112cb6b52857",
+      "stdout.log": "ce6330299322e15253affad7ee717a4b28958f242fd379ccf7fb80ba6ea5c2f5",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 85,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 42.08271622657776,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0085",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "f41e0edb1b2e0b3c11c89e986b944bfcacff530252a2b97bd464acf5323a7a54",
+      "stdout.log": "cd113d72450f7fe7f4cbc2d8536d1db9fe13f5323c58f32a9eef4ef4316c9eb6",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 86,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_REPEAT_C02_01_ON_V2_03_difficult/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_REPEAT_C02_01_ON_V2_03_difficult/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 38.10068392753601,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0086",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "c3f476952b8ba3f0a06f6baf82a2e57625ca5f521337ffc566dd480c938b4b5c",
+      "stdout.log": "cd113d72450f7fe7f4cbc2d8536d1db9fe13f5323c58f32a9eef4ef4316c9eb6",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 87,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_REPEAT_C02_01_ON_V1_03_difficult/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_REPEAT_C02_01_ON_V1_03_difficult/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 50.499916791915894,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0087",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "f866f6da348aad90665d57512951af3c60e2b4a0d40788715e1518d3470d6646",
+      "stdout.log": "637e609750dd935ab933176b962105745fd4439a65e5a51ef15b2b3d878ac407",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 88,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "MH_01_easy",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_01_easy/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_01_easy/P_NEW",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_01_easy/P_NEW",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_01_easy/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 11.214984893798828,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0088",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "e601cf2a4099be3742ee2156a231fed2ef2141193c362cc340205a22cb95c69b",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 89,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "MH_02_easy",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_02_easy/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_02_easy/P_NEW",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_02_easy/P_NEW",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_02_easy/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 9.145089387893677,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0089",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "e601cf2a4099be3742ee2156a231fed2ef2141193c362cc340205a22cb95c69b",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 90,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "MH_03_medium",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_03_medium/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_03_medium/P_NEW",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_03_medium/P_NEW",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_03_medium/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 9.010099172592163,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0090",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "e601cf2a4099be3742ee2156a231fed2ef2141193c362cc340205a22cb95c69b",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 91,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "MH_04_difficult",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_04_difficult/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_04_difficult/P_NEW",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_04_difficult/P_NEW",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_04_difficult/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 8.305701732635498,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0091",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "e601cf2a4099be3742ee2156a231fed2ef2141193c362cc340205a22cb95c69b",
+      "stdout.log": "a5c8cc5b7305c697b0b8260f33003215fce03547ae119497b306ae532aea42bf",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 92,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "MH_05_difficult",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_05_difficult/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_05_difficult/P_NEW",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_05_difficult/P_NEW",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_05_difficult/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 7.190222978591919,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0092",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "e601cf2a4099be3742ee2156a231fed2ef2141193c362cc340205a22cb95c69b",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 93,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "V1_01_easy",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/formal/V1_01_easy/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V1_01_easy/P_NEW",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_01_easy/P_NEW",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_01_easy/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 11.56017780303955,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0093",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "e601cf2a4099be3742ee2156a231fed2ef2141193c362cc340205a22cb95c69b",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 94,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "V1_02_medium",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_V1_02_medium/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V1_02_medium/P_NEW",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_02_medium/P_NEW",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_02_medium/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 6.095481872558594,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0094",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "e601cf2a4099be3742ee2156a231fed2ef2141193c362cc340205a22cb95c69b",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 95,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "V1_03_difficult",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/formal/V1_03_difficult/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V1_03_difficult/P_NEW",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_03_difficult/P_NEW",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_03_difficult/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 6.864980936050415,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0095",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "e601cf2a4099be3742ee2156a231fed2ef2141193c362cc340205a22cb95c69b",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 96,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "V2_01_easy",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_V2_01_easy/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_V2_01_easy/P_NEW",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_01_easy/P_NEW",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_01_easy/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 8.069859504699707,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0096",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "e601cf2a4099be3742ee2156a231fed2ef2141193c362cc340205a22cb95c69b",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 97,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "V2_02_medium",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/formal/V2_02_medium/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/V2_02/P_PREV",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/P_NEW",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 8.180844783782959,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0097",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "e601cf2a4099be3742ee2156a231fed2ef2141193c362cc340205a22cb95c69b",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 98,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/real_evaluate.py",
+      "--sequence",
+      "V2_03_difficult",
+      "--baseline",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/formal/V2_03_difficult/B",
+      "--previous",
+      "/home/he/output/ltv_active_landmark_consistency_r4/evidence_views/V2_03/P_PREV",
+      "--new",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/P_NEW",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 5.737385272979736,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0098",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "e601cf2a4099be3742ee2156a231fed2ef2141193c362cc340205a22cb95c69b",
+      "stdout.log": "02d25d0a6d6a7ade4e4a809700e8b6abdd0230a4e5d863aa3fcf07a6deea1f2e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 99,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "/home/he/output/ltv_active_landmark_consistency_r4/verify_repeats.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 7.959491968154907,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0099",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "a9b30eeed702e54ca20045d6605e0464d0a373f8f29a2257706421d63842cef9",
+      "stdout.log": "0901f2e72976be50e02e90e0ed3dfb8f933e0baaceb1e8d1c3a9c17086ac6ec1",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 100,
+    "kind": "real",
+    "units": 1,
+    "command": [
+      "/usr/bin/env",
+      "LD_LIBRARY_PATH=/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/lib",
+      "/home/he/output/ltv_active_landmark_consistency_r4/runtime/943573c164f9f6fb7c1f265cda71d7630902d2b07a7e4be63cd27748d44b7ab0/run_ltv_feature_passive",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_LOGOFF_C02_V2_03_01/config/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_LOGOFF_C02_V2_03_01/P_NEW",
+      "P_NEW"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 38.461079120635986,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0100",
+    "files": {
+      "source_sha256.json": "866d6fc17c179e59095c921bfb2692d5079e55c36a2c07faaba09bf0dcbab18e",
+      "command_files_sha256.json": "689de911279125565c7b9df874b23367908891d87a3a3d95e3471efe5b87c005",
+      "stdout.log": "cd113d72450f7fe7f4cbc2d8536d1db9fe13f5323c58f32a9eef4ef4316c9eb6",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 101,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "scripts/ltv_active_consistency_r4/diagnose_mh04.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 2.6734538078308105,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0101",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "214f133546e793c182c936f6188204fe6b6618ad10af9e1aad3aa33adb0d3357",
+      "stdout.log": "afcec72d67290f3d23b1ef02366662dac6a5a7c1ebdd89f7ec01b4ef883dc548",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 102,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_inputs.py",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/STEREO_FAST_05_202",
+      "--calibration",
+      "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+      "--scene",
+      "FAST",
+      "--lifetime",
+      "0.5",
+      "--condition",
+      "STEREO",
+      "--seed",
+      "202",
+      "--duration",
+      "60",
+      "--confirmation-sha",
+      "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 4.672367334365845,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0102",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "3572f4602bd3ed9b783bbf071bd787488afc27610ff7602d163c35f4dfa4b8bd",
+      "stdout.log": "b7aa5cc89c430c4710f83affbcc186c958ec40e10d78067fc8b92da126f4e371",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 103,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_inputs.py",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/STEREO_REGULAR_1_201",
+      "--calibration",
+      "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+      "--scene",
+      "REGULAR",
+      "--lifetime",
+      "1",
+      "--condition",
+      "STEREO",
+      "--seed",
+      "201",
+      "--duration",
+      "60",
+      "--confirmation-sha",
+      "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 4.911844730377197,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0103",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "3572f4602bd3ed9b783bbf071bd787488afc27610ff7602d163c35f4dfa4b8bd",
+      "stdout.log": "0336de27048522b3fc6408f1bcb771ba8c8226170b5a57d9e9c9db4ea299e20a",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 104,
+    "kind": "synthetic",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_runner.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/STEREO_FAST_05_202",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_FAST_05_202/P_NEW_ACTIVE",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--mode",
+      "P_NEW_ACTIVE",
+      "--source",
+      "HYBRID"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 18.394909143447876,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0104",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "bb5e4543a8f465afadea3f99491879e8efc621d168c23d6bf7fcb4d371f9f3d0",
+      "stdout.log": "8ce2bcf0425bc00d96437120146ab57ea83ea9ccead1f087548dc5e7f3242aba",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 105,
+    "kind": "synthetic",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_runner.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/STEREO_REGULAR_1_201",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_REGULAR_1_201/P_NEW_ACTIVE",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--mode",
+      "P_NEW_ACTIVE",
+      "--source",
+      "HYBRID"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 18.758326530456543,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0105",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "bb5e4543a8f465afadea3f99491879e8efc621d168c23d6bf7fcb4d371f9f3d0",
+      "stdout.log": "f2f99de71d0d850fb4531f5763b73a9eb4cc5493181aacc87d2b59b971559243",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 106,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_evaluate.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/STEREO_FAST_05_202",
+      "--run-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_FAST_05_202/P_NEW_ACTIVE",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_FAST_05_202/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.44916772842407227,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0106",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "6b1067392eb3efc8cbd0d1513fc56935c930e942f7090a835ac1d7aef1933f88",
+      "stdout.log": "bd65135eb2166c735ec9ae8cc453289877cbd19e46102c530d098a0ae6c6644b",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 107,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_inputs.py",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/STEREO_FAST_1_201",
+      "--calibration",
+      "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+      "--scene",
+      "FAST",
+      "--lifetime",
+      "1",
+      "--condition",
+      "STEREO",
+      "--seed",
+      "201",
+      "--duration",
+      "60",
+      "--confirmation-sha",
+      "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 4.56261682510376,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0107",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "3572f4602bd3ed9b783bbf071bd787488afc27610ff7602d163c35f4dfa4b8bd",
+      "stdout.log": "bf3482b2d43cd78212e7b52abb94c36ac785a6520d0f5c36d171ec1758f825c7",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 108,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_evaluate.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/STEREO_REGULAR_1_201",
+      "--run-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_REGULAR_1_201/P_NEW_ACTIVE",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_REGULAR_1_201/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.37320947647094727,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0108",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "6b1067392eb3efc8cbd0d1513fc56935c930e942f7090a835ac1d7aef1933f88",
+      "stdout.log": "ab6ab24e42593dcb08bd23067b6448055d556cb078e73e99f9bb6543266a741a",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 109,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_inputs.py",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/TEMPORAL_FAST_1_202",
+      "--calibration",
+      "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+      "--scene",
+      "FAST",
+      "--lifetime",
+      "1",
+      "--condition",
+      "TEMPORAL",
+      "--seed",
+      "202",
+      "--duration",
+      "60",
+      "--confirmation-sha",
+      "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 3.475052833557129,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0109",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "3572f4602bd3ed9b783bbf071bd787488afc27610ff7602d163c35f4dfa4b8bd",
+      "stdout.log": "77bb6d8c485be07093558491f26476942b07fdae4f47bb5c433a32bc54db5721",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 110,
+    "kind": "synthetic",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_runner.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/TEMPORAL_FAST_1_202",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/TEMPORAL_FAST_1_202/P_NEW_ACTIVE",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--mode",
+      "P_NEW_ACTIVE",
+      "--source",
+      "TEMPORAL"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 12.587753772735596,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0110",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "bb5e4543a8f465afadea3f99491879e8efc621d168c23d6bf7fcb4d371f9f3d0",
+      "stdout.log": "fde146cc59fe20d1864217c935fdeb350a63acdf53e0a8fe2be109f3de5f6496",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 111,
+    "kind": "synthetic",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_runner.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/STEREO_FAST_1_201",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_FAST_1_201/P_NEW_ACTIVE",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--mode",
+      "P_NEW_ACTIVE",
+      "--source",
+      "HYBRID"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 12.819905042648315,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0111",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "bb5e4543a8f465afadea3f99491879e8efc621d168c23d6bf7fcb4d371f9f3d0",
+      "stdout.log": "bcf93d429f0c59a0caebd3c7a14cede83e9f43b84444eb5400526af16b1bab1d",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 112,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_evaluate.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/TEMPORAL_FAST_1_202",
+      "--run-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/TEMPORAL_FAST_1_202/P_NEW_ACTIVE",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/TEMPORAL_FAST_1_202/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.4842491149902344,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0112",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "6b1067392eb3efc8cbd0d1513fc56935c930e942f7090a835ac1d7aef1933f88",
+      "stdout.log": "a9f96f36efef1f14ee66bf3e4c27957e48f218b942d034cc51e3f2e9b31d7004",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 113,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_inputs.py",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/WRONG_MATCH_REGULAR_1_201",
+      "--calibration",
+      "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+      "--scene",
+      "REGULAR",
+      "--lifetime",
+      "1",
+      "--condition",
+      "WRONG_MATCH",
+      "--seed",
+      "201",
+      "--duration",
+      "60",
+      "--confirmation-sha",
+      "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 5.031612396240234,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0113",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "3572f4602bd3ed9b783bbf071bd787488afc27610ff7602d163c35f4dfa4b8bd",
+      "stdout.log": "2b79811ad0b0b7838ed2bc68364bd76287a8874974510dce3bd0389421a72bac",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 114,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_evaluate.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/STEREO_FAST_1_201",
+      "--run-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_FAST_1_201/P_NEW_ACTIVE",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_FAST_1_201/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.3240320682525635,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0114",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "6b1067392eb3efc8cbd0d1513fc56935c930e942f7090a835ac1d7aef1933f88",
+      "stdout.log": "e5a2ce2953a2ac37c0289604e0fc8386cc9599a44f832ebf16b56a25072d546d",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 115,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_inputs.py",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/STEREO_DROPOUT_REGULAR_1_202",
+      "--calibration",
+      "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+      "--scene",
+      "REGULAR",
+      "--lifetime",
+      "1",
+      "--condition",
+      "STEREO_DROPOUT",
+      "--seed",
+      "202",
+      "--duration",
+      "60",
+      "--confirmation-sha",
+      "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 4.7129504680633545,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0115",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "3572f4602bd3ed9b783bbf071bd787488afc27610ff7602d163c35f4dfa4b8bd",
+      "stdout.log": "570838c7896ab2229bf6cb7c8edf15bd3e8fe0c1a973059472f2f1f704dddc20",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 116,
+    "kind": "synthetic",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_runner.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/WRONG_MATCH_REGULAR_1_201",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/WRONG_MATCH_REGULAR_1_201/P_NEW_ACTIVE",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--mode",
+      "P_NEW_ACTIVE",
+      "--source",
+      "HYBRID"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 17.37900137901306,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0116",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "bb5e4543a8f465afadea3f99491879e8efc621d168c23d6bf7fcb4d371f9f3d0",
+      "stdout.log": "7f2fd29c591ec384a31abc44f7ca56e5560e679b5bb56089bffd839c5ec7ff54",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 117,
+    "kind": "synthetic",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_runner.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/STEREO_DROPOUT_REGULAR_1_202",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_DROPOUT_REGULAR_1_202/P_NEW_ACTIVE",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--mode",
+      "P_NEW_ACTIVE",
+      "--source",
+      "HYBRID"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 17.91339612007141,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0117",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "bb5e4543a8f465afadea3f99491879e8efc621d168c23d6bf7fcb4d371f9f3d0",
+      "stdout.log": "9b26b7f55434a9b5bc287ca01851973126be6fa6ff906aa1a29b818c706ea8aa",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 118,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_evaluate.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/WRONG_MATCH_REGULAR_1_201",
+      "--run-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/WRONG_MATCH_REGULAR_1_201/P_NEW_ACTIVE",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/WRONG_MATCH_REGULAR_1_201/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.38054752349853516,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0118",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "6b1067392eb3efc8cbd0d1513fc56935c930e942f7090a835ac1d7aef1933f88",
+      "stdout.log": "b587a1891b04defd4b9c355d70a2ff30c6ecb5b46488a6e5b5667de971d36d1c",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 119,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_inputs.py",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/TIME_ERROR_REGULAR_1_201",
+      "--calibration",
+      "/home/he/output/ltv_passive_hardening_v2/real_development/R3B_grace_V2_03_01/config/kalibr_imucam_chain.yaml",
+      "--scene",
+      "REGULAR",
+      "--lifetime",
+      "1",
+      "--condition",
+      "TIME_ERROR",
+      "--seed",
+      "201",
+      "--duration",
+      "60",
+      "--confirmation-sha",
+      "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 4.744592666625977,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0119",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "3572f4602bd3ed9b783bbf071bd787488afc27610ff7602d163c35f4dfa4b8bd",
+      "stdout.log": "8a2d147cd48bdfb2e8a49462c9ce7b7ba73f2b138e92befafcdad28756a1f6bc",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 120,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_evaluate.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/STEREO_DROPOUT_REGULAR_1_202",
+      "--run-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_DROPOUT_REGULAR_1_202/P_NEW_ACTIVE",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_DROPOUT_REGULAR_1_202/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.3957517147064209,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0120",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "6b1067392eb3efc8cbd0d1513fc56935c930e942f7090a835ac1d7aef1933f88",
+      "stdout.log": "89ff957d708be3c105f51bae98e8c84ccd5f0360376ec1a62c5f65d688c9273b",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 121,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/pressure_inputs.py",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/PRESSURE_REGULAR_05_202",
+      "--seed",
+      "202",
+      "--duration",
+      "60",
+      "--confirmation-freeze-sha",
+      "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 2.7968320846557617,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0121",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "cba70f62c1c79200b3741f7df004a676d079127ecb300816ee674cc6c8714dec",
+      "stdout.log": "809ae8ee94169da9c94f7b90839ca070cd306b550c26d1935cde51ad04257761",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 122,
+    "kind": "synthetic",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_runner.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/PRESSURE_REGULAR_05_202",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/PRESSURE_REGULAR_05_202/P_NEW_ACTIVE",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--mode",
+      "P_NEW_ACTIVE",
+      "--source",
+      "HYBRID"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 10.15712571144104,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0122",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "bb5e4543a8f465afadea3f99491879e8efc621d168c23d6bf7fcb4d371f9f3d0",
+      "stdout.log": "77d82cd077f935e41c020f70dc17779305c98c0778a1255e3069e75d91b4b033",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 123,
+    "kind": "synthetic",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_runner.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/TIME_ERROR_REGULAR_1_201",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/TIME_ERROR_REGULAR_1_201/P_NEW_ACTIVE",
+      "--library",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_wrapper_C02_01.so",
+      "--mode",
+      "P_NEW_ACTIVE",
+      "--source",
+      "HYBRID"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 18.24286651611328,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0123",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "bb5e4543a8f465afadea3f99491879e8efc621d168c23d6bf7fcb4d371f9f3d0",
+      "stdout.log": "e7fdbe93e76a11fca6c583793c3c18b403c078ef86ddb3758661a5886238e114",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 124,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_evaluate.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/PRESSURE_REGULAR_05_202",
+      "--run-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/PRESSURE_REGULAR_05_202/P_NEW_ACTIVE",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/PRESSURE_REGULAR_05_202/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.582648754119873,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0124",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "6b1067392eb3efc8cbd0d1513fc56935c930e942f7090a835ac1d7aef1933f88",
+      "stdout.log": "d6153b11c1cfd80841cb2966028d005bc5d50e253a508fdf97a05f0f619d176f",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 125,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "/usr/bin/python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/scripts/ltv_active_consistency_r4/synthetic_evaluate.py",
+      "--input-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/inputs/formal/TIME_ERROR_REGULAR_1_201",
+      "--run-dir",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/TIME_ERROR_REGULAR_1_201/P_NEW_ACTIVE",
+      "--out",
+      "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/TIME_ERROR_REGULAR_1_201/evaluation_v1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.37810826301574707,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0125",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "6b1067392eb3efc8cbd0d1513fc56935c930e942f7090a835ac1d7aef1933f88",
+      "stdout.log": "0e0f99e9db981a1f56beb2411467a6ffed708cf89bd443a2bbbdf7c625acff45",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 126,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "/home/he/output/ltv_active_landmark_consistency_r4/make_closeout_evidence.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 3.2432339191436768,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0126",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "ab989f8ea078dd807084607a19c2f87e93a70311dfba143188da48ad9890dcf1",
+      "stdout.log": "4e0cd6f4055c3c8c4e56f23d7e112a858efcff9d89d2b29da2fcb01f0db46fe3",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 127,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "/tmp/r4_formal_synthetic_summary.py"
+    ],
+    "exit_code": 1,
+    "elapsed_seconds": 0.044745683670043945,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0127",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "9bac33c2084eded1c7c447bc8834216c3ee8d1c4a63e3df49767448eb21917e8",
+      "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr.log": "fa401abcd10a02902138d36340c8c51ccf04508f91ab4a2f96b40c23e1b67843"
+    }
+  },
+  {
+    "id": 128,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "/tmp/r4_formal_synthetic_summary.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.019579172134399414,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0128",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "807e5dee455beae0d3919ed62a10e4c72e5fec251ddca843d9249320f4fb2a46",
+      "stdout.log": "324ab86550062d9ab847eb106d03c6b2a597934b662fddc6ce4956f4bd416fb7",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "id": 129,
+    "kind": "analysis",
+    "units": 1,
+    "command": [
+      "python3",
+      "/home/he/output/ltv_active_landmark_consistency_r4/audit_final_delivery.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.20241165161132812,
+    "phase": "confirmation",
+    "attempt_directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0129",
+    "files": {
+      "source_sha256.json": "d3aaa1a2a7bdea3efd3399a8431b74999ed66b602626abd9f93dc518c2a798eb",
+      "command_files_sha256.json": "881975f4267e8c9b3432e715b6709acac4e1d13d33d5420872490d9f610d5e5a",
+      "stdout.log": "e13c50f7128a866ee636b986542e74174661012d5d10ab4e876bd992b3203b6e",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+]

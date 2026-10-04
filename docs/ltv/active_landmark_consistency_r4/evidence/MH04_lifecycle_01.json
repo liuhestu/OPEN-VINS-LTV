@@ -1,0 +1,2196 @@
+{
+  "metrics_sha": "894c239635e6698ee4c43a8df50f71adc519c5ffc21b1c64421a21ce0502479f",
+  "scope": "Existing frozen logs and error arrays only; no reference recomputation",
+  "methods": {
+    "B": {
+      "path": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_B_MH_04_difficult/B/features.jsonl",
+      "sha": "4f99401daf6a04eb491d706a7af3ff2f4c947339493ac4cda9a3dfb3b72b31f5",
+      "packets": 2032,
+      "initialized": 1919,
+      "first": {
+        "camera_ns": 1403638132945096960,
+        "epoch": 0,
+        "availability_state": null,
+        "reason": "not_started",
+        "raw_current": null,
+        "observer_started": 0,
+        "bootstrap_count": null,
+        "physical_fault_count": null,
+        "last_bootstrap_source": null,
+        "eligible_seeds": null,
+        "state_features": 0,
+        "observed_features": 0,
+        "mature_features": 0,
+        "actual_corrections": null,
+        "velocity_correction_rate": null,
+        "gravity_correction_rate": null,
+        "relative_time": 0.0,
+        "v_body_norm": 0.0,
+        "eta_body_norm": 0.0
+      },
+      "last": {
+        "camera_ns": 1403638228845096960,
+        "epoch": 0,
+        "availability_state": null,
+        "reason": "not_started",
+        "raw_current": null,
+        "observer_started": 0,
+        "bootstrap_count": null,
+        "physical_fault_count": null,
+        "last_bootstrap_source": null,
+        "eligible_seeds": null,
+        "state_features": 0,
+        "observed_features": 0,
+        "mature_features": 0,
+        "actual_corrections": null,
+        "velocity_correction_rate": null,
+        "gravity_correction_rate": null,
+        "relative_time": 95.90000009536743,
+        "v_body_norm": 0.0,
+        "eta_body_norm": 0.0
+      },
+      "transitions": [
+        {
+          "camera_ns": 1403638132945096960,
+          "epoch": 0,
+          "availability_state": null,
+          "reason": "not_started",
+          "raw_current": null,
+          "observer_started": 0,
+          "bootstrap_count": null,
+          "physical_fault_count": null,
+          "last_bootstrap_source": null,
+          "eligible_seeds": null,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": null,
+          "velocity_correction_rate": null,
+          "gravity_correction_rate": null,
+          "relative_time": 0.0,
+          "v_body_norm": 0.0,
+          "eta_body_norm": 0.0
+        }
+      ],
+      "reason_counts": {
+        "not_started": 1919
+      },
+      "seed_reason_counts": {},
+      "mean_writes": [],
+      "active_reason_action_counts": {},
+      "field_names": [
+        "camera_ns",
+        "receipt_id",
+        "right_camera_ns",
+        "frame_matches_receipt",
+        "management_present",
+        "management_status",
+        "initialized",
+        "state_time",
+        "epoch",
+        "sequence",
+        "target_imu_time",
+        "observer_started",
+        "imu_time",
+        "cursor",
+        "available",
+        "ready_G",
+        "ready_V",
+        "reason",
+        "state_features",
+        "observed_features",
+        "mature_features",
+        "healthy_updates",
+        "camera_substeps",
+        "v_body",
+        "eta_body",
+        "current_cam0_ids",
+        "current_stereo_ids",
+        "retained_ids",
+        "never_admitted_candidate_ttl_ids",
+        "admitted_retired_ids"
+      ],
+      "raw_current_count": 0
+    },
+    "P_PREV": {
+      "path": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_CONTROLS_C02_01_OFF_MH_04_difficult/P_NEW/features.jsonl",
+      "sha": "6949ca1be331d8ca014d3c9b0abd6ce6f05eef16f036edc924cb2615bf7128af",
+      "packets": 2032,
+      "initialized": 1919,
+      "first": {
+        "camera_ns": 1403638132945096960,
+        "epoch": 1,
+        "availability_state": "BOOTSTRAPPING",
+        "reason": "bootstrap_committed_confirming",
+        "raw_current": 1,
+        "observer_started": 1,
+        "bootstrap_count": 1,
+        "physical_fault_count": 0,
+        "last_bootstrap_source": "BOUNDED_INITIAL_ZERO_WARMUP",
+        "eligible_seeds": 0,
+        "state_features": 0,
+        "observed_features": 0,
+        "mature_features": 0,
+        "actual_corrections": 0,
+        "velocity_correction_rate": 0,
+        "gravity_correction_rate": 0,
+        "relative_time": 0.0,
+        "v_body_norm": 0.0,
+        "eta_body_norm": 0.0
+      },
+      "last": {
+        "camera_ns": 1403638228845096960,
+        "epoch": 4,
+        "availability_state": "DORMANT",
+        "reason": "insufficient_seed_supply",
+        "raw_current": 0,
+        "observer_started": 0,
+        "bootstrap_count": 3,
+        "physical_fault_count": 0,
+        "last_bootstrap_source": "ZERO_DELAYED_START",
+        "eligible_seeds": 7,
+        "state_features": 0,
+        "observed_features": 0,
+        "mature_features": 0,
+        "actual_corrections": 0,
+        "velocity_correction_rate": 1026.9826184955741,
+        "gravity_correction_rate": 74.65887689145781,
+        "relative_time": 95.90000009536743,
+        "v_body_norm": null,
+        "eta_body_norm": null
+      },
+      "transitions": [
+        {
+          "camera_ns": 1403638132945096960,
+          "epoch": 1,
+          "availability_state": "BOOTSTRAPPING",
+          "reason": "bootstrap_committed_confirming",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 1,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "BOUNDED_INITIAL_ZERO_WARMUP",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 0.0,
+          "v_body_norm": 0.0,
+          "eta_body_norm": 0.0
+        },
+        {
+          "camera_ns": 1403638132995097088,
+          "epoch": 1,
+          "availability_state": "DEGRADED",
+          "reason": "finite_coast_not_ready",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 1,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "BOUNDED_INITIAL_ZERO_WARMUP",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 0.05000019073486328,
+          "v_body_norm": 0.45793416689315253,
+          "eta_body_norm": 0.0
+        },
+        {
+          "camera_ns": 1403638133945096960,
+          "epoch": 1,
+          "availability_state": "DORMANT",
+          "reason": "prolonged_insufficient_geometry",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 1,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "BOUNDED_INITIAL_ZERO_WARMUP",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 1.0,
+          "v_body_norm": 10.609780371582769,
+          "eta_body_norm": 0.0
+        },
+        {
+          "camera_ns": 1403638133995097088,
+          "epoch": 2,
+          "availability_state": "DORMANT",
+          "reason": "insufficient_seed_supply",
+          "raw_current": 0,
+          "observer_started": 0,
+          "bootstrap_count": 1,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "BOUNDED_INITIAL_ZERO_WARMUP",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 1.0500001907348633,
+          "v_body_norm": null,
+          "eta_body_norm": null
+        },
+        {
+          "camera_ns": 1403638166795097088,
+          "epoch": 2,
+          "availability_state": "BOOTSTRAPPING",
+          "reason": "bootstrap_committed_confirming",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 2,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 16,
+          "state_features": 16,
+          "observed_features": 16,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 33.85000014305115,
+          "v_body_norm": 0.0,
+          "eta_body_norm": 0.0
+        },
+        {
+          "camera_ns": 1403638168445096960,
+          "epoch": 2,
+          "availability_state": "DEGRADED",
+          "reason": "thin_observations_state_preserved_not_ready",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 2,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 1,
+          "state_features": 18,
+          "observed_features": 12,
+          "mature_features": 11,
+          "actual_corrections": 32,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 35.5,
+          "v_body_norm": 3.9974055549413627,
+          "eta_body_norm": 5.288475998364969
+        },
+        {
+          "camera_ns": 1403638172695097088,
+          "epoch": 2,
+          "availability_state": "BOOTSTRAPPING",
+          "reason": "pool_not_mature",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 2,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 1,
+          "state_features": 15,
+          "observed_features": 15,
+          "mature_features": 14,
+          "actual_corrections": 33,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 39.75000023841858,
+          "v_body_norm": 2.3680604496947466,
+          "eta_body_norm": 10.816658824448089
+        },
+        {
+          "camera_ns": 1403638172745096960,
+          "epoch": 2,
+          "availability_state": "DEGRADED",
+          "reason": "thin_observations_state_preserved_not_ready",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 2,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 0,
+          "state_features": 15,
+          "observed_features": 14,
+          "mature_features": 13,
+          "actual_corrections": 33,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 39.80000019073486,
+          "v_body_norm": 2.415619759842678,
+          "eta_body_norm": 10.83527492721891
+        },
+        {
+          "camera_ns": 1403638174645096960,
+          "epoch": 2,
+          "availability_state": "DORMANT",
+          "reason": "prolonged_insufficient_geometry",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 2,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 33,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 41.700000047683716,
+          "v_body_norm": 4.1966967876825185,
+          "eta_body_norm": 10.787382421975272
+        },
+        {
+          "camera_ns": 1403638174695097088,
+          "epoch": 3,
+          "availability_state": "DORMANT",
+          "reason": "insufficient_seed_supply",
+          "raw_current": 0,
+          "observer_started": 0,
+          "bootstrap_count": 2,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 41.75000023841858,
+          "v_body_norm": null,
+          "eta_body_norm": null
+        },
+        {
+          "camera_ns": 1403638204545096960,
+          "epoch": 3,
+          "availability_state": "BOOTSTRAPPING",
+          "reason": "bootstrap_committed_confirming",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 3,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 17,
+          "state_features": 17,
+          "observed_features": 17,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 71.60000014305115,
+          "v_body_norm": 0.0,
+          "eta_body_norm": 0.0
+        },
+        {
+          "camera_ns": 1403638204745096960,
+          "epoch": 3,
+          "availability_state": "DORMANT",
+          "reason": "observer_norm_guard",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 3,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 0,
+          "state_features": 21,
+          "observed_features": 21,
+          "mature_features": 21,
+          "actual_corrections": 4,
+          "velocity_correction_rate": 1026.9826184955741,
+          "gravity_correction_rate": 74.65887689145781,
+          "relative_time": 71.80000019073486,
+          "v_body_norm": 102.54325765308758,
+          "eta_body_norm": 5.910747112183919
+        },
+        {
+          "camera_ns": 1403638204795097088,
+          "epoch": 4,
+          "availability_state": "DORMANT",
+          "reason": "insufficient_seed_supply",
+          "raw_current": 0,
+          "observer_started": 0,
+          "bootstrap_count": 3,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 1026.9826184955741,
+          "gravity_correction_rate": 74.65887689145781,
+          "relative_time": 71.85000014305115,
+          "v_body_norm": null,
+          "eta_body_norm": null
+        }
+      ],
+      "reason_counts": {
+        "bootstrap_committed_confirming": 3,
+        "finite_coast_not_ready": 15,
+        "insufficient_geometry_not_ready": 46,
+        "prolonged_insufficient_geometry": 2,
+        "insufficient_seed_supply": 1644,
+        "confirming_seed_supply": 5,
+        "pool_not_mature": 4,
+        "prediction_or_correction_unhealthy": 31,
+        "thin_observations_state_preserved_not_ready": 81,
+        "quality_bootstrap_cooldown": 86,
+        "gravity_not_physical": 1,
+        "observer_norm_guard": 1
+      },
+      "seed_reason_counts": {
+        "INVALID_INPUT": 13376,
+        "NONPOSITIVE_RAY": 51840,
+        "OK": 98893
+      },
+      "mean_writes": [
+        {
+          "time": 33.85000014305115,
+          "id": 6029,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6030,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6031,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6032,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6071,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6073,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6074,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6157,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6165,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6167,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6168,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6169,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6170,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6171,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6174,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6179,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.90000009536743,
+          "id": 6180,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.90000009536743,
+          "id": 6185,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.950000286102295,
+          "id": 6187,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.950000286102295,
+          "id": 6197,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.950000286102295,
+          "id": 6201,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.950000286102295,
+          "id": 6202,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.05000019073486,
+          "id": 5819,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.200000047683716,
+          "id": 6221,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.25000023841858,
+          "id": 6223,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.25000023841858,
+          "id": 6228,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.25000023841858,
+          "id": 6229,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.35000014305115,
+          "id": 6226,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.40000009536743,
+          "id": 6246,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.450000286102295,
+          "id": 6224,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.60000014305115,
+          "id": 6273,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.700000047683716,
+          "id": 6219,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.80000019073486,
+          "id": 6290,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.80000019073486,
+          "id": 6291,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.85000014305115,
+          "id": 6281,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.950000286102295,
+          "id": 6312,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.950000286102295,
+          "id": 6313,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.950000286102295,
+          "id": 6314,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.950000286102295,
+          "id": 6315,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 35.10000014305115,
+          "id": 6280,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 35.5,
+          "id": 6362,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 35.85000014305115,
+          "id": 6358,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 35.90000009536743,
+          "id": 6387,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 35.90000009536743,
+          "id": 6389,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 36.450000286102295,
+          "id": 6357,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 36.450000286102295,
+          "id": 6461,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 36.450000286102295,
+          "id": 6462,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 36.90000009536743,
+          "id": 6359,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 36.90000009536743,
+          "id": 6545,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 37.60000014305115,
+          "id": 6667,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.35000014305115,
+          "id": 6715,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.55000019073486,
+          "id": 6721,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.55000019073486,
+          "id": 6723,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.700000047683716,
+          "id": 6716,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.85000014305115,
+          "id": 6717,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.90000009536743,
+          "id": 6748,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.90000009536743,
+          "id": 6749,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.90000009536743,
+          "id": 6750,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.90000009536743,
+          "id": 6751,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.05000019073486,
+          "id": 6752,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.15000009536743,
+          "id": 6719,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.55000019073486,
+          "id": 6767,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.60000014305115,
+          "id": 6765,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.60000014305115,
+          "id": 6811,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.60000014305115,
+          "id": 6812,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.60000014305115,
+          "id": 6813,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.60000014305115,
+          "id": 6814,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.75000023841858,
+          "id": 6766,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.950000286102295,
+          "id": 6680,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 40.40000009536743,
+          "id": 6842,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9474,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9493,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9519,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9520,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9521,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9560,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9563,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9607,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9624,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9625,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9627,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9628,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9636,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9638,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9676,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9681,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9813,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.65000009536743,
+          "id": 9810,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.70000004768372,
+          "id": 9518,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.70000004768372,
+          "id": 9680,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.70000004768372,
+          "id": 9899,
+          "epoch": 3,
+          "source": "STEREO"
+        }
+      ],
+      "active_reason_action_counts": {},
+      "field_names": [
+        "camera_ns",
+        "receipt_id",
+        "right_camera_ns",
+        "frame_matches_receipt",
+        "management_present",
+        "management_status",
+        "initialized",
+        "state_time",
+        "epoch",
+        "sequence",
+        "target_imu_time",
+        "observer_started",
+        "imu_time",
+        "cursor",
+        "available",
+        "ready_G",
+        "ready_V",
+        "reason",
+        "state_features",
+        "observed_features",
+        "mature_features",
+        "healthy_updates",
+        "camera_substeps",
+        "v_body",
+        "eta_body",
+        "hardening",
+        "raw_current",
+        "availability_state",
+        "pool_ready",
+        "observer_valid",
+        "joint_ready",
+        "bootstrap_count",
+        "physical_fault_count",
+        "last_bootstrap_time",
+        "last_bootstrap_source",
+        "eligible_seeds",
+        "actual_corrections",
+        "correction_diagnostics_valid",
+        "prediction_angle_p95_rad",
+        "velocity_correction_rate",
+        "gravity_correction_rate",
+        "ready_soft_grace_enabled",
+        "grace_G",
+        "grace_V",
+        "soft_failure_frames_G",
+        "soft_failure_frames_V",
+        "last_strict_good_G",
+        "last_strict_good_V",
+        "corrected_ids",
+        "current_cam0_ids",
+        "current_stereo_ids",
+        "retained_ids",
+        "opportunity_tracks",
+        "admitted_tracks",
+        "retired_ids",
+        "seeds",
+        "tracks",
+        "bounded_management_schema",
+        "retirement_events",
+        "active_retired_total",
+        "candidate_ttl_total",
+        "identity_guard_rejections_total",
+        "identity_guard_insertions",
+        "identity_guard_set_bits",
+        "exact_records",
+        "identity_guard_rejected_ids",
+        "capacity_rejected_ids",
+        "compute_time_ms",
+        "retirement_ids_scope",
+        "never_admitted_candidate_ttl_ids",
+        "admitted_retired_ids"
+      ],
+      "raw_current_count": 184
+    },
+    "P_NEW": {
+      "path": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_04_difficult/P_NEW/features.jsonl",
+      "sha": "b1e4bd315f31c82733889697b956b3efa2c4fced11cced82ffe8b253aab253ff",
+      "packets": 2032,
+      "initialized": 1919,
+      "first": {
+        "camera_ns": 1403638132945096960,
+        "epoch": 1,
+        "availability_state": "BOOTSTRAPPING",
+        "reason": "bootstrap_committed_confirming",
+        "raw_current": 1,
+        "observer_started": 1,
+        "bootstrap_count": 1,
+        "physical_fault_count": 0,
+        "last_bootstrap_source": "BOUNDED_INITIAL_ZERO_WARMUP",
+        "eligible_seeds": 0,
+        "state_features": 0,
+        "observed_features": 0,
+        "mature_features": 0,
+        "actual_corrections": 0,
+        "velocity_correction_rate": 0,
+        "gravity_correction_rate": 0,
+        "relative_time": 0.0,
+        "v_body_norm": 0.0,
+        "eta_body_norm": 0.0
+      },
+      "last": {
+        "camera_ns": 1403638228845096960,
+        "epoch": 4,
+        "availability_state": "DORMANT",
+        "reason": "insufficient_seed_supply",
+        "raw_current": 0,
+        "observer_started": 0,
+        "bootstrap_count": 3,
+        "physical_fault_count": 0,
+        "last_bootstrap_source": "ZERO_DELAYED_START",
+        "eligible_seeds": 7,
+        "state_features": 0,
+        "observed_features": 0,
+        "mature_features": 0,
+        "actual_corrections": 0,
+        "velocity_correction_rate": 1026.9826184955741,
+        "gravity_correction_rate": 74.65887689145781,
+        "relative_time": 95.90000009536743,
+        "v_body_norm": null,
+        "eta_body_norm": null
+      },
+      "transitions": [
+        {
+          "camera_ns": 1403638132945096960,
+          "epoch": 1,
+          "availability_state": "BOOTSTRAPPING",
+          "reason": "bootstrap_committed_confirming",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 1,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "BOUNDED_INITIAL_ZERO_WARMUP",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 0.0,
+          "v_body_norm": 0.0,
+          "eta_body_norm": 0.0
+        },
+        {
+          "camera_ns": 1403638132995097088,
+          "epoch": 1,
+          "availability_state": "DEGRADED",
+          "reason": "finite_coast_not_ready",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 1,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "BOUNDED_INITIAL_ZERO_WARMUP",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 0.05000019073486328,
+          "v_body_norm": 0.45793416689315253,
+          "eta_body_norm": 0.0
+        },
+        {
+          "camera_ns": 1403638133945096960,
+          "epoch": 1,
+          "availability_state": "DORMANT",
+          "reason": "prolonged_insufficient_geometry",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 1,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "BOUNDED_INITIAL_ZERO_WARMUP",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 1.0,
+          "v_body_norm": 10.609780371582769,
+          "eta_body_norm": 0.0
+        },
+        {
+          "camera_ns": 1403638133995097088,
+          "epoch": 2,
+          "availability_state": "DORMANT",
+          "reason": "insufficient_seed_supply",
+          "raw_current": 0,
+          "observer_started": 0,
+          "bootstrap_count": 1,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "BOUNDED_INITIAL_ZERO_WARMUP",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 1.0500001907348633,
+          "v_body_norm": null,
+          "eta_body_norm": null
+        },
+        {
+          "camera_ns": 1403638166795097088,
+          "epoch": 2,
+          "availability_state": "BOOTSTRAPPING",
+          "reason": "bootstrap_committed_confirming",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 2,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 16,
+          "state_features": 16,
+          "observed_features": 16,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 33.85000014305115,
+          "v_body_norm": 0.0,
+          "eta_body_norm": 0.0
+        },
+        {
+          "camera_ns": 1403638166845096960,
+          "epoch": 2,
+          "availability_state": "DEGRADED",
+          "reason": "thin_observations_state_preserved_not_ready",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 2,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 2,
+          "state_features": 18,
+          "observed_features": 4,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 33.90000009536743,
+          "v_body_norm": 0.4814389296095238,
+          "eta_body_norm": 6.374804036949075e-06
+        },
+        {
+          "camera_ns": 1403638174445096960,
+          "epoch": 2,
+          "availability_state": "DORMANT",
+          "reason": "prolonged_insufficient_geometry",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 2,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 41.5,
+          "v_body_norm": 5.554582566972041,
+          "eta_body_norm": 12.161965759055034
+        },
+        {
+          "camera_ns": 1403638174495097088,
+          "epoch": 3,
+          "availability_state": "DORMANT",
+          "reason": "insufficient_seed_supply",
+          "raw_current": 0,
+          "observer_started": 0,
+          "bootstrap_count": 2,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 41.55000019073486,
+          "v_body_norm": null,
+          "eta_body_norm": null
+        },
+        {
+          "camera_ns": 1403638204545096960,
+          "epoch": 3,
+          "availability_state": "BOOTSTRAPPING",
+          "reason": "bootstrap_committed_confirming",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 3,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 17,
+          "state_features": 17,
+          "observed_features": 17,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 0,
+          "gravity_correction_rate": 0,
+          "relative_time": 71.60000014305115,
+          "v_body_norm": 0.0,
+          "eta_body_norm": 0.0
+        },
+        {
+          "camera_ns": 1403638204745096960,
+          "epoch": 3,
+          "availability_state": "DORMANT",
+          "reason": "observer_norm_guard",
+          "raw_current": 1,
+          "observer_started": 1,
+          "bootstrap_count": 3,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 0,
+          "state_features": 21,
+          "observed_features": 21,
+          "mature_features": 21,
+          "actual_corrections": 4,
+          "velocity_correction_rate": 1026.9826184955741,
+          "gravity_correction_rate": 74.65887689145781,
+          "relative_time": 71.80000019073486,
+          "v_body_norm": 102.54325765308758,
+          "eta_body_norm": 5.910747112183919
+        },
+        {
+          "camera_ns": 1403638204795097088,
+          "epoch": 4,
+          "availability_state": "DORMANT",
+          "reason": "insufficient_seed_supply",
+          "raw_current": 0,
+          "observer_started": 0,
+          "bootstrap_count": 3,
+          "physical_fault_count": 0,
+          "last_bootstrap_source": "ZERO_DELAYED_START",
+          "eligible_seeds": 0,
+          "state_features": 0,
+          "observed_features": 0,
+          "mature_features": 0,
+          "actual_corrections": 0,
+          "velocity_correction_rate": 1026.9826184955741,
+          "gravity_correction_rate": 74.65887689145781,
+          "relative_time": 71.85000014305115,
+          "v_body_norm": null,
+          "eta_body_norm": null
+        }
+      ],
+      "reason_counts": {
+        "bootstrap_committed_confirming": 3,
+        "finite_coast_not_ready": 43,
+        "insufficient_geometry_not_ready": 59,
+        "prolonged_insufficient_geometry": 2,
+        "insufficient_seed_supply": 1648,
+        "confirming_seed_supply": 5,
+        "thin_observations_state_preserved_not_ready": 69,
+        "quality_bootstrap_cooldown": 86,
+        "pool_not_mature": 2,
+        "gravity_not_physical": 1,
+        "observer_norm_guard": 1
+      },
+      "seed_reason_counts": {
+        "INVALID_INPUT": 13413,
+        "NONPOSITIVE_RAY": 52085,
+        "OK": 99596
+      },
+      "mean_writes": [
+        {
+          "time": 33.85000014305115,
+          "id": 6029,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6030,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6031,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6032,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6071,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6073,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6074,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6157,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6165,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6167,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6168,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6169,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6170,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6171,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6174,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.85000014305115,
+          "id": 6179,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.90000009536743,
+          "id": 6180,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.90000009536743,
+          "id": 6185,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.950000286102295,
+          "id": 6187,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.950000286102295,
+          "id": 6197,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.950000286102295,
+          "id": 6201,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 33.950000286102295,
+          "id": 6202,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.05000019073486,
+          "id": 5819,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.200000047683716,
+          "id": 6221,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.25000023841858,
+          "id": 6223,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.25000023841858,
+          "id": 6228,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.25000023841858,
+          "id": 6229,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.35000014305115,
+          "id": 6226,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.40000009536743,
+          "id": 6246,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.450000286102295,
+          "id": 6224,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.60000014305115,
+          "id": 6273,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.700000047683716,
+          "id": 6219,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.80000019073486,
+          "id": 6290,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.80000019073486,
+          "id": 6291,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.85000014305115,
+          "id": 6281,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.950000286102295,
+          "id": 6312,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.950000286102295,
+          "id": 6313,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.950000286102295,
+          "id": 6314,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 34.950000286102295,
+          "id": 6315,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 35.10000014305115,
+          "id": 6280,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 35.5,
+          "id": 6362,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 35.85000014305115,
+          "id": 6358,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 35.90000009536743,
+          "id": 6387,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 35.90000009536743,
+          "id": 6389,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 36.450000286102295,
+          "id": 6357,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 36.450000286102295,
+          "id": 6461,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 36.450000286102295,
+          "id": 6462,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 36.90000009536743,
+          "id": 6359,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 36.90000009536743,
+          "id": 6545,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 37.60000014305115,
+          "id": 6667,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.35000014305115,
+          "id": 6715,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.55000019073486,
+          "id": 6721,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.55000019073486,
+          "id": 6723,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.700000047683716,
+          "id": 6716,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.85000014305115,
+          "id": 6717,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.90000009536743,
+          "id": 6748,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.90000009536743,
+          "id": 6749,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.90000009536743,
+          "id": 6750,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 38.90000009536743,
+          "id": 6751,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.05000019073486,
+          "id": 6752,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.15000009536743,
+          "id": 6719,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.55000019073486,
+          "id": 6767,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.60000014305115,
+          "id": 6765,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.60000014305115,
+          "id": 6811,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.60000014305115,
+          "id": 6812,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.60000014305115,
+          "id": 6813,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.60000014305115,
+          "id": 6814,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.75000023841858,
+          "id": 6766,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 39.950000286102295,
+          "id": 6680,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 40.40000009536743,
+          "id": 6842,
+          "epoch": 2,
+          "source": "STEREO"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9474,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9493,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9519,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9520,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9521,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9560,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9563,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9607,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9624,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9625,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9627,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9628,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9636,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9638,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9676,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9681,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.60000014305115,
+          "id": 9813,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.65000009536743,
+          "id": 9810,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.70000004768372,
+          "id": 9518,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.70000004768372,
+          "id": 9680,
+          "epoch": 3,
+          "source": "TEMPORAL_POSE"
+        },
+        {
+          "time": 71.70000004768372,
+          "id": 9899,
+          "epoch": 3,
+          "source": "STEREO"
+        }
+      ],
+      "active_reason_action_counts": {
+        "HISTORY_INCONSISTENT / SKIP": 49,
+        "FIT_FAILED / UPDATE": 72,
+        "INSUFFICIENT_HISTORY / UPDATE": 52,
+        "HISTORY_INCONSISTENT / RETIRE": 50,
+        "HOLDOUT_INCONSISTENT / SKIP": 2,
+        "PASS / UPDATE": 76
+      },
+      "field_names": [
+        "camera_ns",
+        "receipt_id",
+        "right_camera_ns",
+        "frame_matches_receipt",
+        "management_present",
+        "management_status",
+        "initialized",
+        "state_time",
+        "epoch",
+        "sequence",
+        "target_imu_time",
+        "observer_started",
+        "imu_time",
+        "cursor",
+        "available",
+        "ready_G",
+        "ready_V",
+        "reason",
+        "state_features",
+        "observed_features",
+        "mature_features",
+        "healthy_updates",
+        "camera_substeps",
+        "v_body",
+        "eta_body",
+        "hardening",
+        "raw_current",
+        "availability_state",
+        "pool_ready",
+        "observer_valid",
+        "joint_ready",
+        "bootstrap_count",
+        "physical_fault_count",
+        "last_bootstrap_time",
+        "last_bootstrap_source",
+        "eligible_seeds",
+        "actual_corrections",
+        "correction_diagnostics_valid",
+        "prediction_angle_p95_rad",
+        "velocity_correction_rate",
+        "gravity_correction_rate",
+        "ready_soft_grace_enabled",
+        "grace_G",
+        "grace_V",
+        "soft_failure_frames_G",
+        "soft_failure_frames_V",
+        "last_strict_good_G",
+        "last_strict_good_V",
+        "corrected_ids",
+        "current_cam0_ids",
+        "current_stereo_ids",
+        "retained_ids",
+        "opportunity_tracks",
+        "admitted_tracks",
+        "retired_ids",
+        "seeds",
+        "tracks",
+        "bounded_management_schema",
+        "retirement_events",
+        "active_retired_total",
+        "candidate_ttl_total",
+        "identity_guard_rejections_total",
+        "identity_guard_insertions",
+        "identity_guard_set_bits",
+        "exact_records",
+        "identity_guard_rejected_ids",
+        "capacity_rejected_ids",
+        "active_consistency_schema",
+        "consistency_active_count",
+        "consistency_evaluable_count",
+        "consistency_pass_count",
+        "consistency_skip_count",
+        "consistency_retire_count",
+        "observations_sent_to_ltv",
+        "active_consistency",
+        "compute_time_ms",
+        "retirement_ids_scope",
+        "never_admitted_candidate_ttl_ids",
+        "admitted_retired_ids"
+      ],
+      "raw_current_count": 180
+    }
+  },
+  "curves": {
+    "sha": "87b7206c3d554d32f2bc417335472791bf255d3fcc2d718801c6ba34217bb953",
+    "schema": {
+      "time": [
+        1919
+      ],
+      "camera_ns": [
+        1919
+      ],
+      "weights": [
+        1919
+      ],
+      "reference_v": [
+        1919,
+        3
+      ],
+      "reference_eta": [
+        1919,
+        3
+      ],
+      "P_PREV_v": [
+        1919,
+        3
+      ],
+      "P_PREV_eta": [
+        1919,
+        3
+      ],
+      "P_PREV_error_v_components": [
+        1919,
+        3
+      ],
+      "P_PREV_error_eta_components": [
+        1919,
+        3
+      ],
+      "P_PREV_error_v": [
+        1919
+      ],
+      "P_PREV_error_eta": [
+        1919
+      ],
+      "P_PREV_error_g_angle_deg": [
+        1919
+      ],
+      "P_PREV_error_g_magnitude": [
+        1919
+      ],
+      "P_PREV_finite_current": [
+        1919
+      ],
+      "P_PREV_ready_G": [
+        1919
+      ],
+      "P_PREV_ready_V": [
+        1919
+      ],
+      "P_PREV_epoch": [
+        1919
+      ],
+      "P_NEW_v": [
+        1919,
+        3
+      ],
+      "P_NEW_eta": [
+        1919,
+        3
+      ],
+      "P_NEW_error_v_components": [
+        1919,
+        3
+      ],
+      "P_NEW_error_eta_components": [
+        1919,
+        3
+      ],
+      "P_NEW_error_v": [
+        1919
+      ],
+      "P_NEW_error_eta": [
+        1919
+      ],
+      "P_NEW_error_g_angle_deg": [
+        1919
+      ],
+      "P_NEW_error_g_magnitude": [
+        1919
+      ],
+      "P_NEW_finite_current": [
+        1919
+      ],
+      "P_NEW_ready_G": [
+        1919
+      ],
+      "P_NEW_ready_V": [
+        1919
+      ],
+      "P_NEW_epoch": [
+        1919
+      ],
+      "OpenVINS_v": [
+        1919,
+        3
+      ],
+      "OpenVINS_eta": [
+        1919,
+        3
+      ],
+      "OpenVINS_error_v_components": [
+        1919,
+        3
+      ],
+      "OpenVINS_error_eta_components": [
+        1919,
+        3
+      ],
+      "OpenVINS_error_v": [
+        1919
+      ],
+      "OpenVINS_error_eta": [
+        1919
+      ],
+      "OpenVINS_error_g_angle_deg": [
+        1919
+      ],
+      "OpenVINS_error_g_magnitude": [
+        1919
+      ]
+    },
+    "P_PREV_error_v": {
+      "finite": 184,
+      "max": 101.56240198656847
+    },
+    "P_PREV_error_eta": {
+      "finite": 184,
+      "max": 12.31503252987784
+    },
+    "P_PREV_error_g_angle_deg": {
+      "finite": 184,
+      "max": 180.0
+    },
+    "P_PREV_error_g_magnitude": {
+      "finite": 184,
+      "max": 9.810000000000004
+    },
+    "P_NEW_error_v": {
+      "finite": 180,
+      "max": 101.56240198656847
+    },
+    "P_NEW_error_eta": {
+      "finite": 180,
+      "max": 12.31503252987784
+    },
+    "P_NEW_error_g_angle_deg": {
+      "finite": 180,
+      "max": 180.0
+    },
+    "P_NEW_error_g_magnitude": {
+      "finite": 180,
+      "max": 9.810000000000004
+    },
+    "OpenVINS_error_v": {
+      "finite": 1896,
+      "max": 783.2892457086446
+    },
+    "OpenVINS_error_eta": {
+      "finite": 1896,
+      "max": 18.339460362797706
+    },
+    "OpenVINS_error_g_angle_deg": {
+      "finite": 1896,
+      "max": 138.37008593983458
+    },
+    "OpenVINS_error_g_magnitude": {
+      "finite": 1896,
+      "max": 7.105427357601002e-15
+    }
+  }
+}

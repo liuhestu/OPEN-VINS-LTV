@@ -1,0 +1,108 @@
+{
+  "MH_01_easy": {
+    "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_01_easy/evaluation_v1/metrics.json",
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_01_easy/evaluation_v1/error_curves.npz",
+    "curves_sha": "6ae21d9d0970e9f75e82db384690925970851a7a93ad14783636800f4d13001d",
+    "figure_sha": "e1250af532b8061b3bf80a1ac30145c14dcc736cd250f585cc9add9740593794"
+  },
+  "MH_02_easy": {
+    "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_02_easy/evaluation_v1/metrics.json",
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_02_easy/evaluation_v1/error_curves.npz",
+    "curves_sha": "9bc577cb5d57444815d3b402f9a7bfdc35ca37eabd33774819f591f47fb7b6d4",
+    "figure_sha": "329ea5af6bc8cfa30c284fb8a786c7baa3565c02923fb637b2aa9eab0d08f89b"
+  },
+  "MH_03_medium": {
+    "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_03_medium/evaluation_v1/metrics.json",
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_03_medium/evaluation_v1/error_curves.npz",
+    "curves_sha": "e750567528c3f245305831f2b481696d5f8499eca796166d16cde9d32d8520b7",
+    "figure_sha": "1e162b5fbd5669dbefe1eecec7bbb3a727c50ff5ec917e60b224fd9ccb79140c"
+  },
+  "MH_04_difficult": {
+    "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_04_difficult/evaluation_v1/metrics.json",
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_04_difficult/evaluation_v1/error_curves.npz",
+    "curves_sha": "87b7206c3d554d32f2bc417335472791bf255d3fcc2d718801c6ba34217bb953",
+    "figure_sha": "640c4c8dd3f1c8aff72ddc85cee635f3aff4fba8e6c48e64a46ba03169de21cf"
+  },
+  "MH_05_difficult": {
+    "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_05_difficult/evaluation_v1/metrics.json",
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_MH_05_difficult/evaluation_v1/error_curves.npz",
+    "curves_sha": "6e3366f69a6b69b2c0bb89ba173ab336ab23d12ede8ca8c24dee64a8b01050c0",
+    "figure_sha": "682065e6973731c29a059a82d84db05c641188d6ed564cd25732540f2134a856"
+  },
+  "V1_01_easy": {
+    "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_01_easy/evaluation_v1/metrics.json",
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_01_easy/evaluation_v1/error_curves.npz",
+    "curves_sha": "f239f10efe43b267987cfb7e3d4c686e32d1a2d8c6efc52aaa7aa95f71772a1c",
+    "figure_sha": "3e4e29baf7d98db8233f57c2b93247ae3541e08c00793d7fbf98841a51f245c3"
+  },
+  "V1_02_medium": {
+    "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_02_medium/evaluation_v1/metrics.json",
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_02_medium/evaluation_v1/error_curves.npz",
+    "curves_sha": "d557a5eba0821022993fe344a56868d2ec8fbda4778b5dc066b638fa396ed3ef",
+    "figure_sha": "d7c4e0a69600f65d4a75e37dbff2f0b08cba937c3cd9ad27bb96bf37aaef58b5"
+  },
+  "V1_03_difficult": {
+    "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_03_difficult/evaluation_v1/metrics.json",
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V1_03_difficult/evaluation_v1/error_curves.npz",
+    "curves_sha": "7faef71892098b93ab2abcc0b6b21bb346562763ec0d22173b5c1694365fd062",
+    "figure_sha": "b8064790febe81be477c7e1ba8cea5650333443c7d85245c66789c6bbf7b0268"
+  },
+  "V2_01_easy": {
+    "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_01_easy/evaluation_v1/metrics.json",
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_01_easy/evaluation_v1/error_curves.npz",
+    "curves_sha": "7fe7001e5692171e0ee1d5a3105953c15c8e46b06e5191afad7aef75467bba16",
+    "figure_sha": "f0c696569cf55d26accbc465c876934b8b5ac653c9f77425433ac2e655707b98"
+  },
+  "V2_02_medium": {
+    "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/evaluation_v1/metrics.json",
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/evaluation_v1/error_curves.npz",
+    "curves_sha": "bc0b414a9c1c3f5fd2ab78ae9178b1f89a48a53eb27445a31db19332133dbe46",
+    "figure_sha": "fd8e15d45f00eb9c2b71adc3cea08a4822fcbbffeeb57c3d5f311c080af0e762"
+  },
+  "V2_03_difficult": {
+    "metrics": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/evaluation_v1/metrics.json",
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/evaluation_v1/error_curves.npz",
+    "curves_sha": "dededaafbdab413f33a50889e7d9d1be65830ba5fd86699cd54e2cea0db7d667",
+    "figure_sha": "89bbcd5d5eb9c8e74932de6a8d5cea43ae668e2f5e56a25fb32576ff0ce77afa"
+  },
+  "STEREO_REGULAR_1_201": {
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_REGULAR_1_201/evaluation_v1/error_curves.npz",
+    "curves_sha": "dc38ba924dc626d9b063a6a39d488fa1051e748b147a26f9bf41a66b9cd691da",
+    "figure_sha": "3d110f25089ae717cebc26eff3591bfdefcc934538e0e65eb8d73d010ad783d0"
+  },
+  "STEREO_FAST_05_202": {
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_FAST_05_202/evaluation_v1/error_curves.npz",
+    "curves_sha": "591cf15717218ad1a9c91542658088c4aec5abf7a8f07ba8254d7c7728610666",
+    "figure_sha": "561f05b9f36a24516b0012313b6e8289eff0c8b1725106352f7322d9200ab82a"
+  },
+  "STEREO_FAST_1_201": {
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_FAST_1_201/evaluation_v1/error_curves.npz",
+    "curves_sha": "e5ef68ce9b6d94921ba96b095d15097865f5922a5b9c5e0411e1fe3984d4aced",
+    "figure_sha": "8e510826e93168aedcc53b5632ab4651f4210360c33ecc2a206cd27318691cd8"
+  },
+  "TEMPORAL_FAST_1_202": {
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/TEMPORAL_FAST_1_202/evaluation_v1/error_curves.npz",
+    "curves_sha": "f9352b7d5a771c7ed4f2dfa0626bc077d8555550d05c44e6267d09ddca8c87e3",
+    "figure_sha": "d96210fda2e5615d0c3be6ebdc3217a3225ce7bd9b062cdd53abb0a7fa5cbb19"
+  },
+  "WRONG_MATCH_REGULAR_1_201": {
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/WRONG_MATCH_REGULAR_1_201/evaluation_v1/error_curves.npz",
+    "curves_sha": "adf1ab51ecc5f80e926e753c54375bf745977259b295e17a7beb864cbc6a29e0",
+    "figure_sha": "91d8ac96cc84a8d6a63c1f02c25f0c02ee0b7d44d072db7355145af8651d8759"
+  },
+  "STEREO_DROPOUT_REGULAR_1_202": {
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/STEREO_DROPOUT_REGULAR_1_202/evaluation_v1/error_curves.npz",
+    "curves_sha": "0632eec3af6f670a03d1d29434f10d5a485ba0366c93ae2fd7ba8eaec442dca2",
+    "figure_sha": "6caa71ed2b69af3e1c85a28f86300b53e0ae55f852c75f986b1ec05a6da8462b"
+  },
+  "TIME_ERROR_REGULAR_1_201": {
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/TIME_ERROR_REGULAR_1_201/evaluation_v1/error_curves.npz",
+    "curves_sha": "9f6c7a897d840b8ca5d4b78b7ea27b7a05e92e2b08d25bf2a56c5a3bc9885360",
+    "figure_sha": "c241bdf1575f6b50abac25da01d477c1b863347ab4c9ecda6ba4fbaea7ae5f2c"
+  },
+  "PRESSURE_REGULAR_05_202": {
+    "curves": "/home/he/output/ltv_active_landmark_consistency_r4/synthetic_confirmation/PRESSURE_REGULAR_05_202/evaluation_v1/error_curves.npz",
+    "curves_sha": "88f61d9614189d4999c2d01b79c0109b2f82fa63f7fcb9f231d5322a05b767ae",
+    "figure_sha": "efd6469fa1d2ea958879930cec22425dd561db96de77fe2da42afec21562baf1"
+  }
+}

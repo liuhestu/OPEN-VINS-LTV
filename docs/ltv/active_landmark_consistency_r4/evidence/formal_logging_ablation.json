@@ -1,0 +1,59 @@
+{
+  "status": "PASS_NATIVE_LOGGING_ON_OFF_EXACT",
+  "sequence": "V2_03_difficult",
+  "attempt": {
+    "id": 100,
+    "exit_code": 0,
+    "directory": "/home/he/output/ltv_active_landmark_consistency_r4/attempts/0100"
+  },
+  "files": {
+    "cache.bin": {
+      "ON": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf",
+      "OFF": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf"
+    },
+    "audit.csv": {
+      "ON": "f0ee61373a178220ac661ec354a074d4dbeb5f0c2b88e489ba2834b55afd90ce",
+      "OFF": "f0ee61373a178220ac661ec354a074d4dbeb5f0c2b88e489ba2834b55afd90ce"
+    },
+    "trajectory.csv": {
+      "ON": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+      "OFF": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3"
+    }
+  },
+  "passive": {
+    "mode": "P_NEW",
+    "camera_packets": 1921,
+    "trajectory_rows": 1806,
+    "complete": true,
+    "zero_injection": true,
+    "status": "PASS"
+  },
+  "active_log": {
+    "status": "PASS_LIVE_COUNTERS_AND_LIFECYCLE",
+    "totals": {
+      "active": 45892,
+      "evaluable": 35780,
+      "pass": 35360,
+      "skip": 260,
+      "retire": 160,
+      "diagnostics": 38047,
+      "sent": 40411,
+      "frames": 1806
+    },
+    "reasons": {
+      "INSUFFICIENT_HISTORY": 2120,
+      "PASS": 35360,
+      "HISTORY_INCONSISTENT": 180,
+      "HOLDOUT_INCONSISTENT": 240,
+      "FIT_FAILED": 147
+    },
+    "evaluable_fraction": 0.9404158015086603,
+    "reject_fraction": 0.011738401341531582,
+    "min_active": 0,
+    "limitations": [
+      "active denominator includes coasting slots; diagnostics require a current visible valid observation",
+      "actual absent rejected observations are verified by native cache/core replay, not inferred from aggregate sent count"
+    ]
+  },
+  "only_config_difference": "ltv_log_enabled true -> false"
+}

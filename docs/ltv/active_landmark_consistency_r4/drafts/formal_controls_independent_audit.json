@@ -1,0 +1,183 @@
+{
+  "status": "PASS_CONTROLS_IDENTITY_AND_RECORDED_ENGINEERING",
+  "freeze_sha": "5f9e0763fc2e1f7ba4025f80123be41ae2f0c65901d3e1baee20b897841ba1e0",
+  "scope": "Read-only manifests/configuration/ledger/replay and engineering summaries; not a reexecution of large log/cache audits or scientific evaluation",
+  "runs": [
+    {
+      "sequence": "MH_01_easy",
+      "mode": "B",
+      "attempt": 68,
+      "exit_code": 0,
+      "camera_packets": 3682,
+      "imu_consumed": 36820,
+      "trajectory_rows": 2784,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "MH_02_easy",
+      "mode": "B",
+      "attempt": 69,
+      "exit_code": 0,
+      "camera_packets": 3040,
+      "imu_consumed": 30400,
+      "trajectory_rows": 2259,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "MH_03_medium",
+      "mode": "B",
+      "attempt": 70,
+      "exit_code": 0,
+      "camera_packets": 2700,
+      "imu_consumed": 27008,
+      "trajectory_rows": 2311,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "MH_04_difficult",
+      "mode": "B",
+      "attempt": 71,
+      "exit_code": 0,
+      "camera_packets": 2032,
+      "imu_consumed": 20320,
+      "trajectory_rows": 1919,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "MH_05_difficult",
+      "mode": "B",
+      "attempt": 72,
+      "exit_code": 0,
+      "camera_packets": 2273,
+      "imu_consumed": 22721,
+      "trajectory_rows": 1849,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "V1_02_medium",
+      "mode": "B",
+      "attempt": 73,
+      "exit_code": 0,
+      "camera_packets": 1710,
+      "imu_consumed": 17100,
+      "trajectory_rows": 1611,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "V2_01_easy",
+      "mode": "B",
+      "attempt": 74,
+      "exit_code": 0,
+      "camera_packets": 2280,
+      "imu_consumed": 22800,
+      "trajectory_rows": 2181,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "MH_01_easy",
+      "mode": "P_PREV",
+      "attempt": 60,
+      "exit_code": 0,
+      "camera_packets": 3682,
+      "imu_consumed": 36820,
+      "trajectory_rows": 2784,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "MH_02_easy",
+      "mode": "P_PREV",
+      "attempt": 59,
+      "exit_code": 0,
+      "camera_packets": 3040,
+      "imu_consumed": 30400,
+      "trajectory_rows": 2259,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "MH_03_medium",
+      "mode": "P_PREV",
+      "attempt": 61,
+      "exit_code": 0,
+      "camera_packets": 2700,
+      "imu_consumed": 27008,
+      "trajectory_rows": 2311,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "MH_04_difficult",
+      "mode": "P_PREV",
+      "attempt": 62,
+      "exit_code": 0,
+      "camera_packets": 2032,
+      "imu_consumed": 20320,
+      "trajectory_rows": 1919,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "MH_05_difficult",
+      "mode": "P_PREV",
+      "attempt": 63,
+      "exit_code": 0,
+      "camera_packets": 2273,
+      "imu_consumed": 22721,
+      "trajectory_rows": 1849,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "V1_01_easy",
+      "mode": "P_PREV",
+      "attempt": 64,
+      "exit_code": 0,
+      "camera_packets": 2912,
+      "imu_consumed": 29120,
+      "trajectory_rows": 2800,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "V1_02_medium",
+      "mode": "P_PREV",
+      "attempt": 65,
+      "exit_code": 0,
+      "camera_packets": 1710,
+      "imu_consumed": 17100,
+      "trajectory_rows": 1611,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "V1_03_difficult",
+      "mode": "P_PREV",
+      "attempt": 66,
+      "exit_code": 0,
+      "camera_packets": 2149,
+      "imu_consumed": 21500,
+      "trajectory_rows": 2005,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    },
+    {
+      "sequence": "V2_01_easy",
+      "mode": "P_PREV",
+      "attempt": 67,
+      "exit_code": 0,
+      "camera_packets": 2280,
+      "imu_consumed": 22800,
+      "trajectory_rows": 2181,
+      "identity_pass": true,
+      "recorded_engineering_pass": true
+    }
+  ]
+}

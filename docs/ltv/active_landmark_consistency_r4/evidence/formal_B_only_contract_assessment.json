@@ -1,0 +1,13 @@
+{
+  "status": "OUTPUT_CONTRACT_MET",
+  "baseline_valid": 10,
+  "total": 11,
+  "failed_sequences": [],
+  "reference_unestablished": [],
+  "scope": "Outputs only; seed/recovery/resource/performance/freeze/repeat contracts remain independent.",
+  "view": "B_ONLY_PREDECLARED_FAILURE_CONTRACT",
+  "original_assessment": "/home/he/output/ltv_active_landmark_consistency_r4/formal_all11_assessment.json",
+  "exception_proof": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv/active_landmark_consistency_r4/drafts/mh04_predeclared_baseline_failure_review.md",
+  "full_task_success": false,
+  "original_records_unchanged": true
+}
