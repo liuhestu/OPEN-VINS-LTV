@@ -1,0 +1,23 @@
+{
+  "raw_files_matching_frozen_manifest": 24,
+  "sequences": {
+    "V2_02_medium": {
+      "physical_reference_matches_existing": true,
+      "OFF_matrix_states_equal_trajectory": true,
+      "trajectory_samples_checked": 2266,
+      "common_GT_frames": 2252,
+      "mask_partition_and_actual_event_counts": true
+    },
+    "V2_03_difficult": {
+      "physical_reference_matches_existing": true,
+      "OFF_matrix_states_equal_trajectory": true,
+      "trajectory_samples_checked": 1806,
+      "common_GT_frames": 1799,
+      "mask_partition_and_actual_event_counts": true
+    }
+  },
+  "online_source_changes": false,
+  "new_replays": 0,
+  "protocol_sha256": "16db7dcbae8eeb12449a37f0a74b2d80819b57332db51d2c122ae1bdbc6cde5d",
+  "status": "PASS"
+}

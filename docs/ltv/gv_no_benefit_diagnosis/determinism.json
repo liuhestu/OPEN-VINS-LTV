@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "command_exit": 0,
+  "derived_hashes": {
+    "summary.json": "04bd54f7553c397586fa38b06171144c3bb20afb90fc5d7e194a6a881f489a5f",
+    "V2_03_difficult_curves.csv": "b7814e2119e50cf06e28085a6faa2b2aac38691ab4163dc778b9219455a6ba06",
+    "V2_02_medium_curves.csv": "c0a5b6ad2b1ad4855dfe4dc3c2f2e75c60a3a431f401a4290240ee4bc1b996e6"
+  },
+  "readiness_divergent_frames": {
+    "V2_02_medium_G": {
+      "G": 0,
+      "V": 0
+    },
+    "V2_02_medium_V": {
+      "G": 0,
+      "V": 0
+    },
+    "V2_02_medium_GV": {
+      "G": 0,
+      "V": 0
+    },
+    "V2_03_difficult_G": {
+      "G": 0,
+      "V": 0
+    },
+    "V2_03_difficult_V": {
+      "G": 0,
+      "V": 0
+    },
+    "V2_03_difficult_GV": {
+      "G": 0,
+      "V": 0
+    }
+  }
+}
