@@ -1,0 +1,10 @@
+{
+  "status": "PASS_EXACT_DERIVED_REPEAT",
+  "extra_real_replays": 0,
+  "hashes": {
+    "summary.json": "f2041a3911ad233258ea4d7b717d93e81c17aae4cdf03dffb0f084ee2831cac0",
+    "correlation_audit.json": "5cf998751dabbedfa66a0bdffe4adfa5d2ff569834e570dc4206254900fba345",
+    "V2_02_medium_prediction_curve.csv": "fbaa10ad07e236372fda388f67a93f7ee0466ea52a3ccff367a464a30e4ccf95",
+    "V2_03_difficult_prediction_curve.csv": "08cc408e3f5454311c4fee2fddf9c3adbafb4383364114087732d5f8536a6ca4"
+  }
+}

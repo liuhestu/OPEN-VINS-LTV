@@ -1,0 +1,52 @@
+{
+  "binary_sha": "99a7550d7dc192da91afa0cab5dbeddc04b061f99f78a3a0c1751904411001f0",
+  "config": {
+    "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+    "config": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+    "config_sha": {
+      "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+      "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+      "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+    },
+    "sensors": {
+      "cam0": {
+        "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam0/data.csv",
+        "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c"
+      },
+      "cam1": {
+        "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam1/data.csv",
+        "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c"
+      },
+      "imu0": {
+        "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/imu0/data.csv",
+        "sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e"
+      }
+    },
+    "frozen_C02_run_identity": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/P_NEW/identity.json",
+    "frozen_identity_sha": "6ff48925277e52bc592cb0ab99d688e0985b482ab279c4e27658ade37823c735",
+    "images_present": true,
+    "fusion_enabled": false,
+    "image_files": 4696,
+    "images_aggregate_sha": "8a0e951f1d67c498bac91b7d300751ffc6b193628087476b7d0ff5d0caebe95f",
+    "off_path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03",
+    "off_evidence_sha": {
+      "cache.bin": "8f9d515b2fa823e704ec68b4fc1aed467bac5c1d64b53ddf1896e5ac289d3d85",
+      "audit.csv": "b566310b6ba669ef5eda221344ec1ae81dccf79c0f8ed945fe82ea18d080b44f",
+      "trajectory.csv": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+      "ltv.csv": "f2c74c71fc5d680d45809e0ae80ea3adf680245fdde2f3fd247fee9ef0db7387",
+      "features.jsonl": "1fdb36ef2aababa7fdadb6ca57aa15f9689d4a0c84c0ac2090fb9a3c9768f5b2",
+      "fusion.jsonl": "c390ff1e4ad4aa2d79d91002bab1c5d4ac74a04b3d196a8f5697e7565535ba5a",
+      "matrices.jsonl": "7d23e4f1f15a0944c1dcbcaaffe7f7539679a00d5614d53d9c134e3a499af7b9",
+      "effective_options.json": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+    }
+  },
+  "predictions_sha": "20237bd577ca74a840ebf33552f2a86f66e362221f8d305e71706cbaf8f9d0d9",
+  "exact": {
+    "status": "PASS",
+    "compared_events": 2348,
+    "before_events": 2266,
+    "after_events": 2266,
+    "prediction_rows": 374515,
+    "comparison": "exact_original_cache_complete_x_P_inputs_ID_lifecycle_readiness"
+  }
+}

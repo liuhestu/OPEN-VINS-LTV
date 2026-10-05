@@ -1,10 +1,11 @@
 #pragma once
+#include "ltv/config/LtvOptions.h"
 #include "ltv/landmark_adapter/LtvFeaturePipeline.h" // Legacy source-compatible name.
 #include "ltv/landmark_adapter/LtvLandmarkAdapter.h"
-#include "ltv/config/LtvOptions.h"
 #include "ltv/observer/ltv_observer.h"
 #include "utils/sensor_data.h"
 #include <deque>
+#include <functional>
 #include <map>
 #include <memory>
 #include <mutex>
@@ -47,8 +48,12 @@ public:
                    const ltv::FeaturePipelineContext *feature_context = nullptr);
   LtvFrame pause(double camera_time, const std::string &reason, uint64_t version);
   void reset();
+  // Optional read-only hook after propagation, before current geometry/correction.
+  using PredictionDiagnostic = std::function<void(const LtvAdapter &, const ltv::FeaturePipelineContext &, const LtvCalibration &)>;
+  void set_prediction_diagnostic(PredictionDiagnostic diagnostic) { prediction_diagnostic_ = std::move(diagnostic); }
   bool claim(const LtvFrame &frame);
   const ltv::LtvObserver &core() const { return observer_; }
+  const ltv::LtvReadinessOutput &readiness_health() const { return health_; }
   const ltv::FeaturePipelineFrame &feature_frame() const { return feature_frame_; }
   const ltv::LtvLandmarkAdapter *landmark_adapter() const { return feature_pipeline_.get(); }
   const ltv::LtvFeaturePipeline *feature_pipeline() const { return landmark_adapter(); }
@@ -60,6 +65,7 @@ public:
   static ov_core::ImuData correct(const ov_core::ImuData &, const LtvCalibration &, const Eigen::Vector3d &, const Eigen::Vector3d &);
 
 private:
+  PredictionDiagnostic prediction_diagnostic_;
   LtvOptions options_;
   std::unique_ptr<ltv::LtvReadiness> readiness_;
   ltv::LtvReadinessOutput health_;

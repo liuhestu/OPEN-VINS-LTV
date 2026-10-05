@@ -1,0 +1,27 @@
+{
+  "g_v_fusion": false,
+  "production_confirm": 20,
+  "max_slam": 0,
+  "max_full_real_replays": 12,
+  "threads": 1,
+  "concurrent_compute": 2,
+  "primary_anchor": "oldest live past same-epoch/core-ID/entered-time LTV point shared by both predictors",
+  "before_current_pipeline_and_correction": true,
+  "improvement_min": 0.05,
+  "confidence": 0.95,
+  "time_block_seconds": 1,
+  "bootstrap_seed": 20261005,
+  "bootstrap_samples": 2000,
+  "tail_nonworse_ratio": 1.05,
+  "coverage_nonworse": true,
+  "online_subgroups": [
+    "past_ready_V",
+    "past_mature",
+    "anchor_span_le_0.2_s"
+  ],
+  "no_independence_fallback": true,
+  "min_paired_frames_for_ci": 30,
+  "min_time_blocks_for_ci": 10,
+  "angular_tail_rad": 0.02,
+  "current_failed_transactions_retained": true
+}

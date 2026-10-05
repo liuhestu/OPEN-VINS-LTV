@@ -1,0 +1,13 @@
+{
+  "stage": "past-only geometry and correlation feasibility audit",
+  "frozen_before_auxiliary_collection": true,
+  "baseline_sha": "c2ddcf94e2ba4102531bd81903fb040d33546e35",
+  "current_observation_excluded": true,
+  "past_source": "same feature/epoch/generation, history samples from selected live anchor to t, camera0 only (same LTV correction source)",
+  "geometry": "existing LtvSeedEstimator numerical fit; no algorithm or admission changes",
+  "primary_results_retained": true,
+  "unknown_cross_blocks_are_not_zero": true,
+  "no_independence_fallback": true,
+  "additional_real_replays": 0,
+  "auxiliary_cache_replays": 2
+}

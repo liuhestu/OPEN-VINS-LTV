@@ -458,7 +458,7 @@ void LtvPassiveCacheWriter::finish() {
   finished_ = true;
   out_.close();
 }
-LtvPassiveCacheResult replayLtvPassiveCache(const std::string &path, const LtvOptions &options) {
+LtvPassiveCacheResult replayLtvPassiveCache(const std::string &path, const LtvOptions &options, const LtvCacheDiagnostic &diagnostic) {
   platform();
   std::ifstream in(path, std::ios::binary);
   char magic[sizeof(MAGIC)];
@@ -466,6 +466,9 @@ LtvPassiveCacheResult replayLtvPassiveCache(const std::string &path, const LtvOp
   if (!in || std::memcmp(magic, MAGIC, sizeof(magic)))
     throw std::runtime_error("invalid cache header");
   LtvAdapter adapter(options);
+  if (diagnostic)
+    adapter.set_prediction_diagnostic(
+        [&](const LtvAdapter &a, const ltv::FeaturePipelineContext &ctx, const LtvCalibration &c) { diagnostic(true, a, ctx, c); });
   LtvPassiveCacheResult result;
   Binary outer(static_cast<std::istream &>(in));
   uint64_t index = 0;
@@ -518,6 +521,10 @@ LtvPassiveCacheResult replayLtvPassiveCache(const std::string &path, const LtvOp
       if (f.available && !adapter.claim(f))
         throw std::runtime_error("cache frame claim rejected");
       same(expected, f, adapter, index);
+      if (diagnostic && present) {
+        ctx.epoch = f.epoch;
+        diagnostic(false, adapter, ctx, c);
+      }
       ++result.process_events;
       ++result.compared_events;
     } else if (type == 3) {

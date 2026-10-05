@@ -144,6 +144,8 @@ LtvFrame LtvAdapter::processHardened(double t, const std::vector<LtvBearing> &, 
   cursor_ = target;
   auto context = *feature_context;
   context.epoch = epoch_;
+  if (prediction_diagnostic_)
+    prediction_diagnostic_(*this, context, c);
   // Stage manager, IDs and full x/P together. A failed transaction cannot
   // consume a seed in the live manager or leave half a core lifecycle event.
   auto pipeline_before = *feature_pipeline_;

@@ -25,5 +25,7 @@ struct LtvPassiveCacheResult {
   double first_imu_time = 0, last_imu_time = 0;
 };
 // Throws on malformed/truncated stream, any exact-value mismatch, or trailing bytes.
-LtvPassiveCacheResult replayLtvPassiveCache(const std::string &path, const LtvOptions &options);
+using LtvCacheDiagnostic =
+    std::function<void(bool before, const LtvAdapter &, const ltv::FeaturePipelineContext &, const LtvCalibration &)>;
+LtvPassiveCacheResult replayLtvPassiveCache(const std::string &path, const LtvOptions &options, const LtvCacheDiagnostic &diagnostic = {});
 } // namespace ov_msckf

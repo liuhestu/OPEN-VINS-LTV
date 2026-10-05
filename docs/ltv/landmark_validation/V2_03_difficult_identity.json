@@ -1,0 +1,52 @@
+{
+  "binary_sha": "90ab628ff0433017b8e5406ddf73d9b0af1bfee0adc45913a19810584b033fc4",
+  "config": {
+    "root": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+    "config": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+    "config_sha": {
+      "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+      "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+      "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+    },
+    "sensors": {
+      "cam0": {
+        "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam0/data.csv",
+        "sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9"
+      },
+      "cam1": {
+        "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam1/data.csv",
+        "sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79"
+      },
+      "imu0": {
+        "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/imu0/data.csv",
+        "sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6"
+      }
+    },
+    "frozen_C02_run_identity": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/P_NEW/identity.json",
+    "frozen_identity_sha": "d26f3a209ba8c6fb36bd69984ed807930a5906ff0e53244f222d35760477f9b5",
+    "images_present": true,
+    "fusion_enabled": false,
+    "image_files": 4258,
+    "images_aggregate_sha": "f69dccde9978d9454989f920e42ac3821d538d91b94040c53029bf613731e655",
+    "off_path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03",
+    "off_evidence_sha": {
+      "cache.bin": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf",
+      "audit.csv": "f0ee61373a178220ac661ec354a074d4dbeb5f0c2b88e489ba2834b55afd90ce",
+      "trajectory.csv": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+      "ltv.csv": "3ba13abf84e68b47b0073426df7c40d594eb548a12e60b0c10a3ca42672bac83",
+      "features.jsonl": "b8503b92250c1f56246258f4341a26bb0fdbc1f18179d530758daec5c21bf8cd",
+      "fusion.jsonl": "2f16b40e70b49e617082eebedf247318c5d8e7165561ca67173b951200275f5e",
+      "matrices.jsonl": "4b633e3116b518d6e141ddfc7caee4a88bfa8a3c5dc29c128be047902dba6e63",
+      "effective_options.json": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+    }
+  },
+  "predictions_sha": "4c701c573572f2b219bdf47d0cb2a361e0b76a30cfef7c0c35a4849d59832cc8",
+  "exact": {
+    "status": "PASS",
+    "compared_events": 1921,
+    "before_events": 1806,
+    "after_events": 1806,
+    "prediction_rows": 255895,
+    "comparison": "exact_original_cache_complete_x_P_inputs_ID_lifecycle_readiness"
+  }
+}
