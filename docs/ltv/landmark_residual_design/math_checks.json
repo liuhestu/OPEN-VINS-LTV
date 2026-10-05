@@ -1,0 +1,31 @@
+{
+  "scope": "offline contract math only; no ON implementation or replay",
+  "seed": 20261005,
+  "jacobian": {
+    "cases": 32,
+    "max_absolute_error": 4.921956175962805e-10,
+    "passed": true
+  },
+  "world_gauge": {
+    "cases": 32,
+    "max_absolute_error": 1.3322676295501878e-15,
+    "passed": true
+  },
+  "joint_noise_elimination": {
+    "max_absolute_error": 7.105427357601002e-15,
+    "passed": true
+  },
+  "correlated_update": {
+    "max_absolute_error": 1.4210854715202004e-14,
+    "posterior_min_eigenvalue": 0.1503364365306434,
+    "passed": true
+  },
+  "duplicate_prior_information": {
+    "correct_gain": 0.0,
+    "correct_posterior_variance": 2.0,
+    "naive_independent_posterior_variance": 1.0697674418604652,
+    "exact_duplicate_innovation_rank": 0,
+    "passed": true
+  },
+  "passed": true
+}
