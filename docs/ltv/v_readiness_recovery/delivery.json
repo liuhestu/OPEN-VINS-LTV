@@ -1,0 +1,359 @@
+{
+  "baseline": "f22bfbcd82fe9a2b82d85ce9079fcd33d496e3f8",
+  "branch": "feature/ltv-v-readiness-recovery",
+  "external_root": "/home/he/output/ltv_v_readiness_recovery_20261005",
+  "commands": [
+    {
+      "command": [
+        "bash",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/build.sh"
+      ],
+      "exit_code": 0,
+      "ledger_id": 174
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/ltv_gv_evaluation/verify_install.py",
+        "/home/he/output/ltv_v_readiness_recovery_20261005"
+      ],
+      "exit_code": 0,
+      "ledger_id": 176
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/ltv_v_readiness_recovery/run.py",
+        "/home/he/output/ltv_v_readiness_recovery_20261005"
+      ],
+      "exit_code": 0,
+      "real_cells": 4
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/ltv_v_readiness_recovery/assess.py",
+        "/home/he/output/ltv_v_readiness_recovery_20261005"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/ltv_v_readiness_recovery/render.py",
+        "/home/he/output/ltv_v_readiness_recovery_20261005",
+        "docs/ltv/v_readiness_recovery"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/ltv_gv_evaluation/audit_matrices.py",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/matrix_check_scope",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/matrix_audit.json"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "runs": {
+    "V2_02_medium_V_01": {
+      "sequence": "V2_02_medium",
+      "mode": "V",
+      "index": 1,
+      "command": [
+        "bash",
+        "--noprofile",
+        "--norc",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+        "gv",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/run_ltv_gv_evaluation",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+        "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_02_medium_V_01",
+        "V"
+      ],
+      "cwd": "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_02_medium_V_01",
+      "binary_sha": "41ea09166bce29aa7e3a576831edded13ff3074e4e4de5900b59fd9495ce4147",
+      "input_identity": {
+        "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+        "config": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+        "config_sha": {
+          "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+          "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+          "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+        },
+        "sensors": {
+          "cam0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam0/data.csv",
+            "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c"
+          },
+          "cam1": {
+            "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam1/data.csv",
+            "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c"
+          },
+          "imu0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/imu0/data.csv",
+            "sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e"
+          }
+        },
+        "frozen_C02_run_identity": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/P_NEW/identity.json",
+        "frozen_identity_sha": "6ff48925277e52bc592cb0ab99d688e0985b482ab279c4e27658ade37823c735",
+        "images_present": true,
+        "fusion_enabled": false,
+        "image_files": 4696,
+        "images_aggregate_sha": "8a0e951f1d67c498bac91b7d300751ffc6b193628087476b7d0ff5d0caebe95f"
+      },
+      "source_manifest_sha": "068142255dc3b3a9d5b201969701a9f0e69863eed3e09950ab5256b2dfe2017c",
+      "threads": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1"
+      },
+      "started": 1791164603.7835178,
+      "prior_ledger": "/home/he/output/ltv_integration_cleanup_real_20261005/current_run_jobs.json",
+      "existing_ledger_id": 177,
+      "pid": 2216183,
+      "exit_code": 0,
+      "seconds": 76.85383486747742
+    },
+    "V2_03_difficult_V_01": {
+      "sequence": "V2_03_difficult",
+      "mode": "V",
+      "index": 1,
+      "command": [
+        "bash",
+        "--noprofile",
+        "--norc",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+        "gv",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/run_ltv_gv_evaluation",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+        "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_03_difficult_V_01",
+        "V"
+      ],
+      "cwd": "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_03_difficult_V_01",
+      "binary_sha": "41ea09166bce29aa7e3a576831edded13ff3074e4e4de5900b59fd9495ce4147",
+      "input_identity": {
+        "root": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+        "config": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+        "config_sha": {
+          "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+          "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+          "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+        },
+        "sensors": {
+          "cam0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam0/data.csv",
+            "sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9"
+          },
+          "cam1": {
+            "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam1/data.csv",
+            "sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79"
+          },
+          "imu0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/imu0/data.csv",
+            "sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6"
+          }
+        },
+        "frozen_C02_run_identity": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/P_NEW/identity.json",
+        "frozen_identity_sha": "d26f3a209ba8c6fb36bd69984ed807930a5906ff0e53244f222d35760477f9b5",
+        "images_present": true,
+        "fusion_enabled": false,
+        "image_files": 4258,
+        "images_aggregate_sha": "f69dccde9978d9454989f920e42ac3821d538d91b94040c53029bf613731e655"
+      },
+      "source_manifest_sha": "068142255dc3b3a9d5b201969701a9f0e69863eed3e09950ab5256b2dfe2017c",
+      "threads": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1"
+      },
+      "started": 1791164603.795394,
+      "prior_ledger": "/home/he/output/ltv_integration_cleanup_real_20261005/current_run_jobs.json",
+      "existing_ledger_id": 178,
+      "pid": 2216184,
+      "exit_code": 0,
+      "seconds": 53.02630829811096
+    },
+    "V2_02_medium_V10_01": {
+      "sequence": "V2_02_medium",
+      "mode": "V10",
+      "index": 1,
+      "command": [
+        "bash",
+        "--noprofile",
+        "--norc",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+        "gv",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/run_ltv_gv_evaluation",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+        "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_02_medium_V10_01",
+        "V10"
+      ],
+      "cwd": "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_02_medium_V10_01",
+      "binary_sha": "41ea09166bce29aa7e3a576831edded13ff3074e4e4de5900b59fd9495ce4147",
+      "input_identity": {
+        "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+        "config": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+        "config_sha": {
+          "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+          "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+          "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+        },
+        "sensors": {
+          "cam0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam0/data.csv",
+            "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c"
+          },
+          "cam1": {
+            "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam1/data.csv",
+            "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c"
+          },
+          "imu0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/imu0/data.csv",
+            "sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e"
+          }
+        },
+        "frozen_C02_run_identity": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/P_NEW/identity.json",
+        "frozen_identity_sha": "6ff48925277e52bc592cb0ab99d688e0985b482ab279c4e27658ade37823c735",
+        "images_present": true,
+        "fusion_enabled": false,
+        "image_files": 4696,
+        "images_aggregate_sha": "8a0e951f1d67c498bac91b7d300751ffc6b193628087476b7d0ff5d0caebe95f"
+      },
+      "source_manifest_sha": "068142255dc3b3a9d5b201969701a9f0e69863eed3e09950ab5256b2dfe2017c",
+      "threads": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1"
+      },
+      "started": 1791164706.4650922,
+      "prior_ledger": "/home/he/output/ltv_integration_cleanup_real_20261005/current_run_jobs.json",
+      "existing_ledger_id": 180,
+      "pid": 2216452,
+      "exit_code": 0,
+      "seconds": 77.23677396774292
+    },
+    "V2_03_difficult_V10_01": {
+      "sequence": "V2_03_difficult",
+      "mode": "V10",
+      "index": 1,
+      "command": [
+        "bash",
+        "--noprofile",
+        "--norc",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+        "gv",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/run_ltv_gv_evaluation",
+        "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+        "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+        "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_03_difficult_V10_01",
+        "V10"
+      ],
+      "cwd": "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_03_difficult_V10_01",
+      "binary_sha": "41ea09166bce29aa7e3a576831edded13ff3074e4e4de5900b59fd9495ce4147",
+      "input_identity": {
+        "root": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+        "config": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+        "config_sha": {
+          "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+          "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+          "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+        },
+        "sensors": {
+          "cam0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam0/data.csv",
+            "sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9"
+          },
+          "cam1": {
+            "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam1/data.csv",
+            "sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79"
+          },
+          "imu0": {
+            "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/imu0/data.csv",
+            "sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6"
+          }
+        },
+        "frozen_C02_run_identity": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/P_NEW/identity.json",
+        "frozen_identity_sha": "d26f3a209ba8c6fb36bd69984ed807930a5906ff0e53244f222d35760477f9b5",
+        "images_present": true,
+        "fusion_enabled": false,
+        "image_files": 4258,
+        "images_aggregate_sha": "f69dccde9978d9454989f920e42ac3821d538d91b94040c53029bf613731e655"
+      },
+      "source_manifest_sha": "068142255dc3b3a9d5b201969701a9f0e69863eed3e09950ab5256b2dfe2017c",
+      "threads": {
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1"
+      },
+      "started": 1791164706.4649436,
+      "prior_ledger": "/home/he/output/ltv_integration_cleanup_real_20261005/current_run_jobs.json",
+      "existing_ledger_id": 179,
+      "pid": 2216451,
+      "exit_code": 0,
+      "seconds": 53.19104361534119
+    }
+  },
+  "real_starts_before": 66,
+  "real_starts_after": 70,
+  "new_real_starts": 4,
+  "parameter_scan": false,
+  "G_enabled": false,
+  "production_V_confirmation": 20,
+  "experiment_V_confirmation": 10,
+  "original_core_warmup": 20,
+  "noise_velocity_mps": 1,
+  "grace_unchanged": true,
+  "GT_online": false,
+  "landmark_ON": false,
+  "native_tests_passed": 24,
+  "offline_tests_passed": 4,
+  "cpp14_readiness_test_passed": true,
+  "development_failures": [
+    {
+      "id": 173,
+      "exit_code": 1,
+      "reason": "test fixture initial warmup ack source missing; online code not implicated"
+    }
+  ],
+  "source_identity_verified_against_compiled_manifest": true,
+  "protocol_sha256": "5ceb77dddf2bfc4bf74823dd498f33952c042f25c17fb60bfbfd51c33e5a4e52",
+  "scripts": {
+    "scripts/ltv_v_readiness_recovery/test_assess.py": "bfdcd3a957850042805e40ce433c1485b238849139a5e450c3ceb71496fb9c52",
+    "scripts/ltv_v_readiness_recovery/render.py": "3794b3405cf8751fd60c59268b758833acb0599c980a1ad114cc3db53021ccf0",
+    "scripts/ltv_v_readiness_recovery/run.py": "2daa948579f38bb7190dd9ad4377ab2bea004d3c96ab83d13e41a9cfdffded18",
+    "scripts/ltv_v_readiness_recovery/assess.py": "a08e761602e579bf4c1fc5941ec030e8ce6e00c5282077db9c3750ca451d6f35"
+  },
+  "offline_determinism": {
+    "status": "PASS_OFFLINE_DERIVED_REPEAT",
+    "extra_real_replays": 0,
+    "hashes": {
+      "summary.json": "85a7ab0d586d0c008b41426f4152f977a12ce8d0927ab94e6ceb5427032a2737",
+      "V2_02_medium_admissions.csv": "525b6476ded43f94c5651b9a5613cb655772d0265979f9a85d653953ec804751",
+      "V2_03_difficult_admissions.csv": "d5b2634248326904663a60e30dd85e95a21a3b6f9328285a34a9502fa33a8fe5",
+      "V2_02_medium_V_trajectory_curve.csv": "a000d2418e6c7045ca0dcfb980c404d9cc1a1035a2318e200fa5770684b33268",
+      "V2_03_difficult_V10_trajectory_curve.csv": "3e978242bb1436fcb0ba80e0deec415ab50d7534250c395a2b164b5073138a01",
+      "V2_03_difficult_V_trajectory_curve.csv": "bd4a493581084fab0deb8e696f77e897bb8d55ee7bf88a63fb46a0b841dd5a49",
+      "V2_02_medium_V10_trajectory_curve.csv": "f0ef85cc1a441202b422b244c028b0449a9511e904f813ef8aa70626b47e1f92",
+      "V2_03_difficult_OFF_trajectory_curve.csv": "4ff6b34ed29fe22bf839fdb051a66f1999d72dc5cc167b94cccc65b9142c8277",
+      "V2_02_medium_OFF_trajectory_curve.csv": "d5895392a37f8c13fdbbc9aacec4c6a6808c96b488ab36375fa8dc1b7ca773c2"
+    }
+  },
+  "conclusion": "FASTER_RECOVERY_NO_PREDEFINED_QUALITY_DETERIORATION_BUT_MORE_TOGGLES_NO_TRAJECTORY_BENEFIT; production keeps20"
+}

@@ -1,0 +1,362 @@
+[
+  {
+    "name": "test_ltv_alias_fixed",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_alias_fixed"
+    ],
+    "exit_code": 0,
+    "seconds": 0.17391490936279297
+  },
+  {
+    "name": "test_ltv_core_lifecycle",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_core_lifecycle"
+    ],
+    "exit_code": 0,
+    "seconds": 0.17909717559814453
+  },
+  {
+    "name": "test_ltv_gv_jacobian",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_gv_jacobian"
+    ],
+    "exit_code": 0,
+    "seconds": 0.3361046314239502
+  },
+  {
+    "name": "test_ltv_gv_covariance",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_gv_covariance"
+    ],
+    "exit_code": 0,
+    "seconds": 0.20253992080688477
+  },
+  {
+    "name": "test_ltv_fej",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_fej"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2046055793762207
+  },
+  {
+    "name": "test_ltv_timing",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_timing"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2059624195098877
+  },
+  {
+    "name": "test_ltv_joint_layout",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_joint_layout"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2151811122894287
+  },
+  {
+    "name": "test_ltv_joint_covariance",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_joint_covariance"
+    ],
+    "exit_code": 0,
+    "seconds": 0.20998191833496094
+  },
+  {
+    "name": "test_ltv_innovation",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_innovation"
+    ],
+    "exit_code": 0,
+    "seconds": 0.20801448822021484
+  },
+  {
+    "name": "test_ltv_options",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_options"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2136216163635254
+  },
+  {
+    "name": "test_ltv_value_shadow",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_value_shadow"
+    ],
+    "exit_code": 0,
+    "seconds": 0.20977306365966797
+  },
+  {
+    "name": "test_ltv_huber",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_huber"
+    ],
+    "exit_code": 0,
+    "seconds": 0.20874619483947754
+  },
+  {
+    "name": "test_ltv_controlled",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_controlled"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2040247917175293
+  },
+  {
+    "name": "test_ltv_feature_manager",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_feature_manager"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2020723819732666
+  },
+  {
+    "name": "test_ltv_feature_pipeline",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_feature_pipeline"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2065887451171875
+  },
+  {
+    "name": "test_ltv_pose_convention",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_pose_convention"
+    ],
+    "exit_code": 0,
+    "seconds": 0.1753685474395752
+  },
+  {
+    "name": "test_ltv_active_lifecycle",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_active_lifecycle"
+    ],
+    "exit_code": 0,
+    "seconds": 0.20328235626220703
+  },
+  {
+    "name": "test_ltv_active_consistency",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_active_consistency"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2073841094970703
+  },
+  {
+    "name": "test_ltv_readiness",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_readiness"
+    ],
+    "exit_code": 0,
+    "seconds": 0.21462678909301758
+  },
+  {
+    "name": "test_ltv_adapter_hardened",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_adapter_hardened"
+    ],
+    "exit_code": 0,
+    "seconds": 0.5065929889678955
+  },
+  {
+    "name": "test_ltv_manager_bounded",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_manager_bounded"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2912914752960205
+  },
+  {
+    "name": "test_bounded_history",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_bounded_history"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2102344036102295
+  },
+  {
+    "name": "test_identity_guard",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_identity_guard"
+    ],
+    "exit_code": 0,
+    "seconds": 0.17643427848815918
+  },
+  {
+    "name": "test_ltv_history_competition",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "gv",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install",
+      "/home/he/output/ltv_v_readiness_recovery_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_history_competition"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2088150978088379
+  }
+]

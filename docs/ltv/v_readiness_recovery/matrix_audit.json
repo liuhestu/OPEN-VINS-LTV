@@ -1,0 +1,24 @@
+{
+  "V2_02_medium_V10_01": {
+    "actual_updates_checked": 1749,
+    "max_full_Joseph_relative_error": 2.4421110869181424e-16,
+    "max_native_IMU_mean_error": 7.191479821958697e-15,
+    "max_innovation_relative_error": 5.3802041689099046e-12,
+    "max_joint_NIS_relative_error": 1.1055365858663892e-15,
+    "max_contribution_error": 1.8211208365967457e-20,
+    "block_diagonal_noise_exact": true,
+    "tolerance": 1e-09,
+    "tolerance_source": "existing test_ltv_joint_covariance"
+  },
+  "V2_03_difficult_V10_01": {
+    "actual_updates_checked": 800,
+    "max_full_Joseph_relative_error": 1.9164907373105128e-16,
+    "max_native_IMU_mean_error": 7.417289037740703e-15,
+    "max_innovation_relative_error": 2.555503803021349e-12,
+    "max_joint_NIS_relative_error": 1.0231259657848593e-15,
+    "max_contribution_error": 2.202285662861181e-20,
+    "block_diagonal_noise_exact": true,
+    "tolerance": 1e-09,
+    "tolerance_source": "existing test_ltv_joint_covariance"
+  }
+}

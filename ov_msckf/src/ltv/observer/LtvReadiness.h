@@ -14,6 +14,9 @@ struct LtvReadinessConfig {
   size_t min_features = 15;
   unsigned int bootstrap_confirm_frames = 3, ready_confirm_frames = 20;
   unsigned int min_actual_corrections = 20;
+  // Evaluation runner only, never parsed from production YAML. Zero preserves
+  // ready_confirm_frames; the single authorized sensitivity alternative is 10.
+  unsigned int experimental_velocity_confirm_frames = 0;
   double coast_seconds = .20, dormant_seconds = 1.0, quality_bootstrap_interval = 30.0;
   double timestamp_tolerance = 1e-9, confirmation_max_gap = .20;
   double gravity_norm_min = 8.0, gravity_norm_max = 11.5;

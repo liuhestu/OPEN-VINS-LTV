@@ -1,0 +1,29 @@
+{
+  "status": "PASS_EXACT_V20",
+  "tolerance": 0,
+  "excluded": [
+    "features.jsonl.compute_time_ms"
+  ],
+  "instrumentation_difference": "new velocity_confirm_frames metadata = 20; algorithm option disabled",
+  "audit.csv": 1921,
+  "trajectory.csv": 1806,
+  "ltv.csv": 1921,
+  "unmatched_camera.csv": 416,
+  "features.jsonl": {
+    "rows": 1921,
+    "canonical_sha": "fa542968856854b9d8979323e9f5f3146802322d12ccb8f9bdc7a64327c960e3"
+  },
+  "cache.bin": {
+    "counts": {
+      "imu": 23370,
+      "process": 1806,
+      "pause": 115
+    },
+    "sha256": "c5845a06d5a7a0ab0ea3fe7893f423ad7a3a527994e9622ac34ef6f5a9bacf9e",
+    "full_serialized_payload_exact": true
+  },
+  "fusion.jsonl": "4581a42235850bfe51e33b6fdf36cd461b17e94d45484b76cbd1a979c4e75b72",
+  "matrices.jsonl": "59956ffaaa23a67874b125d5bdee0cfe4b330087cb6bc18417cda98018eeb8ca",
+  "effective_options.json": "fa41f61695f49eae27dfa85f3b87b1e8987fe4ba9e3c7b769ee357de33d5983d",
+  "replay.json": "a8a542c956e4c1dc343b7c87e7b7fbd425f2808ba66ba599770e728834f0397f"
+}

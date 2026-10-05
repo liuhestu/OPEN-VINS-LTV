@@ -510,8 +510,8 @@ int main(int argc, char **argv) {
     const std::string root = argv[2], out = argv[3];
     const std::string requested_mode = argv[4];
 #ifdef LTV_GV_EVALUATION
-    if (requested_mode != "OFF" && requested_mode != "G" && requested_mode != "V" && requested_mode != "GV")
-      throw std::runtime_error("usage: run_ltv_gv_evaluation config.yaml sensor_ASL_root output_dir OFF|G|V|GV [seconds<=10]");
+    if (requested_mode != "OFF" && requested_mode != "G" && requested_mode != "V" && requested_mode != "GV" && requested_mode != "V10")
+      throw std::runtime_error("usage: run_ltv_gv_evaluation config.yaml sensor_ASL_root output_dir OFF|G|V|GV|V10 [seconds<=10]");
     const std::string mode = "P_NEW";
 #else
     const std::string mode = requested_mode;
@@ -537,11 +537,14 @@ int main(int argc, char **argv) {
         c0.initial_p_velocity != 1 || c0.initial_p_gravity != 1 || c0.max_features != 30 || c0.min_features != 15)
       throw std::runtime_error("observer must retain C0 Q/V/P0 and 30/15 feature limits");
 #ifdef LTV_GV_EVALUATION
-    // Input YAML remains byte-identical. Only G/V algorithm switches vary.
+    // Input YAML remains byte-identical. V10 is the single experiment-only
+    // confirmation alternative; production parsing never exposes this option.
     options.ltv_options.passive_assert_no_injection = false;
     options.ltv_options.gv_evaluation_diagnostics = true;
     options.ltv_options.enable_gravity = requested_mode == "G" || requested_mode == "GV";
-    options.ltv_options.enable_velocity = requested_mode == "V" || requested_mode == "GV";
+    options.ltv_options.enable_velocity = requested_mode == "V" || requested_mode == "GV" || requested_mode == "V10";
+    if (requested_mode == "V10")
+      options.ltv_options.hardening_readiness.experimental_velocity_confirm_frames = 10;
     options.ltv_options.validate(options.state_options);
 #endif
     cv::setNumThreads(1);
@@ -621,7 +624,12 @@ int main(int argc, char **argv) {
     if (!fusion || !matrices)
       throw std::runtime_error("cannot open fusion diagnostics");
     std::ofstream instrument(out + "/instrumentation.json");
-    instrument << "{\"passive_assert_no_injection\":false,\"gv_evaluation_diagnostics\":true,\"mode\":\"" << requested_mode << "\"}\n";
+    instrument << "{\"passive_assert_no_injection\":false,\"gv_evaluation_diagnostics\":true,\"mode\":\"" << requested_mode
+               << "\",\"velocity_confirm_frames\":"
+               << (options.ltv_options.hardening_readiness.experimental_velocity_confirm_frames
+                       ? options.ltv_options.hardening_readiness.experimental_velocity_confirm_frames
+                       : options.ltv_options.hardening_readiness.ready_confirm_frames)
+               << "}\n";
 #endif
     app.assert_passive();
     const auto raw_left = images(root + "/cam0/data.csv"), raw_right = images(root + "/cam1/data.csv");

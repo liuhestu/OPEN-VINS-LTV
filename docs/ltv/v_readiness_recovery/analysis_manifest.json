@@ -1,0 +1,50 @@
+{
+  "/home/he/output/ltv_gv_no_benefit_20261005/V2_02_medium_V_01_compact.json": {
+    "sha256": "10822e1acff5f133bc54a3dd4c721286605c44de8601ed7cf350272236f6999c",
+    "bytes": 3718932
+  },
+  "/home/he/output/ltv_gv_no_benefit_20261005/V2_02_medium_V_01.npz": {
+    "sha256": "ac2e4430dcb512efcd816b0b8a5c686908ece7db37f40db5190fa5bfdcc83e6c",
+    "bytes": 694698
+  },
+  "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_02_medium_V10_01/features.jsonl": {
+    "sha256": "3da28961e7a16ebc49b4e45f31f2d802bb3a29bdf71528ba74cff8771f104cc7",
+    "bytes": 197848251
+  },
+  "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_02_medium_V10_01/fusion.jsonl": {
+    "sha256": "8e5d1c1ff29451bb8157eb5eb1dd2369465ac1a5725dd19b6bf19e8c3a959761",
+    "bytes": 2240448
+  },
+  "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_02_medium_V10_01/matrices.jsonl": {
+    "sha256": "d4bfe7434baa23dd10e0da36f60aa298ae26593de69548a14b4bc56f77747101",
+    "bytes": 1542459580
+  },
+  "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/state_groundtruth_estimate0/data.csv": {
+    "sha256": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+    "bytes": 3921620
+  },
+  "/home/he/output/ltv_gv_no_benefit_20261005/V2_03_difficult_V_01_compact.json": {
+    "sha256": "0dc2972f6a95eb2d5a0f405c2b1db32eb2afba3dba7ad01dc17e3705af8646ca",
+    "bytes": 2952471
+  },
+  "/home/he/output/ltv_gv_no_benefit_20261005/V2_03_difficult_V_01.npz": {
+    "sha256": "21f08c8266ce0a393fe253bf0e8f9f85e80f31bf4c1342868c9eac36a65455e7",
+    "bytes": 493538
+  },
+  "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_03_difficult_V10_01/features.jsonl": {
+    "sha256": "64d81e218322c4f47d17185482a45e8adff9b1eaf178cfe1bfbd77e80befd068",
+    "bytes": 131356287
+  },
+  "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_03_difficult_V10_01/fusion.jsonl": {
+    "sha256": "06dab7d5ae0b5f0915136b48cef73a93f2ee90d8bd3e29303d60a570b78145e5",
+    "bytes": 1734263
+  },
+  "/home/he/output/ltv_v_readiness_recovery_20261005/runs/V2_03_difficult_V10_01/matrices.jsonl": {
+    "sha256": "1df9f07f1c9abe6a50175eb7d5f0ff0e90f35cb747e7e4f0502643b99fe39bdd",
+    "bytes": 1159465538
+  },
+  "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/state_groundtruth_estimate0/data.csv": {
+    "sha256": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+    "bytes": 3915115
+  }
+}

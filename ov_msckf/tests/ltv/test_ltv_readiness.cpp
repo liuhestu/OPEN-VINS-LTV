@@ -23,6 +23,76 @@ static LtvReadinessInput healthy(double t) {
 }
 int main() {
   try {
+    for (bool grace : {false, true}) {
+      LtvReadinessConfig base_config;
+      base_config.enabled = base_config.initial_unseeded_warmup = base_config.preserve_constrained_state = true;
+      base_config.ready_soft_grace = grace;
+      auto short_config = base_config;
+      short_config.experimental_velocity_confirm_frames = 10;
+      LtvReadiness baseline(base_config), shorter(short_config);
+      for (auto *policy : {&baseline, &shorter}) {
+        auto initial = healthy(0);
+        initial.bootstrap_source = "BOUNDED_INITIAL_ZERO_WARMUP";
+        policy->update(initial);
+        policy->acknowledgeBootstrap(initial);
+      }
+      for (int k = 1; k <= 20; ++k) {
+        auto a = baseline.update(healthy(.05 * k));
+        auto b = shorter.update(healthy(.05 * k));
+        require(a.ready_V == (k == 20) && b.ready_V == (k >= 10), "only V confirmation changes from 20 to 10");
+        require(a.ready_G == b.ready_G && b.ready_G == (k == 20), "G confirmation remains 20");
+      }
+      auto thin = healthy(1.05);
+      thin.observed_features = 14;
+      auto bad = shorter.update(thin);
+      require(!bad.ready_V && !bad.grace_V, "thin supply cannot be released by shorter confirmation");
+      for (int k = 1; k <= 10; ++k) {
+        auto b = shorter.update(healthy(1.05 + .05 * k));
+        require(b.ready_V == (k == 10), "recovery still requires ten genuinely good frames");
+      }
+      auto gap = shorter.update(healthy(2.0));
+      require(!gap.ready_V && !gap.grace_V, "time gap clears short confirmation and grace");
+      for (int k = 1; k < 10; ++k) {
+        auto invalid = healthy(2.0 + .05 * k);
+        invalid.correction_diagnostics_valid = false;
+        require(!shorter.update(invalid).ready_V, "invalid diagnostics never accumulate short confirmation");
+      }
+      for (int which = 0; which < 7; ++which) {
+        LtvReadiness policy(short_config);
+        auto initial = healthy(0);
+        initial.bootstrap_source = "BOUNDED_INITIAL_ZERO_WARMUP";
+        policy.update(initial);
+        policy.acknowledgeBootstrap(initial);
+        for (int k = 1; k <= 20; ++k)
+          policy.update(healthy(.05 * k));
+        auto invalid = healthy(1.05);
+        if (which == 0)
+          invalid.mature_observed_features = 14;
+        if (which == 1)
+          invalid.actual_corrections = 19;
+        if (which == 2)
+          invalid.prediction_angle_p95_rad = .041;
+        if (which == 3)
+          invalid.velocity_correction_rate = 1.01;
+        if (which == 4)
+          invalid.gravity_correction_rate = 2.01;
+        if (which == 5)
+          invalid.gravity.setZero();
+        if (which == 6)
+          invalid.observer_time = 1.0;
+        auto b = policy.update(invalid);
+        require(!b.ready_V && !b.grace_V, "short confirmation cannot bypass existing hard health or time boundaries");
+      }
+    }
+    auto invalid_experiment = LtvReadinessConfig();
+    invalid_experiment.experimental_velocity_confirm_frames = 11;
+    bool invalid_length_rejected = false;
+    try {
+      LtvReadiness invalid(invalid_experiment);
+    } catch (const std::invalid_argument &) {
+      invalid_length_rejected = true;
+    }
+    require(invalid_length_rejected, "only the predeclared ten-frame alternative is allowed");
     LtvReadiness off;
     auto o = off.update(healthy(0));
     require(o.state == LtvAvailability::Disabled && !o.request_bootstrap && !o.ready_V, "default off");

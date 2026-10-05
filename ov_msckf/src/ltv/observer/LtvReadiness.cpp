@@ -26,6 +26,8 @@ const char *toString(LtvAvailability s) {
 LtvReadiness::LtvReadiness(const LtvReadinessConfig &c) : config_(c) {
   if (c.min_features < 15 || c.min_features > 30 || !c.bootstrap_confirm_frames || !c.ready_confirm_frames || !c.min_actual_corrections)
     throw std::invalid_argument("invalid readiness counts");
+  if (c.experimental_velocity_confirm_frames != 0 && c.experimental_velocity_confirm_frames != 10)
+    throw std::invalid_argument("experimental velocity confirmation must be disabled or 10");
   for (double v :
        {c.coast_seconds, c.dormant_seconds, c.quality_bootstrap_interval, c.timestamp_tolerance, c.confirmation_max_gap, c.gravity_norm_min,
         c.gravity_norm_max, c.prediction_angle_limit_rad, c.velocity_correction_rate_limit, c.gravity_correction_rate_limit})
@@ -226,11 +228,13 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
   const bool good_G = common && gravity_physical && i.gravity_correction_rate <= config_.gravity_correction_rate_limit;
   const bool good_V = common && gravity_physical && i.velocity_correction_rate <= config_.velocity_correction_rate_limit &&
                       i.gravity_correction_rate <= config_.gravity_correction_rate_limit;
+  const unsigned int velocity_confirm_frames =
+      config_.experimental_velocity_confirm_frames ? config_.experimental_velocity_confirm_frames : config_.ready_confirm_frames;
   if (!config_.ready_soft_grace) {
     gravity_frames_ = good_G ? std::min(gravity_frames_ + 1, config_.ready_confirm_frames) : 0;
-    velocity_frames_ = good_V ? std::min(velocity_frames_ + 1, config_.ready_confirm_frames) : 0;
+    velocity_frames_ = good_V ? std::min(velocity_frames_ + 1, velocity_confirm_frames) : 0;
     o.ready_G = gravity_frames_ >= config_.ready_confirm_frames;
-    o.ready_V = velocity_frames_ >= config_.ready_confirm_frames;
+    o.ready_V = velocity_frames_ >= velocity_confirm_frames;
   } else {
     const bool finite_diagnostics = i.correction_diagnostics_valid && std::isfinite(i.prediction_angle_p95_rad) &&
                                     i.prediction_angle_p95_rad >= 0 && std::isfinite(i.velocity_correction_rate) &&
@@ -241,15 +245,16 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
     const bool envelope_G = hard && i.prediction_angle_p95_rad <= 2 * config_.prediction_angle_limit_rad &&
                             i.gravity_correction_rate <= 2 * config_.gravity_correction_rate_limit;
     const bool envelope_V = envelope_G && i.velocity_correction_rate <= 2 * config_.velocity_correction_rate_limit;
-    auto branch = [&](bool strict_good, bool envelope, unsigned int &confirm, unsigned int &soft, double &last_good, bool &held) {
+    auto branch = [&](bool strict_good, bool envelope, unsigned int required, unsigned int &confirm, unsigned int &soft, double &last_good,
+                      bool &held) {
       if (strict_good) {
-        confirm = std::min(confirm + 1, config_.ready_confirm_frames);
+        confirm = std::min(confirm + 1, required);
         soft = 0;
         last_good = i.time;
-        return confirm >= config_.ready_confirm_frames;
+        return confirm >= required;
       }
       const double deadline = std::nextafter(last_good + .10, std::numeric_limits<double>::infinity());
-      if (confirm >= config_.ready_confirm_frames && envelope && soft < 2 && last_good >= 0 && i.time <= deadline) {
+      if (confirm >= required && envelope && soft < 2 && last_good >= 0 && i.time <= deadline) {
         ++soft;
         held = true;
         return true;
@@ -258,8 +263,8 @@ LtvReadinessOutput LtvReadiness::update(const LtvReadinessInput &i) {
       last_good = -1;
       return false;
     };
-    o.ready_G = branch(good_G, envelope_G, gravity_frames_, soft_G_, last_good_G_, o.grace_G);
-    o.ready_V = branch(good_V, envelope_V, velocity_frames_, soft_V_, last_good_V_, o.grace_V);
+    o.ready_G = branch(good_G, envelope_G, config_.ready_confirm_frames, gravity_frames_, soft_G_, last_good_G_, o.grace_G);
+    o.ready_V = branch(good_V, envelope_V, velocity_confirm_frames, velocity_frames_, soft_V_, last_good_V_, o.grace_V);
   }
   state_ = (o.ready_G || o.ready_V) ? LtvAvailability::Tracking : LtvAvailability::Bootstrapping;
   if (o.grace_G || o.grace_V)
