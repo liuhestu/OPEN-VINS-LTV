@@ -15,7 +15,7 @@ cases = {(r['task'], r['sequence'], r['mode']): Path(r['output_dir']) for r in r
 results = []
 byte_files = ['trajectory.csv', 'audit.csv', 'algorithm_visual_identity.jsonl', 'observer_identity.jsonl',
               'lifecycle_identity.jsonl', 'shadow_receipts.jsonl', 'fusion.jsonl', 'unmatched_camera.csv',
-              'instrumentation.json', 'replay.json', 'landmark_approx.csv', 'landmark_approx.csv.points.csv']
+              'instrumentation.json', 'replay.json', 'ltv.csv', 'landmark_approx.csv', 'landmark_approx.csv.points.csv']
 for seq in ['V2_02_medium', 'V2_03_difficult']:
     for mode in ['OFF', 'G', 'V', 'GV', 'L_OFF', 'L_ON']:
         left, right = cases['experiment', seq, mode], cases['main', seq, mode]
@@ -35,22 +35,14 @@ for seq in ['V2_02_medium', 'V2_03_difficult']:
         def options(path):
             x = json.loads(path.read_text())
             for key in list(x):
-                if key.endswith('_path'):
+                if key in ('ltv_log_path', 'ltv_passive_cache_path', 'ltv_value_diagnostics_path', 'ltv_landmark_approx_log_path'):
                     del x[key]
             return x
         assert options(left / 'effective_options.json') == options(right / 'effective_options.json'), (seq, mode, 'options')
-        def ltv(path):
-            entries = list(csv.DictReader(path.open()))
-            for row in entries:
-                for key in list(row):
-                    if 'time_ms' in key or 'seconds' in key:
-                        del row[key]
-            return entries
-        assert ltv(left / 'ltv.csv') == ltv(right / 'ltv.csv'), (seq, mode, 'ltv')
         assert json.loads((right / 'replay.json').read_text())['complete']
         results.append(dict(sequence=seq, mode=mode, status='PASS_EXACT', files=evidence,
                             before=str(left), after=str(right)))
 a.output.write_text(json.dumps({'status': 'PASS_EXACT_ALL_12_FULL_CASES', 'cases': results,
-                                'excluded': ['compute_time_ms', 'ltv timer columns', 'output path values'],
+                                'excluded': ['features compute_time_ms', 'explicit diagnostic output path values'],
                                 'scope': 'cleanup equivalence, no new accuracy/benefit qualification'}, indent=2) + '\n')
 print('PASS_EXACT_ALL_12_FULL_CASES')
