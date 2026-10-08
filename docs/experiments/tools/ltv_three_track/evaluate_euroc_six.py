@@ -114,7 +114,7 @@ def main():
     (artifact / 'results.json').write_text(json.dumps(rows, indent=2) + '\n')
     fields = sorted({k for row in rows for k in row})
     with (artifact / 'results.csv').open('w', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=fields); w.writeheader(); w.writerows(rows)
+        w = csv.DictWriter(f, fieldnames=fields, lineterminator='\n'); w.writeheader(); w.writerows(rows)
     identity = json.loads((a.coord / 'identity.json').read_text())
     text = ['# EuRoC 六模式 ATE RMSE', '', f'main；11序列×6模式，已完成{len(index)}/66次新完整回放。ATE单位：m。',
             'OFF是纯OpenVINS；全部组max_slam=0、固定C0参数。G/V/L分别开启对应近似融合，L_GV三项同时开启。',
