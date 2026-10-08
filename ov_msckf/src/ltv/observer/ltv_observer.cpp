@@ -122,7 +122,7 @@ void LtvObserver::propagateImu(double dt, const Eigen::Vector3d &acc_measurement
     b.block(velocityOffset(), 0, 3, 3) = dt * Eigen::Matrix3d::Identity();
     for (int offset = 0; offset < dimension; offset += 3)
       b.block(offset, 3, 3, 3) = dt * ov_core::skew_x(state_.segment<3>(offset));
-    error_shadow_.imu(Eigen::MatrixXd::Identity(dimension, dimension) + dt * system, b);
+    error_shadow_.imu(imu_timestamp_, dt, Eigen::MatrixXd::Identity(dimension, dimension) + dt * system, b, state_);
   }
   state_ += dt * (system * state_ + input * acceleration);
   covariance_ += dt * (system * covariance_ + covariance_ * system.transpose() + processNoise());
@@ -247,7 +247,7 @@ void LtvObserver::rebuildState(const std::vector<int> &feature_ids) {
     for (int id : feature_ids)
       if (!feature_to_slot_.count(id))
         ++births;
-    error_shadow_.lifecycle(imu_timestamp_, map, births, old_feature_count + births - static_cast<int>(feature_ids.size()));
+    error_shadow_.lifecycle(imu_timestamp_, map, births, old_feature_count + births - static_cast<int>(feature_ids.size()), feature_ids);
   }
   state_.swap(new_state);
   covariance_.swap(new_covariance);
@@ -399,6 +399,7 @@ LtvSnapshot LtvObserver::updateFeaturesImpl(double frame_timestamp, double imu_t
 
   Eigen::MatrixXd shadow_f, shadow_b;
   if (error_shadow_.enabled()) {
+    error_shadow_.beginCamera();
     shadow_f = Eigen::MatrixXd::Identity(state_.size(), state_.size());
     // Three tangent-bearing columns per observation. SAME source across substeps.
     shadow_b = Eigen::MatrixXd::Zero(state_.size(), 3 * observed_features_);
@@ -429,6 +430,7 @@ LtvSnapshot LtvObserver::updateFeaturesImpl(double frame_timestamp, double imu_t
       const Eigen::MatrixXd covariance_measurement_transpose = covariance_ * measurement.transpose();
       if (error_shadow_.enabled()) {
         const Eigen::MatrixXd gain = correction_dt * config_.q_landmark * covariance_measurement_transpose;
+        error_shadow_.cameraSubstep(gain);
         const Eigen::MatrixXd f = Eigen::MatrixXd::Identity(state_.size(), state_.size()) - gain * measurement;
         Eigen::MatrixXd d = Eigen::MatrixXd::Zero(3 * observed_features_, 3 * observed_features_);
         for (int index = 0; index < observed_features_; ++index) {
