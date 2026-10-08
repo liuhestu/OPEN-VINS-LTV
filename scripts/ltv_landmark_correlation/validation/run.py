@@ -65,6 +65,11 @@ def tests(out):
     for name in ('test_ltv_error_shadow', 'test_ltv_seed_joint', 'test_ltv_landmark_shadow'):
         args = [out / 'integrated_actual_seed_samples.csv'] if name == 'test_ltv_seed_joint' else []
         records.append(run(out, name, command(out, name, args)))
+    mc = out / 'integrated_observer_mc'
+    mc.mkdir(exist_ok=False)
+    contract = ROOT / 'docs/ltv/landmark_correlation/observer_mc/contract.json'
+    (mc / 'frozen_contract.json').write_bytes(contract.read_bytes())
+    records.append(run(out, 'test_ltv_observer_mc', command(out, 'test_ltv_observer_mc', [mc])))
     fixture = ROOT / 'docs/ltv_handover/parity_fixture'
     records.append(run(out, 'core_golden', command(out, 'test_ltv_core_parity',
                        [fixture / 'inputs.jsonl', out / 'core_golden_matrices.jsonl'])))
