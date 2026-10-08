@@ -14,14 +14,14 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / 'scripts/ltv_gv_evaluation'))
 from evaluate import align, nearest
 sys.path.insert(0, str(ROOT / 'scripts/ltv_gv_diagnosis'))
-from analyze import reference
+from analyze import reference, body, labels
 
 
 def rmse(x):
     return float(np.sqrt(np.mean(np.asarray(x) ** 2))) if len(x) else None
 
 
-def evaluate(run_paths, data_root, sequence):
+def evaluate(run_paths, data_root, sequence, diagnostic_off=None):
     paths = {mode: Path(p) for mode, p in run_paths.items()}
     off = np.loadtxt(paths['OFF'] / 'trajectory.csv', delimiter=',', skiprows=1, ndmin=2)
     gt = np.loadtxt(Path(data_root) / 'state_groundtruth_estimate0/data.csv', delimiter=',', comments='#')
@@ -41,6 +41,31 @@ def evaluate(run_paths, data_root, sequence):
     segments = np.floor((times - off[0, 0]) / 10).astype(int)
     for segment in np.unique(segments):
         masks['fixed_10s_' + str(segment)] = segments == segment
+    diagnostic = Path(diagnostic_off) if diagnostic_off else paths['OFF']
+    features = [json.loads(line) for line in (diagnostic / 'features.jsonl').read_text().splitlines() if line]
+    fusion = [json.loads(line) for line in (diagnostic / 'fusion.jsonl').read_text().splitlines() if line]
+    assert len(features) == len(fusion) == len(audit), 'complete diagnostic OFF required for frozen masks'
+    ft = np.asarray([f['target_imu_time'] for f in features])
+    fv, fg, fvalid = reference(gt, ft)
+    initialized = np.asarray([bool(f['initialized']) for f in features])
+    ix = nearest(off[:, 0], ft)
+    fsupport = initialized & fvalid & (abs(off[ix, 0] - ft) <= 1e-6)
+    ov, og = body(off[ix, 1:])
+    error = {'V': np.linalg.norm(ov - fv, axis=1),
+             'G': np.degrees(np.arccos(np.clip(np.sum(og * fg, axis=1), -1, 1)))}
+    visual = np.asarray([f['visual_rows'] for f in fusion])
+    weak = visual <= np.quantile(visual[fsupport], .2)
+    fmasks = {'weak_visual_OFF': fsupport & weak}
+    before = nearest(ft, ft - 1.)
+    for branch in ('G', 'V'):
+        ready = np.asarray([bool(f['ready_' + branch]) for f in fusion])
+        label = labels(ready & initialized, weak)
+        high = fsupport & (error[branch] >= np.quantile(error[branch][fsupport], .75))
+        fmasks[branch + '_rising_high_OFF'] = high & (abs(ft[before] - (ft - 1.)) <= .025) & initialized[before] & (error[branch] > error[branch][before])
+        fmasks[branch + '_interruption_OFF'] = fsupport & (label == 'interruption')
+    findex = nearest(ft, times)
+    for name, mask in fmasks.items():
+        masks[name] = mask[findex]
     result, events = [], []
     for mode in ('OFF', 'G', 'V', 'GV'):
         path = paths[mode]
@@ -91,7 +116,7 @@ if __name__ == '__main__':
     args = p.parse_args()
     rows, events = [], []
     for seq, entry in json.loads(args.index.read_text())['sequences'].items():
-        a, b = evaluate(entry['runs'], entry['data_root'], seq)
+        a, b = evaluate(entry['runs'], entry['data_root'], seq, entry.get('diagnostic_off'))
         rows.extend(a)
         events.extend(b)
     args.output.mkdir(exist_ok=False)
