@@ -20,7 +20,8 @@ static Eigen::MatrixXd read_matrix(std::istream &s, int n, int m) {
   return x;
 }
 static std::shared_ptr<State> fixture(const Input &in) {
-  auto s = std::make_shared<State>(StateOptions());
+  StateOptions options;
+  auto s = std::make_shared<State>(options);
   s->_timestamp = 1;
   s->_imu->set_value(in.imu);
   s->_imu->set_fej(in.fej);
