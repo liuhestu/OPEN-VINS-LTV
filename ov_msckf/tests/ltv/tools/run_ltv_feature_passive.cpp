@@ -337,8 +337,22 @@ public:
         (P - P.transpose()).cwiseAbs().maxCoeff() > 1e-10 * scale || eig.eigenvalues().minCoeff() < -1e-10 * scale)
       throw std::runtime_error("evaluation camera-boundary state/covariance invalid");
   }
-  uint64_t gravity_submissions() const { return passive_gravity_submissions; }
-  uint64_t velocity_submissions() const { return passive_velocity_submissions; }
+  uint64_t gravity_submissions() const {
+#ifdef LTV_GV_PRODUCTION_LEVEL
+    return ltv_diagnostics.consumed && ltv_diagnostics.submit_reason == "joint_applied" && ltv_diagnostics.ekf_calls == 1 &&
+           ltv_diagnostics.gravity_rows > 0;
+#else
+    return passive_gravity_submissions;
+#endif
+  }
+  uint64_t velocity_submissions() const {
+#ifdef LTV_GV_PRODUCTION_LEVEL
+    return ltv_diagnostics.consumed && ltv_diagnostics.submit_reason == "joint_applied" && ltv_diagnostics.ekf_calls == 1 &&
+           ltv_diagnostics.velocity_rows > 0;
+#else
+    return passive_velocity_submissions;
+#endif
+  }
   static void number(std::ostream &out, double x) {
     if (std::isfinite(x))
       out << x;

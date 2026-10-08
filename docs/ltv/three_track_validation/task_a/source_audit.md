@@ -12,4 +12,4 @@ Updater 严格匹配 camera/IMU cursor、epoch/sequence 和 native prior，readi
 
 验证顺序：原runner OFF完整精确历史回归→生产runner OFF与原runner逐帧完整state/P/Tracker/visual及Observer digest精确一致→生产四模式完整回放。生产标量日志可重复读取 readiness、innovation、作用norm；拒绝/accepted/applied不得混淆。性能p95只计feed_measurement_camera，RSS /usr/bin/time记录整个进程；这授予离线同步输入范围而非ROS transport queue资格。生产性能需统一诊断等级且独占资源。
 
-已发现audit=false时ltv_diagnostics重置受audit分支控制；尚需真实运行检查标量日志是否出现stale重复行。任何计数在验证前不可作为本轮applied证据。算法状态精确回归若失败先排除构建/overlay，不能放宽零容差。
+最初怀疑audit=false时diagnostics不重置；进一步调用链核对否定：VioManager.cpp Observer处理前无条件重置，提前返回走pause_ltv也重置，因此没有因此修改主代码。生产runner计数严格要求consumed、joint_applied、ekf_calls=1及有效branch行；真实回放继续核验日志和计数。算法状态精确回归若失败先排除构建/overlay，不能放宽零容差。
