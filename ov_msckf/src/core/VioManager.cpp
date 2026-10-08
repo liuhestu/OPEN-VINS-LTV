@@ -647,8 +647,6 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
       passive_msckf_input_ids.push_back(feature->featid);
   updaterMSCKF->update(state, featsup_MSCKF, ltv_block.receipt ? &ltv_block : nullptr, ltv_adapter ? &ltv_diagnostics : nullptr,
                        diagnostic_before);
-  if (updater_landmark_approx)
-    updater_landmark_approx->finish_frame(ltv_diagnostics);
   if (params.ltv_options.passive_audit_enabled) {
     for (const auto &feature : featsup_MSCKF)
       passive_msckf_used_ids.push_back(feature->featid);
@@ -667,6 +665,8 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   if (ltv_adapter) {
     if (ltv_block.receipt)
       ltv_diagnostics = ltv_block.receipt->diagnostics;
+    if (updater_landmark_approx)
+      updater_landmark_approx->finish_frame(ltv_diagnostics);
     record_ltv(ltv_frame);
   }
   propagator->invalidate_cache();
