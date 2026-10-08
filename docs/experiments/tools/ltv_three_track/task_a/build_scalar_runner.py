@@ -64,7 +64,9 @@ for package in ('ov_core', 'ov_init', 'ov_msckf'):
     libs[package] = {'parent_path': str(parent), 'new_path': str(copied), 'sha256': sha(copied)}
 runners = {}
 for target in ('run_ltv_gv_evaluation', 'run_ltv_gv_production'):
-    cmake_target = a.parent_artifact / 'build/ov_msckf/tests/ltv/CMakeFiles' / (target + '.dir')
+    candidates = [p for p in (a.parent_artifact / 'build/ov_msckf').rglob(target + '.dir') if (p / 'flags.make').is_file()]
+    assert len(candidates) == 1, (target, candidates)
+    cmake_target = candidates[0]
     flags = {}
     for line in (cmake_target / 'flags.make').read_text().splitlines():
         if ' = ' in line:
