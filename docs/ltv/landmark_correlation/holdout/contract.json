@@ -1,0 +1,20 @@
+{
+  "purpose": "LC-08 reuse audit; thresholds copied unchanged from historical pre-collection freeze; common-three support is a new descriptive diagnostic, not a newly trained acceptance rule",
+  "split": "rolling one-step-ahead current bearing excluded before prediction; it may be consumed after prediction and become history for later frames",
+  "historical_thresholds": {
+    "improvement_min": 0.05,
+    "confidence": 0.95,
+    "time_block_seconds": 1,
+    "bootstrap_seed": 20261005,
+    "bootstrap_samples": 2000,
+    "tail_nonworse_ratio": 1.05,
+    "coverage_nonworse": true,
+    "min_paired_frames_for_ci": 30,
+    "min_time_blocks_for_ci": 10
+  },
+  "group_selection": "existing mature, normal, recovery, startup labels; no outcome-selected group",
+  "common_support": "same source ID (epoch, core ID, feature ID, entered time, camera, timestamp); require all three original predictors valid and live past anchor",
+  "interpretation": "prediction advantage is neither independent information rank nor fusion trajectory benefit; shared-history information and main visual consumption provenance remain dependencies",
+  "no_gt_for_selection": true,
+  "no_on": true
+}
