@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-10-08T11:34:19.979687+00:00",
+  "goal": "active",
+  "coord_root": "/home/he/output/ltv_three_track_20261008_1827",
+  "previous_goal_turn": "progress: shared contracts/source isolation actual builds/gate experiments and user scope amendment",
+  "A": "V2_02 full diagnostic OFF exact historical parity passed; scalar full OFF running; production performance four-mode pending",
+  "B": "prediction B3/B4 FAIL preserved; risk/coverage passes support engineering B3, updater/Jac/OFF/shortON being implemented; no real ON yet",
+  "C": "full mean/Riccati/gain local sensitivity checked; actual seed/pixel/main hooks and finite joint source graph under implementation, main/observer source laws not qualified for production",
+  "production": "defaults unchanged, all production fusion OFF",
+  "next": "finish scalar/diagnostic parity, freeze B updater/Rapprox and native Jacobian, actual independent OFF/ON; validate C actual source graph; integrate only after separate qualification"
+}
