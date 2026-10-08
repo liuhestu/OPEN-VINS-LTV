@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "frozen_before_first_sampling": true,
+  "scope": "Native production Observer controlled two-Euler-plus-camera mean mapping; all Riccati/gain/eigenvalue updates execute; fixed seed means and controlled truth conditional reference",
+  "draws_per_amplitude": 4000,
+  "amplitudes": [0.00001, 0.0001, 0.001],
+  "random_seed": 202610081,
+  "rng": "std::mt19937 plus std::normal_distribution<double>(0,1)",
+  "latent_sources": 8,
+  "source_contract": "z0..2 corrected acceleration offset; z3..5 corrected gyro offset; identical physical offsets reused in both Euler steps. Point-1 bearing x/y perturbations 0.4*z0+z6 and 0.4*z3+z7; point-2 bearing x/y perturbations 0.2*z0-0.5*z6 and 0.3*z4+0.7*z7. Sources shared with IMU are the SAME Gaussian draw; z6..7 also shared across points.",
+  "dt_seconds": 0.01,
+  "initial_seed_means": [[0.8,0.3,4.0],[-0.5,0.6,3.0]],
+  "production_config": "LtvConfig defaults; only enable=true; production parameters/readiness unchanged",
+  "outputs": "concatenate actual state after Euler step 1, Euler step 2, camera; joint cross-time/cross-point output",
+  "full_map_fd_steps": [0.000001, 0.0000001],
+  "diagnostic_only": true,
+  "gaussian_ci_or_nees_claim": false,
+  "real_landmark_statistical_calibration": "NOT_EVALUATED: no independent landmark truth",
+  "frozen_checks": "FINITE and Observer never reset; FD step agreement reported; predict/sample covariance and full error covariance saved for every amplitude. No chi-square acceptance, no selecting one amplitude, no post-result threshold tuning.",
+  "fixed_gain_comparison": "Capture nominal camera gains from existing shadow. Compare native full-map bearing finite differences (Riccati and gain perturbations included) against cameraSourceMap tangent prediction at nominal input. Preserve difference without assuming zero."
+}
