@@ -34,3 +34,12 @@ C4 replacement of B's approximate model is NOT_RUN: no qualified production cova
 ## Pending evidence
 
 Corrected6982 native unit suite, short finite-OFF/ON exact main state/full P/Observer/lifecycle regression and source audit; then matched full V2_02/V2_03 finite replay and offline true-error mapping. Current documentation does not mark these pending items complete.
+
+
+### Composite residual truth diagnostic limitation (precise)
+
+Absence of independent point truth prevents single-point Sigma_tt real calibration; it does not make every composite noise diagnostic impossible. For a static point and verified same physical identity, GT poses cancel its unknown world position:
+
+`n_L=ellhat_t-A_GT ellhat_a-Rt_GT(pa_GT-pt_GT)=e_t-A_GT e_a`.
+
+Thus main pose GT could support an offline composite mean/predicted-R_L diagnostic without point GT. Current finite logs persist covariance/cross blocks and main/clone nominal poses, but not the independent finite actor's current and saved-anchor mean point vectors. Production30-slot means in other logs cannot replace them. The actual missing evidence is those synchronized finite mean vectors/identity receipts, not point truth alone. Minimal next instrumentation is to retain pre-camera current and post-camera anchor ellhat/identity/time, then evaluate the composite with the frozen GT/gauge/bracket protocol. It remains a DEV diagnostic; the existing contract still does not grant real landmark calibration without independent truth. C4 STOP additionally rests on differing30-slot coupling, prior/H-K/source/mean validity and unclassified missing events.

@@ -77,3 +77,12 @@ It verifies joint state/noise compatibility and rejects singular duplicated-info
 ## Concrete STOP for production correlated ON / C4
 
 No qualified production30-slot R_L/N_L/visual-cross interface exists. The finite actor has different gain/coupling; actual initial/history/noise law and main stochastic schedule remain unvalidated; actual error charts require mean mapping; landmark residual mean is unclosed. In controlled known-truth evidence, deterministic Observer mean error norm9.85903 remains despite covariance agreement0.496%. Treating covariance agreement as zero-mean consistent fusion would therefore be a false inference. Production correlated ON and C4 replacement are STOP/NOT_RUN pending those extensions. B's independently authorized engineering approximate ON has separate empirical qualification.
+
+
+### Composite residual truth diagnostic limitation (precise)
+
+Absence of independent point truth prevents single-point Sigma_tt real calibration; it does not make every composite noise diagnostic impossible. For a static point and verified same physical identity, GT poses cancel its unknown world position:
+
+`n_L=ellhat_t-A_GT ellhat_a-Rt_GT(pa_GT-pt_GT)=e_t-A_GT e_a`.
+
+Thus main pose GT could support an offline composite mean/predicted-R_L diagnostic without point GT. Current finite logs persist covariance/cross blocks and main/clone nominal poses, but not the independent finite actor's current and saved-anchor mean point vectors. Production30-slot means in other logs cannot replace them. The actual missing evidence is those synchronized finite mean vectors/identity receipts, not point truth alone. Minimal next instrumentation is to retain pre-camera current and post-camera anchor ellhat/identity/time, then evaluate the composite with the frozen GT/gauge/bracket protocol. It remains a DEV diagnostic; the existing contract still does not grant real landmark calibration without independent truth. C4 STOP additionally rests on differing30-slot coupling, prior/H-K/source/mean validity and unclassified missing events.

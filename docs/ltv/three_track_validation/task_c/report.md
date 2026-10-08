@@ -57,3 +57,12 @@ Complete anchor cross gives point residual-noise trace9.64098e-8; setting anchor
 Minimal extensions are reason-specific source-event journaling (without deleting failures), actual initializer/previously-consumed-history error/source law, calibrated input/identity/selection model, native main stochastic schedule/mean mapping, and a scalable full production Observer source graph. Then independent truth-controlled scenarios and matched approximate/correlated comparisons can test mean and information gain. Increasing a Riccati P or multiplying R does not close those dependencies.
 
 See `model_interface_v2.json`, `joint_error_model.md`, `joint_model_validation.md`, evidence summaries and complete run manifest. Large raw evidence paths are local resources, not public hosted datasets.
+
+
+### Composite residual truth diagnostic limitation (precise)
+
+Absence of independent point truth prevents single-point Sigma_tt real calibration; it does not make every composite noise diagnostic impossible. For a static point and verified same physical identity, GT poses cancel its unknown world position:
+
+`n_L=ellhat_t-A_GT ellhat_a-Rt_GT(pa_GT-pt_GT)=e_t-A_GT e_a`.
+
+Thus main pose GT could support an offline composite mean/predicted-R_L diagnostic without point GT. Current finite logs persist covariance/cross blocks and main/clone nominal poses, but not the independent finite actor's current and saved-anchor mean point vectors. Production30-slot means in other logs cannot replace them. The actual missing evidence is those synchronized finite mean vectors/identity receipts, not point truth alone. Minimal next instrumentation is to retain pre-camera current and post-camera anchor ellhat/identity/time, then evaluate the composite with the frozen GT/gauge/bracket protocol. It remains a DEV diagnostic; the existing contract still does not grant real landmark calibration without independent truth. C4 STOP additionally rests on differing30-slot coupling, prior/H-K/source/mean validity and unclassified missing events.
