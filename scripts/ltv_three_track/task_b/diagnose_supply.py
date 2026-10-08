@@ -3,6 +3,7 @@ import argparse
 import csv
 import json
 import math
+import numpy as np
 from pathlib import Path
 
 
@@ -36,7 +37,8 @@ def main(source, destination):
                 b = bins.setdefault(label, dict(n=0, min_span_s=span, max_span_s=span,
                                                 v1_age_accepted=0, disagreement_accepted=0,
                                                 paired=0, ltv_squared=0., geometry_squared=0.,
-                                                ltv_bad=0, geometry_bad=0))
+                                                ltv_bad=0, geometry_bad=0, _ltv_errors=[], _geometry_errors=[],
+                                                _agree_ltv_errors=[], _agree_geometry_errors=[]))
                 b['n'] += 1
                 if math.isfinite(span):
                     b['min_span_s'] = min(b['min_span_s'], span)
@@ -53,10 +55,20 @@ def main(source, destination):
                     b['geometry_squared'] += ge * ge
                     b['ltv_bad'] += le > .02
                     b['geometry_bad'] += ge > .02
+                    b['_ltv_errors'].append(le)
+                    b['_geometry_errors'].append(ge)
+                    if relative <= .02:
+                        b['_agree_ltv_errors'].append(le)
+                        b['_agree_geometry_errors'].append(ge)
         for b in bins.values():
             n = b['paired']
             b['ltv_point_rms_rad'] = math.sqrt(b.pop('ltv_squared') / n) if n else None
             b['geometry_point_rms_rad'] = math.sqrt(b.pop('geometry_squared') / n) if n else None
+            for field in ['_ltv_errors', '_geometry_errors', '_agree_ltv_errors', '_agree_geometry_errors']:
+                values = b.pop(field)
+                b[field[1:]] = {'n': len(values), 'p95': float(np.quantile(values, .95)) if values else None,
+                               'p99': float(np.quantile(values, .99)) if values else None,
+                               'bad_above_0_02': sum(v > .02 for v in values)}
         results['sequences'][seq] = {'ready_mature_candidates': rows, 'bins': bins}
     (destination / 'supply.json').write_text(json.dumps(results, indent=2) + '\n')
     print(json.dumps(results, indent=2))
