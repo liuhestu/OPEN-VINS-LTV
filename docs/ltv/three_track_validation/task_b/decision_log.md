@@ -21,3 +21,13 @@ Observation: all three candidates fail admission. B2 passes gain confidence and 
 Judgment: these results reject the first three candidates. B2's failure is not a full-correlation blocker and not build pollution: raw/cache/source identities and immutable-source checks passed. The coverage loss might be a fixed 0.5s window-design issue, so refusing all further research would be premature. No ON, noise-weight scan, acceptance relaxation or holdout inspection is justified.
 
 Next verification: a descriptive (non-admission) anchor-age/source-supply audit around 0.5 and 0.55 seconds distinguishes numerical endpoint effects, actual clone-window occupancy, and model failure. Any replacement candidate must be separately frozen before its results, keep the original admission criteria, and rerun affected checks. The result is not a qualification of a post-hoc subgroup.
+
+## Source-supply diagnostic, batch b_supply_source_audit_v1_20261008T105015_b7c4f69e
+
+Observation: 0.55±1µs anchors represent 78.4%/68.2% of ready-mature supply, and B1/B2 discarded all of them. With the unchanged relative agreement score, newly included .55s points have strong-geometry p95/p99 ratios 0.789/0.478 (V2_02) and 0.774/1.040 (V2_03), with fewer bad angles. V2_03 also has 0.6–1.1s live-anchor spans: nominal camera period does not imply uninterrupted clone supply. Those long-age agreement tails are worse and must remain visible.
+
+Judgment: the fixed .5s gate was inconsistent with ordinary pre-marginalization twelve-clone supply, rather than evidence that all predictive supply is unusable. The diagnostic supports testing B3, without qualifying B3. V2_03 .55s ungated RMS is slightly worse than geometry, so broadening age may dilute gain. Both numerical boundary effects and physical-age effects are explicit.
+
+Change: preregister exactly one lifecycle-derived B3, retaining prior readiness, maturity, relative agreement 0.02, and fixed nominal .55s age cap (plus 1µs machine-clock tolerance). Do not replace that cap with arbitrary live-window length: .6–1.1s counterexamples reject such a shortcut. Preserve all B0/B1/B2 failures and every original admission criterion/denominator.
+
+Next verification: main-agent publication freezes B3 before execution. Re-evaluate both complete development sequences against original strong-geometry paired support and all required phase-tail/supply tests. No R scan, ON, holdout tuning or acceptance relaxation until predictive admission. Raw source/cache/prediction/feature files were SHA-verified before and after this descriptive batch; external disk cleanup did not change their identities.
