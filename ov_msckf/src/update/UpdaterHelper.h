@@ -123,7 +123,8 @@ public:
    * @param H_x State jacobian
    * @param res Measurement residual
    */
-  static void nullspace_project_inplace(Eigen::MatrixXd &H_f, Eigen::MatrixXd &H_x, Eigen::VectorXd &res);
+  static void nullspace_project_inplace(Eigen::MatrixXd &H_f, Eigen::MatrixXd &H_x, Eigen::VectorXd &res,
+                                        Eigen::MatrixXd *source_map = nullptr);
 
   /**
    * @brief This will perform measurement compression
@@ -134,7 +135,7 @@ public:
    * @param H_x State jacobian
    * @param res Measurement residual
    */
-  static void measurement_compress_inplace(Eigen::MatrixXd &H_x, Eigen::VectorXd &res);
+  static void measurement_compress_inplace(Eigen::MatrixXd &H_x, Eigen::VectorXd &res, Eigen::MatrixXd *source_map = nullptr);
 };
 
 } // namespace ov_msckf

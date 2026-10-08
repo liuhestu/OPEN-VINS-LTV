@@ -14,5 +14,5 @@ struct LtvOpenVinsInput {
   std::vector<LtvBearing> bearings;
 };
 LtvOpenVinsInput makeLtvOpenVinsInput(const std::shared_ptr<State> &state, const std::vector<std::shared_ptr<ov_core::Feature>> &features,
-                                      double camera_time, uint64_t version, bool managed_features);
+                                      double camera_time, uint64_t version, bool managed_features, double pixel_noise_variance = 1.);
 } // namespace ov_msckf

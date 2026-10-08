@@ -4,6 +4,7 @@
 #include <deque>
 #include <map>
 #include <set>
+#include <string>
 #include <vector>
 
 namespace ltv {
@@ -12,6 +13,8 @@ struct HistoryObservation {
   int camera_id = 0;
   Eigen::Vector3d bearing = Eigen::Vector3d::Zero();
   bool match_valid = true;
+  std::string pixel_source_key;
+  Eigen::Matrix2d pixel_to_tangent = Eigen::Matrix2d::Zero();
 };
 struct HistorySample {
   double time = 0;

@@ -423,7 +423,8 @@ void UpdaterHelper::get_feature_jacobian_full(std::shared_ptr<State> state, Upda
   }
 }
 
-void UpdaterHelper::nullspace_project_inplace(Eigen::MatrixXd &H_f, Eigen::MatrixXd &H_x, Eigen::VectorXd &res) {
+void UpdaterHelper::nullspace_project_inplace(Eigen::MatrixXd &H_f, Eigen::MatrixXd &H_x, Eigen::VectorXd &res,
+                                              Eigen::MatrixXd *source_map) {
 
   // Apply the left nullspace of H_f to all variables
   // Based on "Matrix Computations 4th Edition by Golub and Van Loan"
@@ -440,12 +441,16 @@ void UpdaterHelper::nullspace_project_inplace(Eigen::MatrixXd &H_f, Eigen::Matri
       (H_f.block(m - 1, n, 2, H_f.cols() - n)).applyOnTheLeft(0, 1, tempHo_GR.adjoint());
       (H_x.block(m - 1, 0, 2, H_x.cols())).applyOnTheLeft(0, 1, tempHo_GR.adjoint());
       (res.block(m - 1, 0, 2, 1)).applyOnTheLeft(0, 1, tempHo_GR.adjoint());
+      if (source_map)
+        (source_map->block(m - 1, 0, 2, source_map->cols())).applyOnTheLeft(0, 1, tempHo_GR.adjoint());
     }
   }
 
   // The H_f jacobian max rank is 3 if it is a 3d position, thus size of the left nullspace is Hf.rows()-3
   // NOTE: need to eigen3 eval here since this experiences aliasing!
   // H_f = H_f.block(H_f.cols(),0,H_f.rows()-H_f.cols(),H_f.cols()).eval();
+  if (source_map)
+    *source_map = source_map->bottomRows(H_x.rows() - H_f.cols()).eval();
   H_x = H_x.block(H_f.cols(), 0, H_x.rows() - H_f.cols(), H_x.cols()).eval();
   res = res.block(H_f.cols(), 0, res.rows() - H_f.cols(), res.cols()).eval();
 
@@ -453,7 +458,7 @@ void UpdaterHelper::nullspace_project_inplace(Eigen::MatrixXd &H_f, Eigen::Matri
   assert(H_x.rows() == res.rows());
 }
 
-void UpdaterHelper::measurement_compress_inplace(Eigen::MatrixXd &H_x, Eigen::VectorXd &res) {
+void UpdaterHelper::measurement_compress_inplace(Eigen::MatrixXd &H_x, Eigen::VectorXd &res, Eigen::MatrixXd *source_map) {
 
   // Return if H_x is a fat matrix (there is no need to compress in this case)
   if (H_x.rows() <= H_x.cols())
@@ -473,6 +478,8 @@ void UpdaterHelper::measurement_compress_inplace(Eigen::MatrixXd &H_x, Eigen::Ve
       //       it is equivalent to applying G to the entire cols [0:Ho.cols()-1].
       (H_x.block(m - 1, n, 2, H_x.cols() - n)).applyOnTheLeft(0, 1, tempHo_GR.adjoint());
       (res.block(m - 1, 0, 2, 1)).applyOnTheLeft(0, 1, tempHo_GR.adjoint());
+      if (source_map)
+        (source_map->block(m - 1, 0, 2, source_map->cols())).applyOnTheLeft(0, 1, tempHo_GR.adjoint());
     }
   }
 
@@ -484,4 +491,6 @@ void UpdaterHelper::measurement_compress_inplace(Eigen::MatrixXd &H_x, Eigen::Ve
   assert(r <= H_x.rows());
   H_x.conservativeResize(r, H_x.cols());
   res.conservativeResize(r, res.cols());
+  if (source_map)
+    source_map->conservativeResize(r, source_map->cols());
 }

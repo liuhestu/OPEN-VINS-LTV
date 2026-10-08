@@ -103,16 +103,17 @@ FeaturePipelineFrame LtvLandmarkAdapter::process(const FeaturePipelineContext &c
               continue;
             for (const auto &o : sample.observations)
               if (o.camera_id == 0 && o.match_valid)
-                u.observations.push_back({local_pose(pose->second), 0, o.bearing.normalized()});
+                u.observations.push_back({local_pose(pose->second), 0, o.bearing.normalized(), o.pixel_source_key, o.pixel_to_tangent});
           }
       }
       const auto &cam0 = feature.second.at(0);
       if (cam0.match_valid) {
         u.anchor_observation = u.observations.size();
-        u.observations.push_back({u.execution_pose_index, 0, cam0.bearing.normalized()});
+        u.observations.push_back({u.execution_pose_index, 0, cam0.bearing.normalized(), cam0.pixel_source_key, cam0.pixel_to_tangent});
       }
       if (source == FeatureSeedSource::Stereo && feature.second.count(1) && feature.second.at(1).match_valid)
-        u.observations.push_back({u.execution_pose_index, 1, feature.second.at(1).bearing.normalized()});
+        u.observations.push_back({u.execution_pose_index, 1, feature.second.at(1).bearing.normalized(),
+                                  feature.second.at(1).pixel_source_key, feature.second.at(1).pixel_to_tangent});
       d.estimate = LtvSeedEstimator::estimate(u);
       if (source == FeatureSeedSource::Stereo && d.estimate.valid) {
         const auto *h = manager_.history().find(feature.first);

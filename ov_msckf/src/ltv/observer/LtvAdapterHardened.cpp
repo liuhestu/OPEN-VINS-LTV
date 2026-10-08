@@ -240,7 +240,19 @@ LtvFrame LtvAdapter::processHardened(double t, const std::vector<LtvBearing> &, 
         }
         const int nz = seed.bearing_jacobian.cols();
         const Eigen::MatrixXd q = seed.input_covariance.bottomRightCorner(nz, nz);
-        ltv::LtvMainCrossShadow::instance().conditionalSeed(seed.main_jacobian, seed.bearing_jacobian, q);
+        Eigen::MatrixXd pixel_jacobian = seed.bearing_jacobian;
+        std::vector<std::string> keys;
+        bool metadata = true;
+        for (size_t i = 0; i < seed.input.observations.size(); ++i) {
+          const auto &o = seed.input.observations[i];
+          keys.push_back(o.pixel_source_key);
+          metadata = metadata && !o.pixel_source_key.empty() && o.pixel_to_tangent.allFinite() && o.pixel_to_tangent.norm() > 0;
+          pixel_jacobian.middleCols(2 * i, 2) = seed.bearing_jacobian.middleCols(2 * i, 2) * o.pixel_to_tangent;
+        }
+        if (metadata)
+          ltv::LtvMainCrossShadow::instance().trackedSeed(seed.main_jacobian, pixel_jacobian, keys, context.pixel_noise_variance);
+        else
+          ltv::LtvMainCrossShadow::instance().conditionalSeed(seed.main_jacobian, seed.bearing_jacobian, q);
       }
     }
   }

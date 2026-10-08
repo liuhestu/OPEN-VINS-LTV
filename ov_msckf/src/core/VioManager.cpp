@@ -446,8 +446,9 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   MeasurementBlock ltv_block;
   if (ltv_adapter) {
     ltv_diagnostics = LtvDiagnostics();
-    const auto input = makeLtvOpenVinsInput(state, trackFEATS->get_feature_database()->features_containing(message.timestamp),
-                                            message.timestamp, ltv_state_version, params.ltv_options.feature_readiness_enabled);
+    const auto input =
+        makeLtvOpenVinsInput(state, trackFEATS->get_feature_database()->features_containing(message.timestamp), message.timestamp,
+                             ltv_state_version, params.ltv_options.feature_readiness_enabled, params.msckf_options.sigma_pix_sq);
     const auto &c = input.calibration;
     const auto &feature_context = input.feature_context;
     const auto &bearings = input.bearings;

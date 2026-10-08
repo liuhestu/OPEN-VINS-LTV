@@ -20,6 +20,8 @@ struct SeedObservation {
   size_t pose_index = 0;
   size_t camera_index = 0;
   Eigen::Vector3d bearing_C = Eigen::Vector3d::UnitZ();
+  std::string pixel_source_key;
+  Eigen::Matrix2d pixel_to_tangent = Eigen::Matrix2d::Zero();
 };
 struct SeedInput {
   std::vector<SeedPose> poses;

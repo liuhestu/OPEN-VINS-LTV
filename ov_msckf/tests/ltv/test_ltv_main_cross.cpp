@@ -60,6 +60,25 @@ int main(int argc, char **argv) {
   s.mainMap(&owner, newp, selector, selector * newp * selector.transpose(), "controlled_marginalization");
   assert(s.auxCovariance().rows() == 1);
   assert((s.cross() - selector * expected_cross).norm() < 1e-12);
+  s.reset(&owner, p);
+  Eigen::MatrixXd jp(1, 2);
+  jp << .8, .1;
+  s.trackedSeed(jx, jp, {"controlled_feature/cam0/time0"}, .1);
+  Eigen::MatrixXd u(1, 2);
+  u << .7, .3;
+  s.visualNoiseMap(u);
+  Eigen::MatrixXd rp = .1 * u * u.transpose();
+  s.visual(&owner, p, h, k, f * p * f.transpose() + k * rp * k.transpose(), rp);
+  const Eigen::MatrixXd traced_expected = -f * p * jx.transpose() - .1 * k * u * jp.transpose();
+  assert((s.cross() - traced_expected).norm() < 1e-12);
+  // Re-seeding from the consumed historic pixel retains C_x,epsilon, rather
+  // than injecting an independent copy. Compare the explicit source factors.
+  s.trackedSeed(jx, jp, {"controlled_feature/cam0/time0"}, .1);
+  Eigen::MatrixXd lx = f, lz = -k * u;
+  const Eigen::MatrixXd e2x = -jx * lx, e2z = -jx * lz + jp;
+  const Eigen::MatrixXd c2 = lx * p * e2x.transpose() + .1 * lz * e2z.transpose();
+  assert((s.cross().rightCols(1) - c2).norm() < 1e-12);
+  std::cout << "actual_pixel_receipt_seed_visual_reseed_nonzero_cross=PASS\n";
   std::cout << "seed_sign=PASS shared_visual_source=PASS MC_known_joint_law_relative=" << relative << " samples=" << samples
             << " seed=20261008 historical_aux_retained=PASS real_calibration=NOT_EVALUATED\n";
 }
