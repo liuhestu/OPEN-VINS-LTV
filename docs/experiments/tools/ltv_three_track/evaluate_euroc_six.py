@@ -57,11 +57,14 @@ def evaluate(index, data):
             ok &= (off[:, 0] >= gt[0, 0]*1e-9) & (off[:, 0] <= gt[-1, 0]*1e-9)
             support, truth = off[ok, 0], gt[gi[ok], 1:4]
             baseline_valid = runs[seq, 'OFF']['exit_code'] == 0 and not runs[seq, 'OFF']['audit']['errors']
-        except (OSError, ValueError):
+        except (OSError, ValueError, KeyError):
             off = None
             baseline_valid = False
             support, truth = np.empty(0), np.empty((0, 3))
         for mode in MODES:
+            if (seq, mode) not in runs:
+                result.append(dict(sequence=seq, mode=mode, ate_rmse_m=None, conditional_ate_rmse_m=None, status='PENDING', samples=0, baseline_support=len(support), actual_G=0, actual_V=0, actual_L=0, reason='not yet completed'))
+                continue
             run = runs[seq, mode]
             row = dict(sequence=seq, mode=mode, ate_rmse_m=None, conditional_ate_rmse_m=None,
                        status='FAIL', reason='', samples=0, baseline_support=len(support), coverage=0.,
@@ -100,9 +103,11 @@ def main():
     p.add_argument('coord', type=Path)
     p.add_argument('report', type=Path)
     p.add_argument('--data', type=Path, default=Path('/home/he/datasets/euroc/ASL'))
+    p.add_argument('--partial', action='store_true', help='publish progress; unexecuted cases are PENDING')
     a = p.parse_args()
     index = json.loads((a.coord / 'full_index.json').read_text())
-    assert len(index) == 66 and len({(r['sequence'], r['mode']) for r in index}) == 66
+    assert len({(r['sequence'], r['mode']) for r in index}) == len(index)
+    assert len(index) == 66 or a.partial
     rows = evaluate(index, a.data)
     artifact = a.report.parent / 'euroc_results_data'
     artifact.mkdir(exist_ok=True)
@@ -111,14 +116,14 @@ def main():
     with (artifact / 'results.csv').open('w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields); w.writeheader(); w.writerows(rows)
     identity = json.loads((a.coord / 'identity.json').read_text())
-    text = ['# EuRoC 六模式 ATE RMSE', '', 'main；11序列×6模式，共66次新完整回放。ATE单位：m。',
+    text = ['# EuRoC 六模式 ATE RMSE', '', f'main；11序列×6模式，已完成{len(index)}/66次新完整回放。ATE单位：m。',
             'OFF是纯OpenVINS；全部组max_slam=0、固定C0参数。G/V/L分别开启对应近似融合，L_GV三项同时开启。',
             'SE(3)对齐，无尺度；冻结OFF完整初始化后GT支持，GT最近20ms、输出匹配1µs。独立Horn与SVD交叉核验。',
             '此表不改变历史FAIL/STOP，不等同生产资格、性能或统计一致性。同步ASL原始流，不是ROS transport回放。',
             '', '| 序列 | OFF | G | V | GV | L | L_GV |', '|---|---:|---:|---:|---:|---:|---:|']
     lookup = {(r['sequence'], r['mode']): r for r in rows}
     for seq in SEQUENCES:
-        values = [f"{lookup[seq,m]['ate_rmse_m']:.9f}" if lookup[seq,m]['ate_rmse_m'] is not None else 'FAIL' for m in MODES]
+        values = [f"{lookup[seq,m]['ate_rmse_m']:.9f}" if lookup[seq,m]['ate_rmse_m'] is not None else ('PENDING' if lookup[seq,m]['status']=='PENDING' else 'FAIL') for m in MODES]
         text.append('| ' + seq + ' | ' + ' | '.join(values) + ' |')
     text += ['', '## 初始化、覆盖与实际融合', '', '| 序列 | 模式 | 状态 | 样本/基准 | G/V/L应用帧 | 条件ATE(m) |', '|---|---|---|---:|---:|---:|']
     for r in rows:

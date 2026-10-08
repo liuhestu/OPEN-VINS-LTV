@@ -1,0 +1,56 @@
+{
+  "schema": 2,
+  "branch": "main",
+  "scope": "11 EuRoC ASL sequences x 6 new full replays",
+  "modes": {
+    "OFF": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "G": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "V": [
+      1,
+      0,
+      1,
+      0
+    ],
+    "GV": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "L": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "L_GV": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "flag_order": [
+    "observer",
+    "gravity",
+    "velocity",
+    "landmark_approx"
+  ],
+  "max_slam": 0,
+  "numeric_config": "docs/experiments/configs/euroc_c0/estimator_config.yaml",
+  "numeric_config_sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+  "ATE": "SE3 no scale; full initialized OFF support; GT nearest20ms; output match1us; independent Horn verification",
+  "failures": "retained; incomplete output not full ATE; no parameter tuning; continue all66 despite individual failure",
+  "resource_policy": "host_heavy shared global lock, one job/thread, immutable source and own install",
+  "raw_root": "/home/he/output/ltv_euroc_six_20261008T172854"
+}
