@@ -30,6 +30,7 @@ void LtvObserver::configure(const LtvConfig &config) {
 }
 
 void LtvObserver::reset(LtvResetReason reason) {
+  error_shadow_.reset(imu_timestamp_);
   started_ = false;
   imu_timestamp_ = 0.0;
   last_camera_imu_timestamp_ = -1.0;
@@ -114,6 +115,15 @@ void LtvObserver::propagateImu(double dt, const Eigen::Vector3d &acc_measurement
   system.block<3, 3>(gravityOffset(), gravityOffset()) = negative_omega_cross;
   input.block<3, 3>(velocityOffset(), 0) = Eigen::Matrix3d::Identity();
 
+  if (error_shadow_.enabled()) {
+    // Sources are corrected acceleration and angular rate. Bias errors use the
+    // opposite columns; adapter calibration/interpolation dependencies are UNKNOWN.
+    Eigen::MatrixXd b = Eigen::MatrixXd::Zero(dimension, 6);
+    b.block(velocityOffset(), 0, 3, 3) = dt * Eigen::Matrix3d::Identity();
+    for (int offset = 0; offset < dimension; offset += 3)
+      b.block(offset, 3, 3, 3) = dt * ov_core::skew_x(state_.segment<3>(offset));
+    error_shadow_.imu(Eigen::MatrixXd::Identity(dimension, dimension) + dt * system, b);
+  }
   state_ += dt * (system * state_ + input * acceleration);
   covariance_ += dt * (system * covariance_ + covariance_ * system.transpose() + processNoise());
   imu_timestamp_ += dt;
@@ -228,6 +238,17 @@ void LtvObserver::rebuildState(const std::vector<int> &feature_ids) {
     }
   }
 
+  if (error_shadow_.enabled()) {
+    Eigen::MatrixXd map = Eigen::MatrixXd::Zero(new_dimension, state_.size());
+    int births = 0;
+    for (int row = 0; row < new_dimension; ++row)
+      if (old_index[row] >= 0)
+        map(row, old_index[row]) = 1;
+    for (int id : feature_ids)
+      if (!feature_to_slot_.count(id))
+        ++births;
+    error_shadow_.lifecycle(imu_timestamp_, map, births, old_feature_count + births - static_cast<int>(feature_ids.size()));
+  }
   state_.swap(new_state);
   covariance_.swap(new_covariance);
   feature_to_slot_.swap(new_feature_to_slot);
@@ -246,6 +267,7 @@ bool LtvObserver::enableControlledFeatures(uint64_t epoch, bool monotonic_local_
     return false;
   controlled_features_ = true;
   controlled_epoch_ = epoch;
+  error_shadow_.setEpoch(epoch);
   monotonic_local_ids_ = monotonic_local_ids;
   return true;
 }
@@ -375,6 +397,12 @@ LtvSnapshot LtvObserver::updateFeaturesImpl(double frame_timestamp, double imu_t
     output.segment<3>(3 * index) = projection * position_body_camera;
   }
 
+  Eigen::MatrixXd shadow_f, shadow_b;
+  if (error_shadow_.enabled()) {
+    shadow_f = Eigen::MatrixXd::Identity(state_.size(), state_.size());
+    // Three tangent-bearing columns per observation. SAME source across substeps.
+    shadow_b = Eigen::MatrixXd::Zero(state_.size(), 3 * observed_features_);
+  }
   const Eigen::VectorXd innovation = output - measurement * state_;
   innovation_norm_ = innovation.norm();
   if (last_camera_imu_timestamp_ >= 0.0 && observed_features_ > 0) {
@@ -399,6 +427,22 @@ LtvSnapshot LtvObserver::updateFeaturesImpl(double frame_timestamp, double imu_t
     for (int step = 0; step < camera_substeps_; ++step) {
       const Eigen::VectorXd substep_innovation = output - measurement * state_;
       const Eigen::MatrixXd covariance_measurement_transpose = covariance_ * measurement.transpose();
+      if (error_shadow_.enabled()) {
+        const Eigen::MatrixXd gain = correction_dt * config_.q_landmark * covariance_measurement_transpose;
+        const Eigen::MatrixXd f = Eigen::MatrixXd::Identity(state_.size(), state_.size()) - gain * measurement;
+        Eigen::MatrixXd d = Eigen::MatrixXd::Zero(3 * observed_features_, 3 * observed_features_);
+        for (int index = 0; index < observed_features_; ++index) {
+          const int slot = observed_slots[index].first;
+          const Eigen::Vector3d u = coordinate_by_id.at(observed_slots[index].second).normalized();
+          const Eigen::Vector3d z = rotation_body_camera * u;
+          const Eigen::Vector3d v = position_body_camera - state_.segment<3>(3 * slot);
+          // d[(I-zz')v]/du with u restricted to its unit-sphere tangent.
+          d.block<3, 3>(3 * index, 3 * index) = (-z.dot(v) * Eigen::Matrix3d::Identity() - z * v.transpose()) * rotation_body_camera *
+                                                (Eigen::Matrix3d::Identity() - u * u.transpose());
+        }
+        shadow_b = (f * shadow_b + gain * d).eval();
+        shadow_f = (f * shadow_f).eval();
+      }
       state_ += correction_dt * config_.q_landmark * covariance_measurement_transpose * substep_innovation;
       covariance_ -= correction_dt * config_.q_landmark * covariance_measurement_transpose * measurement * covariance_;
       if (!sanitizeCovariance()) {
@@ -409,6 +453,12 @@ LtvSnapshot LtvObserver::updateFeaturesImpl(double frame_timestamp, double imu_t
   } else
     camera_substeps_ = 0;
 
+  if (error_shadow_.enabled()) {
+    std::vector<int> source_ids;
+    for (const auto &slot : observed_slots)
+      source_ids.push_back(slot.second);
+    error_shadow_.camera(imu_timestamp, shadow_f, shadow_b, camera_substeps_, source_ids);
+  }
   last_camera_imu_timestamp_ = imu_timestamp;
   last_frame_timestamp_ = frame_timestamp;
   if (!stateFinite()) {

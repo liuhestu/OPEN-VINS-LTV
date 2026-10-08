@@ -44,7 +44,7 @@ foreach(name
     test_ltv_manager_bounded test_ltv_adapter_hardened test_ltv_controlled
     test_ltv_readiness test_ltv_history_competition test_bounded_history
     test_identity_guard test_ltv_feature_manager test_ltv_core_lifecycle
-    test_ltv_alias_fixed test_ltv_pose_convention)
+    test_ltv_alias_fixed test_ltv_pose_convention test_ltv_error_shadow)
     add_executable(${name} "${LTV_SOURCE_ROOT}/ov_msckf/tests/ltv/${name}.cpp")
     target_link_libraries(${name} PRIVATE ltv_passive)
     target_compile_options(${name} PRIVATE -UNDEBUG)
