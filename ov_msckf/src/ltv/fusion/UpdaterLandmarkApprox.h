@@ -190,7 +190,8 @@ public:
         continue;
       }
       MeasurementBlock point;
-      point.order = {state->_imu->q(), state->_imu->p(), anchor->q(), anchor->p()};
+      // Match native visual whole-clone types, rather than overlapping q/p subtypes.
+      point.order = {state->_imu->pose(), anchor};
       point.H = jacobian(*state->_imu->pose(), *anchor, candidate.anchor.point, state->_options.do_fej);
       point.res = candidate.point - prediction(*state->_imu->pose(), *anchor, candidate.anchor.point);
       const double sigma = options_.landmark_approx_sigma_floor_m + .02 * candidate.point.norm();

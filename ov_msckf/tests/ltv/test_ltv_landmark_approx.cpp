@@ -67,6 +67,51 @@ int main() {
   require(!UpdaterLandmarkApprox::b3_gate(false, true, .5, near, point), "immaturity rejected");
   require(!UpdaterLandmarkApprox::b3_gate(true, false, .5, near, point), "past readiness rejected");
   require(!UpdaterLandmarkApprox::b3_gate(true, true, .5, point + Eigen::Vector3d(.2, 0, 0), point), "model disagreement rejected");
+  // Native visual rows own whole clone types. Split anchor q/p columns overlap
+  // them and are rejected by merge; this integration failure is not a noise gate.
+  auto state = make_state();
+  auto anchor = std::dynamic_pointer_cast<ov_type::PoseJPL>(StateHelper::clone(state, state->_imu->pose()));
+  state->_clones_IMU.emplace(0, anchor);
+  state->_timestamp = 1;
+  MeasurementBlock visual;
+  visual.order = {anchor};
+  visual.H = Eigen::MatrixXd::Zero(3, 6);
+  visual.H.leftCols(3).setIdentity();
+  visual.R = Eigen::Matrix3d::Identity();
+  visual.res = Eigen::Vector3d::Constant(.001);
+  MeasurementBlock old_point;
+  old_point.order = {state->_imu->q(), state->_imu->p(), anchor->q(), anchor->p()};
+  old_point.H = UpdaterLandmarkApprox::jacobian(*state->_imu->pose(), *anchor, point, true);
+  old_point.R = Eigen::Matrix3d::Identity();
+  old_point.res = Eigen::Vector3d::Constant(.01);
+  bool overlap_rejected = false;
+  try {
+    UpdaterLTV::merge(visual, old_point);
+  } catch (const std::invalid_argument &) {
+    overlap_rejected = true;
+  }
+  require(overlap_rejected, "old split-type visual overlap counterexample");
+  LtvOptions enabled;
+  enabled.enabled = enabled.allow_correlated_pseudomeasurements = true;
+  LtvFrame frame;
+  frame.available = true;
+  frame.epoch = frame.sequence = 1;
+  frame.camera_time = frame.imu_time = frame.cursor = 1;
+  frame.snapshot.valid = true;
+  frame.snapshot.imu_timestamp = frame.snapshot.frame_timestamp = 1;
+  UpdaterLTV generic(enabled);
+  auto base = generic.build(state, frame);
+  MeasurementBlock point_block = old_point;
+  point_block.order = {state->_imu->pose(), anchor};
+  auto auxiliary = UpdaterLTV::merge(base, point_block);
+  auxiliary.receipt->diagnostics.landmark_rows = 3;
+  const auto stacked = UpdaterLTV::merge(visual, auxiliary);
+  require(stacked.H.cols() == 12 && stacked.H.rows() == 6, "whole-pose native visual+landmark layout");
+  require(UpdaterLTV::apply_joint(state, visual, auxiliary), "native visual+landmark receipt consumed");
+  const auto &applied = auxiliary.receipt->diagnostics;
+  require(applied.consumed && applied.landmark_rows == 3 && applied.submit_reason == "joint_applied" && applied.ekf_calls == 1,
+          "actual whole-pose joint native update");
+  require(applied.landmark_update_norm > 0, "actual landmark component in joint native K*r");
   LtvOptions defaults;
   require(!defaults.enable_landmark_approx && !defaults.landmark_approx_shadow, "default OFF");
   std::cout << "PASS native JPL/FEJ landmark model, units, gauge, B3 gate, default OFF\n";
