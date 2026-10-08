@@ -1,0 +1,14 @@
+[
+  {
+    "sequence": "V2_02_medium",
+    "image_files": 4696,
+    "images_aggregate_sha256": "8a0e951f1d67c498bac91b7d300751ffc6b193628087476b7d0ff5d0caebe95f",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "image_files": 4258,
+    "images_aggregate_sha256": "f69dccde9978d9454989f920e42ac3821d538d91b94040c53029bf613731e655",
+    "status": "PASS"
+  }
+]
