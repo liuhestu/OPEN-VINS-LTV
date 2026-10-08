@@ -176,6 +176,21 @@ public:
     if (passive_cache)
       passive_cache->finish();
   }
+  void shadow_receipt(std::ostream &out, int64_t camera_ns) {
+    const auto &f = passive_ltv_frame;
+    out << "{\"camera_ns\":" << camera_ns << ",\"time\":" << f.imu_time << ",\"epoch\":" << f.epoch << ",\"sequence\":" << f.sequence
+        << ",\"available\":" << f.available << ",\"core_ids\":[";
+    bool first = true;
+    if (ltv_adapter)
+      for (const auto &entry : ltv_adapter->feature_ids()) {
+        if (!first)
+          out << ',';
+        first = false;
+        out << "{\"global_id\":" << entry.first << ",\"local_id\":" << entry.second
+            << ",\"slot\":" << ltv_adapter->core().slotForFeature(entry.second) << '}';
+      }
+    out << "]}\n";
+  }
   void assert_passive() {
     if (!params.ltv_options.passive_assert_no_injection)
       return;
@@ -691,6 +706,8 @@ int main(int argc, char **argv) {
     size_t cursor = 0, packets = 0, outputs = 0;
     std::ofstream frame_processing(out + "/frame_processing.csv");
     frame_processing << std::setprecision(17) << "camera_ns,feed_camera_ms\n";
+    std::ofstream shadow_receipts(out + "/shadow_receipts.jsonl");
+    shadow_receipts << std::setprecision(17);
     uint64_t total_G = 0, total_V = 0;
     for (size_t i = 0; i < left.size(); ++i) {
       double t = left[i].ns * 1e-9;
@@ -733,6 +750,7 @@ int main(int argc, char **argv) {
       }
       const double feed_camera_ms = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - processing_start).count();
       frame_processing << left[i].ns << ',' << feed_camera_ms << '\n';
+      app.shadow_receipt(shadow_receipts, left[i].ns);
 #ifdef LTV_GV_EVALUATION
       app.fusion_row(fusion, matrices, left[i].ns);
 #endif

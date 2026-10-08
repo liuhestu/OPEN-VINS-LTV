@@ -65,6 +65,13 @@ def tests(out):
     for name in ('test_ltv_error_shadow', 'test_ltv_seed_joint', 'test_ltv_landmark_shadow'):
         args = [out / 'integrated_actual_seed_samples.csv'] if name == 'test_ltv_seed_joint' else []
         records.append(run(out, name, command(out, name, args)))
+    fixture = ROOT / 'docs/ltv_handover/parity_fixture'
+    records.append(run(out, 'core_golden', command(out, 'test_ltv_core_parity',
+                       [fixture / 'inputs.jsonl', out / 'core_golden_matrices.jsonl'])))
+    for actual, expected, label in [(out / 'core_golden.log', fixture / 'expected_outputs.jsonl', 'golden_means'),
+                                    (out / 'core_golden_matrices.jsonl', fixture / 'expected_matrices.jsonl', 'golden_full_matrices')]:
+        records.append(run(out, label, ['python3', str(fixture / 'compare.py'), str(actual),
+                           '--expected', str(expected), '--atol', '0', '--rtol', '0']))
     write(DOC / 'tests.json', records)
 
 
