@@ -29,11 +29,14 @@
       "reset": 2,
       "lifecycle": 9,
       "camera": 9,
+      "anchor_replace": 9,
       "imu": 9
     },
-    "matrix_identity_checks": 54,
+    "matrix_identity_checks": 71,
     "max_relative_identity_error": 0.0,
-    "binary_bytes": 32688
+    "prior_snapshot_identity_checks": 8,
+    "nonzero_cross_time_camera_events": 7,
+    "binary_bytes": 35856
   },
   "lifecycle_matrices": {
     "scope": "fixed_seed_and_gain_unit_source_sensitivity_only",
@@ -41,12 +44,16 @@
     "events": {
       "reset": 2,
       "imu": 1,
-      "lifecycle": 3,
-      "camera": 2
+      "lifecycle": 4,
+      "camera": 3,
+      "anchor_replace": 3
     },
-    "matrix_identity_checks": 10,
+    "matrix_identity_checks": 20,
     "max_relative_identity_error": 0.0,
-    "binary_bytes": 1584
+    "prior_snapshot_identity_checks": 1,
+    "nonzero_cross_time_camera_events": 1,
+    "binary_bytes": 3264
   },
-  "unconditional_covariance_status": "BLOCKED"
+  "unconditional_covariance_status": "BLOCKED",
+  "anchor_model": "rolling previous-camera conditional source snapshot; first-birth lag unavailable; mature primary anchor connection BLOCKED"
 }
