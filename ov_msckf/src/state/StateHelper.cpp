@@ -20,6 +20,8 @@
  */
 
 #include "StateHelper.h"
+#include "ltv/observer/LtvFiniteJointShadow.h"
+#include "ltv/observer/LtvMainCrossShadow.h"
 
 #include "state/State.h"
 
@@ -91,6 +93,8 @@ void StateHelper::EKFPropagation(std::shared_ptr<State> state, const std::vector
     Phi_Cov_PhiT.noalias() += Phi.block(0, Phi_id[i], Phi.rows(), var->size()) * Cov_PhiT.block(var->id(), 0, var->size(), Phi.rows());
   }
 
+  const Eigen::MatrixXd shadow_old_p = ltv::LtvMainCrossShadow::instance().enabled() ? state->_Cov : Eigen::MatrixXd();
+
   // We are good to go!
   int start_id = order_NEW.at(0)->id();
   int phi_size = Phi.rows();
@@ -98,6 +102,16 @@ void StateHelper::EKFPropagation(std::shared_ptr<State> state, const std::vector
   state->_Cov.block(start_id, 0, phi_size, total_size) = Cov_PhiT.transpose();
   state->_Cov.block(0, start_id, total_size, phi_size) = Cov_PhiT;
   state->_Cov.block(start_id, start_id, phi_size, phi_size) = Phi_Cov_PhiT;
+  if (ltv::LtvMainCrossShadow::instance().enabled()) {
+    Eigen::MatrixXd map = Eigen::MatrixXd::Identity(total_size, total_size);
+    map.middleRows(start_id, phi_size).setZero();
+    for (size_t i = 0; i < order_OLD.size(); ++i)
+      map.block(start_id, order_OLD[i]->id(), phi_size, order_OLD[i]->size()) = Phi.block(0, Phi_id[i], phi_size, order_OLD[i]->size());
+    ltv::LtvMainCrossShadow::instance().mainMap(state.get(), shadow_old_p, map, state->_Cov, "main_imu_propagation");
+    ltv::LtvFiniteJointShadow::instance().mainMap(state.get(), shadow_old_p, map, "main_imu_propagation");
+    ltv::LtvFiniteJointShadow::instance().storedCovariance(state->_Cov);
+    ltv::LtvMainCrossShadow::instance().missing("main_observer_raw_imu_endpoints_cross");
+  }
 
   // We should check if we are not positive semi-definitate (i.e. negative diagionals is not s.p.d)
   Eigen::VectorXd diags = state->_Cov.diagonal();
@@ -162,9 +176,18 @@ void StateHelper::EKFUpdate(std::shared_ptr<State> state, const std::vector<std:
   Eigen::MatrixXd K = M_a * Sinv.selfadjointView<Eigen::Upper>();
   // Eigen::MatrixXd K = M_a * S.inverse();
 
+  const Eigen::MatrixXd shadow_update_old_p = ltv::LtvMainCrossShadow::instance().enabled() ? state->_Cov : Eigen::MatrixXd();
   // Update Covariance
   state->_Cov.triangularView<Eigen::Upper>() -= K * M_a.transpose();
   state->_Cov = state->_Cov.selfadjointView<Eigen::Upper>();
+  if (ltv::LtvMainCrossShadow::instance().enabled()) {
+    Eigen::MatrixXd full_h = Eigen::MatrixXd::Zero(H.rows(), state->_Cov.rows());
+    for (size_t i = 0; i < H_order.size(); ++i)
+      full_h.middleCols(H_order[i]->id(), H_order[i]->size()) = H.middleCols(H_id[i], H_order[i]->size());
+    ltv::LtvFiniteJointShadow::instance().mainVisual(full_h, K, R, ltv::LtvMainCrossShadow::instance().pendingVisualNoiseMap());
+    ltv::LtvFiniteJointShadow::instance().storedCovariance(state->_Cov);
+    ltv::LtvMainCrossShadow::instance().visual(state.get(), shadow_update_old_p, full_h, K, state->_Cov, R);
+  }
   // Cov -= K * M_a.transpose();
   // Cov = 0.5*(Cov+Cov.transpose());
 
@@ -183,6 +206,21 @@ void StateHelper::EKFUpdate(std::shared_ptr<State> state, const std::vector<std:
 
   // Calculate our delta and update all our active states
   Eigen::VectorXd dx = K * res;
+  if (ltv::LtvMainCrossShadow::instance().enabled()) {
+    Eigen::MatrixXd reset = Eigen::MatrixXd::Identity(dx.size(), dx.size());
+    std::vector<int> orientation_rows;
+    // Every active quaternion chart, including clones and fixed-size online
+    // calibration quaternions, follows native JPLQuat::update.
+    for (const auto &v : state->_variables) {
+      if (std::dynamic_pointer_cast<IMU>(v) || std::dynamic_pointer_cast<PoseJPL>(v) || std::dynamic_pointer_cast<JPLQuat>(v)) {
+        reset.block<3, 3>(v->id(), v->id()) = ltv::LtvMainCrossShadow::nativeJplReset(dx.segment<3>(v->id()));
+        orientation_rows.push_back(v->id());
+      }
+    }
+    ltv::LtvMainCrossShadow::instance().errorReset(reset);
+    ltv::LtvFiniteJointShadow::instance().errorReset(dx, orientation_rows);
+  }
+
   for (size_t i = 0; i < state->_variables.size(); i++) {
     state->_variables.at(i)->update(dx.block(state->_variables.at(i)->id(), 0, state->_variables.at(i)->size(), 1));
   }
@@ -221,6 +259,8 @@ void StateHelper::set_initial_covariance(std::shared_ptr<State> state, const Eig
     i_index += order[i]->size();
   }
   state->_Cov = state->_Cov.selfadjointView<Eigen::Upper>();
+  ltv::LtvMainCrossShadow::instance().reset(state.get(), state->_Cov);
+  ltv::LtvFiniteJointShadow::instance().reset(state.get(), state->_Cov);
 }
 
 Eigen::MatrixXd StateHelper::get_marginal_covariance(std::shared_ptr<State> state,
@@ -308,6 +348,14 @@ void StateHelper::marginalize(std::shared_ptr<State> state, std::shared_ptr<Type
   // P(x_2,x_2)
   Cov_new.block(marg_id, marg_id, x2_size, x2_size) = state->_Cov.block(marg_id + marg_size, marg_id + marg_size, x2_size, x2_size);
 
+  if (ltv::LtvMainCrossShadow::instance().enabled()) {
+    Eigen::MatrixXd map = Eigen::MatrixXd::Zero(Cov_new.rows(), state->_Cov.rows());
+    for (int i = 0; i < Cov_new.rows(); ++i)
+      map(i, i < marg_id ? i : i + marg_size) = 1.;
+    ltv::LtvMainCrossShadow::instance().mainMap(state.get(), state->_Cov, map, Cov_new, "main_marginalization_retain_aux_history");
+    ltv::LtvFiniteJointShadow::instance().mainMap(state.get(), state->_Cov, map, "main_marginalization_retain_aux_history");
+    ltv::LtvFiniteJointShadow::instance().storedCovariance(Cov_new);
+  }
   // Now set new covariance
   // state->_Cov.resize(Cov_new.rows(),Cov_new.cols());
   state->_Cov = Cov_new;
@@ -345,6 +393,7 @@ std::shared_ptr<Type> StateHelper::clone(std::shared_ptr<State> state, std::shar
   int old_size = (int)state->_Cov.rows();
   int new_loc = (int)state->_Cov.rows();
 
+  const Eigen::MatrixXd shadow_clone_old_p = ltv::LtvMainCrossShadow::instance().enabled() ? state->_Cov : Eigen::MatrixXd();
   // Resize both our covariance to the new size
   state->_Cov.conservativeResizeLike(Eigen::MatrixXd::Zero(old_size + total_size, old_size + total_size));
 
@@ -375,6 +424,15 @@ std::shared_ptr<Type> StateHelper::clone(std::shared_ptr<State> state, std::shar
     // Create clone from the type being cloned
     new_clone = type_check->clone();
     new_clone->set_local_id(new_loc);
+    if (ltv::LtvMainCrossShadow::instance().enabled()) {
+      Eigen::MatrixXd map = Eigen::MatrixXd::Zero(old_size + total_size, old_size);
+      map.topRows(old_size).setIdentity();
+      map.block(old_size, old_loc, total_size, total_size).setIdentity();
+      ltv::LtvMainCrossShadow::instance().mainMap(state.get(), shadow_clone_old_p, map, state->_Cov, "main_clone_augmentation");
+      ltv::LtvFiniteJointShadow::instance().mainMap(state.get(), shadow_clone_old_p, map, "main_clone_augmentation");
+      ltv::LtvFiniteJointShadow::instance().storedCovariance(state->_Cov);
+    }
+
     break;
   }
 

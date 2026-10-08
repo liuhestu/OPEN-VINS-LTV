@@ -103,16 +103,17 @@ FeaturePipelineFrame LtvLandmarkAdapter::process(const FeaturePipelineContext &c
               continue;
             for (const auto &o : sample.observations)
               if (o.camera_id == 0 && o.match_valid)
-                u.observations.push_back({local_pose(pose->second), 0, o.bearing.normalized()});
+                u.observations.push_back({local_pose(pose->second), 0, o.bearing.normalized(), o.pixel_source_key, o.pixel_to_tangent});
           }
       }
       const auto &cam0 = feature.second.at(0);
       if (cam0.match_valid) {
         u.anchor_observation = u.observations.size();
-        u.observations.push_back({u.execution_pose_index, 0, cam0.bearing.normalized()});
+        u.observations.push_back({u.execution_pose_index, 0, cam0.bearing.normalized(), cam0.pixel_source_key, cam0.pixel_to_tangent});
       }
       if (source == FeatureSeedSource::Stereo && feature.second.count(1) && feature.second.at(1).match_valid)
-        u.observations.push_back({u.execution_pose_index, 1, feature.second.at(1).bearing.normalized()});
+        u.observations.push_back({u.execution_pose_index, 1, feature.second.at(1).bearing.normalized(),
+                                  feature.second.at(1).pixel_source_key, feature.second.at(1).pixel_to_tangent});
       d.estimate = LtvSeedEstimator::estimate(u);
       if (source == FeatureSeedSource::Stereo && d.estimate.valid) {
         const auto *h = manager_.history().find(feature.first);
@@ -146,6 +147,15 @@ FeaturePipelineFrame LtvLandmarkAdapter::process(const FeaturePipelineContext &c
         d.input_covariance.block<2, 2>(bearing_start + 2 * i, bearing_start + 2 * i) =
             config_.bearing_sigma_rad * config_.bearing_sigma_rad * Eigen::Matrix2d::Identity();
       d.uncertainty = LtvSeedUncertainty::propagate(u, d.estimate, d.input_covariance);
+      if (d.uncertainty.valid && ctx.pose_error_selector.rows() == static_cast<int>(6 * ctx.poses.size()) &&
+          ctx.pose_error_selector.cols() > 0) {
+        d.main_jacobian = Eigen::MatrixXd::Zero(3, ctx.pose_error_selector.cols());
+        for (size_t a = 0; a < global_indices.size(); ++a)
+          d.main_jacobian.noalias() +=
+              d.uncertainty.jacobian.middleCols(6 * a, 6) * ctx.pose_error_selector.middleRows(6 * global_indices[a], 6);
+        d.bearing_jacobian = d.uncertainty.jacobian.rightCols(2 * u.observations.size());
+      }
+
       auto &s = d.candidate;
       s.geometry_valid = d.estimate.valid && d.uncertainty.valid;
       s.landmark_B = d.estimate.landmark_B;

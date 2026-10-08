@@ -15,6 +15,9 @@ struct FeatureSeedDiagnostic {
   Eigen::MatrixXd input_covariance;
   SeedEstimate estimate;
   SeedUncertainty uncertainty;
+  // e_seed(est-true)=-J_main delta_x(true-est)+J_bearing epsilon.
+  Eigen::MatrixXd main_jacobian;
+  Eigen::MatrixXd bearing_jacobian;
   // Diagnostic only: never changes current registered candidate admission.
   bool heldout_check_available = false;
   size_t heldout_check_observations = 0;

@@ -20,6 +20,7 @@
  */
 
 #include "Propagator.h"
+#include "ltv/observer/LtvFiniteJointShadow.h"
 
 #include "state/State.h"
 #include "state/StateHelper.h"
@@ -63,11 +64,22 @@ void Propagator::propagate_and_clone(std::shared_ptr<State> state, double timest
   double time0 = state->_timestamp + last_prop_time_offset;
   double time1 = timestamp + t_off_new;
   std::vector<ov_core::ImuData> prop_data;
+  std::vector<double> ltv_raw_source_times;
   {
     std::lock_guard<std::mutex> lck(imu_data_mtx);
     prop_data = Propagator::select_imu_readings(imu_data, time0, time1);
+    if (ltv::LtvFiniteJointShadow::instance().enabled())
+      for (const auto &sample : imu_data)
+        ltv_raw_source_times.push_back(sample.timestamp);
   }
 
+  if (ltv::LtvFiniteJointShadow::instance().enabled()) {
+    if (state->_options.do_calib_camera_timeoffset || state->_options.do_calib_camera_pose || state->_options.do_calib_camera_intrinsics ||
+        state->_options.do_calib_imu_intrinsics)
+      throw std::runtime_error("finite joint diagnostic requires fixed calibration/time");
+    ltv::LtvFiniteJointShadow::instance().initialize(state.get(), StateHelper::get_full_covariance(state));
+    ltv::LtvFiniteJointShadow::instance().rawImuReceipt(ltv_raw_source_times, _noises.sigma_a, _noises.sigma_w);
+  }
   // We are going to sum up all the state transition matrices, so we can do a single large multiplication at the end
   // Phi_summed = Phi_i*Phi_summed
   // Q_summed = Phi_i*Q_summed*Phi_i^T + Q_i
@@ -446,6 +458,66 @@ void Propagator::predict_and_compute(std::shared_ptr<State> state, const ov_core
     predict_mean_discrete(state, dt, w_hat_avg, a_hat_avg, new_q, new_v, new_p);
   }
 
+  if (ltv::LtvFiniteJointShadow::instance().enabled()) {
+    // This is a separate, read-only local State. Differentiate the actual
+    // native mean integrator and its endpoint correction, not stored G/Q.
+    auto local = std::make_shared<State>(state->_options);
+    const Eigen::MatrixXd old_value = state->_imu->value();
+    auto mean = [&](const Eigen::VectorXd &delta, const ov_core::ImuData &left, const ov_core::ImuData &right) {
+      local->_imu->set_value(old_value);
+      local->_imu->update(delta);
+      const Eigen::Vector3d al = R_ACCtoIMU * Da * (left.am - local->_imu->bias_a());
+      const Eigen::Vector3d ar = R_ACCtoIMU * Da * (right.am - local->_imu->bias_a());
+      const Eigen::Vector3d wl = R_GYROtoIMU * Dw * (left.wm - local->_imu->bias_g() - Tg * al);
+      const Eigen::Vector3d wr = R_GYROtoIMU * Dw * (right.wm - local->_imu->bias_g() - Tg * ar);
+      Eigen::Vector4d q;
+      Eigen::Vector3d v, p;
+      if (state->_options.integration_method == StateOptions::IntegrationMethod::RK4)
+        predict_mean_rk4(local, dt, wl, al, wr, ar, q, v, p);
+      else if (state->_options.integration_method == StateOptions::IntegrationMethod::ANALYTICAL) {
+        Eigen::Matrix<double, 3, 18> xi;
+        compute_Xi_sum(local, dt, .5 * (wl + wr), .5 * (al + ar), xi);
+        predict_mean_analytic(local, dt, .5 * (wl + wr), .5 * (al + ar), q, v, p, xi);
+      } else
+        predict_mean_discrete(local, dt, .5 * (wl + wr), .5 * (al + ar), q, v, p);
+      Eigen::Vector4d inverse = new_q;
+      inverse.head<3>() *= -1;
+      const Eigen::Vector4d relative = quat_multiply(q, inverse);
+      Eigen::VectorXd out(15);
+      out.segment<3>(0) = 2 * relative.head<3>() / relative[3];
+      out.segment<3>(3) = p - new_p;
+      out.segment<3>(6) = v - new_v;
+      out.segment<3>(9) = local->_imu->bias_g() - state->_imu->bias_g();
+      out.segment<3>(12) = local->_imu->bias_a() - state->_imu->bias_a();
+      return out;
+    };
+    const double eps = 1e-6;
+    const Eigen::VectorXd zero = Eigen::VectorXd::Zero(15);
+    Eigen::MatrixXd f_actual(15, 15), b_left(15, 6), b_right(15, 6);
+    for (int k = 0; k < 15; ++k) {
+      Eigen::VectorXd plus = zero, minus = zero;
+      plus[k] = eps;
+      minus[k] = -eps;
+      f_actual.col(k) = (mean(plus, data_minus, data_plus) - mean(minus, data_minus, data_plus)) / (2 * eps);
+    }
+    for (int k = 0; k < 6; ++k) {
+      auto lp = data_minus, lm = data_minus, rp = data_plus, rm = data_plus;
+      if (k < 3) {
+        lp.am[k] += eps;
+        lm.am[k] -= eps;
+        rp.am[k] += eps;
+        rm.am[k] -= eps;
+      } else {
+        lp.wm[k - 3] += eps;
+        lm.wm[k - 3] -= eps;
+        rp.wm[k - 3] += eps;
+        rm.wm[k - 3] -= eps;
+      }
+      b_left.col(k) = (mean(zero, lp, data_plus) - mean(zero, lm, data_plus)) / (2 * eps);
+      b_right.col(k) = (mean(zero, data_minus, rp) - mean(zero, data_minus, rm)) / (2 * eps);
+    }
+    ltv::LtvFiniteJointShadow::instance().mainImu(f_actual, b_left, b_right, data_minus.timestamp, data_plus.timestamp);
+  }
   // Allocate state transition and continuous-time noise Jacobian
   F = Eigen::MatrixXd::Zero(state->imu_intrinsic_size() + 15, state->imu_intrinsic_size() + 15);
   Eigen::MatrixXd G = Eigen::MatrixXd::Zero(state->imu_intrinsic_size() + 15, 12);

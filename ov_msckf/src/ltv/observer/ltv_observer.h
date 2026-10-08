@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ltv/observer/LtvErrorShadow.h"
+#include "ltv/observer/LtvJointFactors.h"
 #include "ltv/observer/ltv_controlled_features.h"
 #include "ltv/observer/ltv_types.h"
 
@@ -16,6 +17,7 @@ namespace ltv {
 class LtvObserver {
 public:
   LtvObserver();
+  explicit LtvObserver(bool emit_legacy_shadow);
 
   void configure(const LtvConfig &config);
   void reset(LtvResetReason reason = LtvResetReason::EstimatorReset);
@@ -47,6 +49,11 @@ public:
   const Eigen::MatrixXd &covariance() const;
   int slotForFeature(int feature_id) const;
   const LtvErrorShadow &errorShadow() const { return error_shadow_; }
+  void attachSourceSensitivity(const std::shared_ptr<LtvObserverSourceSensitivity> &sink) {
+    source_sensitivity_ = sink;
+    if (sink)
+      sink->reset(state_.size());
+  }
 
 private:
   LtvSnapshot updateFeaturesImpl(double frame_timestamp, double imu_timestamp, const std::vector<LtvFeatureObservation> &observations,
@@ -62,6 +69,7 @@ private:
   int gravityOffset() const;
 
   LtvErrorShadow error_shadow_;
+  std::shared_ptr<LtvObserverSourceSensitivity> source_sensitivity_;
   LtvConfig config_;
   bool configured_ = false;
   bool started_ = false;

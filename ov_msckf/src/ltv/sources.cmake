@@ -8,6 +8,7 @@ set(LTV_PRODUCTION_SOURCES
     src/ltv/landmark_adapter/LtvActiveConsistency.cpp
     src/ltv/landmark_adapter/LtvLandmarkAdapter.cpp
     src/ltv/observer/ltv_observer.cpp
+    src/ltv/observer/LtvFiniteJointShadow.cpp
     src/ltv/observer/LtvAdapter.cpp
     src/ltv/observer/LtvAdapterHardened.cpp
     src/ltv/observer/LtvReadiness.cpp

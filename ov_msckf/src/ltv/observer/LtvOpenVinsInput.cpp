@@ -1,12 +1,13 @@
 #include "ltv/observer/LtvOpenVinsInput.h"
 #include "feat/Feature.h"
+#include "ltv/observer/LtvMainCrossShadow.h"
 #include "state/State.h"
 #include "state/StateHelper.h"
 #include <algorithm>
 #include <stdexcept>
 namespace ov_msckf {
 LtvOpenVinsInput makeLtvOpenVinsInput(const std::shared_ptr<State> &state, const std::vector<std::shared_ptr<ov_core::Feature>> &features,
-                                      double camera_time, uint64_t version, bool managed_features) {
+                                      double camera_time, uint64_t version, bool managed_features, double pixel_noise_variance) {
   LtvOpenVinsInput input;
   auto &c = input.calibration;
   c.Da = State::Dm(state->_options.imu_model, state->_calib_imu_da->value());
@@ -18,6 +19,7 @@ LtvOpenVinsInput makeLtvOpenVinsInput(const std::shared_ptr<State> &state, const
   c.p_BC = -c.R_BC * state->_calib_IMUtoCAM.at(0)->pos();
   c.offset = state->_calib_dt_CAMtoIMU->value()(0);
   auto &feature_context = input.feature_context;
+  feature_context.pixel_noise_variance = pixel_noise_variance;
   if (managed_features) {
     feature_context.version = version;
     feature_context.time = camera_time + c.offset;
@@ -42,6 +44,11 @@ LtvOpenVinsInput makeLtvOpenVinsInput(const std::shared_ptr<State> &state, const
     // PoseJPL position error is additive in world coordinates. No sign flip
     // or block-diagonal approximation: retain all clone cross-covariances.
     feature_context.pose_covariance = StateHelper::get_marginal_covariance(state, pose_order);
+    if (ltv::LtvMainCrossShadow::instance().enabled()) {
+      feature_context.pose_error_selector = Eigen::MatrixXd::Zero(6 * pose_order.size(), state->max_covariance_size());
+      for (size_t i = 0; i < pose_order.size(); ++i)
+        feature_context.pose_error_selector.block(6 * i, pose_order[i]->id(), 6, 6).setIdentity();
+    }
     for (int camera = 0; camera < state->_options.num_cameras; ++camera) {
       ltv::SeedCamera seed_camera;
       if (camera == 0) {
@@ -72,6 +79,15 @@ LtvOpenVinsInput makeLtvOpenVinsInput(const std::shared_ptr<State> &state, const
         observation.feature_id = feature->featid;
         observation.camera_id = camera;
         observation.bearing = bearing;
+        if (ltv::LtvMainCrossShadow::instance().enabled()) {
+          observation.pixel_source_key = ltv::LtvMainCrossShadow::pixelKey(feature->featid, camera, camera_time + c.offset);
+          Eigen::MatrixXd dist, cal;
+          state->_cam_intrinsics_cameras.at(camera)->compute_distort_jacobian(bearing.head<2>(), dist, cal);
+          const Eigen::Vector3d unit = bearing.normalized();
+          Eigen::Matrix<double, 3, 2> dnorm = (Eigen::Matrix3d::Identity() - unit * unit.transpose()).leftCols<2>() / bearing.norm();
+          observation.pixel_to_tangent = ltv::LtvSeedEstimator::tangentBasis(unit).transpose() * dnorm * dist.inverse();
+        }
+
         feature_context.observations.push_back(observation);
       }
       if (camera == 0)

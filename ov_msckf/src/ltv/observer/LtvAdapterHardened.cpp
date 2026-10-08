@@ -1,4 +1,6 @@
 #include "ltv/observer/LtvAdapter.h"
+#include "ltv/observer/LtvFiniteJointShadow.h"
+#include "ltv/observer/LtvMainCrossShadow.h"
 #include <algorithm>
 #include <climits>
 #include <cmath>
@@ -134,6 +136,7 @@ LtvFrame LtvAdapter::processHardened(double t, const std::vector<LtvBearing> &, 
     for (size_t i = 1; i < samples.size(); ++i) {
       const auto a = correct(samples[i - 1], c, ba, bg), b = correct(samples[i], c, ba, bg);
       const double dt = b.timestamp - a.timestamp;
+      ltv::LtvFiniteJointShadow::instance().observerImu(dt, a.timestamp, b.timestamp, .5 * (a.am + b.am), .5 * (a.wm + b.wm), c);
       observer_.propagateImu(dt, .5 * (a.am + b.am), .5 * (a.wm + b.wm), Eigen::Vector3d::Zero(), Eigen::Vector3d::Zero());
       ++steps_;
       seconds_ += dt;
@@ -226,6 +229,36 @@ LtvFrame LtvAdapter::processHardened(double t, const std::vector<LtvBearing> &, 
     *feature_pipeline_ = pipeline_before;
     throw std::runtime_error("atomic controlled transaction rejected: " + result.reason);
   }
+  if (ltv::LtvMainCrossShadow::instance().enabled()) {
+    for (const auto &birth : staged_frame.management.births) {
+      for (const auto &seed : staged_frame.seeds) {
+        if (seed.candidate.feature_id != birth.feature_id || !birth.apply_seed || seed.main_jacobian.size() == 0)
+          continue;
+        // Bounded diagnostic seed/anchor bank; capacity is a declared model
+        // boundary, never silent global source independence.
+        if (ltv::LtvMainCrossShadow::instance().auxiliaryDimension() + 3 > 96) {
+          ltv::LtvMainCrossShadow::instance().missing("seed_bank_capacity_96");
+          continue;
+        }
+        const int nz = seed.bearing_jacobian.cols();
+        const Eigen::MatrixXd q = seed.input_covariance.bottomRightCorner(nz, nz);
+        Eigen::MatrixXd pixel_jacobian = seed.bearing_jacobian;
+        std::vector<std::string> keys;
+        bool metadata = true;
+        for (size_t i = 0; i < seed.input.observations.size(); ++i) {
+          const auto &o = seed.input.observations[i];
+          keys.push_back(o.pixel_source_key);
+          metadata = metadata && !o.pixel_source_key.empty() && o.pixel_to_tangent.allFinite() && o.pixel_to_tangent.norm() > 0;
+          pixel_jacobian.middleCols(2 * i, 2) = seed.bearing_jacobian.middleCols(2 * i, 2) * o.pixel_to_tangent;
+        }
+        if (metadata)
+          ltv::LtvMainCrossShadow::instance().trackedSeed(seed.main_jacobian, pixel_jacobian, keys, context.pixel_noise_variance);
+        else
+          ltv::LtvMainCrossShadow::instance().conditionalSeed(seed.main_jacobian, seed.bearing_jacobian, q);
+      }
+    }
+  }
+  ltv::LtvFiniteJointShadow::instance().camera(context, staged_frame, options_.observer, c);
   const auto corrected = staged_core.snapshot(t);
   const double dt = last_correction_time_ < 0 ? 0 : target - last_correction_time_;
   correction_diagnostics_valid_ = dt > 0 && angles.size() >= options_.hardening_readiness.min_features && corrected.camera_substeps > 0;

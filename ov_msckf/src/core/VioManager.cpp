@@ -20,6 +20,7 @@
  */
 
 #include "VioManager.h"
+#include "ltv/observer/LtvFiniteJointShadow.h"
 
 #include "feat/Feature.h"
 #include "feat/FeatureDatabase.h"
@@ -416,6 +417,13 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   if (ltv_adapter) {
     ltv_ba = state->_imu->bias_a();
     ltv_bg = state->_imu->bias_g();
+    if (ltv::LtvFiniteJointShadow::instance().enabled()) {
+      ltv::LtvFiniteJointShadow::instance().initialize(state.get(), StateHelper::get_full_covariance(state));
+      Eigen::MatrixXd select = Eigen::MatrixXd::Zero(6, state->max_covariance_size());
+      select.block<3, 3>(0, state->_imu->ba()->id()).setIdentity();
+      select.block<3, 3>(3, state->_imu->bg()->id()).setIdentity();
+      ltv::LtvFiniteJointShadow::instance().freezeBias(select);
+    }
   }
 
   // Propagate the state forward to the current update time
@@ -451,8 +459,9 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   MeasurementBlock ltv_block;
   if (ltv_adapter) {
     ltv_diagnostics = LtvDiagnostics();
-    const auto input = makeLtvOpenVinsInput(state, trackFEATS->get_feature_database()->features_containing(message.timestamp),
-                                            message.timestamp, ltv_state_version, params.ltv_options.feature_readiness_enabled);
+    const auto input =
+        makeLtvOpenVinsInput(state, trackFEATS->get_feature_database()->features_containing(message.timestamp), message.timestamp,
+                             ltv_state_version, params.ltv_options.feature_readiness_enabled, params.msckf_options.sigma_pix_sq);
     const auto &c = input.calibration;
     const auto &feature_context = input.feature_context;
     const auto &bearings = input.bearings;

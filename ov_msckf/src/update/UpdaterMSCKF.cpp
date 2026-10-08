@@ -21,6 +21,7 @@
 
 #include "UpdaterMSCKF.h"
 #include "ltv/fusion/UpdaterLTV.h"
+#include "ltv/observer/LtvMainCrossShadow.h"
 
 #include "UpdaterHelper.h"
 
@@ -179,6 +180,11 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
   std::vector<std::shared_ptr<Type>> Hx_order_big;
   size_t ct_jacob = 0;
   size_t ct_meas = 0;
+  auto &source_shadow = ltv::LtvMainCrossShadow::instance();
+  const bool trace_sources = source_shadow.enabled();
+  Eigen::MatrixXd visual_source_map;
+  if (trace_sources)
+    visual_source_map = Eigen::MatrixXd::Zero(max_meas_size, source_shadow.sourceDimension());
 
   // 4. Compute linear system for each feature, nullspace project, and reject
   auto it2 = feature_vec.begin();
@@ -217,8 +223,23 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
     // Get the Jacobian for this feature
     UpdaterHelper::get_feature_jacobian_full(state, feat, H_f, H_x, res, Hx_order);
 
-    // Nullspace project
-    UpdaterHelper::nullspace_project_inplace(H_f, H_x, res);
+    Eigen::MatrixXd feature_source_map;
+    std::vector<std::string> raw_source_keys;
+    if (trace_sources) {
+      feature_source_map = Eigen::MatrixXd::Zero(res.rows(), source_shadow.sourceDimension());
+      int raw_row = 0;
+      for (const auto &camera : feat.timestamps)
+        for (double timestamp : camera.second) {
+          const auto key = ltv::LtvMainCrossShadow::pixelKey(feat.featid, camera.first, timestamp + state->_calib_dt_CAMtoIMU->value()(0));
+          raw_source_keys.push_back(key);
+          const int col = source_shadow.sourceColumn(key);
+          if (col >= 0)
+            feature_source_map.block<2, 2>(raw_row, col).setIdentity();
+          raw_row += 2;
+        }
+    }
+    // Nullspace project; preserve the EXACT raw-noise row transforms.
+    UpdaterHelper::nullspace_project_inplace(H_f, H_x, res, trace_sources ? &feature_source_map : nullptr);
 
     /// Chi2 distance check
     Eigen::MatrixXd P_marg = StateHelper::get_marginal_covariance(state, Hx_order);
@@ -264,6 +285,10 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
       ct_hx += var->size();
     }
 
+    if (trace_sources) {
+      visual_source_map.middleRows(ct_meas, res.rows()) = feature_source_map;
+      source_shadow.usedVisualSources(raw_source_keys);
+    }
     // Append our residual and move forward
     res_big.block(ct_meas, 0, res.rows(), 1) = res;
     ct_meas += res.rows();
@@ -287,8 +312,12 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
   res_big.conservativeResize(ct_meas, 1);
   Hx_big.conservativeResize(ct_meas, ct_jacob);
 
-  // 5. Perform measurement compression
-  UpdaterHelper::measurement_compress_inplace(Hx_big, res_big);
+  if (trace_sources)
+    visual_source_map.conservativeResize(ct_meas, visual_source_map.cols());
+  // 5. Perform measurement compression, applying its rotations to source columns.
+  UpdaterHelper::measurement_compress_inplace(Hx_big, res_big, trace_sources ? &visual_source_map : nullptr);
+  if (trace_sources)
+    source_shadow.visualNoiseMap(visual_source_map);
   if (Hx_big.rows() < 1) {
     auxiliary_only();
     return;
