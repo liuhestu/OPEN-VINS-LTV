@@ -29,18 +29,26 @@ inline Eigen::MatrixXd landmarkVisualNoiseCross(const Eigen::MatrixXd &current_v
 struct CorrelatedUpdateResult {
   Eigen::MatrixXd innovation, gain, posterior;
   Eigen::VectorXd correction;
+  double joint_min_eigenvalue = 0, posterior_min_eigenvalue = 0;
 };
 inline CorrelatedUpdateResult correlatedUpdate(const Eigen::MatrixXd &p, const Eigen::MatrixXd &h, const Eigen::MatrixXd &r,
                                                const Eigen::MatrixXd &n, const Eigen::VectorXd &innovation_minus_declared_mean) {
   if (p.rows() != p.cols() || h.cols() != p.rows() || r.rows() != h.rows() || r.cols() != h.rows() || n.rows() != p.rows() ||
       n.cols() != h.rows() || innovation_minus_declared_mean.size() != h.rows())
     throw std::invalid_argument("correlated update dimensions");
+  if (!p.allFinite() || !h.allFinite() || !r.allFinite() || !n.allFinite() || !innovation_minus_declared_mean.allFinite())
+    throw std::invalid_argument("nonfinite correlated inputs");
+  if ((p - p.transpose()).norm() > 1e-10 * std::max(1e-12, p.norm()) || (r - r.transpose()).norm() > 1e-10 * std::max(1e-12, r.norm()))
+    throw std::invalid_argument("nonsymmetric correlated covariance inputs");
   const Eigen::MatrixXd joint = (Eigen::MatrixXd(p.rows() + r.rows(), p.cols() + r.cols()) << p, n, n.transpose(), r).finished();
   Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> prior(joint);
   if (!joint.allFinite() || prior.info() != Eigen::Success || prior.eigenvalues().minCoeff() < -1e-10 * std::max(1e-12, joint.norm()))
     throw std::invalid_argument("incompatible joint state/noise covariance");
   CorrelatedUpdateResult out;
+  out.joint_min_eigenvalue = prior.eigenvalues().minCoeff();
   out.innovation = h * p * h.transpose() + r + h * n + n.transpose() * h.transpose();
+  if (!out.innovation.allFinite() || (out.innovation - out.innovation.transpose()).norm() > 1e-10 * std::max(1e-12, out.innovation.norm()))
+    throw std::invalid_argument("invalid correlated innovation symmetry");
   out.innovation = (.5 * (out.innovation + out.innovation.transpose())).eval();
   Eigen::LDLT<Eigen::MatrixXd> solve(out.innovation);
   if (solve.info() != Eigen::Success || solve.vectorD().minCoeff() <= 1e-14 * std::max(1e-12, out.innovation.norm()))
@@ -52,6 +60,13 @@ inline CorrelatedUpdateResult correlatedUpdate(const Eigen::MatrixXd &p, const E
   out.correction = out.gain * innovation_minus_declared_mean;
   if (!out.posterior.allFinite() || !out.correction.allFinite())
     throw std::runtime_error("nonfinite correlated posterior");
+  Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> post(out.posterior);
+  if (post.info() != Eigen::Success)
+    throw std::runtime_error("correlated posterior spectrum failed");
+  out.posterior_min_eigenvalue = post.eigenvalues().minCoeff();
+  if (out.posterior_min_eigenvalue < -1e-10 * std::max(1e-12, p.norm()))
+    throw std::runtime_error("negative correlated posterior");
+  // Tiny roundoff negatives are reported verbatim, never clipped or ridged.
   return out;
 }
 inline Eigen::Matrix3d landmarkSkew(const Eigen::Vector3d &p) {

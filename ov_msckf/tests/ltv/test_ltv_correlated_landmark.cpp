@@ -1,6 +1,7 @@
 #include "ltv/fusion/LtvCorrelatedLandmark.h"
 #include <cassert>
 #include <iostream>
+#include <limits>
 int main() {
   Eigen::MatrixXd x(4, 8), t(3, 8), a(3, 8), v(2, 8);
   x.setRandom();
@@ -33,6 +34,24 @@ int main() {
     rejects = true;
   }
   assert(rejects);
+  for (int bad = 0; bad < 4; ++bad) {
+    Eigen::Matrix3d p = Eigen::Matrix3d::Identity(), r = p, n = Eigen::Matrix3d::Zero();
+    if (bad == 0)
+      p(0, 1) = .2;
+    if (bad == 1)
+      r(1, 0) = .2;
+    if (bad == 2)
+      n = 2 * Eigen::Matrix3d::Identity();
+    if (bad == 3)
+      p(0, 0) = std::numeric_limits<double>::quiet_NaN();
+    bool rejected = false;
+    try {
+      ltv::correlatedUpdate(p, Eigen::Matrix3d::Identity(), r, n, Eigen::Vector3d::Zero());
+    } catch (const std::invalid_argument &) {
+      rejected = true;
+    }
+    assert(rejected);
+  }
   const Eigen::Matrix3d rt = Eigen::AngleAxisd(.2, Eigen::Vector3d::UnitY()).toRotationMatrix(),
                         ra = Eigen::AngleAxisd(-.1, Eigen::Vector3d::UnitX()).toRotationMatrix();
   const Eigen::Vector3d pt(.1, -.2, .3), pa(-.2, .1, 0), la(.2, .4, 4), lt(.3, .2, 3.8);
@@ -54,5 +73,7 @@ int main() {
   }
   assert(worst < 1e-8);
   std::cout << "correlated_R_N_visual_cross=PASS stable_gain_posterior=PASS duplicate_singular_rejected=PASS landmark_program_pose_FD="
-            << worst << " production_State_mutation=NONE physical_chart_consumption=UNQUALIFIED\n";
+            << worst
+            << " invalid_input_rejected=PASS posterior_min_eigen_reported=PASS production_State_mutation=NONE "
+               "physical_chart_consumption=UNQUALIFIED\n";
 }
