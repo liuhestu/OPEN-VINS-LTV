@@ -1,0 +1,170 @@
+[
+  {
+    "task": "experiment",
+    "sequence": "V2_02_medium",
+    "mode": "OFF",
+    "run_id": "experiment_V2_02_medium_OFF_full_20261008T160406_9b1ab14a",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_OFF_full_20261008T160406_9b1ab14a"
+  },
+  {
+    "task": "experiment",
+    "sequence": "V2_02_medium",
+    "mode": "G",
+    "run_id": "experiment_V2_02_medium_G_full_20261008T161248_2848f042",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_G_full_20261008T161248_2848f042"
+  },
+  {
+    "task": "experiment",
+    "sequence": "V2_02_medium",
+    "mode": "V",
+    "run_id": "experiment_V2_02_medium_V_full_20261008T161340_8b0847be",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_V_full_20261008T161340_8b0847be"
+  },
+  {
+    "task": "experiment",
+    "sequence": "V2_02_medium",
+    "mode": "GV",
+    "run_id": "experiment_V2_02_medium_GV_full_20261008T161431_5dbb4600",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_GV_full_20261008T161431_5dbb4600"
+  },
+  {
+    "task": "experiment",
+    "sequence": "V2_02_medium",
+    "mode": "L_OFF",
+    "run_id": "experiment_V2_02_medium_L_OFF_full_20261008T161524_54962d6f",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_L_OFF_full_20261008T161524_54962d6f"
+  },
+  {
+    "task": "experiment",
+    "sequence": "V2_02_medium",
+    "mode": "L_ON",
+    "run_id": "experiment_V2_02_medium_L_ON_full_20261008T161614_2aa2b05e",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_L_ON_full_20261008T161614_2aa2b05e"
+  },
+  {
+    "task": "experiment",
+    "sequence": "V2_03_difficult",
+    "mode": "OFF",
+    "run_id": "experiment_V2_03_difficult_OFF_full_20261008T161707_c3adabb0",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_OFF_full_20261008T161707_c3adabb0"
+  },
+  {
+    "task": "experiment",
+    "sequence": "V2_03_difficult",
+    "mode": "G",
+    "run_id": "experiment_V2_03_difficult_G_full_20261008T161742_c9bc134b",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_G_full_20261008T161742_c9bc134b"
+  },
+  {
+    "task": "experiment",
+    "sequence": "V2_03_difficult",
+    "mode": "V",
+    "run_id": "experiment_V2_03_difficult_V_full_20261008T161818_53cb2e6b",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_V_full_20261008T161818_53cb2e6b"
+  },
+  {
+    "task": "experiment",
+    "sequence": "V2_03_difficult",
+    "mode": "GV",
+    "run_id": "experiment_V2_03_difficult_GV_full_20261008T161854_5164422d",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_GV_full_20261008T161854_5164422d"
+  },
+  {
+    "task": "experiment",
+    "sequence": "V2_03_difficult",
+    "mode": "L_OFF",
+    "run_id": "experiment_V2_03_difficult_L_OFF_full_20261008T161930_5f8e1af6",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_L_OFF_full_20261008T161930_5f8e1af6"
+  },
+  {
+    "task": "experiment",
+    "sequence": "V2_03_difficult",
+    "mode": "L_ON",
+    "run_id": "experiment_V2_03_difficult_L_ON_full_20261008T162004_b4851e95",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_L_ON_full_20261008T162004_b4851e95"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_02_medium",
+    "mode": "OFF",
+    "run_id": "main_V2_02_medium_OFF_full_20261008T162040_5b08b393",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_OFF_full_20261008T162040_5b08b393"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_02_medium",
+    "mode": "G",
+    "run_id": "main_V2_02_medium_G_full_20261008T162130_d39ad799",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_G_full_20261008T162130_d39ad799"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_02_medium",
+    "mode": "V",
+    "run_id": "main_V2_02_medium_V_full_20261008T162221_57ee0837",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_V_full_20261008T162221_57ee0837"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_02_medium",
+    "mode": "GV",
+    "run_id": "main_V2_02_medium_GV_full_20261008T162313_ed45303a",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_GV_full_20261008T162313_ed45303a"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_02_medium",
+    "mode": "L_OFF",
+    "run_id": "main_V2_02_medium_L_OFF_full_20261008T162404_5054d984",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_L_OFF_full_20261008T162404_5054d984"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_02_medium",
+    "mode": "L_ON",
+    "run_id": "main_V2_02_medium_L_ON_full_20261008T162454_ece924e6",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_L_ON_full_20261008T162454_ece924e6"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_03_difficult",
+    "mode": "OFF",
+    "run_id": "main_V2_03_difficult_OFF_full_20261008T162546_03746230",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_OFF_full_20261008T162546_03746230"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_03_difficult",
+    "mode": "G",
+    "run_id": "main_V2_03_difficult_G_full_20261008T162621_c88e49e7",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_G_full_20261008T162621_c88e49e7"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_03_difficult",
+    "mode": "V",
+    "run_id": "main_V2_03_difficult_V_full_20261008T162656_9ee5beb8",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_V_full_20261008T162656_9ee5beb8"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_03_difficult",
+    "mode": "GV",
+    "run_id": "main_V2_03_difficult_GV_full_20261008T162732_1930028f",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_GV_full_20261008T162732_1930028f"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_03_difficult",
+    "mode": "L_OFF",
+    "run_id": "main_V2_03_difficult_L_OFF_full_20261008T162808_be5cda62",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_L_OFF_full_20261008T162808_be5cda62"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_03_difficult",
+    "mode": "L_ON",
+    "run_id": "main_V2_03_difficult_L_ON_full_20261008T162842_6de2efc2",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_L_ON_full_20261008T162842_6de2efc2"
+  }
+]

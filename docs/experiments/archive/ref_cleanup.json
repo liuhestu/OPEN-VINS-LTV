@@ -1,0 +1,70 @@
+{
+  "worktrees": [
+    {
+      "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/baseline_83c71cb",
+      "action": "preserved_detached_with_content_or_frozen_permissions",
+      "status": ""
+    },
+    {
+      "path": "/home/he/output/ltv_gv_no_benefit_20261005/baseline_16f02e3",
+      "action": "preserved_detached_with_content_or_frozen_permissions",
+      "status": ""
+    },
+    {
+      "path": "/home/he/output/ltv_integration_cleanup_real_20261005/baseline_f3e055ab",
+      "action": "removed_clean",
+      "status": ""
+    },
+    {
+      "path": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_a",
+      "action": "preserved_detached_with_content_or_frozen_permissions",
+      "status": "!! scripts/ltv_feature_passive/__pycache__/\n!! scripts/ltv_gv_diagnosis/__pycache__/\n"
+    },
+    {
+      "path": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b",
+      "action": "preserved_detached_with_content_or_frozen_permissions",
+      "status": "!! scripts/ltv_feature_passive/__pycache__/\n!! scripts/ltv_gv_diagnosis/__pycache__/\n!! scripts/ltv_landmark_validation/__pycache__/\n"
+    },
+    {
+      "path": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_c",
+      "action": "removed_clean",
+      "status": ""
+    },
+    {
+      "path": "/tmp/ltv-gv-audit-20261008",
+      "action": "preserved_detached_with_content_or_frozen_permissions",
+      "status": "?? scripts/ltv_active_consistency_r4/__pycache__/\n?? scripts/ltv_gv_evaluation/__pycache__/\n?? scripts/ltv_integration_cleanup/__pycache__/\n?? scripts/ltv_landmark_correlation/gv/__pycache__/\n!! scripts/ltv_feature_passive/__pycache__/\n!! scripts/ltv_gv_diagnosis/__pycache__/\n"
+    },
+    {
+      "path": "/tmp/ltv-holdout-audit-20261008",
+      "action": "preserved_detached_with_content_or_frozen_permissions",
+      "status": "?? scripts/ltv_active_consistency_r4/__pycache__/\n?? scripts/ltv_gv_evaluation/__pycache__/\n?? scripts/ltv_integration_cleanup/__pycache__/\n!! scripts/ltv_feature_passive/__pycache__/\n!! scripts/ltv_landmark_validation/__pycache__/\n"
+    },
+    {
+      "path": "/tmp/ltv-shadow-20261008",
+      "action": "removed_clean",
+      "status": ""
+    }
+  ],
+  "deleted_remote_branches": [
+    "experiment/ltv-nondegradation-correlation-20261008",
+    "experiment/ltv-three-track-20261008",
+    "experiment/ltv-three-track-a-20261008",
+    "experiment/ltv-three-track-a-interface-20261008",
+    "experiment/ltv-three-track-a-visual-interface-20261008",
+    "experiment/ltv-three-track-b-20261008",
+    "experiment/ltv-three-track-c-20261008",
+    "experiment/ltv-three-track-metrics-interface-20261008",
+    "feature/ltv-feature-readiness-passive",
+    "feature/ltv-gv-fusion-evaluation",
+    "feature/ltv-gv-no-benefit-diagnosis",
+    "feature/ltv-landmark-validation",
+    "feature/ltv-openvins-integration-cleanup",
+    "feature/ltv-passive-hardening-v2",
+    "feature/ltv-v-readiness-recovery"
+  ],
+  "remaining": [
+    "main",
+    "experiment"
+  ]
+}

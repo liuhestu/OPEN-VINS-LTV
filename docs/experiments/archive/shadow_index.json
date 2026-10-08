@@ -1,0 +1,30 @@
+[
+  {
+    "task": "experiment",
+    "sequence": "V2_02_medium",
+    "mode": "OFF",
+    "run_id": "experiment_V2_02_medium_finite_shadow_full_20261008T163107_c19e8b44",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_finite_shadow_full_20261008T163107_c19e8b44"
+  },
+  {
+    "task": "experiment",
+    "sequence": "V2_03_difficult",
+    "mode": "OFF",
+    "run_id": "experiment_V2_03_difficult_finite_shadow_full_20261008T163331_d970f902",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_finite_shadow_full_20261008T163331_d970f902"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_02_medium",
+    "mode": "OFF",
+    "run_id": "main_V2_02_medium_finite_shadow_full_20261008T163529_70969c6d",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_finite_shadow_full_20261008T163529_70969c6d"
+  },
+  {
+    "task": "main",
+    "sequence": "V2_03_difficult",
+    "mode": "OFF",
+    "run_id": "main_V2_03_difficult_finite_shadow_full_20261008T163755_14730d61",
+    "output_dir": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_finite_shadow_full_20261008T163755_14730d61"
+  }
+]

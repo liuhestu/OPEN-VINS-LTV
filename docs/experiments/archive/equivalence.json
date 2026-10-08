@@ -1,0 +1,258 @@
+{
+  "status": "PASS_EXACT_ALL_12_FULL_CASES",
+  "cases": [
+    {
+      "sequence": "V2_02_medium",
+      "mode": "OFF",
+      "status": "PASS_EXACT",
+      "files": {
+        "trajectory.csv": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+        "audit.csv": "963960f760d1d284e27f84a3dcb5d44307e9d54929604fb84c16e0888b702ee4",
+        "algorithm_visual_identity.jsonl": "1a94db24ecdc870042d55fa9bce98676ed3f83647d558ed0b1279c8c4d40ac1a",
+        "observer_identity.jsonl": "9f600c3fc9489af675174521cf6f534b71576b48f0cc512cb8d5b971f7f8547b",
+        "lifecycle_identity.jsonl": "ec2c3bd6df021886c73c3c9ef22dd50c01db15804f370990153b008a39e3bc15",
+        "shadow_receipts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fusion.jsonl": "1555829cc854b97a43dd73fdc415111f2575fdd77011cf88abce5098269236ec",
+        "unmatched_camera.csv": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3",
+        "instrumentation.json": "053c73d3b3625cfa8d9e9fa53e47842bf277ba992f57ade2ee185148b5391fec",
+        "replay.json": "57db1ab4ad65078fe080b889c45f49fdb75cd3c2b0602e76978661088d9d7600",
+        "ltv.csv": "f2c74c71fc5d680d45809e0ae80ea3adf680245fdde2f3fd247fee9ef0db7387"
+      },
+      "before": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_OFF_full_20261008T160406_9b1ab14a",
+      "after": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_OFF_full_20261008T162040_5b08b393"
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "G",
+      "status": "PASS_EXACT",
+      "files": {
+        "trajectory.csv": "1d5f6183ab58fcb370b69ba75811aa1fd1b8a99bcaad66478f7e9f348ab4011f",
+        "audit.csv": "08be9416d589faf016764eedd950404bf7f9ab3a1c3e4fa65b9ec8a05f0faa55",
+        "algorithm_visual_identity.jsonl": "7e3abbb485bebbef6d4ec95c1a7bf1c6184aba356179bc8c0536956be300346b",
+        "observer_identity.jsonl": "3a45edaa5528ee833d052364b9efdbf1684683681d5dc8eb265aa6d98e31239a",
+        "lifecycle_identity.jsonl": "ec2c3bd6df021886c73c3c9ef22dd50c01db15804f370990153b008a39e3bc15",
+        "shadow_receipts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fusion.jsonl": "48d43f373eb902e95f5d3f146d5e92d5c4030a3e782c44213d3e46b3d2b29fa4",
+        "unmatched_camera.csv": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3",
+        "instrumentation.json": "9e94efa9ff31168fd3c63033c1937297d7bf91b11c1ef4249ba74ba535d05623",
+        "replay.json": "f7acec9f512877e6d49889058bbcb82a1022c2c32ee15a4f2da228a61c87baa7",
+        "ltv.csv": "6b84a506eec54125a84fae56674437a817846b36d4d922debb822fcb6b83f5bc"
+      },
+      "before": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_G_full_20261008T161248_2848f042",
+      "after": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_G_full_20261008T162130_d39ad799"
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "V",
+      "status": "PASS_EXACT",
+      "files": {
+        "trajectory.csv": "277ebac438c1d7301dd4de63d4caa885ca7e9a307d60c2d30aa2042d13a20eff",
+        "audit.csv": "f80c01ed8fd0941b59d532ef87a113b5bb3c9bdf34a1829cb6d9f82173da2cc7",
+        "algorithm_visual_identity.jsonl": "28bdeb52bd54a1358bc3acc04e68c59966168cb77d01b63ab99c45be99c112ee",
+        "observer_identity.jsonl": "e24aa98e33335a135cacc5d3ddf65ebcba148deecad9316b8815a49c85e3221c",
+        "lifecycle_identity.jsonl": "ec2c3bd6df021886c73c3c9ef22dd50c01db15804f370990153b008a39e3bc15",
+        "shadow_receipts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fusion.jsonl": "b53b4acc19ad94ad27ac7744874971db8318f9234c494fe8336c380b8f8e59f0",
+        "unmatched_camera.csv": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3",
+        "instrumentation.json": "2cd81381c54a9be03f94e1f65b88f15223b70886fde72f2609bdebed441034c9",
+        "replay.json": "8443d7c532afe594b1236ae4614ee6adc32e064ada9e3e50ed2855aa6bfe7805",
+        "ltv.csv": "b624a032c9c2c6b280ed1fe0d68350c27b45df65dc38d2927847d480ade4f802"
+      },
+      "before": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_V_full_20261008T161340_8b0847be",
+      "after": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_V_full_20261008T162221_57ee0837"
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "GV",
+      "status": "PASS_EXACT",
+      "files": {
+        "trajectory.csv": "3c701902822129026e05b9531f99f9aca8e001035c7ea206cdf3282ab4def2fa",
+        "audit.csv": "5d9018b038bcd9ede42aaa551a576ae9186bb51ab22a5eb94d88f2036584a1b2",
+        "algorithm_visual_identity.jsonl": "0fc7cfddb383bc4de9332e6d771f562109288d270ec398f0d4a1e0a5a90f23a4",
+        "observer_identity.jsonl": "b6910f65534693f2171709fe0d676903c5e25557392d276f11d21227a13f8e03",
+        "lifecycle_identity.jsonl": "ec2c3bd6df021886c73c3c9ef22dd50c01db15804f370990153b008a39e3bc15",
+        "shadow_receipts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fusion.jsonl": "eb5f607ace9e22a3ccd3c6bb62996f3c8914ba9e45a5e079253d991766e1770f",
+        "unmatched_camera.csv": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3",
+        "instrumentation.json": "f68de60209a859b19883a0ef4242c0617778ab946905f17d780398968517de4c",
+        "replay.json": "f45af9313adb7a6c6793e14b62af18e1489edc644292ae59edda416ae2529e0f",
+        "ltv.csv": "c8a5f080410b320cf30129a467ff20647ecd902f8bb706ec151bb1fd559f9557"
+      },
+      "before": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_GV_full_20261008T161431_5dbb4600",
+      "after": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_GV_full_20261008T162313_ed45303a"
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "L_OFF",
+      "status": "PASS_EXACT",
+      "files": {
+        "trajectory.csv": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+        "audit.csv": "963960f760d1d284e27f84a3dcb5d44307e9d54929604fb84c16e0888b702ee4",
+        "algorithm_visual_identity.jsonl": "1a94db24ecdc870042d55fa9bce98676ed3f83647d558ed0b1279c8c4d40ac1a",
+        "observer_identity.jsonl": "9f600c3fc9489af675174521cf6f534b71576b48f0cc512cb8d5b971f7f8547b",
+        "lifecycle_identity.jsonl": "ec2c3bd6df021886c73c3c9ef22dd50c01db15804f370990153b008a39e3bc15",
+        "shadow_receipts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fusion.jsonl": "1555829cc854b97a43dd73fdc415111f2575fdd77011cf88abce5098269236ec",
+        "unmatched_camera.csv": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3",
+        "instrumentation.json": "980e1514e539aecf8b0a33f372fe0599b82fd4f59df752d78b7bf1d0cc36ef45",
+        "replay.json": "57db1ab4ad65078fe080b889c45f49fdb75cd3c2b0602e76978661088d9d7600",
+        "ltv.csv": "f2c74c71fc5d680d45809e0ae80ea3adf680245fdde2f3fd247fee9ef0db7387",
+        "landmark_approx.csv": "ae369aca651ba79f8e5cc5fb4d06db863e2f1f7326287e05c63b4145b1a3ee84",
+        "landmark_approx.csv.points.csv": "6b4f4879ab6d62a5845ee88f2d8622e338a8910235bba9a21f0a6867ac64c573"
+      },
+      "before": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_L_OFF_full_20261008T161524_54962d6f",
+      "after": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_L_OFF_full_20261008T162404_5054d984"
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "L_ON",
+      "status": "PASS_EXACT",
+      "files": {
+        "trajectory.csv": "af4ae18882f2a8357947317a40ef28aa1d6f88e73366fd7a8f99b80b988a3561",
+        "audit.csv": "a0fad55027410b94fb702cedbb403d86f7ab956a70069642d97b8379d22b3ba0",
+        "algorithm_visual_identity.jsonl": "b0f50a2ab3000ae628d5ef2209d71a48095f4804947b406118a012aaeae5f4a0",
+        "observer_identity.jsonl": "f5aece52ba9251c2955674f44c5cb1fae66bbb802bc9f84fb980b1f5b36ab375",
+        "lifecycle_identity.jsonl": "ec2c3bd6df021886c73c3c9ef22dd50c01db15804f370990153b008a39e3bc15",
+        "shadow_receipts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fusion.jsonl": "08c41ec391de03d9100a3b7181b46fb71fc778b44226a4937cd4445f39cbb5e7",
+        "unmatched_camera.csv": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3",
+        "instrumentation.json": "261aae79f269fadfcdcb1315657fd35bdb6d2a658128796f1f5546bddddeeed8",
+        "replay.json": "57db1ab4ad65078fe080b889c45f49fdb75cd3c2b0602e76978661088d9d7600",
+        "ltv.csv": "a29cd32c6b07c414504d5c3dbf62982f6816848415bb7279a2e941e610d9fa36",
+        "landmark_approx.csv": "7cca0c692390b30e021bcf53e8ec1a1c71e712404dd271448445b8fb5184d5fc",
+        "landmark_approx.csv.points.csv": "19dabb653b87919a893582953eb43fb7d88c1f039dcd4e645745d297a52be31a"
+      },
+      "before": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_02_medium_L_ON_full_20261008T161614_2aa2b05e",
+      "after": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_02_medium_L_ON_full_20261008T162454_ece924e6"
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "mode": "OFF",
+      "status": "PASS_EXACT",
+      "files": {
+        "trajectory.csv": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+        "audit.csv": "395e3ddd04e653caf7e8a6848b0ada874d3e33fe4def5bdba6b2e62bd5e02da5",
+        "algorithm_visual_identity.jsonl": "e8078e27e5d4e51bd4db64b899a16a56d0be5a6c1227eead61d8d4110ed6d4d9",
+        "observer_identity.jsonl": "99800750ab40de85260c14ddea4860636f3d9ee8c7368bcb174632427ed12146",
+        "lifecycle_identity.jsonl": "6a6d3ab6326fad3ffa4479e2615f4605bb20ad534469167ad7a4276c6c837189",
+        "shadow_receipts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fusion.jsonl": "4d40de6eeef582c4faa61eec82da05d9624581dafdd318ee5e3cd7dfebe7197e",
+        "unmatched_camera.csv": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b",
+        "instrumentation.json": "053c73d3b3625cfa8d9e9fa53e47842bf277ba992f57ade2ee185148b5391fec",
+        "replay.json": "be5d18dd307fa24c9f0bbb6c113d001080924c47bc9f96e14bb47c06dfde6e25",
+        "ltv.csv": "3ba13abf84e68b47b0073426df7c40d594eb548a12e60b0c10a3ca42672bac83"
+      },
+      "before": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_OFF_full_20261008T161707_c3adabb0",
+      "after": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_OFF_full_20261008T162546_03746230"
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "mode": "G",
+      "status": "PASS_EXACT",
+      "files": {
+        "trajectory.csv": "7a0243c0c567d1b406c39d8c84055f0c6800b8dcf6d76570b4d92285498ca280",
+        "audit.csv": "e7eae59d35b3ee46aa796bfb238eb6c1a6a49477714e4340bb41d4c54407fda3",
+        "algorithm_visual_identity.jsonl": "476c2bf3818922ea021089ef06634ded3185ada4e175af127febc44d997f91aa",
+        "observer_identity.jsonl": "5ec94616e036b6278ca514536637e487c897f7c889f9511e479a7e92987b1d56",
+        "lifecycle_identity.jsonl": "9fbb6a51b09fec9a5a9ccf7b9c7f37885e28978d2b8e0cee49edb3b0bcc9ca58",
+        "shadow_receipts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fusion.jsonl": "b1395e770b9b3b40e0980aa1dcf2af7d158c916aebedfb32fd3b9c01bc23fdf3",
+        "unmatched_camera.csv": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b",
+        "instrumentation.json": "9e94efa9ff31168fd3c63033c1937297d7bf91b11c1ef4249ba74ba535d05623",
+        "replay.json": "9fb132afbeb71931739adad831fe1f434456a25b6069ea06aa8a4eb92373f6c9",
+        "ltv.csv": "af5d44677260bdc6c733d87e00b09b9904b1ce4d10c92dfedffc624869e2d561"
+      },
+      "before": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_G_full_20261008T161742_c9bc134b",
+      "after": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_G_full_20261008T162621_c88e49e7"
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "mode": "V",
+      "status": "PASS_EXACT",
+      "files": {
+        "trajectory.csv": "f33b9c4b5d67d9c180d960c6826e2feba48014f4f26fe14c0c424429528e07e4",
+        "audit.csv": "132c50eba2cf67721ce03c33265d7fc27cc35ad3deebec0637071bd1e3a4ea74",
+        "algorithm_visual_identity.jsonl": "34fbee45c2a09b703f5215c5a5bd86e30a724a8982b2d4d3bca178dd0484b0e4",
+        "observer_identity.jsonl": "347256f1462b245c89e3c18c0ce38fdbb9b93f8d8659bece66e34661e3680c22",
+        "lifecycle_identity.jsonl": "9fbb6a51b09fec9a5a9ccf7b9c7f37885e28978d2b8e0cee49edb3b0bcc9ca58",
+        "shadow_receipts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fusion.jsonl": "28ff0ac378b5a08414a931c2ac4b4405ce113fe432008cd341bec6e07faa0978",
+        "unmatched_camera.csv": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b",
+        "instrumentation.json": "2cd81381c54a9be03f94e1f65b88f15223b70886fde72f2609bdebed441034c9",
+        "replay.json": "a8a542c956e4c1dc343b7c87e7b7fbd425f2808ba66ba599770e728834f0397f",
+        "ltv.csv": "b702ffda711c43a0016cfdcc20148d5949b50acf7bc4fb7d028c952516f9df6a"
+      },
+      "before": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_V_full_20261008T161818_53cb2e6b",
+      "after": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_V_full_20261008T162656_9ee5beb8"
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "mode": "GV",
+      "status": "PASS_EXACT",
+      "files": {
+        "trajectory.csv": "127d1a63353cab546bb5fcdb99785610d76ed7c70403de13eab08cb36f388df4",
+        "audit.csv": "139bb4879ac0613e8d3669b90627d69b81a331d52d629afa2cb841d987702df9",
+        "algorithm_visual_identity.jsonl": "f81ef8fec02851e8aa36624a1a3623322790658d2f10f67f5f25372113c89daf",
+        "observer_identity.jsonl": "beca88aa27b072b918c47b19eba2c17a396905ab8a7fc9058b1da5d24ef83403",
+        "lifecycle_identity.jsonl": "9fbb6a51b09fec9a5a9ccf7b9c7f37885e28978d2b8e0cee49edb3b0bcc9ca58",
+        "shadow_receipts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fusion.jsonl": "ca1c170dafbd57d357a4e2f442fe171b18f9ccc10c6ee8a230c8034523fd6a7c",
+        "unmatched_camera.csv": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b",
+        "instrumentation.json": "f68de60209a859b19883a0ef4242c0617778ab946905f17d780398968517de4c",
+        "replay.json": "8a7861dcb477c7630616958887dc3882cc0681c2d7778f9a225f6a1df08c7960",
+        "ltv.csv": "8a1997d18ab19524129ae1df008348748e7e5099c29f654a471d2a1e5f6cd7cf"
+      },
+      "before": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_GV_full_20261008T161854_5164422d",
+      "after": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_GV_full_20261008T162732_1930028f"
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "mode": "L_OFF",
+      "status": "PASS_EXACT",
+      "files": {
+        "trajectory.csv": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+        "audit.csv": "395e3ddd04e653caf7e8a6848b0ada874d3e33fe4def5bdba6b2e62bd5e02da5",
+        "algorithm_visual_identity.jsonl": "e8078e27e5d4e51bd4db64b899a16a56d0be5a6c1227eead61d8d4110ed6d4d9",
+        "observer_identity.jsonl": "99800750ab40de85260c14ddea4860636f3d9ee8c7368bcb174632427ed12146",
+        "lifecycle_identity.jsonl": "6a6d3ab6326fad3ffa4479e2615f4605bb20ad534469167ad7a4276c6c837189",
+        "shadow_receipts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fusion.jsonl": "4d40de6eeef582c4faa61eec82da05d9624581dafdd318ee5e3cd7dfebe7197e",
+        "unmatched_camera.csv": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b",
+        "instrumentation.json": "980e1514e539aecf8b0a33f372fe0599b82fd4f59df752d78b7bf1d0cc36ef45",
+        "replay.json": "be5d18dd307fa24c9f0bbb6c113d001080924c47bc9f96e14bb47c06dfde6e25",
+        "ltv.csv": "3ba13abf84e68b47b0073426df7c40d594eb548a12e60b0c10a3ca42672bac83",
+        "landmark_approx.csv": "db105c15a83d52a66558b3950129dfc41e9eaadb084e21e9c836c9d9ccd1feb2",
+        "landmark_approx.csv.points.csv": "8474edeac37aa705997558e65738a23bd78309eb5a9b19f6712f40dc4156909a"
+      },
+      "before": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_L_OFF_full_20261008T161930_5f8e1af6",
+      "after": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_L_OFF_full_20261008T162808_be5cda62"
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "mode": "L_ON",
+      "status": "PASS_EXACT",
+      "files": {
+        "trajectory.csv": "524e9e929b36a6d424f008fd7ee77e7c32c2cdfe0702e933e8c93eafa2e55bf7",
+        "audit.csv": "ab56f602eb8c7bd5a9f9c24b72f31031ca698802ebc545a01b7c7ae8a24cc8b1",
+        "algorithm_visual_identity.jsonl": "f2472460d8eb597367cc8022af4fd24e5325b010e049bb9223808a41dc338ae1",
+        "observer_identity.jsonl": "b0ecb1c5c6cf7b34bb0a0b2add0ef78cb321d893070679404ec8ffd127b203b5",
+        "lifecycle_identity.jsonl": "9fbb6a51b09fec9a5a9ccf7b9c7f37885e28978d2b8e0cee49edb3b0bcc9ca58",
+        "shadow_receipts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fusion.jsonl": "3f9063d79335edffccb370195cfe10de9948d5f8149849e49c406fee57a2beb9",
+        "unmatched_camera.csv": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b",
+        "instrumentation.json": "261aae79f269fadfcdcb1315657fd35bdb6d2a658128796f1f5546bddddeeed8",
+        "replay.json": "be5d18dd307fa24c9f0bbb6c113d001080924c47bc9f96e14bb47c06dfde6e25",
+        "ltv.csv": "713e7100394a5e7f89f298d7103e4e956aacd9a665be6973412db657a02668c1",
+        "landmark_approx.csv": "d8da7a010efd8bb8a5c16890506d4341a8f2f02addc3963d237795c410eb911e",
+        "landmark_approx.csv.points.csv": "e5a48fe7a81c4d1eaea2c8ae5cecfd34ff960d58d2df68cd4d3b79e7eed58d69"
+      },
+      "before": "/home/he/output/ltv_consolidation_20261008T153807/tasks/experiment/results/experiment_V2_03_difficult_L_ON_full_20261008T162004_b4851e95",
+      "after": "/home/he/output/ltv_consolidation_20261008T153807/tasks/main/results/main_V2_03_difficult_L_ON_full_20261008T162842_6de2efc2"
+    }
+  ],
+  "excluded": [
+    "features compute_time_ms",
+    "explicit diagnostic output path values"
+  ],
+  "scope": "cleanup equivalence, no new accuracy/benefit qualification"
+}

@@ -1,0 +1,23 @@
+{
+  "status": "PASS_EXACT_SHADOW_BOTH_DEV",
+  "cases": [
+    {
+      "sequence": "V2_02_medium",
+      "native_exact": "PASS_EXACT_NATIVE_PASSIVE",
+      "finite_files": {
+        "finite.csv": "3111b7419a1e5554a3da6eb14b99ad393cefa2027f06bd97835ef1d5b1f6ebdb",
+        "finite.csv.matrices.bin": "c85b7ede9a1e5de7848a4fd3a68812ffb32e4ee3384e70f406e45b7d7a2aaca7",
+        "finite.csv.matrices.jsonl": "af7382fe9c7f25a558cc44a2ba780a38357c74664968e3ef91d0f3602633a114"
+      }
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "native_exact": "PASS_EXACT_NATIVE_PASSIVE",
+      "finite_files": {
+        "finite.csv": "7f0e6d6338aeacdf0b17f0a9df4496fe5a176ce1e6f0b09060eb1c883cd39749",
+        "finite.csv.matrices.bin": "0782affc3700b06a59d85e915615bc54199a8ee495cfbe03be029abf00dc84d3",
+        "finite.csv.matrices.jsonl": "7d0f0a2770c3f7a1ffc25dc1d90c67b384999f292f02189bdcc87c2ee94f8858"
+      }
+    }
+  ]
+}

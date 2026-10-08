@@ -1,0 +1,186 @@
+{
+  "experiment": [
+    {
+      "name": "test_ltv_landmark_approx",
+      "exit_code": 0,
+      "binary_sha256": "85265980a7519cd948aaf8e1e6b9ed4907f1c2ab56d00d381986cfe73f86a2cb"
+    },
+    {
+      "name": "test_ltv_alias_fixed",
+      "exit_code": 0,
+      "binary_sha256": "b9e7428a2e3752ebc4271a04d5c144b1962b54617a22dc1edd83f76a18f2d7d3"
+    },
+    {
+      "name": "test_ltv_core_lifecycle",
+      "exit_code": 0,
+      "binary_sha256": "40cb59053207f387e42706608337d73f03564cfa2432e28aa36a14d7e4381663"
+    },
+    {
+      "name": "test_ltv_gv_jacobian",
+      "exit_code": 0,
+      "binary_sha256": "5d4e4e8e78837aba8498b455efdf4eb4c0219573bff78a67e71549fca09eeb34"
+    },
+    {
+      "name": "test_ltv_gv_covariance",
+      "exit_code": 0,
+      "binary_sha256": "5d8f81b12f214bb3c61ae35fe34517c43af63a45f026128bd11866f31af5ad61"
+    },
+    {
+      "name": "test_ltv_fej",
+      "exit_code": 0,
+      "binary_sha256": "f0291f86c063b3de613f9bf5f3185fd760e0cd6198653c03816113cedd464d2f"
+    },
+    {
+      "name": "test_ltv_timing",
+      "exit_code": 0,
+      "binary_sha256": "7db6b79d18525f78f6919396e966af8033ff5e3f69ee03aabc5959491051ddeb"
+    },
+    {
+      "name": "test_ltv_joint_layout",
+      "exit_code": 0,
+      "binary_sha256": "b0bafa3d11c55d36797c9c6c755e40672938e3082d95a7951d338c70a17083ea"
+    },
+    {
+      "name": "test_ltv_joint_covariance",
+      "exit_code": 0,
+      "binary_sha256": "d90ece04b5d78d3840d4bb76dd0a57253bdd667dbdfb85fdf8c5cfc59044de54"
+    },
+    {
+      "name": "test_ltv_innovation",
+      "exit_code": 0,
+      "binary_sha256": "199b1b2d1317fd2be2f7b189d1eb8b85838659bb57e5275a2606f0d6b39b75fd"
+    },
+    {
+      "name": "test_ltv_options",
+      "exit_code": 0,
+      "binary_sha256": "0809577bf09900946eeca4edb5d632d3cbfe12e7187436a97efb1d24a5fe8cef"
+    },
+    {
+      "name": "test_ltv_landmark_shadow",
+      "exit_code": 0,
+      "binary_sha256": "09d333125bd259c71230c856a06b4b998889c52f9f838d5d02f690e67d7420b3"
+    },
+    {
+      "name": "test_ltv_pose_convention",
+      "exit_code": 0,
+      "binary_sha256": "8005ea48493e8375e165cdb7367f14eacb74e0f6a06186c824cad81b85ba6a81"
+    },
+    {
+      "name": "test_ltv_controlled",
+      "exit_code": 0,
+      "binary_sha256": "440e98c227e5d3f947a20513f0046de705833a8cbb33e9addc833ce5121d2f5e"
+    },
+    {
+      "name": "test_ltv_seed_joint",
+      "exit_code": 0,
+      "binary_sha256": "d52f5ab9c138b12ae1c908d15483c77e1cc246c7ff4d2b583d34459d3ada83d2"
+    },
+    {
+      "name": "test_ltv_full_sensitivity",
+      "exit_code": 0,
+      "binary_sha256": "f5730888794ab0c3da5c6226e1470289f3c979a06ef23cae0de8515c02af232e"
+    },
+    {
+      "name": "test_ltv_main_cross",
+      "exit_code": 0,
+      "binary_sha256": "f5c21ca43a7ff17725f6aca83d1bbc9f110296a7087f2fbefb42dd9e7739d852"
+    },
+    {
+      "name": "test_ltv_native_full_sensitivity",
+      "exit_code": 0,
+      "binary_sha256": "9bbf87c744ed17c9a3b9fbcbfaf3840cb8071bdb1e99d52479abcb7caabe953b"
+    }
+  ],
+  "main": [
+    {
+      "name": "test_ltv_landmark_approx",
+      "exit_code": 0,
+      "binary_sha256": "65a2630668e3ac42011b9566802bf21e6c08b745186676dd9f7c5b3227be6653"
+    },
+    {
+      "name": "test_ltv_alias_fixed",
+      "exit_code": 0,
+      "binary_sha256": "55045896b279ca0bb8c8052be962a7f8724e13a70a5a2a7bc0c38bcab6bfb1e8"
+    },
+    {
+      "name": "test_ltv_core_lifecycle",
+      "exit_code": 0,
+      "binary_sha256": "3c68516927572a81a8860afc23fcb476d46373ff9ab860457f750f1ab502fedf"
+    },
+    {
+      "name": "test_ltv_gv_jacobian",
+      "exit_code": 0,
+      "binary_sha256": "f4e6aed393fb0f2a469b523c129c17c85656bef496f0a78ce5a6bd581ecec6df"
+    },
+    {
+      "name": "test_ltv_gv_covariance",
+      "exit_code": 0,
+      "binary_sha256": "7a5c5780d1d2a03790a7bd09e2253e393bd8fbae4cd64ab7e8ba96222392d225"
+    },
+    {
+      "name": "test_ltv_fej",
+      "exit_code": 0,
+      "binary_sha256": "605bc5d5b61cf7e26f734097287d893b40b5b0cf0ebb743b81d347f89a4dc312"
+    },
+    {
+      "name": "test_ltv_timing",
+      "exit_code": 0,
+      "binary_sha256": "98b5333c05239206396100d0658cd95d357bfc2a486aff990ec0288a84543a97"
+    },
+    {
+      "name": "test_ltv_joint_layout",
+      "exit_code": 0,
+      "binary_sha256": "b47bbfdd990753aa4eb94891f73e79ab8f447a0c14bb73cf0a5676e9a61cfd9f"
+    },
+    {
+      "name": "test_ltv_joint_covariance",
+      "exit_code": 0,
+      "binary_sha256": "26bb062c87b5145c79e59b7a7a1878447fce4d8df932379105d15a670f82dda9"
+    },
+    {
+      "name": "test_ltv_innovation",
+      "exit_code": 0,
+      "binary_sha256": "fc8ab3b3dbcd0abafea9e894befde2830817f82d1a12e3cadc06affa7f1a205f"
+    },
+    {
+      "name": "test_ltv_options",
+      "exit_code": 0,
+      "binary_sha256": "d4e04a368717a8b7a6eec86e13a7bc7dc31130e3b39281a49017d06c77526098"
+    },
+    {
+      "name": "test_ltv_landmark_shadow",
+      "exit_code": 0,
+      "binary_sha256": "7d47ed165b5886121caf822833ef34ede66b98b50d6b0fa1ea8f7c6bb55c6794"
+    },
+    {
+      "name": "test_ltv_pose_convention",
+      "exit_code": 0,
+      "binary_sha256": "e5581478f463e96536f0be7fb02e5a597ef4b1a7a42e450fc3b657aeb050d1d4"
+    },
+    {
+      "name": "test_ltv_controlled",
+      "exit_code": 0,
+      "binary_sha256": "18ff92d6d3a40c43f41fe5f6d698efcca67524dbdcd409ce144a0ddf0216c5cc"
+    },
+    {
+      "name": "test_ltv_seed_joint",
+      "exit_code": 0,
+      "binary_sha256": "bcf6f64c8862ab5bdbe2216d4203990bddf095a288e2916a4c6bfe747b73c97b"
+    },
+    {
+      "name": "test_ltv_full_sensitivity",
+      "exit_code": 0,
+      "binary_sha256": "3028fc32386732f984651502a51b99961046d51d493cc9cedca0b87c93f5a673"
+    },
+    {
+      "name": "test_ltv_main_cross",
+      "exit_code": 0,
+      "binary_sha256": "01281cb7c62f715cbbc3fe38cb02bc53fa7e156ce750b6e4eeb44052a5706293"
+    },
+    {
+      "name": "test_ltv_native_full_sensitivity",
+      "exit_code": 0,
+      "binary_sha256": "5bd38308a5fc8e6ca3435ee5a5916d65970cbdddffbaefd92b0414c3b4fc18d0"
+    }
+  ]
+}
