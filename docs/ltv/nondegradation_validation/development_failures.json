@@ -1,0 +1,14 @@
+{
+  "failed_test": "test_ltv_timing",
+  "exit_code": 139,
+  "failed_build_artifact": "initial/incremental mixed-layout binaries; not used for replays",
+  "backtrace": "/home/he/output/ltv_nondegradation_correlation_20261008/timing_failure_gdb.log",
+  "cause_evidence": [
+    "LtvAdapter.cpp.o completed 14:43, .d includes ltv_observer.h but not newly added LtvErrorShadow.h",
+    "ltv_observer.cpp.o rebuilt 14:54 under enlarged layout",
+    "gdb SIGSEGV at LtvConfig assignment inside LtvObserver::configure from LtvAdapter constructor"
+  ],
+  "repair": "clean-first ov_msckf rebuild after source freeze; no algorithm/parameter changes",
+  "verification": "PENDING clean rebuild and full suite",
+  "backtrace_sha256": "a4abe123ab3e625b3a27a1ef83b9bcbb2ae606f2f52c52765f96fa38a99e2684"
+}

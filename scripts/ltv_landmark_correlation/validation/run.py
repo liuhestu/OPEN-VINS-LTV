@@ -36,14 +36,20 @@ def command(out, name, arguments):
 
 def run(out, label, cmd, cwd=ROOT, extra_env=None):
     ledger = out / 'attempts.jsonl'
+    artifact = label
+    retry = 1
+    while (out / f'{artifact}.log').exists():
+        retry += 1
+        artifact = f'{label}_attempt_{retry:02d}'
+    log_path = out / f'{artifact}.log'
     entry = {'event': 'start', 'label': label, 'command': cmd, 'cwd': str(cwd), 'started': time.time(),
              'commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
-             'extra_env': extra_env or {}}
+             'extra_env': extra_env or {}, 'log_path': str(log_path), 'artifact_label': artifact}
     with ledger.open('a') as f:
         f.write(json.dumps(entry) + '\n')
-    resources = out / f'{label}_resources.json'
+    resources = out / f'{artifact}_resources.json'
     timed = ['/usr/bin/time', '-q', '-f', '{"max_rss_kb":%M,"elapsed_s":%e,"user_s":%U,"system_s":%S}', '-o', str(resources), *cmd]
-    with (out / f'{label}.log').open('w') as f:
+    with log_path.open('w') as f:
         result = subprocess.run(timed, cwd=cwd, env={**ENV, **(extra_env or {})}, stdout=f, stderr=subprocess.STDOUT)
     entry.update(event='finish', exit_code=result.returncode, seconds=time.time() - entry['started'], resources=json.loads(resources.read_text()))
     with ledger.open('a') as f:
@@ -71,9 +77,10 @@ def tests(out):
     (mc / 'frozen_contract.json').write_bytes(contract.read_bytes())
     records.append(run(out, 'test_ltv_observer_mc', command(out, 'test_ltv_observer_mc', [mc])))
     fixture = ROOT / 'docs/ltv_handover/parity_fixture'
-    records.append(run(out, 'core_golden', command(out, 'test_ltv_core_parity',
-                       [fixture / 'inputs.jsonl', out / 'core_golden_matrices.jsonl'])))
-    for actual, expected, label in [(out / 'core_golden.log', fixture / 'expected_outputs.jsonl', 'golden_means'),
+    golden = run(out, 'core_golden', command(out, 'test_ltv_core_parity',
+                 [fixture / 'inputs.jsonl', out / 'core_golden_matrices.jsonl']))
+    records.append(golden)
+    for actual, expected, label in [(Path(golden['log_path']), fixture / 'expected_outputs.jsonl', 'golden_means'),
                                     (out / 'core_golden_matrices.jsonl', fixture / 'expected_matrices.jsonl', 'golden_full_matrices')]:
         records.append(run(out, label, ['python3', str(fixture / 'compare.py'), str(actual),
                            '--expected', str(expected), '--atol', '0', '--rtol', '0']))
