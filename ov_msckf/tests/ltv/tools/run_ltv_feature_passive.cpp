@@ -609,19 +609,19 @@ int main(int argc, char **argv) {
   try {
     if (argc < 5 || argc > 6)
       throw std::runtime_error(
-          "usage: run_ltv_feature_passive config.yaml sensor_ASL_root output_dir B|P_OLD|P_NEW [short_input_seconds<=10]");
+          "usage: run_ltv_feature_passive config.yaml sensor_ASL_root output_dir B|P_OLD|P_NEW [short_input_seconds<=40]");
     const std::string root = argv[2], out = argv[3];
     const std::string requested_mode = argv[4];
 #ifdef LTV_GV_EVALUATION
     if (requested_mode != "OFF" && requested_mode != "G" && requested_mode != "V" && requested_mode != "GV" && requested_mode != "V10" &&
         requested_mode != "L_OFF" && requested_mode != "L_ON")
-      throw std::runtime_error("usage: run_ltv_gv_evaluation config.yaml sensor_ASL_root output_dir OFF|G|V|GV|V10 [seconds<=10]");
+      throw std::runtime_error("usage: run_ltv_gv_evaluation config.yaml sensor_ASL_root output_dir OFF|G|V|GV|V10 [seconds<=40]");
     const std::string mode = "P_NEW";
 #else
     const std::string mode = requested_mode;
 #endif
     const double limit = argc == 6 ? std::stod(argv[5]) : 0;
-    if ((mode != "B" && mode != "P_OLD" && mode != "P_NEW") || !std::isfinite(limit) || limit < 0 || limit > 10 ||
+    if ((mode != "B" && mode != "P_OLD" && mode != "P_NEW") || !std::isfinite(limit) || limit < 0 || limit > 40 ||
         (argc == 6 && limit == 0))
       throw std::runtime_error("invalid passive mode/short input duration");
     auto parser = std::make_shared<ov_core::YamlParser>(argv[1]);
