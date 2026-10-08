@@ -1,0 +1,1130 @@
+[
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/features.jsonl",
+    "expected": {
+      "sha256": "1fdb36ef2aababa7fdadb6ca57aa15f9689d4a0c84c0ac2090fb9a3c9768f5b2",
+      "bytes": 197852997
+    },
+    "actual": {
+      "sha256": "1fdb36ef2aababa7fdadb6ca57aa15f9689d4a0c84c0ac2090fb9a3c9768f5b2",
+      "bytes": 197852997
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/fusion.jsonl",
+    "expected": {
+      "sha256": "c390ff1e4ad4aa2d79d91002bab1c5d4ac74a04b3d196a8f5697e7565535ba5a",
+      "bytes": 1836978
+    },
+    "actual": {
+      "sha256": "c390ff1e4ad4aa2d79d91002bab1c5d4ac74a04b3d196a8f5697e7565535ba5a",
+      "bytes": 1836978
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/matrices.jsonl",
+    "expected": {
+      "sha256": "7d23e4f1f15a0944c1dcbcaaffe7f7539679a00d5614d53d9c134e3a499af7b9",
+      "bytes": 347502974
+    },
+    "actual": {
+      "sha256": "7d23e4f1f15a0944c1dcbcaaffe7f7539679a00d5614d53d9c134e3a499af7b9",
+      "bytes": 347502974
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_G_03/features.jsonl",
+    "expected": {
+      "sha256": "d8111274a2e6241ae86b77b0fc419d97f93d432f46467c999dc52dc1e31a128e",
+      "bytes": 197852714
+    },
+    "actual": {
+      "sha256": "d8111274a2e6241ae86b77b0fc419d97f93d432f46467c999dc52dc1e31a128e",
+      "bytes": 197852714
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_G_03/fusion.jsonl",
+    "expected": {
+      "sha256": "8d6ff7c1a85452d3ceb18888da0e7a87e8f573487c1410b45d63ca42f52cf336",
+      "bytes": 2183352
+    },
+    "actual": {
+      "sha256": "8d6ff7c1a85452d3ceb18888da0e7a87e8f573487c1410b45d63ca42f52cf336",
+      "bytes": 2183352
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_G_03/matrices.jsonl",
+    "expected": {
+      "sha256": "89717a0946feaeb9c62ccd26f1b6e51ecfd9e7609160d941dddda8f385bdca11",
+      "bytes": 1533952075
+    },
+    "actual": {
+      "sha256": "89717a0946feaeb9c62ccd26f1b6e51ecfd9e7609160d941dddda8f385bdca11",
+      "bytes": 1533952075
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_V_03/features.jsonl",
+    "expected": {
+      "sha256": "d1e930154b2892a68669275433d6141ee897bdac826551235351d553be85815f",
+      "bytes": 197852610
+    },
+    "actual": {
+      "sha256": "d1e930154b2892a68669275433d6141ee897bdac826551235351d553be85815f",
+      "bytes": 197852610
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_V_03/fusion.jsonl",
+    "expected": {
+      "sha256": "958c80c966d76247b62c16d43d2685411237767e2d69c490bdc148b414242e56",
+      "bytes": 2210879
+    },
+    "actual": {
+      "sha256": "958c80c966d76247b62c16d43d2685411237767e2d69c490bdc148b414242e56",
+      "bytes": 2210879
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_V_03/matrices.jsonl",
+    "expected": {
+      "sha256": "afacb0f9a066f26a5d5361126dab82b7ef2df0e820662ee7df6982d761cd41d3",
+      "bytes": 1539460020
+    },
+    "actual": {
+      "sha256": "afacb0f9a066f26a5d5361126dab82b7ef2df0e820662ee7df6982d761cd41d3",
+      "bytes": 1539460020
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_GV_01/features.jsonl",
+    "expected": {
+      "sha256": "128be3780bb0301de6c66953d90b4efb1fc547c1d68e727edf7729034fafdca7",
+      "bytes": 197853270
+    },
+    "actual": {
+      "sha256": "128be3780bb0301de6c66953d90b4efb1fc547c1d68e727edf7729034fafdca7",
+      "bytes": 197853270
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_GV_01/fusion.jsonl",
+    "expected": {
+      "sha256": "dd1ad25e2b064c42721e33eb5824efe7c9a866c2fde450f438d026b6f72c696f",
+      "bytes": 2392753
+    },
+    "actual": {
+      "sha256": "dd1ad25e2b064c42721e33eb5824efe7c9a866c2fde450f438d026b6f72c696f",
+      "bytes": 2392753
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_GV_01/matrices.jsonl",
+    "expected": {
+      "sha256": "de8fd763dc84ee2c78bc37a24b44bd5947c956b05babdf4c0c05281b2e93fea8",
+      "bytes": 1551258126
+    },
+    "actual": {
+      "sha256": "de8fd763dc84ee2c78bc37a24b44bd5947c956b05babdf4c0c05281b2e93fea8",
+      "bytes": 1551258126
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/state_groundtruth_estimate0/data.csv",
+    "expected": {
+      "sha256": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "bytes": 3921620
+    },
+    "actual": {
+      "sha256": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "bytes": 3921620
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/features.jsonl",
+    "expected": {
+      "sha256": "b8503b92250c1f56246258f4341a26bb0fdbc1f18179d530758daec5c21bf8cd",
+      "bytes": 131360700
+    },
+    "actual": {
+      "sha256": "b8503b92250c1f56246258f4341a26bb0fdbc1f18179d530758daec5c21bf8cd",
+      "bytes": 131360700
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/fusion.jsonl",
+    "expected": {
+      "sha256": "2f16b40e70b49e617082eebedf247318c5d8e7165561ca67173b951200275f5e",
+      "bytes": 1526187
+    },
+    "actual": {
+      "sha256": "2f16b40e70b49e617082eebedf247318c5d8e7165561ca67173b951200275f5e",
+      "bytes": 1526187
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/matrices.jsonl",
+    "expected": {
+      "sha256": "4b633e3116b518d6e141ddfc7caee4a88bfa8a3c5dc29c128be047902dba6e63",
+      "bytes": 276856532
+    },
+    "actual": {
+      "sha256": "4b633e3116b518d6e141ddfc7caee4a88bfa8a3c5dc29c128be047902dba6e63",
+      "bytes": 276856532
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_G_03/features.jsonl",
+    "expected": {
+      "sha256": "f4cb0df30ed8df55e2c3f9399b33b7684b0dcf5a5cf5e1c66a37812e09dd52d9",
+      "bytes": 131361039
+    },
+    "actual": {
+      "sha256": "f4cb0df30ed8df55e2c3f9399b33b7684b0dcf5a5cf5e1c66a37812e09dd52d9",
+      "bytes": 131361039
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_G_03/fusion.jsonl",
+    "expected": {
+      "sha256": "93d4ca85263517233f646cfe0f12627c80a9ef30a76a460d87e13b4c86ad4071",
+      "bytes": 1705412
+    },
+    "actual": {
+      "sha256": "93d4ca85263517233f646cfe0f12627c80a9ef30a76a460d87e13b4c86ad4071",
+      "bytes": 1705412
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_G_03/matrices.jsonl",
+    "expected": {
+      "sha256": "de0becb92d86982eaa453691a94e1ccabe8a29412f024c3ff4af738a242c61b7",
+      "bytes": 1155137724
+    },
+    "actual": {
+      "sha256": "de0becb92d86982eaa453691a94e1ccabe8a29412f024c3ff4af738a242c61b7",
+      "bytes": 1155137724
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_V_03/features.jsonl",
+    "expected": {
+      "sha256": "794fc52aa97e6af4d1d828a6e332e43f6b05ac6f869bff2c418f1bfd8d1ed071",
+      "bytes": 131360943
+    },
+    "actual": {
+      "sha256": "794fc52aa97e6af4d1d828a6e332e43f6b05ac6f869bff2c418f1bfd8d1ed071",
+      "bytes": 131360943
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_V_03/fusion.jsonl",
+    "expected": {
+      "sha256": "4581a42235850bfe51e33b6fdf36cd461b17e94d45484b76cbd1a979c4e75b72",
+      "bytes": 1707704
+    },
+    "actual": {
+      "sha256": "4581a42235850bfe51e33b6fdf36cd461b17e94d45484b76cbd1a979c4e75b72",
+      "bytes": 1707704
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_V_03/matrices.jsonl",
+    "expected": {
+      "sha256": "59956ffaaa23a67874b125d5bdee0cfe4b330087cb6bc18417cda98018eeb8ca",
+      "bytes": 1156402626
+    },
+    "actual": {
+      "sha256": "59956ffaaa23a67874b125d5bdee0cfe4b330087cb6bc18417cda98018eeb8ca",
+      "bytes": 1156402626
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_GV_01/features.jsonl",
+    "expected": {
+      "sha256": "4be4b4cf487c247070a71be8177b29351b7dc10ad5e5b6272ec6b886f2c705d5",
+      "bytes": 131360425
+    },
+    "actual": {
+      "sha256": "4be4b4cf487c247070a71be8177b29351b7dc10ad5e5b6272ec6b886f2c705d5",
+      "bytes": 131360425
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_GV_01/fusion.jsonl",
+    "expected": {
+      "sha256": "25950bcb8ea4e3d63a8b027c0f62bf3f80d557be3d3031c9f2851bb4a672c970",
+      "bytes": 1799892
+    },
+    "actual": {
+      "sha256": "25950bcb8ea4e3d63a8b027c0f62bf3f80d557be3d3031c9f2851bb4a672c970",
+      "bytes": 1799892
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_GV_01/matrices.jsonl",
+    "expected": {
+      "sha256": "622b39c1196a4e14c2747402503a0c52cf53061ff149c9d56a398880dfaffa50",
+      "bytes": 1161957976
+    },
+    "actual": {
+      "sha256": "622b39c1196a4e14c2747402503a0c52cf53061ff149c9d56a398880dfaffa50",
+      "bytes": 1161957976
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/state_groundtruth_estimate0/data.csv",
+    "expected": {
+      "sha256": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+      "bytes": 3915115
+    },
+    "actual": {
+      "sha256": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+      "bytes": 3915115
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/trajectory.csv",
+    "expected": {
+      "bytes": 793362,
+      "sha256": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f"
+    },
+    "actual": {
+      "sha256": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+      "bytes": 793362
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/effective_options.json",
+    "expected": {
+      "bytes": 1967,
+      "sha256": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+    },
+    "actual": {
+      "sha256": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1",
+      "bytes": 1967
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/identity.json",
+    "expected": {
+      "bytes": 2734,
+      "sha256": "78701da04f1eb61d10ff346de81ace75a90a05b75f37bcdfdf7a31b08791f800"
+    },
+    "actual": {
+      "sha256": "78701da04f1eb61d10ff346de81ace75a90a05b75f37bcdfdf7a31b08791f800",
+      "bytes": 2734
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/replay.json",
+    "expected": {
+      "bytes": 367,
+      "sha256": "57db1ab4ad65078fe080b889c45f49fdb75cd3c2b0602e76978661088d9d7600"
+    },
+    "actual": {
+      "sha256": "57db1ab4ad65078fe080b889c45f49fdb75cd3c2b0602e76978661088d9d7600",
+      "bytes": 367
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+    "expected_sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+    "actual": {
+      "sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+      "bytes": 7717
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/kalibr_imu_chain.yaml",
+    "expected_sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+    "actual": {
+      "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+      "bytes": 1320
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/kalibr_imucam_chain.yaml",
+    "expected_sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+    "actual": {
+      "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+      "bytes": 1226
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam0/data.csv",
+    "expected_sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+    "actual": {
+      "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+      "bytes": 105686
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam1/data.csv",
+    "expected_sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+    "actual": {
+      "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+      "bytes": 105686
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/imu0/data.csv",
+    "expected_sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e",
+    "actual": {
+      "sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e",
+      "bytes": 3305153
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_G_03/trajectory.csv",
+    "expected": {
+      "bytes": 793455,
+      "sha256": "1d5f6183ab58fcb370b69ba75811aa1fd1b8a99bcaad66478f7e9f348ab4011f"
+    },
+    "actual": {
+      "sha256": "1d5f6183ab58fcb370b69ba75811aa1fd1b8a99bcaad66478f7e9f348ab4011f",
+      "bytes": 793455
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_G_03/effective_options.json",
+    "expected": {
+      "bytes": 1967,
+      "sha256": "6d0781e441c3f916d7aa635901acccf4ff0a15d072fe7ecf3101caac7012a1ad"
+    },
+    "actual": {
+      "sha256": "6d0781e441c3f916d7aa635901acccf4ff0a15d072fe7ecf3101caac7012a1ad",
+      "bytes": 1967
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_G_03/identity.json",
+    "expected": {
+      "bytes": 2725,
+      "sha256": "6d4e7527e9a5aa9f6d7cbf7c7ca50bd862c0da25ac41446c8d600f322379cd62"
+    },
+    "actual": {
+      "sha256": "6d4e7527e9a5aa9f6d7cbf7c7ca50bd862c0da25ac41446c8d600f322379cd62",
+      "bytes": 2725
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_G_03/replay.json",
+    "expected": {
+      "bytes": 370,
+      "sha256": "f7acec9f512877e6d49889058bbcb82a1022c2c32ee15a4f2da228a61c87baa7"
+    },
+    "actual": {
+      "sha256": "f7acec9f512877e6d49889058bbcb82a1022c2c32ee15a4f2da228a61c87baa7",
+      "bytes": 370
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+    "expected_sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+    "actual": {
+      "sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+      "bytes": 7717
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/kalibr_imu_chain.yaml",
+    "expected_sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+    "actual": {
+      "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+      "bytes": 1320
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/kalibr_imucam_chain.yaml",
+    "expected_sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+    "actual": {
+      "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+      "bytes": 1226
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam0/data.csv",
+    "expected_sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+    "actual": {
+      "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+      "bytes": 105686
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam1/data.csv",
+    "expected_sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+    "actual": {
+      "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+      "bytes": 105686
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/imu0/data.csv",
+    "expected_sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e",
+    "actual": {
+      "sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e",
+      "bytes": 3305153
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_V_03/trajectory.csv",
+    "expected": {
+      "bytes": 793352,
+      "sha256": "277ebac438c1d7301dd4de63d4caa885ca7e9a307d60c2d30aa2042d13a20eff"
+    },
+    "actual": {
+      "sha256": "277ebac438c1d7301dd4de63d4caa885ca7e9a307d60c2d30aa2042d13a20eff",
+      "bytes": 793352
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_V_03/effective_options.json",
+    "expected": {
+      "bytes": 1967,
+      "sha256": "fa41f61695f49eae27dfa85f3b87b1e8987fe4ba9e3c7b769ee357de33d5983d"
+    },
+    "actual": {
+      "sha256": "fa41f61695f49eae27dfa85f3b87b1e8987fe4ba9e3c7b769ee357de33d5983d",
+      "bytes": 1967
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_V_03/identity.json",
+    "expected": {
+      "bytes": 2726,
+      "sha256": "0861072f0b8e642c3af911bd10aaf255e6bf7fcaa10bd179c7a83076d20a6499"
+    },
+    "actual": {
+      "sha256": "0861072f0b8e642c3af911bd10aaf255e6bf7fcaa10bd179c7a83076d20a6499",
+      "bytes": 2726
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_V_03/replay.json",
+    "expected": {
+      "bytes": 370,
+      "sha256": "8443d7c532afe594b1236ae4614ee6adc32e064ada9e3e50ed2855aa6bfe7805"
+    },
+    "actual": {
+      "sha256": "8443d7c532afe594b1236ae4614ee6adc32e064ada9e3e50ed2855aa6bfe7805",
+      "bytes": 370
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+    "expected_sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+    "actual": {
+      "sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+      "bytes": 7717
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/kalibr_imu_chain.yaml",
+    "expected_sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+    "actual": {
+      "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+      "bytes": 1320
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/kalibr_imucam_chain.yaml",
+    "expected_sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+    "actual": {
+      "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+      "bytes": 1226
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam0/data.csv",
+    "expected_sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+    "actual": {
+      "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+      "bytes": 105686
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam1/data.csv",
+    "expected_sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+    "actual": {
+      "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+      "bytes": 105686
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/imu0/data.csv",
+    "expected_sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e",
+    "actual": {
+      "sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e",
+      "bytes": 3305153
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_GV_01/trajectory.csv",
+    "expected": {
+      "bytes": 793331,
+      "sha256": "3c701902822129026e05b9531f99f9aca8e001035c7ea206cdf3282ab4def2fa"
+    },
+    "actual": {
+      "sha256": "3c701902822129026e05b9531f99f9aca8e001035c7ea206cdf3282ab4def2fa",
+      "bytes": 793331
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_GV_01/effective_options.json",
+    "expected": {
+      "bytes": 1967,
+      "sha256": "ead0a708a9ba09b2cd8005f74fbd156986f9acf940c9404a28a8ec3bf5ec67e0"
+    },
+    "actual": {
+      "sha256": "ead0a708a9ba09b2cd8005f74fbd156986f9acf940c9404a28a8ec3bf5ec67e0",
+      "bytes": 1967
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_GV_01/identity.json",
+    "expected": {
+      "bytes": 2729,
+      "sha256": "73904a351e80022310096c644a5f8da978fc9e365e27ce9cd712f0471a356f61"
+    },
+    "actual": {
+      "sha256": "73904a351e80022310096c644a5f8da978fc9e365e27ce9cd712f0471a356f61",
+      "bytes": 2729
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_GV_01/replay.json",
+    "expected": {
+      "bytes": 373,
+      "sha256": "f45af9313adb7a6c6793e14b62af18e1489edc644292ae59edda416ae2529e0f"
+    },
+    "actual": {
+      "sha256": "f45af9313adb7a6c6793e14b62af18e1489edc644292ae59edda416ae2529e0f",
+      "bytes": 373
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+    "expected_sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+    "actual": {
+      "sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+      "bytes": 7717
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/kalibr_imu_chain.yaml",
+    "expected_sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+    "actual": {
+      "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+      "bytes": 1320
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/kalibr_imucam_chain.yaml",
+    "expected_sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+    "actual": {
+      "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+      "bytes": 1226
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam0/data.csv",
+    "expected_sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+    "actual": {
+      "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+      "bytes": 105686
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam1/data.csv",
+    "expected_sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+    "actual": {
+      "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+      "bytes": 105686
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/imu0/data.csv",
+    "expected_sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e",
+    "actual": {
+      "sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e",
+      "bytes": 3305153
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/trajectory.csv",
+    "expected": {
+      "bytes": 632820,
+      "sha256": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3"
+    },
+    "actual": {
+      "sha256": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+      "bytes": 632820
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/effective_options.json",
+    "expected": {
+      "bytes": 1967,
+      "sha256": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+    },
+    "actual": {
+      "sha256": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1",
+      "bytes": 1967
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/identity.json",
+    "expected": {
+      "bytes": 2766,
+      "sha256": "9c96c586f9e9cddeb8ca7968a1f1afd66bf1885f78969fb369afdebb984f985e"
+    },
+    "actual": {
+      "sha256": "9c96c586f9e9cddeb8ca7968a1f1afd66bf1885f78969fb369afdebb984f985e",
+      "bytes": 2766
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/replay.json",
+    "expected": {
+      "bytes": 369,
+      "sha256": "be5d18dd307fa24c9f0bbb6c113d001080924c47bc9f96e14bb47c06dfde6e25"
+    },
+    "actual": {
+      "sha256": "be5d18dd307fa24c9f0bbb6c113d001080924c47bc9f96e14bb47c06dfde6e25",
+      "bytes": 369
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+    "expected_sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+    "actual": {
+      "sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+      "bytes": 7717
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/kalibr_imu_chain.yaml",
+    "expected_sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+    "actual": {
+      "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+      "bytes": 1320
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/kalibr_imucam_chain.yaml",
+    "expected_sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+    "actual": {
+      "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+      "bytes": 1226
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam0/data.csv",
+    "expected_sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9",
+    "actual": {
+      "sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9",
+      "bytes": 86516
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam1/data.csv",
+    "expected_sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79",
+    "actual": {
+      "sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79",
+      "bytes": 105146
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/imu0/data.csv",
+    "expected_sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6",
+    "actual": {
+      "sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6",
+      "bytes": 3283929
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_G_03/trajectory.csv",
+    "expected": {
+      "bytes": 632768,
+      "sha256": "7a0243c0c567d1b406c39d8c84055f0c6800b8dcf6d76570b4d92285498ca280"
+    },
+    "actual": {
+      "sha256": "7a0243c0c567d1b406c39d8c84055f0c6800b8dcf6d76570b4d92285498ca280",
+      "bytes": 632768
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_G_03/effective_options.json",
+    "expected": {
+      "bytes": 1967,
+      "sha256": "6d0781e441c3f916d7aa635901acccf4ff0a15d072fe7ecf3101caac7012a1ad"
+    },
+    "actual": {
+      "sha256": "6d0781e441c3f916d7aa635901acccf4ff0a15d072fe7ecf3101caac7012a1ad",
+      "bytes": 1967
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_G_03/identity.json",
+    "expected": {
+      "bytes": 2759,
+      "sha256": "b2e214753a3c17c3767862d27ba028b727853a6d4c55257bb8c70dff3259ad2d"
+    },
+    "actual": {
+      "sha256": "b2e214753a3c17c3767862d27ba028b727853a6d4c55257bb8c70dff3259ad2d",
+      "bytes": 2759
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_G_03/replay.json",
+    "expected": {
+      "bytes": 371,
+      "sha256": "9fb132afbeb71931739adad831fe1f434456a25b6069ea06aa8a4eb92373f6c9"
+    },
+    "actual": {
+      "sha256": "9fb132afbeb71931739adad831fe1f434456a25b6069ea06aa8a4eb92373f6c9",
+      "bytes": 371
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+    "expected_sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+    "actual": {
+      "sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+      "bytes": 7717
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/kalibr_imu_chain.yaml",
+    "expected_sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+    "actual": {
+      "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+      "bytes": 1320
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/kalibr_imucam_chain.yaml",
+    "expected_sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+    "actual": {
+      "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+      "bytes": 1226
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam0/data.csv",
+    "expected_sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9",
+    "actual": {
+      "sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9",
+      "bytes": 86516
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam1/data.csv",
+    "expected_sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79",
+    "actual": {
+      "sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79",
+      "bytes": 105146
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/imu0/data.csv",
+    "expected_sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6",
+    "actual": {
+      "sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6",
+      "bytes": 3283929
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_V_03/trajectory.csv",
+    "expected": {
+      "bytes": 632715,
+      "sha256": "f33b9c4b5d67d9c180d960c6826e2feba48014f4f26fe14c0c424429528e07e4"
+    },
+    "actual": {
+      "sha256": "f33b9c4b5d67d9c180d960c6826e2feba48014f4f26fe14c0c424429528e07e4",
+      "bytes": 632715
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_V_03/effective_options.json",
+    "expected": {
+      "bytes": 1967,
+      "sha256": "fa41f61695f49eae27dfa85f3b87b1e8987fe4ba9e3c7b769ee357de33d5983d"
+    },
+    "actual": {
+      "sha256": "fa41f61695f49eae27dfa85f3b87b1e8987fe4ba9e3c7b769ee357de33d5983d",
+      "bytes": 1967
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_V_03/identity.json",
+    "expected": {
+      "bytes": 2759,
+      "sha256": "f78bc59e79486eff840bc5863410aed375143a5725d43884be2e0bf3a6f9f2f5"
+    },
+    "actual": {
+      "sha256": "f78bc59e79486eff840bc5863410aed375143a5725d43884be2e0bf3a6f9f2f5",
+      "bytes": 2759
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_V_03/replay.json",
+    "expected": {
+      "bytes": 371,
+      "sha256": "a8a542c956e4c1dc343b7c87e7b7fbd425f2808ba66ba599770e728834f0397f"
+    },
+    "actual": {
+      "sha256": "a8a542c956e4c1dc343b7c87e7b7fbd425f2808ba66ba599770e728834f0397f",
+      "bytes": 371
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+    "expected_sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+    "actual": {
+      "sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+      "bytes": 7717
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/kalibr_imu_chain.yaml",
+    "expected_sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+    "actual": {
+      "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+      "bytes": 1320
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/kalibr_imucam_chain.yaml",
+    "expected_sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+    "actual": {
+      "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+      "bytes": 1226
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam0/data.csv",
+    "expected_sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9",
+    "actual": {
+      "sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9",
+      "bytes": 86516
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam1/data.csv",
+    "expected_sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79",
+    "actual": {
+      "sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79",
+      "bytes": 105146
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/imu0/data.csv",
+    "expected_sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6",
+    "actual": {
+      "sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6",
+      "bytes": 3283929
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_GV_01/trajectory.csv",
+    "expected": {
+      "bytes": 632683,
+      "sha256": "127d1a63353cab546bb5fcdb99785610d76ed7c70403de13eab08cb36f388df4"
+    },
+    "actual": {
+      "sha256": "127d1a63353cab546bb5fcdb99785610d76ed7c70403de13eab08cb36f388df4",
+      "bytes": 632683
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_GV_01/effective_options.json",
+    "expected": {
+      "bytes": 1967,
+      "sha256": "ead0a708a9ba09b2cd8005f74fbd156986f9acf940c9404a28a8ec3bf5ec67e0"
+    },
+    "actual": {
+      "sha256": "ead0a708a9ba09b2cd8005f74fbd156986f9acf940c9404a28a8ec3bf5ec67e0",
+      "bytes": 1967
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_GV_01/identity.json",
+    "expected": {
+      "bytes": 2763,
+      "sha256": "ea7ddd30e1a2680eff1c7f5fa820e46fa96fa07acfbbcec7ec1bba9c209d03c7"
+    },
+    "actual": {
+      "sha256": "ea7ddd30e1a2680eff1c7f5fa820e46fa96fa07acfbbcec7ec1bba9c209d03c7",
+      "bytes": 2763
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_GV_01/replay.json",
+    "expected": {
+      "bytes": 373,
+      "sha256": "8a7861dcb477c7630616958887dc3882cc0681c2d7778f9a225f6a1df08c7960"
+    },
+    "actual": {
+      "sha256": "8a7861dcb477c7630616958887dc3882cc0681c2d7778f9a225f6a1df08c7960",
+      "bytes": 373
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+    "expected_sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+    "actual": {
+      "sha256": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+      "bytes": 7717
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/kalibr_imu_chain.yaml",
+    "expected_sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+    "actual": {
+      "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+      "bytes": 1320
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/kalibr_imucam_chain.yaml",
+    "expected_sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+    "actual": {
+      "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7",
+      "bytes": 1226
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam0/data.csv",
+    "expected_sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9",
+    "actual": {
+      "sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9",
+      "bytes": 86516
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam1/data.csv",
+    "expected_sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79",
+    "actual": {
+      "sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79",
+      "bytes": 105146
+    },
+    "status": "PASS"
+  },
+  {
+    "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/imu0/data.csv",
+    "expected_sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6",
+    "actual": {
+      "sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6",
+      "bytes": 3283929
+    },
+    "status": "PASS"
+  }
+]
