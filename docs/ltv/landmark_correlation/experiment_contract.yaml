@@ -62,5 +62,7 @@
   "overhead": "sequential full replay measured whole-run resources; heavy diagnostic overhead separate; production p95/queue NOT_EVALUATED unless matched measurement exists",
   "LC08": "rolling pre-consumption current-bearing prediction; strict past historical geometry; three-way common sample, frozen1s block bootstrap2000 seed20261005; not permanent holdout; historical contract reused",
   "real_landmark_truth": "UNAVAILABLE; statistical Sigma_L calibration NOT_EVALUATED",
-  "GO": "all required real joint/source blocks valid and identifiable conditional increment and numerical conditions; else STOP"
+  "GO": "all required real joint/source blocks valid and identifiable conditional increment and numerical conditions; else STOP",
+  "supplemental_actual_observer_contract": "observer_mc/contract.json: frozen three amplitudes x4000 two-Euler+camera full native mapping; old1000 singleEuler retained as narrower test",
+  "supplemental_shadow_repetition": "reference7.3(4): two identical-config full SHADOW_OFF runs per sequence, matrix/source streams exact SHA"
 }

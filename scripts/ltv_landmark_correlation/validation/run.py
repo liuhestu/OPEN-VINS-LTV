@@ -80,7 +80,7 @@ def tests(out):
     golden = run(out, 'core_golden', command(out, 'test_ltv_core_parity',
                  [fixture / 'inputs.jsonl', out / 'core_golden_matrices.jsonl']))
     records.append(golden)
-    for actual, expected, label in [(Path(golden['log_path']), fixture / 'expected_outputs.jsonl', 'golden_means'),
+    for actual, expected, label in [(Path(golden['log_path']), out / 'historical_core.log', 'golden_means'),
                                     (out / 'core_golden_matrices.jsonl', fixture / 'expected_matrices.jsonl', 'golden_full_matrices')]:
         records.append(run(out, label, ['python3', str(fixture / 'compare.py'), str(actual),
                            '--expected', str(expected), '--atol', '0', '--rtol', '0']))
@@ -97,11 +97,11 @@ def replay(out):
         for name, digest in inp['config_sha'].items():
             assert sha(Path(inp['config']).parent / name) == digest
         paired = []
-        for mode in ('OFF', 'SHADOW_OFF'):
-            destination = out / 'runs' / f'{seq}_{mode}_01'
+        for mode, repeat in (('OFF', 1), ('SHADOW_OFF', 1), ('SHADOW_OFF', 2)):
+            destination = out / 'runs' / f'{seq}_{mode}_{repeat:02d}'
             destination.mkdir(parents=True, exist_ok=False)
             extra = {'LTV_JOINT_SHADOW_PATH': str(destination / 'joint_shadow.csv')} if mode == 'SHADOW_OFF' else {}
-            record = run(out, seq + '_' + mode + '_01', command(out, 'run_ltv_gv_evaluation',
+            record = run(out, seq + '_' + mode + f'_{repeat:02d}', command(out, 'run_ltv_gv_evaluation',
                          [inp['config'], inp['root'], destination, 'OFF']), cwd=destination, extra_env=extra)
             parity = exact.compare(inp['off_path'], destination)
             parity['ltv_rows'] = exact.csv_exact(Path(inp['off_path']) / 'ltv.csv', destination / 'ltv.csv')
@@ -119,7 +119,7 @@ def replay(out):
             timing = np.genfromtxt(destination / 'frame_processing.csv', delimiter=',', names=True)
             assert len(timing) == metadata['camera_packets']
             assert np.all(np.isfinite(timing['feed_camera_ms']))
-            summary = {'sequence': seq, 'mode': mode, 'run': record, 'parity': parity, 'output_sha256': hashes,
+            summary = {'sequence': seq, 'mode': mode, 'repeat': repeat, 'run': record, 'parity': parity, 'output_sha256': hashes,
                        'replay': metadata, 'frame_feed_camera_ms_p95': float(np.percentile(timing['feed_camera_ms'], 95)),
                        'frame_feed_camera_ms_max': float(np.max(timing['feed_camera_ms']))}
             if mode == 'SHADOW_OFF':
@@ -131,7 +131,14 @@ def replay(out):
                                missing_blocks=sorted(set(row['missing_blocks'] for row in rows)),
                                events={event: sum(row['event'] == event for row in rows) for event in sorted(set(row['event'] for row in rows))},
                                shadow_path=str(destination / 'joint_shadow.csv'), shadow_sha256=sha(destination / 'joint_shadow.csv'))
-            write(DOC / f'{seq}_{mode}.json', summary)
+            if repeat == 2:
+                first = out / 'runs' / f'{seq}_{mode}_01'
+                deterministic = {}
+                for name in ('joint_shadow.csv', 'joint_shadow.csv.matrices.jsonl', 'joint_shadow.csv.matrices.bin', 'shadow_receipts.jsonl'):
+                    deterministic[name] = {'first': sha(first / name), 'repeat': sha(destination / name)}
+                    assert deterministic[name]['first'] == deterministic[name]['repeat'], (seq, name, 'shadow not deterministic')
+                summary['shadow_determinism'] = deterministic
+            write(DOC / f'{seq}_{mode}_{repeat:02d}.json', summary)
             paired.append(summary)
             records.append(summary)
         shadow, baseline = paired[1], paired[0]

@@ -13,7 +13,11 @@ DOC = ROOT / 'docs/ltv/nondegradation_validation'
 
 
 def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    digest = hashlib.sha256()
+    with path.open('rb') as stream:
+        for block in iter(lambda: stream.read(4 * 1024 * 1024), b''):
+            digest.update(block)
+    return digest.hexdigest()
 
 
 def write_csv(path, rows):
@@ -28,7 +32,7 @@ def closeout(out):
     tests = json.loads((DOC / 'tests.json').read_text())
     assert len(tests) == 31 and all(row['exit_code'] == 0 for row in tests)
     replays = json.loads((DOC / 'full_shadow_replays.json').read_text())
-    assert len(replays) == 4
+    assert len(replays) == 6
     assert all(row['run']['exit_code'] == 0 and row['replay']['complete'] and
                row['parity']['status'] == 'PASS_EXACT_NATIVE_PASSIVE' for row in replays)
     shadow_audits = {}
@@ -69,8 +73,11 @@ def closeout(out):
             index.append({'kind': 'holdout_history', **row})
     for row in replays:
         for name, digest in row['output_sha256'].items():
-            index.append({'kind': 'new_real', 'path': str(out / 'runs' / f"{row['sequence']}_{row['mode']}_01" / name),
+            index.append({'kind': 'new_real', 'path': str(Path(row['run']['cwd']) / name),
                           'sha256': digest, 'status': 'EXACT_FIELDS_ONLY' if name == 'features.jsonl' else 'EXACT_BYTES'})
+        index.append({'kind': 'new_real_canonical_features', 'path': str(Path(row['run']['cwd']) / 'features.jsonl'),
+                      'sha256': row['parity']['features']['canonical_sha'], 'status': 'EXACT_CANONICAL_JSON',
+                      'hash_semantics': 'sorted JSON; only compute_time_ms excluded'})
     for path in sorted(out.glob('*.log')):
         index.append({'kind': 'new_log', 'path': str(path), 'sha256': sha(path), 'status': 'RETAINED'})
     for path in sorted(out.iterdir()):
@@ -88,6 +95,8 @@ def closeout(out):
     write_csv(DOC / 'evidence_index.csv', index)
     shutil.copyfile(ROOT / 'docs/ltv/landmark_correlation/gv/metrics.csv', DOC / 'metrics.csv')
     manifest = json.loads((DOC / 'manifest.json').read_text())
+    for name, expected in manifest['source_identity_before_clean_build']['source_sha256'].items():
+        assert sha(ROOT / name) == expected, ('post-freeze source changed', name)
     manifest['tested_commit'] = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     manifest['clean_build'] = {'command': (out / 'build_clean.sh').read_text(), 'log': str(out / 'build_clean.log'),
                                'log_sha256': sha(out / 'build_clean.log'), 'exit_code': 0,

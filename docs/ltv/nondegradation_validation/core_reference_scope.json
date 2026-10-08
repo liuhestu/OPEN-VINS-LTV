@@ -1,0 +1,12 @@
+{
+  "scope": "published prototype export P entries are not bit-exact even for archived native baseline; published tolerance unchanged; new-vs-matched-native remains exact",
+  "prototype_first_difference": "events[3].P[0][2]: expected -4.5324793461245499e-13, archived-native -3.9640451574502953e-13",
+  "published_spec": "docs/ltv_handover/parity_fixture/compare.py: atol1e-8 rtol1e-10",
+  "archived_native_binary": "/home/he/output/ltv_landmark_validation_20261005/install/ov_msckf/lib/ov_msckf/test_ltv_core_parity",
+  "archived_native_binary_sha256": "e8e6d0d9ca429155d7f77396519736e7f3657d89e1cbadee316254c93cf0d593",
+  "matched_native_output": "/home/he/output/ltv_nondegradation_correlation_20261008/historical_core.log",
+  "matched_native_output_sha256": "8c9e8c8d490411ec1bd9c86c90a4da74d35d4c1be19d3e7d46c5540b5474bbc7",
+  "new_vs_archived_native_tolerance": 0,
+  "native_design_matrices_vs_published_tolerance": 0,
+  "full_real_OFF_comparison": "unchanged exact frozen baseline; no tolerance relaxation"
+}
