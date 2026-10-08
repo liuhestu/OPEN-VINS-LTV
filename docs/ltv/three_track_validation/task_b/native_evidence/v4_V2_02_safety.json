@@ -1,0 +1,22 @@
+{
+  "status": "PASS_ACTUAL_EXERCISE_NUMERICS_WITHIN_SCOPE",
+  "scope": "REGISTERED_40S_PREFIX_ONLY",
+  "frames": 800,
+  "selected_frames": 401,
+  "actual_applied_frames": 401,
+  "actual_applied_points": 802,
+  "nonzero_component_frames": 401,
+  "first_applied_camera_time": 1413393895.6057606,
+  "first_full_main_state_P_difference_ns": 1413393895605760512,
+  "current_IMU_mean_changed": true,
+  "first_current_mean_change_s": 1413393895.6057606,
+  "maximum_landmark_component_norm_mixed_units": 6.8570650029402894e-06,
+  "maximum_gyro_bias_component_rad_s": 1.2364533640076221e-08,
+  "maximum_accel_bias_component_m_s2": 1.454001815825531e-06,
+  "approximation": "shared-source cross blocks omitted, not proved zero; native covariance chart limitation",
+  "engineering_full_non_degradation": "NOT_EVALUATED_BY_THIS_SAFETY_AUDIT",
+  "accuracy_benefit": "NOT_EVALUATED_BY_THIS_SAFETY_AUDIT",
+  "statistical_calibration": "NOT_CLAIMED",
+  "off_path": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_prefix40_V2_02_medium_L_OFF_v4_20261008T132300_e1ca9802",
+  "on_path": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_prefix40_V2_02_medium_L_ON_v4_20261008T132524_638f63f9"
+}

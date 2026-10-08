@@ -1,0 +1,104 @@
+[
+  {
+    "name": "full_fd",
+    "command": [
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/builds/6982e0473b6963ab95dfb169b585c09f464bfa8e/install/ov_msckf/lib/ov_msckf/test_ltv_full_sensitivity"
+    ],
+    "exit_code": 0,
+    "binary_sha256": "9e7a3934f13682ce429a44a2a240260a738b1c7625008e6812484a666a41b758"
+  },
+  {
+    "name": "source_cross",
+    "command": [
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/builds/6982e0473b6963ab95dfb169b585c09f464bfa8e/install/ov_msckf/lib/ov_msckf/test_ltv_main_cross",
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/results/c_finite_corrected_unit_checks_attempt1_20261008T130712_3816adba/controlled_cross.csv"
+    ],
+    "exit_code": 0,
+    "binary_sha256": "6b41ac9bb0ca6f0479bfa2ecd70420122fffd9fc4fb887dd1f5fd934ba65eb16"
+  },
+  {
+    "name": "native_bounded",
+    "command": [
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/builds/6982e0473b6963ab95dfb169b585c09f464bfa8e/install/ov_msckf/lib/ov_msckf/test_ltv_native_full_sensitivity",
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/results/c_finite_corrected_unit_checks_attempt1_20261008T130712_3816adba/native_bounded.csv",
+      "bounded"
+    ],
+    "exit_code": 0,
+    "binary_sha256": "6ee6d2909e6236d80d3b354874d9c97e3a507fdb566f9a3c76f18911641d7647"
+  },
+  {
+    "name": "native_production",
+    "command": [
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/builds/6982e0473b6963ab95dfb169b585c09f464bfa8e/install/ov_msckf/lib/ov_msckf/test_ltv_native_full_sensitivity",
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/results/c_finite_corrected_unit_checks_attempt1_20261008T130712_3816adba/native_production.csv",
+      "production"
+    ],
+    "exit_code": 0,
+    "binary_sha256": "6ee6d2909e6236d80d3b354874d9c97e3a507fdb566f9a3c76f18911641d7647"
+  },
+  {
+    "name": "native_reject",
+    "command": [
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/builds/6982e0473b6963ab95dfb169b585c09f464bfa8e/install/ov_msckf/lib/ov_msckf/test_ltv_native_full_sensitivity",
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/results/c_finite_corrected_unit_checks_attempt1_20261008T130712_3816adba/native_reject.csv",
+      "reject"
+    ],
+    "exit_code": 0,
+    "binary_sha256": "6ee6d2909e6236d80d3b354874d9c97e3a507fdb566f9a3c76f18911641d7647"
+  },
+  {
+    "name": "test_ltv_seed_joint",
+    "command": [
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/builds/6982e0473b6963ab95dfb169b585c09f464bfa8e/install/ov_msckf/lib/ov_msckf/test_ltv_seed_joint"
+    ],
+    "exit_code": 0,
+    "binary_sha256": "ffc8c51b2961ad5a6ad30dd699162e2ebd94df3c3b4f62446431e8418c9d7526"
+  },
+  {
+    "name": "test_ltv_controlled",
+    "command": [
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/builds/6982e0473b6963ab95dfb169b585c09f464bfa8e/install/ov_msckf/lib/ov_msckf/test_ltv_controlled"
+    ],
+    "exit_code": 0,
+    "binary_sha256": "754e177b6b0ad90e7202b9bec64226c43a8a2fbf0eb37475713f87aef7011eab"
+  },
+  {
+    "name": "test_ltv_core_lifecycle",
+    "command": [
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/builds/6982e0473b6963ab95dfb169b585c09f464bfa8e/install/ov_msckf/lib/ov_msckf/test_ltv_core_lifecycle"
+    ],
+    "exit_code": 0,
+    "binary_sha256": "ad2d54c86b1a5fa797b1a0edf2ced7d0eac1715666bfca070ac7155761a7e8c5"
+  },
+  {
+    "name": "test_ltv_pose_convention",
+    "command": [
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/builds/6982e0473b6963ab95dfb169b585c09f464bfa8e/install/ov_msckf/lib/ov_msckf/test_ltv_pose_convention"
+    ],
+    "exit_code": 0,
+    "binary_sha256": "c5344a893e6e055b3fb5eaf8f9561941a53635c837e1d2fcac8dfd5a73174b55"
+  },
+  {
+    "name": "test_ltv_landmark_shadow",
+    "command": [
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/builds/6982e0473b6963ab95dfb169b585c09f464bfa8e/install/ov_msckf/lib/ov_msckf/test_ltv_landmark_shadow"
+    ],
+    "exit_code": 0,
+    "binary_sha256": "07af9a585e290536b272023ab9c7d7041768716f7a99f2c06f0ae86da7116639"
+  },
+  {
+    "name": "parity",
+    "command": [
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/builds/6982e0473b6963ab95dfb169b585c09f464bfa8e/install/ov_msckf/lib/ov_msckf/test_ltv_core_parity",
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/source/6982e0473b6963ab95dfb169b585c09f464bfa8e/docs/ltv_handover/parity_fixture/inputs.jsonl",
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/results/c_finite_corrected_unit_checks_attempt1_20261008T130712_3816adba/parity_matrices.jsonl"
+    ],
+    "exit_code": 0,
+    "binary_sha256": "009a7bfb6383ef0c344de3918fb738f6f398b75c6d04b7b0fcbf5913706d93d7"
+  },
+  {
+    "name": "parity_golden_compare",
+    "exit_code": 0,
+    "tolerance": "original fixture 1e-8 + 1e-10 relative, not OFF exact"
+  }
+]

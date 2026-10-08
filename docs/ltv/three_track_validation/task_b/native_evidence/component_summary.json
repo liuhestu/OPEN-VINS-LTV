@@ -1,0 +1,14 @@
+{
+  "status": "PASS_NATIVE_COMPONENT_RECONSTRUCTION",
+  "scope": "actual joint matrix capture and receipt components",
+  "mode": "G/V OFF; approximation shared-source cross blocks omitted",
+  "calibration": "NOT_CLAIMED",
+  "frames": 401,
+  "maximum_component_norms": {
+    "theta_rad": 1.953644031032758e-07,
+    "position_G_m": 2.2299876247018983e-06,
+    "velocity_G_m_s": 2.6037941947175185e-06,
+    "gyro_bias_I_rad_s": 1.2364533640076223e-08,
+    "accel_bias_I_m_s2": 1.4540018158255311e-06
+  }
+}

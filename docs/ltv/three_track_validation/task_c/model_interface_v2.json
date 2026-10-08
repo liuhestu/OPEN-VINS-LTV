@@ -1,0 +1,98 @@
+{
+  "version": "finite-native-joint-v2-program-chart-corrected",
+  "binary_source_oid": "6982e0473b6963ab95dfb169b585c09f464bfa8e",
+  "analysis_source_oid": "104d379077e622002f7c942b21563fca608b7f45",
+  "correlated_kernel_source_oid": "a6702e6801e170d21475579ff55f97d646676786",
+  "baseline_oid": "2417d036002fbfd542ae71d96d0fc734cd6d47e8",
+  "input_contract": {
+    "path": "/home/he/output/ltv_three_track_20261008_1827/contracts/data_identity_a_version.json",
+    "sha256": "17e5e13e92282cedc47a77916f16583dfaf66d69f8f0ad6c153bf9c3c08f02f3"
+  },
+  "phase": {
+    "current": "after actual main IMU propagation/clone, before current finite Observer camera correction and before main visual update",
+    "anchor": "after previous finite Observer camera correction, before its main visual update; its covariance source correlation propagates through later main updates",
+    "bias": "frozen main estimated bias receipt before propagation; reused by subsequent Observer IMU integration"
+  },
+  "actor": "independent one-slot native Observer with same q/V/P_R/floor/substep rules; not production30-slot crop",
+  "available_blocks": [
+    "Sigma_main_local_program",
+    "P_stored_main",
+    "Sigma_observer_mean",
+    "C_main_local_program_observer",
+    "Sigma_anchor_<time>",
+    "Sigma_current_anchor_<time>",
+    "C_main_local_program_anchor_<time>",
+    "nominal_poses_time_orientation_row_position_row_qGtoI_xyzw_pWorld"
+  ],
+  "error_spaces": {
+    "main": "m=-native local estimate perturbation; map actual attitude true-est with M(e0) from independent mean/GT before renaming",
+    "observer": "program mean variation equals est-true body-vector error variation at fixed physical truth/time/calibration; error mean is separate"
+  },
+  "conditions": [
+    "declared initial prior law, not actual initializer/history-error calibration",
+    "fixed calibration/time; declared white raw IMU and pixel hypotheses",
+    "conditional nominal main H/K/FEJ/QR schedule",
+    "fresh historical seed sources only; previously consumed pixels before registration rejected",
+    "same identity/variance on reuse; supported clone/IMU expiry window and all-state/source QR preservation",
+    "model missing counter is cumulative without reason detail; unknown events cannot be declared benign"
+  ],
+  "kernel": {
+    "header": "ov_msckf/src/ltv/fusion/LtvCorrelatedLandmark.h",
+    "implemented": "same-chart R_L/N_L/visual cross, stable correlated S/K/Pplus, program pose Jacobian; finite/symmetric/PSD checks and singular duplicate rejection",
+    "state_mutation": false,
+    "C4_runtime_replacement": "NOT_RUN"
+  },
+  "validation": {
+    "known_truth_covariance_MC": "0.496% error,12000 samples; conditional linear-main nominal-zero-injection scope",
+    "deterministic_mean_error_norm": 9.85903,
+    "zero_mean_statistical_consistency": "NOT_PROVEN",
+    "real_landmark_calibration": "NOT_EVALUATED",
+    "short_prefix_exact": "PASS; full completion not inherited",
+    "complete_DEV_finite_replay": "PASS_EXACT_READ_ONLY_WITHIN_CONDITIONAL_SCOPE; source validity INCONCLUSIVE",
+    "source_missing_events": {
+      "V2_02": 35,
+      "V2_03": 22,
+      "classification": "unavailable in current logger; not assumed benign"
+    },
+    "GT_main_chart_mapping": {
+      "V2_02_mapped": 2158,
+      "V2_02_NOT_EVALUATED": 13,
+      "V2_03_mapped": 1678,
+      "V2_03_NOT_EVALUATED": 7,
+      "landmark_calibration": "NOT_EVALUATED"
+    },
+    "controlled_composite": {
+      "R_L_predicted_trace_m2": 9.640984785e-08,
+      "R_L_empirical_trace_m2": 9.531517435e-08,
+      "mean_norm_m": 0.034293184,
+      "mean_over_pred_noise_sqrt_trace": 110.445267,
+      "zero_mean_consistency": "contradicted within controlled scope; not a new acceptance gate"
+    },
+    "manifest": "run_manifest.csv, all attempts including collector terminal verified",
+    "controlled_matrix_reproduction": "same seed/law12000: same aggregate.0049601733598021404; physical block tables descriptive, no retrospective gate",
+    "finite_repeat": "10s byte-exact numerical/source matrices; not independent sampling/full repeat",
+    "reason_counter_zero_denominator": {
+      "V2_02": {
+        "counter_zero": 9,
+        "all_indexed": 2171
+      },
+      "V2_03": {
+        "counter_zero": 81,
+        "all_indexed": 1685
+      },
+      "meaning": "cumulative counter cannot identify affected event; not source closure evidence"
+    },
+    "real_composite": "not evaluated: independent finite current/anchor mean vectors not persisted; GT poses would cancel static same-identity true point"
+  },
+  "consumer_policy": "DO_NOT_USE_FOR_PRODUCTION30_SLOT_OR_B_APPROX_FUSION; no qualified online real covariance/mean interface",
+  "stop_reasons": [
+    "different Observer capacity and coupling",
+    "initial/source/noise/gate law unvalidated in real streams",
+    "main error mean chart mapping not supplied online",
+    "landmark residual mean and real truth unavailable",
+    "registered source subset/missing events not full historic closure",
+    "controlled composite innovation mean exceeds predicted noise sqrt(trace) by110x despite covariance agreement"
+  ],
+  "production_defaults": "OFF, confirm20, max_slam0 unchanged",
+  "MC_persistence_source_oid": "e765faac654fd9470d5a82e7a8a474a564ae7792"
+}

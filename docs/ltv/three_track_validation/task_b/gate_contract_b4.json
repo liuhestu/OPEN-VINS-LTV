@@ -1,0 +1,82 @@
+{
+  "version": "B_gate_v3_B4_lagged_quality_20261008",
+  "candidate_ids": [
+    "B4"
+  ],
+  "candidate_definitions": {
+    "B4": "B3 AND immediately_previous_frame_camera0_consumed_same_identity_score_valid AND previous_ltv_angle_rad <= previous_past_fit_angle_rad"
+  },
+  "primary_paired_fields": [
+    "camera_ns",
+    "camera_id",
+    "feature_id",
+    "epoch",
+    "core_id",
+    "entered"
+  ],
+  "primary_comparator": "past_fit_angle_rad; past-only bearing geometry on original same-identity support",
+  "development_sequences": [
+    "V2_02_medium",
+    "V2_03_difficult"
+  ],
+  "holdout_sequences": [
+    "V1_01_easy",
+    "V1_03_difficult"
+  ],
+  "gain_min": 0.05,
+  "confidence_lower_strictly_greater_than": 0.0,
+  "confidence": 0.95,
+  "bootstrap_seed": 20261005,
+  "bootstrap_samples": 2000,
+  "time_block_s": 1.0,
+  "min_paired_frames": 30,
+  "min_time_blocks": 10,
+  "tail_ratio": 1.05,
+  "bad_angle_threshold_rad": 0.02,
+  "min_mature_coverage": 0.2,
+  "min_common_coverage": 0.9,
+  "required_tail_subgroups": [
+    "normal",
+    "recovery"
+  ],
+  "report_subgroups": [
+    "normal",
+    "recovery",
+    "startup"
+  ],
+  "denominators": [
+    "ungated_all_candidate",
+    "ungated_mature",
+    "common_gated",
+    "all_available_gated"
+  ],
+  "online_gt": false,
+  "future_inputs": false,
+  "candidate_order_for_on_if_multiple_pass": [
+    "B4"
+  ],
+  "correlation_requirement": "engineering ON does not require C closure; not statistical qualification",
+  "change_reason": "B3 closes supply/tail issues but V2_03 point gain is 4.03% < frozen 5%; one causal mechanism test asks if comparative quality persists in time. No additional numeric threshold, age/R scan, support reduction, or acceptance relaxation.",
+  "frozen_acceptance_unchanged": true,
+  "lagged_quality": {
+    "provider_camera": 0,
+    "identity_key": [
+      "epoch",
+      "feature_id",
+      "core_id",
+      "entered"
+    ],
+    "previous_frame_only": true,
+    "strictly_previous_time": true,
+    "consumption_proof": "feature_event.corrected_ids membership AND feature_event.epoch matches prediction epoch; corrected_ids emitted only for available raw current Observer camera correction with camera_substeps>0",
+    "current_target_used_for_selection": false,
+    "score_commit": "after successful current transaction, staged for next frame only",
+    "point_gate_applies_to_cameras": [
+      0,
+      1
+    ],
+    "missing_previous_policy": "REJECT",
+    "identity_change_policy": "REJECT",
+    "online_computation": "pre-camera LTV point and strong past-only geometry -> target camera0 scores; after-camera committed consumption receipt -> lag ledger; next frame reads ledger without current bearing"
+  }
+}

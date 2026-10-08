@@ -1,11 +1,11 @@
 {
-  "at_utc": "2026-10-08T14:29:15.956923+00:00",
-  "goal": "active",
+  "at_utc": "2026-10-08T14:46:34.223074+00:00",
   "coord_root": "/home/he/output/ltv_three_track_20261008_1827",
   "previous_goal_turn": "progress: shared contracts/source isolation actual builds/gate experiments and user scope amendment",
-  "A": "STOP: V2_03 fixed three-sample local ATE FAIL reproduced exactly in all G/V/GV; all four modes repeated 11 necessary identity files byte-exact. Native/OFF and first-round performance evidence retained separately; no holdout consumption or weight scan.",
-  "B": "STOP: real V2_03 frozen localATE FAIL byte-exact reproduced; independent Horn/raw/common-alignment and native zero-info controls complete. Predictive FAIL separate. Holdout/perf/integration NOT_RUN; final report/source branch delivery pending.",
-  "C": "V2_02 full OFF/finite-shadow exact main/P/Observer/cache/lifecycle PASS;2171 matrix events joint min -1.83e-16 and no numeric errors, cumulative missing35 remains unexplained. Corrected shared-OFF chart mapping2158 valid/13 unmatched NOT_EVALUATED. V2_03 full pair underway; full physical calibration/production correlation unqualified.",
+  "A": "Final STOP report/config/38attempt manifest published;20c9ebf remote verified",
+  "B": "Final engineering STOP, predictiveFAIL independent;49attempt manifest/report/config published;c04d8c6 remote verified",
+  "C": "Finite fixed-scope model/native/MC/full readonly evidence and28attempt manifest/interface published;production C4STOP;46d0a9d remote verified",
   "production": "defaults unchanged, all production fusion OFF",
-  "next": "A reproduce local failure without tuning; B prove corrected joint real ON then full matched OFF/ON; C corrected native/read-only shadow checks; final reports and push verified branch OIDs"
+  "next": "no further experiment in this goal; root publication verification and goal completion accounting",
+  "delivery": "all scientific work terminal; final root commit/remote identity audit follows this snapshot"
 }

@@ -1,0 +1,52 @@
+{
+  "status": "PASS_EXACT_WITHIN_SCOPE",
+  "scope": "FULL_SEQUENCE",
+  "left": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_full_V2_02_medium_DIAG_OFF_v4_20261008T133649_55a55347",
+  "right": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_full_V2_02_medium_L_OFF_v4_20261008T133939_38de1ee7",
+  "checks": {
+    "trajectory.csv": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+    "unmatched_camera.csv": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3",
+    "lifecycle_identity.jsonl": "ec2c3bd6df021886c73c3c9ef22dd50c01db15804f370990153b008a39e3bc15",
+    "algorithm_visual_identity.jsonl": "1a94db24ecdc870042d55fa9bce98676ed3f83647d558ed0b1279c8c4d40ac1a",
+    "frames": 2348,
+    "full_state_P_tracker": true,
+    "observer_full_x_P": true,
+    "mixed_audit_visual_digest": "NOT_COMPARABLE; pure algorithm visual output is exact",
+    "replay": [
+      {
+        "input_left_images": 2348,
+        "input_right_images": 2348,
+        "unmatched_left_images": 0,
+        "unmatched_right_images": 0,
+        "camera_packets": 2348,
+        "input_camera_packets": 2348,
+        "imu_consumed": 23490,
+        "input_imu_samples": 23490,
+        "output_rows": 2266,
+        "input_span_seconds": 117.44500017166138,
+        "short_limit_seconds": 0,
+        "mode": "P_NEW",
+        "actual_G_submissions": 0,
+        "actual_V_submissions": 0,
+        "complete": true
+      },
+      {
+        "input_left_images": 2348,
+        "input_right_images": 2348,
+        "unmatched_left_images": 0,
+        "unmatched_right_images": 0,
+        "camera_packets": 2348,
+        "input_camera_packets": 2348,
+        "imu_consumed": 23490,
+        "input_imu_samples": 23490,
+        "output_rows": 2266,
+        "input_span_seconds": 117.44500017166138,
+        "short_limit_seconds": 0,
+        "mode": "P_NEW",
+        "actual_G_submissions": 0,
+        "actual_V_submissions": 0,
+        "complete": true
+      }
+    ]
+  }
+}

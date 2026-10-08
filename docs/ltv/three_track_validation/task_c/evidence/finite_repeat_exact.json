@@ -1,0 +1,18 @@
+{
+  "finite.csv": {
+    "sha256": "1c0f277c2ebe097c9c635dfe143fbb5454e40163f65672af70609cc270f87b10",
+    "byte_exact": true
+  },
+  "finite.csv.matrices.jsonl": {
+    "sha256": "6c2a7e6ebfa86086b1a511a052c5db484b39b174341d1bccdbf23ef52ca03302",
+    "byte_exact": true
+  },
+  "finite.csv.matrices.bin": {
+    "sha256": "729040104330162575ebb3dca978390568c6bdaa7a322dc1df8f5f7921d76fce",
+    "byte_exact": true
+  },
+  "finite.csv.seed_sources.csv": {
+    "sha256": "ee878bb56950ac5692cc2f3c36e2435588a8ee0c73b71272f5dc16e5c4714d1d",
+    "byte_exact": true
+  }
+}

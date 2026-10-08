@@ -1,0 +1,87 @@
+{
+  "preflight": {
+    "checked_at": "2026-10-08T10:59:22.715040+00:00",
+    "source": "B gate v1 verified raw input identity",
+    "files": [
+      {
+        "path": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/ov_msckf/src/ltv/diagnostics/LtvLandmarkShadow.h",
+        "sha256": "fc5f308f9012ab85bd62f275becb89dc26e60c97033a10e62f0d8dd9dc2e0b37"
+      },
+      {
+        "path": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/ov_msckf/src/ltv/observer/LtvAdapterHardened.cpp",
+        "sha256": "c5b032c2f2c965b891f46cecc73fab3f040dba7aeb7334086e5c703e4390c3b4"
+      },
+      {
+        "path": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/ov_msckf/src/core/VioManager.cpp",
+        "sha256": "ea96e5b08b62444cebbc5b49866da4b4730d8baec35ebb3c7cb38d11678852fb"
+      },
+      {
+        "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/cache.bin",
+        "sha256": "8f9d515b2fa823e704ec68b4fc1aed467bac5c1d64b53ddf1896e5ac289d3d85"
+      },
+      {
+        "path": "/home/he/output/ltv_landmark_validation_20261005/past_geometry_audit/V2_02_medium_predictions.csv",
+        "sha256": "20237bd577ca74a840ebf33552f2a86f66e362221f8d305e71706cbaf8f9d0d9"
+      },
+      {
+        "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/features.jsonl",
+        "sha256": "1fdb36ef2aababa7fdadb6ca57aa15f9689d4a0c84c0ac2090fb9a3c9768f5b2"
+      },
+      {
+        "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/cache.bin",
+        "sha256": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf"
+      },
+      {
+        "path": "/home/he/output/ltv_landmark_validation_20261005/past_geometry_audit/V2_03_difficult_predictions.csv",
+        "sha256": "34f47ece3b40375750082ef40dfb3fd08bd0f14b0f7594c7f48352412591e82c"
+      },
+      {
+        "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/features.jsonl",
+        "sha256": "b8503b92250c1f56246258f4341a26bb0fdbc1f18179d530758daec5c21bf8cd"
+      }
+    ]
+  },
+  "postflight": {
+    "checked_at": "2026-10-08T11:01:47.749731+00:00",
+    "preflight": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/tmp/supply_input_identity_preflight_d04b2f03b5c14e56ac97516ae88dd483.json",
+    "status": "PASS_RAW_INPUTS_UNCHANGED",
+    "files": [
+      {
+        "path": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/ov_msckf/src/ltv/diagnostics/LtvLandmarkShadow.h",
+        "sha256": "fc5f308f9012ab85bd62f275becb89dc26e60c97033a10e62f0d8dd9dc2e0b37"
+      },
+      {
+        "path": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/ov_msckf/src/ltv/observer/LtvAdapterHardened.cpp",
+        "sha256": "c5b032c2f2c965b891f46cecc73fab3f040dba7aeb7334086e5c703e4390c3b4"
+      },
+      {
+        "path": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/ov_msckf/src/core/VioManager.cpp",
+        "sha256": "ea96e5b08b62444cebbc5b49866da4b4730d8baec35ebb3c7cb38d11678852fb"
+      },
+      {
+        "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/cache.bin",
+        "sha256": "8f9d515b2fa823e704ec68b4fc1aed467bac5c1d64b53ddf1896e5ac289d3d85"
+      },
+      {
+        "path": "/home/he/output/ltv_landmark_validation_20261005/past_geometry_audit/V2_02_medium_predictions.csv",
+        "sha256": "20237bd577ca74a840ebf33552f2a86f66e362221f8d305e71706cbaf8f9d0d9"
+      },
+      {
+        "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/features.jsonl",
+        "sha256": "1fdb36ef2aababa7fdadb6ca57aa15f9689d4a0c84c0ac2090fb9a3c9768f5b2"
+      },
+      {
+        "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/cache.bin",
+        "sha256": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf"
+      },
+      {
+        "path": "/home/he/output/ltv_landmark_validation_20261005/past_geometry_audit/V2_03_difficult_predictions.csv",
+        "sha256": "34f47ece3b40375750082ef40dfb3fd08bd0f14b0f7594c7f48352412591e82c"
+      },
+      {
+        "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/features.jsonl",
+        "sha256": "b8503b92250c1f56246258f4341a26bb0fdbc1f18179d530758daec5c21bf8cd"
+      }
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "status": "PASS_EXACT_REPEAT",
+  "interpretation": "identical deterministic input, not independent sample",
+  "files": {
+    "trajectory.csv": {
+      "first_sha256": "524e9e929b36a6d424f008fd7ee77e7c32c2cdfe0702e933e8c93eafa2e55bf7",
+      "repeat_sha256": "524e9e929b36a6d424f008fd7ee77e7c32c2cdfe0702e933e8c93eafa2e55bf7",
+      "exact": true
+    },
+    "audit.csv": {
+      "first_sha256": "ab56f602eb8c7bd5a9f9c24b72f31031ca698802ebc545a01b7c7ae8a24cc8b1",
+      "repeat_sha256": "ab56f602eb8c7bd5a9f9c24b72f31031ca698802ebc545a01b7c7ae8a24cc8b1",
+      "exact": true
+    },
+    "lifecycle_identity.jsonl": {
+      "first_sha256": "9fbb6a51b09fec9a5a9ccf7b9c7f37885e28978d2b8e0cee49edb3b0bcc9ca58",
+      "repeat_sha256": "9fbb6a51b09fec9a5a9ccf7b9c7f37885e28978d2b8e0cee49edb3b0bcc9ca58",
+      "exact": true
+    },
+    "algorithm_visual_identity.jsonl": {
+      "first_sha256": "f2472460d8eb597367cc8022af4fd24e5325b010e049bb9223808a41dc338ae1",
+      "repeat_sha256": "f2472460d8eb597367cc8022af4fd24e5325b010e049bb9223808a41dc338ae1",
+      "exact": true
+    },
+    "observer_identity.jsonl": {
+      "first_sha256": "b0ecb1c5c6cf7b34bb0a0b2add0ef78cb321d893070679404ec8ffd127b203b5",
+      "repeat_sha256": "b0ecb1c5c6cf7b34bb0a0b2add0ef78cb321d893070679404ec8ffd127b203b5",
+      "exact": true
+    },
+    "effective_options.json": {
+      "first_sha256": "79d827d39bd6b935c5fb8266a2b450e736f04c33823e22f08b275cab795426d2",
+      "repeat_sha256": "79d827d39bd6b935c5fb8266a2b450e736f04c33823e22f08b275cab795426d2",
+      "exact": true
+    },
+    "replay.json": {
+      "first_sha256": "be5d18dd307fa24c9f0bbb6c113d001080924c47bc9f96e14bb47c06dfde6e25",
+      "repeat_sha256": "be5d18dd307fa24c9f0bbb6c113d001080924c47bc9f96e14bb47c06dfde6e25",
+      "exact": true
+    },
+    "fusion.jsonl": {
+      "first_sha256": "3f9063d79335edffccb370195cfe10de9948d5f8149849e49c406fee57a2beb9",
+      "repeat_sha256": "3f9063d79335edffccb370195cfe10de9948d5f8149849e49c406fee57a2beb9",
+      "exact": true
+    },
+    "unmatched_camera.csv": {
+      "first_sha256": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b",
+      "repeat_sha256": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b",
+      "exact": true
+    },
+    "landmark_approx.csv": {
+      "first_sha256": "d8da7a010efd8bb8a5c16890506d4341a8f2f02addc3963d237795c410eb911e",
+      "repeat_sha256": "d8da7a010efd8bb8a5c16890506d4341a8f2f02addc3963d237795c410eb911e",
+      "exact": true
+    },
+    "landmark_approx.csv.points.csv": {
+      "first_sha256": "e5a48fe7a81c4d1eaea2c8ae5cecfd34ff960d58d2df68cd4d3b79e7eed58d69",
+      "repeat_sha256": "e5a48fe7a81c4d1eaea2c8ae5cecfd34ff960d58d2df68cd4d3b79e7eed58d69",
+      "exact": true
+    }
+  }
+}

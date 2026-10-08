@@ -29,6 +29,26 @@
       "verified_at": "2026-10-08T13:47:26.161563+00:00",
       "status": "FROZEN_INTERFACE_PUSHED_VERIFIED",
       "scope": "source-only interface; no qualification inherited"
+    },
+    "experiment/ltv-three-track-b-20261008": {
+      "local_oid": "c04d8c63e1f4cc562589a93259f2efc70524aa8f",
+      "remote_oid": "c04d8c63e1f4cc562589a93259f2efc70524aa8f",
+      "verified_at": "2026-10-08T14:43:43.519198+00:00",
+      "status": "FINAL_PUSHED_VERIFIED",
+      "runtime_source_oid": "5cdedc087891430369a7fa88db12cdbba58bd05d",
+      "verdict": "prediction FAIL; engineering STOP"
+    },
+    "experiment/ltv-three-track-c-20261008": {
+      "local_oid": "46d0a9df8b8438a9f6146e0861e05c9a312929bc",
+      "remote_oid": "46d0a9df8b8438a9f6146e0861e05c9a312929bc",
+      "verified_at": "2026-10-08T14:43:43.519208+00:00",
+      "status": "FINAL_PUSHED_VERIFIED",
+      "runtime_source_oid": "6982e0473b6963ab95dfb169b585c09f464bfa8e",
+      "verdict": "finite model only; production C4 STOP"
     }
+  },
+  "root_publication": {
+    "branch": "experiment/ltv-three-track-20261008",
+    "verification": "Final root OID is recorded after push in external registry/root_publication_final.json and final response; avoids self-referential commit hash."
   }
 }

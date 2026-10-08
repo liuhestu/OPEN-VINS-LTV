@@ -1,0 +1,55 @@
+{
+  "status": "PASS_EXACT_NATIVE_PASSIVE",
+  "before": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/results/c_V2_03_difficult_finite_OFF_full_attempt1_20261008T134020_02ba2df8",
+  "after": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/results/c_V2_03_difficult_finite_ON_full_attempt1_20261008T134809_9eb2b516",
+  "excluded_fields": [
+    "features.jsonl.compute_time_ms"
+  ],
+  "tolerance": 0,
+  "audit_rows": 1921,
+  "trajectory_rows": 1806,
+  "unmatched_camera_rows": 416,
+  "features": {
+    "rows": 1921,
+    "canonical_sha": "c75d5b16fe8bbc4b861ad14e7b53d3ba572ddd4b6bd075ba8f32f051b2cddd8f"
+  },
+  "cache": {
+    "counts": {
+      "imu": 23370,
+      "process": 1806,
+      "pause": 115
+    },
+    "sha256": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf",
+    "full_serialized_payload_exact": true
+  },
+  "files": {
+    "audit.csv": {
+      "before_sha": "f0ee61373a178220ac661ec354a074d4dbeb5f0c2b88e489ba2834b55afd90ce",
+      "after_sha": "f0ee61373a178220ac661ec354a074d4dbeb5f0c2b88e489ba2834b55afd90ce"
+    },
+    "trajectory.csv": {
+      "before_sha": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+      "after_sha": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3"
+    },
+    "cache.bin": {
+      "before_sha": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf",
+      "after_sha": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf"
+    },
+    "features.jsonl": {
+      "before_sha": "98e208eec82287d83e4765d1b324fd260f44950b078e355ee98c190dc25880bf",
+      "after_sha": "5607bf116f6c435828ba1dd176dc751da85269821bdb4e5bc59232e0b5b41b0f"
+    },
+    "effective_options.json": {
+      "before_sha": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1",
+      "after_sha": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+    },
+    "replay.json": {
+      "before_sha": "be5d18dd307fa24c9f0bbb6c113d001080924c47bc9f96e14bb47c06dfde6e25",
+      "after_sha": "be5d18dd307fa24c9f0bbb6c113d001080924c47bc9f96e14bb47c06dfde6e25"
+    },
+    "unmatched_camera.csv": {
+      "before_sha": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b",
+      "after_sha": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b"
+    }
+  }
+}

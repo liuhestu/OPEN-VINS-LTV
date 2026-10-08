@@ -1,0 +1,11 @@
+# Landmark engineering approximation
+
+**STOP: real complete ON failed the frozen V2_03 local ATE limit.** The updater is implemented, default OFF, with true joint native receipts/corrections and full OFF compatibility proven. Prediction ≥5% FAIL remains separate; it did not prevent the explicitly authorized ON experiment. No production performance, holdout or combined qualification is granted.
+
+Runtime source5cdedc0 implements pre-camera B3 qualification and current point snapshot, post-camera old anchor snapshots, native current-mean 3D IMU residual and FEJ/JPL H, hybrid current q/p plus whole anchor clone metadata, and one frozen visual-plus-LM EKF call. Max two points/frame and the registered approximate meter² noise/prior-information budget remain unchanged. Existing visual information is retained and its shared-source correlation unmodeled; P_Riccati is not treated as true error covariance.
+
+Twelve native checks pass, including actual visual+LM merge/application and G/V-metadata one-EKF equivalence. Earlier split-anchor overlap and stale receipt-log defects were corrected with new frozen builds and retained failures. Matrix reconstruction verifies native action components and scalar/diagnostic exactness on the registered prefix. Both complete development OFF/ON inputs and outcomes are retained. V2_03 repeats match eleven artifacts exactly; this does not create independent samples.
+
+Engineering failure: three original final-window GT samples give OFF RMSE0.1889666923m and ON0.1947820938m, increment0.0058154015m versus allowed0.0037793338m. All other supported development metric rows pass; twelve empty-support rows remain NOT_RUN. Global ATE improvement0.0001862393m cannot cancel the local failure. Raw tail pose differences and independent/common alignment reproduce genuine regression. Native real-matrix zero-information controls show only roundoff single-step changes and do not diagnose a concrete fix or close nonlinear/correlation uncertainty.
+
+See `final_report.md` for detailed evidence, units, limitations and minimal next work. Engineering actual action, nondegradation, benefit and statistical consistency are separate decisions. Production default OFF, confirm20 and max_slam0 are preserved; no default production fusion is enabled.

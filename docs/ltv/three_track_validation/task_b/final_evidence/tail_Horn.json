@@ -1,0 +1,45 @@
+{
+  "scope": "descriptive decomposition only; original own-full-SE3 official FAIL retained",
+  "tail_bin": 11,
+  "tail_samples": 3,
+  "tail_times": [
+    1413394997.4057605,
+    1413394997.5057607,
+    1413394997.6057606
+  ],
+  "official_off_tail_rmse_m": 0.18896669232823937,
+  "official_on_tail_rmse_m": 0.1947820937817865,
+  "common_OFF_alignment_on_tail_rmse_m": 0.19450890543641408,
+  "raw_native_position_difference_max_m": 0.07298277234553362,
+  "raw_tail_position_difference_m": [
+    0.013711191894560966,
+    0.013352086440467521,
+    0.013300936040654151
+  ],
+  "raw_tail_velocity_difference_m_s": [
+    0.0008082629989381396,
+    0.0006008124813957493,
+    0.0007072404314815995
+  ],
+  "alignment_rotation_delta_deg": 0.009905515036869454,
+  "alignment_translation_delta_m": 0.0005925402949447593,
+  "point_sample_errors_off_m": [
+    0.20046799184519645,
+    0.1826052108141061,
+    0.18328435191667763
+  ],
+  "point_sample_errors_ON_ownfit_m": [
+    0.20674706418458316,
+    0.18826997917390223,
+    0.18875979065194012
+  ],
+  "point_sample_errors_ON_commonfit_m": [
+    0.2064615135698508,
+    0.1880092136098202,
+    0.18848692764878672
+  ],
+  "input_interval": "full same native timestamps; no tail/ON-selected fit or support deletion",
+  "independent_Horn_off_tail_rmse_m": 0.188966692328241,
+  "independent_Horn_on_tail_rmse_m": 0.19478209378178604,
+  "independent_Horn_synthetic_rotation_translation_check": "PASS"
+}

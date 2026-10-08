@@ -1,0 +1,45 @@
+{
+  "at_utc": "2026-10-08T14:41:09.195093+00:00",
+  "registered_processes_checked": 2532,
+  "live_registered_processes": [],
+  "nonterminal_runs": [],
+  "manifest_coverage": {
+    "a": {
+      "registry_runs": 38,
+      "task_manifest_runs": 38,
+      "missing": [],
+      "extra": []
+    },
+    "b": {
+      "registry_runs": 49,
+      "task_manifest_runs": 49,
+      "missing": [],
+      "extra": []
+    },
+    "c": {
+      "registry_runs": 28,
+      "task_manifest_runs": 28,
+      "missing": [],
+      "extra": []
+    }
+  },
+  "required_documents": [
+    "execution_contract.md",
+    "process_isolation.md",
+    "run_manifest.csv",
+    "gv_report.md",
+    "landmark_gate_report.md",
+    "landmark_approx_report.md",
+    "joint_error_model.md",
+    "joint_model_validation.md",
+    "integration_report.md",
+    "final_usability_and_integration.md"
+  ],
+  "production_root_algorithm_diff": "none; experiment configs only",
+  "scientific_scope": "A/B STOP; C finite conditional model only; no production correlated qualification",
+  "user_files_preserved": [
+    ".gitignore",
+    "docs/ltv/nondegradation_goal_reference.md.md",
+    "docs/ltv/openvins_ltv_three_track_execution_reference.md"
+  ]
+}

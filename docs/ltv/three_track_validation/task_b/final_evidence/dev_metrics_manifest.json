@@ -1,0 +1,109 @@
+{
+  "owner": "1000",
+  "task": "b",
+  "run_id": "b_B3_complete_DEV_accuracy_20261008T135459_3bb7da34",
+  "launcher_pid": 77257,
+  "spec_path": "/home/he/output/ltv_three_track_20261008_1827/queue/b_dev_complete_eval.json",
+  "spec_sha256": "92955ad59eef7b7382a30e00477f6c81d9d1c69bb7d202cb68851f5667ec2568",
+  "command": [
+    "python3",
+    "{WORKTREE}/scripts/ltv_three_track/task_b/evaluate_runs.py",
+    "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/dev_complete_index.json",
+    "{RUN_DIR}/evaluation"
+  ],
+  "launcher_path": "/home/he/output/ltv_three_track_20261008_1827/tools/launcher_v2.py",
+  "launcher_sha256_at_start": "bc24b85023d3f155998dd40b991c1aff85fb4278262a7d1663ec03fb13bae292",
+  "label": "B3_complete_DEV_accuracy",
+  "kind": "analysis",
+  "heavy": true,
+  "performance": false,
+  "requested_at": 1791467699.9650447,
+  "source_oid": "5cdedc087891430369a7fa88db12cdbba58bd05d",
+  "worktree_head": "9a650ca0525b59457d2773ae144ed47512979110",
+  "dirty_state": "?? scripts/ltv_active_consistency_r4/__pycache__/\n?? scripts/ltv_gv_evaluation/__pycache__/\n?? scripts/ltv_integration_cleanup/__pycache__/\n",
+  "dirty_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "worktree": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b",
+  "output_dir": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_complete_DEV_accuracy_20261008T135459_3bb7da34",
+  "command_expanded": [
+    "python3",
+    "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/scripts/ltv_three_track/task_b/evaluate_runs.py",
+    "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/dev_complete_index.json",
+    "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_complete_DEV_accuracy_20261008T135459_3bb7da34/evaluation"
+  ],
+  "cwd": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_complete_DEV_accuracy_20261008T135459_3bb7da34",
+  "locks": [
+    "/home/he/output/ltv_three_track_20261008_1827/locks/host_heavy.lock",
+    "/home/he/output/ltv_three_track_20261008_1827/locks/performance_gate.lock",
+    "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/task_artifact.lock"
+  ],
+  "contract_sha256": {
+    "dataset_split.yaml": "cfd5a82eccfcc74ab7be0742436ffa2e45ce91ce5de44b5fd6b905a71233b1b7",
+    "data_identity_a_version.json": "17e5e13e92282cedc47a77916f16583dfaf66d69f8f0ad6c153bf9c3c08f02f3",
+    "acceptance.yaml": "d78241bfaee76fd671025465c32b6a99fcae26c6ebd9f887ef80f5e75b598c36",
+    "engineering_on_admission_amendment.yaml": "336527472f4f5af4a89558965723eaccace16d66c1dd5113ccda918ee46c8b72",
+    "READY.json": "a41edf3746357d2e8c456e3b5fa606241453198581d27bb651ccd776e6edea9b",
+    "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "execution_reference.md": "0495064028f1f056b61ee4f806cfafb426733477f63e8efd44e1a42149192054",
+    "metrics.yaml": "f8910f31cdc559af34acba56706df38b8d133433f58df0f696722e21d997fa57",
+    "b_gate_admission_b3.json": "25601a447f4ba17d1c33939d21f077ce32e5fa022f64ac4a6491f335d64f75e9",
+    "b_gate_admission_b4.json": "d78fdad92ef73c849377f8d18204d6dfd57667fc9eec78c0ba740b3e4f4bbb6b",
+    "b_gate_admission.json": "a9bda2b7ff51c605e36b1722eddaba12d3098d82cae37c74caa569209ab6c967",
+    "b_engineering_approx_v1.json": "542a74854a1164cf96bfa69b39906068c564cf146ac6fa29370141247c20e064"
+  },
+  "configuration": {
+    "comparison": "full matched OFF/ON",
+    "prediction_gain_FAIL_retained": true
+  },
+  "data": {
+    "sequences": {
+      "V2_02_medium": {
+        "data_root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+        "runs": {
+          "OFF": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_full_V2_02_medium_L_OFF_v4_20261008T133939_38de1ee7",
+          "ON": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_full_V2_02_medium_L_ON_v4_20261008T134231_1db668e7"
+        },
+        "diagnostic_off": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_full_V2_02_medium_DIAG_OFF_v4_20261008T133649_55a55347"
+      },
+      "V2_03_difficult": {
+        "data_root": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+        "runs": {
+          "OFF": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_full_V2_03_difficult_L_OFF_v4_20261008T135219_0da7c5a4",
+          "ON": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_full_V2_03_difficult_L_ON_v4_20261008T135318_b16e5df6"
+        },
+        "diagnostic_off": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_full_V2_03_difficult_DIAG_OFF_v4_20261008T134832_3f4ed7cd"
+      }
+    }
+  },
+  "diagnostic_level": "shared frozen GT metrics; no stats calibration",
+  "historical_reuse": false,
+  "source_snapshot": null,
+  "cache_schema": null,
+  "source_files_sha256": {
+    "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/scripts/ltv_three_track/task_b/evaluate_runs.py": "051d5e88a2f957c74223a08d97164df24e9f37f823e97c7c016ca3f6954c486d"
+  },
+  "config_paths": {
+    "/home/he/output/ltv_three_track_20261008_1827/contracts/metrics.yaml": {
+      "resolved": "/home/he/output/ltv_three_track_20261008_1827/contracts/metrics.yaml",
+      "sha256": "f8910f31cdc559af34acba56706df38b8d133433f58df0f696722e21d997fa57"
+    },
+    "/home/he/output/ltv_three_track_20261008_1827/contracts/acceptance.yaml": {
+      "resolved": "/home/he/output/ltv_three_track_20261008_1827/contracts/acceptance.yaml",
+      "sha256": "d78241bfaee76fd671025465c32b6a99fcae26c6ebd9f887ef80f5e75b598c36"
+    }
+  },
+  "binary_paths": {},
+  "event": "FINISH",
+  "started_at": 1791467699.9734921,
+  "finished_at": 1791467703.364268,
+  "exit_code": 0,
+  "source_mutation": {},
+  "binary_mutation": {},
+  "registered_processes": 2,
+  "resources": {
+    "max_rss_kb": 803312,
+    "elapsed_s": 3.38,
+    "user_s": 2.86,
+    "system_s": 0.44
+  },
+  "validity": "EXIT_ZERO"
+}

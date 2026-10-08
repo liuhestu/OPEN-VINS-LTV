@@ -1,0 +1,14 @@
+{
+ "version": "B3_native_v2_before_actual_ON",
+ "engineering_entry": "engineering_on_admission_amendment.yaml; prediction gain result remains FAIL",
+ "parameters": "b_engineering_approx_v1.json unchanged",
+ "configuration": "fixed_c0 three YAML hashes equal historical frozen C0; G/V OFF; max_slam0; confirmation20; native runner mode solely controls separate LM switch",
+ "first_native_checks": ["test_ltv_landmark_approx native JPL/FEJ FD/gauge/gate/defaults", "relevant existing timing/layout/innovation/FEJ/covariance/options/managed-lifecycle tests"],
+ "controlled_prefix_seconds": 40,
+ "prefix_scope": "entire original start-to40s interval, not a favourable selected segment; permits initialization and 20-frame readiness to produce actual landmark submissions",
+ "prefix_runs": ["diagnostic OFF", "scalar OFF", "same-diagnostic scalar L_OFF", "scalar L_ON"],
+ "OFF_proof": "exact trajectory/full-state-P/tracker/algorithm visual output/Observer/lifecycle/readiness; mixed audit-only visual digest explicitly not comparable; preserve old attempts",
+ "ON_safety": "applied>0 and actual component correction/state/P difference must be demonstrated; finite cov/PSD and no new error; no update => investigate supply, do not claim exercised",
+ "next_if_safe": "full matched V2_02/V2_03 OFF/ON with identical diagnostics, then frozen V1_01/V1_03 holdouts; same original engineering metrics/determinism/performance/RSS",
+ "no_inheritance": "A source interfaces reused explicitly; own frozen task binary/install/locks and new validation; no A engineering qualification inherited"
+}
