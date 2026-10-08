@@ -1,0 +1,273 @@
+{
+  "root": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+  "archive_root": "/home/he/output/ltv_consolidation_20261008T153807",
+  "stamp": "20261008T153807",
+  "initial_head": "363c31db2245bb1dccece3d72a2cc5557fb414a2",
+  "initial_status": " M .gitignore\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+  "refs": [
+    {
+      "kind": "local",
+      "branch": "archive/ltv-frozen-c7fc29b",
+      "oid": "c7fc29b11352da3104c80462bcdd32553e785085",
+      "tag": "archive/consolidation-20261008T153807/local/archive/ltv-frozen-c7fc29b"
+    },
+    {
+      "kind": "local",
+      "branch": "experiment/ltv-gv-audit-20261008",
+      "oid": "55bfed41309654f7e1f35b62e5f20028259abbe6",
+      "tag": "archive/consolidation-20261008T153807/local/experiment/ltv-gv-audit-20261008"
+    },
+    {
+      "kind": "local",
+      "branch": "experiment/ltv-holdout-audit-20261008",
+      "oid": "8990c2274abd012301cc186fc326b89e7919009d",
+      "tag": "archive/consolidation-20261008T153807/local/experiment/ltv-holdout-audit-20261008"
+    },
+    {
+      "kind": "local",
+      "branch": "experiment/ltv-nondegradation-correlation-20261008",
+      "oid": "2417d036002fbfd542ae71d96d0fc734cd6d47e8",
+      "tag": "archive/consolidation-20261008T153807/local/experiment/ltv-nondegradation-correlation-20261008"
+    },
+    {
+      "kind": "local",
+      "branch": "experiment/ltv-shadow-20261008",
+      "oid": "fde89fdeb813935fa316272a2ca1466400beff33",
+      "tag": "archive/consolidation-20261008T153807/local/experiment/ltv-shadow-20261008"
+    },
+    {
+      "kind": "local",
+      "branch": "experiment/ltv-three-track-20261008",
+      "oid": "363c31db2245bb1dccece3d72a2cc5557fb414a2",
+      "tag": "archive/consolidation-20261008T153807/local/experiment/ltv-three-track-20261008"
+    },
+    {
+      "kind": "local",
+      "branch": "experiment/ltv-three-track-a-20261008",
+      "oid": "20c9ebfd52ed85bc95499b2f9447a14a40dfc85c",
+      "tag": "archive/consolidation-20261008T153807/local/experiment/ltv-three-track-a-20261008"
+    },
+    {
+      "kind": "local",
+      "branch": "experiment/ltv-three-track-a-interface-20261008",
+      "oid": "81de174a9566f4cd5dc4f9d47ebb7e284331a6ea",
+      "tag": "archive/consolidation-20261008T153807/local/experiment/ltv-three-track-a-interface-20261008"
+    },
+    {
+      "kind": "local",
+      "branch": "experiment/ltv-three-track-a-visual-interface-20261008",
+      "oid": "ffd8684fe7aba98c2e6cd789fde860ce94ae8aa7",
+      "tag": "archive/consolidation-20261008T153807/local/experiment/ltv-three-track-a-visual-interface-20261008"
+    },
+    {
+      "kind": "local",
+      "branch": "experiment/ltv-three-track-b-20261008",
+      "oid": "c04d8c63e1f4cc562589a93259f2efc70524aa8f",
+      "tag": "archive/consolidation-20261008T153807/local/experiment/ltv-three-track-b-20261008"
+    },
+    {
+      "kind": "local",
+      "branch": "experiment/ltv-three-track-c-20261008",
+      "oid": "46d0a9df8b8438a9f6146e0861e05c9a312929bc",
+      "tag": "archive/consolidation-20261008T153807/local/experiment/ltv-three-track-c-20261008"
+    },
+    {
+      "kind": "local",
+      "branch": "experiment/ltv-three-track-metrics-interface-20261008",
+      "oid": "347b0ec9066c5f1a62792494751daf4d220036f0",
+      "tag": "archive/consolidation-20261008T153807/local/experiment/ltv-three-track-metrics-interface-20261008"
+    },
+    {
+      "kind": "local",
+      "branch": "feature/ltv-feature-readiness-passive",
+      "oid": "f76f32f8c1d5ece23ce23e10e65560b80ec0a4f9",
+      "tag": "archive/consolidation-20261008T153807/local/feature/ltv-feature-readiness-passive"
+    },
+    {
+      "kind": "local",
+      "branch": "feature/ltv-gv-fusion-evaluation",
+      "oid": "16f02e30a4ba8308e112eb2c96d30046672007ec",
+      "tag": "archive/consolidation-20261008T153807/local/feature/ltv-gv-fusion-evaluation"
+    },
+    {
+      "kind": "local",
+      "branch": "feature/ltv-gv-no-benefit-diagnosis",
+      "oid": "f22bfbcd82fe9a2b82d85ce9079fcd33d496e3f8",
+      "tag": "archive/consolidation-20261008T153807/local/feature/ltv-gv-no-benefit-diagnosis"
+    },
+    {
+      "kind": "local",
+      "branch": "feature/ltv-landmark-validation",
+      "oid": "1b0bf91983e5513525d5f2bed8bd548d2ff3f58a",
+      "tag": "archive/consolidation-20261008T153807/local/feature/ltv-landmark-validation"
+    },
+    {
+      "kind": "local",
+      "branch": "feature/ltv-openvins-integration-cleanup",
+      "oid": "83c71cbc585123381f033c8dbcd625c14e8e7fac",
+      "tag": "archive/consolidation-20261008T153807/local/feature/ltv-openvins-integration-cleanup"
+    },
+    {
+      "kind": "local",
+      "branch": "feature/ltv-passive-hardening-v2",
+      "oid": "a8c5e6759b49b9b7d6e734c8f1da32afa73fb16e",
+      "tag": "archive/consolidation-20261008T153807/local/feature/ltv-passive-hardening-v2"
+    },
+    {
+      "kind": "local",
+      "branch": "feature/ltv-v-readiness-recovery",
+      "oid": "c2ddcf94e2ba4102531bd81903fb040d33546e35",
+      "tag": "archive/consolidation-20261008T153807/local/feature/ltv-v-readiness-recovery"
+    },
+    {
+      "kind": "local",
+      "branch": "ltv/semantic-commits",
+      "oid": "199977b2381d3cad2d43195e8c774dd55d0f3839",
+      "tag": "archive/consolidation-20261008T153807/local/ltv/semantic-commits"
+    },
+    {
+      "kind": "local",
+      "branch": "main",
+      "oid": "a8c56c8cb488046d5b57bba329894e0f8b5a16fb",
+      "tag": "archive/consolidation-20261008T153807/local/main"
+    },
+    {
+      "kind": "origin",
+      "branch": "experiment/ltv-nondegradation-correlation-20261008",
+      "oid": "2417d036002fbfd542ae71d96d0fc734cd6d47e8",
+      "tag": "archive/consolidation-20261008T153807/origin/experiment/ltv-nondegradation-correlation-20261008"
+    },
+    {
+      "kind": "origin",
+      "branch": "experiment/ltv-three-track-20261008",
+      "oid": "363c31db2245bb1dccece3d72a2cc5557fb414a2",
+      "tag": "archive/consolidation-20261008T153807/origin/experiment/ltv-three-track-20261008"
+    },
+    {
+      "kind": "origin",
+      "branch": "experiment/ltv-three-track-a-20261008",
+      "oid": "20c9ebfd52ed85bc95499b2f9447a14a40dfc85c",
+      "tag": "archive/consolidation-20261008T153807/origin/experiment/ltv-three-track-a-20261008"
+    },
+    {
+      "kind": "origin",
+      "branch": "experiment/ltv-three-track-a-interface-20261008",
+      "oid": "81de174a9566f4cd5dc4f9d47ebb7e284331a6ea",
+      "tag": "archive/consolidation-20261008T153807/origin/experiment/ltv-three-track-a-interface-20261008"
+    },
+    {
+      "kind": "origin",
+      "branch": "experiment/ltv-three-track-a-visual-interface-20261008",
+      "oid": "ffd8684fe7aba98c2e6cd789fde860ce94ae8aa7",
+      "tag": "archive/consolidation-20261008T153807/origin/experiment/ltv-three-track-a-visual-interface-20261008"
+    },
+    {
+      "kind": "origin",
+      "branch": "experiment/ltv-three-track-b-20261008",
+      "oid": "c04d8c63e1f4cc562589a93259f2efc70524aa8f",
+      "tag": "archive/consolidation-20261008T153807/origin/experiment/ltv-three-track-b-20261008"
+    },
+    {
+      "kind": "origin",
+      "branch": "experiment/ltv-three-track-c-20261008",
+      "oid": "46d0a9df8b8438a9f6146e0861e05c9a312929bc",
+      "tag": "archive/consolidation-20261008T153807/origin/experiment/ltv-three-track-c-20261008"
+    },
+    {
+      "kind": "origin",
+      "branch": "experiment/ltv-three-track-metrics-interface-20261008",
+      "oid": "347b0ec9066c5f1a62792494751daf4d220036f0",
+      "tag": "archive/consolidation-20261008T153807/origin/experiment/ltv-three-track-metrics-interface-20261008"
+    },
+    {
+      "kind": "origin",
+      "branch": "feature/ltv-feature-readiness-passive",
+      "oid": "f76f32f8c1d5ece23ce23e10e65560b80ec0a4f9",
+      "tag": "archive/consolidation-20261008T153807/origin/feature/ltv-feature-readiness-passive"
+    },
+    {
+      "kind": "origin",
+      "branch": "feature/ltv-gv-fusion-evaluation",
+      "oid": "16f02e30a4ba8308e112eb2c96d30046672007ec",
+      "tag": "archive/consolidation-20261008T153807/origin/feature/ltv-gv-fusion-evaluation"
+    },
+    {
+      "kind": "origin",
+      "branch": "feature/ltv-gv-no-benefit-diagnosis",
+      "oid": "f22bfbcd82fe9a2b82d85ce9079fcd33d496e3f8",
+      "tag": "archive/consolidation-20261008T153807/origin/feature/ltv-gv-no-benefit-diagnosis"
+    },
+    {
+      "kind": "origin",
+      "branch": "feature/ltv-landmark-validation",
+      "oid": "1b0bf91983e5513525d5f2bed8bd548d2ff3f58a",
+      "tag": "archive/consolidation-20261008T153807/origin/feature/ltv-landmark-validation"
+    },
+    {
+      "kind": "origin",
+      "branch": "feature/ltv-openvins-integration-cleanup",
+      "oid": "83c71cbc585123381f033c8dbcd625c14e8e7fac",
+      "tag": "archive/consolidation-20261008T153807/origin/feature/ltv-openvins-integration-cleanup"
+    },
+    {
+      "kind": "origin",
+      "branch": "feature/ltv-passive-hardening-v2",
+      "oid": "a8c5e6759b49b9b7d6e734c8f1da32afa73fb16e",
+      "tag": "archive/consolidation-20261008T153807/origin/feature/ltv-passive-hardening-v2"
+    },
+    {
+      "kind": "origin",
+      "branch": "feature/ltv-v-readiness-recovery",
+      "oid": "c2ddcf94e2ba4102531bd81903fb040d33546e35",
+      "tag": "archive/consolidation-20261008T153807/origin/feature/ltv-v-readiness-recovery"
+    },
+    {
+      "kind": "origin",
+      "branch": "main",
+      "oid": "a8c56c8cb488046d5b57bba329894e0f8b5a16fb",
+      "tag": "archive/consolidation-20261008T153807/origin/main"
+    }
+  ],
+  "remote_heads": {
+    "experiment/ltv-nondegradation-correlation-20261008": "2417d036002fbfd542ae71d96d0fc734cd6d47e8",
+    "experiment/ltv-three-track-20261008": "363c31db2245bb1dccece3d72a2cc5557fb414a2",
+    "experiment/ltv-three-track-a-20261008": "20c9ebfd52ed85bc95499b2f9447a14a40dfc85c",
+    "experiment/ltv-three-track-a-interface-20261008": "81de174a9566f4cd5dc4f9d47ebb7e284331a6ea",
+    "experiment/ltv-three-track-a-visual-interface-20261008": "ffd8684fe7aba98c2e6cd789fde860ce94ae8aa7",
+    "experiment/ltv-three-track-b-20261008": "c04d8c63e1f4cc562589a93259f2efc70524aa8f",
+    "experiment/ltv-three-track-c-20261008": "46d0a9df8b8438a9f6146e0861e05c9a312929bc",
+    "experiment/ltv-three-track-metrics-interface-20261008": "347b0ec9066c5f1a62792494751daf4d220036f0",
+    "feature/ltv-feature-readiness-passive": "f76f32f8c1d5ece23ce23e10e65560b80ec0a4f9",
+    "feature/ltv-gv-fusion-evaluation": "16f02e30a4ba8308e112eb2c96d30046672007ec",
+    "feature/ltv-gv-no-benefit-diagnosis": "f22bfbcd82fe9a2b82d85ce9079fcd33d496e3f8",
+    "feature/ltv-landmark-validation": "1b0bf91983e5513525d5f2bed8bd548d2ff3f58a",
+    "feature/ltv-openvins-integration-cleanup": "83c71cbc585123381f033c8dbcd625c14e8e7fac",
+    "feature/ltv-passive-hardening-v2": "a8c5e6759b49b9b7d6e734c8f1da32afa73fb16e",
+    "feature/ltv-v-readiness-recovery": "c2ddcf94e2ba4102531bd81903fb040d33546e35",
+    "main": "a8c56c8cb488046d5b57bba329894e0f8b5a16fb"
+  },
+  "local_heads": {
+    "archive/ltv-frozen-c7fc29b": "c7fc29b11352da3104c80462bcdd32553e785085",
+    "experiment/ltv-gv-audit-20261008": "55bfed41309654f7e1f35b62e5f20028259abbe6",
+    "experiment/ltv-holdout-audit-20261008": "8990c2274abd012301cc186fc326b89e7919009d",
+    "experiment/ltv-nondegradation-correlation-20261008": "2417d036002fbfd542ae71d96d0fc734cd6d47e8",
+    "experiment/ltv-shadow-20261008": "fde89fdeb813935fa316272a2ca1466400beff33",
+    "experiment/ltv-three-track-20261008": "363c31db2245bb1dccece3d72a2cc5557fb414a2",
+    "experiment/ltv-three-track-a-20261008": "20c9ebfd52ed85bc95499b2f9447a14a40dfc85c",
+    "experiment/ltv-three-track-a-interface-20261008": "81de174a9566f4cd5dc4f9d47ebb7e284331a6ea",
+    "experiment/ltv-three-track-a-visual-interface-20261008": "ffd8684fe7aba98c2e6cd789fde860ce94ae8aa7",
+    "experiment/ltv-three-track-b-20261008": "c04d8c63e1f4cc562589a93259f2efc70524aa8f",
+    "experiment/ltv-three-track-c-20261008": "46d0a9df8b8438a9f6146e0861e05c9a312929bc",
+    "experiment/ltv-three-track-metrics-interface-20261008": "347b0ec9066c5f1a62792494751daf4d220036f0",
+    "feature/ltv-feature-readiness-passive": "f76f32f8c1d5ece23ce23e10e65560b80ec0a4f9",
+    "feature/ltv-gv-fusion-evaluation": "16f02e30a4ba8308e112eb2c96d30046672007ec",
+    "feature/ltv-gv-no-benefit-diagnosis": "f22bfbcd82fe9a2b82d85ce9079fcd33d496e3f8",
+    "feature/ltv-landmark-validation": "1b0bf91983e5513525d5f2bed8bd548d2ff3f58a",
+    "feature/ltv-openvins-integration-cleanup": "83c71cbc585123381f033c8dbcd625c14e8e7fac",
+    "feature/ltv-passive-hardening-v2": "a8c5e6759b49b9b7d6e734c8f1da32afa73fb16e",
+    "feature/ltv-v-readiness-recovery": "c2ddcf94e2ba4102531bd81903fb040d33546e35",
+    "ltv/semantic-commits": "199977b2381d3cad2d43195e8c774dd55d0f3839",
+    "main": "a8c56c8cb488046d5b57bba329894e0f8b5a16fb"
+  },
+  "remote_archive_tags_verified": true
+}
