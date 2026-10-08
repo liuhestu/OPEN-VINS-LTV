@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ltv/observer/LtvErrorShadow.h"
 #include "ltv/observer/ltv_controlled_features.h"
 #include "ltv/observer/ltv_types.h"
 
@@ -45,6 +46,7 @@ public:
   const Eigen::VectorXd &state() const;
   const Eigen::MatrixXd &covariance() const;
   int slotForFeature(int feature_id) const;
+  const LtvErrorShadow &errorShadow() const { return error_shadow_; }
 
 private:
   LtvSnapshot updateFeaturesImpl(double frame_timestamp, double imu_timestamp, const std::vector<LtvFeatureObservation> &observations,
@@ -59,6 +61,7 @@ private:
   int velocityOffset() const;
   int gravityOffset() const;
 
+  LtvErrorShadow error_shadow_;
   LtvConfig config_;
   bool configured_ = false;
   bool started_ = false;
