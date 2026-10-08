@@ -1,0 +1,72 @@
+{
+  "scope": "matched fixed prefix only; full completion NOT_PROVEN",
+  "tolerance": 0,
+  "seconds": 10.0,
+  "excluded_fields": [
+    "features.compute_time_ms"
+  ],
+  "audit_rows": 200,
+  "trajectory_rows": 118,
+  "unmatched_rows": 0,
+  "features": {
+    "rows": 200,
+    "canonical_sha": "44a291b07c4ec528c86110f34fe69bf1d513787da3bd6c477aa4465c72b3abd3"
+  },
+  "cache": {
+    "counts": {
+      "imu": 1998,
+      "process": 118,
+      "pause": 82
+    },
+    "sha256": "5052e17a0f11c0603198ee7f130f075ef8ae1b940fab030b154271dcf2fb585b",
+    "full_serialized_payload_exact": true
+  },
+  "status": "PASS_EXACT_PREFIX",
+  "input_consumption": {
+    "input_left_images": 2348,
+    "input_right_images": 2348,
+    "unmatched_left_images": 0,
+    "unmatched_right_images": 0,
+    "camera_packets": 200,
+    "input_camera_packets": 2348,
+    "imu_consumed": 1998,
+    "input_imu_samples": 23490,
+    "output_rows": 118,
+    "input_span_seconds": 9.985000133514404,
+    "short_limit_seconds": 10,
+    "mode": "P_NEW",
+    "actual_G_submissions": 0,
+    "actual_V_submissions": 0,
+    "complete": false
+  },
+  "files": {
+    "audit.csv": {
+      "before_sha": "6cdea904110915d86b4b62da6a33b1eb579978b70b1eb86b8a322b2a7f758d04",
+      "after_sha": "6cdea904110915d86b4b62da6a33b1eb579978b70b1eb86b8a322b2a7f758d04"
+    },
+    "trajectory.csv": {
+      "before_sha": "8ebfcbfb1a95f04680570b383f52c7a46bf3da1461847cc70fd729a9544cd8d0",
+      "after_sha": "8ebfcbfb1a95f04680570b383f52c7a46bf3da1461847cc70fd729a9544cd8d0"
+    },
+    "cache.bin": {
+      "before_sha": "5052e17a0f11c0603198ee7f130f075ef8ae1b940fab030b154271dcf2fb585b",
+      "after_sha": "5052e17a0f11c0603198ee7f130f075ef8ae1b940fab030b154271dcf2fb585b"
+    },
+    "features.jsonl": {
+      "before_sha": "457c3e72d7c235c8a2ce47e114b693114a676a61c0ddb733929182d328c84804",
+      "after_sha": "367ff265352a16bdb24a539068946be24a1df00e7d823bd2f49dc9c78be07370"
+    },
+    "effective_options.json": {
+      "before_sha": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1",
+      "after_sha": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+    },
+    "replay.json": {
+      "before_sha": "6eeb441fc220bcb99426b76c28915cdf7b6fc5abcebd1e453d6aaac6a45e6fdb",
+      "after_sha": "6eeb441fc220bcb99426b76c28915cdf7b6fc5abcebd1e453d6aaac6a45e6fdb"
+    },
+    "unmatched_camera.csv": {
+      "before_sha": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3",
+      "after_sha": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3"
+    }
+  }
+}

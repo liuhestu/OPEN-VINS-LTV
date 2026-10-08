@@ -1,4 +1,4 @@
-# Task C validation (in progress; no production correlated qualification)
+# Task C validation (final scoped result; no production correlated qualification)
 
 Reference baseline: 2417d036002fbfd542ae71d96d0fc734cd6d47e8. Production switches and confirm20 remain unchanged.
 
@@ -19,7 +19,7 @@ Raw outputs are in the shared session's isolated `tasks/task_c/results/<run-id>`
 
 ## Statistical limits
 
-The native Observer's known deterministic mean error in the controlled experiment is 9.85903 (dominated by zero gravity initialization against true gravity). Empirical mean minus nominal-model mean is7.50908e-5. Covariance calibration around this biased mean does not prove zero-mean NEES/NIS consistency or useful fusion. No independent real landmark truth exists; real landmark calibration is NOT_EVALUATED.
+The native Observer's9D total mean-error norm9.85903 mixes m,m/s,m/s². Unit-separated deterministic norms are landmark.04409554m,velocity.980997085m/s,gravity9.809999922m/s². The original33D empirical/model norm7.50908e-5 also mixes units; the same-law matrix reproduction persists all component means/covariances. Covariance calibration around this biased mean does not prove zero-mean NEES/NIS consistency or useful fusion. No independent real landmark truth exists; real landmark calibration is NOT_EVALUATED.
 
 The controlled main model is conditional linear H/K with nominal zero injection. That experiment does not validate nonlinear real-main injection, stochastic main gain/FEJ/QR variation, actual static-initializer source error law, gate-conditioned distributions, or production30-slot coupling. Its PASS applies only to the recorded known-truth covariance experiment.
 

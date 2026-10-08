@@ -1,7 +1,7 @@
 {
   "version": "finite-native-joint-v2-program-chart-corrected",
   "binary_source_oid": "6982e0473b6963ab95dfb169b585c09f464bfa8e",
-  "analysis_source_oid": "1f69fa2f7889ea5d39c11a8a389be1c232473b05",
+  "analysis_source_oid": "104d379077e622002f7c942b21563fca608b7f45",
   "correlated_kernel_source_oid": "a6702e6801e170d21475579ff55f97d646676786",
   "baseline_oid": "2417d036002fbfd542ae71d96d0fc734cd6d47e8",
   "input_contract": {
@@ -67,7 +67,22 @@
       "mean_norm_m": 0.034293184,
       "mean_over_pred_noise_sqrt_trace": 110.445267,
       "zero_mean_consistency": "contradicted within controlled scope; not a new acceptance gate"
-    }
+    },
+    "manifest": "run_manifest.csv, all attempts including collector terminal verified",
+    "controlled_matrix_reproduction": "same seed/law12000: same aggregate.0049601733598021404; physical block tables descriptive, no retrospective gate",
+    "finite_repeat": "10s byte-exact numerical/source matrices; not independent sampling/full repeat",
+    "reason_counter_zero_denominator": {
+      "V2_02": {
+        "counter_zero": 9,
+        "all_indexed": 2171
+      },
+      "V2_03": {
+        "counter_zero": 81,
+        "all_indexed": 1685
+      },
+      "meaning": "cumulative counter cannot identify affected event; not source closure evidence"
+    },
+    "real_composite": "not evaluated: independent finite current/anchor mean vectors not persisted; GT poses would cancel static same-identity true point"
   },
   "consumer_policy": "DO_NOT_USE_FOR_PRODUCTION30_SLOT_OR_B_APPROX_FUSION; no qualified online real covariance/mean interface",
   "stop_reasons": [
@@ -78,5 +93,6 @@
     "registered source subset/missing events not full historic closure",
     "controlled composite innovation mean exceeds predicted noise sqrt(trace) by110x despite covariance agreement"
   ],
-  "production_defaults": "OFF, confirm20, max_slam0 unchanged"
+  "production_defaults": "OFF, confirm20, max_slam0 unchanged",
+  "MC_persistence_source_oid": "e765faac654fd9470d5a82e7a8a474a564ae7792"
 }
