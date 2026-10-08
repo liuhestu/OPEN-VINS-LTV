@@ -1,0 +1,66 @@
+{
+  "version": "real-shadow-joint-20261008-v1",
+  "frozen_before_new_real_shadow": true,
+  "fusion_modes": "G/V/landmark OFF; confirmation20; max_slam0",
+  "error_coordinates": {
+    "main": "true-minus-estimate native JPL left-negative world-to-body rotation and additive world position",
+    "observer_seed_anchor": "estimate-minus-true body vectors",
+    "extrinsic": "right rotation / body lever arm at SeedCamera interface; native upstream transformation UNKNOWN"
+  },
+  "full_joint_layout": [
+    "current main active state including clones/calibrations",
+    "Observer current point/velocity/gravity error",
+    "saved same-epoch point anchor errors",
+    "all reused physical bearing and interpolated IMU error sources"
+  ],
+  "implemented_shadow_layout": [
+    "conditional corrected-input offset six sources accel[m/s^2]/gyro[rad/s]",
+    "Observer source-sensitivity rows: live points then velocity then gravity",
+    "frozen anchor source-sensitivity rows keyed epoch/local point ID",
+    "same-frame unit bearing source columns (three tangent projected coordinates per point)"
+  ],
+  "statistical_meaning": {
+    "P_R": "Riccati design matrix, not calibrated error Sigma",
+    "conditional_gram": "fixed-initial-state and fixed-Riccati-gain unit-source sensitivity Gram; not unconditional Sigma_L",
+    "full_unconditional_covariance": "INVALID while any required source cross block UNKNOWN"
+  },
+  "source_identity": {
+    "IMU": "corrected-input persistent offset across steps; actual sampled IMU interpolation cross UNKNOWN",
+    "bearing": "epoch/local-id/camera time; same tangent source reused through all Euler substeps",
+    "seed": "actual seed input pose/camera/observation indices; full posterior main/bearing joint UNKNOWN",
+    "anchor": "same-epoch/local-id snapshot; retired/reset/replaced identity invalidated"
+  },
+  "actual_discrete_maps": {
+    "IMU": "F=I+dt*A; B_acc=dt at velocity; B_gyro=dt*skew(current body vectors); bias sign negative",
+    "camera": "F_s=I-dt*q*P_R*C^T*C; same-frame source B_total=F_s B_previous + B_s; gain-schedule derivative UNKNOWN",
+    "joint": "F Sigma F^T+B Q B^T+F D B^T+B D^T F^T; D=Cov(old errors,sources), never silently zero for real distribution"
+  },
+  "lifecycle": {
+    "permutation_retire": "select actual row map M; invalidate removed anchor IDs",
+    "birth": "new seed error dependency UNKNOWN; conditional fixed seed contribution only",
+    "clone_augmentation_marginalization": "main/historic source hook not implemented, BLOCKED",
+    "visual_update_and_JPL_reset": "main/LTV/source transform unavailable, BLOCKED",
+    "reset_epoch": "clear live source contribution and anchors; invalidate old identities"
+  },
+  "unknown_blocks": [
+    "seed history pose-bearing posterior joint",
+    "main-Observer joint cross",
+    "main-anchor cross",
+    "LTV-visual source cross",
+    "interpolated IMU source cross",
+    "gain/Riccati schedule sensitivities",
+    "time/extrinsic calibration stochastic dependence"
+  ],
+  "zero_cross_diagnostic": "offline reference only; never online fallback; negative spectrum rejects without repair",
+  "numerical_reference": "reference/experiment_contract.json with explicit source map vs independent SVD; rank 1e-11*max(max_abs_spectrum,1); matrix tolerance1e-10; no ridge",
+  "LC06": "reference contract seven linear-Gaussian scenarios 12000 IID each plus broken shared source and three nonlinear amplitudes; actual_seed contract three amplitudes12000 each; actual Observer controlled one-Euler 1000 IID narrow scope",
+  "real_shadow_sequences": [
+    "V2_02_medium",
+    "V2_03_difficult"
+  ],
+  "real_shadow_matching": "full real images/IMU same frozen OFF config/input; exact complete main and Observer regression; shadow matrices separately evaluated",
+  "overhead": "sequential full replay measured whole-run resources; heavy diagnostic overhead separate; production p95/queue NOT_EVALUATED unless matched measurement exists",
+  "LC08": "rolling pre-consumption current-bearing prediction; strict past historical geometry; three-way common sample, frozen1s block bootstrap2000 seed20261005; not permanent holdout; historical contract reused",
+  "real_landmark_truth": "UNAVAILABLE; statistical Sigma_L calibration NOT_EVALUATED",
+  "GO": "all required real joint/source blocks valid and identifiable conditional increment and numerical conditions; else STOP"
+}

@@ -8,6 +8,7 @@
 #include "state/StateHelper.h"
 #include <algorithm>
 #include <boost/uuid/detail/sha1.hpp>
+#include <chrono>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -688,6 +689,8 @@ int main(int argc, char **argv) {
     const double sensor_end = limit ? sensor_start + limit : std::numeric_limits<double>::infinity();
     double last_input_time = sensor_start;
     size_t cursor = 0, packets = 0, outputs = 0;
+    std::ofstream frame_processing(out + "/frame_processing.csv");
+    frame_processing << std::setprecision(17) << "camera_ns,feed_camera_ms\n";
     uint64_t total_G = 0, total_V = 0;
     for (size_t i = 0; i < left.size(); ++i) {
       double t = left[i].ns * 1e-9;
@@ -714,6 +717,7 @@ int main(int argc, char **argv) {
         camera.masks.push_back(options.use_mask ? options.masks.at(camera.masks.size()).clone() : cv::Mat::zeros(image.size(), CV_8UC1));
       }
       app.begin_camera_receipt(left[i].ns, right[i].ns, t);
+      const auto processing_start = std::chrono::steady_clock::now();
       try {
         app.feed_measurement_camera(camera);
       } catch (const std::exception &error) {
@@ -727,6 +731,8 @@ int main(int argc, char **argv) {
 #endif
         throw;
       }
+      const double feed_camera_ms = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - processing_start).count();
+      frame_processing << left[i].ns << ',' << feed_camera_ms << '\n';
 #ifdef LTV_GV_EVALUATION
       app.fusion_row(fusion, matrices, left[i].ns);
 #endif

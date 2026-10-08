@@ -69,6 +69,7 @@ def tests(out):
 
 
 def replay(out):
+    import numpy as np
     frozen = json.loads((ROOT / 'docs/ltv/landmark_validation/freeze.json').read_text())
     sys.path.insert(0, str(ROOT / 'scripts/ltv_integration_cleanup'))
     import check_real_outputs as exact
@@ -76,31 +77,50 @@ def replay(out):
     for seq, inp in frozen['inputs'].items():
         for name, digest in inp['config_sha'].items():
             assert sha(Path(inp['config']).parent / name) == digest
-        destination = out / 'runs' / f'{seq}_SHADOW_OFF_01'
-        destination.mkdir(parents=True, exist_ok=False)
-        record = run(out, seq + '_SHADOW_OFF_01', command(out, 'run_ltv_gv_evaluation',
-                     [inp['config'], inp['root'], destination, 'OFF']), cwd=destination,
-                     extra_env={'LTV_JOINT_SHADOW_PATH': str(destination / 'joint_shadow.csv')})
-        parity = exact.compare(inp['off_path'], destination)
-        parity['ltv_rows'] = exact.csv_exact(Path(inp['off_path']) / 'ltv.csv', destination / 'ltv.csv')
-        hashes = {}
-        for name, digest in inp['off_evidence_sha'].items():
-            hashes[name] = sha(destination / name)
-            # Exact structured comparison above excludes compute_time_ms only.
-            if name != 'features.jsonl':
-                assert hashes[name] == digest, (seq, name, hashes[name], digest)
-        metadata = json.loads((destination / 'replay.json').read_text())
-        with (destination / 'joint_shadow.csv').open() as f:
-            rows = list(csv.DictReader(f))
-        camera = [row for row in rows if row['event'] == 'camera']
-        assert camera and all(row['valid_unconditional'] == 'false' for row in rows)
-        summary = {'sequence': seq, 'run': record, 'parity': parity, 'output_sha256': hashes, 'replay': metadata,
-                   'shadow_rows': len(rows), 'camera_shadow_rows': len(camera), 'real_statistical_valid_fraction': 0,
-                   'missing_blocks': sorted(set(row['missing_blocks'] for row in rows)),
-                   'events': {event: sum(row['event'] == event for row in rows) for event in sorted(set(row['event'] for row in rows))},
-                   'shadow_path': str(destination / 'joint_shadow.csv'), 'shadow_sha256': sha(destination / 'joint_shadow.csv')}
-        write(DOC / f'{seq}_shadow.json', summary)
-        records.append(summary)
+        paired = []
+        for mode in ('OFF', 'SHADOW_OFF'):
+            destination = out / 'runs' / f'{seq}_{mode}_01'
+            destination.mkdir(parents=True, exist_ok=False)
+            extra = {'LTV_JOINT_SHADOW_PATH': str(destination / 'joint_shadow.csv')} if mode == 'SHADOW_OFF' else {}
+            record = run(out, seq + '_' + mode + '_01', command(out, 'run_ltv_gv_evaluation',
+                         [inp['config'], inp['root'], destination, 'OFF']), cwd=destination, extra_env=extra)
+            parity = exact.compare(inp['off_path'], destination)
+            parity['ltv_rows'] = exact.csv_exact(Path(inp['off_path']) / 'ltv.csv', destination / 'ltv.csv')
+            hashes = {}
+            for name, digest in inp['off_evidence_sha'].items():
+                hashes[name] = sha(destination / name)
+                # Only features.compute_time_ms is excluded by exact structured comparison.
+                if name != 'features.jsonl':
+                    assert hashes[name] == digest, (seq, name, hashes[name], digest)
+            metadata = json.loads((destination / 'replay.json').read_text())
+            options = json.loads((destination / 'effective_options.json').read_text())
+            assert options['max_slam_features'] == 0
+            assert options['ltv_observer_warmup_camera_updates'] == 20
+            assert not options['ltv_enable_gravity'] and not options['ltv_enable_velocity']
+            timing = np.genfromtxt(destination / 'frame_processing.csv', delimiter=',', names=True)
+            assert len(timing) == metadata['camera_packets']
+            assert np.all(np.isfinite(timing['feed_camera_ms']))
+            summary = {'sequence': seq, 'mode': mode, 'run': record, 'parity': parity, 'output_sha256': hashes,
+                       'replay': metadata, 'frame_feed_camera_ms_p95': float(np.percentile(timing['feed_camera_ms'], 95)),
+                       'frame_feed_camera_ms_max': float(np.max(timing['feed_camera_ms']))}
+            if mode == 'SHADOW_OFF':
+                with (destination / 'joint_shadow.csv').open() as f:
+                    rows = list(csv.DictReader(f))
+                camera = [row for row in rows if row['event'] == 'camera']
+                assert camera and all(row['valid_unconditional'] == 'false' for row in rows)
+                summary.update(shadow_rows=len(rows), camera_shadow_rows=len(camera), real_statistical_valid_fraction=0,
+                               missing_blocks=sorted(set(row['missing_blocks'] for row in rows)),
+                               events={event: sum(row['event'] == event for row in rows) for event in sorted(set(row['event'] for row in rows))},
+                               shadow_path=str(destination / 'joint_shadow.csv'), shadow_sha256=sha(destination / 'joint_shadow.csv'))
+            write(DOC / f'{seq}_{mode}.json', summary)
+            paired.append(summary)
+            records.append(summary)
+        shadow, baseline = paired[1], paired[0]
+        resources = {'sequence': seq, 'scope': 'heavy diagnostic SHADOW vs same-binary OFF, feed_camera includes synchronous shadow I/O',
+                     'p95_relative_growth': shadow['frame_feed_camera_ms_p95'] / baseline['frame_feed_camera_ms_p95'] - 1,
+                     'peak_rss_relative_growth': shadow['run']['resources']['max_rss_kb'] / baseline['run']['resources']['max_rss_kb'] - 1,
+                     'production_GV_performance': 'NOT_EVALUATED', 'ROS_transport_queues': 'NOT_EVALUATED; direct deterministic ASL runner'}
+        write(DOC / f'{seq}_shadow_overhead.json', resources)
     write(DOC / 'full_shadow_replays.json', records)
 
 

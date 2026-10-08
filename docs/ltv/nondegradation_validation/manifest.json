@@ -91,7 +91,8 @@
     }
   },
   "historical_freeze_sha256": "264726391571de15181d7fab376fe3ea25cf5ab728592bfe6e331a8188e966af",
-  "acceptance_sha256": "a7880850de63f84d1a387109a31e20ff8c0bc4c6a32f87ef0d1954398648ed84",
+  "acceptance_sha256": "9879047e2fde013570d4874c57706630f9ffb0070609690ca3eee5f68c0d2b29",
   "new_output": "/home/he/output/ltv_nondegradation_correlation_20261008",
-  "historical_reference": "untracked reference files existed at entry; revalidate before reuse"
+  "historical_reference": "untracked reference files existed at entry; revalidate before reuse",
+  "reference_canonical_path": "docs/ltv/nondegradation_goal_reference.md"
 }
