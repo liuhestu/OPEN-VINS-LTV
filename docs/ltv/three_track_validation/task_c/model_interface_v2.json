@@ -60,6 +60,13 @@
       "V2_03_mapped": 1678,
       "V2_03_NOT_EVALUATED": 7,
       "landmark_calibration": "NOT_EVALUATED"
+    },
+    "controlled_composite": {
+      "R_L_predicted_trace_m2": 9.640984785e-08,
+      "R_L_empirical_trace_m2": 9.531517435e-08,
+      "mean_norm_m": 0.034293184,
+      "mean_over_pred_noise_sqrt_trace": 110.445267,
+      "zero_mean_consistency": "contradicted within controlled scope; not a new acceptance gate"
     }
   },
   "consumer_policy": "DO_NOT_USE_FOR_PRODUCTION30_SLOT_OR_B_APPROX_FUSION; no qualified online real covariance/mean interface",
@@ -68,7 +75,8 @@
     "initial/source/noise/gate law unvalidated in real streams",
     "main error mean chart mapping not supplied online",
     "landmark residual mean and real truth unavailable",
-    "registered source subset/missing events not full historic closure"
+    "registered source subset/missing events not full historic closure",
+    "controlled composite innovation mean exceeds predicted noise sqrt(trace) by110x despite covariance agreement"
   ],
   "production_defaults": "OFF, confirm20, max_slam0 unchanged"
 }

@@ -31,10 +31,11 @@ Main source receipts previously consumed before registration are rejected for se
 
 C4 replacement of B's approximate model is NOT_RUN: no qualified production covariance interface exists. Engineering approximate ON in B is authorized independently and does not inherit statistical/model qualification from C.
 
-## Pending evidence
+## Completed final runtime evidence
 
-Corrected6982 native unit suite, short finite-OFF/ON exact main state/full P/Observer/lifecycle regression and source audit; then matched full V2_02/V2_03 finite replay and offline true-error mapping. Current documentation does not mark these pending items complete.
+Corrected6982 phase0-selected native units passed.10s OFF/shadow full prefix cache/state/lifecycle exact passed; first misuse of the full comparator on a prefix was retained as FAIL. Finite10s repeated scalar/matrix/source-receipt bytes are exact. Both V2_02/V2_03 complete raw matched OFF/shadow streams and original full zero-tolerance comparator passed; full numerical audits and frozen-gauge actual main true-error chart mapping completed. Details, scopes and source missing counters35/22 are in report.md. No production30-slot/noise/mean/calibration qualification follows.
 
+The explicitly authorized same-seed/law12000 reproduction persisted33D predicted/empirical covariance and mean matrices plus physical block tables. Aggregate relative error exactly reproduces0.0049601733598021404; block relative differences remain descriptive, without new gates. Unit-separated empirical Observer means are.04404252m,.98099707m/s,9.809999922m/s². The9.859 aggregate is mixed units, not metres.
 
 ### Composite residual truth diagnostic limitation (precise)
 
