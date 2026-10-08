@@ -46,6 +46,11 @@ void LtvFiniteJointShadow::initialize(const void *owner, const Eigen::MatrixXd &
     active_ = false;
     anchors_.clear();
     source_times_.clear();
+    source_laws_.clear();
+    raw_times_.clear();
+    raw_prune_cutoff_ = pixel_prune_cutoff_ = -1;
+    pre_visual_main_.resize(0, 0);
+    nominal_poses_.resize(0, 0);
     time_ = -1;
   }
 }

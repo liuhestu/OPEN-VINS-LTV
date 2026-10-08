@@ -31,6 +31,7 @@ public:
       cross_ = Eigen::MatrixXd::Zero(p.rows(), 0);
       aux_ = Eigen::MatrixXd(0, 0);
       sources_.clear();
+      used_visual_.clear();
       source_main_ = Eigen::MatrixXd::Zero(p.rows(), 0);
       source_aux_ = Eigen::MatrixXd(0, 0);
       source_variance_.resize(0);
