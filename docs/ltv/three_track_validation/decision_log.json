@@ -47,5 +47,15 @@
     "judgement": "build configuration scope failure, not algorithm failure or successful validation",
     "change": "new immutable probes artifact ID with ON and fresh build/install/cache; old default build retained",
     "next": "verify installed runner/test list and env/library provenance, then exact OFF and fixed four-mode performance"
+  },
+  {
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T11:10:58.676445+00:00",
+    "batch": "B4_frozen_before_results",
+    "observation": "B3 coverage65.07/36.77 andtails pass; V2_03 stronggeom gain4.0328<5 despitepositiveCI",
+    "judgement": "lifecycle supply defect resolved; model value depends on temporal predictive quality, not pollution or dataset mismatch",
+    "change": "one B4 prev successful camera0 actual-consumption score LTV<=stronggeometry, exact identity and previous transaction; currenttarget unseen; no margins/no thresholds relaxed",
+    "next": "synthetic ledger causality then same dev preregistered admission; ifno value stopthis path insteadweight scan",
+    "contract_sha256": "d78fdad92ef73c849377f8d18204d6dfd57667fc9eec78c0ba740b3e4f4bbb6b"
   }
 ]
