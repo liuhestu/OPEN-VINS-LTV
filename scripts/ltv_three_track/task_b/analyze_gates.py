@@ -72,7 +72,9 @@ def assess(source, contract_path, destination):
         gates = {'B0': mature & ready,
                  'B1': mature & ready & (span >= .2 - 1e-9) & (span <= .5 + 1e-9),
                  'B2': mature & ready & (span >= .2 - 1e-9) & (span <= .5 + 1e-9) & (disagreement <= .02)}
-        assert list(gates) == contract['candidate_ids']
+        gates['B3'] = mature & ready & (span >= .2 - 1e-6) & (span <= .55 + 1e-6) & (disagreement <= .02)
+        assert all(g in gates for g in contract['candidate_ids'])
+        gates = {gid: gates[gid] for gid in contract['candidate_ids']}
         seq_out = {'rows': len(rows), 'ungated_all_candidates': paired_group(strong, np.ones(len(rows), bool)),
                    'ungated_mature': paired_group(strong, mature), 'gates': {}, 'nominal_mature_wait_s': freeze['protocol'].get('maturity_seconds', .1)}
         survival = {}
