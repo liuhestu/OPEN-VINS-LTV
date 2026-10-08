@@ -1,0 +1,780 @@
+{
+  "source_kind": "HISTORICAL_REUSED",
+  "contract_sha256": "25601a447f4ba17d1c33939d21f077ce32e5fa022f64ac4a6491f335d64f75e9",
+  "causality": "before_current_bearing_consumption; no GT; past readiness and maturity",
+  "correlation_model": "approximate_not_implemented",
+  "fusion_executed": false,
+  "analysis_script_sha256": "89792344bddd4f52efb5229d539c7ff736ef72f5281bb7f21348bd28127a7724",
+  "inputs": [
+    {
+      "path": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/ov_msckf/src/ltv/diagnostics/LtvLandmarkShadow.h",
+      "sha256": "fc5f308f9012ab85bd62f275becb89dc26e60c97033a10e62f0d8dd9dc2e0b37"
+    },
+    {
+      "path": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/ov_msckf/src/ltv/observer/LtvAdapterHardened.cpp",
+      "sha256": "c5b032c2f2c965b891f46cecc73fab3f040dba7aeb7334086e5c703e4390c3b4"
+    },
+    {
+      "path": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/ov_msckf/src/core/VioManager.cpp",
+      "sha256": "ea96e5b08b62444cebbc5b49866da4b4730d8baec35ebb3c7cb38d11678852fb"
+    },
+    {
+      "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/cache.bin",
+      "sha256": "8f9d515b2fa823e704ec68b4fc1aed467bac5c1d64b53ddf1896e5ac289d3d85"
+    },
+    {
+      "path": "/home/he/output/ltv_landmark_validation_20261005/past_geometry_audit/V2_02_medium_predictions.csv",
+      "sha256": "20237bd577ca74a840ebf33552f2a86f66e362221f8d305e71706cbaf8f9d0d9"
+    },
+    {
+      "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03/features.jsonl",
+      "sha256": "1fdb36ef2aababa7fdadb6ca57aa15f9689d4a0c84c0ac2090fb9a3c9768f5b2"
+    },
+    {
+      "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/cache.bin",
+      "sha256": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf"
+    },
+    {
+      "path": "/home/he/output/ltv_landmark_validation_20261005/past_geometry_audit/V2_03_difficult_predictions.csv",
+      "sha256": "34f47ece3b40375750082ef40dfb3fd08bd0f14b0f7594c7f48352412591e82c"
+    },
+    {
+      "path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03/features.jsonl",
+      "sha256": "b8503b92250c1f56246258f4341a26bb0fdbc1f18179d530758daec5c21bf8cd"
+    }
+  ],
+  "sequences": {
+    "V2_02_medium": {
+      "rows": 374515,
+      "ungated_all_candidates": {
+        "denominator": 374515,
+        "ltv_valid": 97276,
+        "main_valid": 92244,
+        "paired": 92233,
+        "ltv_only": 5043,
+        "main_only": 11,
+        "neither": 277228,
+        "reasons": {
+          "no_past_identity": 277221,
+          "ok": 97238,
+          "invalid_prediction": 56
+        },
+        "ltv_coverage": 0.2597385952498565,
+        "main_coverage": 0.24630255129968093,
+        "ltv": {
+          "n": 92233,
+          "rms": 0.029524742406552416,
+          "median": 0.002514752864406698,
+          "p95": 0.02074943240763873,
+          "p99": 0.07485855240266105,
+          "maximum": 0.692806926961393,
+          "above_0_02_rad": 4751
+        },
+        "main": {
+          "n": 92233,
+          "rms": 0.040218274283377875,
+          "median": 0.0027034892173122167,
+          "p95": 0.014309597543034612,
+          "p99": 0.1212445980673255,
+          "maximum": 1.8662740935812228,
+          "above_0_02_rad": 3426
+        },
+        "paired_frames": 2262,
+        "gain_ci95": [
+          -0.011937475477485887,
+          0.6022548581483123
+        ],
+        "frame_rms_gain": 0.4518098088072924,
+        "reliable_advantage": false,
+        "frame_rms_ltv": 0.031542068803876264,
+        "frame_rms_main": 0.057538550143061834,
+        "time_blocks": 114,
+        "tail_nonworse": false,
+        "coverage_nonworse": true
+      },
+      "ungated_mature": {
+        "denominator": 87075,
+        "ltv_valid": 87057,
+        "main_valid": 86151,
+        "paired": 86140,
+        "ltv_only": 917,
+        "main_only": 11,
+        "neither": 7,
+        "reasons": {
+          "ok": 87019,
+          "invalid_prediction": 56
+        },
+        "ltv_coverage": 0.9997932816537468,
+        "main_coverage": 0.9893884582256676,
+        "ltv": {
+          "n": 86140,
+          "rms": 0.02919594256000482,
+          "median": 0.0025004948782163007,
+          "p95": 0.020423441152850354,
+          "p99": 0.07373425768971263,
+          "maximum": 0.692806926961393,
+          "above_0_02_rad": 4385
+        },
+        "main": {
+          "n": 86140,
+          "rms": 0.04015483637263133,
+          "median": 0.002732280701543157,
+          "p95": 0.01408281175976435,
+          "p99": 0.11570291915391401,
+          "maximum": 1.8662740935812228,
+          "above_0_02_rad": 3128
+        },
+        "paired_frames": 2260,
+        "gain_ci95": [
+          -0.08867635068113464,
+          0.5929523154285891
+        ],
+        "frame_rms_gain": 0.4679216228327724,
+        "reliable_advantage": false,
+        "frame_rms_ltv": 0.03167886420411125,
+        "frame_rms_main": 0.05953796576506032,
+        "time_blocks": 113,
+        "tail_nonworse": false,
+        "coverage_nonworse": true
+      },
+      "gates": {
+        "B3": {
+          "candidate_denominator": 56659,
+          "common_denominator": 56390,
+          "mature_denominator": 87075,
+          "mature_coverage": 0.6506919322423198,
+          "common_coverage": 0.9952522988404313,
+          "common_gated": {
+            "denominator": 56659,
+            "ltv_valid": 56659,
+            "main_valid": 56390,
+            "paired": 56390,
+            "ltv_only": 269,
+            "main_only": 0,
+            "neither": 0,
+            "reasons": {
+              "ok": 56659
+            },
+            "ltv_coverage": 1.0,
+            "main_coverage": 0.9952522988404313,
+            "ltv": {
+              "n": 56390,
+              "rms": 0.017940902309341568,
+              "median": 0.0019739082937194905,
+              "p95": 0.007710610079721761,
+              "p99": 0.029070943889061715,
+              "maximum": 0.5969398413169049,
+              "above_0_02_rad": 734
+            },
+            "main": {
+              "n": 56390,
+              "rms": 0.029573962862593967,
+              "median": 0.002492572949352066,
+              "p95": 0.009862255208849875,
+              "p99": 0.04579081440597023,
+              "maximum": 1.8542245018600367,
+              "above_0_02_rad": 1110
+            },
+            "paired_frames": 1569,
+            "gain_ci95": [
+              0.03959788202306486,
+              0.7591671704802267
+            ],
+            "frame_rms_gain": 0.5619890841358235,
+            "reliable_advantage": true,
+            "frame_rms_ltv": 0.018194527684261785,
+            "frame_rms_main": 0.041538982306787424,
+            "time_blocks": 96,
+            "tail_nonworse": true,
+            "coverage_nonworse": true
+          },
+          "common_all_three_gated": {
+            "denominator": 56390,
+            "ltv_valid": 56390,
+            "main_valid": 56390,
+            "paired": 56390,
+            "ltv_only": 0,
+            "main_only": 0,
+            "neither": 0,
+            "reasons": {
+              "ok": 56390
+            },
+            "ltv_coverage": 1.0,
+            "main_coverage": 1.0,
+            "ltv": {
+              "n": 56390,
+              "rms": 0.017940902309341568,
+              "median": 0.0019739082937194905,
+              "p95": 0.007710610079721761,
+              "p99": 0.029070943889061715,
+              "maximum": 0.5969398413169049,
+              "above_0_02_rad": 734
+            },
+            "main": {
+              "n": 56390,
+              "rms": 0.029573962862593967,
+              "median": 0.002492572949352066,
+              "p95": 0.009862255208849875,
+              "p99": 0.04579081440597023,
+              "maximum": 1.8542245018600367,
+              "above_0_02_rad": 1110
+            },
+            "paired_frames": 1569,
+            "gain_ci95": [
+              0.03959788202306486,
+              0.7591671704802267
+            ],
+            "frame_rms_gain": 0.5619890841358235,
+            "reliable_advantage": true,
+            "frame_rms_ltv": 0.018194527684261785,
+            "frame_rms_main": 0.041538982306787424,
+            "time_blocks": 96,
+            "tail_nonworse": true,
+            "coverage_nonworse": true
+          },
+          "all_available_gated": {
+            "ltv": {
+              "n": 56659,
+              "rms": 0.019377946369629105,
+              "median": 0.0019734152890943705,
+              "p95": 0.007771999587407163,
+              "p99": 0.02949337361325528,
+              "maximum": 0.5991861581711178,
+              "above_0_02_rad": 749
+            },
+            "anchor": {
+              "n": 56659,
+              "rms": 0.020431359530947785,
+              "median": 0.0046575052109552395,
+              "p95": 0.01612504987055036,
+              "p99": 0.03312930009230181,
+              "maximum": 0.6037853741873801,
+              "above_0_02_rad": 1558
+            },
+            "geometry": {
+              "n": 56390,
+              "rms": 0.029573962862593967,
+              "median": 0.002492572949352066,
+              "p95": 0.009862255208849875,
+              "p99": 0.04579081440597023,
+              "maximum": 1.8542245018600367,
+              "above_0_02_rad": 1110
+            }
+          },
+          "subgroups": {
+            "normal": {
+              "denominator": 45104,
+              "ltv_valid": 45104,
+              "main_valid": 45057,
+              "paired": 45057,
+              "ltv_only": 47,
+              "main_only": 0,
+              "neither": 0,
+              "reasons": {
+                "ok": 45104
+              },
+              "ltv_coverage": 1.0,
+              "main_coverage": 0.9989579638169563,
+              "ltv": {
+                "n": 45057,
+                "rms": 0.016615521902590375,
+                "median": 0.0019629531883879436,
+                "p95": 0.00776812243286991,
+                "p99": 0.029943067747940467,
+                "maximum": 0.5801144374451983,
+                "above_0_02_rad": 617
+              },
+              "main": {
+                "n": 45057,
+                "rms": 0.021690728268385997,
+                "median": 0.002444197994831966,
+                "p95": 0.00972757764659165,
+                "p99": 0.03768058083519291,
+                "maximum": 1.2864744513024546,
+                "above_0_02_rad": 838
+              },
+              "paired_frames": 1266,
+              "gain_ci95": [
+                0.014682295816484666,
+                0.6495860671579214
+              ],
+              "frame_rms_gain": 0.3253706955248069,
+              "reliable_advantage": true,
+              "frame_rms_ltv": 0.017216084084341908,
+              "frame_rms_main": 0.025519324420297196,
+              "time_blocks": 78,
+              "tail_nonworse": true,
+              "coverage_nonworse": true
+            },
+            "recovery": {
+              "denominator": 11555,
+              "ltv_valid": 11555,
+              "main_valid": 11333,
+              "paired": 11333,
+              "ltv_only": 222,
+              "main_only": 0,
+              "neither": 0,
+              "reasons": {
+                "ok": 11555
+              },
+              "ltv_coverage": 1.0,
+              "main_coverage": 0.9807875378623973,
+              "ltv": {
+                "n": 11333,
+                "rms": 0.022449192410383907,
+                "median": 0.002027857096372252,
+                "p95": 0.007494442866872526,
+                "p99": 0.021694218886651018,
+                "maximum": 0.5969398413169049,
+                "above_0_02_rad": 117
+              },
+              "main": {
+                "n": 11333,
+                "rms": 0.04981304250121799,
+                "median": 0.0027028190017725543,
+                "p95": 0.01034059873054569,
+                "p99": 0.11788985614016488,
+                "maximum": 1.8542245018600367,
+                "above_0_02_rad": 272
+              },
+              "paired_frames": 303,
+              "gain_ci95": [
+                0.004354391262212845,
+                0.8177803973022716
+              ],
+              "frame_rms_gain": 0.7232862256395729,
+              "reliable_advantage": true,
+              "frame_rms_ltv": 0.02181294907601579,
+              "frame_rms_main": 0.07882856256950853,
+              "time_blocks": 40,
+              "tail_nonworse": true,
+              "coverage_nonworse": true
+            },
+            "startup": {
+              "denominator": 0,
+              "ltv_valid": 0,
+              "main_valid": 0,
+              "paired": 0,
+              "ltv_only": 0,
+              "main_only": 0,
+              "neither": 0,
+              "reasons": {},
+              "ltv_coverage": null,
+              "main_coverage": null,
+              "ltv": {
+                "n": 0,
+                "rms": null,
+                "median": null,
+                "p95": null,
+                "p99": null,
+                "maximum": null,
+                "above_0_02_rad": null
+              },
+              "main": {
+                "n": 0,
+                "rms": null,
+                "median": null,
+                "p95": null,
+                "p99": null,
+                "maximum": null,
+                "above_0_02_rad": null
+              },
+              "paired_frames": 0,
+              "gain_ci95": null,
+              "frame_rms_gain": null,
+              "reliable_advantage": false
+            }
+          },
+          "checks": {
+            "reliable_advantage": true,
+            "mature_coverage": true,
+            "common_coverage": true,
+            "bad_fraction_nonworse": true,
+            "normal_tail_nonworse": true,
+            "normal_bad_fraction_nonworse": true,
+            "recovery_tail_nonworse": true,
+            "recovery_bad_fraction_nonworse": true
+          },
+          "status": "PASS"
+        }
+      },
+      "nominal_mature_wait_s": 0.1,
+      "observable_identity_span_s": {
+        "n": 2444,
+        "rms": 1.8170184009127315,
+        "median": 0.7499997615814209,
+        "p95": 3.9000000953674316,
+        "p99": 6.5284998369217,
+        "maximum": 13.0
+      },
+      "observable_identity_span_scope": "offline descriptive; truncated observation span, never gate input"
+    },
+    "V2_03_difficult": {
+      "rows": 255895,
+      "ungated_all_candidates": {
+        "denominator": 255895,
+        "ltv_valid": 65558,
+        "main_valid": 60752,
+        "paired": 60743,
+        "ltv_only": 4815,
+        "main_only": 9,
+        "neither": 190328,
+        "reasons": {
+          "no_past_identity": 190328,
+          "ok": 65558,
+          "invalid_prediction": 9
+        },
+        "ltv_coverage": 0.25619101584634324,
+        "main_coverage": 0.23740987514410208,
+        "ltv": {
+          "n": 60743,
+          "rms": 0.026430658859344563,
+          "median": 0.0031840363041098787,
+          "p95": 0.02976710933303039,
+          "p99": 0.09195799236734753,
+          "maximum": 1.2003455694885468,
+          "above_0_02_rad": 4165
+        },
+        "main": {
+          "n": 60743,
+          "rms": 0.03279572191628923,
+          "median": 0.0034789691105622795,
+          "p95": 0.01966416694160138,
+          "p99": 0.08768672048888292,
+          "maximum": 1.7594479787380048,
+          "above_0_02_rad": 2965
+        },
+        "paired_frames": 1781,
+        "gain_ci95": [
+          -0.12334574571139681,
+          0.4283688257820081
+        ],
+        "frame_rms_gain": 0.17945548485814455,
+        "reliable_advantage": false,
+        "frame_rms_ltv": 0.031221166521982122,
+        "frame_rms_main": 0.038049326935766084,
+        "time_blocks": 111,
+        "tail_nonworse": false,
+        "coverage_nonworse": true
+      },
+      "ungated_mature": {
+        "denominator": 55908,
+        "ltv_valid": 55899,
+        "main_valid": 55593,
+        "paired": 55584,
+        "ltv_only": 315,
+        "main_only": 9,
+        "neither": 0,
+        "reasons": {
+          "ok": 55899,
+          "invalid_prediction": 9
+        },
+        "ltv_coverage": 0.9998390212491951,
+        "main_coverage": 0.9943657437218287,
+        "ltv": {
+          "n": 55584,
+          "rms": 0.026517274943498984,
+          "median": 0.0031953127123839657,
+          "p95": 0.029751023857870113,
+          "p99": 0.09153593732801467,
+          "maximum": 1.2003455694885468,
+          "above_0_02_rad": 3816
+        },
+        "main": {
+          "n": 55584,
+          "rms": 0.03062599105599979,
+          "median": 0.0035111090973467623,
+          "p95": 0.019346134181883193,
+          "p99": 0.0842786871072757,
+          "maximum": 1.7594479787380048,
+          "above_0_02_rad": 2661
+        },
+        "paired_frames": 1770,
+        "gain_ci95": [
+          -0.17145461311735688,
+          0.3808103346436281
+        ],
+        "frame_rms_gain": 0.12603643906475548,
+        "reliable_advantage": false,
+        "frame_rms_ltv": 0.03155061429685086,
+        "frame_rms_main": 0.03610060614322177,
+        "time_blocks": 111,
+        "tail_nonworse": false,
+        "coverage_nonworse": true
+      },
+      "gates": {
+        "B3": {
+          "candidate_denominator": 20557,
+          "common_denominator": 20550,
+          "mature_denominator": 55908,
+          "mature_coverage": 0.36769335336624454,
+          "common_coverage": 0.9996594833876539,
+          "common_gated": {
+            "denominator": 20557,
+            "ltv_valid": 20557,
+            "main_valid": 20550,
+            "paired": 20550,
+            "ltv_only": 7,
+            "main_only": 0,
+            "neither": 0,
+            "reasons": {
+              "ok": 20557
+            },
+            "ltv_coverage": 1.0,
+            "main_coverage": 0.9996594833876539,
+            "ltv": {
+              "n": 20550,
+              "rms": 0.013714920454041955,
+              "median": 0.002400976800456635,
+              "p95": 0.008007395298705117,
+              "p99": 0.06150773753922777,
+              "maximum": 0.4373108302377337,
+              "above_0_02_rad": 404
+            },
+            "main": {
+              "n": 20550,
+              "rms": 0.01443804355722723,
+              "median": 0.002631410855382971,
+              "p95": 0.010160371885518821,
+              "p99": 0.06021891501163809,
+              "maximum": 0.563393534587454,
+              "above_0_02_rad": 474
+            },
+            "paired_frames": 632,
+            "gain_ci95": [
+              8.850599436746626e-05,
+              0.1215354883618369
+            ],
+            "frame_rms_gain": 0.04032821307450363,
+            "reliable_advantage": false,
+            "frame_rms_ltv": 0.014451084014345021,
+            "frame_rms_main": 0.015058360797124198,
+            "time_blocks": 45,
+            "tail_nonworse": true,
+            "coverage_nonworse": true
+          },
+          "common_all_three_gated": {
+            "denominator": 20550,
+            "ltv_valid": 20550,
+            "main_valid": 20550,
+            "paired": 20550,
+            "ltv_only": 0,
+            "main_only": 0,
+            "neither": 0,
+            "reasons": {
+              "ok": 20550
+            },
+            "ltv_coverage": 1.0,
+            "main_coverage": 1.0,
+            "ltv": {
+              "n": 20550,
+              "rms": 0.013714920454041955,
+              "median": 0.002400976800456635,
+              "p95": 0.008007395298705117,
+              "p99": 0.06150773753922777,
+              "maximum": 0.4373108302377337,
+              "above_0_02_rad": 404
+            },
+            "main": {
+              "n": 20550,
+              "rms": 0.01443804355722723,
+              "median": 0.002631410855382971,
+              "p95": 0.010160371885518821,
+              "p99": 0.06021891501163809,
+              "maximum": 0.563393534587454,
+              "above_0_02_rad": 474
+            },
+            "paired_frames": 632,
+            "gain_ci95": [
+              8.850599436746626e-05,
+              0.1215354883618369
+            ],
+            "frame_rms_gain": 0.04032821307450363,
+            "reliable_advantage": false,
+            "frame_rms_ltv": 0.014451084014345021,
+            "frame_rms_main": 0.015058360797124198,
+            "time_blocks": 45,
+            "tail_nonworse": true,
+            "coverage_nonworse": true
+          },
+          "all_available_gated": {
+            "ltv": {
+              "n": 20557,
+              "rms": 0.013827131992477407,
+              "median": 0.0024016887948718575,
+              "p95": 0.008023769177056472,
+              "p99": 0.062236771202311726,
+              "maximum": 0.4373108302377337,
+              "above_0_02_rad": 407
+            },
+            "anchor": {
+              "n": 20557,
+              "rms": 0.015267829330536064,
+              "median": 0.0052088861308034196,
+              "p95": 0.01717323654341013,
+              "p99": 0.05980744142945981,
+              "maximum": 0.4397623137912695,
+              "above_0_02_rad": 670
+            },
+            "geometry": {
+              "n": 20550,
+              "rms": 0.01443804355722723,
+              "median": 0.002631410855382971,
+              "p95": 0.010160371885518821,
+              "p99": 0.06021891501163809,
+              "maximum": 0.563393534587454,
+              "above_0_02_rad": 474
+            }
+          },
+          "subgroups": {
+            "normal": {
+              "denominator": 14063,
+              "ltv_valid": 14063,
+              "main_valid": 14060,
+              "paired": 14060,
+              "ltv_only": 3,
+              "main_only": 0,
+              "neither": 0,
+              "reasons": {
+                "ok": 14063
+              },
+              "ltv_coverage": 1.0,
+              "main_coverage": 0.9997866742515822,
+              "ltv": {
+                "n": 14060,
+                "rms": 0.014096084280816643,
+                "median": 0.0024673946324801684,
+                "p95": 0.008619052837803818,
+                "p99": 0.0755568444013197,
+                "maximum": 0.3318021737751656,
+                "above_0_02_rad": 313
+              },
+              "main": {
+                "n": 14060,
+                "rms": 0.014193202228347683,
+                "median": 0.0026282974431232264,
+                "p95": 0.01044046281784362,
+                "p99": 0.07389887625331604,
+                "maximum": 0.33490860310765186,
+                "above_0_02_rad": 362
+              },
+              "paired_frames": 448,
+              "gain_ci95": [
+                -0.00909742585552753,
+                0.05538323389870023
+              ],
+              "frame_rms_gain": 0.011258506578923133,
+              "reliable_advantage": false,
+              "frame_rms_ltv": 0.014100982592084723,
+              "frame_rms_main": 0.014261546304985013,
+              "time_blocks": 33,
+              "tail_nonworse": true,
+              "coverage_nonworse": true
+            },
+            "recovery": {
+              "denominator": 6494,
+              "ltv_valid": 6494,
+              "main_valid": 6490,
+              "paired": 6490,
+              "ltv_only": 4,
+              "main_only": 0,
+              "neither": 0,
+              "reasons": {
+                "ok": 6494
+              },
+              "ltv_coverage": 1.0,
+              "main_coverage": 0.9993840468124423,
+              "ltv": {
+                "n": 6490,
+                "rms": 0.012850443929714236,
+                "median": 0.0022779331947133186,
+                "p95": 0.006870559501295524,
+                "p99": 0.049165408885482605,
+                "maximum": 0.4373108302377337,
+                "above_0_02_rad": 91
+              },
+              "main": {
+                "n": 6490,
+                "rms": 0.014954727617098875,
+                "median": 0.0026445683871687557,
+                "p95": 0.00960014294214555,
+                "p99": 0.05057106463621258,
+                "maximum": 0.563393534587454,
+                "above_0_02_rad": 112
+              },
+              "paired_frames": 184,
+              "gain_ci95": [
+                0.004905280666861811,
+                0.3348813969821019
+              ],
+              "frame_rms_gain": 0.09331376437548444,
+              "reliable_advantage": true,
+              "frame_rms_ltv": 0.015269977282087142,
+              "frame_rms_main": 0.016841523210694105,
+              "time_blocks": 28,
+              "tail_nonworse": true,
+              "coverage_nonworse": true
+            },
+            "startup": {
+              "denominator": 0,
+              "ltv_valid": 0,
+              "main_valid": 0,
+              "paired": 0,
+              "ltv_only": 0,
+              "main_only": 0,
+              "neither": 0,
+              "reasons": {},
+              "ltv_coverage": null,
+              "main_coverage": null,
+              "ltv": {
+                "n": 0,
+                "rms": null,
+                "median": null,
+                "p95": null,
+                "p99": null,
+                "maximum": null,
+                "above_0_02_rad": null
+              },
+              "main": {
+                "n": 0,
+                "rms": null,
+                "median": null,
+                "p95": null,
+                "p99": null,
+                "maximum": null,
+                "above_0_02_rad": null
+              },
+              "paired_frames": 0,
+              "gain_ci95": null,
+              "frame_rms_gain": null,
+              "reliable_advantage": false
+            }
+          },
+          "checks": {
+            "reliable_advantage": false,
+            "mature_coverage": true,
+            "common_coverage": true,
+            "bad_fraction_nonworse": true,
+            "normal_tail_nonworse": true,
+            "normal_bad_fraction_nonworse": true,
+            "recovery_tail_nonworse": true,
+            "recovery_bad_fraction_nonworse": true
+          },
+          "status": "FAIL"
+        }
+      },
+      "nominal_mature_wait_s": 0.1,
+      "observable_identity_span_s": {
+        "n": 2578,
+        "rms": 1.2406399072765044,
+        "median": 0.5,
+        "p95": 2.6499998927116395,
+        "p99": 4.461500036716462,
+        "maximum": 6.3500001430511475
+      },
+      "observable_identity_span_scope": "offline descriptive; truncated observation span, never gate input"
+    }
+  },
+  "eligible_candidates": [],
+  "decision": "STOP_PREDICTION_ADMISSION"
+}

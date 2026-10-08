@@ -23,6 +23,45 @@ def sha(path):
     return h.hexdigest()
 
 
+def lagged_quality(rows, mapping, features_by_time):
+    """Commit only successfully consumed camera0 scores at frame boundaries.
+
+    Both camera rows read one frozen point ledger from the immediately preceding
+    complete camera packet. Current/future target angles cannot affect that gate.
+    """
+    previous, staged = {}, {}
+    frame = None
+    mask = np.zeros(len(rows), bool)
+    diagnostics = {'missing_previous': 0, 'comparative_quality_rejected': 0,
+                   'qualified': 0, 'score_commit_count': 0, 'provider_camera': 0}
+    for i, r in enumerate(rows):
+        time = int(r['camera_ns'])
+        if frame is None or time != frame:
+            assert frame is None or time > frame, 'nonmonotonic prediction frames'
+            previous, staged = staged, {}
+            frame = time
+        key = tuple(r[k] for k in ['epoch', 'feature_id', 'core_id', 'entered'])
+        old = previous.get(key)
+        if old is None:
+            diagnostics['missing_previous'] += 1
+        else:
+            assert old[0] < time, 'current target entered lagged gate'
+            mask[i] = old[1] <= old[2]
+            diagnostics['qualified' if mask[i] else 'comparative_quality_rejected'] += 1
+        # Staging happens after the predicate and cannot be consumed in this frame.
+        event = features_by_time[mapping[time]]
+        consumed = (int(event['epoch']) == int(r['epoch']) and
+                    int(r['feature_id']) in event['corrected_ids'])
+        if (r['camera_id'] == '0' and consumed and
+                r['ltv_valid'] == r['past_fit_valid'] == '1'):
+            le, ge = float(r['ltv_angle_rad']), float(r['past_fit_angle_rad'])
+            assert np.isfinite(le) and np.isfinite(ge)
+            assert key not in staged, 'duplicate camera0 provider identity'
+            staged[key] = (time, le, ge)
+            diagnostics['score_commit_count'] += 1
+    return mask, diagnostics
+
+
 def assess(source, contract_path, destination):
     contract = json.loads(contract_path.read_text())
     destination.mkdir(parents=True, exist_ok=False)
@@ -48,7 +87,9 @@ def assess(source, contract_path, destination):
         results['inputs'].append(dict(path=str(cache), sha256=sha(cache)))
         results['inputs'].extend([dict(path=str(path), sha256=actual),
                                  dict(path=str(feature), sha256=sha(feature))])
-        phases = labels([json.loads(x) for x in feature.open()])
+        feature_events = [json.loads(x) for x in feature.open()]
+        phases = labels(feature_events)
+        features_by_time = {int(f['camera_ns']): dict(f, corrected_ids=set(f['corrected_ids'])) for f in feature_events}
         with path.open() as stream:
             rows = list(csv.DictReader(stream))
         times = sorted({int(r['camera_ns']) for r in rows})
@@ -73,6 +114,10 @@ def assess(source, contract_path, destination):
                  'B1': mature & ready & (span >= .2 - 1e-9) & (span <= .5 + 1e-9),
                  'B2': mature & ready & (span >= .2 - 1e-9) & (span <= .5 + 1e-9) & (disagreement <= .02)}
         gates['B3'] = mature & ready & (span >= .2 - 1e-6) & (span <= .55 + 1e-6) & (disagreement <= .02)
+        lagged_diagnostics = None
+        if 'B4' in contract['candidate_ids']:
+            lagged, lagged_diagnostics = lagged_quality(rows, mapping, features_by_time)
+            gates['B4'] = gates['B3'] & lagged
         assert all(g in gates for g in contract['candidate_ids'])
         gates = {gid: gates[gid] for gid in contract['candidate_ids']}
         seq_out = {'rows': len(rows), 'ungated_all_candidates': paired_group(strong, np.ones(len(rows), bool)),
@@ -87,6 +132,7 @@ def assess(source, contract_path, destination):
         seq_out['observable_identity_span_s'] = angular_stats([hi-lo for lo, hi in survival.values()])
         seq_out['observable_identity_span_s'].pop('above_0_02_rad', None)
         seq_out['observable_identity_span_scope'] = 'offline descriptive; truncated observation span, never gate input'
+        seq_out['lagged_quality_receipt_audit'] = lagged_diagnostics
         for gid, mask in gates.items():
             metrics = paired_group(strong, mask)
             triple_metrics = paired_group(strong, mask & common)
