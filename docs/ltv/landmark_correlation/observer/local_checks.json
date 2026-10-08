@@ -1,0 +1,52 @@
+{
+  "scope": "controlled local native-production Observer checks; not real landmark calibration",
+  "test_command": "ctest --test-dir /tmp/ltv-shadow-build --output-on-failure -R test_ltv_(error_shadow|adapter_hardened|controlled|readiness|active_lifecycle)$",
+  "related_tests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "native_imu_monte_carlo": {
+    "samples": 1000,
+    "seed": 20261008,
+    "corrected_input_sigma": 0.0001,
+    "frozen_relative_frobenius_limit": 0.12,
+    "observed_relative_error": 0.0574037,
+    "initial_seed": "fixed",
+    "gain_schedule": "fixed",
+    "amplitudes": 1,
+    "real_landmark_truth": false
+  },
+  "camera_finite_difference": {
+    "step": 1e-07,
+    "absolute_norm_limit": 1e-08,
+    "gain_schedule": "nominal fixed",
+    "status": "PASS_WITHIN_FIXED_GAIN_SCOPE"
+  },
+  "observer_matrices": {
+    "scope": "fixed_seed_and_gain_unit_source_sensitivity_only",
+    "valid_unconditional": false,
+    "events": {
+      "reset": 2,
+      "lifecycle": 9,
+      "camera": 9,
+      "imu": 9
+    },
+    "matrix_identity_checks": 54,
+    "max_relative_identity_error": 0.0,
+    "binary_bytes": 32688
+  },
+  "lifecycle_matrices": {
+    "scope": "fixed_seed_and_gain_unit_source_sensitivity_only",
+    "valid_unconditional": false,
+    "events": {
+      "reset": 2,
+      "imu": 1,
+      "lifecycle": 3,
+      "camera": 2
+    },
+    "matrix_identity_checks": 10,
+    "max_relative_identity_error": 0.0,
+    "binary_bytes": 1584
+  },
+  "unconditional_covariance_status": "BLOCKED"
+}

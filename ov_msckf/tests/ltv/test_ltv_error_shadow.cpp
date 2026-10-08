@@ -37,6 +37,8 @@ int main() {
 
   const char *path = "/tmp/test_ltv_error_shadow.csv";
   std::remove(path);
+  std::remove("/tmp/test_ltv_error_shadow.csv.matrices.bin");
+  std::remove("/tmp/test_ltv_error_shadow.csv.matrices.jsonl");
   unsetenv("LTV_JOINT_SHADOW_PATH");
   LtvObserver off;
   setenv("LTV_JOINT_SHADOW_PATH", path, 1);
@@ -81,6 +83,32 @@ int main() {
   }
   assert(shadow.errorShadow().cameraSourceMap().rows() == 9);
   assert(shadow.errorShadow().cameraSourceMap().allFinite());
+  // Camera finite differences hold the nominal gain schedule fixed. This
+  // intentionally excludes the derivative of P_R/eigenvalue sanitization.
+  const LtvObserver matched_shadow = shadow;
+  shadow.propagateImu(.01, Eigen::Vector3d(.1, 0, 9.8), Eigen::Vector3d(.01, .02, .03), Eigen::Vector3d::Zero(), Eigen::Vector3d::Zero());
+  const Eigen::VectorXd initial_camera = shadow.state();
+  control.imu_timestamp = .08;
+  assert(shadow.updateFeaturesControlled(.08, .08, {observation}, Eigen::Matrix3d::Identity(), Eigen::Vector3d::Zero(), control).accepted);
+  const auto &gains = shadow.errorShadow().cameraGains();
+  const auto frozen_camera = [&gains, &initial_camera](const Eigen::Vector3d &u_raw) {
+    const Eigen::Vector3d u = u_raw.normalized();
+    Eigen::MatrixXd c = Eigen::MatrixXd::Zero(3, initial_camera.size());
+    c.topLeftCorner<3, 3>() = Eigen::Matrix3d::Identity() - u * u.transpose();
+    Eigen::VectorXd x = initial_camera;
+    for (const auto &gain : gains)
+      x -= gain * c * x;
+    return x;
+  };
+  const Eigen::Vector3d nominal_u = observation.normalized_coordinate.normalized();
+  for (int axis = 0; axis < 3; ++axis) {
+    Eigen::Vector3d up = nominal_u, um = nominal_u;
+    up[axis] += 1e-7;
+    um[axis] -= 1e-7;
+    near((frozen_camera(up) - frozen_camera(um)) / 2e-7, shadow.errorShadow().cameraSourceMap().col(axis), 1e-8);
+  }
+  // Restore the matched state before the separate IMU calibration below.
+  shadow = matched_shadow;
   const Eigen::Vector3d acc(.1, 0, 9.8), gyro(.01, .02, .03);
   const LtvObserver base = off;
   shadow.propagateImu(.01, acc, gyro, Eigen::Vector3d::Zero(), Eigen::Vector3d::Zero());
@@ -123,5 +151,35 @@ int main() {
   const double relative = (sample_cov - predicted_cov).norm() / predicted_cov.norm();
   assert(relative < .12);
   std::cout << "native_imu_mc_relative_covariance_error=" << relative << " samples=1000 seed=20261008\n";
+  // Nonzero saved-anchor synthetic source contribution and identity invalidation.
+  const char *life_path = "/tmp/test_ltv_error_shadow_lifecycle.csv";
+  std::remove(life_path);
+  std::remove("/tmp/test_ltv_error_shadow_lifecycle.csv.matrices.bin");
+  std::remove("/tmp/test_ltv_error_shadow_lifecycle.csv.matrices.jsonl");
+  setenv("LTV_JOINT_SHADOW_PATH", life_path, 1);
+  LtvErrorShadow lifecycle;
+  unsetenv("LTV_JOINT_SHADOW_PATH");
+  lifecycle.reset(0);
+  lifecycle.setEpoch(11);
+  lifecycle.imu(0, .01, Eigen::MatrixXd::Identity(6, 6), Eigen::MatrixXd::Identity(6, 6));
+  Eigen::MatrixXd birth = Eigen::MatrixXd::Zero(9, 6);
+  birth.topLeftCorner<3, 3>().setIdentity();
+  birth.bottomRows(6).setIdentity();
+  lifecycle.lifecycle(.01, birth, 1, 0, {1});
+  lifecycle.camera(.01, Eigen::MatrixXd::Identity(9, 9) * .8, Eigen::MatrixXd::Zero(9, 3), 1, {1});
+  Eigen::MatrixXd retire = Eigen::MatrixXd::Zero(6, 9);
+  retire.rightCols(6).setIdentity();
+  lifecycle.lifecycle(.02, retire, 0, 1, {});
+  bool rejects_revival = false;
+  try {
+    lifecycle.lifecycle(.03, birth, 1, 0, {1});
+  } catch (const std::runtime_error &) {
+    rejects_revival = true;
+  }
+  assert(rejects_revival);
+  lifecycle.reset(.04);
+  lifecycle.setEpoch(12);
+  lifecycle.lifecycle(.04, birth, 1, 0, {1});
+  lifecycle.camera(.04, Eigen::MatrixXd::Identity(9, 9), Eigen::MatrixXd::Zero(9, 3), 0, {1});
   std::cout << "PASS joint reference, anchor, lifecycle, repeated source counterexample, actual Observer exact OFF\n";
 }
