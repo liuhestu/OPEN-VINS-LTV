@@ -25,6 +25,7 @@ p.add_argument('artifact', type=Path)
 p.add_argument('output', type=Path)
 a = p.parse_args()
 assert not a.artifact.exists(), 'fresh artifact only'
+a.output.mkdir(parents=True, exist_ok=False)
 closure = []
 for package in ('ov_core', 'ov_init', 'ov_msckf'):
     paths = [a.parent_source / package / 'src', a.parent_source / package / 'cmake']
