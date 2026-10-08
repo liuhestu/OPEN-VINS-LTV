@@ -11,6 +11,19 @@ sys.path.insert(0, str(ROOT / 'scripts/ltv_gv_evaluation'))
 from evaluate import align, nearest
 
 
+def horn(target, source):
+    x = source - source.mean(0); y = target - target.mean(0)
+    M = x.T @ y
+    xx,xy,xz = M[0]; yx,yy,yz = M[1]; zx,zy,zz = M[2]
+    N = np.array([[xx+yy+zz,yz-zy,zx-xz,xy-yx],
+                  [yz-zy,xx-yy-zz,xy+yx,zx+xz],
+                  [zx-xz,xy+yx,-xx+yy-zz,yz+zy],
+                  [xy-yx,zx+xz,yz+zy,-xx-yy+zz]])
+    values,vectors=np.linalg.eigh(N);q=vectors[:,np.argmax(values)]
+    R=Rotation.from_quat(q[[1,2,3,0]]).as_matrix()
+    return R,target.mean(0)-R @ source.mean(0)
+
+
 def main(off_path, on_path, dataset, output):
     off, on = [np.loadtxt(p / 'trajectory.csv', delimiter=',', skiprows=1, ndmin=2) for p in [off_path, on_path]]
     assert off.shape == on.shape and np.array_equal(off[:, 0], on[:, 0])
@@ -26,6 +39,13 @@ def main(off_path, on_path, dataset, output):
     oi, ni = nearest(off[:, 0], times), nearest(on[:, 0], times)
     po, pn = off[oi, 5:8], on[ni, 5:8]
     ro, to = align(gp, po); rn, tn = align(gp, pn)
+    rng=np.random.default_rng(20261008);fixture=rng.normal(size=(30,3))
+    rotation=Rotation.from_rotvec([.3,.2,-.4]).as_matrix();translation=np.array([.2,.4,-.1])
+    check_r,check_t=horn(fixture @ rotation.T+translation,fixture)
+    assert np.max(abs(check_r-rotation))<1e-12 and np.max(abs(check_t-translation))<1e-12
+    ho,hto=horn(gp,po);hn,htn=horn(gp,pn)
+    assert np.max(abs(ho-ro))<1e-10 and np.max(abs(hn-rn))<1e-10
+    assert np.max(abs(hto-to))<1e-10 and np.max(abs(htn-tn))<1e-10
     error_off = np.linalg.norm(po @ ro.T + to - gp, axis=1)
     error_own = np.linalg.norm(pn @ rn.T + tn - gp, axis=1)
     error_common = np.linalg.norm(pn @ ro.T + to - gp, axis=1)
@@ -43,7 +63,10 @@ def main(off_path, on_path, dataset, output):
                   alignment_translation_delta_m=float(np.linalg.norm(tn-to)),
                   point_sample_errors_off_m=error_off[tail].tolist(), point_sample_errors_ON_ownfit_m=error_own[tail].tolist(),
                   point_sample_errors_ON_commonfit_m=error_common[tail].tolist(),
-                  input_interval='full same native timestamps; no tail/ON-selected fit or support deletion')
+                  input_interval='full same native timestamps; no tail/ON-selected fit or support deletion',
+                  independent_Horn_off_tail_rmse_m=rms(np.linalg.norm(po @ ho.T+hto-gp,axis=1)[tail]),
+                  independent_Horn_on_tail_rmse_m=rms(np.linalg.norm(pn @ hn.T+htn-gp,axis=1)[tail]),
+                  independent_Horn_synthetic_rotation_translation_check='PASS')
     with output.open('x') as f: json.dump(result,f,indent=2);f.write('\n')
     print(json.dumps(result,indent=2))
 
