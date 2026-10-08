@@ -1,0 +1,16 @@
+{
+  "branch": "experiment/ltv-nondegradation-correlation-20261008",
+  "remote": "origin",
+  "report_payload_commit": "61f04bdd691f63f2535a334f0b0dcc3ea603b3e1",
+  "remote_verified_payload_oid": "61f04bdd691f63f2535a334f0b0dcc3ea603b3e1",
+  "verified_at_utc": "2026-10-08T08:22:19.803517+00:00",
+  "push_log": "/home/he/output/ltv_nondegradation_correlation_20261008/push_delivery.log",
+  "push_log_sha256": "03dfd17ffa73e5f86b3adc775ce1565bec85335ac27e70a754420602104e5eea",
+  "main_branch_merged": false,
+  "production_fusion_enabled": false,
+  "preserved_user_uncommitted": [
+    ".gitignore",
+    "docs/ltv/nondegradation_goal_reference.md.md"
+  ],
+  "delivery_record": "This record follows the verified report payload; final branch OID verified in external remote_final_oid.txt after record commit push."
+}
