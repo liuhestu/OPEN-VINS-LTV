@@ -1,0 +1,6 @@
+# Decision log
+
+1. Observed actual Riccati gain dependence and spectral flooring; the historical fixed-gain 2.94% difference cannot validate the complete observer. Implemented joint mean/P_R directional derivatives and fixed-branch spectral Frechet derivative. Next: all-input finite differences and actual-observer persistent-input comparison.
+2. Observed native StateHelper injection applies finite JPL updates without stored-P reset. Kept production unchanged, derived exact native rational-chart reset, and implemented a separate physical covariance companion. Next: reset FD, joint supplied-source counterexample and retained-history tests.
+3. Historical observer anchors are post-camera while current predictions are pre-camera. Accepted B's timing finding and documented it as an interface constraint. No same-side synthetic anchor substituted for real timing.
+4. Missing raw visual elimination and IMU interpolation source identities prevent unconditional runtime calibration. Implemented actual main propagation/visual/clone/marginalization hooks and actual seed/main layout mapping first. Conditional seed components remain explicitly conditional; no valid-unconditional flag or statistical PASS is granted.

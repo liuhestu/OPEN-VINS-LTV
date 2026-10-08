@@ -146,6 +146,15 @@ FeaturePipelineFrame LtvLandmarkAdapter::process(const FeaturePipelineContext &c
         d.input_covariance.block<2, 2>(bearing_start + 2 * i, bearing_start + 2 * i) =
             config_.bearing_sigma_rad * config_.bearing_sigma_rad * Eigen::Matrix2d::Identity();
       d.uncertainty = LtvSeedUncertainty::propagate(u, d.estimate, d.input_covariance);
+      if (d.uncertainty.valid && ctx.pose_error_selector.rows() == static_cast<int>(6 * ctx.poses.size()) &&
+          ctx.pose_error_selector.cols() > 0) {
+        d.main_jacobian = Eigen::MatrixXd::Zero(3, ctx.pose_error_selector.cols());
+        for (size_t a = 0; a < global_indices.size(); ++a)
+          d.main_jacobian.noalias() +=
+              d.uncertainty.jacobian.middleCols(6 * a, 6) * ctx.pose_error_selector.middleRows(6 * global_indices[a], 6);
+        d.bearing_jacobian = d.uncertainty.jacobian.rightCols(2 * u.observations.size());
+      }
+
       auto &s = d.candidate;
       s.geometry_valid = d.estimate.valid && d.uncertainty.valid;
       s.landmark_B = d.estimate.landmark_B;

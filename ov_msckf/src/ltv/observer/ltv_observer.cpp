@@ -124,6 +124,7 @@ void LtvObserver::propagateImu(double dt, const Eigen::Vector3d &acc_measurement
       b.block(offset, 3, 3, 3) = dt * ov_core::skew_x(state_.segment<3>(offset));
     error_shadow_.imu(imu_timestamp_, dt, Eigen::MatrixXd::Identity(dimension, dimension) + dt * system, b, state_);
   }
+  error_shadow_.fullImu(state_, covariance_, system, input, acceleration, dt);
   state_ += dt * (system * state_ + input * acceleration);
   covariance_ += dt * (system * covariance_ + covariance_ * system.transpose() + processNoise());
   imu_timestamp_ += dt;
@@ -361,6 +362,7 @@ LtvSnapshot LtvObserver::updateFeaturesImpl(double frame_timestamp, double imu_t
   if (control) {
     rebuildState(control->retained_ids);
     for (const auto &birth : control->births) {
+      error_shadow_.fullSeed(birth.feature_id, feature_to_slot_.at(birth.feature_id), birth.apply_mean);
       if (birth.apply_mean)
         state_.segment<3>(3 * feature_to_slot_.at(birth.feature_id)) = birth.mean_body;
       if (!monotonic_local_ids_)
@@ -445,6 +447,17 @@ LtvSnapshot LtvObserver::updateFeaturesImpl(double frame_timestamp, double imu_t
         shadow_b = (f * shadow_b + gain * d).eval();
         shadow_f = (f * shadow_f).eval();
       }
+      if (error_shadow_.enabled()) {
+        std::vector<int> slots;
+        std::vector<Eigen::Vector3d> raw;
+        for (const auto &item : observed_slots) {
+          slots.push_back(item.first);
+          raw.push_back(coordinate_by_id.at(item.second));
+        }
+        error_shadow_.fullBearingSubstep(state_, covariance_, measurement, output, correction_dt * config_.q_landmark, slots, raw,
+                                         rotation_body_camera, position_body_camera);
+      }
+      error_shadow_.fullCameraSubstep(state_, covariance_, measurement, output, correction_dt * config_.q_landmark);
       state_ += correction_dt * config_.q_landmark * covariance_measurement_transpose * substep_innovation;
       covariance_ -= correction_dt * config_.q_landmark * covariance_measurement_transpose * measurement * covariance_;
       if (!sanitizeCovariance()) {
@@ -498,6 +511,7 @@ bool LtvObserver::sanitizeCovariance() {
   if (solver.eigenvalues().minCoeff() < config_.covariance_failure_threshold * spectral_scale)
     return false;
 
+  error_shadow_.fullSanitize(covariance_, config_.covariance_floor);
   Eigen::VectorXd eigenvalues = solver.eigenvalues().cwiseMax(config_.covariance_floor);
   covariance_ = solver.eigenvectors() * eigenvalues.asDiagonal() * solver.eigenvectors().transpose();
   covariance_ = (0.5 * (covariance_ + covariance_.transpose())).eval();

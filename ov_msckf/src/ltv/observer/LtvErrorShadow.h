@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ltv/observer/LtvDiscreteSensitivity.h"
 #include <Eigen/Dense>
 #include <cstdint>
 #include <cstdlib>
@@ -83,6 +84,9 @@ public:
     anchor_times_.clear();
     retired_ids_.clear();
     camera_gains_.clear();
+    full_mean_ = Eigen::MatrixXd::Zero(6, 6);
+    full_riccati_.assign(6, Eigen::MatrixXd::Zero(6, 6));
+    seed_columns_.clear();
     write("reset", time, 6, 0, 0, 0, 0, 0);
     record("reset", time, {{"persistent_input_offset", &persistent_input_offset_}});
   }
@@ -108,6 +112,24 @@ public:
   void lifecycle(double time, const Eigen::MatrixXd &map, int births, int retired, const std::vector<int> &ids) {
     if (enabled()) {
       persistent_input_offset_ = (map * persistent_input_offset_).eval();
+      full_mean_ = (map * full_mean_).eval();
+      for (auto &dp : full_riccati_)
+        dp = (map * dp * map.transpose()).eval();
+      // Seed columns refer to explicit mean inputs, not independent draws.
+      // Their geometry/main/bearing law is supplied by the joint source model.
+      for (size_t slot = 0; slot < ids.size(); ++slot) {
+        if (!seed_columns_.count(ids[slot]) && full_mean_.cols() < 102) {
+          const int col = full_mean_.cols();
+          seed_columns_[ids[slot]] = col;
+          full_mean_.conservativeResize(map.rows(), col + 3);
+          full_mean_.rightCols(3).setZero();
+          for (int k = 0; k < 3; ++k)
+            full_riccati_.push_back(Eigen::MatrixXd::Zero(map.rows(), map.rows()));
+        }
+      }
+      // Retired columns may affect retained states through previous gain
+      // coupling. Keep their sufficient derivative history; never delete merely
+      // because a feature leaves the main clone/observer layout.
       write("lifecycle", time, map.rows(), births, retired, 0, map.norm(), 0);
       const std::set<int> retained(ids.begin(), ids.end());
       for (auto it = anchors_.begin(); it != anchors_.end();) {
@@ -130,7 +152,97 @@ public:
       record("lifecycle", time, {{"M", &map}, {"persistent_input_offset", &persistent_input_offset_}});
     }
   }
-  void beginCamera() { camera_gains_.clear(); }
+  // Persistent corrected-input offset directions, INCLUDING their P_R/gain
+  // dependency. These are local derivatives; physical source law is separate.
+  void fullImu(const Eigen::VectorXd &x, const Eigen::MatrixXd &p, const Eigen::MatrixXd &a, const Eigen::MatrixXd &input,
+               const Eigen::Vector3d &acc, double dt) {
+    if (!enabled())
+      return;
+    for (int k = 0; k < full_mean_.cols(); ++k) {
+      Eigen::MatrixXd da = Eigen::MatrixXd::Zero(x.size(), x.size());
+      Eigen::Vector3d dacc = Eigen::Vector3d::Zero();
+      if (k < 3)
+        dacc[k] = -1.;
+      else if (k < 6) {
+        Eigen::Vector3d dw = Eigen::Vector3d::Zero();
+        dw[k - 3] = -1.;
+        Eigen::Matrix3d skew;
+        skew << 0, -dw.z(), dw.y(), dw.z(), 0, -dw.x(), -dw.y(), dw.x(), 0;
+        for (int i = 0; i < x.size(); i += 3)
+          da.block<3, 3>(i, i) = -skew;
+      }
+      ObserverTangent d{full_mean_.col(k), full_riccati_.at(k)};
+      const auto out = LtvDiscreteSensitivity::imu(x, p, a, input, acc, dt, d, da, dacc);
+      full_mean_.col(k) = out.mean;
+      full_riccati_[k] = out.riccati;
+    }
+  }
+  void fullCameraSubstep(const Eigen::VectorXd &x, const Eigen::MatrixXd &p, const Eigen::MatrixXd &c, const Eigen::VectorXd &y,
+                         double hq) {
+    if (!enabled())
+      return;
+    const Eigen::MatrixXd dc = Eigen::MatrixXd::Zero(c.rows(), c.cols());
+    const Eigen::VectorXd dy = Eigen::VectorXd::Zero(y.rows());
+    for (int k = 0; k < full_mean_.cols(); ++k) {
+      ObserverTangent d{full_mean_.col(k), full_riccati_.at(k)};
+      const auto out = LtvDiscreteSensitivity::camera(x, p, c, y, hq, d, dc, dy);
+      full_mean_.col(k) = out.mean;
+      full_riccati_[k] = out.riccati;
+    }
+  }
+  void fullSanitize(const Eigen::MatrixXd &p, double floor) {
+    if (!enabled())
+      return;
+    for (auto &dp : full_riccati_) {
+      bool boundary = false;
+      dp = LtvDiscreteSensitivity::spectralFloor(p, dp, floor, &boundary);
+      if (boundary)
+        ++spectral_boundaries_;
+    }
+    for (auto &dp : bearing_riccati_)
+      dp = LtvDiscreteSensitivity::spectralFloor(p, dp, floor);
+  }
+  void fullSeed(int id, int slot, bool apply) {
+    if (enabled() && apply) {
+      auto found = seed_columns_.find(id);
+      if (found == seed_columns_.end()) {
+        ++source_capacity_events_;
+        return;
+      }
+      full_mean_.block<3, 3>(3 * slot, found->second).setIdentity();
+    }
+  }
+  void fullBearingSubstep(const Eigen::VectorXd &x, const Eigen::MatrixXd &p, const Eigen::MatrixXd &c, const Eigen::VectorXd &y, double hq,
+                          const std::vector<int> &slots, const std::vector<Eigen::Vector3d> &raw, const Eigen::Matrix3d &rbc,
+                          const Eigen::Vector3d &pbc) {
+    if (!enabled())
+      return;
+    if (full_bearing_.cols() != 3 * static_cast<int>(slots.size())) {
+      full_bearing_ = Eigen::MatrixXd::Zero(x.size(), 3 * slots.size());
+      bearing_riccati_.assign(3 * slots.size(), Eigen::MatrixXd::Zero(x.size(), x.size()));
+    }
+    for (int k = 0; k < full_bearing_.cols(); ++k) {
+      const int obs = k / 3, axis = k % 3;
+      const Eigen::Vector3d z = rbc * raw[obs].normalized();
+      const Eigen::Vector3d dz = rbc * LtvDiscreteSensitivity::normalizedBearing(raw[obs]).col(axis);
+      const Eigen::Matrix3d dpi = LtvDiscreteSensitivity::projection(z, dz);
+      Eigen::MatrixXd dc = Eigen::MatrixXd::Zero(c.rows(), c.cols());
+      dc.block<3, 3>(3 * obs, 3 * slots[obs]) = dpi;
+      Eigen::VectorXd dy = Eigen::VectorXd::Zero(y.size());
+      dy.segment<3>(3 * obs) = dpi * pbc;
+      ObserverTangent d{full_bearing_.col(k), bearing_riccati_[k]};
+      const auto out = LtvDiscreteSensitivity::camera(x, p, c, y, hq, d, dc, dy);
+      full_bearing_.col(k) = out.mean;
+      bearing_riccati_[k] = out.riccati;
+    }
+  }
+  const Eigen::MatrixXd &fullBearingMap() const { return full_bearing_; }
+  const Eigen::MatrixXd &fullInputOffsetMap() const { return full_mean_; }
+  void beginCamera() {
+    camera_gains_.clear();
+    full_bearing_.resize(0, 0);
+    bearing_riccati_.clear();
+  }
   const std::vector<Eigen::MatrixXd> &cameraGains() const { return camera_gains_; }
   void cameraSubstep(const Eigen::MatrixXd &gain) { camera_gains_.push_back(gain); }
   void camera(double time, const Eigen::MatrixXd &f, const Eigen::MatrixXd &b, int substeps, const std::vector<int> &ids) {
@@ -162,7 +274,9 @@ public:
       const Eigen::MatrixXd sigma_tt = point_map * point_map.transpose();
       const Eigen::MatrixXd sigma_at = anchor_map * point_map.transpose();
       record("camera", time,
-             {{"F_fixed_gain", &f},
+             {{"full_gain_offset_seed_mean_inputs", &full_mean_},
+              {"full_gain_same_frame_raw_bearing", &full_bearing_},
+              {"F_fixed_gain", &f},
               {"B_same_bearing", &b},
               {"conditional_unit_source_gram", &frame_source_gram_},
               {"persistent_input_offset", &persistent_input_offset_},
@@ -203,7 +317,8 @@ private:
               double dt = 0) {
     auto &sink = *matrix_sink_;
     sink.index << "{\"event\":\"" << event << "\",\"time\":" << time << ",\"dt\":" << dt << ",\"epoch\":" << epoch_
-               << ",\"transaction\":\"observer_attempt_uncommitted\",\"valid_unconditional\":false,\"gain_schedule\":\"fixed\",\"retained_"
+               << ",\"transaction\":\"observer_attempt_uncommitted\",\"valid_unconditional\":false,\"gain_schedule\":\"mixed_named_"
+                  "blocks\",\"retained_"
                   "local_ids\":[";
     for (size_t i = 0; i < retained_ids_.size(); ++i) {
       if (i)
@@ -273,7 +388,11 @@ private:
   }
   std::string source_ids_;
   Eigen::MatrixXd frame_source_gram_, camera_f_, camera_b_, imu_b_;
-  Eigen::MatrixXd persistent_input_offset_;
+  Eigen::MatrixXd persistent_input_offset_, full_mean_;
+  std::vector<Eigen::MatrixXd> full_riccati_, bearing_riccati_;
+  Eigen::MatrixXd full_bearing_;
+  std::map<int, int> seed_columns_;
+  unsigned long spectral_boundaries_ = 0, source_capacity_events_ = 0;
   std::shared_ptr<std::ofstream> output_;
   std::shared_ptr<MatrixSink> matrix_sink_;
   std::vector<int> retained_ids_, observed_ids_;

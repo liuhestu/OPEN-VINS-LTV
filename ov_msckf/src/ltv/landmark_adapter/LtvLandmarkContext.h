@@ -12,6 +12,9 @@ struct FeaturePipelineContext {
   std::vector<SeedPose> poses;
   // Joint right-body-rotation/world-position errors; includes all cross blocks.
   Eigen::MatrixXd pose_covariance;
+  // Optional actual main-error selector; rows follow poses, columns follow State.
+  // Never infer the current/history cross by treating cloned poses independent.
+  Eigen::MatrixXd pose_error_selector;
   std::vector<SeedCamera> cameras;
   size_t execution_pose_index = 0;
   std::vector<HistoryObservation> observations;

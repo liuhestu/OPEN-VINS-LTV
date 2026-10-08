@@ -1,4 +1,5 @@
 #include "ltv/observer/LtvAdapter.h"
+#include "ltv/observer/LtvMainCrossShadow.h"
 #include <algorithm>
 #include <climits>
 #include <cmath>
@@ -225,6 +226,23 @@ LtvFrame LtvAdapter::processHardened(double t, const std::vector<LtvBearing> &, 
   if (!result.accepted || !staged_core.started()) {
     *feature_pipeline_ = pipeline_before;
     throw std::runtime_error("atomic controlled transaction rejected: " + result.reason);
+  }
+  if (ltv::LtvMainCrossShadow::instance().enabled()) {
+    for (const auto &birth : staged_frame.management.births) {
+      for (const auto &seed : staged_frame.seeds) {
+        if (seed.candidate.feature_id != birth.feature_id || !birth.apply_seed || seed.main_jacobian.size() == 0)
+          continue;
+        // Bounded diagnostic seed/anchor bank; capacity is a declared model
+        // boundary, never silent global source independence.
+        if (ltv::LtvMainCrossShadow::instance().auxiliaryDimension() + 3 > 96) {
+          ltv::LtvMainCrossShadow::instance().missing("seed_bank_capacity_96");
+          continue;
+        }
+        const int nz = seed.bearing_jacobian.cols();
+        const Eigen::MatrixXd q = seed.input_covariance.bottomRightCorner(nz, nz);
+        ltv::LtvMainCrossShadow::instance().conditionalSeed(seed.main_jacobian, seed.bearing_jacobian, q);
+      }
+    }
   }
   const auto corrected = staged_core.snapshot(t);
   const double dt = last_correction_time_ < 0 ? 0 : target - last_correction_time_;
