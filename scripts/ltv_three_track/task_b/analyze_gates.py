@@ -31,7 +31,11 @@ def assess(source, contract_path, destination):
     results = {'source_kind': 'HISTORICAL_REUSED', 'contract_sha256': sha(contract_path),
                'causality': 'before_current_bearing_consumption; no GT; past readiness and maturity',
                'correlation_model': 'approximate_not_implemented', 'fusion_executed': False,
-               'inputs': [], 'sequences': {}}
+               'analysis_script_sha256': sha(Path(__file__)), 'inputs': [], 'sequences': {}}
+    compiled = json.loads((source / 'compiled_source.json').read_text())
+    for rel in ['ov_msckf/src/ltv/diagnostics/LtvLandmarkShadow.h', 'ov_msckf/src/ltv/observer/LtvAdapterHardened.cpp', 'ov_msckf/src/core/VioManager.cpp']:
+        assert sha(ROOT / rel) == compiled[rel], 'prediction source mismatch: ' + rel
+        results['inputs'].append(dict(path=str(ROOT / rel), sha256=sha(ROOT / rel)))
     for seq, inp in freeze['inputs'].items():
         path = source / 'past_geometry_audit' / (seq + '_predictions.csv')
         expected = historical['sequences'][seq]['predictions_sha']
