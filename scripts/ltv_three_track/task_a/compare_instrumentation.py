@@ -21,16 +21,18 @@ def rows(path):
 
 def compare(diagnostic, scalar):
     checks = {}
-    for filename in ('trajectory.csv', 'unmatched_camera.csv', 'lifecycle_identity.jsonl'):
+    for filename in ('trajectory.csv', 'unmatched_camera.csv', 'lifecycle_identity.jsonl', 'algorithm_visual_identity.jsonl'):
         checks[filename] = {'diagnostic_sha256': sha(diagnostic / filename), 'scalar_sha256': sha(scalar / filename)}
         assert checks[filename]['diagnostic_sha256'] == checks[filename]['scalar_sha256'], filename
     with (diagnostic / 'audit.csv').open() as a, (scalar / 'audit.csv').open() as b:
         left, right = list(csv.DictReader(a)), list(csv.DictReader(b))
     assert len(left) == len(right) and left, 'audit cardinality'
     for index, (a, b) in enumerate(zip(left, right)):
-        for key in ('camera_ns', 'initialized', 'state_time', 'clones', 'state_digest', 'tracker_digest', 'visual_digest'):
+        for key in ('camera_ns', 'initialized', 'state_time', 'clones', 'state_digest', 'tracker_digest'):
             assert a[key] == b[key], (index, key)
-    checks['audit_exact_full_state_P_tracker_visual'] = len(left)
+    checks['audit_exact_full_state_P_tracker'] = len(left)
+    checks['algorithm_visual_exact'] = len(left)
+    checks['mixed_visual_digest'] = 'NOT_COMPARABLE: contains intentionally disabled passive-only audit containers; original failed attempt retained'
     a = rows(diagnostic / 'fusion.jsonl')
     b = rows(scalar / 'observer_identity.jsonl')
     assert len(a) == len(b) == len(left)

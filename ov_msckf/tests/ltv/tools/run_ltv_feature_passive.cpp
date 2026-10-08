@@ -183,6 +183,17 @@ public:
       h.matrix(v);
     return h.finish();
   }
+  void algorithm_visual_identity(std::ostream &out, int64_t ns) {
+    // Stable algorithm output only: passive audit containers are a different diagnostic level.
+    Digest h;
+    h.scalar(good_features_MSCKF.size());
+    for (const auto &point : good_features_MSCKF)
+      h.matrix(point);
+    out << "{\"camera_ns\":" << ns << ",\"good_features_msckf_count\":" << good_features_MSCKF.size() << ",\"algorithm_visual_digest\":\""
+        << h.finish() << "\"}\n";
+    if (!out)
+      throw std::runtime_error("algorithm visual identity write failure");
+  }
   void lifecycle_identity(std::ostream &out, int64_t ns) {
     out << std::setprecision(17) << "{\"camera_ns\":" << ns;
     if (ltv_adapter) {
@@ -809,6 +820,7 @@ int main(int argc, char **argv) {
     size_t cursor = 0, packets = 0, outputs = 0;
     std::ofstream frame_processing(out + "/frame_processing.csv");
     frame_processing << std::setprecision(17) << "camera_ns,feed_camera_ms\n";
+    std::ofstream algorithm_visual_identity(out + "/algorithm_visual_identity.jsonl");
     std::ofstream lifecycle_identity(out + "/lifecycle_identity.jsonl");
     std::ofstream shadow_receipts(out + "/shadow_receipts.jsonl");
     shadow_receipts << std::setprecision(17);
@@ -855,6 +867,7 @@ int main(int argc, char **argv) {
       const double feed_camera_ms = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - processing_start).count();
       frame_processing << left[i].ns << ',' << feed_camera_ms << '\n';
       app.lifecycle_identity(lifecycle_identity, left[i].ns);
+      app.algorithm_visual_identity(algorithm_visual_identity, left[i].ns);
 #ifndef LTV_GV_PRODUCTION_LEVEL
       app.shadow_receipt(shadow_receipts, left[i].ns);
 #endif
