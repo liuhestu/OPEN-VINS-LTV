@@ -67,5 +67,16 @@
     "change": "retain allprediction FAILs and thresholds; continue B engineering ON with B3 preferred; no furthermargin/age optimization",
     "next": "native Jacobian+OFF parity and small real candidateON then full matched engineering/nondegradation tests",
     "contract_sha256": "336527472f4f5af4a89558965723eaccace16d66c1dd5113ccda918ee46c8b72"
+  },
+  {
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T11:41:24.499901+00:00",
+    "batch": "B_approx_v1_before_real_ON",
+    "observation": "B3 causal risk/coverage admitted independently from 5% gain FAIL; native updater a4e8d0a implemented with explicit approximate R",
+    "judgement": "controlled real ON can answer actual state value/engineering nondegradation; real statistical cross blocks remain unknown",
+    "change": "freeze sigma=(.5+.02*point_norm)m, age inflation, max2 points and pre-update R information budget perpoint.005 total.01; no Kr truncation or visual deletion",
+    "next": "native FEJ/JPL FD, exact OFF, short real ON effect/numerics, then full matched dev and holdout",
+    "contract_sha256": "542a74854a1164cf96bfa69b39906068c564cf146ac6fa29370141247c20e064",
+    "code_oid": "a4e8d0a7304ce6feb3ec071f9e7f8c505d7d4029"
   }
 ]
