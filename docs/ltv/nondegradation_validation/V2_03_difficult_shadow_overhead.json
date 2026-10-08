@@ -1,0 +1,8 @@
+{
+  "sequence": "V2_03_difficult",
+  "scope": "heavy diagnostic SHADOW vs same-binary OFF, feed_camera includes synchronous shadow I/O",
+  "p95_relative_growth": 0.1118067783566492,
+  "peak_rss_relative_growth": -0.03451864185050846,
+  "production_GV_performance": "NOT_EVALUATED",
+  "ROS_transport_queues": "NOT_EVALUATED; direct deterministic ASL runner"
+}

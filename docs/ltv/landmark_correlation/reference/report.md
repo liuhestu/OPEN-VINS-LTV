@@ -35,3 +35,5 @@ OPENBLAS_NUM_THREADS=1 python3 -m unittest discover \
 ```
 
 实测退出码0，6项独立测试全部通过。`math_and_lifecycle_checks.json` 文件只承载此参考的消元/统计检查；文件名遵循总合同产物命名，**不包含 LC-03 在线生命周期事件验证**。本结果不授予 landmark ON 资格；必须等待实际 cross blocks、完整真实 shadow、来源拆分和可识别增量信息。
+
+补充数值审计：`residual_support.csv` 区分联合协方差PSD与具体r的可支持性。原offline对照同一固定r=[.1,-.08,.05]在零噪声的两个模型、完全重复的完整模型、近秩亏的完整模型共4处不在S的有效子空间。原Kr/P仅为形式协方差诊断，这4处不构成可提交候选；没有通过投影r伪造物理可解性。有效子空间/range条件分别沿用原rank阈值1e-11和矩阵绝对误差1e-10，未调整验收容限。重复信息的P假收缩反例仍成立，物理完全重复情况下r应为0且不增加信息。复核：`OPENBLAS_NUM_THREADS=1 python3 scripts/ltv_landmark_correlation/reference/residual_support.py`，退出0。

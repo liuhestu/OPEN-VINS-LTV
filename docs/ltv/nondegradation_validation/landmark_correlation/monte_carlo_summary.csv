@@ -1,0 +1,18 @@
+scope,scene,draws,seed,expectation,rejected_entries,status,max_absolute_covariance_error,normal_approximation_power,minimum_disparity,independent_landmark_truth,amplitude,fd_step_difference,covariance_relative_error,error_rms,linear_prediction_rms,nonlinear_remainder_rms,shared_cross_time_covariance_norm,gain_schedule_difference_norm,actual_relative_covariance_deviation,actual_cross_relative_deviation,confidence
+linear or controlled stereo-depth reference,zero_noise,12000,20261008,PASS,0,PASS,0.0,,,,,,,,,,,,,,
+linear or controlled stereo-depth reference,independent_sources,12000,20261008,PASS,0,PASS,0.011191470137265791,,,,,,,,,,,,,,
+linear or controlled stereo-depth reference,shared_imu_bias,12000,20261008,PASS,0,PASS,0.009816724197270643,,,,,,,,,,,,,,
+linear or controlled stereo-depth reference,shared_bearing,12000,20261008,PASS,0,PASS,0.014532921485130634,,,,,,,,,,,,,,
+linear or controlled stereo-depth reference,seed_feedback,12000,20261008,PASS,0,PASS,0.006869862048558217,,,,,,,,,,,,,,
+linear or controlled stereo-depth reference,duplicate_information,12000,20261008,PASS,0,PASS,0.00880110293296349,,,,,,,,,,,,,,
+linear or controlled stereo-depth reference,near_rank_deficiency,12000,20261008,PASS,0,PASS,0.0311892765289139,,,,,,,,,,,,,,
+linear or controlled stereo-depth reference,broken_shared_source,12000,20261008,REJECT,15,PASS,,1.0,,,,,,,,,,,,,
+linear or controlled stereo-depth reference,controlled_stereo_seed_amplitude_0.0001,12000,20261008,DIAGNOSTIC,0,NO_DEVIATION_DETECTED,,,0.039626707473589734,NO,,,,,,,,,,,
+linear or controlled stereo-depth reference,controlled_stereo_seed_amplitude_0.001,12000,20261008,DIAGNOSTIC,0,NO_DEVIATION_DETECTED,,,0.03650052662755089,NO,,,,,,,,,,,
+linear or controlled stereo-depth reference,controlled_stereo_seed_amplitude_0.01,12000,20261008,DIAGNOSTIC,3,LINEARIZATION_DEVIATION,,,0.001222121015653374,NO,,,,,,,,,,,
+"actual nonlinear Observer input-output diagnostic, no Gaussian CI or landmark truth",two_Euler_plus_camera,4000,202610081,,,EXECUTED_DIAGNOSTIC_ONLY,,,,,1.0000000000000001e-05,5.6158971495395275e-09,0.022889677231857877,3.6384402765583605e-06,3.6384401400632095e-06,5.5254080151436833e-11,9.6337797643894704e-13,0.0085742138316561075,,,
+"actual nonlinear Observer input-output diagnostic, no Gaussian CI or landmark truth",two_Euler_plus_camera,4000,202610081,,,EXECUTED_DIAGNOSTIC_ONLY,,,,,0.0001,5.6158971495395275e-09,0.034116882162011322,3.6625549684144491e-05,3.6625527279033989e-05,5.7636591472102888e-09,9.2408054045332142e-11,0.0085742138316561075,,,
+"actual nonlinear Observer input-output diagnostic, no Gaussian CI or landmark truth",two_Euler_plus_camera,4000,202610081,,,EXECUTED_DIAGNOSTIC_ONLY,,,,,0.001,5.6158971495395275e-09,0.027780315386574592,0.00036623382952841486,0.00036623635730820308,5.6171827983489103e-07,9.5377305258944797e-09,0.0085742138316561075,,,
+actual nonlinear seed descriptive / linearized source simultaneous Gaussian intervals,native_seed,12000,20261008,,,PASS,,,,,1e-05,,,,,,,,0.014205872871929254,0.05196211694787747,linearized reference only; full intervals linked in native_seed evidence
+actual nonlinear seed descriptive / linearized source simultaneous Gaussian intervals,native_seed,12000,20261008,,,PASS,,,,,0.0001,,,,,,,,0.008966703907160124,0.02665627002729739,linearized reference only; full intervals linked in native_seed evidence
+actual nonlinear seed descriptive / linearized source simultaneous Gaussian intervals,native_seed,12000,20261008,,,PASS,,,,,0.001,,,,,,,,0.00371885737440678,0.0062432755492993364,linearized reference only; full intervals linked in native_seed evidence

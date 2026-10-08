@@ -1,3 +1,1 @@
-本轮已核对实际当前实验分支及未提交文件；用户原始参考文件 `.md.md` 保留，另以正确路径提交同内容副本。验收合同主线程单点冻结，生产参数未改变。历史 G/V 原始证据重新核验并重算，真实留出bearing与历史几何对照重新核验，LC04–06离线参考确定性重新执行。实际 seed 联合映射/原生JPL有限差分/36000受控抽样已执行。
-
-正在进行隔离真实 ROS/colcon 构建。已集成只读 Observer 条件源联合映射，正在补足逐步矩阵与在线anchor源快照证据；随后两序列完整shadow OFF回放、精确回归及测试。主/seed历史/视觉交叉块缺失，真实统计模型当前不可融合，landmark保持STOP候选判定。任务仍 active，尚未声明最终交付完成或推送完成。
+本轮实验工作已实际执行并汇编，最终判定与范围见report.md及landmark_correlation/experiment_matrix.csv。Landmark保持STOP；统计一致性未达到、真实landmark校准未评价、融合收益未证明。最终交付提交/远端验证另见delivery.json，不以此进度文件代替证据。

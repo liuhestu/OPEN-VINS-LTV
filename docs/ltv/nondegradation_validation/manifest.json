@@ -94,5 +94,53 @@
   "acceptance_sha256": "9879047e2fde013570d4874c57706630f9ffb0070609690ca3eee5f68c0d2b29",
   "new_output": "/home/he/output/ltv_nondegradation_correlation_20261008",
   "historical_reference": "untracked reference files existed at entry; revalidate before reuse",
-  "reference_canonical_path": "docs/ltv/nondegradation_goal_reference.md"
+  "reference_canonical_path": "docs/ltv/nondegradation_goal_reference.md",
+  "source_identity_before_clean_build": {
+    "implementation_commit": "36667ac",
+    "source_sha256": {
+      "ov_msckf/src/ltv/observer/LtvErrorShadow.h": "1a01ded8f020c1556527835231eadcf0a1c464c54cf8cbfe1407424f41a6067a",
+      "ov_msckf/src/ltv/observer/ltv_observer.h": "8628573a8e26d446cd3e9e365885530d9afe15f30b18e0afdf8d90081187f04e",
+      "ov_msckf/src/ltv/observer/ltv_observer.cpp": "5c8cf1eeab1625e2f862c7fb6ef181ca9af13bb306c0cf5d276423a7d5c2057d",
+      "ov_msckf/tests/ltv/tools/run_ltv_feature_passive.cpp": "6d326ef93f331e5e160c2f33a2a085b8ad365b8a47684f9a440a5a239b6b700c",
+      "ov_msckf/tests/ltv/test_ltv_seed_joint.cpp": "d059ed17c431cf9171bb519b6b562f1c3db802f1b413076ea970a996fc6412b1",
+      "ov_msckf/tests/ltv/test_ltv_error_shadow.cpp": "dbf9d35a07a7f0673800faef0b0d77ab65680fe89e13db7b3fefab25fd5c27ba",
+      "ov_msckf/tests/ltv/test_ltv_observer_mc.cpp": "e074a6d79c6deb8040858032c68d9c879e4f2752c47db7b31a20dc7b3216cc11",
+      "ov_msckf/tests/ltv/CMakeLists.txt": "b2878f80a62472eb8a5e04e875033861888687346943cf9ff1b10e12d89d02eb"
+    }
+  },
+  "history_reuse": {
+    "gv": "docs/ltv/landmark_correlation/gv/raw_identity.json",
+    "holdout": "docs/ltv/landmark_correlation/holdout/evidence_index.csv",
+    "images": "docs/ltv/nondegradation_validation/image_inputs.json",
+    "reference_exact_rerun": "docs/ltv/landmark_correlation/reference/recheck.json"
+  },
+  "tested_commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+  "clean_build": {
+    "command": "#!/bin/bash\nset -eo pipefail\nunset AMENT_PREFIX_PATH CMAKE_PREFIX_PATH COLCON_PREFIX_PATH LD_LIBRARY_PATH PYTHONPATH\nsource /opt/ros/humble/setup.bash\nexport OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 CMAKE_BUILD_PARALLEL_LEVEL=1 MAKEFLAGS=-j1\ncolcon --log-base /home/he/output/ltv_nondegradation_correlation_20261008/log build --base-paths /home/he/open_vins_ltv_ws/src/open_vins_ltv --packages-select ov_msckf --cmake-clean-first --executor sequential --build-base /home/he/output/ltv_nondegradation_correlation_20261008/build --install-base /home/he/output/ltv_nondegradation_correlation_20261008/install --cmake-args -DENABLE_ROS=ON -DBUILD_LTV_PHASE0_TESTS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DPYTHON_EXECUTABLE=/usr/bin/python3\n",
+    "log": "/home/he/output/ltv_nondegradation_correlation_20261008/build_clean.log",
+    "log_sha256": "606c7464fee93cc3102c60ed60a8a5fbfc49ba1470330231f62474061568b5f9",
+    "exit_code": 0,
+    "compile_commands_sha256": "6df4a9f2478395b1d786da1d5656466e50ccba9e66c6c10fa993013b4add742e"
+  },
+  "binary_sha256": {
+    "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/libov_msckf_lib.so": "73e62feec5bf7188072d2204a23f86583172392136758185548251eebf5cd2c5",
+    "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/run_ltv_gv_evaluation": "6ff1e7eaf9b57229c380cdfb55fb67f5832e62c6264da45ed737c1df2ffef366",
+    "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_error_shadow": "7f5f052f24b388ec4ae67d19d3888436c00dcd4a7f3cf614ca4be8b3bcb5209c",
+    "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_seed_joint": "66d056a8853b8a546dd5a61e3c8838ee9c1d9c5b24868ea2087ab37f3467a830",
+    "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_observer_mc": "71076c713d3404d143f7758d796c4b6bbe7460f0f41f474dfc4f724f1c246c59"
+  },
+  "evaluator_sha256": {
+    "scripts/ltv_landmark_correlation/reference/test_reference.py": "7ac5809014197bb27313b868fa2da19f2765bc2dd592b06577eaa09f3188708b",
+    "scripts/ltv_landmark_correlation/reference/run.py": "ed8a69c0c47ead5e05bb4bf6f90bb05c01d6fd66ef15b81974c25314e1d2bca6",
+    "scripts/ltv_landmark_correlation/reference/residual_support.py": "eb2c82541f047447459971379a6db9be58803054bc02fefffc0331dc0042fba3",
+    "scripts/ltv_landmark_correlation/gv/audit.py": "bfc6c25f5eb246f95b72c2ff51cc29247e5040aac638e497e757ba9f5828adeb",
+    "scripts/ltv_landmark_correlation/gv/matrix_blocks.py": "91c37187c1121494ad9e092cbe7e49adc5f459b160be48e39fadbd3f38935217",
+    "scripts/ltv_landmark_correlation/holdout/run.py": "dc26926c51c5f110028b10d248d17fe55a4f7900157b2eac386096476e3dbec9",
+    "scripts/ltv_landmark_correlation/validation/assemble_bundle.py": "8a1d4702fde004283d14819acbcd57162b220624d44641d910663c904e5c7d00",
+    "scripts/ltv_landmark_correlation/validation/audit_shadow.py": "47cb990f1d9bba9e8eb89fb5dc785d7a94430cee36b21343fc100bbf571780c4",
+    "scripts/ltv_landmark_correlation/validation/run.py": "dad8deea9f1550c458d55c9aa4039715c54f9536c5dec34bc81c9bf69890338a",
+    "scripts/ltv_landmark_correlation/validation/closeout.py": "731bc8abd2c26ce14ab7289c5924a6fc43d08296ab0f1d0f60f7ab569009b5fd",
+    "scripts/ltv_landmark_correlation/actual_seed/analyze.py": "6fd4ef71579249f337e95b7dbba046f14a5de7e158a440edfeac461bb28f301a"
+  },
+  "raw_retention": "large logs/matrices/CSVs external output or ignored results; indexes versioned"
 }

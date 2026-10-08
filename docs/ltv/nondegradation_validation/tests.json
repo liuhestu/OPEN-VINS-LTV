@@ -1,0 +1,876 @@
+[
+  {
+    "event": "finish",
+    "label": "test_ltv_alias_fixed",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_alias_fixed"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443920.114621,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_alias_fixed_attempt_02.log",
+    "artifact_label": "test_ltv_alias_fixed_attempt_02",
+    "exit_code": 0,
+    "seconds": 0.18834543228149414,
+    "resources": {
+      "max_rss_kb": 12480,
+      "elapsed_s": 0.18,
+      "user_s": 0.14,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_core_lifecycle",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_core_lifecycle"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443920.3031898,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_core_lifecycle_attempt_02.log",
+    "artifact_label": "test_ltv_core_lifecycle_attempt_02",
+    "exit_code": 0,
+    "seconds": 0.17148423194885254,
+    "resources": {
+      "max_rss_kb": 12320,
+      "elapsed_s": 0.16,
+      "user_s": 0.13,
+      "system_s": 0.03
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_gv_jacobian",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_gv_jacobian"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443920.4748936,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_gv_jacobian_attempt_02.log",
+    "artifact_label": "test_ltv_gv_jacobian_attempt_02",
+    "exit_code": 0,
+    "seconds": 0.32485342025756836,
+    "resources": {
+      "max_rss_kb": 61440,
+      "elapsed_s": 0.32,
+      "user_s": 0.28,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_gv_covariance",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_gv_covariance"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443920.7999065,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_gv_covariance_attempt_02.log",
+    "artifact_label": "test_ltv_gv_covariance_attempt_02",
+    "exit_code": 0,
+    "seconds": 0.20833587646484375,
+    "resources": {
+      "max_rss_kb": 61600,
+      "elapsed_s": 0.2,
+      "user_s": 0.15,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_fej",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_fej"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443921.00849,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_fej_attempt_02.log",
+    "artifact_label": "test_ltv_fej_attempt_02",
+    "exit_code": 0,
+    "seconds": 0.20406389236450195,
+    "resources": {
+      "max_rss_kb": 61920,
+      "elapsed_s": 0.2,
+      "user_s": 0.15,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_timing",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_timing"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443921.212772,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_timing_attempt_02.log",
+    "artifact_label": "test_ltv_timing_attempt_02",
+    "exit_code": 0,
+    "seconds": 0.20693731307983398,
+    "resources": {
+      "max_rss_kb": 61440,
+      "elapsed_s": 0.2,
+      "user_s": 0.16,
+      "system_s": 0.03
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_joint_layout",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_joint_layout"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443921.4198644,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_joint_layout.log",
+    "artifact_label": "test_ltv_joint_layout",
+    "exit_code": 0,
+    "seconds": 0.22703003883361816,
+    "resources": {
+      "max_rss_kb": 63360,
+      "elapsed_s": 0.22,
+      "user_s": 0.17,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_joint_covariance",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_joint_covariance"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443921.6471143,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_joint_covariance.log",
+    "artifact_label": "test_ltv_joint_covariance",
+    "exit_code": 0,
+    "seconds": 0.2171778678894043,
+    "resources": {
+      "max_rss_kb": 61920,
+      "elapsed_s": 0.21,
+      "user_s": 0.17,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_innovation",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_innovation"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443921.8644488,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_innovation.log",
+    "artifact_label": "test_ltv_innovation",
+    "exit_code": 0,
+    "seconds": 0.22288799285888672,
+    "resources": {
+      "max_rss_kb": 62108,
+      "elapsed_s": 0.22,
+      "user_s": 0.16,
+      "system_s": 0.05
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_options",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_options"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443922.0875754,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_options.log",
+    "artifact_label": "test_ltv_options",
+    "exit_code": 0,
+    "seconds": 0.21387028694152832,
+    "resources": {
+      "max_rss_kb": 61908,
+      "elapsed_s": 0.21,
+      "user_s": 0.15,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_value_shadow",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_value_shadow"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443922.3015978,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_value_shadow.log",
+    "artifact_label": "test_ltv_value_shadow",
+    "exit_code": 0,
+    "seconds": 0.2162647247314453,
+    "resources": {
+      "max_rss_kb": 62240,
+      "elapsed_s": 0.21,
+      "user_s": 0.16,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_huber",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_huber"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443922.5180826,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_huber.log",
+    "artifact_label": "test_ltv_huber",
+    "exit_code": 0,
+    "seconds": 0.21171140670776367,
+    "resources": {
+      "max_rss_kb": 61760,
+      "elapsed_s": 0.2,
+      "user_s": 0.17,
+      "system_s": 0.03
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_controlled",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_controlled"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443922.7299416,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_controlled.log",
+    "artifact_label": "test_ltv_controlled",
+    "exit_code": 0,
+    "seconds": 0.20217585563659668,
+    "resources": {
+      "max_rss_kb": 61760,
+      "elapsed_s": 0.2,
+      "user_s": 0.16,
+      "system_s": 0.03
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_feature_manager",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_feature_manager"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443922.9322906,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_feature_manager.log",
+    "artifact_label": "test_ltv_feature_manager",
+    "exit_code": 0,
+    "seconds": 0.2151341438293457,
+    "resources": {
+      "max_rss_kb": 60960,
+      "elapsed_s": 0.21,
+      "user_s": 0.15,
+      "system_s": 0.05
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_feature_pipeline",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_feature_pipeline"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443923.1475687,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_feature_pipeline.log",
+    "artifact_label": "test_ltv_feature_pipeline",
+    "exit_code": 0,
+    "seconds": 0.20351004600524902,
+    "resources": {
+      "max_rss_kb": 61280,
+      "elapsed_s": 0.2,
+      "user_s": 0.16,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_pose_convention",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_pose_convention"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443923.3512309,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_pose_convention.log",
+    "artifact_label": "test_ltv_pose_convention",
+    "exit_code": 0,
+    "seconds": 0.17243337631225586,
+    "resources": {
+      "max_rss_kb": 12480,
+      "elapsed_s": 0.17,
+      "user_s": 0.13,
+      "system_s": 0.03
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_active_lifecycle",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_active_lifecycle"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443923.523873,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_active_lifecycle.log",
+    "artifact_label": "test_ltv_active_lifecycle",
+    "exit_code": 0,
+    "seconds": 0.20665192604064941,
+    "resources": {
+      "max_rss_kb": 61296,
+      "elapsed_s": 0.2,
+      "user_s": 0.17,
+      "system_s": 0.03
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_active_consistency",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_active_consistency"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443923.7306747,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_active_consistency.log",
+    "artifact_label": "test_ltv_active_consistency",
+    "exit_code": 0,
+    "seconds": 0.20756173133850098,
+    "resources": {
+      "max_rss_kb": 61280,
+      "elapsed_s": 0.2,
+      "user_s": 0.16,
+      "system_s": 0.03
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_readiness",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_readiness"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443923.9384782,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_readiness.log",
+    "artifact_label": "test_ltv_readiness",
+    "exit_code": 0,
+    "seconds": 0.20524287223815918,
+    "resources": {
+      "max_rss_kb": 61120,
+      "elapsed_s": 0.2,
+      "user_s": 0.16,
+      "system_s": 0.03
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_adapter_hardened",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_adapter_hardened"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443924.1438816,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_adapter_hardened.log",
+    "artifact_label": "test_ltv_adapter_hardened",
+    "exit_code": 0,
+    "seconds": 0.5043454170227051,
+    "resources": {
+      "max_rss_kb": 67112,
+      "elapsed_s": 0.5,
+      "user_s": 0.43,
+      "system_s": 0.06
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_manager_bounded",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_manager_bounded"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443924.6483831,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_manager_bounded.log",
+    "artifact_label": "test_ltv_manager_bounded",
+    "exit_code": 0,
+    "seconds": 0.29554271697998047,
+    "resources": {
+      "max_rss_kb": 61236,
+      "elapsed_s": 0.29,
+      "user_s": 0.24,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_bounded_history",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_bounded_history"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443924.9441507,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_bounded_history.log",
+    "artifact_label": "test_bounded_history",
+    "exit_code": 0,
+    "seconds": 0.21102571487426758,
+    "resources": {
+      "max_rss_kb": 60640,
+      "elapsed_s": 0.2,
+      "user_s": 0.16,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_identity_guard",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_identity_guard"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443925.155318,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_identity_guard.log",
+    "artifact_label": "test_identity_guard",
+    "exit_code": 0,
+    "seconds": 0.18270587921142578,
+    "resources": {
+      "max_rss_kb": 12480,
+      "elapsed_s": 0.18,
+      "user_s": 0.13,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_history_competition",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_history_competition"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443925.3382277,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_history_competition.log",
+    "artifact_label": "test_ltv_history_competition",
+    "exit_code": 0,
+    "seconds": 0.20923542976379395,
+    "resources": {
+      "max_rss_kb": 60976,
+      "elapsed_s": 0.2,
+      "user_s": 0.16,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_error_shadow",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_error_shadow"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443925.5476863,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_error_shadow.log",
+    "artifact_label": "test_ltv_error_shadow",
+    "exit_code": 0,
+    "seconds": 0.21393394470214844,
+    "resources": {
+      "max_rss_kb": 62080,
+      "elapsed_s": 0.21,
+      "user_s": 0.16,
+      "system_s": 0.05
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_seed_joint",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_seed_joint",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/integrated_actual_seed_samples.csv"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443925.7618592,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_seed_joint.log",
+    "artifact_label": "test_ltv_seed_joint",
+    "exit_code": 0,
+    "seconds": 0.4837799072265625,
+    "resources": {
+      "max_rss_kb": 60960,
+      "elapsed_s": 0.48,
+      "user_s": 0.43,
+      "system_s": 0.04
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_landmark_shadow",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_landmark_shadow"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443926.2457886,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_landmark_shadow.log",
+    "artifact_label": "test_ltv_landmark_shadow",
+    "exit_code": 0,
+    "seconds": 0.31723499298095703,
+    "resources": {
+      "max_rss_kb": 67168,
+      "elapsed_s": 0.31,
+      "user_s": 0.27,
+      "system_s": 0.03
+    }
+  },
+  {
+    "event": "finish",
+    "label": "test_ltv_observer_mc",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_observer_mc",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/integrated_observer_mc"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443926.5632415,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/test_ltv_observer_mc.log",
+    "artifact_label": "test_ltv_observer_mc",
+    "exit_code": 0,
+    "seconds": 0.8294801712036133,
+    "resources": {
+      "max_rss_kb": 61676,
+      "elapsed_s": 0.82,
+      "user_s": 0.76,
+      "system_s": 0.05
+    }
+  },
+  {
+    "event": "finish",
+    "label": "core_golden",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/test_ltv_core_parity",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/inputs.jsonl",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/core_golden_matrices.jsonl"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443927.3929565,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/core_golden.log",
+    "artifact_label": "core_golden",
+    "exit_code": 0,
+    "seconds": 0.19237899780273438,
+    "resources": {
+      "max_rss_kb": 12480,
+      "elapsed_s": 0.19,
+      "user_s": 0.15,
+      "system_s": 0.03
+    }
+  },
+  {
+    "event": "finish",
+    "label": "golden_means",
+    "command": [
+      "python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/core_golden.log",
+      "--expected",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/historical_core.log",
+      "--atol",
+      "0",
+      "--rtol",
+      "0"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443927.5855544,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/golden_means.log",
+    "artifact_label": "golden_means",
+    "exit_code": 0,
+    "seconds": 0.0476069450378418,
+    "resources": {
+      "max_rss_kb": 16896,
+      "elapsed_s": 0.04,
+      "user_s": 0.04,
+      "system_s": 0.0
+    }
+  },
+  {
+    "event": "finish",
+    "label": "golden_full_matrices",
+    "command": [
+      "python3",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/compare.py",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/core_golden_matrices.jsonl",
+      "--expected",
+      "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/ltv_handover/parity_fixture/expected_matrices.jsonl",
+      "--atol",
+      "0",
+      "--rtol",
+      "0"
+    ],
+    "cwd": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "started": 1791443927.6333387,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/golden_full_matrices.log",
+    "artifact_label": "golden_full_matrices",
+    "exit_code": 0,
+    "seconds": 0.037230730056762695,
+    "resources": {
+      "max_rss_kb": 16000,
+      "elapsed_s": 0.03,
+      "user_s": 0.02,
+      "system_s": 0.0
+    }
+  }
+]

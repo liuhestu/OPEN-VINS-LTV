@@ -10,7 +10,7 @@
 | LC-04 | PASS（线性参考限定） | 7场景直接源残差与R/N/R_L_visual/S消元、独立SVD、广义Joseph；零及非零视觉完全重复信息反例 | 真实消元依赖LC01–03；真实R/N/S仍BLOCKED，不由此参考颁发ON资格 |
 | LC-05 | PASS（离线对照执行） | 同prior/r，完整和明确置零模型谱/K/Kr/P/条件信息；部分置零非PSD反例明确拒绝 | 真实prior联合块未知，真实候选K禁止计算；不使用置零结果作为fallback或资格 |
 | LC-06 | PASS（受控参考限定） | 七种12000 IID线性参考、同源破坏反例、功效/同时区间、多个非线性幅度；实际seed与Observer局部输入核对 | 完整实际gain/main/seed联合误差校准未闭合；没有独立landmark真值，真实Sigma_L校准NOT_EVALUATED |
-| LC-07 | BLOCKED（模型资格） | 新增逐IMU/camera/lifecycle/anchor矩阵流；真实完整运行、OFF精确回归、重复shadow及开销当前PENDING；实测落地后见report/run_matrix，不能由设计推定 | 全部真实valid_unconditional=false；所记录仅fixed-seed/fixed-gain单位源贡献，零有效真实约束不能称可融合 |
+| LC-07 | BLOCKED（模型资格） | 新增逐IMU/camera/lifecycle/anchor矩阵流；两序列各匹配OFF+两次完整shadow均精确复现，新增matrix/source stream逐字节重复；285250项局部矩阵恒等式核对及开销见report/run_matrix，未由此推定模型闭合 | 全部真实valid_unconditional=false；所记录仅fixed-seed/fixed-gain单位源贡献，零有效真实约束不能称可融合 |
 | LC-08 | INCONCLUSIVE | 未消费当前bearing、历史几何对照、三预测共同支持重算；两序列全程/正常/恢复区间的改善CI跨零 | 真实条件信息秩需联合块；新的独立传感信息或可检验的保守相关性模型，保留相同共同样本评价 |
 
 缺失完整 Sigma_tt/aa/at、C_xt/xa 和 LTV-visual cross 时，不能把条件源 Gram 拼成完整联合分布。本轮已实际增加只读传播、anchor快照和可重算矩阵；这些贡献确实可产生，但真实缺块仍为 UNKNOWN。初值固定、gain固定是控制实验的条件，不是未知真实相关性置零的借口。

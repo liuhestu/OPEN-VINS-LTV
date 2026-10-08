@@ -1,0 +1,15 @@
+scene,model,residual_rank,covariance_compatible,residual_support_compatible,outside_support_norm,support_tolerance,Kr_interpretation,fusion_authorization
+zero_noise,full,0,True,False,0.1374772708486752,1e-10,formal covariance diagnostic only; residual invalid,NONE
+zero_noise,zero_all_consumer_cross_blocks_DIAGNOSTIC_ONLY,0,True,False,0.1374772708486752,1e-10,formal covariance diagnostic only; residual invalid,NONE
+independent_sources,full,3,True,True,3.3993498887762956e-17,1e-10,offline diagnostic only,NONE
+independent_sources,zero_all_consumer_cross_blocks_DIAGNOSTIC_ONLY,3,True,True,3.3993498887762956e-17,1e-10,offline diagnostic only,NONE
+shared_imu_bias,full,3,True,True,3.3993498887762956e-17,1e-10,offline diagnostic only,NONE
+shared_imu_bias,zero_all_consumer_cross_blocks_DIAGNOSTIC_ONLY,3,True,True,7.244417918960238e-17,1e-10,offline diagnostic only,NONE
+shared_bearing,full,3,True,True,4.443059973708341e-17,1e-10,offline diagnostic only,NONE
+shared_bearing,zero_all_consumer_cross_blocks_DIAGNOSTIC_ONLY,3,True,True,3.179800655392251e-17,1e-10,offline diagnostic only,NONE
+seed_feedback,full,3,True,True,5.721958498152797e-17,1e-10,offline diagnostic only,NONE
+seed_feedback,zero_all_consumer_cross_blocks_DIAGNOSTIC_ONLY,3,True,True,7.076311083754595e-17,1e-10,offline diagnostic only,NONE
+duplicate_information,full,0,True,False,0.1374772708486752,1e-10,formal covariance diagnostic only; residual invalid,NONE
+duplicate_information,zero_all_consumer_cross_blocks_DIAGNOSTIC_ONLY,3,True,True,3.3993498887762956e-17,1e-10,offline diagnostic only,NONE
+near_rank_deficiency,full,1,True,False,0.1348332303254654,1e-10,formal covariance diagnostic only; residual invalid,NONE
+near_rank_deficiency,zero_all_consumer_cross_blocks_DIAGNOSTIC_ONLY,3,True,True,7.850462293418876e-17,1e-10,offline diagnostic only,NONE

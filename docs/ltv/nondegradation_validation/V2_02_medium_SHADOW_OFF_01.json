@@ -1,0 +1,138 @@
+{
+  "sequence": "V2_02_medium",
+  "mode": "SHADOW_OFF",
+  "repeat": 1,
+  "run": {
+    "event": "finish",
+    "label": "V2_02_medium_SHADOW_OFF_01",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/run_ltv_gv_evaluation",
+      "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/runs/V2_02_medium_SHADOW_OFF_01",
+      "OFF"
+    ],
+    "cwd": "/home/he/output/ltv_nondegradation_correlation_20261008/runs/V2_02_medium_SHADOW_OFF_01",
+    "started": 1791444034.6014018,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {
+      "LTV_JOINT_SHADOW_PATH": "/home/he/output/ltv_nondegradation_correlation_20261008/runs/V2_02_medium_SHADOW_OFF_01/joint_shadow.csv"
+    },
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/V2_02_medium_SHADOW_OFF_01.log",
+    "artifact_label": "V2_02_medium_SHADOW_OFF_01",
+    "exit_code": 0,
+    "seconds": 64.17519855499268,
+    "resources": {
+      "max_rss_kb": 136424,
+      "elapsed_s": 64.17,
+      "user_s": 68.22,
+      "system_s": 3.54
+    }
+  },
+  "parity": {
+    "status": "PASS_EXACT_NATIVE_PASSIVE",
+    "before": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03",
+    "after": "/home/he/output/ltv_nondegradation_correlation_20261008/runs/V2_02_medium_SHADOW_OFF_01",
+    "excluded_fields": [
+      "features.jsonl.compute_time_ms"
+    ],
+    "tolerance": 0,
+    "audit_rows": 2348,
+    "trajectory_rows": 2266,
+    "unmatched_camera_rows": 0,
+    "features": {
+      "rows": 2348,
+      "canonical_sha": "e736f11519ff5e170b5306cb82690021b7be4c449fc353ff471e4de536551954"
+    },
+    "cache": {
+      "counts": {
+        "imu": 23490,
+        "process": 2266,
+        "pause": 82
+      },
+      "sha256": "8f9d515b2fa823e704ec68b4fc1aed467bac5c1d64b53ddf1896e5ac289d3d85",
+      "full_serialized_payload_exact": true
+    },
+    "files": {
+      "audit.csv": {
+        "before_sha": "b566310b6ba669ef5eda221344ec1ae81dccf79c0f8ed945fe82ea18d080b44f",
+        "after_sha": "b566310b6ba669ef5eda221344ec1ae81dccf79c0f8ed945fe82ea18d080b44f"
+      },
+      "trajectory.csv": {
+        "before_sha": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+        "after_sha": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f"
+      },
+      "cache.bin": {
+        "before_sha": "8f9d515b2fa823e704ec68b4fc1aed467bac5c1d64b53ddf1896e5ac289d3d85",
+        "after_sha": "8f9d515b2fa823e704ec68b4fc1aed467bac5c1d64b53ddf1896e5ac289d3d85"
+      },
+      "features.jsonl": {
+        "before_sha": "1fdb36ef2aababa7fdadb6ca57aa15f9689d4a0c84c0ac2090fb9a3c9768f5b2",
+        "after_sha": "29097d7f4ba19abb24f9bf3b738b44eb5477ce22218e409b36edf6561a6e2474"
+      },
+      "effective_options.json": {
+        "before_sha": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1",
+        "after_sha": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+      },
+      "replay.json": {
+        "before_sha": "57db1ab4ad65078fe080b889c45f49fdb75cd3c2b0602e76978661088d9d7600",
+        "after_sha": "57db1ab4ad65078fe080b889c45f49fdb75cd3c2b0602e76978661088d9d7600"
+      },
+      "unmatched_camera.csv": {
+        "before_sha": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3",
+        "after_sha": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3"
+      }
+    },
+    "ltv_rows": 2348
+  },
+  "output_sha256": {
+    "cache.bin": "8f9d515b2fa823e704ec68b4fc1aed467bac5c1d64b53ddf1896e5ac289d3d85",
+    "audit.csv": "b566310b6ba669ef5eda221344ec1ae81dccf79c0f8ed945fe82ea18d080b44f",
+    "trajectory.csv": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+    "ltv.csv": "f2c74c71fc5d680d45809e0ae80ea3adf680245fdde2f3fd247fee9ef0db7387",
+    "features.jsonl": "29097d7f4ba19abb24f9bf3b738b44eb5477ce22218e409b36edf6561a6e2474",
+    "fusion.jsonl": "c390ff1e4ad4aa2d79d91002bab1c5d4ac74a04b3d196a8f5697e7565535ba5a",
+    "matrices.jsonl": "7d23e4f1f15a0944c1dcbcaaffe7f7539679a00d5614d53d9c134e3a499af7b9",
+    "effective_options.json": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+  },
+  "replay": {
+    "input_left_images": 2348,
+    "input_right_images": 2348,
+    "unmatched_left_images": 0,
+    "unmatched_right_images": 0,
+    "camera_packets": 2348,
+    "input_camera_packets": 2348,
+    "imu_consumed": 23490,
+    "input_imu_samples": 23490,
+    "output_rows": 2266,
+    "input_span_seconds": 117.44500017166138,
+    "short_limit_seconds": 0,
+    "mode": "P_NEW",
+    "actual_G_submissions": 0,
+    "actual_V_submissions": 0,
+    "complete": true
+  },
+  "frame_feed_camera_ms_p95": 33.1315079,
+  "frame_feed_camera_ms_max": 44.619243,
+  "shadow_rows": 6883,
+  "camera_shadow_rows": 2266,
+  "real_statistical_valid_fraction": 0,
+  "missing_blocks": [
+    "seed_history_joint;main_visual_reset_cross;interpolated_imu_source_cross;gain_schedule_sensitivity;independent_landmark_truth"
+  ],
+  "events": {
+    "camera": 2266,
+    "imu_summary": 2266,
+    "lifecycle": 2266,
+    "reset": 85
+  },
+  "shadow_path": "/home/he/output/ltv_nondegradation_correlation_20261008/runs/V2_02_medium_SHADOW_OFF_01/joint_shadow.csv",
+  "shadow_sha256": "31a94e6de10792f4262b1ed591e02bb1ee2d2d5936e404887b5d65910018f859"
+}

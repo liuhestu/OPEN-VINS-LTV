@@ -1,0 +1,122 @@
+{
+  "sequence": "V2_03_difficult",
+  "mode": "OFF",
+  "repeat": 1,
+  "run": {
+    "event": "finish",
+    "label": "V2_03_difficult_OFF_01",
+    "command": [
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-c",
+      "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && exec \"$2\" \"${@:3}\"",
+      "correlation",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/install/ov_msckf/lib/ov_msckf/run_ltv_gv_evaluation",
+      "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "/home/he/output/ltv_nondegradation_correlation_20261008/runs/V2_03_difficult_OFF_01",
+      "OFF"
+    ],
+    "cwd": "/home/he/output/ltv_nondegradation_correlation_20261008/runs/V2_03_difficult_OFF_01",
+    "started": 1791444195.4591053,
+    "commit": "c6ab00a6c7ef630c91855e566e2e66fd92a190dc",
+    "extra_env": {},
+    "log_path": "/home/he/output/ltv_nondegradation_correlation_20261008/V2_03_difficult_OFF_01.log",
+    "artifact_label": "V2_03_difficult_OFF_01",
+    "exit_code": 0,
+    "seconds": 41.94512319564819,
+    "resources": {
+      "max_rss_kb": 134536,
+      "elapsed_s": 41.94,
+      "user_s": 45.9,
+      "system_s": 2.1
+    }
+  },
+  "parity": {
+    "status": "PASS_EXACT_NATIVE_PASSIVE",
+    "before": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03",
+    "after": "/home/he/output/ltv_nondegradation_correlation_20261008/runs/V2_03_difficult_OFF_01",
+    "excluded_fields": [
+      "features.jsonl.compute_time_ms"
+    ],
+    "tolerance": 0,
+    "audit_rows": 1921,
+    "trajectory_rows": 1806,
+    "unmatched_camera_rows": 416,
+    "features": {
+      "rows": 1921,
+      "canonical_sha": "c75d5b16fe8bbc4b861ad14e7b53d3ba572ddd4b6bd075ba8f32f051b2cddd8f"
+    },
+    "cache": {
+      "counts": {
+        "imu": 23370,
+        "process": 1806,
+        "pause": 115
+      },
+      "sha256": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf",
+      "full_serialized_payload_exact": true
+    },
+    "files": {
+      "audit.csv": {
+        "before_sha": "f0ee61373a178220ac661ec354a074d4dbeb5f0c2b88e489ba2834b55afd90ce",
+        "after_sha": "f0ee61373a178220ac661ec354a074d4dbeb5f0c2b88e489ba2834b55afd90ce"
+      },
+      "trajectory.csv": {
+        "before_sha": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+        "after_sha": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3"
+      },
+      "cache.bin": {
+        "before_sha": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf",
+        "after_sha": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf"
+      },
+      "features.jsonl": {
+        "before_sha": "b8503b92250c1f56246258f4341a26bb0fdbc1f18179d530758daec5c21bf8cd",
+        "after_sha": "9582f9b3067cd5246112f13c580bf09c385951f9884b10a6a9e9eb4ae92fff6c"
+      },
+      "effective_options.json": {
+        "before_sha": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1",
+        "after_sha": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+      },
+      "replay.json": {
+        "before_sha": "be5d18dd307fa24c9f0bbb6c113d001080924c47bc9f96e14bb47c06dfde6e25",
+        "after_sha": "be5d18dd307fa24c9f0bbb6c113d001080924c47bc9f96e14bb47c06dfde6e25"
+      },
+      "unmatched_camera.csv": {
+        "before_sha": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b",
+        "after_sha": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b"
+      }
+    },
+    "ltv_rows": 1921
+  },
+  "output_sha256": {
+    "cache.bin": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf",
+    "audit.csv": "f0ee61373a178220ac661ec354a074d4dbeb5f0c2b88e489ba2834b55afd90ce",
+    "trajectory.csv": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+    "ltv.csv": "3ba13abf84e68b47b0073426df7c40d594eb548a12e60b0c10a3ca42672bac83",
+    "features.jsonl": "9582f9b3067cd5246112f13c580bf09c385951f9884b10a6a9e9eb4ae92fff6c",
+    "fusion.jsonl": "2f16b40e70b49e617082eebedf247318c5d8e7165561ca67173b951200275f5e",
+    "matrices.jsonl": "4b633e3116b518d6e141ddfc7caee4a88bfa8a3c5dc29c128be047902dba6e63",
+    "effective_options.json": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+  },
+  "replay": {
+    "input_left_images": 1922,
+    "input_right_images": 2336,
+    "unmatched_left_images": 1,
+    "unmatched_right_images": 415,
+    "camera_packets": 1921,
+    "input_camera_packets": 1921,
+    "imu_consumed": 23370,
+    "input_imu_samples": 23370,
+    "output_rows": 1806,
+    "input_span_seconds": 116.84500026702881,
+    "short_limit_seconds": 0,
+    "mode": "P_NEW",
+    "actual_G_submissions": 0,
+    "actual_V_submissions": 0,
+    "complete": true
+  },
+  "frame_feed_camera_ms_p95": 26.97586,
+  "frame_feed_camera_ms_max": 37.027016
+}

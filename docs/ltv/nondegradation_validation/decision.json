@@ -1,0 +1,32 @@
+{
+  "OFF_engineering_equivalence": {
+    "status": "PASS",
+    "scope": "frozen synchronous paired-input two-sequence contract, including full native cache/main P; raw unmatched roster retained"
+  },
+  "GV_precision": {
+    "G": {
+      "status": "PASS_WITHIN_SCOPE",
+      "scope": "V2_02/V2_03 frozen full and local metrics"
+    },
+    "V": {
+      "status": "PASS_WITHIN_SCOPE",
+      "scope": "V2_02/V2_03 frozen full and local metrics"
+    },
+    "GV": {
+      "status": "PASS_WITHIN_SCOPE",
+      "scope": "V2_02/V2_03 frozen full and local metrics"
+    }
+  },
+  "GV_full_nondegradation_contract": "NOT_EVALUATED_PRODUCTION_PERFORMANCE_AND_QUEUE_EVIDENCE_MISSING",
+  "landmark_prerequisites": "STOP_WITH_REASON",
+  "landmark_ON": "NOT_IMPLEMENTED",
+  "system_statistical_consistency": "NOT_ACHIEVED",
+  "real_landmark_calibration": "NOT_EVALUATED",
+  "fusion_benefit": "NOT_DEMONSTRATED",
+  "heavy_shadow_p95_budget": "FAIL_DIAGNOSTIC_SCOPE_ONLY",
+  "R4": "NOT_ACHIEVED",
+  "production_fusion_enabled": false,
+  "validation_max_slam": 0,
+  "confirmation_frames": 20,
+  "expanded_sequences": "NOT_EVALUATED_NO_QUALIFIED_CANDIDATE; local_data_available"
+}

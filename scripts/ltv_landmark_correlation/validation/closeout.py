@@ -23,7 +23,7 @@ def sha(path):
 def write_csv(path, rows):
     fields = list(dict.fromkeys(k for row in rows for k in row))
     with path.open('w', newline='') as stream:
-        writer = csv.DictWriter(stream, fields)
+        writer = csv.DictWriter(stream, fields, lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
 
@@ -35,6 +35,10 @@ def closeout(out):
     assert len(replays) == 6
     assert all(row['run']['exit_code'] == 0 and row['replay']['complete'] and
                row['parity']['status'] == 'PASS_EXACT_NATIVE_PASSIVE' for row in replays)
+    repeats = [row for row in replays if row['repeat'] == 2]
+    assert len(repeats) == 2
+    assert all(len(row['shadow_determinism']) == 4 and all(item['first'] == item['repeat']
+               for item in row['shadow_determinism'].values()) for row in repeats)
     shadow_audits = {}
     for seq in ('V2_02_medium', 'V2_03_difficult'):
         path = DOC / f'{seq}_matrix_audit.json'
@@ -79,6 +83,8 @@ def closeout(out):
                       'sha256': row['parity']['features']['canonical_sha'], 'status': 'EXACT_CANONICAL_JSON',
                       'hash_semantics': 'sorted JSON; only compute_time_ms excluded'})
     for path in sorted(out.glob('*.log')):
+        if path.name == 'closeout.log':
+            continue  # This script's redirected stdout is still being written.
         index.append({'kind': 'new_log', 'path': str(path), 'sha256': sha(path), 'status': 'RETAINED'})
     for path in sorted(out.iterdir()):
         if path.is_file() and path.suffix != '.log':

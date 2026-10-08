@@ -9,6 +9,16 @@
     "gdb SIGSEGV at LtvConfig assignment inside LtvObserver::configure from LtvAdapter constructor"
   ],
   "repair": "clean-first ov_msckf rebuild after source freeze; no algorithm/parameter changes",
-  "verification": "PENDING clean rebuild and full suite",
-  "backtrace_sha256": "a4abe123ab3e625b3a27a1ef83b9bcbb2ae606f2f52c52765f96fa38a99e2684"
+  "verification": "clean build and 31 integrated executable/comparison records all EXIT_ZERO; full two-sequence OFF/shadow exact regression",
+  "backtrace_sha256": "a4abe123ab3e625b3a27a1ef83b9bcbb2ae606f2f52c52765f96fa38a99e2684",
+  "preserved_failed_artifacts": [
+    {
+      "path": "/home/he/output/ltv_nondegradation_correlation_20261008/failed_mixed_artifacts/libov_msckf_lib.so",
+      "sha256": "5d95b809b6d7ebfed30e514f748f67912c4839929c8fff503440ede5e3013a9d"
+    },
+    {
+      "path": "/home/he/output/ltv_nondegradation_correlation_20261008/failed_mixed_artifacts/test_ltv_timing",
+      "sha256": "0bd8a6f73df76256becf99ba2e92b06851b9b21758967e733e3188d4b271843f"
+    }
+  ]
 }
