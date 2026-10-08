@@ -2,7 +2,7 @@
 
 基线为 2417d036002fbfd542ae71d96d0fc734cd6d47e8。独立分支工作目录无起始未提交改动。历史四模式源码 16f02e3，仅标 HISTORICAL_REUSED；本轮运行不得继承历史资格。
 
-G 使用 IMU body 重力单位方向与主状态 R_GtoI [0,0,1] 的切平面二维残差；H_theta=T^T skew(R_fej gamma)，R=(10 deg 转 rad)^2 I。V 使用 body 速度 snapshot.velocity_body-R_GtoI v_G，H_theta=skew(R_fej v_fej)、H_v=R_fej，R=(1 m/s)^2 I。符号遵守原生 JPL 注入；现有 Jacobian、FEJ、联合布局/均值/协方差测试需本轮构建后重跑。
+G 使用 IMU body 重力单位方向与主状态 R_GtoI gamma、gamma=[0,0,-1] 的切平面二维残差；H_theta=T^T skew(R_fej gamma)，R=(10 deg 转 rad)^2 I。V 使用 body 速度 snapshot.velocity_body-R_GtoI v_G，H_theta=skew(R_fej v_fej)、H_v=R_fej，R=(1 m/s)^2 I。符号遵守原生 JPL 注入；现有 Jacobian、FEJ、联合布局/均值/协方差测试需本轮构建后重跑。
 
 Updater 严格匹配 camera/IMU cursor、epoch/sequence 和 native prior，readiness 按确认20，G angle≤30 deg、NIS 9.21034（2维）、V NIS 11.34487（3维）。质量门、Huber 保持关闭。Observer C0 q=1e-4,V=1e6,P0=1、30/15 features；stereo-then-temporal seed、hardening/active consistency保持历史配置。Landmark ON不存在；max_slam=0；标定固定。辅助与视觉堆叠一次 EKF；未知主/LTV/视觉、G/V交叉块仍按 independence_approximation，统计一致性未成立。
 
