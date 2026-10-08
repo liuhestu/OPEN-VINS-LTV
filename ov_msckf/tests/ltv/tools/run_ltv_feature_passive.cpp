@@ -95,7 +95,18 @@ class ReplayManager : public VioManager {
 
 public:
   using VioManager::VioManager;
-  void begin_camera_receipt(int64_t left_ns, int64_t right_ns, double time) { camera_receipt_.begin(left_ns, right_ns, time); }
+  void begin_camera_receipt(int64_t left_ns, int64_t right_ns, double time) {
+#ifndef LTV_GV_PRODUCTION_LEVEL
+    camera_receipt_.begin(left_ns, right_ns, time);
+#else
+    // This logging-only receipt belongs to feature_row, omitted at scalar level.
+    // The input parser still checks synchronization and monotonically increasing headers;
+    // the estimator's own LTV token/claim/update receipt remains unchanged.
+    (void)left_ns;
+    (void)right_ns;
+    (void)time;
+#endif
+  }
   std::string state_digest() {
     Digest h;
     h.scalar(state->_timestamp);

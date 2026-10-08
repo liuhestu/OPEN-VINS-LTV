@@ -1,4 +1,5 @@
 {
   "build_scope_failure": "Initial normal colcon build succeeded but BUILD_LTV_PHASE0_TESTS default OFF; probes/runners absent. Native batch failed before child launch during binary SHA check, failure ledger preserved. New distinct fresh artifacts build with probe flag ON required. No algorithm outcome inferred.",
-  "spec_preparation_failure": "KeyError data while patching an unrelated spec without data; corrected by explicit default and limited mutations; no estimator launched."
+  "spec_preparation_failure": "KeyError data while patching an unrelated spec without data; corrected by explicit default and limited mutations; no estimator launched.",
+  "production_receipt_preflight": "Code audit before first production run found feature_row logging omitted but LtvEventReceipt.begin still active, implying second-frame pending receipt failure. Disable only logging receipt at scalar level; native LTV claim/update unchanged. New source and short probe plus affected exact regression required. Original immutable build retained, not mutated."
 }
