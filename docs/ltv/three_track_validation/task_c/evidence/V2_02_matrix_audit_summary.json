@@ -1,0 +1,19 @@
+{
+  "run": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/results/c_V2_02_medium_finite_ON_full_attempt1_20261008T133946_0d8a58ad",
+  "events": 2171,
+  "scalar_events": 4437,
+  "features": 83,
+  "max_factor_columns": 445,
+  "max_missing_events": 35,
+  "max_relative_asymmetry": 4.463415213283797e-17,
+  "minimum_joint_eigenvalue": -1.829254203769487e-16,
+  "failures": [],
+  "implementation_check": "PASS_WITHIN_SCOPE",
+  "statistics": "NOT_PROVEN; PSD/finite/determinism are implementation checks only",
+  "real_landmark_calibration": "NOT_EVALUATED",
+  "source_scope": "one-slot conditional program covariance, fresh history subset, declared initial prior/white noises/main H-K schedule",
+  "input_sha256": {
+    "finite.csv": "3111b7419a1e5554a3da6eb14b99ad393cefa2027f06bd97835ef1d5b1f6ebdb",
+    "finite.csv.matrices.jsonl": "af7382fe9c7f25a558cc44a2ba780a38357c74664968e3ef91d0f3602633a114"
+  }
+}

@@ -48,7 +48,19 @@
     "zero_mean_statistical_consistency": "NOT_PROVEN",
     "real_landmark_calibration": "NOT_EVALUATED",
     "short_prefix_exact": "PASS; full completion not inherited",
-    "complete_DEV_finite_replay": "IN_PROGRESS"
+    "complete_DEV_finite_replay": "PASS_EXACT_READ_ONLY_WITHIN_CONDITIONAL_SCOPE; source validity INCONCLUSIVE",
+    "source_missing_events": {
+      "V2_02": 35,
+      "V2_03": 22,
+      "classification": "unavailable in current logger; not assumed benign"
+    },
+    "GT_main_chart_mapping": {
+      "V2_02_mapped": 2158,
+      "V2_02_NOT_EVALUATED": 13,
+      "V2_03_mapped": 1678,
+      "V2_03_NOT_EVALUATED": 7,
+      "landmark_calibration": "NOT_EVALUATED"
+    }
   },
   "consumer_policy": "DO_NOT_USE_FOR_PRODUCTION30_SLOT_OR_B_APPROX_FUSION; no qualified online real covariance/mean interface",
   "stop_reasons": [

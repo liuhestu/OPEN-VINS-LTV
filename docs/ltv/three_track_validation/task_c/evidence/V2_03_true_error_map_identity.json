@@ -1,0 +1,36 @@
+{
+  "off_trajectory": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_c/results/c_V2_03_difficult_finite_OFF_full_attempt1_20261008T134020_02ba2df8/trajectory.csv",
+  "off_trajectory_sha256": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+  "gt_csv": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/state_groundtruth_estimate0/data.csv",
+  "gt_sha256": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+  "camera_imu_offset": 0.0,
+  "gauge": "shared347b0ec nearestGT20ms complete OFF-support SE3 no scale, reused unchanged for every window",
+  "rotation_est_to_gt": [
+    [
+      -0.998679979137031,
+      0.05135805431849416,
+      -0.0008059326746755278
+    ],
+    [
+      -0.051364354917858686,
+      -0.998541903275704,
+      0.016606337537384643
+    ],
+    [
+      4.811163839367992e-05,
+      0.016625813037319796,
+      0.9998617804607368
+    ]
+  ],
+  "translation_est_to_gt": [
+    -0.784712113515256,
+    0.2027333280427487,
+    1.3563879802123742
+  ],
+  "fit_samples": 1799,
+  "off_unmatched_gt": 7,
+  "time_convention": "trajectory/finite pose times already IMU; only audit camera_ns adds frozen offset once",
+  "real_landmark_calibration": "NOT_EVALUATED",
+  "source_law_calibration": "NOT_PROVEN",
+  "scope": "first-order actual main quaternion error chart map of conditional program covariance; all prior/source/H/K assumptions retained"
+}
