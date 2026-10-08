@@ -1,0 +1,29 @@
+{
+  "version": "actual-seed-local-1",
+  "frozen_before_sampling": true,
+  "independent_draws_per_amplitude": 12000,
+  "seed": 20261008,
+  "rng": "C++ mt19937_64 normal_distribution",
+  "amplitudes": [
+    1e-05,
+    0.0001,
+    0.001
+  ],
+  "units": "pose rotation rad, position m, extrinsic rotation rad/body position m, bearing tangent rad",
+  "source_map": "12 common unit Gaussian sources; M_ik=.2*sin(.13*i+.7*k+.1*i*k)",
+  "main_error": "true-minus-estimate = negative execution-pose perturbation",
+  "seed_error": "estimate-minus-true",
+  "actual_map": "LtvSeedEstimator::estimate with PoseJPL::update, right extrinsic perturbation, normalized tangent bearing",
+  "tests": {
+    "jacobian_steps": [
+      1e-05,
+      1e-06
+    ],
+    "jacobian_max_absolute_error": 2e-05,
+    "covariance_source_equivalence_absolute": 1e-09
+  },
+  "statistical_scope": "controlled implementation and linearization diagnostic only; supplied synthetic input covariance not real posterior seed covariance",
+  "confidence": "linearized Gaussian simultaneous chi-square projection intervals, family_alpha .01; nonlinear outputs compared descriptively only",
+  "real_history_cross_blocks": "UNKNOWN",
+  "real_landmark_calibration": "NOT_EVALUATED"
+}

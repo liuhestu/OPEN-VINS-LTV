@@ -1,0 +1,97 @@
+{
+  "baseline_commit": "1b0bf91983e5513525d5f2bed8bd548d2ff3f58a",
+  "branch": "experiment/ltv-nondegradation-correlation-20261008",
+  "initial_dirty": "?? docs/ltv/landmark_correlation/\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/nondegradation_validation/\n?? scripts/ltv_landmark_correlation/\n",
+  "repository": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+  "environment": {
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "ROS": "humble",
+    "python": "3.10.12"
+  },
+  "inputs": {
+    "V2_02_medium": {
+      "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "config": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium/estimator_config.yaml",
+      "config_sha": {
+        "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+        "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+        "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      },
+      "sensors": {
+        "cam0": {
+          "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam0/data.csv",
+          "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c"
+        },
+        "cam1": {
+          "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/cam1/data.csv",
+          "sha256": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c"
+        },
+        "imu0": {
+          "path": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/imu0/data.csv",
+          "sha256": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e"
+        }
+      },
+      "frozen_C02_run_identity": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_02_medium/P_NEW/identity.json",
+      "frozen_identity_sha": "6ff48925277e52bc592cb0ab99d688e0985b482ab279c4e27658ade37823c735",
+      "images_present": true,
+      "fusion_enabled": false,
+      "image_files": 4696,
+      "images_aggregate_sha": "8a0e951f1d67c498bac91b7d300751ffc6b193628087476b7d0ff5d0caebe95f",
+      "off_path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_02_medium_OFF_03",
+      "off_evidence_sha": {
+        "cache.bin": "8f9d515b2fa823e704ec68b4fc1aed467bac5c1d64b53ddf1896e5ac289d3d85",
+        "audit.csv": "b566310b6ba669ef5eda221344ec1ae81dccf79c0f8ed945fe82ea18d080b44f",
+        "trajectory.csv": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+        "ltv.csv": "f2c74c71fc5d680d45809e0ae80ea3adf680245fdde2f3fd247fee9ef0db7387",
+        "features.jsonl": "1fdb36ef2aababa7fdadb6ca57aa15f9689d4a0c84c0ac2090fb9a3c9768f5b2",
+        "fusion.jsonl": "c390ff1e4ad4aa2d79d91002bab1c5d4ac74a04b3d196a8f5697e7565535ba5a",
+        "matrices.jsonl": "7d23e4f1f15a0944c1dcbcaaffe7f7539679a00d5614d53d9c134e3a499af7b9",
+        "effective_options.json": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+      }
+    },
+    "V2_03_difficult": {
+      "root": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "config": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_03_difficult/estimator_config.yaml",
+      "config_sha": {
+        "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+        "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+        "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      },
+      "sensors": {
+        "cam0": {
+          "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam0/data.csv",
+          "sha256": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9"
+        },
+        "cam1": {
+          "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/cam1/data.csv",
+          "sha256": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79"
+        },
+        "imu0": {
+          "path": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/imu0/data.csv",
+          "sha256": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6"
+        }
+      },
+      "frozen_C02_run_identity": "/home/he/output/ltv_active_landmark_consistency_r4/real_confirmation/CONF_ON_C02_01_ON_V2_03_difficult/P_NEW/identity.json",
+      "frozen_identity_sha": "d26f3a209ba8c6fb36bd69984ed807930a5906ff0e53244f222d35760477f9b5",
+      "images_present": true,
+      "fusion_enabled": false,
+      "image_files": 4258,
+      "images_aggregate_sha": "f69dccde9978d9454989f920e42ac3821d538d91b94040c53029bf613731e655",
+      "off_path": "/home/he/output/ltv_gv_fusion_evaluation_20261005/runs/V2_03_difficult_OFF_03",
+      "off_evidence_sha": {
+        "cache.bin": "a5d3335695d3d3d7530980d26aef57709b35ac62babbf37bd97b07f3bfed00bf",
+        "audit.csv": "f0ee61373a178220ac661ec354a074d4dbeb5f0c2b88e489ba2834b55afd90ce",
+        "trajectory.csv": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+        "ltv.csv": "3ba13abf84e68b47b0073426df7c40d594eb548a12e60b0c10a3ca42672bac83",
+        "features.jsonl": "b8503b92250c1f56246258f4341a26bb0fdbc1f18179d530758daec5c21bf8cd",
+        "fusion.jsonl": "2f16b40e70b49e617082eebedf247318c5d8e7165561ca67173b951200275f5e",
+        "matrices.jsonl": "4b633e3116b518d6e141ddfc7caee4a88bfa8a3c5dc29c128be047902dba6e63",
+        "effective_options.json": "f30212e66aefcddd6f2a8a7951ccd4964ffe6bd94505a7a89b826afeb1a1f7c1"
+      }
+    }
+  },
+  "historical_freeze_sha256": "264726391571de15181d7fab376fe3ea25cf5ab728592bfe6e331a8188e966af",
+  "acceptance_sha256": "a7880850de63f84d1a387109a31e20ff8c0bc4c6a32f87ef0d1954398648ed84",
+  "new_output": "/home/he/output/ltv_nondegradation_correlation_20261008",
+  "historical_reference": "untracked reference files existed at entry; revalidate before reuse"
+}

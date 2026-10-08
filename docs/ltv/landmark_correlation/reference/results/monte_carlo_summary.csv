@@ -1,0 +1,12 @@
+scene,draws,seed,expectation,rejected_entries,status,max_absolute_covariance_error,normal_approximation_power,minimum_disparity,independent_landmark_truth
+zero_noise,12000,20261008,PASS,0,PASS,0.0,,,
+independent_sources,12000,20261008,PASS,0,PASS,0.011191470137265791,,,
+shared_imu_bias,12000,20261008,PASS,0,PASS,0.009816724197270643,,,
+shared_bearing,12000,20261008,PASS,0,PASS,0.014532921485130634,,,
+seed_feedback,12000,20261008,PASS,0,PASS,0.006869862048558217,,,
+duplicate_information,12000,20261008,PASS,0,PASS,0.00880110293296349,,,
+near_rank_deficiency,12000,20261008,PASS,0,PASS,0.0311892765289139,,,
+broken_shared_source,12000,20261008,REJECT,15,PASS,,1.0,,
+controlled_stereo_seed_amplitude_0.0001,12000,20261008,DIAGNOSTIC,0,NO_DEVIATION_DETECTED,,,0.039626707473589734,NO
+controlled_stereo_seed_amplitude_0.001,12000,20261008,DIAGNOSTIC,0,NO_DEVIATION_DETECTED,,,0.03650052662755089,NO
+controlled_stereo_seed_amplitude_0.01,12000,20261008,DIAGNOSTIC,3,LINEARIZATION_DEVIATION,,,0.001222121015653374,NO

@@ -1,0 +1,67 @@
+{
+  "version": "nondegradation-20261008-v1",
+  "frozen_at": "2026-10-08T06:39:36.968174+00:00",
+  "source": "docs/ltv/nondegradation_goal_reference.md.md sections 4,7,8",
+  "source_sha256": "bf8f504ff07bf21aaeda40166e71a1690bd0aa3edc95bb0ec432f1359f3dbb61",
+  "production": {
+    "confirmation_frames": 20,
+    "gravity_fusion": false,
+    "velocity_fusion": false,
+    "landmark_fusion": false,
+    "max_slam_in_validation": 0
+  },
+  "off_equivalence": {
+    "comparison": "exact",
+    "fields": [
+      "main state",
+      "full main P",
+      "Observer full x/P_R",
+      "lifecycle/readiness",
+      "fusion receipt"
+    ],
+    "excluded": [
+      "wall time",
+      "resource usage",
+      "new shadow diagnostics"
+    ]
+  },
+  "global_metrics": {
+    "ATE_translation_m": {
+      "relative": 0.005,
+      "absolute": 0.001
+    },
+    "RPE_translation_m_1s_5s": {
+      "relative": 0.005,
+      "absolute": 0.001
+    },
+    "RPE_rotation_deg_1s_5s": {
+      "relative": 0.005,
+      "absolute": 0.01
+    },
+    "velocity_mps": {
+      "relative": 0.005,
+      "absolute": 0.005
+    }
+  },
+  "allowed_worsening": "max(relative * OFF, absolute)",
+  "local_metrics": {
+    "relative": 0.02,
+    "absolute_multiplier": 2,
+    "interval_source": "docs/ltv/gv_no_benefit_diagnosis/protocol.md",
+    "interval_source_sha256": "16db7dcbae8eeb12449a37f0a74b2d80819b57332db51d2c122ae1bdbc6cde5d",
+    "rules": "OFF upper quartile error plus 1s increase; OFF visual-row bottom 20%; readiness interruptions; no ON selection"
+  },
+  "overhead": {
+    "frame_p95_relative": 0.05,
+    "peak_rss_relative": 0.1,
+    "resource_contention": "exclude or remeasure",
+    "missing_measurement": "NOT_EVALUATED",
+    "heavy_shadow": "separate from production candidate"
+  },
+  "failure_count_allowed": 0,
+  "alignment": "rigid SE3, no fitted scale; common frozen time association and support",
+  "landmark_go": "all LC prerequisites closed, including actual main/observer/history/visual cross blocks and identifiable conditional information; no unknown-block zero fallback",
+  "real_landmark_calibration": "NOT_EVALUATED without independent landmark truth",
+  "reference_contract": "docs/ltv/landmark_correlation/reference/experiment_contract.json",
+  "new_ON_runs": "none authorized until GO; historical G/V reviewed under this contract without changing thresholds"
+}

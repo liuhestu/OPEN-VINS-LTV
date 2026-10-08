@@ -1,0 +1,34 @@
+{
+  "version": "joint-reference-1",
+  "freeze_date": "2026-10-08",
+  "scope": "offline linear Gaussian reference; never authorizes online fusion",
+  "error_coordinates": {"x": "true-minus-estimate", "a": "estimate-minus-true", "t": "estimate-minus-true", "v": "visual residual"},
+  "layout": {"x": [0,3], "a": [3,6], "t": [6,9], "v": [9,11]},
+  "residual": "r = H x + t - A a; A is a frozen rotation",
+  "rank_relative_tolerance": 1e-11,
+  "matrix_absolute_tolerance": 1e-10,
+  "monte_carlo": {
+    "independent_draws": 12000,
+    "seed": 20261008,
+    "family_alpha": 0.01,
+    "multiple_testing": "Bonferroni across all variance projections of all seven reference scenes, broken-source scene and three local nonlinear amplitudes; covariance intervals reconstructed from sum/difference variance intervals",
+    "confidence_method": "exact chi-square Gaussian projection-variance intervals, using n-1 degrees of freedom",
+    "nonlinear_confidence_method": "Gaussian intervals are a linearization diagnostic only, not calibrated confidence intervals for nonlinear output",
+    "minimum_detectable_normalized_covariance_error": 0.35,
+    "minimum_normal_approximation_power": 0.99,
+    "power_method": "frozen two-sided Bonferroni normal approximation using Gaussian sample-covariance variance; empirical broken-source rejection is separately mandatory",
+    "precision_rule": "No adaptive resampling or tolerance changes; insufficient power is INCONCLUSIVE",
+    "scenes": ["zero_noise", "independent_sources", "shared_imu_bias", "shared_bearing", "seed_feedback", "duplicate_information", "near_rank_deficiency"],
+    "counterexample": "independently resample each consumer while preserving its marginal covariance; shared_imu_bias must reject",
+    "local_nonlinear_amplitudes": [0.0001, 0.001, 0.01],
+    "local_nonlinear_scope": "controlled stereo-depth seed z=b/d and shared depth/bearing dependence; not actual OpenVINS seed implementation or independent landmark truth"
+  },
+  "expectations": {
+    "algebra": "all source-map versus block elimination comparisons PASS",
+    "linear_gaussian": "all correct scenes satisfy simultaneous intervals; broken source model rejected",
+    "duplicate_information": "zero conditional information, zero gain in effective subspace; zero-cross diagnostic falsely reduces P",
+    "near_rank_deficiency": "solve only frozen effective subspace, no ridge or eigenvalue repair",
+    "real_seed_and_observer": "NOT_EVALUATED by this reference",
+    "real_landmark_statistical_calibration": "NOT_EVALUATED without independent truth"
+  }
+}
