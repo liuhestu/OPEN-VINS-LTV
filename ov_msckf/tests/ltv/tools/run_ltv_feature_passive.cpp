@@ -95,7 +95,18 @@ class ReplayManager : public VioManager {
 
 public:
   using VioManager::VioManager;
-  void begin_camera_receipt(int64_t left_ns, int64_t right_ns, double time) { camera_receipt_.begin(left_ns, right_ns, time); }
+  void begin_camera_receipt(int64_t left_ns, int64_t right_ns, double time) {
+#ifndef LTV_GV_PRODUCTION_LEVEL
+    camera_receipt_.begin(left_ns, right_ns, time);
+#else
+    // This logging-only receipt belongs to feature_row, omitted at scalar level.
+    // The input parser still checks synchronization and monotonically increasing headers;
+    // the estimator's own LTV token/claim/update receipt remains unchanged.
+    (void)left_ns;
+    (void)right_ns;
+    (void)time;
+#endif
+  }
   std::string state_digest() {
     Digest h;
     h.scalar(state->_timestamp);
@@ -172,6 +183,52 @@ public:
       h.matrix(v);
     return h.finish();
   }
+  void algorithm_visual_identity(std::ostream &out, int64_t ns) {
+    // Stable algorithm output only: passive audit containers are a different diagnostic level.
+    Digest h;
+    h.scalar(good_features_MSCKF.size());
+    for (const auto &point : good_features_MSCKF)
+      h.matrix(point);
+    out << "{\"camera_ns\":" << ns << ",\"good_features_msckf_count\":" << good_features_MSCKF.size() << ",\"algorithm_visual_digest\":\""
+        << h.finish() << "\"}\n";
+    if (!out)
+      throw std::runtime_error("algorithm visual identity write failure");
+  }
+  void lifecycle_identity(std::ostream &out, int64_t ns) {
+    out << std::setprecision(17) << "{\"camera_ns\":" << ns;
+    if (ltv_adapter) {
+      const auto &h = ltv_adapter->readiness_health();
+      out << ",\"health\":[" << int(h.state) << ',' << h.accepted_time << ',' << h.pool_ready << ',' << h.observer_valid << ',' << h.ready_G
+          << ',' << h.ready_V << ',' << h.joint_ready << ',' << h.request_bootstrap << ',' << h.bootstrap_is_physical_recovery << ','
+          << h.request_dormant << ',' << h.ready_soft_grace_enabled << ',' << h.grace_G << ',' << h.grace_V << ','
+          << h.soft_failure_frames_G << ',' << h.soft_failure_frames_V << ',' << h.last_strict_good_G << ',' << h.last_strict_good_V << ','
+          << h.last_bootstrap_time << ',' << h.bootstrap_count << ',' << h.physical_fault_count << "],\"reason\":\"" << h.reason
+          << "\",\"bootstrap_source\":\"" << h.last_bootstrap_source << "\",\"landmarks\":[";
+      bool first = true;
+      if (ltv_adapter->landmark_adapter())
+        for (const auto &e : ltv_adapter->landmark_adapter()->manager().landmarks()) {
+          if (!first)
+            out << ',';
+          first = false;
+          const auto &l = e.second;
+          out << '[' << e.first << ',' << int(l.phase) << ',' << l.first_seen << ',' << l.entered << ',' << l.seeded << ',' << l.last_seen
+              << ',' << l.missed_frames << ',' << l.consistency_fail_count << ',' << l.consistency_reject_count << ',' << l.ever_opportunity
+              << ',' << l.seed_written << ",\"" << l.reason << "\"]";
+        }
+      out << "],\"ids\":[";
+      first = true;
+      for (const auto &e : ltv_adapter->feature_ids()) {
+        if (!first)
+          out << ',';
+        first = false;
+        out << '[' << e.first << ',' << e.second << ',' << ltv_adapter->core().slotForFeature(e.second) << ']';
+      }
+      out << ']';
+    }
+    out << "}\n";
+    if (!out)
+      throw std::runtime_error("lifecycle identity write failure");
+  }
   void finish_cache() {
     if (passive_cache)
       passive_cache->finish();
@@ -214,6 +271,22 @@ public:
     out << "]";
   }
   void fusion_row(std::ostream &out, std::ostream &matrices, int64_t ns) {
+#ifdef LTV_GV_PRODUCTION_LEVEL
+    {
+      const auto &d = ltv_diagnostics;
+      out << std::setprecision(17) << "{\"camera_ns\":" << ns << ",\"G_reason\":\"" << d.gravity_reason << "\",\"V_reason\":\""
+          << d.velocity_reason << "\",\"submit_reason\":\"" << d.submit_reason << "\",\"G_rows\":" << d.gravity_rows
+          << ",\"V_rows\":" << d.velocity_rows << ",\"G_update_norm\":" << d.gravity_update_norm
+          << ",\"V_update_norm\":" << d.velocity_update_norm << "}\n";
+      Digest observer;
+      if (ltv_adapter) {
+        observer.matrix(ltv_adapter->core().state());
+        observer.matrix(ltv_adapter->core().covariance());
+      }
+      matrices << "{\"camera_ns\":" << ns << ",\"observer_digest\":\"" << observer.finish() << "\"}\n";
+      return;
+    }
+#endif
     const auto &b = evaluation_ltv_block;
     const auto &d = b.receipt ? b.receipt->diagnostics : ltv_diagnostics;
     const auto &f = passive_ltv_frame;
@@ -286,8 +359,22 @@ public:
         (P - P.transpose()).cwiseAbs().maxCoeff() > 1e-10 * scale || eig.eigenvalues().minCoeff() < -1e-10 * scale)
       throw std::runtime_error("evaluation camera-boundary state/covariance invalid");
   }
-  uint64_t gravity_submissions() const { return passive_gravity_submissions; }
-  uint64_t velocity_submissions() const { return passive_velocity_submissions; }
+  uint64_t gravity_submissions() const {
+#ifdef LTV_GV_PRODUCTION_LEVEL
+    return ltv_diagnostics.consumed && ltv_diagnostics.submit_reason == "joint_applied" && ltv_diagnostics.ekf_calls == 1 &&
+           ltv_diagnostics.gravity_rows > 0;
+#else
+    return passive_gravity_submissions;
+#endif
+  }
+  uint64_t velocity_submissions() const {
+#ifdef LTV_GV_PRODUCTION_LEVEL
+    return ltv_diagnostics.consumed && ltv_diagnostics.submit_reason == "joint_applied" && ltv_diagnostics.ekf_calls == 1 &&
+           ltv_diagnostics.velocity_rows > 0;
+#else
+    return passive_velocity_submissions;
+#endif
+  }
   static void number(std::ostream &out, double x) {
     if (std::isfinite(x))
       out << x;
@@ -543,8 +630,14 @@ int main(int argc, char **argv) {
       throw std::runtime_error("PASSIVE only: injection settings must be OFF in input configuration");
     if (options.ltv_options.enabled != (mode != "B") || options.ltv_options.feature_readiness_enabled != (mode == "P_NEW"))
       throw std::runtime_error("mode differs from parsed configuration");
+#ifdef LTV_GV_PRODUCTION_LEVEL
+    // Match the opt-in scalar LTV logging path, without passive cache or full matrices.
+    options.ltv_options.passive_audit_enabled = false;
+    options.ltv_options.passive_cache_path.clear();
+#else
     options.ltv_options.passive_audit_enabled = true;
     options.ltv_options.passive_cache_path = mode == "B" ? "" : out + "/cache.bin";
+#endif
     // Counterfactual injection diagnostics are not part of this passive experiment.
     if (options.ltv_options.value_diagnostics_enabled)
       throw std::runtime_error("disable legacy counterfactual value diagnostics for passive runner");
@@ -556,7 +649,11 @@ int main(int argc, char **argv) {
     // Input YAML remains byte-identical. V10 is the single experiment-only
     // confirmation alternative; production parsing never exposes this option.
     options.ltv_options.passive_assert_no_injection = false;
+#ifdef LTV_GV_PRODUCTION_LEVEL
+    options.ltv_options.gv_evaluation_diagnostics = false;
+#else
     options.ltv_options.gv_evaluation_diagnostics = true;
+#endif
     options.ltv_options.enable_gravity = requested_mode == "G" || requested_mode == "GV";
     options.ltv_options.enable_velocity = requested_mode == "V" || requested_mode == "GV" || requested_mode == "V10";
     if (requested_mode == "V10")
@@ -636,11 +733,16 @@ int main(int argc, char **argv) {
     std::ofstream fusion, matrices;
 #ifdef LTV_GV_EVALUATION
     fusion.open(out + "/fusion.jsonl");
+#ifndef LTV_GV_PRODUCTION_LEVEL
     matrices.open(out + "/matrices.jsonl");
+#else
+    matrices.open(out + "/observer_identity.jsonl");
+#endif
     if (!fusion || !matrices)
       throw std::runtime_error("cannot open fusion diagnostics");
     std::ofstream instrument(out + "/instrumentation.json");
-    instrument << "{\"passive_assert_no_injection\":false,\"gv_evaluation_diagnostics\":true,\"mode\":\"" << requested_mode
+    instrument << "{\"passive_assert_no_injection\":false,\"gv_evaluation_diagnostics\":"
+               << (options.ltv_options.gv_evaluation_diagnostics ? "true" : "false") << ",\"mode\":\"" << requested_mode
                << "\",\"velocity_confirm_frames\":"
                << (options.ltv_options.hardening_readiness.experimental_velocity_confirm_frames
                        ? options.ltv_options.hardening_readiness.experimental_velocity_confirm_frames
@@ -706,6 +808,8 @@ int main(int argc, char **argv) {
     size_t cursor = 0, packets = 0, outputs = 0;
     std::ofstream frame_processing(out + "/frame_processing.csv");
     frame_processing << std::setprecision(17) << "camera_ns,feed_camera_ms\n";
+    std::ofstream algorithm_visual_identity(out + "/algorithm_visual_identity.jsonl");
+    std::ofstream lifecycle_identity(out + "/lifecycle_identity.jsonl");
     std::ofstream shadow_receipts(out + "/shadow_receipts.jsonl");
     shadow_receipts << std::setprecision(17);
     uint64_t total_G = 0, total_V = 0;
@@ -750,7 +854,11 @@ int main(int argc, char **argv) {
       }
       const double feed_camera_ms = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - processing_start).count();
       frame_processing << left[i].ns << ',' << feed_camera_ms << '\n';
+      app.lifecycle_identity(lifecycle_identity, left[i].ns);
+      app.algorithm_visual_identity(algorithm_visual_identity, left[i].ns);
+#ifndef LTV_GV_PRODUCTION_LEVEL
       app.shadow_receipt(shadow_receipts, left[i].ns);
+#endif
 #ifdef LTV_GV_EVALUATION
       app.fusion_row(fusion, matrices, left[i].ns);
 #endif
@@ -764,7 +872,9 @@ int main(int argc, char **argv) {
       auto state = app.get_state();
       audit << left[i].ns << "," << app.initialized() << "," << state->_timestamp << "," << state->_clones_IMU.size() << ","
             << app.state_digest() << "," << app.tracker_digest() << "," << app.visual_digest();
+#ifndef LTV_GV_PRODUCTION_LEVEL
       app.feature_row(features, left[i].ns);
+#endif
       app.injection_row(audit);
       audit << "\n";
       if (app.initialized() && state->_timestamp == t) {
