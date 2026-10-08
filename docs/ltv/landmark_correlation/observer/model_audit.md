@@ -52,16 +52,23 @@ from the present conditional map; unconditional covariance remains BLOCKED.
 Each lifecycle record contains the actual permutation/retirement matrix M and
 retained local IDs. `T_next = M T`; birth rows have zero sensitivity only under
 the explicit fixed-seed conditional experiment. They are not a claim that the
-physical seed is independent of input or the main state. At first retained point
-appearance, its then-current 3x6 persistent-source sensitivity is frozen as a
-conditional anchor. Retirement erases it, and attempting to resurrect a retired
+physical seed is independent of input or the main state. At first retained point appearance, its then-current 3x6 source map initializes
+a diagnostic anchor with `lag_available=false`. At each camera the saved
+previous-camera map and physical time are used to emit aa/tt/at. Only AFTER that
+output does an explicit `anchor_replace` event save the current map/time as the
+next diagnostic anchor. This rolling previous-camera anchor supplies nonzero
+cross-time source contributions; it is not yet connected to the candidate
+residual's mature primary anchor. Retirement erases it, and attempting to resurrect a retired
 ID in the same epoch is rejected. Reset clears all anchors/retired identities;
 epoch replacement clears identity bookkeeping. Camera records contain full
 anchor and current maps and their unit-source `Sigma_aa`, `Sigma_tt` (including
 cross-point blocks), and `Sigma_at`. These are partial known-source contributions;
-`C_xa/C_xt` and physical total Sigma remain UNKNOWN. First-birth anchors often
-have zero conditional map because the seed is held fixed: this is expected and
-does not prove physical zero anchor uncertainty.
+`C_xa/C_xt` and physical total Sigma remain UNKNOWN. First-birth anchors often have zero conditional map because the seed is held
+fixed; they have no valid lag snapshot. Later rolling replacements retain the
+accumulated source map. Zero first-birth contributions do not prove physical zero
+anchor uncertainty. The independent reader checks that every available anchor
+map/time matches the preceding replacement snapshot, rather than merely checking
+the aa/tt/at formulas against each other.
 
 Run `python3 read_shadow_matrices.py /absolute/path.csv` to decode matrices and
 independently recompute every camera Gram and anchor/cross-point block. Sparse

@@ -167,7 +167,13 @@ int main() {
   birth.bottomRows(6).setIdentity();
   lifecycle.lifecycle(.01, birth, 1, 0, {1});
   lifecycle.camera(.01, Eigen::MatrixXd::Identity(9, 9) * .8, Eigen::MatrixXd::Zero(9, 3), 1, {1});
-  Eigen::MatrixXd retire = Eigen::MatrixXd::Zero(6, 9);
+  Eigen::MatrixXd two_point_birth = Eigen::MatrixXd::Zero(12, 9);
+  two_point_birth.topLeftCorner<3, 3>().setIdentity();
+  two_point_birth.block<3, 3>(3, 0).setIdentity();
+  two_point_birth.bottomRightCorner(6, 6).setIdentity();
+  lifecycle.lifecycle(.015, two_point_birth, 1, 0, {2, 1});
+  lifecycle.camera(.015, Eigen::MatrixXd::Identity(12, 12) * .9, Eigen::MatrixXd::Zero(12, 6), 1, {2, 1});
+  Eigen::MatrixXd retire = Eigen::MatrixXd::Zero(6, 12);
   retire.rightCols(6).setIdentity();
   lifecycle.lifecycle(.02, retire, 0, 1, {});
   bool rejects_revival = false;

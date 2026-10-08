@@ -66,6 +66,7 @@ public:
   void setEpoch(unsigned long epoch) {
     if (epoch_ != epoch) {
       anchors_.clear();
+      anchor_times_.clear();
       retired_ids_.clear();
     }
     epoch_ = epoch;
@@ -79,6 +80,7 @@ public:
     observed_ids_.clear();
     retained_ids_.clear();
     anchors_.clear();
+    anchor_times_.clear();
     retired_ids_.clear();
     camera_gains_.clear();
     write("reset", time, 6, 0, 0, 0, 0, 0);
@@ -111,6 +113,7 @@ public:
       for (auto it = anchors_.begin(); it != anchors_.end();) {
         if (!retained.count(it->first)) {
           retired_ids_.insert(it->first);
+          anchor_times_.erase(it->first);
           it = anchors_.erase(it);
         } else
           ++it;
@@ -118,8 +121,10 @@ public:
       for (size_t slot = 0; slot < ids.size(); ++slot) {
         if (retired_ids_.count(ids[slot]))
           throw std::runtime_error("shadow rejects retired anchor identity revival");
-        if (!anchors_.count(ids[slot]))
+        if (!anchors_.count(ids[slot])) {
           anchors_[ids[slot]] = persistent_input_offset_.middleRows(3 * slot, 3);
+          anchor_times_[ids[slot]] = -1;
+        }
       }
       retained_ids_ = ids;
       record("lifecycle", time, {{"M", &map}, {"persistent_input_offset", &persistent_input_offset_}});
@@ -166,6 +171,13 @@ public:
               {"conditional_unit_Sigma_aa", &sigma_aa},
               {"conditional_unit_Sigma_tt_crosspoint", &sigma_tt},
               {"conditional_unit_Sigma_at", &sigma_at}});
+      // Rolling previous-camera diagnostic anchor. Save only AFTER emitting
+      // cross-time blocks, so aa/at reference the prior physical snapshot.
+      for (size_t slot = 0; slot < retained_ids_.size(); ++slot) {
+        anchors_[retained_ids_[slot]] = point_map.middleRows(3 * slot, 3);
+        anchor_times_[retained_ids_[slot]] = time;
+      }
+      record("anchor_replace", time, {{"conditional_anchor_source_map", &point_map}});
       output_->flush();
       matrix_sink_->index.flush();
     }
@@ -197,6 +209,16 @@ private:
       if (i)
         sink.index << ',';
       sink.index << retained_ids_[i];
+    }
+    sink.index << "],\"anchor_times\":[";
+    for (size_t i = 0; i < retained_ids_.size(); ++i) {
+      if (i)
+        sink.index << ',';
+      const int id = retained_ids_[i];
+      const auto found = anchor_times_.find(id);
+      const double anchor_time = found == anchor_times_.end() ? -1 : found->second;
+      sink.index << "{\"local_id\":" << id << ",\"time\":" << anchor_time << ",\"lag_available\":" << (anchor_time >= 0 ? "true" : "false")
+                 << '}';
     }
     sink.index << "],\"observed_local_source_ids\":[";
     if (std::string(event) == "camera")
@@ -256,6 +278,7 @@ private:
   std::shared_ptr<MatrixSink> matrix_sink_;
   std::vector<int> retained_ids_, observed_ids_;
   std::map<int, Eigen::MatrixXd> anchors_;
+  std::map<int, double> anchor_times_;
   std::set<int> retired_ids_;
   std::vector<Eigen::MatrixXd> camera_gains_;
   unsigned long epoch_ = 0, imu_steps_ = 0;
