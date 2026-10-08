@@ -1,0 +1,27 @@
+{
+  "version": "three-track-engineering-admission-amendment-v1",
+  "source": "explicit user steering 2026-10-08",
+  "prediction_gain_goal": {
+    "threshold": 0.05,
+    "previous_failures": "retained unchanged",
+    "use": "prediction incremental benefit qualification only; not sole engineering ON precondition"
+  },
+  "engineering_admission": {
+    "causality": "no current/future target leakage",
+    "tail": "original p95/p99/badpoint ratio<=1.05 on common and subgroup samples",
+    "coverage": "original matured>=20%, common valid>=90% gated denominator",
+    "residual_jacobian": "native JPL/FEJ coordinate/time finite differences required",
+    "OFF": "existing zero-tolerance full state/P observer/lifecycle regression",
+    "numerics": "controlled small real ON no new failures/nonfinite/time identity fault before full runs"
+  },
+  "engineering_ON_acceptance": "unchanged original frozen nondegradation/local/RPE/attitude/velocity/performance/RSS/determinism contract",
+  "candidate_selection": "prefer B3 for higher coverage and avoiding B4 unsupported extra temporal geometry cost; risk comparison documented before activation",
+  "sequence": "Jac/OFF -> small real ON -> full matched DEV OFF/ON -> new holdout -> independent integration only after A/B engineering qualification",
+  "separate_verdicts": [
+    "prediction incremental benefit",
+    "engineering nondegradation",
+    "actual main-state benefit",
+    "statistical model and remaining correlation gaps"
+  ],
+  "no_shadow_tuning_to_cross_5pct": true
+}

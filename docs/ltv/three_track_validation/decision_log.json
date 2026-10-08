@@ -57,5 +57,15 @@
     "change": "one B4 prev successful camera0 actual-consumption score LTV<=stronggeometry, exact identity and previous transaction; currenttarget unseen; no margins/no thresholds relaxed",
     "next": "synthetic ledger causality then same dev preregistered admission; ifno value stopthis path insteadweight scan",
     "contract_sha256": "d78fdad92ef73c849377f8d18204d6dfd57667fc9eec78c0ba740b3e4f4bbb6b"
+  },
+  {
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T11:21:40.891470+00:00",
+    "batch": "USER_SCOPE_STEERING_prediction_vs_engineering",
+    "observation": "B3/B4 causal tail/coverage pass, predictiongain4.03/3.79 under5; previous root STOP wrongly coupled objectives",
+    "judgement": "prediction gain failure not sole engineering viability gate; user explicitly authorizes real approximate ON once risk/Jac/OFF conditions pass",
+    "change": "retain allprediction FAILs and thresholds; continue B engineering ON with B3 preferred; no furthermargin/age optimization",
+    "next": "native Jacobian+OFF parity and small real candidateON then full matched engineering/nondegradation tests",
+    "contract_sha256": "336527472f4f5af4a89558965723eaccace16d66c1dd5113ccda918ee46c8b72"
   }
 ]
