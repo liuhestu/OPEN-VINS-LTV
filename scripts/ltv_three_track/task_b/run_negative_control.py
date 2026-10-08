@@ -37,13 +37,13 @@ def main(artifact, source, diagnostic, output):
             for block in blocks:
                 f.write(' '.join(format(v,'.17g') for row in block for v in row)+'\n')
     obj=output/'control.o';binary=output/'control'
-    cmake=artifact/'build/ov_msckf/CMakeFiles/test_ltv_landmark_approx.dir'
+    cmake=artifact/'build/ov_msckf/tests/ltv/CMakeFiles/test_ltv_landmark_approx.dir'
     flags={k:v for k,v in (x.split(' = ',1) for x in (cmake/'flags.make').read_text().splitlines() if ' = ' in x)}
     compile_cmd=['/usr/bin/c++',*shlex.split(flags['CXX_DEFINES']),*shlex.split(flags['CXX_INCLUDES']),*shlex.split(flags['CXX_FLAGS']),'-c',str(source),'-o',str(obj)]
     subprocess.run(compile_cmd,check=True)
     link=shlex.split((cmake/'link.txt').read_text());link=[str(obj) if x.endswith('.cpp.o') else x for x in link]
     at=link.index('-o');link[at+1]=str(binary)
-    subprocess.run(link,cwd=artifact/'build/ov_msckf',check=True)
+    subprocess.run(link,cwd=cmake.parent.parent,check=True)
     with (output/'control.log').open('x') as f:
         subprocess.run([str(binary),str(data)],stdout=f,stderr=subprocess.STDOUT,check=True)
     (output/'identity.json').write_text(json.dumps({'native_libraries_artifact':str(artifact),'source':str(source),'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'compile':compile_cmd,'link':link,'cases':'first five chronological real joint captures with >=12 visual rows; cloned means are controlled fixture, actual priorP/H/R/res retained; no calibration claim'},indent=2)+'\n')
