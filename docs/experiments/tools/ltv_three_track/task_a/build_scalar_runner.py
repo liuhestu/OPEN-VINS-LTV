@@ -76,7 +76,7 @@ for target in ('run_ltv_gv_evaluation', 'run_ltv_gv_production'):
         return token
     obj = a.artifact / 'build' / (target + '.o')
     obj.parent.mkdir(exist_ok=True)
-    cpp = a.source / 'ov_msckf/tests/ltv/tools/run_ltv_feature_passive.cpp'
+    cpp = a.source / 'docs/experiments/tools/native/run_ltv_feature_passive.cpp'
     compile_command = ['/usr/bin/c++']
     for key in ('CXX_DEFINES', 'CXX_INCLUDES', 'CXX_FLAGS'):
         compile_command += [rewrite(t) for t in shlex.split(flags[key])]
