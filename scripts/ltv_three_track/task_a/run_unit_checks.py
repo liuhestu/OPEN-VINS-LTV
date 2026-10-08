@@ -8,19 +8,28 @@ from pathlib import Path
 import subprocess
 
 def registered_run(command, stream, label):
-    child = subprocess.Popen(command, stdout=stream, stderr=subprocess.STDOUT)
-    text = Path(f'/proc/{child.pid}/stat').read_text()
-    fields = text[text.rfind(')') + 2:].split()
-    record = {'event': 'PROBE_PROCESS_REGISTERED', 'task': 'a', 'owner': str(os.getuid()),
-              'run_id': os.environ['LTV_RUN_ID'], 'label': label, 'pid': child.pid,
-              'pgid': os.getpgid(child.pid), 'start_ticks': fields[19], 'command': command,
-              'expected_executable': command[0], 'registered_at': time.time()}
     registry = Path(os.environ['LTV_COORD_ROOT']) / 'registry/task_a.jsonl'
-    with registry.open('a') as f:
-        f.write(json.dumps(record) + '\n')
+    def register_before_exec():
+        # Single-threaded batch parent. Log in the forked child before exec:
+        # even an immediately exiting executable cannot lose PID/start identity.
+        pid = os.getpid()
+        text = Path('/proc/self/stat').read_text()
+        fields = text[text.rfind(')') + 2:].split()
+        record = {'event': 'PROBE_PRE_EXEC_REGISTERED', 'task': 'a', 'owner': str(os.getuid()),
+                  'run_id': os.environ['LTV_RUN_ID'], 'label': label, 'pid': pid,
+                  'pgid': os.getpgrp(), 'start_ticks': fields[19], 'command': command,
+                  'actual_executable_pre_exec': os.readlink('/proc/self/exe'),
+                  'expected_executable_after_exec': command[0], 'registered_at': time.time(),
+                  'identity_contract': 'PID/PGID/start_ticks persist across exec; executable changes; no claim monitor saw post-exec'}
+        with registry.open('a') as f:
+            f.write(json.dumps(record) + '\n')
+    child = subprocess.Popen(command, stdout=stream, stderr=subprocess.STDOUT, preexec_fn=register_before_exec)
+    # Popen succeeds only after its exec error pipe closes; launch failures raise.
     code = child.wait()
     with registry.open('a') as f:
-        f.write(json.dumps({**record, 'event': 'PROBE_PROCESS_FINISH', 'exit_code': code, 'finished_at': time.time()}) + '\n')
+        f.write(json.dumps({'event': 'PROBE_PROCESS_FINISH', 'task': 'a', 'run_id': os.environ['LTV_RUN_ID'],
+                            'label': label, 'pid': child.pid, 'command': command, 'exit_code': code,
+                            'finished_at': time.time()}) + '\n')
     return code
 
 
