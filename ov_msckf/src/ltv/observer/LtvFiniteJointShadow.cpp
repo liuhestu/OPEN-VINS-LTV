@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cstdlib>
 #include <iomanip>
+#include <limits>
 #include <set>
 namespace ltv {
 LtvFiniteJointShadow &LtvFiniteJointShadow::instance() {
@@ -25,7 +26,8 @@ LtvFiniteJointShadow::LtvFiniteJointShadow() {
     throw std::runtime_error("finite joint output failed");
   output_ << std::setprecision(17)
           << "event,time,epoch,feature,main_dimension,observer_dimension,factor_columns,main_trace,observer_trace,main_observer_cross_norm,"
-             "anchors,missing_events,scope\n";
+             "anchors,missing_events,physical_minus_stored_norm,raw_prune_cutoff,pixel_prune_cutoff,visual_remainder_min_eigenvalue,visual_"
+             "roundoff_floors,scope\n";
   matrix_index_ << std::setprecision(17);
   factors_ = std::make_shared<LtvJointFactors>();
 }
@@ -36,6 +38,7 @@ void LtvFiniteJointShadow::initialize(const void *owner, const Eigen::MatrixXd &
     owner_ = owner;
     factors_ = std::make_shared<LtvJointFactors>();
     factors_->initial("main", p);
+    stored_ = p;
     observer_.reset();
     sensitivity_.reset();
     active_ = false;
@@ -66,6 +69,8 @@ void LtvFiniteJointShadow::freezeBias(const Eigen::MatrixXd &selector) {
 void LtvFiniteJointShadow::rawImuReceipt(const std::vector<double> &timestamps, double sigma_acc, double sigma_gyro) {
   if (!enabled_)
     return;
+  if (!source_laws_.empty() && (sigma_acc != sigma_acc_ || sigma_gyro != sigma_gyro_))
+    throw std::runtime_error("raw source noise density changed within model version");
   raw_times_ = timestamps;
   sigma_acc_ = sigma_acc;
   sigma_gyro_ = sigma_gyro;
@@ -91,7 +96,11 @@ Eigen::MatrixXd LtvFiniteJointShadow::endpoint(double time) {
     Eigen::MatrixXd q = Eigen::MatrixXd::Zero(6, 6);
     q.topLeftCorner<3, 3>().diagonal().setConstant(sigma_acc_ * sigma_acc_ / dt);
     q.bottomRightCorner<3, 3>().diagonal().setConstant(sigma_gyro_ * sigma_gyro_ / dt);
-    factors_->source(key, q);
+    if (t < raw_prune_cutoff_ - 1e-9)
+      throw std::runtime_error("raw endpoint reused after certified prune");
+    if (!source_laws_.count(key))
+      source_laws_[key] = q;
+    factors_->source(key, source_laws_.at(key));
     source_times_[key] = t;
     return key;
   };
@@ -110,6 +119,10 @@ void LtvFiniteJointShadow::mainImu(const Eigen::MatrixXd &f, const Eigen::Matrix
 }
 Eigen::MatrixXd LtvFiniteJointShadow::pixel(const std::string &key, double variance) {
   const std::string name = "pixel/" + key;
+  if (std::stod(key.substr(key.rfind('/') + 1)) < pixel_prune_cutoff_ - 1e-9)
+    throw std::runtime_error("pixel reused after certified prune");
+  if (!LtvMainCrossShadow::instance().registerPixel(key, variance))
+    throw std::runtime_error("finite pixel receipt unavailable");
   factors_->source(name, variance * Eigen::Matrix2d::Identity());
   source_times_[name] = std::stod(key.substr(key.rfind('/') + 1));
   return factors_->block(name);
@@ -133,8 +146,11 @@ void LtvFiniteJointShadow::mainVisual(const Eigen::MatrixXd &h, const Eigen::Mat
       }
   Eigen::MatrixXd independent = (.5 * (r - selected + (r - selected).transpose())).eval();
   Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> es(independent);
-  if (es.info() != Eigen::Success || es.eigenvalues().minCoeff() < -1e-8 * std::max(1., r.norm()))
+  visual_min_eigenvalue_ = es.info() == Eigen::Success ? es.eigenvalues().minCoeff() : -std::numeric_limits<double>::infinity();
+  if (es.info() != Eigen::Success || visual_min_eigenvalue_ < -1e-10 * std::max(1e-12, r.norm()))
     throw std::runtime_error("finite visual source remainder not PSD");
+  if (visual_min_eigenvalue_ < 0)
+    ++visual_roundoff_floors_;
   independent = es.eigenvectors() * es.eigenvalues().cwiseMax(0.).asDiagonal() * es.eigenvectors().transpose();
   const std::string noise = "visual/" + std::to_string(++event_);
   factors_->source(noise, independent);
@@ -288,9 +304,13 @@ void LtvFiniteJointShadow::camera(const FeaturePipelineContext &ctx, const Featu
   for (auto s = source_times_.begin(); s != source_times_.end();)
     if (s->second < (s->first.compare(0, 4, "imu/") == 0 ? ctx.time - .05 : oldest) - 1e-9) {
       factors_->erase(s->first);
+      source_laws_.erase(s->first);
       s = source_times_.erase(s);
     } else
       ++s;
+  raw_prune_cutoff_ = std::max(raw_prune_cutoff_, ctx.time - .05);
+  pixel_prune_cutoff_ = std::max(pixel_prune_cutoff_, oldest);
+  LtvMainCrossShadow::instance().prunePixelSources(oldest);
   factors_->compress();
   time_ = ctx.time;
   record(ctx.time, "after_camera");
@@ -301,7 +321,9 @@ void LtvFiniteJointShadow::record(double time, const char *event) {
   const auto &x = factors_->block("main"), &o = factors_->block("observer_mean");
   output_ << event << ',' << time << ',' << epoch_ << ',' << feature_ << ',' << x.rows() << ',' << o.rows() << ',' << factors_->columns()
           << ',' << x.squaredNorm() << ',' << o.squaredNorm() << ',' << (x * o.transpose()).norm() << ',' << anchors_.size() << ','
-          << missing_ << ",FINITE_ONE_POINT_FIXED_CALIB_CONSTANT_TRUE_BIAS_CONDITIONAL_MAIN_GAIN_NOT_REAL_CALIBRATED\n";
+          << missing_ << ',' << (stored_.rows() == x.rows() ? (x * x.transpose() - stored_).norm() : -1) << ',' << raw_prune_cutoff_ << ','
+          << pixel_prune_cutoff_ << ',' << visual_min_eigenvalue_ << ',' << visual_roundoff_floors_
+          << ",FINITE_ONE_POINT_FIXED_CALIB_CONSTANT_TRUE_BIAS_CONDITIONAL_MAIN_GAIN_NOT_REAL_CALIBRATED\n";
   if (std::string(event) != "before_camera")
     return;
   matrix_index_ << "{\"event\":\"" << event << "\",\"time\":" << time << ",\"epoch\":" << epoch_ << ",\"feature\":" << feature_

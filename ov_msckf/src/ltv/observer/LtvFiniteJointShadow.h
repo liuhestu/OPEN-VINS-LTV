@@ -24,6 +24,10 @@ public:
   void mainImu(const Eigen::MatrixXd &f, const Eigen::MatrixXd &b_left, const Eigen::MatrixXd &b_right, double t_left, double t_right);
   void mainVisual(const Eigen::MatrixXd &h, const Eigen::MatrixXd &k, const Eigen::MatrixXd &r, const Eigen::MatrixXd &pixel_projection);
   void errorReset(const Eigen::MatrixXd &map);
+  void storedCovariance(const Eigen::MatrixXd &p) {
+    if (enabled_)
+      stored_ = p;
+  }
   void observerImu(double dt, double t_left, double t_right, const Eigen::Vector3d &acc, const Eigen::Vector3d &gyro,
                    const ov_msckf::LtvCalibration &calibration);
   void camera(const FeaturePipelineContext &ctx, const FeaturePipelineFrame &accepted, const LtvConfig &config,
@@ -35,6 +39,7 @@ private:
   Eigen::MatrixXd endpoint(double time);
   Eigen::MatrixXd pixel(const std::string &key, double variance);
   void record(double time, const char *event);
+  Eigen::MatrixXd stored_;
   bool enabled_ = false;
   const void *owner_ = nullptr;
   std::shared_ptr<LtvJointFactors> factors_;
@@ -48,6 +53,10 @@ private:
   uint64_t epoch_ = 0;
   double time_ = -1;
   std::map<double, std::string> anchors_;
+  std::map<std::string, Eigen::MatrixXd> source_laws_;
+  double raw_prune_cutoff_ = -1, pixel_prune_cutoff_ = -1;
+  double visual_min_eigenvalue_ = 0;
+  unsigned long visual_roundoff_floors_ = 0;
   std::map<std::string, double> source_times_;
   std::ofstream output_, matrix_index_, matrix_data_;
   unsigned long event_ = 0, missing_ = 0;

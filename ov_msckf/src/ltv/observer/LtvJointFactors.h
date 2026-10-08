@@ -30,8 +30,13 @@ public:
     blocks_[name] = e.eigenvectors() * e.eigenvalues().cwiseMax(0.).cwiseSqrt().asDiagonal();
   }
   void source(const std::string &name, const Eigen::MatrixXd &cov) {
-    if (contains(name))
+    if (contains(name)) {
+      const auto &existing = block(name);
+      if (existing.rows() != cov.rows() || cov.rows() != cov.cols() || !cov.allFinite() ||
+          (existing * existing.transpose() - cov).norm() > 1e-10 * std::max(1e-12, cov.norm()))
+        throw std::invalid_argument("reused source identity has changed dimension/covariance");
       return;
+    }
     Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> e((.5 * (cov + cov.transpose())).eval());
     if (e.info() != Eigen::Success || e.eigenvalues().minCoeff() < -1e-12 * std::max(1., cov.norm()))
       throw std::invalid_argument("invalid source law");

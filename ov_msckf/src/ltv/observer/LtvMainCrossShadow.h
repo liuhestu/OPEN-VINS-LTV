@@ -150,12 +150,41 @@ public:
   int sourceDimension() const { return source_main_.cols(); }
   void usedVisualSources(const std::vector<std::string> &keys) {
     for (const auto &key : keys) {
+      if (used_visual_.count(key))
+        missing_.insert("repeated_main_visual_pixel_receipt");
       used_visual_.insert(key);
       if (used_visual_.size() > 8192) {
         missing_.insert("visual_receipt_capacity_8192");
         used_visual_.erase(used_visual_.begin());
       }
     }
+  }
+  void prunePixelSources(double oldest) {
+    std::vector<int> keep;
+    std::map<std::string, int> next;
+    for (const auto &entry : sources_)
+      if (std::stod(entry.first.substr(entry.first.rfind('/') + 1)) >= oldest - 1e-9) {
+        next[entry.first] = keep.size();
+        keep.push_back(entry.second);
+        keep.push_back(entry.second + 1);
+      }
+    Eigen::MatrixXd main(p_.rows(), keep.size()), aux(aux_.rows(), keep.size());
+    Eigen::VectorXd variance(keep.size());
+    for (size_t i = 0; i < keep.size(); ++i) {
+      main.col(i) = source_main_.col(keep[i]);
+      aux.col(i) = source_aux_.col(keep[i]);
+      variance[i] = source_variance_[keep[i]];
+    }
+    source_main_.swap(main);
+    source_aux_.swap(aux);
+    source_variance_.swap(variance);
+    sources_.swap(next);
+    pending_visual_.resize(0, 0);
+    for (auto it = used_visual_.begin(); it != used_visual_.end();)
+      if (std::stod(it->substr(it->rfind('/') + 1)) < oldest - 1e-9)
+        it = used_visual_.erase(it);
+      else
+        ++it;
   }
   bool previouslyUsed(const std::string &key) const { return used_visual_.count(key) != 0; }
   const Eigen::MatrixXd &pendingVisualNoiseMap() const { return pending_visual_; }
@@ -165,8 +194,11 @@ public:
       missing_.insert("pixel_source_metadata_unavailable");
       return false;
     }
-    if (sources_.count(key))
+    if (sources_.count(key)) {
+      if (std::abs(source_variance_[sources_.at(key)] - variance) > 1e-10 * std::max(1e-12, variance))
+        throw std::invalid_argument("pixel source variance changed");
       return true;
+    }
     if (source_main_.cols() + 2 > 4096) {
       missing_.insert("pixel_source_capacity_4096");
       return false;
