@@ -1,0 +1,85 @@
+{
+  "owner": "1000",
+  "task": "b",
+  "run_id": "b_B3_v4_components_prefix40_20261008T133052_9fe10421",
+  "launcher_pid": 73218,
+  "spec_path": "/home/he/output/ltv_three_track_20261008_1827/queue/B3_v4_components_prefix40.json",
+  "spec_sha256": "5215fc7ee4d27d866a1aa5086b742c74bc48ffc2f19b4a28052d0d016aba5a46",
+  "command": [
+    "python3",
+    "{WORKTREE}/scripts/ltv_three_track/task_b/reconstruct_components.py",
+    "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_prefix40_V2_02_medium_DIAG_L_ON_v4_20261008T132745_2c4e761d",
+    "{RUN_DIR}/components.json"
+  ],
+  "launcher_path": "/home/he/output/ltv_three_track_20261008_1827/tools/launcher_v2.py",
+  "launcher_sha256_at_start": "bc24b85023d3f155998dd40b991c1aff85fb4278262a7d1663ec03fb13bae292",
+  "label": "B3_v4_components_prefix40",
+  "kind": "analysis",
+  "heavy": true,
+  "performance": false,
+  "requested_at": 1791466252.167359,
+  "source_oid": "5cdedc087891430369a7fa88db12cdbba58bd05d",
+  "worktree_head": "e241393a4026e7c506173bef2327de938a45ca1e",
+  "dirty_state": "",
+  "dirty_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "worktree": "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b",
+  "output_dir": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_v4_components_prefix40_20261008T133052_9fe10421",
+  "command_expanded": [
+    "python3",
+    "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/scripts/ltv_three_track/task_b/reconstruct_components.py",
+    "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_prefix40_V2_02_medium_DIAG_L_ON_v4_20261008T132745_2c4e761d",
+    "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_v4_components_prefix40_20261008T133052_9fe10421/components.json"
+  ],
+  "cwd": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_v4_components_prefix40_20261008T133052_9fe10421",
+  "locks": [
+    "/home/he/output/ltv_three_track_20261008_1827/locks/host_heavy.lock",
+    "/home/he/output/ltv_three_track_20261008_1827/locks/performance_gate.lock",
+    "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/task_artifact.lock"
+  ],
+  "contract_sha256": {
+    "dataset_split.yaml": "cfd5a82eccfcc74ab7be0742436ffa2e45ce91ce5de44b5fd6b905a71233b1b7",
+    "data_identity_a_version.json": "17e5e13e92282cedc47a77916f16583dfaf66d69f8f0ad6c153bf9c3c08f02f3",
+    "acceptance.yaml": "d78241bfaee76fd671025465c32b6a99fcae26c6ebd9f887ef80f5e75b598c36",
+    "engineering_on_admission_amendment.yaml": "336527472f4f5af4a89558965723eaccace16d66c1dd5113ccda918ee46c8b72",
+    "READY.json": "a41edf3746357d2e8c456e3b5fa606241453198581d27bb651ccd776e6edea9b",
+    "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "execution_reference.md": "0495064028f1f056b61ee4f806cfafb426733477f63e8efd44e1a42149192054",
+    "metrics.yaml": "f8910f31cdc559af34acba56706df38b8d133433f58df0f696722e21d997fa57",
+    "b_gate_admission_b3.json": "25601a447f4ba17d1c33939d21f077ce32e5fa022f64ac4a6491f335d64f75e9",
+    "b_gate_admission_b4.json": "d78fdad92ef73c849377f8d18204d6dfd57667fc9eec78c0ba740b3e4f4bbb6b",
+    "b_gate_admission.json": "a9bda2b7ff51c605e36b1722eddaba12d3098d82cae37c74caa569209ab6c967",
+    "b_engineering_approx_v1.json": "542a74854a1164cf96bfa69b39906068c564cf146ac6fa29370141247c20e064"
+  },
+  "configuration": {
+    "scope": "registered40s prefix only",
+    "native_source_oid": "5cdedc087891430369a7fa88db12cdbba58bd05d"
+  },
+  "data": {
+    "inputs": [
+      "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_prefix40_V2_02_medium_DIAG_L_ON_v4_20261008T132745_2c4e761d"
+    ]
+  },
+  "diagnostic_level": "native same-output / actual joint component check; no performance qualification",
+  "historical_reuse": false,
+  "source_snapshot": null,
+  "cache_schema": null,
+  "source_files_sha256": {
+    "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/scripts/ltv_three_track/task_b/reconstruct_components.py": "6487be070d70c2707317865c4ccfb2a4b69f18ab4cac10b80e0e9b51a6fbcd16"
+  },
+  "config_paths": {},
+  "binary_paths": {},
+  "event": "FINISH",
+  "started_at": 1791466252.177074,
+  "finished_at": 1791466256.0749059,
+  "exit_code": 0,
+  "source_mutation": {},
+  "binary_mutation": {},
+  "registered_processes": 2,
+  "resources": {
+    "max_rss_kb": 38316,
+    "elapsed_s": 3.88,
+    "user_s": 3.8,
+    "system_s": 0.08
+  },
+  "validity": "EXIT_ZERO"
+}

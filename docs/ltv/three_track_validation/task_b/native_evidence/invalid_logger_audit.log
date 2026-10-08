@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/scripts/ltv_three_track/task_b/audit_native_on.py", line 86, in <module>
+    result = audit(a.off, a.on)
+  File "/home/he/output/ltv_three_track_20261008_1827/worktrees/task_b/scripts/ltv_three_track/task_b/audit_native_on.py", line 41, in audit
+    assert applied and nonzero, 'ON was not actually exercised; investigate supply, never claim ON pass'
+AssertionError: ON was not actually exercised; investigate supply, never claim ON pass
