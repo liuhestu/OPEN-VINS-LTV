@@ -21,7 +21,7 @@ def rmse(x):
     return float(np.sqrt(np.mean(np.asarray(x) ** 2))) if len(x) else None
 
 
-def evaluate(run_paths, data_root, sequence, diagnostic_off=None):
+def evaluate(run_paths, data_root, sequence, diagnostic_off=None, bootstrap=False):
     paths = {mode: Path(p) for mode, p in run_paths.items()}
     off = np.loadtxt(paths['OFF'] / 'trajectory.csv', delimiter=',', skiprows=1, ndmin=2)
     gt = np.loadtxt(Path(data_root) / 'state_groundtruth_estimate0/data.csv', delimiter=',', comments='#')
@@ -66,7 +66,7 @@ def evaluate(run_paths, data_root, sequence, diagnostic_off=None):
     findex = nearest(ft, times)
     for name, mask in fmasks.items():
         masks[name] = mask[findex]
-    result, events = [], []
+    result, events, full_errors = [], [], {}
     for mode in ('OFF', 'G', 'V', 'GV'):
         path = paths[mode]
         replay = json.loads((path / 'replay.json').read_text())
@@ -84,6 +84,8 @@ def evaluate(run_paths, data_root, sequence, diagnostic_off=None):
         pe = np.linalg.norm(est[:, 5:8] @ r.T + trans - gp, axis=1)
         ae = np.degrees((rg.inv() * (Rotation.from_matrix(r) * re)).magnitude())
         ve = np.linalg.norm(re.inv().apply(est[:, 8:11]) - gv, axis=1)
+        full_errors[mode] = {'ATE_m': (times, pe), 'attitude_deg': (times, ae),
+                             'velocity_mps': (times[velocity_valid], ve[velocity_valid])}
         for region, mask in masks.items():
             metrics = {'ATE_m': pe[mask], 'attitude_deg': ae[mask], 'velocity_mps': ve[mask & velocity_valid]}
             for dt in (1., 5.):
@@ -99,6 +101,9 @@ def evaluate(run_paths, data_root, sequence, diagnostic_off=None):
                 dr = ((rg[a].inv() * rg[b]).inv() * (re[a].inv() * re[b])).magnitude()
                 metrics[f'RPE_{int(dt)}s_m'] = np.linalg.norm(de - dg, axis=1)
                 metrics[f'RPE_{int(dt)}s_deg'] = np.degrees(dr)
+                if region == 'full':
+                    full_errors[mode][f'RPE_{int(dt)}s_m'] = (times[a], metrics[f'RPE_{int(dt)}s_m'])
+                    full_errors[mode][f'RPE_{int(dt)}s_deg'] = (times[a], metrics[f'RPE_{int(dt)}s_deg'])
             for metric, values in metrics.items():
                 result.append(dict(sequence=sequence, mode=mode, region=region, metric=metric, value=rmse(values), samples=len(values)))
         with (path / 'ltv.csv').open() as f:
@@ -106,6 +111,25 @@ def evaluate(run_paths, data_root, sequence, diagnostic_off=None):
         events.append(dict(sequence=sequence, mode=mode, G_reasons=dict(Counter(z['G_reason'] for z in logs)),
                            V_reasons=dict(Counter(z['V_reason'] for z in logs)),
                            input=replay, bias_first=x[0, 11:17].tolist(), bias_last=x[-1, 11:17].tolist()))
+    if bootstrap:
+        rng = np.random.default_rng(20261008)
+        effects = []
+        for mode in ('G', 'V', 'GV'):
+            for metric, (mt, values) in full_errors[mode].items():
+                ot, base = full_errors['OFF'][metric]
+                assert np.array_equal(mt, ot) and len(base) == len(values)
+                blocks = np.floor((mt - off[0, 0]) / 1.).astype(int)
+                _, inverse = np.unique(blocks, return_inverse=True)
+                counts = np.bincount(inverse)
+                sse_off = np.bincount(inverse, weights=base ** 2)
+                sse_on = np.bincount(inverse, weights=values ** 2)
+                draw = rng.integers(0, len(counts), size=(2000, len(counts)))
+                weights = counts[draw].sum(axis=1)
+                delta = np.sqrt(sse_on[draw].sum(axis=1) / weights) - np.sqrt(sse_off[draw].sum(axis=1) / weights)
+                effects.append({'mode': mode, 'metric': metric, 'delta_rmse': rmse(values) - rmse(base),
+                                'ci95': np.quantile(delta, [.025, .975]).tolist(), 'blocks': len(counts), 'draws': 2000,
+                                'interpretation': 'descriptive paired 1s time-block resampling; deterministic repeats are not independent samples'})
+        events.append({'sequence': sequence, 'benefit_effects': effects, 'seed': 20261008})
     return result, events
 
 
@@ -116,7 +140,7 @@ if __name__ == '__main__':
     args = p.parse_args()
     rows, events = [], []
     for seq, entry in json.loads(args.index.read_text())['sequences'].items():
-        a, b = evaluate(entry['runs'], entry['data_root'], seq, entry.get('diagnostic_off'))
+        a, b = evaluate(entry['runs'], entry['data_root'], seq, entry.get('diagnostic_off'), bootstrap=True)
         rows.extend(a)
         events.extend(b)
     args.output.mkdir(exist_ok=False)
