@@ -1,0 +1,15 @@
+{
+  "raw_files_verified": 106,
+  "new_replays": 0,
+  "full_metrics_exact_historical": true,
+  "failing_precision_rows": [],
+  "incomplete_precision_rows": [],
+  "code_identity": {
+    "sha256": "bfc6c25f5eb246f95b72c2ff51cc29247e5040aac638e497e757ba9f5828adeb",
+    "bytes": 13913
+  },
+  "statistics": "NOT_ACHIEVED",
+  "benefit": "NOT_DEMONSTRATED",
+  "performance": "NOT_EVALUATED: archived diagnostic I/O and concurrent/resource context cannot certify production p95/RSS",
+  "scope": "G/V historical V2_02/V2_03 configuration only; does not validate new shadow build"
+}

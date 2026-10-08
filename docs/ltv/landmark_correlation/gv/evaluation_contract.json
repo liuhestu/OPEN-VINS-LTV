@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "purpose": "retrospective revalidation of frozen historical ON; no new ON",
+  "global_fraction": 0.005,
+  "local_fraction": 0.02,
+  "absolute": {
+    "ATE_m": 0.001,
+    "RPE_translation_m": 0.001,
+    "RPE_rotation_deg": 0.01,
+    "velocity_mps": 0.005
+  },
+  "local_absolute_factor": 2,
+  "interval_source_sha256": "16db7dcbae8eeb12449a37f0a74b2d80819b57332db51d2c122ae1bdbc6cde5d",
+  "alignment": "per mode full-support SE3, no scale; unchanged historical evaluator",
+  "local_alignment": "reuse each mode full-support SE3; never refit local windows",
+  "rpe_local": "both endpoints must belong to frozen mask; may be NOT_EVALUATED if empty",
+  "velocity_reference": "published EuRoC GT velocity transformed to body; SLERP orientation, linear velocity, bracket <=10ms",
+  "timing": "GT nearest <=20ms for pose; trajectory match <=1us; RPE endpoints <=25ms",
+  "forbidden": "synthetic confidence from deterministic replays; changing thresholds after results"
+}

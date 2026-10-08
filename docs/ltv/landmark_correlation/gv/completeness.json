@@ -1,0 +1,106 @@
+{
+  "V2_02_medium/OFF": {
+    "complete": true,
+    "camera_packets": 2348,
+    "imu_samples": 23490,
+    "output_rows": 2266,
+    "actual_G": 0,
+    "actual_V": 0,
+    "first_divergence": {
+      "main_digest": null,
+      "covariance_digest": null,
+      "observer_digest": null
+    }
+  },
+  "V2_02_medium/G": {
+    "complete": true,
+    "camera_packets": 2348,
+    "imu_samples": 23490,
+    "output_rows": 2266,
+    "actual_G": 1606,
+    "actual_V": 0,
+    "first_divergence": {
+      "main_digest": 1413393894105760512,
+      "covariance_digest": 1413393894105760512,
+      "observer_digest": 1413393894155760384
+    }
+  },
+  "V2_02_medium/V": {
+    "complete": true,
+    "camera_packets": 2348,
+    "imu_samples": 23490,
+    "output_rows": 2266,
+    "actual_G": 0,
+    "actual_V": 1571,
+    "first_divergence": {
+      "main_digest": 1413393895555760384,
+      "covariance_digest": 1413393895555760384,
+      "observer_digest": 1413393895605760512
+    }
+  },
+  "V2_02_medium/GV": {
+    "complete": true,
+    "camera_packets": 2348,
+    "imu_samples": 23490,
+    "output_rows": 2266,
+    "actual_G": 1606,
+    "actual_V": 1571,
+    "first_divergence": {
+      "main_digest": 1413393894105760512,
+      "covariance_digest": 1413393894105760512,
+      "observer_digest": 1413393894155760384
+    }
+  },
+  "V2_03_difficult/OFF": {
+    "complete": true,
+    "camera_packets": 1921,
+    "imu_samples": 23370,
+    "output_rows": 1806,
+    "actual_G": 0,
+    "actual_V": 0,
+    "first_divergence": {
+      "main_digest": null,
+      "covariance_digest": null,
+      "observer_digest": null
+    }
+  },
+  "V2_03_difficult/G": {
+    "complete": true,
+    "camera_packets": 1921,
+    "imu_samples": 23370,
+    "output_rows": 1806,
+    "actual_G": 706,
+    "actual_V": 0,
+    "first_divergence": {
+      "main_digest": 1413394894105760512,
+      "covariance_digest": 1413394894105760512,
+      "observer_digest": 1413394894155760384
+    }
+  },
+  "V2_03_difficult/V": {
+    "complete": true,
+    "camera_packets": 1921,
+    "imu_samples": 23370,
+    "output_rows": 1806,
+    "actual_G": 0,
+    "actual_V": 637,
+    "first_divergence": {
+      "main_digest": 1413394894105760512,
+      "covariance_digest": 1413394894105760512,
+      "observer_digest": 1413394894155760384
+    }
+  },
+  "V2_03_difficult/GV": {
+    "complete": true,
+    "camera_packets": 1921,
+    "imu_samples": 23370,
+    "output_rows": 1806,
+    "actual_G": 706,
+    "actual_V": 637,
+    "first_divergence": {
+      "main_digest": 1413394894105760512,
+      "covariance_digest": 1413394894105760512,
+      "observer_digest": 1413394894155760384
+    }
+  }
+}
