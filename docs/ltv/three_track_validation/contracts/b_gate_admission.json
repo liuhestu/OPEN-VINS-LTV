@@ -1,0 +1,32 @@
+{
+  "version": "B_gate_v1_20261008",
+  "candidate_ids": ["B0", "B1", "B2"],
+  "candidate_definitions": {
+    "B0": "previous_transaction_mature AND previous_ready_V",
+    "B1": "B0 AND 0.2-1e-9 <= anchor_span_s <= 0.5+1e-9",
+    "B2": "B1 AND norm(ltv_point-main_point)/max(norm(main_point),0.1m) <= 0.02"
+  },
+  "primary_paired_fields": ["camera_ns", "camera_id", "feature_id", "epoch", "core_id", "entered"],
+  "primary_comparator": "past_fit_angle_rad; past-only bearing geometry on original same-identity support",
+  "development_sequences": ["V2_02_medium", "V2_03_difficult"],
+  "holdout_sequences": ["V1_01_easy", "V1_03_difficult"],
+  "gain_min": 0.05,
+  "confidence_lower_strictly_greater_than": 0.0,
+  "confidence": 0.95,
+  "bootstrap_seed": 20261005,
+  "bootstrap_samples": 2000,
+  "time_block_s": 1.0,
+  "min_paired_frames": 30,
+  "min_time_blocks": 10,
+  "tail_ratio": 1.05,
+  "bad_angle_threshold_rad": 0.02,
+  "min_mature_coverage": 0.2,
+  "min_common_coverage": 0.9,
+  "required_tail_subgroups": ["normal", "recovery"],
+  "report_subgroups": ["normal", "recovery", "startup"],
+  "denominators": ["ungated_all_candidate", "ungated_mature", "common_gated", "all_available_gated"],
+  "online_gt": false,
+  "future_inputs": false,
+  "candidate_order_for_on_if_multiple_pass": ["B0", "B1", "B2"],
+  "correlation_requirement": "engineering ON does not require C closure; not statistical qualification"
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "observation": "inherited multiple ROS overlays; prior mixed-ABI failure",
+    "judgement": "build/environment contamination risk independent from estimator model",
+    "change": "clean env underlay/local_setup, committed read-only snapshots/fresh artifact IDs, shared lock lifecycle",
+    "next": "smoke environment registry then real per-task build/parity"
+  },
+  {
+    "observation": "A old runner forces heavy cache/matrices; internal numeric checks remain algorithm cost",
+    "judgement": "old timing cannot qualify production; scalar diagnostic runner needed",
+    "change": "independent scalar runner retaining algorithm safeguards; full OFF parity before p95",
+    "next": "dev OFF/G/V/GV same diagnostic level, isolated performance"
+  },
+  {
+    "observation": "B2 strong geometry gain and tail pass but coverage13.51/8.895 below20%; old age.5 excludes pre-marg live.55 window",
+    "judgement": "credible quality but insufficient supply; possible lifecycle gate defect, not permission to relax coverage",
+    "change": "decompose exclusions; source-derived B3 .55+1us only if introduced-tail data support",
+    "next": "freeze B3 before new dev result, same20%/CI/tail admission"
+  },
+  {
+    "observation": "C gain derivatives missing in oldshadow; internal main P lacks explicit finite chartreset; strong q17/V1e6 test resets",
+    "judgement": "model/covariance interpretation and test-branch issues, not automatic main-algorithm bug",
+    "change": "full mean/P_R/gain derivative, external trueerror chart reset, default and legal fixed-branch FD; failed excitation retained",
+    "next": "real visual/seed/IMU source propagation and split physical Sigma fromstored P"
+  },
+  {
+    "observation": "launcher initial smoke output failed due json.dumps flush argument; corrected smoke success",
+    "judgement": "launcher bookkeeping failure, not solver/runtime hypothesis",
+    "change": "flush on print, whole-child lifecycle exception wait;v2RSS/history metadata",
+    "next": "preserve originalFAILED launcher event and verify future tests/lock ordering"
+  },
+  {
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T11:02:25.121299+00:00",
+    "batch": "B3_registered_after_supply_audit_before_B3_results",
+    "observation": "pre-marg live12 clones implies nominal .55s; .55 ready/mature coverage68-78%; agreement filtered .55 tails within1.05, >nominal irregular spans retain risk",
+    "judgement": "old .5 cap was engineering lifecycle mismatch; source-derived correction is testable, not numerical threshold relaxation",
+    "change": "single B3 .55s+1us cap, disagreement.02, unchanged20%/5% gain/positiveCI/tail/coverage standards",
+    "next": "B3 same dev shared-support evaluation; no unlimited live-window age or heldout tuning",
+    "contract_sha256": "25601a447f4ba17d1c33939d21f077ce32e5fa022f64ac4a6491f335d64f75e9"
+  },
+  {
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T11:05:23.346086+00:00",
+    "batch": "A_default_build_probe_missing",
+    "observation": "ordinary ROS build lacked BUILD_LTV_PHASE0_TESTS=ON; target missing rejected at binary preflight before tests",
+    "judgement": "build configuration scope failure, not algorithm failure or successful validation",
+    "change": "new immutable probes artifact ID with ON and fresh build/install/cache; old default build retained",
+    "next": "verify installed runner/test list and env/library provenance, then exact OFF and fixed four-mode performance"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "version": "three-track-input-a-v1",
+  "status": "PASS",
+  "data_identity": {
+    "path": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_a/results/a_input_identity_dev_holdout_v1_20261008T104829_ac7fb027/data_identity.json",
+    "sha256": "5554b48425e32c98075fb01af0085bba92118628f59d9f6ee5774fbc14c88ade",
+    "source_oid": "71dcfe3c73d1b6794e5e3558409f00a21f7ba516",
+    "run_id": "a_input_identity_dev_holdout_v1_20261008T104829_ac7fb027"
+  },
+  "historical_baseline_identity": {
+    "path": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_a/results/a_historical_off_raw_identity_v1_20261008T110028_c32d6fac/historical_baseline_identity.json",
+    "sha256": "cb7ff892ea88483deecee5d13906aaec4cf5848ffdfcefa5ea562d5cb6d3f012",
+    "status": "PASS",
+    "run_id": "a_historical_off_raw_identity_v1_20261008T110028_c32d6fac"
+  },
+  "scope": [
+    "V2_02_medium",
+    "V2_03_difficult",
+    "V1_01_easy",
+    "V1_03_difficult"
+  ],
+  "reserve_validation": "NOT_FROZEN; freeze before extending candidates",
+  "immutable_input_assumption": "read-only dataset contract; this version records independently reread full sensor/image/GT hashes; no claim of future file immutability",
+  "reuse": "old OFF raw files are historical evidence; not new replay or qualification"
+}

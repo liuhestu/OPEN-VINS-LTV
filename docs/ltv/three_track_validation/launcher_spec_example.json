@@ -1,0 +1,37 @@
+{
+  "coord_root": "/home/he/output/ltv_three_track_20261008_1827",
+  "task": "a",
+  "label": "unique_label",
+  "kind": "replay",
+  "heavy": true,
+  "performance": true,
+  "source_oid": "<immutable committed OID>",
+  "source_snapshot": "<task/source/OID>",
+  "command": [
+    "/home/he/output/ltv_three_track_20261008_1827/tools/env_exec.sh",
+    "<own frozen install>",
+    "<absolute own executable>",
+    "<config>",
+    "<input>",
+    "{RUN_DIR}",
+    "OFF"
+  ],
+  "binary_paths": [
+    "<absolute own executable>"
+  ],
+  "source_files": [
+    "<snapshot source file>"
+  ],
+  "config_paths": [
+    "<config>"
+  ],
+  "configuration": {
+    "mode": "OFF",
+    "correlation_model": "fusion_off"
+  },
+  "data": {
+    "publisher": "/home/he/output/ltv_three_track_20261008_1827/contracts/data_identity_a_version.json",
+    "version": "<publisher SHA>"
+  },
+  "diagnostic_level": "scalar_ltv_csv"
+}

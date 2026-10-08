@@ -1,0 +1,25 @@
+{
+  "version": "three-track-split-v1",
+  "development": [
+    "V2_02_medium",
+    "V2_03_difficult"
+  ],
+  "holdout": [
+    "V1_01_easy",
+    "V1_03_difficult"
+  ],
+  "reserve_validation": [
+    "MH_01_easy",
+    "MH_02_easy",
+    "MH_03_medium",
+    "MH_04_difficult",
+    "MH_05_difficult",
+    "V1_02_medium",
+    "V2_01_easy"
+  ],
+  "data_root": "/home/he/datasets/euroc/ASL",
+  "holdout_rule": "no parameter/gate selection from heldout outcomes; tuning consumes sequence into dev and requires replacement holdout",
+  "coverage": "start dev full matrix; independent engineering candidates expand to holdout then all available where meaningful; STOP paths not waste full replay",
+  "synchronous_input": "existing strict paired ASL frame contract with all unmatched roster explicitly counted; no silent support trimming",
+  "input_freeze_reference": "docs/ltv/landmark_validation/freeze.json dev hashes verified previous round; tasks revalidate inputs before use"
+}

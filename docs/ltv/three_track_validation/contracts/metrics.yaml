@@ -1,0 +1,13 @@
+{
+  "version": "three-track-metrics-v1",
+  "ATE": "common frozen OFF initialized camera support, GT nearest20ms, run match1us, full SE3 no scale, one full fit per mode, local windows reuse full alignment",
+  "RPE": "1s/5s translation m and rotation deg, endpoint association25ms, do not treat empty windows as passes",
+  "velocity": "independent EuRoC published world velocity+GT quaternion SLERP body transform, max bracket10ms; not pose differencing",
+  "attitude": "GT native frame pose angular error, same full SE3 alignment/no separate rotation fit",
+  "bias": "report correction and estimated evolution; accuracy only with credible reference, otherwise NOT_RUN",
+  "local": "10s OFF-only bins plus previously frozen OFF weak/rising/interruption masks; no ON-selected intervals",
+  "p95": "chrono around actual feed_camera, same production scalar diagnostics and threads; exclusive performance run, unrelated host load invalidates",
+  "memory": "peakRSS absolute and relative matchedOFF, log trend where available",
+  "initialization_failure": "full input, initialization latency and all output availability retained as separate hard checks",
+  "confidence": "serial 1s time-block paired bootstrap, seed20261008, draws2000; descriptive trajectory effects, no independent replay claim"
+}
