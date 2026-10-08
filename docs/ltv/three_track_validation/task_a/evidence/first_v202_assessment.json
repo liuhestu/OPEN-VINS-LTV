@@ -1,0 +1,320 @@
+{
+  "stats": {
+    "OFF": {
+      "p95_ms": 24.65129,
+      "peak_rss_kb": 114152,
+      "G_actual": 0,
+      "V_actual": 0,
+      "output_rows": 2266,
+      "ATE_m": 0.05197520957067538,
+      "velocity_mps": 0.038928815435142546,
+      "attitude_deg": 1.3639876647236366,
+      "G_mixed_state_update_norm_p95": null,
+      "V_mixed_state_update_norm_p95": null,
+      "p95_relative": 0.0,
+      "rss_relative": 0.0
+    },
+    "G": {
+      "p95_ms": 25.607687950000003,
+      "peak_rss_kb": 116568,
+      "G_actual": 1606,
+      "V_actual": 0,
+      "output_rows": 2266,
+      "ATE_m": 0.05197842468428711,
+      "velocity_mps": 0.038929387857903654,
+      "attitude_deg": 1.3639650603712383,
+      "G_mixed_state_update_norm_p95": 1.5904552302495146e-06,
+      "V_mixed_state_update_norm_p95": null,
+      "p95_relative": 0.038797075122640745,
+      "rss_relative": 0.021164762772443835
+    },
+    "V": {
+      "p95_ms": 25.83332055,
+      "peak_rss_kb": 115296,
+      "G_actual": 0,
+      "V_actual": 1571,
+      "output_rows": 2266,
+      "ATE_m": 0.051973334269027276,
+      "velocity_mps": 0.03892842721545882,
+      "attitude_deg": 1.3640760671938073,
+      "G_mixed_state_update_norm_p95": null,
+      "V_mixed_state_update_norm_p95": 4.04380083600323e-06,
+      "p95_relative": 0.04795004845588213,
+      "rss_relative": 0.010021725418740024
+    },
+    "GV": {
+      "p95_ms": 25.644868550000005,
+      "peak_rss_kb": 114728,
+      "G_actual": 1606,
+      "V_actual": 1571,
+      "output_rows": 2266,
+      "ATE_m": 0.05197700157903096,
+      "velocity_mps": 0.03892899300792816,
+      "attitude_deg": 1.3640605205913248,
+      "G_mixed_state_update_norm_p95": 1.5900865422826309e-06,
+      "V_mixed_state_update_norm_p95": 4.042760874153072e-06,
+      "p95_relative": 0.04030533696208205,
+      "rss_relative": 0.005045903707337596
+    }
+  },
+  "metric_failures": [],
+  "empty_metrics": 8,
+  "benefit_effects": {
+    "sequence": "V2_02_medium",
+    "benefit_effects": [
+      {
+        "mode": "G",
+        "metric": "ATE_m",
+        "delta_rmse": 3.215113611725051e-06,
+        "ci95": [
+          1.1675753027302894e-06,
+          5.598396362569388e-06
+        ],
+        "blocks": 113,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "G",
+        "metric": "attitude_deg",
+        "delta_rmse": -2.2604352398314376e-05,
+        "ci95": [
+          -5.663417242112168e-05,
+          6.030645336468851e-06
+        ],
+        "blocks": 113,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "G",
+        "metric": "velocity_mps",
+        "delta_rmse": 5.724227611081378e-07,
+        "ci95": [
+          -3.1247109229838587e-07,
+          1.4290986805507233e-06
+        ],
+        "blocks": 113,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "G",
+        "metric": "RPE_1s_m",
+        "delta_rmse": -5.329670531468989e-07,
+        "ci95": [
+          -1.1436781634711035e-06,
+          1.7256590345779413e-07
+        ],
+        "blocks": 112,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "G",
+        "metric": "RPE_1s_deg",
+        "delta_rmse": -0.00011997735689400768,
+        "ci95": [
+          -0.00024029321560986306,
+          -2.5849287793626447e-05
+        ],
+        "blocks": 112,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "G",
+        "metric": "RPE_5s_m",
+        "delta_rmse": -2.07274695437909e-06,
+        "ci95": [
+          -4.318598568818499e-06,
+          1.735244598930531e-08
+        ],
+        "blocks": 108,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "G",
+        "metric": "RPE_5s_deg",
+        "delta_rmse": -9.768044657409991e-05,
+        "ci95": [
+          -0.00015284870883804091,
+          -4.497487076843277e-05
+        ],
+        "blocks": 108,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "V",
+        "metric": "ATE_m",
+        "delta_rmse": -1.8753016481076745e-06,
+        "ci95": [
+          -3.3267250720855556e-06,
+          -3.2519936957083135e-07
+        ],
+        "blocks": 113,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "V",
+        "metric": "attitude_deg",
+        "delta_rmse": 8.840247017061209e-05,
+        "ci95": [
+          6.950314799090695e-05,
+          0.0001067818615776428
+        ],
+        "blocks": 113,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "V",
+        "metric": "velocity_mps",
+        "delta_rmse": -3.882196837265428e-07,
+        "ci95": [
+          -1.526764331420509e-06,
+          5.883855123978494e-07
+        ],
+        "blocks": 113,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "V",
+        "metric": "RPE_1s_m",
+        "delta_rmse": -2.152603100793321e-06,
+        "ci95": [
+          -3.565395584102706e-06,
+          -7.977721125676694e-07
+        ],
+        "blocks": 112,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "V",
+        "metric": "RPE_1s_deg",
+        "delta_rmse": -4.926851944142552e-06,
+        "ci95": [
+          -1.119405679434471e-05,
+          1.6496846325944606e-06
+        ],
+        "blocks": 112,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "V",
+        "metric": "RPE_5s_m",
+        "delta_rmse": -1.8482917782322583e-06,
+        "ci95": [
+          -3.2988121727020245e-06,
+          -4.2693733063124054e-07
+        ],
+        "blocks": 108,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "V",
+        "metric": "RPE_5s_deg",
+        "delta_rmse": -1.1942907596873553e-05,
+        "ci95": [
+          -2.46569797428986e-05,
+          2.9770101249104638e-06
+        ],
+        "blocks": 108,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "GV",
+        "metric": "ATE_m",
+        "delta_rmse": 1.7920083555736377e-06,
+        "ci95": [
+          -5.096528071981549e-07,
+          4.248114858286175e-06
+        ],
+        "blocks": 113,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "GV",
+        "metric": "attitude_deg",
+        "delta_rmse": 7.285586768812635e-05,
+        "ci95": [
+          4.270287888204494e-05,
+          0.00010188887478969065
+        ],
+        "blocks": 113,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "GV",
+        "metric": "velocity_mps",
+        "delta_rmse": 1.7757278561458811e-07,
+        "ci95": [
+          -1.4329231226972022e-06,
+          1.7582156541309788e-06
+        ],
+        "blocks": 113,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "GV",
+        "metric": "RPE_1s_m",
+        "delta_rmse": -2.6736521431015847e-06,
+        "ci95": [
+          -4.154377113254042e-06,
+          -1.322642249348364e-06
+        ],
+        "blocks": 112,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "GV",
+        "metric": "RPE_1s_deg",
+        "delta_rmse": -0.00012451276488817387,
+        "ci95": [
+          -0.0002491829048151276,
+          -3.4176207583949703e-05
+        ],
+        "blocks": 112,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "GV",
+        "metric": "RPE_5s_m",
+        "delta_rmse": -3.7818812888903985e-06,
+        "ci95": [
+          -6.2173826518891955e-06,
+          -1.439925687774652e-06
+        ],
+        "blocks": 108,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "GV",
+        "metric": "RPE_5s_deg",
+        "delta_rmse": -0.00010742678493269597,
+        "ci95": [
+          -0.000160566109743851,
+          -6.195144301886235e-05
+        ],
+        "blocks": 108,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      }
+    ],
+    "seed": 20261008
+  }
+}

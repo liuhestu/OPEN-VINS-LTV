@@ -1,0 +1,7 @@
+{
+  "rows": 1008,
+  "result": "PASS",
+  "failure_rows_preserved": 3,
+  "source": "shared frozen acceptance version v1; identical thresholds and status to first-round assessment",
+  "no_sample_exclusions": true
+}
