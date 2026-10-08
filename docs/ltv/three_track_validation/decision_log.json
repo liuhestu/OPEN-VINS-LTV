@@ -168,5 +168,14 @@
     "judgement": "Real engineering candidate failure is independent of predictive5%FAIL. Similarity across different auxiliary physics warrants common native joint/visual-feedback audit, not an unproven attribution.",
     "change": "Pause holdout/performance extensions. Fixed-source OFF/ON nonperformance repeat, independent Horn/raw-pose fit decomposition, optional saved-matrix zero-auxiliary native negative control without changing candidate.",
     "next": "If reproduced with no specific implementation/input issue, STOP B scope extension; retain all failure/results and separate prediction/engineering/benefit/statistical verdicts."
+  },
+  {
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T14:29:15.956613+00:00",
+    "batch": "B_reproduced_real_engineering_STOP",
+    "observation": "V2_03 OFF/ON repeat2 eleven required identity files byte-exact. Independent Horn agrees with SVD to1e-10. Tail raw position changes13mm; common OFF alignment still worsens5.5422mm. Five captured native empty/zero-information controls give exact mean and P/clone differences only1.7e-21/1.7e-18.",
+    "judgement": "Reproducible frozen local failure, not pure alignment or investigated input/build/application defect. Single-step controls do not exclude long nonlinear covariance/visual feedback; no concrete implementation repair is supported.",
+    "change": "STOP B3 engineering candidate extensions, holdout/performance/integration. Retain real ON effect and negligible/global changes, predictive5%FAIL separately; do not scan R/weights.",
+    "next": "Complete final manifests/reports/configs and push verified source branches. Future common-feedback investigation is a new controlled experiment, not a hidden qualification change."
   }
 ]
