@@ -1,0 +1,354 @@
+[
+  {
+    "sequence": "V2_02_medium",
+    "mode": "OFF",
+    "G_reasons": {
+      "disabled": 2348
+    },
+    "V_reasons": {
+      "disabled": 2348
+    },
+    "input": {
+      "input_left_images": 2348,
+      "input_right_images": 2348,
+      "unmatched_left_images": 0,
+      "unmatched_right_images": 0,
+      "camera_packets": 2348,
+      "input_camera_packets": 2348,
+      "imu_consumed": 23490,
+      "input_imu_samples": 23490,
+      "output_rows": 2266,
+      "input_span_seconds": 117.44500017166138,
+      "short_limit_seconds": 0,
+      "mode": "P_NEW",
+      "actual_G_submissions": 0,
+      "actual_V_submissions": 0,
+      "complete": true
+    },
+    "bias_first": [
+      -0.0018122753131164524,
+      0.019057614683317736,
+      0.07453683234806412,
+      -0.018405316769592162,
+      0.00046576415073473163,
+      0.005822899507441245
+    ],
+    "bias_last": [
+      -0.0010095478407833973,
+      0.024522721110469808,
+      0.07851779599930048,
+      0.003551789266828464,
+      0.12995049961821112,
+      0.04619657926740931
+    ]
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "ON",
+    "G_reasons": {
+      "disabled": 2348
+    },
+    "V_reasons": {
+      "disabled": 2348
+    },
+    "input": {
+      "input_left_images": 2348,
+      "input_right_images": 2348,
+      "unmatched_left_images": 0,
+      "unmatched_right_images": 0,
+      "camera_packets": 2348,
+      "input_camera_packets": 2348,
+      "imu_consumed": 23490,
+      "input_imu_samples": 23490,
+      "output_rows": 2266,
+      "input_span_seconds": 117.44500017166138,
+      "short_limit_seconds": 0,
+      "mode": "P_NEW",
+      "actual_G_submissions": 0,
+      "actual_V_submissions": 0,
+      "complete": true
+    },
+    "bias_first": [
+      -0.0018122753131164524,
+      0.019057614683317736,
+      0.07453683234806412,
+      -0.018405316769592162,
+      0.00046576415073473163,
+      0.005822899507441245
+    ],
+    "bias_last": [
+      -0.0010095844057924506,
+      0.02452272367148862,
+      0.07851779602564635,
+      0.0035514286398448734,
+      0.1299528915122462,
+      0.04619516505019595
+    ]
+  },
+  {
+    "sequence": "V2_02_medium",
+    "benefit_effects": [
+      {
+        "mode": "ON",
+        "metric": "ATE_m",
+        "delta_rmse": -7.212164514908137e-08,
+        "ci95": [
+          -1.2916645021541357e-06,
+          1.101814145252136e-06
+        ],
+        "blocks": 113,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "ON",
+        "metric": "attitude_deg",
+        "delta_rmse": 0.00012505804735263304,
+        "ci95": [
+          0.00010832696403331732,
+          0.00014117890235689764
+        ],
+        "blocks": 113,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "ON",
+        "metric": "velocity_mps",
+        "delta_rmse": -5.375336113722096e-07,
+        "ci95": [
+          -1.2512717374303303e-06,
+          5.136795066529302e-08
+        ],
+        "blocks": 113,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "ON",
+        "metric": "RPE_1s_m",
+        "delta_rmse": -1.1307809668036073e-06,
+        "ci95": [
+          -1.9983411338790614e-06,
+          -3.195908226939945e-07
+        ],
+        "blocks": 112,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "ON",
+        "metric": "RPE_1s_deg",
+        "delta_rmse": -5.3916633047101925e-08,
+        "ci95": [
+          -5.80887512829642e-06,
+          5.9660728259441905e-06
+        ],
+        "blocks": 112,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "ON",
+        "metric": "RPE_5s_m",
+        "delta_rmse": 4.5050161361775976e-07,
+        "ci95": [
+          -1.0142547528294716e-06,
+          1.958246158447956e-06
+        ],
+        "blocks": 108,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "ON",
+        "metric": "RPE_5s_deg",
+        "delta_rmse": -7.621116783762538e-06,
+        "ci95": [
+          -1.7596495721783344e-05,
+          1.7251042122107173e-06
+        ],
+        "blocks": 108,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      }
+    ],
+    "seed": 20261008
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "OFF",
+    "G_reasons": {
+      "disabled": 1921
+    },
+    "V_reasons": {
+      "disabled": 1921
+    },
+    "input": {
+      "input_left_images": 1922,
+      "input_right_images": 2336,
+      "unmatched_left_images": 1,
+      "unmatched_right_images": 415,
+      "camera_packets": 1921,
+      "input_camera_packets": 1921,
+      "imu_consumed": 23370,
+      "input_imu_samples": 23370,
+      "output_rows": 1806,
+      "input_span_seconds": 116.84500026702881,
+      "short_limit_seconds": 0,
+      "mode": "P_NEW",
+      "actual_G_submissions": 0,
+      "actual_V_submissions": 0,
+      "complete": true
+    },
+    "bias_first": [
+      -0.0020176910667857343,
+      0.023855223308724124,
+      0.082911795229216,
+      -0.01624902550307593,
+      0.0003078509214125125,
+      0.003619689381494067
+    ],
+    "bias_last": [
+      -0.0019603256452308117,
+      0.02424468251386982,
+      0.07901180220064759,
+      -0.024448858361564223,
+      0.17576383640148016,
+      0.03985978610312415
+    ]
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "ON",
+    "G_reasons": {
+      "disabled": 1921
+    },
+    "V_reasons": {
+      "disabled": 1921
+    },
+    "input": {
+      "input_left_images": 1922,
+      "input_right_images": 2336,
+      "unmatched_left_images": 1,
+      "unmatched_right_images": 415,
+      "camera_packets": 1921,
+      "input_camera_packets": 1921,
+      "imu_consumed": 23370,
+      "input_imu_samples": 23370,
+      "output_rows": 1806,
+      "input_span_seconds": 116.84500026702881,
+      "short_limit_seconds": 0,
+      "mode": "P_NEW",
+      "actual_G_submissions": 0,
+      "actual_V_submissions": 0,
+      "complete": true
+    },
+    "bias_first": [
+      -0.0020176910667857343,
+      0.023855223308724124,
+      0.082911795229216,
+      -0.01624902550307593,
+      0.0003078509214125125,
+      0.003619689381494067
+    ],
+    "bias_last": [
+      -0.0019506019371626029,
+      0.02425872036872344,
+      0.07901112594205041,
+      -0.025409500196633617,
+      0.17350593430458952,
+      0.03997267728146951
+    ]
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "benefit_effects": [
+      {
+        "mode": "ON",
+        "metric": "ATE_m",
+        "delta_rmse": -0.00018623931788946946,
+        "ci95": [
+          -0.0007355150657243126,
+          0.00020843084634254402
+        ],
+        "blocks": 111,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "ON",
+        "metric": "attitude_deg",
+        "delta_rmse": 0.00668390347123049,
+        "ci95": [
+          0.005837464244792051,
+          0.0074381757074380665
+        ],
+        "blocks": 111,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "ON",
+        "metric": "velocity_mps",
+        "delta_rmse": -0.0001704875756400881,
+        "ci95": [
+          -0.0004588668623130766,
+          4.117508779448922e-05
+        ],
+        "blocks": 111,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "ON",
+        "metric": "RPE_1s_m",
+        "delta_rmse": -0.0002680151096905656,
+        "ci95": [
+          -0.0007569800535873131,
+          0.00010839594377560864
+        ],
+        "blocks": 110,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "ON",
+        "metric": "RPE_1s_deg",
+        "delta_rmse": -0.0002462978930756754,
+        "ci95": [
+          -0.0007451216746930916,
+          6.025243674101489e-05
+        ],
+        "blocks": 110,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "ON",
+        "metric": "RPE_5s_m",
+        "delta_rmse": -0.0006861396422907506,
+        "ci95": [
+          -0.0016069440050750679,
+          -5.744755358641537e-05
+        ],
+        "blocks": 106,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      },
+      {
+        "mode": "ON",
+        "metric": "RPE_5s_deg",
+        "delta_rmse": -0.00027430933647254463,
+        "ci95": [
+          -0.0014186749316071918,
+          0.0005492710472974777
+        ],
+        "blocks": 106,
+        "draws": 2000,
+        "interpretation": "descriptive paired 1s time-block resampling; deterministic repeats are not independent samples"
+      }
+    ],
+    "seed": 20261008
+  }
+]

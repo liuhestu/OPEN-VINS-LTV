@@ -1,5 +1,7 @@
 # B source audit before candidate results
 
+Historical pre-entry audit. Later explicit engineering-admission amendment and actual ON/STOP results are in final_report.md; the original proposed admission/STOP language below is not the final engineering gate.
+
 Baseline: `2417d036002fbfd542ae71d96d0fc734cd6d47e8`. Production switches are unchanged. Historical raw prediction files are read-only inputs; results from them are explicitly HISTORICAL_REUSED, never new full replay.
 
 `LtvAdapterHardened::processHardened` invokes `PredictionDiagnostic` after IMU integration and before current feature processing and camera correction. `LtvLandmarkShadow::event(before=true)` evaluates the previous identity generation, maturity transaction, prior readiness and oldest live clone anchor. The current bearing is used only as a held-out evaluation target. Strong geometry uses camera 0 historical bearings strictly before `ctx.time`; its last input is approximately one camera interval earlier. It uses the same historical state window and point identity. Current tracker matching is an unavoidable source of identity contamination; no independent physical-point identity truth exists.

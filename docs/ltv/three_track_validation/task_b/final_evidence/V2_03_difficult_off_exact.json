@@ -1,0 +1,52 @@
+{
+  "status": "PASS_EXACT_WITHIN_SCOPE",
+  "scope": "FULL_SEQUENCE",
+  "left": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_full_V2_03_difficult_DIAG_OFF_v4_20261008T134832_3f4ed7cd",
+  "right": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_full_V2_03_difficult_L_OFF_v4_20261008T135219_0da7c5a4",
+  "checks": {
+    "trajectory.csv": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+    "unmatched_camera.csv": "e8f26cd30ae2aceb921bf132cc7fedf4294926b69c08f801a647d05e416f8b1b",
+    "lifecycle_identity.jsonl": "6a6d3ab6326fad3ffa4479e2615f4605bb20ad534469167ad7a4276c6c837189",
+    "algorithm_visual_identity.jsonl": "e8078e27e5d4e51bd4db64b899a16a56d0be5a6c1227eead61d8d4110ed6d4d9",
+    "frames": 1921,
+    "full_state_P_tracker": true,
+    "observer_full_x_P": true,
+    "mixed_audit_visual_digest": "NOT_COMPARABLE; pure algorithm visual output is exact",
+    "replay": [
+      {
+        "input_left_images": 1922,
+        "input_right_images": 2336,
+        "unmatched_left_images": 1,
+        "unmatched_right_images": 415,
+        "camera_packets": 1921,
+        "input_camera_packets": 1921,
+        "imu_consumed": 23370,
+        "input_imu_samples": 23370,
+        "output_rows": 1806,
+        "input_span_seconds": 116.84500026702881,
+        "short_limit_seconds": 0,
+        "mode": "P_NEW",
+        "actual_G_submissions": 0,
+        "actual_V_submissions": 0,
+        "complete": true
+      },
+      {
+        "input_left_images": 1922,
+        "input_right_images": 2336,
+        "unmatched_left_images": 1,
+        "unmatched_right_images": 415,
+        "camera_packets": 1921,
+        "input_camera_packets": 1921,
+        "imu_consumed": 23370,
+        "input_imu_samples": 23370,
+        "output_rows": 1806,
+        "input_span_seconds": 116.84500026702881,
+        "short_limit_seconds": 0,
+        "mode": "P_NEW",
+        "actual_G_submissions": 0,
+        "actual_V_submissions": 0,
+        "complete": true
+      }
+    ]
+  }
+}

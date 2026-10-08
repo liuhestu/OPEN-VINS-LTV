@@ -1,6 +1,6 @@
 # Landmark causal gate development evidence
 
-Status: **5% predictive-benefit criterion remains FAIL on V2_03; engineering experiment proceeds under explicit user amendment**. B3/B4 risk, causality and supply pass. B3 native implementation and registered checks are complete; a true 40s ON command exited successfully, with application/effect audit pending. Complete-sequence engineering qualification is not yet established. Holdouts V1_01/V1_03 have not been used or inspected for tuning. This is verified reuse of historical complete V2_02/V2_03 prediction evidence, not a new estimator replay.
+Status: **5% predictive-benefit FAIL retained; B3 risk-qualified engineering ON actually ran and subsequently STOPPED for reproducible complete V2_03 local ATE failure**. Neither forecast risk success nor the tiny global ATE improvement grants engineering/statistical qualification.
 
 The frozen gate contract retains point-estimate improvement ≥5%, positive lower endpoint of a 95% paired 1-second-block bootstrap interval (2000 draws, seed 20261005), p95/p99 and bad-angle fraction ≤1.05× strong past-bearing geometry, mature supply ≥20%, paired availability ≥90%, and normal/recovery tail limits. The primary comparison uses the original LTV/strong-geometry valid pair; weak-anchor availability never filters primary support. Three-way support is descriptive only. Every candidate's all-available predictions and ungated denominators remain in `gate_v1_results.json`.
 

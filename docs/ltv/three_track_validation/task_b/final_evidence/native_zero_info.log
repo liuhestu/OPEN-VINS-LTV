@@ -1,0 +1,16 @@
+case=0 mode=0 mean_max_abs=0 P_max_abs=0 clones_max_abs=0 LM_component=0
+case=0 mode=1 mean_max_abs=0 P_max_abs=1.6940658945086007e-21 clones_max_abs=0 LM_component=0
+case=0 mode=2 mean_max_abs=0 P_max_abs=1.6940658945086007e-21 clones_max_abs=0 LM_component=0
+case=1 mode=0 mean_max_abs=0 P_max_abs=0 clones_max_abs=0 LM_component=0
+case=1 mode=1 mean_max_abs=0 P_max_abs=8.4703294725430034e-22 clones_max_abs=1.7347234759768071e-18 LM_component=0
+case=1 mode=2 mean_max_abs=0 P_max_abs=8.4703294725430034e-22 clones_max_abs=1.7347234759768071e-18 LM_component=0
+case=2 mode=0 mean_max_abs=0 P_max_abs=0 clones_max_abs=0 LM_component=0
+case=2 mode=1 mean_max_abs=0 P_max_abs=2.1175823681357508e-22 clones_max_abs=0 LM_component=0
+case=2 mode=2 mean_max_abs=0 P_max_abs=2.1175823681357508e-22 clones_max_abs=0 LM_component=0
+case=3 mode=0 mean_max_abs=0 P_max_abs=0 clones_max_abs=0 LM_component=0
+case=3 mode=1 mean_max_abs=0 P_max_abs=1.6940658945086007e-21 clones_max_abs=0 LM_component=0
+case=3 mode=2 mean_max_abs=0 P_max_abs=1.6940658945086007e-21 clones_max_abs=0 LM_component=0
+case=4 mode=0 mean_max_abs=0 P_max_abs=0 clones_max_abs=0 LM_component=0
+case=4 mode=1 mean_max_abs=0 P_max_abs=8.4703294725430034e-22 clones_max_abs=0 LM_component=0
+case=4 mode=2 mean_max_abs=0 P_max_abs=8.4703294725430034e-22 clones_max_abs=0 LM_component=0
+PASS real-matrix native visual-only / empty receipt / zeroH-zeroRres / zeroH-nonzerores controls
