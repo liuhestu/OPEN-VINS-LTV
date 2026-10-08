@@ -385,6 +385,7 @@ bool UpdaterLTV::apply_joint(const std::shared_ptr<State> &state, const Measurem
     combined = visual;
     d.gravity_rows = 0;
     d.velocity_rows = 0;
+    d.landmark_rows = 0;
   }
   if (combined.empty())
     return true;
@@ -410,6 +411,13 @@ bool UpdaterLTV::apply_joint(const std::shared_ptr<State> &state, const Measurem
     if (d.velocity_rows) {
       d.velocity_gain_norm = K.middleCols(start, d.velocity_rows).norm();
       d.velocity_update_norm = (K.middleCols(start, d.velocity_rows) * combined.res.segment(start, d.velocity_rows)).norm();
+    }
+    if (d.landmark_rows) {
+      start += d.velocity_rows;
+      const Eigen::VectorXd delta = K.middleCols(start, d.landmark_rows) * combined.res.segment(start, d.landmark_rows);
+      d.landmark_update_norm = delta.norm();
+      d.landmark_bg_update_norm = delta.segment(state->_imu->bg()->id(), 3).norm();
+      d.landmark_ba_update_norm = delta.segment(state->_imu->ba()->id(), 3).norm();
     }
     d.submit_reason = "joint_applied";
   }

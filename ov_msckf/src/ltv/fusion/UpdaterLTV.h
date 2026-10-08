@@ -17,6 +17,8 @@ struct LtvDiagnostics {
   double gv_nis = -1, joint_nis = -1;
   bool consumed = false, capture_matrices = false;
   bool p_checked = false;
+  double landmark_update_norm = 0, landmark_bg_update_norm = 0, landmark_ba_update_norm = 0;
+  int landmark_rows = 0;
   int gravity_rows = 0, velocity_rows = 0, visual_rows = 0, columns = 0, ekf_calls = 0;
 };
 // Receipt owns consumption metadata only. Numerical block and frozen prior are never mutated.

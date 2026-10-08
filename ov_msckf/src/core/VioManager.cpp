@@ -79,6 +79,11 @@ VioManager::VioManager(VioManagerOptions &params_) : thread_init_running(false),
     if (!params.ltv_options.passive_cache_path.empty())
       passive_cache = std::make_shared<LtvPassiveCacheWriter>(params.ltv_options.passive_cache_path);
     updater_ltv = std::make_shared<UpdaterLTV>(params.ltv_options, params.gravity_mag);
+    if (params.ltv_options.enable_landmark_approx || params.ltv_options.landmark_approx_shadow) {
+      updater_landmark_approx = std::make_shared<UpdaterLandmarkApprox>(params.ltv_options);
+      ltv_adapter->set_prediction_diagnostic([this](const LtvAdapter &a, const ltv::FeaturePipelineContext &ctx,
+                                                    const LtvCalibration &cal) { updater_landmark_approx->before(a, ctx, cal); });
+    }
     if (params.ltv_options.log_enabled) {
       ltv_log.open(params.ltv_options.log_path);
       if (!ltv_log)
@@ -453,6 +458,8 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
     const auto &bearings = input.bearings;
     ltv_frame = ltv_adapter->process(message.timestamp, bearings, c, ltv_ba, ltv_bg, ltv_state_version,
                                      params.ltv_options.feature_readiness_enabled ? &feature_context : nullptr);
+    if (updater_landmark_approx)
+      updater_landmark_approx->after(*ltv_adapter, feature_context, c, ltv_frame.epoch);
     if (ltv_frame.available && !ltv_adapter->claim(ltv_frame))
       throw std::runtime_error("LTV duplicate attempt");
     if (passive_cache)
@@ -625,8 +632,10 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   // NOTE: this should only really be used if you want to track a lot of features, or have limited computational resources
   if ((int)featsup_MSCKF.size() > state->_options.max_msckf_in_update)
     featsup_MSCKF.erase(featsup_MSCKF.begin(), featsup_MSCKF.end() - state->_options.max_msckf_in_update);
-  if (ltv_adapter && (params.ltv_options.enable_gravity || params.ltv_options.enable_velocity))
+  if (ltv_adapter && (params.ltv_options.enable_gravity || params.ltv_options.enable_velocity || params.ltv_options.enable_landmark_approx))
     ltv_block = updater_ltv->build(state, ltv_frame, params.ltv_options.gv_evaluation_diagnostics ? &evaluation_ltv_block : nullptr);
+  if (updater_landmark_approx && params.ltv_options.enable_landmark_approx)
+    ltv_block = updater_landmark_approx->build(state, *ltv_adapter, ltv_block);
   if (params.ltv_options.gv_evaluation_diagnostics)
     evaluation_ltv_block = ltv_block;
   std::function<void(const MeasurementBlock &)> diagnostic_before;
@@ -638,6 +647,8 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
       passive_msckf_input_ids.push_back(feature->featid);
   updaterMSCKF->update(state, featsup_MSCKF, ltv_block.receipt ? &ltv_block : nullptr, ltv_adapter ? &ltv_diagnostics : nullptr,
                        diagnostic_before);
+  if (updater_landmark_approx)
+    updater_landmark_approx->finish_frame(ltv_diagnostics);
   if (params.ltv_options.passive_audit_enabled) {
     for (const auto &feature : featsup_MSCKF)
       passive_msckf_used_ids.push_back(feature->featid);

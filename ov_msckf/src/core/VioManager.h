@@ -35,6 +35,7 @@
 #include "ltv/diagnostics/LtvPassiveCache.h"
 #include "ltv/diagnostics/ValueDiagnostics.h"
 #include "ltv/fusion/UpdaterLTV.h"
+#include "ltv/fusion/UpdaterLandmarkApprox.h"
 #include "ltv/observer/LtvAdapter.h"
 
 namespace ov_core {
@@ -151,6 +152,7 @@ protected:
   std::shared_ptr<ValueDiagnostics> value_diagnostics;
   std::shared_ptr<LtvAdapter> ltv_adapter;
   std::shared_ptr<UpdaterLTV> updater_ltv;
+  std::shared_ptr<UpdaterLandmarkApprox> updater_landmark_approx;
   LtvDiagnostics ltv_diagnostics;
   uint64_t ltv_state_version = 0;
   std::ofstream ltv_log;
