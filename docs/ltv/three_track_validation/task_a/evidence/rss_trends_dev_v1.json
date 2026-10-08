@@ -1,0 +1,98 @@
+[
+  {
+    "sequence": "V2_02_medium",
+    "mode": "OFF",
+    "samples": 33,
+    "start_rss_kb": 92692,
+    "last_rss_kb": 112148,
+    "late_min_rss_kb": 107100,
+    "late_max_rss_kb": 112148,
+    "late_first_rss_kb": 108532,
+    "late_last_rss_kb": 112148,
+    "scope": "finite sequence sampling only; not unbounded lifetime growth proof"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "G",
+    "samples": 34,
+    "start_rss_kb": 92768,
+    "last_rss_kb": 112660,
+    "late_min_rss_kb": 106100,
+    "late_max_rss_kb": 112660,
+    "late_first_rss_kb": 107648,
+    "late_last_rss_kb": 112660,
+    "scope": "finite sequence sampling only; not unbounded lifetime growth proof"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "V",
+    "samples": 34,
+    "start_rss_kb": 92804,
+    "last_rss_kb": 111232,
+    "late_min_rss_kb": 104624,
+    "late_max_rss_kb": 112148,
+    "late_first_rss_kb": 106044,
+    "late_last_rss_kb": 111232,
+    "scope": "finite sequence sampling only; not unbounded lifetime growth proof"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "GV",
+    "samples": 34,
+    "start_rss_kb": 92732,
+    "last_rss_kb": 109728,
+    "late_min_rss_kb": 103712,
+    "late_max_rss_kb": 110688,
+    "late_first_rss_kb": 103712,
+    "late_last_rss_kb": 109728,
+    "scope": "finite sequence sampling only; not unbounded lifetime growth proof"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "OFF",
+    "samples": 25,
+    "start_rss_kb": 92584,
+    "last_rss_kb": 107676,
+    "late_min_rss_kb": 107324,
+    "late_max_rss_kb": 108348,
+    "late_first_rss_kb": 107708,
+    "late_last_rss_kb": 107676,
+    "scope": "finite sequence sampling only; not unbounded lifetime growth proof"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "G",
+    "samples": 26,
+    "start_rss_kb": 92660,
+    "last_rss_kb": 108992,
+    "late_min_rss_kb": 104316,
+    "late_max_rss_kb": 108992,
+    "late_first_rss_kb": 105768,
+    "late_last_rss_kb": 108992,
+    "scope": "finite sequence sampling only; not unbounded lifetime growth proof"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "V",
+    "samples": 26,
+    "start_rss_kb": 92448,
+    "last_rss_kb": 108820,
+    "late_min_rss_kb": 108312,
+    "late_max_rss_kb": 108820,
+    "late_first_rss_kb": 108312,
+    "late_last_rss_kb": 108820,
+    "scope": "finite sequence sampling only; not unbounded lifetime growth proof"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "GV",
+    "samples": 26,
+    "start_rss_kb": 92424,
+    "last_rss_kb": 107372,
+    "late_min_rss_kb": 103232,
+    "late_max_rss_kb": 107372,
+    "late_first_rss_kb": 105596,
+    "late_last_rss_kb": 107372,
+    "scope": "finite sequence sampling only; not unbounded lifetime growth proof"
+  }
+]

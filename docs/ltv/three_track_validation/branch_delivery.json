@@ -1,0 +1,13 @@
+{
+  "main_merged": false,
+  "branches": {
+    "experiment/ltv-three-track-a-20261008": {
+      "local_oid": "20c9ebfd52ed85bc95499b2f9447a14a40dfc85c",
+      "remote_oid": "20c9ebfd52ed85bc95499b2f9447a14a40dfc85c",
+      "verified_at": "2026-10-08T13:29:24.047326+00:00",
+      "status": "FINAL_PUSHED_VERIFIED",
+      "verdict": "G/V/GV STOP; default OFF",
+      "runtime_source_oid": "939c689e11aa1ef30adbf60846ef7e5fdbc55290"
+    }
+  }
+}

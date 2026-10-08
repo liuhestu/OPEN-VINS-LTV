@@ -1,9 +1,9 @@
 {
-  "at_utc": "2026-10-08T13:14:32.657583+00:00",
+  "at_utc": "2026-10-08T13:25:12.823044+00:00",
   "goal": "active",
   "coord_root": "/home/he/output/ltv_three_track_20261008_1827",
   "previous_goal_turn": "progress: shared contracts/source isolation actual builds/gate experiments and user scope amendment",
-  "A": "Both DEV exact OFF parity PASS; first eight production scalar runs performance PASS, V2_03 frozen local ATE FAIL all G/V/GV; one same-source four-mode repeat pending",
+  "A": "STOP: V2_03 fixed three-sample local ATE FAIL reproduced exactly in all G/V/GV; all four modes repeated 11 necessary identity files byte-exact. Native/OFF and first-round performance evidence retained separately; no holdout consumption or weight scan.",
   "B": "B3/B4 prediction FAIL preserved; engineering B3 allowed; first short ON affected state but logging/layout defects retained; equivalent pose-layout repair and fresh artifact revalidation underway",
   "C": "6982 fresh ROS build and native sensitivity/source/lifecycle/pose/parity checks completed; program/true-error FD passed. Actual read-only finite shadow OFF/full DEV checks pending; real calibration and production 30-slot model remain unqualified",
   "production": "defaults unchanged, all production fusion OFF",

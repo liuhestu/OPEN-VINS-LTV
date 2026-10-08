@@ -1,0 +1,20 @@
+{
+  "build_scope_failure": "Initial normal colcon build succeeded but BUILD_LTV_PHASE0_TESTS default OFF; probes/runners absent. Native batch failed before child launch during binary SHA check, failure ledger preserved. New distinct fresh artifacts build with probe flag ON required. No algorithm outcome inferred.",
+  "spec_preparation_failure": "KeyError data while patching an unrelated spec without data; corrected by explicit default and limited mutations; no estimator launched.",
+  "production_receipt_preflight": "Code audit before first production run found feature_row logging omitted but LtvEventReceipt.begin still active, implying second-frame pending receipt failure. Disable only logging receipt at scalar level; native LTV claim/update unchanged. New source and short probe plus affected exact regression required. Original immutable build retained, not mutated.",
+  "cross_level_mixed_visual_compare": {
+    "attempt": "a_V2_02_medium_full_instrumentation_exact_01_20261008T113513_d0ad2200",
+    "status": "FAILED_RETAINED",
+    "failure": "visual_digest mismatch frame1; old digest includes passive_current_observations and passive-only update ID lists disabled at approved scalar level",
+    "scope_analysis": {
+      "all_frames": 2348,
+      "main_state_full_P_differences": 0,
+      "tracker_differences": 0,
+      "observer_full_x_P_R_differences": 0,
+      "mixed_visual_hash_differences": 2347,
+      "trajectory_lifecycle_unmatched": "byte equal"
+    },
+    "decision": "Primary froze matching-definition correction: retain old audit digest for diag\u2192historical hard exact, add separate pure good_features_MSCKF identity to both newly compiled runners; rerun full paired OFF and affected checks before performance; no parameter/numerical threshold relaxation",
+    "new_source_oid": "939c689e11aa1ef30adbf60846ef7e5fdbc55290"
+  }
+}

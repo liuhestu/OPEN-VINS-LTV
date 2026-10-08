@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scope": "historical evaluator parity, not new replay",
+  "checks": [
+    {
+      "sequence": "V2_02_medium",
+      "full_ATE_exact_historical": true,
+      "metrics": 364,
+      "unsupported_metric_windows": 8
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "full_ATE_exact_historical": true,
+      "metrics": 364,
+      "unsupported_metric_windows": 16
+    }
+  ],
+  "development_failure": "initial empty final-window RPE caused scipy Rotation.apply empty-shape exception; fixed by explicit no-sample result; no thresholds changed",
+  "frozen_local_masks": {
+    "source": "OFF features/fusion only, unchanged labels/quantiles",
+    "compared_rows": 288,
+    "historical_parity_atol": 1e-12,
+    "result": "PASS"
+  }
+}

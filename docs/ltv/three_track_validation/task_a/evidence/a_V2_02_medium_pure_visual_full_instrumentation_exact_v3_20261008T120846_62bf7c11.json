@@ -1,0 +1,61 @@
+{
+  "status": "PASS_WITHIN_SCOPE",
+  "scope": "full deterministic synchronous ASL input; no ROS transport qualification",
+  "comparison": "exact_zero_tolerance",
+  "checks": {
+    "trajectory.csv": {
+      "diagnostic_sha256": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+      "scalar_sha256": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f"
+    },
+    "unmatched_camera.csv": {
+      "diagnostic_sha256": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3",
+      "scalar_sha256": "cb30cda54b34778a7a35259f5f34c7cd5bfb9981e338052056a31f61e78624e3"
+    },
+    "lifecycle_identity.jsonl": {
+      "diagnostic_sha256": "ec2c3bd6df021886c73c3c9ef22dd50c01db15804f370990153b008a39e3bc15",
+      "scalar_sha256": "ec2c3bd6df021886c73c3c9ef22dd50c01db15804f370990153b008a39e3bc15"
+    },
+    "algorithm_visual_identity.jsonl": {
+      "diagnostic_sha256": "1a94db24ecdc870042d55fa9bce98676ed3f83647d558ed0b1279c8c4d40ac1a",
+      "scalar_sha256": "1a94db24ecdc870042d55fa9bce98676ed3f83647d558ed0b1279c8c4d40ac1a"
+    },
+    "audit_exact_full_state_P_tracker": 2348,
+    "algorithm_visual_exact": 2348,
+    "mixed_visual_digest": "NOT_COMPARABLE: contains intentionally disabled passive-only audit containers; original failed attempt retained",
+    "observer_exact_full_x_P_R": 2348,
+    "/home/he/output/ltv_three_track_20261008_1827/tasks/task_a/results/a_V2_02_medium_OFF_diagnostic_01_matched_v3_20261008T115312_3e1627b7_replay": {
+      "input_left_images": 2348,
+      "input_right_images": 2348,
+      "unmatched_left_images": 0,
+      "unmatched_right_images": 0,
+      "camera_packets": 2348,
+      "input_camera_packets": 2348,
+      "imu_consumed": 23490,
+      "input_imu_samples": 23490,
+      "output_rows": 2266,
+      "input_span_seconds": 117.44500017166138,
+      "short_limit_seconds": 0,
+      "mode": "P_NEW",
+      "actual_G_submissions": 0,
+      "actual_V_submissions": 0,
+      "complete": true
+    },
+    "/home/he/output/ltv_three_track_20261008_1827/tasks/task_a/results/a_V2_02_medium_OFF_scalar_parity_01_matched_v3_20261008T120518_65829c8a_replay": {
+      "input_left_images": 2348,
+      "input_right_images": 2348,
+      "unmatched_left_images": 0,
+      "unmatched_right_images": 0,
+      "camera_packets": 2348,
+      "input_camera_packets": 2348,
+      "imu_consumed": 23490,
+      "input_imu_samples": 23490,
+      "output_rows": 2266,
+      "input_span_seconds": 117.44500017166138,
+      "short_limit_seconds": 0,
+      "mode": "P_NEW",
+      "actual_G_submissions": 0,
+      "actual_V_submissions": 0,
+      "complete": true
+    }
+  }
+}

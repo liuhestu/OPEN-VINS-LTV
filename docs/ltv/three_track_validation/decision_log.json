@@ -105,5 +105,32 @@
     "next": "Fresh native tests and read-only finite shadow OFF parity; real GT pose mapping offline only, absent landmark truth remains NOT_EVALUATED.",
     "event": "RESEARCH_DECISION",
     "time": "2026-10-08T13:00:46.671782+00:00"
+  },
+  {
+    "batch": "C_correlated_kernel_input_review",
+    "observation": "Finite correlated algebra tests pass, but first kernel passed possibly asymmetric P/R to a self-adjoint eigensolver and did not explicitly reject posterior numerical PSD violations.",
+    "judgement": "Numerical interface guard gap; formula tests do not qualify physical-chart consumption.",
+    "change": "Require finite/symmetry/joint/posterior PSD rejection with raw eigenvalue evidence and negative tests; no ridge or variance changes.",
+    "next": "Standalone C++14 retest of pure kernel; keep existing finite ROS artifact unchanged.",
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T13:20:36.505638+00:00"
+  },
+  {
+    "batch": "C_offline_true_error_time_and_gauge_review",
+    "observation": "Native replay trajectory timestamps already equal camera+IMU offset and exported pose times also include offset. Offline mapper added offset to trajectory again and fitted gauge against interpolated GT rather than frozen nearest-GT OFF support.",
+    "judgement": "Offline evaluation implementation defect, found before real mapped-covariance claims; it is not evidence of physical covariance calibration failure or success.",
+    "change": "Use IMU trajectory timestamps exactly once, match frozen full OFF SE3/nearest20ms gauge, and enforce <=10ms quaternion GT brackets with unmatched records.",
+    "next": "Nonzero-offset synthetic mapping regression, independent frozen-fit comparison, then actual finite shadow offline mapping. No new ROS build required.",
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T13:20:36.505684+00:00"
+  },
+  {
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T13:25:12.822796+00:00",
+    "batch": "A_same_source_repeat_STOP",
+    "observation": "V2_03 OFF/G/V/GV repeat completed. Eleven required algorithm/output identity files per mode have identical SHA to first round; fixed three-point local ATE failure repeats exactly for G/V/GV.",
+    "judgement": "Reproducible actual estimator local degradation under unchanged input/source/parameters. Native checks, independent Horn alignment and exact repeated identities exclude the investigated evaluation/build/data causes.",
+    "change": "STOP all three A mode scope extensions and weight tuning; preserve first-round performance PASS separately. Holdout and reserve remain unconsumed.",
+    "next": "Finalize A report/raw identity/config manifest; no GV production or combined engineering admission from this candidate."
   }
 ]

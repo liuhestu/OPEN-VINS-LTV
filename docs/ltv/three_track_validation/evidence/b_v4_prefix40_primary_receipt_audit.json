@@ -1,0 +1,18 @@
+{
+  "run_id": "b_B3_prefix40_V2_02_medium_L_ON_v4_20261008T132524_638f63f9",
+  "source_oid": "5cdedc087891430369a7fa88db12cdbba58bd05d",
+  "input_log": "/home/he/output/ltv_three_track_20261008_1827/tasks/task_b/results/b_B3_prefix40_V2_02_medium_L_ON_v4_20261008T132524_638f63f9/landmark_approx.csv",
+  "input_sha256": "5971b846cc2a7e8eed146c989ed3dabdefcd483e448b460ec193f658b112e178",
+  "initialized_frames": 718,
+  "positive_rows_frames": 401,
+  "positive_rows_consumed_frames": 401,
+  "total_consumed_landmark_rows": 2406,
+  "all_positive_rows_single_EKF": true,
+  "submission_reasons": {
+    "joint_applied": 401
+  },
+  "positive_recorded_delta_frames": 401,
+  "max_selected_points": 2,
+  "max_information_budget_used": 5.119295636257407e-05,
+  "scope": "primary independent receipt read only; mixed-unit delta not position benefit; native K*r component reconstruction and full engineering qualification pending"
+}

@@ -1,0 +1,130 @@
+{
+  "method": "Horn 4x4 eigen quaternion SE3, independent of evaluator SVD; same frozen OFF pose support and tail bins",
+  "telemetry_matching": "legacy double\u2192NS scalar LTV logger nearest unique original frame <=1us existing timing tolerance; exact audit/camera IDs retained",
+  "development_failure": "initial exact integer telemetry lookup KeyError caused by legacy float roundtrip 128ns; no trajectory support changed",
+  "rows": [
+    {
+      "mode": "OFF",
+      "horn_independent_tail_rmse_m": 0.188966692328241,
+      "tail_error_vectors_m": [
+        [
+          -0.170269216208927,
+          0.10456258899396109,
+          -0.01620107246215652
+        ],
+        [
+          -0.15787351070831468,
+          0.09089696415115878,
+          -0.012584098744024108
+        ],
+        [
+          -0.15728002470011804,
+          0.09338989055782931,
+          -0.011596371391262017
+        ]
+      ]
+    },
+    {
+      "mode": "G",
+      "horn_independent_tail_rmse_m": 0.19479312652881836,
+      "tail_error_vectors_m": [
+        [
+          -0.18024508640861203,
+          0.09878557661789278,
+          -0.02247317051246589
+        ],
+        [
+          -0.16741348048961946,
+          0.0842905694601419,
+          -0.01777764453052222
+        ],
+        [
+          -0.16679098209897703,
+          0.08679703933058547,
+          -0.01673277540766882
+        ]
+      ],
+      "first_tracker_digest_divergence": null,
+      "first_algorithm_visual_digest_divergence": {
+        "frame_index": 251,
+        "camera_ns": "1413394894155760384",
+        "telemetry_roundtrip_ns_delta": 256,
+        "event": {
+          "G_rows": "2",
+          "V_rows": "0",
+          "visual_rows": "72",
+          "EKF_calls": "1",
+          "submit_reason": "joint_applied"
+        }
+      }
+    },
+    {
+      "mode": "V",
+      "horn_independent_tail_rmse_m": 0.19475703889271787,
+      "tail_error_vectors_m": [
+        [
+          -0.18022015774296607,
+          0.09873930031681288,
+          -0.02246731403455282
+        ],
+        [
+          -0.16739545986269233,
+          0.08425707955474737,
+          -0.017774117518900456
+        ],
+        [
+          -0.16677286696017735,
+          0.0867634757992668,
+          -0.016729409215461954
+        ]
+      ],
+      "first_tracker_digest_divergence": null,
+      "first_algorithm_visual_digest_divergence": {
+        "frame_index": 251,
+        "camera_ns": "1413394894155760384",
+        "telemetry_roundtrip_ns_delta": 256,
+        "event": {
+          "G_rows": "0",
+          "V_rows": "3",
+          "visual_rows": "72",
+          "EKF_calls": "1",
+          "submit_reason": "joint_applied"
+        }
+      }
+    },
+    {
+      "mode": "GV",
+      "horn_independent_tail_rmse_m": 0.19477606565628539,
+      "tail_error_vectors_m": [
+        [
+          -0.18024113075111892,
+          0.0987519710229176,
+          -0.02247167636690406
+        ],
+        [
+          -0.16741134958658765,
+          0.08426028005838077,
+          -0.01777674898441739
+        ],
+        [
+          -0.16678891482925406,
+          0.08676684074620106,
+          -0.01673199600052544
+        ]
+      ],
+      "first_tracker_digest_divergence": null,
+      "first_algorithm_visual_digest_divergence": {
+        "frame_index": 251,
+        "camera_ns": "1413394894155760384",
+        "telemetry_roundtrip_ns_delta": 256,
+        "event": {
+          "G_rows": "2",
+          "V_rows": "3",
+          "visual_rows": "72",
+          "EKF_calls": "1",
+          "submit_reason": "joint_applied"
+        }
+      }
+    }
+  ]
+}

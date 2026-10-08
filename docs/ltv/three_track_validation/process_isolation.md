@@ -9,3 +9,15 @@ freeze_source.py从明确commit git archive发布task/source/OID只读树；构�
 launcher清除继承的工作区前缀和LTV开关、固定空colcon defaults；env_exec.sh仅加载ROS Humble underlay和本任务local_setup，并拒绝foreign prefix/not-found libraries。实际环境与ldd在每run environment.json，所有进程包括exec-ready声明和/proc识别在registry。每次attempt时间+UUID目录，拒绝覆盖；stdout/资源/源码OID/dirty补丁hash/配置/输入/动态库身份保留。
 
 A/B/C固定ROS domain171/172/173、namespace对应task，RMW fastdds；offline ASL命令不能标ROS消息传输回放。domain隔离不代替重任务锁。v2外部/proc每2秒采集RSS/HWM及进程身份，配合time峰值报告时序趋势，不把单峰值当无增长证明。
+
+## 显式消费的源码接口
+
+以下接口由主线程建立独立 ref，消费方显式 cherry-pick 到自己的分支。它们不共享 build/install；分析脚本版本与运行二进制版本分别登记，脚本更新不改正在运行的 frozen artifact。
+
+| 接口 OID | 内容 | 消费规则 |
+|---|---|---|
+| `81de174a9566f4cd5dc4f9d47ebb7e284331a6ea` | A 的独立 runner/CMake/精确比较/进程 preexec 接口 | B 显式消费并独立构建 |
+| `ffd8684fe7aba98c2e6cd789fde860ce94ae8aa7` | 纯算法 visual identity，排除 passive audit 容器 | B 显式消费；旧 audit/hash 差异保留 |
+| `347b0ec9066c5f1a62792494751daf4d220036f0` | 固定 OFF 支持的完整评价与共享 acceptance 判定脚本 | B 显式消费后只泛化 OFF/ON mode；保留全部窗口、空指标及稀疏窗口 |
+
+共享 metrics ref：`experiment/ltv-three-track-metrics-interface-20261008`。此接口不携带通过资格，C 的离线误差图表若复用其对齐，也不能继承真实统计校准。
