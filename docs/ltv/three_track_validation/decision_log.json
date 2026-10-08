@@ -78,5 +78,32 @@
     "next": "native FEJ/JPL FD, exact OFF, short real ON effect/numerics, then full matched dev and holdout",
     "contract_sha256": "542a74854a1164cf96bfa69b39906068c564cf146ac6fa29370141247c20e064",
     "code_oid": "a4e8d0a7304ce6feb3ec071f9e7f8c505d7d4029"
+  },
+  {
+    "batch": "A_V2_03_frozen_local_failure",
+    "observation": "All G/V/GV exceed fixed 10s_11 local ATE limit on unchanged three OFF-supported timestamps; independent Horn SE3 formula reproduces error to ~1e-15; raw position changes ~13mm, tracker unchanged.",
+    "judgement": "Actual estimator effect; no evidence of evaluation, data, or build contamination. Global improvements do not compensate local failure.",
+    "change": "Retain original FAIL and sparse window; authorize one same-source matched four-mode deterministic repeat without weight tuning.",
+    "next": "If reproduced, STOP A scope extension and report first-round performance separately from nondegradation.",
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T13:00:46.671782+00:00"
+  },
+  {
+    "batch": "B_actual_ON_receipt_and_layout_corrections",
+    "observation": "First short ON changes native state/P but receipt was copied after finish_frame; landmark q/p subtype layout conflicts with visual whole PoseJPL Type during merge.",
+    "judgement": "Implementation defects prevent claiming validated joint visual+landmark application from state differences alone.",
+    "change": "Move logging after receipt copy; use equivalent whole 6D pose blocks with unchanged H columns, R and causal gate. Preserve old runs and add native joint merge/apply regression.",
+    "next": "Fresh immutable artifact; affected OFF parity and actual short ON proof, then full matched DEV OFF/ON under unchanged engineering thresholds.",
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T13:00:46.671782+00:00"
+  },
+  {
+    "batch": "C_program_sensitivity_vs_true_error_chart",
+    "observation": "Program perturbation after nonzero injection requires two-input quaternion derivative; posterior true-error reset alone is not the program derivative.",
+    "judgement": "Model chart mismatch, not evidence of production statistical consistency; existing zero-injection controlled Monte Carlo remains scoped.",
+    "change": "Two-input injection sensitivity and independent true-error chart map; rename program covariance to avoid interpreting it as physical covariance.",
+    "next": "Fresh native tests and read-only finite shadow OFF parity; real GT pose mapping offline only, absent landmark truth remains NOT_EVALUATED.",
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T13:00:46.671782+00:00"
   }
 ]

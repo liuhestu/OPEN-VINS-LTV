@@ -1,11 +1,11 @@
 {
-  "at_utc": "2026-10-08T11:34:19.979687+00:00",
+  "at_utc": "2026-10-08T13:01:53.130943+00:00",
   "goal": "active",
   "coord_root": "/home/he/output/ltv_three_track_20261008_1827",
   "previous_goal_turn": "progress: shared contracts/source isolation actual builds/gate experiments and user scope amendment",
-  "A": "V2_02 full diagnostic OFF exact historical parity passed; scalar full OFF running; production performance four-mode pending",
-  "B": "prediction B3/B4 FAIL preserved; risk/coverage passes support engineering B3, updater/Jac/OFF/shortON being implemented; no real ON yet",
-  "C": "full mean/Riccati/gain local sensitivity checked; actual seed/pixel/main hooks and finite joint source graph under implementation, main/observer source laws not qualified for production",
+  "A": "Both DEV exact OFF parity PASS; first eight production scalar runs performance PASS, V2_03 frozen local ATE FAIL all G/V/GV; one same-source four-mode repeat pending",
+  "B": "B3/B4 prediction FAIL preserved; engineering B3 allowed; first short ON affected state but logging/layout defects retained; equivalent pose-layout repair and fresh artifact revalidation underway",
+  "C": "Finite one-slot known-source covariance MC 0.496% but nonzero deterministic mean; corrected program injection FD PASS, fresh ROS build active; full correlation/real landmark statistical consistency unqualified",
   "production": "defaults unchanged, all production fusion OFF",
-  "next": "finish scalar/diagnostic parity, freeze B updater/Rapprox and native Jacobian, actual independent OFF/ON; validate C actual source graph; integrate only after separate qualification"
+  "next": "A reproduce local failure without tuning; B prove corrected joint real ON then full matched OFF/ON; C corrected native/read-only shadow checks; final reports and push verified branch OIDs"
 }
