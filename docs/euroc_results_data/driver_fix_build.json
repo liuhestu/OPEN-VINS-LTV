@@ -1,0 +1,21 @@
+{
+  "coord_root": "/home/he/output/ltv_euroc_six_20261008T172854",
+  "task": "six",
+  "label": "pure_OFF_policy_driver_fix",
+  "kind": "build",
+  "heavy": true,
+  "source_oid": "b243464eb10a5b0586d8fc5508078714a3849825",
+  "source_snapshot": "/home/he/output/ltv_euroc_six_20261008T172854/task/source/b243464eb10a5b0586d8fc5508078714a3849825",
+  "command": [
+    "/home/he/output/ltv_euroc_six_20261008T172854/tools/env_exec.sh",
+    "-",
+    "python3",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/source/b243464eb10a5b0586d8fc5508078714a3849825/docs/experiments/tools/ltv_three_track/task_a/build_scalar_runner.py",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/builds/b770d6f50d5748cb147e88234fecb9fa0da48549",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/source/b770d6f50d5748cb147e88234fecb9fa0da48549",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/source/b243464eb10a5b0586d8fc5508078714a3849825",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/builds/b243464eb10a5b0586d8fc5508078714a3849825",
+    "{RUN_DIR}/build_identity.json"
+  ],
+  "diagnostic_level": "FRESH_RUNNERS_SAME_VERIFIED_LIBRARIES"
+}

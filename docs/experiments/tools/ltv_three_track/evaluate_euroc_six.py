@@ -132,6 +132,9 @@ def main():
     text += ['', '条件ATE只描述可用片段；失败或覆盖不足不按完整结果计入。没有实际应用帧的分支明确为未生效，不能仅凭开启标志称融合成功。',
              '', '## 运行身份', '', f"二进制源码：`{identity['source_oid']}`；原main：`{identity['base_main_oid']}`。", f"原始输出：`{a.coord}`（本机路径，不是公开下载）。",
              '[结构化结果](euroc_results_data/results.csv) · [完整结果与失败原因](euroc_results_data/results.json)。']
+    notes = artifact / 'report_notes.md'
+    if notes.exists() and not a.partial:
+        text += ['', notes.read_text().rstrip()]
     a.report.write_text('\n'.join(text) + '\n')
     print(json.dumps({'cases': len(rows), 'valid': sum(r['status']=='VALID_FULL_MATCHED' for r in rows)}))
 

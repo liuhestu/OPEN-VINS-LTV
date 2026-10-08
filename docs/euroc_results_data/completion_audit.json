@@ -1,0 +1,56 @@
+{
+  "full_runs": 66,
+  "matched_cases": 66,
+  "coverage_all": 1,
+  "max_svd_horn_difference_m": 3.637978807091713e-11,
+  "attempts": 82,
+  "failed_attempts": [
+    "six_pure_OFF_policy_driver_fix_20261008T173829_64ca5d63"
+  ],
+  "active_owned_processes": [],
+  "unchanged_paths_vs_base": [
+    "ov_msckf/src",
+    "ov_core/src",
+    "ov_init/src",
+    "config",
+    "docs/experiments/configs"
+  ],
+  "descriptive_ate_comparison": {
+    "G": {
+      "lower_ate_sequences": 6,
+      "equal_ate_sequences": 1,
+      "higher_ate_sequences": 4,
+      "max_improvement_percent": 0.08797025152447951,
+      "max_degradation_percent": 0.006185859832607289
+    },
+    "V": {
+      "lower_ate_sequences": 8,
+      "equal_ate_sequences": 1,
+      "higher_ate_sequences": 2,
+      "max_improvement_percent": 0.3219886941540243,
+      "max_degradation_percent": 0.0033314043553113928
+    },
+    "GV": {
+      "lower_ate_sequences": 7,
+      "equal_ate_sequences": 1,
+      "higher_ate_sequences": 3,
+      "max_improvement_percent": 0.37470853471703236,
+      "max_degradation_percent": 0.008607443748476773
+    },
+    "L": {
+      "lower_ate_sequences": 6,
+      "equal_ate_sequences": 1,
+      "higher_ate_sequences": 4,
+      "max_improvement_percent": 0.3016692311439725,
+      "max_degradation_percent": 0.017369828628079738
+    },
+    "L_GV": {
+      "lower_ate_sequences": 6,
+      "equal_ate_sequences": 1,
+      "higher_ate_sequences": 4,
+      "max_improvement_percent": 0.6701929413333871,
+      "max_degradation_percent": 0.0071665587690999105
+    }
+  },
+  "qualification": "not_granted; ATE completeness is not nondegradation/performance qualification"
+}

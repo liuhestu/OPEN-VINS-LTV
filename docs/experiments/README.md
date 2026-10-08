@@ -13,7 +13,7 @@ source install/local_setup.bash
 ros2 run ov_msckf run_ltv_gv_production /absolute/path/to/docs/experiments/configs/euroc_c0/estimator_config.yaml /absolute/path/to/ASL/sequence/mav0 /unique/output OFF
 ```
 
-- `run_ltv_gv_production`：原生 ASL 标量回放。明确实验模式 OFF/G/V/GV/L/L_GV 保持不变；ON 仅用于复现失败候选。
+- `run_ltv_gv_production`：原生 ASL 标量回放。明确实验模式 OFF/G/V/GV/L/L_GV；ON 仅用于复现失败候选。
 - `run_ltv_gv_evaluation`：同一输入与算法路径的完整矩阵/缓存诊断回放，不用于生产性能判定。
 - `replay_ltv_feature_cache`：重放带版本的原有缓存；`replay_ltv_landmark_shadow` 保留其独立预测用途，未冒充主估计 ON。
 - `tools/ltv_three_track/evaluate_runs.py` 与 `assess_metrics.py`：A/B 共用冻结 OFF 支持、局部窗口、空支持和验收参数；阈值来自原合同。
@@ -40,3 +40,9 @@ git switch --detach archive/consolidation-20261008T153807/origin/experiment/ltv-
 [结构整理与数值回归](consolidation_report.md) 记录实际构建、回放、两分支 OID 和清理结果。
 
 六模式 schema 2 中 OFF 为纯 OpenVINS（Observer 也关闭），与归档 schema 1 的 managed-Observer OFF 定义不同；历史结果不改写。L 同时启用 landmark observer/shadow 历史与 landmark_approx，L_GV 加启 gravity/velocity。旧 L_ON 是 L 别名，旧 L_OFF/V10 仅为历史工具保留，不参与六模式矩阵。
+
+## EuRoC 六模式全量矩阵
+
+[最终 ATE RMSE](../euroc_results.mc) 收录 11 序列 × 6 模式的 66 次新完整回放、实际融合计数、异常序列和验收边界。所有组固定 C0、max_slam=0。
+
+批次入口为 `tools/ltv_three_track/run_euroc_six.py`；ATE 入口为 `tools/ltv_three_track/evaluate_euroc_six.py`。准确命令、独立构建来源及完整 manifest 见结果文档和 `../euroc_results_data/`。

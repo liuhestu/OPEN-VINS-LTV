@@ -1,0 +1,992 @@
+[
+  {
+    "sequence": "MH_01_easy",
+    "mode": "OFF",
+    "run_id": "six_full_MH_01_easy_OFF_20261008T174555_6dfbffba",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_01_easy_OFF_20261008T174555_6dfbffba",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2784,
+      "camera_packets": 3682
+    }
+  },
+  {
+    "sequence": "MH_01_easy",
+    "mode": "G",
+    "run_id": "six_full_MH_01_easy_G_20261008T174620_4c1a5e93",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_01_easy_G_20261008T174620_4c1a5e93",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 2351,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2784,
+      "camera_packets": 3682
+    }
+  },
+  {
+    "sequence": "MH_01_easy",
+    "mode": "V",
+    "run_id": "six_full_MH_01_easy_V_20261008T174805_660df816",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_01_easy_V_20261008T174805_660df816",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 2344,
+      "actual_L": 0,
+      "output_rows": 2784,
+      "camera_packets": 3682
+    }
+  },
+  {
+    "sequence": "MH_01_easy",
+    "mode": "GV",
+    "run_id": "six_full_MH_01_easy_GV_20261008T174949_dfe7e885",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_01_easy_GV_20261008T174949_dfe7e885",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 2351,
+      "actual_V": 2344,
+      "actual_L": 0,
+      "output_rows": 2784,
+      "camera_packets": 3682
+    }
+  },
+  {
+    "sequence": "MH_01_easy",
+    "mode": "L",
+    "run_id": "six_full_MH_01_easy_L_20261008T175134_ff67e702",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_01_easy_L_20261008T175134_ff67e702",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 2344,
+      "output_rows": 2784,
+      "camera_packets": 3682
+    }
+  },
+  {
+    "sequence": "MH_01_easy",
+    "mode": "L_GV",
+    "run_id": "six_full_MH_01_easy_L_GV_20261008T175319_932c203a",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_01_easy_L_GV_20261008T175319_932c203a",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 2351,
+      "actual_V": 2344,
+      "actual_L": 2344,
+      "output_rows": 2784,
+      "camera_packets": 3682
+    }
+  },
+  {
+    "sequence": "MH_02_easy",
+    "mode": "OFF",
+    "run_id": "six_full_MH_02_easy_OFF_20261008T175505_12f37ff2",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_02_easy_OFF_20261008T175505_12f37ff2",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2259,
+      "camera_packets": 3040
+    }
+  },
+  {
+    "sequence": "MH_02_easy",
+    "mode": "G",
+    "run_id": "six_full_MH_02_easy_G_20261008T175526_9651e90d",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_02_easy_G_20261008T175526_9651e90d",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 1499,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2259,
+      "camera_packets": 3040
+    }
+  },
+  {
+    "sequence": "MH_02_easy",
+    "mode": "V",
+    "run_id": "six_full_MH_02_easy_V_20261008T175651_1d30ff05",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_02_easy_V_20261008T175651_1d30ff05",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 1478,
+      "actual_L": 0,
+      "output_rows": 2259,
+      "camera_packets": 3040
+    }
+  },
+  {
+    "sequence": "MH_02_easy",
+    "mode": "GV",
+    "run_id": "six_full_MH_02_easy_GV_20261008T175816_458a6ed3",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_02_easy_GV_20261008T175816_458a6ed3",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 1499,
+      "actual_V": 1478,
+      "actual_L": 0,
+      "output_rows": 2259,
+      "camera_packets": 3040
+    }
+  },
+  {
+    "sequence": "MH_02_easy",
+    "mode": "L",
+    "run_id": "six_full_MH_02_easy_L_20261008T175940_4b145c2a",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_02_easy_L_20261008T175940_4b145c2a",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 1478,
+      "output_rows": 2259,
+      "camera_packets": 3040
+    }
+  },
+  {
+    "sequence": "MH_02_easy",
+    "mode": "L_GV",
+    "run_id": "six_full_MH_02_easy_L_GV_20261008T180106_b9ef9bb9",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_02_easy_L_GV_20261008T180106_b9ef9bb9",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 1499,
+      "actual_V": 1478,
+      "actual_L": 1478,
+      "output_rows": 2259,
+      "camera_packets": 3040
+    }
+  },
+  {
+    "sequence": "MH_03_medium",
+    "mode": "OFF",
+    "run_id": "six_full_MH_03_medium_OFF_20261008T180231_13fb09dc",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_03_medium_OFF_20261008T180231_13fb09dc",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2311,
+      "camera_packets": 2700
+    }
+  },
+  {
+    "sequence": "MH_03_medium",
+    "mode": "G",
+    "run_id": "six_full_MH_03_medium_G_20261008T180251_dcd9d300",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_03_medium_G_20261008T180251_dcd9d300",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 2078,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2311,
+      "camera_packets": 2700
+    }
+  },
+  {
+    "sequence": "MH_03_medium",
+    "mode": "V",
+    "run_id": "six_full_MH_03_medium_V_20261008T180409_1143ea77",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_03_medium_V_20261008T180409_1143ea77",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 1924,
+      "actual_L": 0,
+      "output_rows": 2311,
+      "camera_packets": 2700
+    }
+  },
+  {
+    "sequence": "MH_03_medium",
+    "mode": "GV",
+    "run_id": "six_full_MH_03_medium_GV_20261008T180528_eddfa3fc",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_03_medium_GV_20261008T180528_eddfa3fc",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 2078,
+      "actual_V": 1924,
+      "actual_L": 0,
+      "output_rows": 2311,
+      "camera_packets": 2700
+    }
+  },
+  {
+    "sequence": "MH_03_medium",
+    "mode": "L",
+    "run_id": "six_full_MH_03_medium_L_20261008T180646_34bd6100",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_03_medium_L_20261008T180646_34bd6100",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 1920,
+      "output_rows": 2311,
+      "camera_packets": 2700
+    }
+  },
+  {
+    "sequence": "MH_03_medium",
+    "mode": "L_GV",
+    "run_id": "six_full_MH_03_medium_L_GV_20261008T180805_467de74e",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_03_medium_L_GV_20261008T180805_467de74e",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 2078,
+      "actual_V": 1924,
+      "actual_L": 1920,
+      "output_rows": 2311,
+      "camera_packets": 2700
+    }
+  },
+  {
+    "sequence": "MH_04_difficult",
+    "mode": "OFF",
+    "run_id": "six_full_MH_04_difficult_OFF_20261008T180924_572b7a8d",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_04_difficult_OFF_20261008T180924_572b7a8d",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 1919,
+      "camera_packets": 2032
+    }
+  },
+  {
+    "sequence": "MH_04_difficult",
+    "mode": "G",
+    "run_id": "six_full_MH_04_difficult_G_20261008T180937_a2240f4d",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_04_difficult_G_20261008T180937_a2240f4d",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 1919,
+      "camera_packets": 2032
+    }
+  },
+  {
+    "sequence": "MH_04_difficult",
+    "mode": "V",
+    "run_id": "six_full_MH_04_difficult_V_20261008T181023_788c0f3d",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_04_difficult_V_20261008T181023_788c0f3d",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 1919,
+      "camera_packets": 2032
+    }
+  },
+  {
+    "sequence": "MH_04_difficult",
+    "mode": "GV",
+    "run_id": "six_full_MH_04_difficult_GV_20261008T181110_b095c37b",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_04_difficult_GV_20261008T181110_b095c37b",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 1919,
+      "camera_packets": 2032
+    }
+  },
+  {
+    "sequence": "MH_04_difficult",
+    "mode": "L",
+    "run_id": "six_full_MH_04_difficult_L_20261008T181156_b0eaa9da",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_04_difficult_L_20261008T181156_b0eaa9da",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 1919,
+      "camera_packets": 2032
+    }
+  },
+  {
+    "sequence": "MH_04_difficult",
+    "mode": "L_GV",
+    "run_id": "six_full_MH_04_difficult_L_GV_20261008T181242_2cddca8e",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_04_difficult_L_GV_20261008T181242_2cddca8e",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 1919,
+      "camera_packets": 2032
+    }
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "OFF",
+    "run_id": "six_full_MH_05_difficult_OFF_20261008T181329_1d4874e3",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_05_difficult_OFF_20261008T181329_1d4874e3",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 1849,
+      "camera_packets": 2273
+    }
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "G",
+    "run_id": "six_full_MH_05_difficult_G_20261008T181345_799626fa",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_05_difficult_G_20261008T181345_799626fa",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 1638,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 1849,
+      "camera_packets": 2273
+    }
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "V",
+    "run_id": "six_full_MH_05_difficult_V_20261008T181451_bfe23f6b",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_05_difficult_V_20261008T181451_bfe23f6b",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 1576,
+      "actual_L": 0,
+      "output_rows": 1849,
+      "camera_packets": 2273
+    }
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "GV",
+    "run_id": "six_full_MH_05_difficult_GV_20261008T181556_072377d5",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_05_difficult_GV_20261008T181556_072377d5",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 1638,
+      "actual_V": 1576,
+      "actual_L": 0,
+      "output_rows": 1849,
+      "camera_packets": 2273
+    }
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "L",
+    "run_id": "six_full_MH_05_difficult_L_20261008T181702_3152e812",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_05_difficult_L_20261008T181702_3152e812",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 1575,
+      "output_rows": 1849,
+      "camera_packets": 2273
+    }
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "L_GV",
+    "run_id": "six_full_MH_05_difficult_L_GV_20261008T181808_d4730faf",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_MH_05_difficult_L_GV_20261008T181808_d4730faf",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 1638,
+      "actual_V": 1576,
+      "actual_L": 1575,
+      "output_rows": 1849,
+      "camera_packets": 2273
+    }
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "OFF",
+    "run_id": "six_full_V1_01_easy_OFF_20261008T181915_8eebaacc",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_01_easy_OFF_20261008T181915_8eebaacc",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2800,
+      "camera_packets": 2912
+    }
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "G",
+    "run_id": "six_full_V1_01_easy_G_20261008T181937_a5c14ab9",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_01_easy_G_20261008T181937_a5c14ab9",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 2426,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2800,
+      "camera_packets": 2912
+    }
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "V",
+    "run_id": "six_full_V1_01_easy_V_20261008T182047_784a0be1",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_01_easy_V_20261008T182047_784a0be1",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 2407,
+      "actual_L": 0,
+      "output_rows": 2800,
+      "camera_packets": 2912
+    }
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "GV",
+    "run_id": "six_full_V1_01_easy_GV_20261008T182157_746f1720",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_01_easy_GV_20261008T182157_746f1720",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 2426,
+      "actual_V": 2407,
+      "actual_L": 0,
+      "output_rows": 2800,
+      "camera_packets": 2912
+    }
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "L",
+    "run_id": "six_full_V1_01_easy_L_20261008T182308_7d8cc4a8",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_01_easy_L_20261008T182308_7d8cc4a8",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 2406,
+      "output_rows": 2800,
+      "camera_packets": 2912
+    }
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "L_GV",
+    "run_id": "six_full_V1_01_easy_L_GV_20261008T182419_4d92d338",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_01_easy_L_GV_20261008T182419_4d92d338",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 2426,
+      "actual_V": 2407,
+      "actual_L": 2406,
+      "output_rows": 2800,
+      "camera_packets": 2912
+    }
+  },
+  {
+    "sequence": "V1_02_medium",
+    "mode": "OFF",
+    "run_id": "six_full_V1_02_medium_OFF_20261008T182530_d5d4e931",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_02_medium_OFF_20261008T182530_d5d4e931",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 1611,
+      "camera_packets": 1710
+    }
+  },
+  {
+    "sequence": "V1_02_medium",
+    "mode": "G",
+    "run_id": "six_full_V1_02_medium_G_20261008T182543_786651f9",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_02_medium_G_20261008T182543_786651f9",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 953,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 1611,
+      "camera_packets": 1710
+    }
+  },
+  {
+    "sequence": "V1_02_medium",
+    "mode": "V",
+    "run_id": "six_full_V1_02_medium_V_20261008T182620_b055de3b",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_02_medium_V_20261008T182620_b055de3b",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 932,
+      "actual_L": 0,
+      "output_rows": 1611,
+      "camera_packets": 1710
+    }
+  },
+  {
+    "sequence": "V1_02_medium",
+    "mode": "GV",
+    "run_id": "six_full_V1_02_medium_GV_20261008T182656_056b11ab",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_02_medium_GV_20261008T182656_056b11ab",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 953,
+      "actual_V": 932,
+      "actual_L": 0,
+      "output_rows": 1611,
+      "camera_packets": 1710
+    }
+  },
+  {
+    "sequence": "V1_02_medium",
+    "mode": "L",
+    "run_id": "six_full_V1_02_medium_L_20261008T182732_eda844d7",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_02_medium_L_20261008T182732_eda844d7",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 930,
+      "output_rows": 1611,
+      "camera_packets": 1710
+    }
+  },
+  {
+    "sequence": "V1_02_medium",
+    "mode": "L_GV",
+    "run_id": "six_full_V1_02_medium_L_GV_20261008T182809_d3b1fecf",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_02_medium_L_GV_20261008T182809_d3b1fecf",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 953,
+      "actual_V": 932,
+      "actual_L": 930,
+      "output_rows": 1611,
+      "camera_packets": 1710
+    }
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "mode": "OFF",
+    "run_id": "six_full_V1_03_difficult_OFF_20261008T182846_e7893594",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_03_difficult_OFF_20261008T182846_e7893594",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2005,
+      "camera_packets": 2149
+    }
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "mode": "G",
+    "run_id": "six_full_V1_03_difficult_G_20261008T182901_68ab593e",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_03_difficult_G_20261008T182901_68ab593e",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 956,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2005,
+      "camera_packets": 2149
+    }
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "mode": "V",
+    "run_id": "six_full_V1_03_difficult_V_20261008T182943_f0f71860",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_03_difficult_V_20261008T182943_f0f71860",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 931,
+      "actual_L": 0,
+      "output_rows": 2005,
+      "camera_packets": 2149
+    }
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "mode": "GV",
+    "run_id": "six_full_V1_03_difficult_GV_20261008T183024_4f74a2c8",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_03_difficult_GV_20261008T183024_4f74a2c8",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 956,
+      "actual_V": 931,
+      "actual_L": 0,
+      "output_rows": 2005,
+      "camera_packets": 2149
+    }
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "mode": "L",
+    "run_id": "six_full_V1_03_difficult_L_20261008T183105_6540e404",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_03_difficult_L_20261008T183105_6540e404",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 927,
+      "output_rows": 2005,
+      "camera_packets": 2149
+    }
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "mode": "L_GV",
+    "run_id": "six_full_V1_03_difficult_L_GV_20261008T183147_fef4077c",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V1_03_difficult_L_GV_20261008T183147_fef4077c",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 956,
+      "actual_V": 931,
+      "actual_L": 927,
+      "output_rows": 2005,
+      "camera_packets": 2149
+    }
+  },
+  {
+    "sequence": "V2_01_easy",
+    "mode": "OFF",
+    "run_id": "six_full_V2_01_easy_OFF_20261008T183229_c1627efe",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_01_easy_OFF_20261008T183229_c1627efe",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2181,
+      "camera_packets": 2280
+    }
+  },
+  {
+    "sequence": "V2_01_easy",
+    "mode": "G",
+    "run_id": "six_full_V2_01_easy_G_20261008T183246_61064361",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_01_easy_G_20261008T183246_61064361",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 1574,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2181,
+      "camera_packets": 2280
+    }
+  },
+  {
+    "sequence": "V2_01_easy",
+    "mode": "V",
+    "run_id": "six_full_V2_01_easy_V_20261008T183340_492ab0a2",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_01_easy_V_20261008T183340_492ab0a2",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 1563,
+      "actual_L": 0,
+      "output_rows": 2181,
+      "camera_packets": 2280
+    }
+  },
+  {
+    "sequence": "V2_01_easy",
+    "mode": "GV",
+    "run_id": "six_full_V2_01_easy_GV_20261008T183433_7e825a1d",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_01_easy_GV_20261008T183433_7e825a1d",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 1574,
+      "actual_V": 1563,
+      "actual_L": 0,
+      "output_rows": 2181,
+      "camera_packets": 2280
+    }
+  },
+  {
+    "sequence": "V2_01_easy",
+    "mode": "L",
+    "run_id": "six_full_V2_01_easy_L_20261008T183527_b3325d32",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_01_easy_L_20261008T183527_b3325d32",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 1560,
+      "output_rows": 2181,
+      "camera_packets": 2280
+    }
+  },
+  {
+    "sequence": "V2_01_easy",
+    "mode": "L_GV",
+    "run_id": "six_full_V2_01_easy_L_GV_20261008T183621_9a296f7e",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_01_easy_L_GV_20261008T183621_9a296f7e",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 1574,
+      "actual_V": 1563,
+      "actual_L": 1560,
+      "output_rows": 2181,
+      "camera_packets": 2280
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "OFF",
+    "run_id": "six_full_V2_02_medium_OFF_20261008T183716_adc9643e",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_02_medium_OFF_20261008T183716_adc9643e",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2266,
+      "camera_packets": 2348
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "G",
+    "run_id": "six_full_V2_02_medium_G_20261008T183732_549dd33b",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_02_medium_G_20261008T183732_549dd33b",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 1606,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2266,
+      "camera_packets": 2348
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "V",
+    "run_id": "six_full_V2_02_medium_V_20261008T183823_7a18026f",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_02_medium_V_20261008T183823_7a18026f",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 1571,
+      "actual_L": 0,
+      "output_rows": 2266,
+      "camera_packets": 2348
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "GV",
+    "run_id": "six_full_V2_02_medium_GV_20261008T183914_b650f691",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_02_medium_GV_20261008T183914_b650f691",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 1606,
+      "actual_V": 1571,
+      "actual_L": 0,
+      "output_rows": 2266,
+      "camera_packets": 2348
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "L",
+    "run_id": "six_full_V2_02_medium_L_20261008T184006_6934f783",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_02_medium_L_20261008T184006_6934f783",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 1570,
+      "output_rows": 2266,
+      "camera_packets": 2348
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "L_GV",
+    "run_id": "six_full_V2_02_medium_L_GV_20261008T184057_407d425a",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_02_medium_L_GV_20261008T184057_407d425a",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 1606,
+      "actual_V": 1571,
+      "actual_L": 1570,
+      "output_rows": 2266,
+      "camera_packets": 2348
+    }
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "OFF",
+    "run_id": "six_full_V2_03_difficult_OFF_20261008T184150_675f7b20",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_03_difficult_OFF_20261008T184150_675f7b20",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 1806,
+      "camera_packets": 1921
+    }
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "G",
+    "run_id": "six_full_V2_03_difficult_G_20261008T184203_6b174b73",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_03_difficult_G_20261008T184203_6b174b73",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 706,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 1806,
+      "camera_packets": 1921
+    }
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "V",
+    "run_id": "six_full_V2_03_difficult_V_20261008T184238_1b195ac5",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_03_difficult_V_20261008T184238_1b195ac5",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 637,
+      "actual_L": 0,
+      "output_rows": 1806,
+      "camera_packets": 1921
+    }
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "GV",
+    "run_id": "six_full_V2_03_difficult_GV_20261008T184314_e6943268",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_03_difficult_GV_20261008T184314_e6943268",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 706,
+      "actual_V": 637,
+      "actual_L": 0,
+      "output_rows": 1806,
+      "camera_packets": 1921
+    }
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "L",
+    "run_id": "six_full_V2_03_difficult_L_20261008T184349_77028870",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_03_difficult_L_20261008T184349_77028870",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 627,
+      "output_rows": 1806,
+      "camera_packets": 1921
+    }
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "L_GV",
+    "run_id": "six_full_V2_03_difficult_L_GV_20261008T184425_81138128",
+    "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_full_V2_03_difficult_L_GV_20261008T184425_81138128",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 706,
+      "actual_V": 637,
+      "actual_L": 627,
+      "output_rows": 1806,
+      "camera_packets": 1921
+    }
+  }
+]

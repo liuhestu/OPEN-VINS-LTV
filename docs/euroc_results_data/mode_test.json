@@ -1,0 +1,14 @@
+{
+  "coord_root": "/home/he/output/ltv_euroc_six_20261008T172854",
+  "task": "six",
+  "label": "six_mode_flags_contract",
+  "kind": "test",
+  "heavy": false,
+  "source_oid": "a18f86d9aab0da95f1ca7a86d377425d71857b11",
+  "command": [
+    "/home/he/output/ltv_euroc_six_20261008T172854/tools/env_exec.sh",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/builds/a18f86d9aab0da95f1ca7a86d377425d71857b11/install",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/builds/a18f86d9aab0da95f1ca7a86d377425d71857b11/install/ov_msckf/lib/ov_msckf/test_ltv_experiment_modes"
+  ],
+  "diagnostic_level": "MODE_FLAGS_ONLY"
+}

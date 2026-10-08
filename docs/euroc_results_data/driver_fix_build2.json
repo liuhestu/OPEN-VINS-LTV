@@ -1,0 +1,21 @@
+{
+  "coord_root": "/home/he/output/ltv_euroc_six_20261008T172854",
+  "task": "six",
+  "label": "driver_fix_provenance_attempt2",
+  "kind": "build",
+  "heavy": true,
+  "source_oid": "a18f86d9aab0da95f1ca7a86d377425d71857b11",
+  "source_snapshot": "/home/he/output/ltv_euroc_six_20261008T172854/task/source/a18f86d9aab0da95f1ca7a86d377425d71857b11",
+  "command": [
+    "/home/he/output/ltv_euroc_six_20261008T172854/tools/env_exec.sh",
+    "-",
+    "python3",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/source/a18f86d9aab0da95f1ca7a86d377425d71857b11/docs/experiments/tools/ltv_three_track/task_a/build_scalar_runner.py",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/builds/b770d6f50d5748cb147e88234fecb9fa0da48549",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/source/b770d6f50d5748cb147e88234fecb9fa0da48549",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/source/a18f86d9aab0da95f1ca7a86d377425d71857b11",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/builds/a18f86d9aab0da95f1ca7a86d377425d71857b11",
+    "{RUN_DIR}/provenance"
+  ],
+  "diagnostic_level": "FRESH_RUNNERS_SAME_VERIFIED_LIBRARIES"
+}

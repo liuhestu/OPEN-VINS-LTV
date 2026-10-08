@@ -1,0 +1,33 @@
+{
+  "coord_root": "/home/he/output/ltv_euroc_six_20261008T172854",
+  "task": "six",
+  "label": "fresh_six_mode_build",
+  "kind": "build",
+  "heavy": true,
+  "source_oid": "b770d6f50d5748cb147e88234fecb9fa0da48549",
+  "source_snapshot": "/home/he/output/ltv_euroc_six_20261008T172854/task/source/b770d6f50d5748cb147e88234fecb9fa0da48549",
+  "command": [
+    "/home/he/output/ltv_euroc_six_20261008T172854/tools/env_exec.sh",
+    "-",
+    "colcon",
+    "--log-base",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/builds/b770d6f50d5748cb147e88234fecb9fa0da48549/log",
+    "build",
+    "--base-paths",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/source/b770d6f50d5748cb147e88234fecb9fa0da48549",
+    "--packages-up-to",
+    "ov_msckf",
+    "--build-base",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/builds/b770d6f50d5748cb147e88234fecb9fa0da48549/build",
+    "--install-base",
+    "/home/he/output/ltv_euroc_six_20261008T172854/task/builds/b770d6f50d5748cb147e88234fecb9fa0da48549/install",
+    "--executor",
+    "sequential",
+    "--cmake-args",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DCMAKE_CXX_FLAGS_RELEASE=-O3 -DNDEBUG -g0",
+    "-DBUILD_LTV_PHASE0_TESTS=OFF",
+    "-DBUILD_LTV_EXPERIMENTS=ON"
+  ],
+  "diagnostic_level": "BUILD_ONLY"
+}

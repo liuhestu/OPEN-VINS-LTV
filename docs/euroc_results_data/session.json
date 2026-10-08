@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "six": {
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "task_root": "/home/he/output/ltv_euroc_six_20261008T172854/task",
+      "namespace": "ltv_euroc_six",
+      "ros_domain_id": 191
+    }
+  }
+}

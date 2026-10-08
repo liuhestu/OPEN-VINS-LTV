@@ -1,0 +1,211 @@
+{
+  "MH_01_easy": {
+    "root": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+    "csv_sha256": {
+      "cam0/data.csv": "62db628a8e6358f43df81e66ddb4597ab40b19a10f3d6cd80cc04d590b5adb12",
+      "cam1/data.csv": "62db628a8e6358f43df81e66ddb4597ab40b19a10f3d6cd80cc04d590b5adb12",
+      "imu0/data.csv": "226470999dc8ba758c838982fd7eb2bc9f3f2b489e85a38d0ecf8b9d40785a5b",
+      "state_groundtruth_estimate0/data.csv": "aae2d7c5684724c8afe364d2fd8499a6ed77a9169adf03736531f67d8e7b2117"
+    },
+    "images": {
+      "cam0": {
+        "count": 3682,
+        "content_aggregate_sha256": "4ca5134698f01d1e51d44f62537bcdb9289275659746fc7e60242267dc866653"
+      },
+      "cam1": {
+        "count": 3682,
+        "content_aggregate_sha256": "962bd9338295ec18fac58405910afea2e6eb578cbde71cad5544a4dd73d6989f"
+      }
+    }
+  },
+  "MH_02_easy": {
+    "root": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+    "csv_sha256": {
+      "cam0/data.csv": "ddeecc8b290a722264f78288cbd8bd653598e70887c7c9146baaa8ce83da1a34",
+      "cam1/data.csv": "ddeecc8b290a722264f78288cbd8bd653598e70887c7c9146baaa8ce83da1a34",
+      "imu0/data.csv": "7add4feaa342c6b6874996058b6b5679d908eca25b7e063eae46fec49558cc8e",
+      "state_groundtruth_estimate0/data.csv": "f49666ad4991c80bc467fc05e6d250cec7e28fbd05c1643402298e67438f754f"
+    },
+    "images": {
+      "cam0": {
+        "count": 3040,
+        "content_aggregate_sha256": "2fdb21cf8b7e01350c7fe5c6368c7076dc901e950318218fb8b045141e771fc6"
+      },
+      "cam1": {
+        "count": 3040,
+        "content_aggregate_sha256": "82522bd464555e0b275d4abdf6249f8c6739bb7b2ce385b5b3fb48f72c701a12"
+      }
+    }
+  },
+  "MH_03_medium": {
+    "root": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+    "csv_sha256": {
+      "cam0/data.csv": "20adca753a13194a0d6f498bd3fe867252c8883fb6e3400e16ec704aa5c28aaf",
+      "cam1/data.csv": "20adca753a13194a0d6f498bd3fe867252c8883fb6e3400e16ec704aa5c28aaf",
+      "imu0/data.csv": "5defd7c9770344df34ebbd5805264341f8a4920c13a22e1b9ef8607168cad02e",
+      "state_groundtruth_estimate0/data.csv": "7e52fd28088b0d428509cc365fbb44ed5d910e5174ac155e1d987923c056000f"
+    },
+    "images": {
+      "cam0": {
+        "count": 2700,
+        "content_aggregate_sha256": "e17d3d5599a4cbf4de13f2eb63c84b09666659e2b304b4c5629d5eaf81c6f518"
+      },
+      "cam1": {
+        "count": 2700,
+        "content_aggregate_sha256": "73f5649da2e531d2efa2be61188a95300f2fb44c0b87b09c8055c4e2ab7cb986"
+      }
+    }
+  },
+  "MH_04_difficult": {
+    "root": "/home/he/datasets/euroc/ASL/MH_04_difficult/mav0",
+    "csv_sha256": {
+      "cam0/data.csv": "d65a02647a3dd01e52e8bc0da432b2108915e98b4a51dc52c9a9e2e2ac489e89",
+      "cam1/data.csv": "5f798aa46bd11607673c840980db46f284680559f65cdbf446cb10be2eb005ea",
+      "imu0/data.csv": "330c25e4532c1f27853d0eeee06968d5c4c00c16be1187fdcfd909cfe060360c",
+      "state_groundtruth_estimate0/data.csv": "c13de3d5ba9ead60688505d4773286c290fa642264943c88aa182d0eac9f4960"
+    },
+    "images": {
+      "cam0": {
+        "count": 2033,
+        "content_aggregate_sha256": "24701a596847709c83c5c837828f8d3524cb460ff057c71aade311ac504b05de"
+      },
+      "cam1": {
+        "count": 2032,
+        "content_aggregate_sha256": "243a384599a696af3981c2a67ba37b79c198a76aded8d163bcfa364651fd0795"
+      }
+    }
+  },
+  "MH_05_difficult": {
+    "root": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+    "csv_sha256": {
+      "cam0/data.csv": "c48f149a52045b685f55e47d82ac0bc299def3736ffc838cbac8287ec4181318",
+      "cam1/data.csv": "c48f149a52045b685f55e47d82ac0bc299def3736ffc838cbac8287ec4181318",
+      "imu0/data.csv": "e6498fb86f0b618abb07b256b1822957bb4bcf158d07cc82d3b43ca8166ec004",
+      "state_groundtruth_estimate0/data.csv": "da13e5dcb3d5fc2f12c4e8bfae10dd380d765150be3312f989b0bc5550965451"
+    },
+    "images": {
+      "cam0": {
+        "count": 2273,
+        "content_aggregate_sha256": "5d9c9e7416435afeaf506d0ec6ef71df55c2fda9d544e66e5b428d4bdad1fff2"
+      },
+      "cam1": {
+        "count": 2273,
+        "content_aggregate_sha256": "3bcc37798ac31c0ee4994d57e1cd03424d7ee4fd2764d444f459af99fe5dfa7a"
+      }
+    }
+  },
+  "V1_01_easy": {
+    "root": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+    "csv_sha256": {
+      "cam0/data.csv": "fde68e2c385fba8b927023b912bf37ff48e33128035efe852e396e6dbb499877",
+      "cam1/data.csv": "fde68e2c385fba8b927023b912bf37ff48e33128035efe852e396e6dbb499877",
+      "imu0/data.csv": "4cef78a5cf7c8ee52016a160de4b50184da2a216d615feb7ebbbb3bc99efa89e",
+      "state_groundtruth_estimate0/data.csv": "701200e6924ba845ccdeea884bd717c82d1ed91f480913ea6e2e6ccb9c0fbf6d"
+    },
+    "images": {
+      "cam0": {
+        "count": 2912,
+        "content_aggregate_sha256": "1c02432588cb8bf6ec063a5285a1f123b0923562446ba43f86d419eba0f8f9d4"
+      },
+      "cam1": {
+        "count": 2912,
+        "content_aggregate_sha256": "6820c6ada843ec4266b717724edbd85a746c32197cf8ecd02773c62378b3374b"
+      }
+    }
+  },
+  "V1_02_medium": {
+    "root": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+    "csv_sha256": {
+      "cam0/data.csv": "8f99cf27fb91dabdfb198999cb925d660cf6a830be4c5cf0df1d2bfa98929e16",
+      "cam1/data.csv": "a9d55e39d60825d580b4d27f36120201c9eee7239f946d98b319588032cc3e6c",
+      "imu0/data.csv": "51804ce6362dc200fff3ed6a3aba1df769528badf1a877d19d5cac976a544c09",
+      "state_groundtruth_estimate0/data.csv": "fed415eee44313584b9c4f61010dac146d5e4a4a35301db25b1ecd7d4d91b5f0"
+    },
+    "images": {
+      "cam0": {
+        "count": 1710,
+        "content_aggregate_sha256": "8f095c156ced0956187d5b01e0ec6bd8b314bc5af628fd075894eb1399d57da9"
+      },
+      "cam1": {
+        "count": 1711,
+        "content_aggregate_sha256": "d89d9ba5e53efd8298ef6bc9575153b7cfc1350020b20f94710c3051ac723764"
+      }
+    }
+  },
+  "V1_03_difficult": {
+    "root": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+    "csv_sha256": {
+      "cam0/data.csv": "b26ca5392713e941197cd287e713e36484255ee9289362ab2ab83a35d8f9e327",
+      "cam1/data.csv": "b26ca5392713e941197cd287e713e36484255ee9289362ab2ab83a35d8f9e327",
+      "imu0/data.csv": "543835f7b7dd9d1287c9052955e030ade113c51dc97ec2c15d13a318521ad0d7",
+      "state_groundtruth_estimate0/data.csv": "703ba51a854daba80f20df93e76605c2278b3f227afe2bcbe9eb4255186fc3d9"
+    },
+    "images": {
+      "cam0": {
+        "count": 2149,
+        "content_aggregate_sha256": "35dad1ac3cb06200c67a6780ff6fab335bbe24e6164a78c2124db98f8d92d431"
+      },
+      "cam1": {
+        "count": 2149,
+        "content_aggregate_sha256": "9b1021dcda3f16724e3b8990c951510572184588f626d20c75ee821642da634c"
+      }
+    }
+  },
+  "V2_01_easy": {
+    "root": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+    "csv_sha256": {
+      "cam0/data.csv": "e2e58e215958cb40d9265a83b001855eb5d3c861892ca47bedd65d4b6810cef3",
+      "cam1/data.csv": "e2e58e215958cb40d9265a83b001855eb5d3c861892ca47bedd65d4b6810cef3",
+      "imu0/data.csv": "d8df41e85c12761104043264a61054ad4bfa19087886e847f4e0412a19cd1633",
+      "state_groundtruth_estimate0/data.csv": "315807fd7d91868ed6085a3d8fde40315842135f13199ed83e2e6270eb5b5126"
+    },
+    "images": {
+      "cam0": {
+        "count": 2280,
+        "content_aggregate_sha256": "4dc48c0344c609fb07add713bdb37392c4881ed37260909a8d899d4899e5b8ad"
+      },
+      "cam1": {
+        "count": 2280,
+        "content_aggregate_sha256": "b168fa263f6192ff2d124e8c75c5e8c172ad9fc819c06f9eb8e8ac022a9b85d1"
+      }
+    }
+  },
+  "V2_02_medium": {
+    "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+    "csv_sha256": {
+      "cam0/data.csv": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+      "cam1/data.csv": "009ba9e52cfa008415d4b5ec720bd206ac0385b118d1250323ddc710a42f856c",
+      "imu0/data.csv": "7f1028007d030a38e5c7e2cee19ca773015b2fecbbbe80794f5c34e900b2ee8e",
+      "state_groundtruth_estimate0/data.csv": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d"
+    },
+    "images": {
+      "cam0": {
+        "count": 2348,
+        "content_aggregate_sha256": "cc25673009a9c062a0f582a362fdc03285fed28c6c6b6edc3e45d927f271fe54"
+      },
+      "cam1": {
+        "count": 2348,
+        "content_aggregate_sha256": "9f5cd2a5d1a5c52f6f8c467aa3d337da714ed05c8a38fc088b078e6321fffd3b"
+      }
+    }
+  },
+  "V2_03_difficult": {
+    "root": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+    "csv_sha256": {
+      "cam0/data.csv": "c0722103ebabf09f7ca39a801778f3a5b40b7accbcd6d520ab19b6fea4b651d9",
+      "cam1/data.csv": "40db17fffceb575aafe687ef80d5b06308244f98316f08bf40d9cbc3d8721b79",
+      "imu0/data.csv": "55911f078feea76eb5bdeb97c9ebbebb679de39c4dd44c50e81064d5d8cf77f6",
+      "state_groundtruth_estimate0/data.csv": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5"
+    },
+    "images": {
+      "cam0": {
+        "count": 1922,
+        "content_aggregate_sha256": "c467100c7da75de772c4855f037306151c005f3346935394a2b052f34e0c043c"
+      },
+      "cam1": {
+        "count": 2336,
+        "content_aggregate_sha256": "2442b86e190233c8b76a853620ee443509e4bea99461eecd02fbed6253249007"
+      }
+    }
+  }
+}

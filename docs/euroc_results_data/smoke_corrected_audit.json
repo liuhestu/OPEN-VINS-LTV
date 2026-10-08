@@ -1,0 +1,196 @@
+{
+  "status": "PASS_ALL_12_PREFIX_CASES",
+  "original_scope_failure_retained": true,
+  "cases": [
+    {
+      "sequence": "V2_02_medium",
+      "mode": "OFF",
+      "run_id": "six_smoke_V2_02_medium_OFF_20261008T174207_757867df",
+      "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_smoke_V2_02_medium_OFF_20261008T174207_757867df",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 0,
+        "actual_V": 0,
+        "actual_L": 0,
+        "output_rows": 718,
+        "camera_packets": 800
+      }
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "G",
+      "run_id": "six_smoke_V2_02_medium_G_20261008T174213_af0a2120",
+      "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_smoke_V2_02_medium_G_20261008T174213_af0a2120",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 436,
+        "actual_V": 0,
+        "actual_L": 0,
+        "output_rows": 718,
+        "camera_packets": 800
+      }
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "V",
+      "run_id": "six_smoke_V2_02_medium_V_20261008T174229_c345abbd",
+      "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_smoke_V2_02_medium_V_20261008T174229_c345abbd",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 0,
+        "actual_V": 401,
+        "actual_L": 0,
+        "output_rows": 718,
+        "camera_packets": 800
+      }
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "GV",
+      "run_id": "six_smoke_V2_02_medium_GV_20261008T174245_72bea008",
+      "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_smoke_V2_02_medium_GV_20261008T174245_72bea008",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 436,
+        "actual_V": 401,
+        "actual_L": 0,
+        "output_rows": 718,
+        "camera_packets": 800
+      }
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "L",
+      "run_id": "six_smoke_V2_02_medium_L_20261008T174301_6066e12e",
+      "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_smoke_V2_02_medium_L_20261008T174301_6066e12e",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 0,
+        "actual_V": 0,
+        "actual_L": 401,
+        "output_rows": 718,
+        "camera_packets": 800
+      }
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "L_GV",
+      "run_id": "six_smoke_V2_02_medium_L_GV_20261008T174318_c6a845a3",
+      "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_smoke_V2_02_medium_L_GV_20261008T174318_c6a845a3",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 436,
+        "actual_V": 401,
+        "actual_L": 401,
+        "output_rows": 718,
+        "camera_packets": 800
+      }
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "mode": "OFF",
+      "run_id": "six_smoke_V2_03_difficult_OFF_20261008T174334_c1af3351",
+      "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_smoke_V2_03_difficult_OFF_20261008T174334_c1af3351",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 0,
+        "actual_V": 0,
+        "actual_L": 0,
+        "output_rows": 631,
+        "camera_packets": 746
+      }
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "mode": "G",
+      "run_id": "six_smoke_V2_03_difficult_G_20261008T174339_d429956b",
+      "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_smoke_V2_03_difficult_G_20261008T174339_d429956b",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 208,
+        "actual_V": 0,
+        "actual_L": 0,
+        "output_rows": 631,
+        "camera_packets": 746
+      }
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "mode": "V",
+      "run_id": "six_smoke_V2_03_difficult_V_20261008T174352_9fe4e301",
+      "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_smoke_V2_03_difficult_V_20261008T174352_9fe4e301",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 0,
+        "actual_V": 191,
+        "actual_L": 0,
+        "output_rows": 631,
+        "camera_packets": 746
+      }
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "mode": "GV",
+      "run_id": "six_smoke_V2_03_difficult_GV_20261008T174405_7f8696ca",
+      "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_smoke_V2_03_difficult_GV_20261008T174405_7f8696ca",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 208,
+        "actual_V": 191,
+        "actual_L": 0,
+        "output_rows": 631,
+        "camera_packets": 746
+      }
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "mode": "L",
+      "run_id": "six_smoke_V2_03_difficult_L_20261008T174417_3ef58ec0",
+      "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_smoke_V2_03_difficult_L_20261008T174417_3ef58ec0",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 0,
+        "actual_V": 0,
+        "actual_L": 190,
+        "output_rows": 631,
+        "camera_packets": 746
+      }
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "mode": "L_GV",
+      "run_id": "six_smoke_V2_03_difficult_L_GV_20261008T174430_fe378236",
+      "output_dir": "/home/he/output/ltv_euroc_six_20261008T172854/task/results/six_smoke_V2_03_difficult_L_GV_20261008T174430_fe378236",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 208,
+        "actual_V": 191,
+        "actual_L": 190,
+        "output_rows": 631,
+        "camera_packets": 746
+      }
+    }
+  ],
+  "combined_actual": [
+    {
+      "sequence": "V2_02_medium",
+      "three_branch_same_frame_updates": 397
+    },
+    {
+      "sequence": "V2_03_difficult",
+      "three_branch_same_frame_updates": 188
+    }
+  ]
+}

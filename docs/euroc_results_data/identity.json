@@ -1,0 +1,17 @@
+{
+  "source_oid": "a18f86d9aab0da95f1ca7a86d377425d71857b11",
+  "source": "/home/he/output/ltv_euroc_six_20261008T172854/task/source/a18f86d9aab0da95f1ca7a86d377425d71857b11",
+  "artifact": "/home/he/output/ltv_euroc_six_20261008T172854/task/builds/a18f86d9aab0da95f1ca7a86d377425d71857b11",
+  "coord_root": "/home/he/output/ltv_euroc_six_20261008T172854",
+  "root": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+  "base_main_oid": "300198d08d057d9fb9a0029df6fdb67603722e99",
+  "analysis_source_oid": "5c6930945825515f919036986a2756eda6310c83",
+  "analysis_scripts_sha256": {
+    "run_euroc_six.py": "4a0e3ffac21ff9eed51d44c40035aa86bb0b429523fcdca53ff281f930375cc2",
+    "evaluate_euroc_six.py": "b6656199dcbe5f854a91a1b5eefa3e586a0317ab64dc2382db092d958033dd21"
+  },
+  "parent_library_source_oid": "b770d6f50d5748cb147e88234fecb9fa0da48549",
+  "parent_library_artifact": "/home/he/output/ltv_euroc_six_20261008T172854/task/builds/b770d6f50d5748cb147e88234fecb9fa0da48549",
+  "batch_analysis_source_oid": "b8de04fd5ea4663f2dcd33923a769b39b3aaba0b",
+  "batch_analysis_sha256": "1e9012506207e5f85c41ccefe54dcb04df9779a2d1c95c7c8474137fb9ee6927"
+}
