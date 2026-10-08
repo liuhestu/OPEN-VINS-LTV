@@ -150,5 +150,23 @@
     "judgement": "First failure is scope mismatch rather than observed native numeric change. Prefix regression and PSD validate only their measured range; unknown missing-source counts and real calibration remain unresolved.",
     "change": "Retain original FAIL, scoped prefix PASS and unclassified missing counter; do not relax full comparator. Continue unchanged6982 complete DEV OFF/shadow pairs and corrected offline error chart.",
     "next": "Full source/identity coverage, real OFF regression and mapper checks; deliver finite-model interface plus concrete production-correlation STOP gaps."
+  },
+  {
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T13:50:08.496185+00:00",
+    "batch": "B_V2_02_full_accuracy_first",
+    "observation": "Fixed full V2_02 matched OFF/ON shared assessment:252 metric rows,0FAIL,4 empty retainedNOT_RUN. ATE .0519752096 to .0519751374m (about -7.21e-8m), velocity about -5.38e-7m/s, attitude +.000125deg.",
+    "judgement": "Complete real data support shows no accuracy degradation in this sequence, with negligible effect size. Neither meaningful benefit nor full engineering qualification is established.",
+    "change": "Continue unchanged full V2_03 including frozen three-sample tail, then exact/determinism and exclusive scalar performance/RSS only if accuracy gates permit.",
+    "next": "Original per-sequence/local requirements; no numerical sweep or 5% prediction gate recoupling."
+  },
+  {
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T14:01:52.777244+00:00",
+    "batch": "B_V2_03_full_engineering_failure",
+    "observation": "Full matched DEV shared assessment504rows:1FAIL/12empty retained. Frozen V2_03 three-sample10s_11 ATE .1889666923 to .1947820938m, +5.8154mm >3.7793mm. FullATE improves .1862mm; A three different auxiliary modes previously had a similar tail failure.",
+    "judgement": "Real engineering candidate failure is independent of predictive5%FAIL. Similarity across different auxiliary physics warrants common native joint/visual-feedback audit, not an unproven attribution.",
+    "change": "Pause holdout/performance extensions. Fixed-source OFF/ON nonperformance repeat, independent Horn/raw-pose fit decomposition, optional saved-matrix zero-auxiliary native negative control without changing candidate.",
+    "next": "If reproduced with no specific implementation/input issue, STOP B scope extension; retain all failure/results and separate prediction/engineering/benefit/statistical verdicts."
   }
 ]

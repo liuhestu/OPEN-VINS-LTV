@@ -8,6 +8,27 @@
       "status": "FINAL_PUSHED_VERIFIED",
       "verdict": "G/V/GV STOP; default OFF",
       "runtime_source_oid": "939c689e11aa1ef30adbf60846ef7e5fdbc55290"
+    },
+    "experiment/ltv-three-track-a-interface-20261008": {
+      "local_oid": "81de174a9566f4cd5dc4f9d47ebb7e284331a6ea",
+      "remote_oid": "81de174a9566f4cd5dc4f9d47ebb7e284331a6ea",
+      "verified_at": "2026-10-08T13:47:26.161551+00:00",
+      "status": "FROZEN_INTERFACE_PUSHED_VERIFIED",
+      "scope": "source-only interface; no qualification inherited"
+    },
+    "experiment/ltv-three-track-a-visual-interface-20261008": {
+      "local_oid": "ffd8684fe7aba98c2e6cd789fde860ce94ae8aa7",
+      "remote_oid": "ffd8684fe7aba98c2e6cd789fde860ce94ae8aa7",
+      "verified_at": "2026-10-08T13:47:26.161562+00:00",
+      "status": "FROZEN_INTERFACE_PUSHED_VERIFIED",
+      "scope": "source-only interface; no qualification inherited"
+    },
+    "experiment/ltv-three-track-metrics-interface-20261008": {
+      "local_oid": "347b0ec9066c5f1a62792494751daf4d220036f0",
+      "remote_oid": "347b0ec9066c5f1a62792494751daf4d220036f0",
+      "verified_at": "2026-10-08T13:47:26.161563+00:00",
+      "status": "FROZEN_INTERFACE_PUSHED_VERIFIED",
+      "scope": "source-only interface; no qualification inherited"
     }
   }
 }
