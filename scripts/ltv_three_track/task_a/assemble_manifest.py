@@ -30,7 +30,7 @@ for run_id, events in groups.items():
     files = {}
     if path.exists():
         for filename in ('manifest_start.json', 'manifest_finish.json', 'environment.json', 'replay.json', 'resources.json',
-                         'trajectory.csv', 'audit.csv', 'algorithm_visual_identity.jsonl', 'lifecycle_identity.jsonl',
+                         'instrumentation.json', 'effective_options.json', 'trajectory.csv', 'audit.csv', 'algorithm_visual_identity.jsonl', 'lifecycle_identity.jsonl',
                          'observer_identity.jsonl', 'ltv.csv', 'frame_processing.csv', 'checks.json', 'exact.json'):
             f = path / filename
             if f.exists():files[filename] = {'bytes': f.stat().st_size, 'sha256': hashlib.sha256(f.read_bytes()).hexdigest()}
@@ -52,6 +52,11 @@ for run_id, events in groups.items():
                  'error': finish.get('error'), 'output_dir': str(path),
                  'configuration': json.dumps(source.get('configuration', {})), 'data': json.dumps(source.get('data', {})),
                  'resources': json.dumps(finish.get('resources')), 'artifacts': json.dumps(files),
+                 'environment_identity_path': str(path / 'environment.json') if (path / 'environment.json').exists() else None,
+                 'effective_options_path': str(path / 'effective_options.json') if (path / 'effective_options.json').exists() else None,
+                 'replay_identity_path': str(path / 'replay.json') if (path / 'replay.json').exists() else None,
+                 'determinism_evidence': 'task_a/evidence/repeat_determinism_v203.json; hard exact run artifacts indexed above',
+                 'metrics_evidence': 'task_a/evidence/metrics_first_round.csv; per-run mode/sequence in effective/replay metadata',
                  'historical_reuse': False, 'qualification': 'See task report; EXIT_ZERO is execution only'})
 a.output.mkdir(parents=True, exist_ok=True)
 with (a.output / 'run_manifest.csv').open('w') as f:
