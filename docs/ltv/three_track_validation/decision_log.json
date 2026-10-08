@@ -132,5 +132,23 @@
     "judgement": "Reproducible actual estimator local degradation under unchanged input/source/parameters. Native checks, independent Horn alignment and exact repeated identities exclude the investigated evaluation/build/data causes.",
     "change": "STOP all three A mode scope extensions and weight tuning; preserve first-round performance PASS separately. Holdout and reserve remain unconsumed.",
     "next": "Finalize A report/raw identity/config manifest; no GV production or combined engineering admission from this candidate."
+  },
+  {
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T13:33:47.127524+00:00",
+    "batch": "B_v4_real_short_chain_closed",
+    "observation": "v4 V2_02 start-to40s: original OFF to new L_OFF exact and diagnostic L_ON to scalar L_ON exact; 401 joint updates with 2406 positive landmark rows, one EKF each. Native joint K_L*r_L reconstructed within1e-10 including bias blocks.",
+    "judgement": "Corrected updater has genuine small main-state effect and diagnostic capture is read-only. This resolves implementation application uncertainty, not benefit/nondegradation or unknown correlation.",
+    "change": "Continue fixed V2_03 40s safety prefix then full matched DEV OFF/ON with unchanged model/R/gates/acceptance. No shadow tuning for 5% gain.",
+    "next": "Full trajectories and original local/global/performance/RSS/determinism standards decide independent engineering qualification."
+  },
+  {
+    "event": "RESEARCH_DECISION",
+    "time": "2026-10-08T13:40:41.702887+00:00",
+    "batch": "C_explicit_prefix_regression_and_full_scope",
+    "observation": "Original full-input comparator rejected both intentional10s prefixes as incomplete. Explicit same-prefix comparison subsequently passed main state/P, Observer x/P_R, lifecycle/readiness and cache bytes for200camera/1998IMU/118outputs. Source numerical audit108events is finite/PSD within roundoff, but cumulative missing6 lacks reason logs.",
+    "judgement": "First failure is scope mismatch rather than observed native numeric change. Prefix regression and PSD validate only their measured range; unknown missing-source counts and real calibration remain unresolved.",
+    "change": "Retain original FAIL, scoped prefix PASS and unclassified missing counter; do not relax full comparator. Continue unchanged6982 complete DEV OFF/shadow pairs and corrected offline error chart.",
+    "next": "Full source/identity coverage, real OFF regression and mapper checks; deliver finite-model interface plus concrete production-correlation STOP gaps."
   }
 ]

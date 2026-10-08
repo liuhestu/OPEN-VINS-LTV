@@ -1,15 +1,16 @@
 {
   "coord_root": "/home/he/output/ltv_three_track_20261008_1827",
-  "runs": 70,
+  "runs": 82,
   "states": {
     "CANCELLED_SOURCE_UPDATE": 1,
-    "FINISH": 67,
-    "LAUNCHER_FAILURE": 2
+    "FINISH": 78,
+    "LAUNCHER_FAILURE": 2,
+    "START": 1
   },
   "registry_sha256": {
     "a": "2cbd87f4f3959370d15dcd271b3cd85009b69b18fe609b0821c159eb2a31dafc",
-    "b": "aeefb9a023a0171791bb83b2e46b8d7ff901893887a9e57ce8e4376f8c311412",
-    "c": "1f54026f6dc31c0054ac49aceb070226dec36641c267d32b9bfc48304bb9ec89"
+    "b": "a92a864e924a2d92c2ee5cd1b718dfc87b6c54555509f66ce0ad440219a3d353",
+    "c": "0bd8ba0490f759bd1eae2c80fef2888fc06af7462f9e9aa5d5210520a4f0a0a6"
   },
   "scope": "execution provenance only; exit zero is not numerical/statistical qualification"
 }

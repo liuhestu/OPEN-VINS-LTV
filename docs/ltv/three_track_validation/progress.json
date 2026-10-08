@@ -1,11 +1,11 @@
 {
-  "at_utc": "2026-10-08T13:25:12.823044+00:00",
+  "at_utc": "2026-10-08T13:40:41.703087+00:00",
   "goal": "active",
   "coord_root": "/home/he/output/ltv_three_track_20261008_1827",
   "previous_goal_turn": "progress: shared contracts/source isolation actual builds/gate experiments and user scope amendment",
   "A": "STOP: V2_03 fixed three-sample local ATE FAIL reproduced exactly in all G/V/GV; all four modes repeated 11 necessary identity files byte-exact. Native/OFF and first-round performance evidence retained separately; no holdout consumption or weight scan.",
-  "B": "B3/B4 prediction FAIL preserved; engineering B3 allowed; first short ON affected state but logging/layout defects retained; equivalent pose-layout repair and fresh artifact revalidation underway",
-  "C": "6982 fresh ROS build and native sensitivity/source/lifecycle/pose/parity checks completed; program/true-error FD passed. Actual read-only finite shadow OFF/full DEV checks pending; real calibration and production 30-slot model remain unqualified",
+  "B": "v4 native joint-layout tests, originalOFF/newOFF and diagnosticON/scalarON exact prefix40 passed. 401 actual joint updates and native K_L*r_L decomposition verified. V2_03 safety then full matched DEV engineering remains pending; predictive FAIL preserved.",
+  "C": "Explicit prefix10 main/P/Observer/cache/lifecycle exact PASS after retained full-input scope rejection; known source numerical audit scoped PASS with unexplained missing6. Synthetic clock/shared OFF gauge mapping and guarded correlated kernel PASS. Unchanged6982 full DEV OFF/shadow underway; physical calibration/production correlation unqualified.",
   "production": "defaults unchanged, all production fusion OFF",
   "next": "A reproduce local failure without tuning; B prove corrected joint real ON then full matched OFF/ON; C corrected native/read-only shadow checks; final reports and push verified branch OIDs"
 }
