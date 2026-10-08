@@ -9,6 +9,9 @@ LtvObserver run(const Eigen::VectorXd &bias, const Eigen::Vector3d &seed_delta, 
   c.min_features = 1;
   c.max_features = 1;
   c.q_landmark = 17.;
+  // This synthetic derivative fixture uses a bounded gain metric. Default
+  // V_o=1e6 with q=17 exceeds the native substep cap, as attempt1 demonstrated.
+  c.v_landmark = c.v_velocity = c.v_gravity = .02;
   c.max_camera_substeps = 100;
   o.configure(c);
   o.start(0);
@@ -34,8 +37,13 @@ LtvObserver run(const Eigen::VectorXd &bias, const Eigen::Vector3d &seed_delta, 
     z.normalized_coordinate = Eigen::Vector3d(.15 + .01 * frame, -.03, 1.3);
     if (frame == 3)
       z.normalized_coordinate += last_bearing_delta;
-    assert(o.updateFeaturesControlled(.05 * frame, .05 * frame, {z}, Eigen::Matrix3d::Identity(), Eigen::Vector3d(.1, 0, 0), control)
-               .accepted);
+    const auto result =
+        o.updateFeaturesControlled(.05 * frame, .05 * frame, {z}, Eigen::Matrix3d::Identity(), Eigen::Vector3d(.1, 0, 0), control);
+    if (!result.accepted) {
+      std::cerr << "frame=" << frame << " reason=" << result.reason << " reset=" << static_cast<int>(result.snapshot.last_reset_reason)
+                << " imu_started=" << o.started() << "\n";
+    }
+    assert(result.accepted);
   }
   return o;
 }
