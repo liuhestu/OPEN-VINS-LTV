@@ -65,6 +65,10 @@ def evaluate(run_paths, data_root, sequence):
                 end = nearest(times, times + dt)
                 ok = (abs(times[end] - (times + dt)) <= .025) & mask & mask[end]
                 a, b = np.flatnonzero(ok), end[ok]
+                if not len(a):
+                    metrics[f'RPE_{int(dt)}s_m'] = np.empty(0)
+                    metrics[f'RPE_{int(dt)}s_deg'] = np.empty(0)
+                    continue
                 de = re[a].inv().apply(est[b, 5:8] - est[a, 5:8])
                 dg = rg[a].inv().apply(gp[b] - gp[a])
                 dr = ((rg[a].inv() * rg[b]).inv() * (re[a].inv() * re[b])).magnitude()
