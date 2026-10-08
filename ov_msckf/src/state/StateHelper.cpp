@@ -208,14 +208,17 @@ void StateHelper::EKFUpdate(std::shared_ptr<State> state, const std::vector<std:
   Eigen::VectorXd dx = K * res;
   if (ltv::LtvMainCrossShadow::instance().enabled()) {
     Eigen::MatrixXd reset = Eigen::MatrixXd::Identity(dx.size(), dx.size());
+    std::vector<int> orientation_rows;
     // Every active quaternion chart, including clones and fixed-size online
     // calibration quaternions, follows native JPLQuat::update.
     for (const auto &v : state->_variables) {
-      if (std::dynamic_pointer_cast<IMU>(v) || std::dynamic_pointer_cast<PoseJPL>(v) || std::dynamic_pointer_cast<JPLQuat>(v))
+      if (std::dynamic_pointer_cast<IMU>(v) || std::dynamic_pointer_cast<PoseJPL>(v) || std::dynamic_pointer_cast<JPLQuat>(v)) {
         reset.block<3, 3>(v->id(), v->id()) = ltv::LtvMainCrossShadow::nativeJplReset(dx.segment<3>(v->id()));
+        orientation_rows.push_back(v->id());
+      }
     }
     ltv::LtvMainCrossShadow::instance().errorReset(reset);
-    ltv::LtvFiniteJointShadow::instance().errorReset(reset);
+    ltv::LtvFiniteJointShadow::instance().errorReset(dx, orientation_rows);
   }
 
   for (size_t i = 0; i < state->_variables.size(); i++) {

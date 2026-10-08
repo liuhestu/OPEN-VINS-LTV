@@ -23,7 +23,7 @@ public:
   void rawImuReceipt(const std::vector<double> &timestamps, double sigma_acc, double sigma_gyro);
   void mainImu(const Eigen::MatrixXd &f, const Eigen::MatrixXd &b_left, const Eigen::MatrixXd &b_right, double t_left, double t_right);
   void mainVisual(const Eigen::MatrixXd &h, const Eigen::MatrixXd &k, const Eigen::MatrixXd &r, const Eigen::MatrixXd &pixel_projection);
-  void errorReset(const Eigen::MatrixXd &map);
+  void errorReset(const Eigen::VectorXd &dx, const std::vector<int> &orientation_rows);
   void storedCovariance(const Eigen::MatrixXd &p) {
     if (enabled_)
       stored_ = p;
@@ -39,7 +39,7 @@ private:
   Eigen::MatrixXd endpoint(double time);
   Eigen::MatrixXd pixel(const std::string &key, double variance);
   void record(double time, const char *event);
-  Eigen::MatrixXd stored_;
+  Eigen::MatrixXd stored_, pre_visual_main_, nominal_poses_;
   bool enabled_ = false;
   const void *owner_ = nullptr;
   std::shared_ptr<LtvJointFactors> factors_;

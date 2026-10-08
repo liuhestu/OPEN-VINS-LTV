@@ -82,6 +82,31 @@ int main() {
     r[k] = eps;
     assert(((chart(r) - chart(-r)) / (2 * eps) - reset.col(k)).norm() < 1e-8);
   }
+  const auto ad = LtvMainCrossShadow::nativeJplProgramAd(correction);
+  auto injection = [&](const Eigen::Vector3d &old, const Eigen::Vector3d &delta) {
+    Eigen::Vector4d q, p, inverse;
+    q << .5 * (correction + delta), 1.;
+    p << .5 * old, 1.;
+    inverse << -.5 * correction, 1.;
+    const auto z = ov_core::quat_multiply(ov_core::quat_multiply(q.normalized(), p.normalized()), inverse.normalized());
+    return (2 * z.head<3>() / z[3]).eval();
+  };
+  const auto true_map = LtvMainCrossShadow::nativeTrueErrorMap(correction);
+  auto true_error = [&](const Eigen::Vector3d &estimate_delta) {
+    Eigen::Vector4d truth, inverse;
+    truth << .5 * correction, 1.;
+    inverse << -.5 * estimate_delta, 1.;
+    const auto z = ov_core::quat_multiply(truth.normalized(), inverse.normalized());
+    return (2 * z.head<3>() / z[3]).eval();
+  };
+  for (int k = 0; k < 3; ++k) {
+    Eigen::Vector3d r = Eigen::Vector3d::Zero();
+    r[k] = eps;
+    assert(((injection(r, Eigen::Vector3d::Zero()) - injection(-r, Eigen::Vector3d::Zero())) / (2 * eps) - ad.col(k)).norm() < 1e-8);
+    assert(((injection(Eigen::Vector3d::Zero(), r) - injection(Eigen::Vector3d::Zero(), -r)) / (2 * eps) - reset.col(k)).norm() < 1e-8);
+    assert(((true_error(r) - true_error(-r)) / (2 * eps) + true_map.col(k)).norm() < 1e-8);
+  }
+  std::cout << "native_program_injection_two_inputs=PASS nominal_nonzero_true_error_map=PASS\n";
   std::cout << "native_jpl_rational_reset=PASS additive_reset=identity\n";
   std::cout << "full_camera_all_inputs_max_error=" << worst
             << " spectral_fixed_branch=PASS spectral_boundary=NONSMOOTH normalized_raw=PASS\n";

@@ -200,8 +200,8 @@ int main() {
   assert((before - nominal.bank->covariance("main", "observer_mean")).norm() < 1e-12);
   std::cout << "controlled_known_truth_native_Observer_joint_MC_relative=" << relative << " samples=" << samples
             << " seed=20261008 tolerance=.05 source_endpoint_reuse=PASS seed_history=PASS main_visual_shared_pixel=PASS "
-               "prior_bias_receipt=PASS anchor_cross=PASS QR_sufficient_statistics=PASS\\n";
+               "prior_bias_receipt=PASS anchor_cross=PASS QR_sufficient_statistics=PASS\n";
   std::cout << "residual_noise_full_trace=" << full << " zero_anchor_cross_trace=" << zero
             << " deterministic_known_mean_error_norm=" << predicted.joint.segment(21, 9).norm()
-            << " empirical_mean_minus_model_norm=" << (mean - predicted.joint).norm() << " real_landmark_calibration=NOT_EVALUATED\\n";
+            << " empirical_mean_minus_model_norm=" << (mean - predicted.joint).norm() << " real_landmark_calibration=NOT_EVALUATED\n";
 }

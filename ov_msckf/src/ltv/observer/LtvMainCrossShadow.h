@@ -252,6 +252,19 @@ public:
     // covariance. The full seed() entry point above requires supplied cross.
     return seed(jx, jz, q, Eigen::MatrixXd::Zero(p_.rows(), q.rows()), Eigen::MatrixXd::Zero(aux_.rows(), q.rows()));
   }
+  static Eigen::Matrix3d nativeJplProgramAd(const Eigen::Vector3d &dx) {
+    Eigen::Matrix3d skew;
+    skew << 0, -dx.z(), dx.y(), dx.z(), 0, -dx.x(), -dx.y(), dx.x(), 0;
+    return ((1. - .25 * dx.squaredNorm()) * Eigen::Matrix3d::Identity() + .5 * dx * dx.transpose() - skew) / (1. + .25 * dx.squaredNorm());
+  }
+  // If actual nominal true-est chart error is e0, program estimate perturbation
+  // xi maps to error variation de=-M(e0) xi. At e0=0 only, M=I. A GT mean or
+  // a declared zero-error linearization is required; do not silently equate them.
+  static Eigen::Matrix3d nativeTrueErrorMap(const Eigen::Vector3d &e0) {
+    Eigen::Matrix3d skew;
+    skew << 0, -e0.z(), e0.y(), e0.z(), 0, -e0.x(), -e0.y(), e0.x(), 0;
+    return Eigen::Matrix3d::Identity() - .5 * skew + .25 * e0 * e0.transpose();
+  }
   void errorReset(const Eigen::MatrixXd &j) {
     cross_ = (j * cross_).eval();
     source_main_ = (j * source_main_).eval();

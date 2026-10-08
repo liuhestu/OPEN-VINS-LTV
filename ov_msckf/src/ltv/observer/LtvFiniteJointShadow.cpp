@@ -1,6 +1,7 @@
 #include "ltv/observer/LtvFiniteJointShadow.h"
 #include "ltv/observer/LtvAdapter.h"
 #include "ltv/observer/LtvMainCrossShadow.h"
+#include "utils/quat_ops.h"
 #include <algorithm>
 #include <cstdlib>
 #include <iomanip>
@@ -26,7 +27,8 @@ LtvFiniteJointShadow::LtvFiniteJointShadow() {
     throw std::runtime_error("finite joint output failed");
   output_ << std::setprecision(17)
           << "event,time,epoch,feature,main_dimension,observer_dimension,factor_columns,main_trace,observer_trace,main_observer_cross_norm,"
-             "anchors,missing_events,physical_minus_stored_norm,raw_prune_cutoff,pixel_prune_cutoff,visual_remainder_min_eigenvalue,visual_"
+             "anchors,missing_events,local_program_minus_stored_norm,raw_prune_cutoff,pixel_prune_cutoff,visual_remainder_min_eigenvalue,"
+             "visual_"
              "roundoff_floors,scope\n";
   matrix_index_ << std::setprecision(17);
   factors_ = std::make_shared<LtvJointFactors>();
@@ -162,13 +164,24 @@ void LtvFiniteJointShadow::mainVisual(const Eigen::MatrixXd &h, const Eigen::Mat
         if (col >= 0)
           directions.noalias() += projection.middleCols(col, 2) * factors_->block(source.first);
       }
+  pre_visual_main_ = factors_->block("main");
   const Eigen::MatrixXd f = Eigen::MatrixXd::Identity(h.cols(), h.cols()) - k * h;
   factors_->set("main", (f * factors_->block("main") - k * directions).eval());
   factors_->erase(noise);
 }
-void LtvFiniteJointShadow::errorReset(const Eigen::MatrixXd &map) {
-  if (enabled_)
-    factors_->set("main", (map * factors_->block("main")).eval());
+void LtvFiniteJointShadow::errorReset(const Eigen::VectorXd &dx, const std::vector<int> &orientation_rows) {
+  if (!enabled_)
+    return;
+  auto &post = factors_->block("main");
+  if (pre_visual_main_.rows() != post.rows() || pre_visual_main_.cols() != post.cols())
+    throw std::runtime_error("finite injection source receipt missing");
+  for (int row : orientation_rows) {
+    const Eigen::Matrix3d ad = LtvMainCrossShadow::nativeJplProgramAd(dx.segment<3>(row));
+    const Eigen::Matrix3d jd = LtvMainCrossShadow::nativeJplReset(dx.segment<3>(row));
+    const Eigen::MatrixXd before = pre_visual_main_.middleRows(row, 3), correction = before - post.middleRows(row, 3);
+    post.middleRows(row, 3) = ad * before - jd * correction;
+  }
+  pre_visual_main_.resize(0, 0);
 }
 void LtvFiniteJointShadow::observerImu(double dt, double t_left, double t_right, const Eigen::Vector3d &acc, const Eigen::Vector3d &gyro,
                                        const ov_msckf::LtvCalibration &c) {
@@ -218,6 +231,28 @@ void LtvFiniteJointShadow::camera(const FeaturePipelineContext &ctx, const Featu
     ++missing_;
     return;
   }
+  nominal_poses_ = Eigen::MatrixXd::Zero(ctx.poses.size() + 1, 10);
+  auto nominal = [&](int row, const SeedPose &pose, int orientation, int position) {
+    const Eigen::Vector4d q = ov_core::rot_2_quat(pose.R_WB.transpose());
+    nominal_poses_(row, 0) = pose.t;
+    nominal_poses_(row, 1) = orientation;
+    nominal_poses_(row, 2) = position;
+    nominal_poses_.block<1, 4>(row, 3) = q.transpose();
+    nominal_poses_.block<1, 3>(row, 7) = pose.p_WB.transpose();
+  };
+  if (ctx.execution_pose_index < ctx.poses.size())
+    nominal(0, ctx.poses[ctx.execution_pose_index], 0, 3);
+  for (size_t i = 0; i < ctx.poses.size(); ++i) {
+    Eigen::Index orientation = 0, position = 0;
+    if (ctx.pose_error_selector.rows() == 6 * static_cast<int>(ctx.poses.size())) {
+      ctx.pose_error_selector.row(6 * i).maxCoeff(&orientation);
+      ctx.pose_error_selector.row(6 * i + 3).maxCoeff(&position);
+    } else {
+      ++missing_;
+    }
+    nominal(i + 1, ctx.poses[i], orientation, position);
+  }
+
   if (active_ && std::find(accepted.management.retained_ids.begin(), accepted.management.retained_ids.end(), feature_) ==
                      accepted.management.retained_ids.end()) {
     active_ = false;
@@ -338,9 +373,11 @@ void LtvFiniteJointShadow::record(double time, const char *event) {
     matrix_index_ << '"' << name << "\":{\"offset\":" << offset << ",\"rows\":" << m.rows() << ",\"cols\":" << m.cols()
                   << ",\"encoding\":\"native_float64_column_major\"}";
   };
-  write("Sigma_main", x * x.transpose());
+  write("nominal_poses_time_orientation_row_position_row_qGtoI_xyzw_pWorld", nominal_poses_);
+  write("P_stored_main", stored_);
+  write("Sigma_main_local_program", x * x.transpose());
   write("Sigma_observer_mean", o * o.transpose());
-  write("C_main_observer", x * o.transpose());
+  write("C_main_local_program_observer", x * o.transpose());
   const int slot = observer_->slotForFeature(local_id_);
   if (slot >= 0)
     for (const auto &a : anchors_) {
@@ -348,7 +385,7 @@ void LtvFiniteJointShadow::record(double time, const char *event) {
       const auto suffix = std::to_string(a.first);
       write("Sigma_anchor_" + suffix, anchor * anchor.transpose());
       write("Sigma_current_anchor_" + suffix, o.middleRows(3 * slot, 3) * anchor.transpose());
-      write("C_main_anchor_" + suffix, x * anchor.transpose());
+      write("C_main_local_program_anchor_" + suffix, x * anchor.transpose());
     }
   matrix_index_ << "}}\n";
   output_.flush();
