@@ -1,45 +1,79 @@
-# Task C: source-mapped model, revision C1-prevalidation
+# Task C joint model: current implementation and admissible scope
 
-Baseline: 2417d036002fbfd542ae71d96d0fc734cd6d47e8. Production defaults are unchanged.
+Baseline 2417d036002fbfd542ae71d96d0fc734cd6d47e8. Corrected runtime binary source6982e0473b6963ab95dfb169b585c09f464bfa8e; later analysis/pure-kernel sources have separate recorded OIDs. No production switch, confirm20 or max_slam default changed.
 
-Main error is true minus estimate, in the native left JPL quaternion chart and additive world translation/velocity/bias coordinates. Observer and seed error use estimate minus truth. Thus seed error is `-J_main delta_x + J_bearing epsilon`; the supplied-law implementation retains both cross terms in its covariance and main/seed cross block.
+## Three different covariance objects
 
-The actual observer performs forward Euler IMU mean and Riccati prediction, symmetrizes and spectrally floors P_R, performs controlled lifecycle/seed injection, constructs normalized bearing projection, chooses a camera substep count by ceil of the maximal projected rate, and at each substep updates mean and P_R and spectrally floors P_R. P_R is an internal gain metric; it is never labelled Sigma_L.
+1. Stored main EKF P and Observer P_R are algorithm design/gain states. Neither is automatically a measured true-error covariance.
+2. The finite factor stores main `m=-xi_est`: negative native local program-estimate perturbation about the nominal run. Additive position/velocity/bias variation equals true-est error variation at fixed truth; attitude requires a mean-dependent chart map.
+3. At actual nominal attitude error `e0=2 vec(q_true inverse(q_est))/scalar`, true-est error variation is `M(e0) m`, where `M=I-skew(e0)/2+e0 e0'/4`. An actual GT mean or a declared zero-error approximation is necessary. The offline mapper uses a single complete OFF-fitted SE(3) gauge; it does not use GT in online gates/fusion and does not validate the initial/source law.
 
-`LtvDiscreteSensitivity` differentiates mean and P_R jointly. The correction includes `dP C' r`, `P dC' r`, normalized raw-bearing derivative, measurement projection and the subsequent spectral floor. Floor derivative uses eigenvalue divided differences, with repeated eigenvalues treated by the derivative on their common fixed branch. A floor boundary is explicitly non-smooth. The ceil substep count is locally constant away from a switching boundary; changing the count is a separate event, never differentiated as a smooth function. Fixed calibration/clock is the first model scope. Extrinsic/time and noise-metric derivatives are not yet propagated by runtime callers.
+Observer point/velocity/gravity coordinates are physical IMU body vectors at fixed time and calibration. Under fixed physical truth, their est-true error variation equals program-mean variation even if the deterministic error mean is nonzero. Real input noise, identities, mean bias and empirical landmark-error calibration are not proved by that identity.
 
-The runtime observer records complete persistent corrected-input-offset and seeded-mean directional sensitivities, and complete same-frame raw-bearing sensitivities including their effect on subsequent P_R/gain substeps. It also retains historical fixed-gain blocks under their original names. The new derivatives are not a physical covariance and do not certify statistical consistency. Seed direction capacity is 32 births per epoch (102 columns including six offsets); reaching it must invalidate any claim of complete source coverage. Retired seed derivative columns are retained because past seeds can influence other states through gain coupling.
+## Actual discrete Observer sensitivities
 
-`LtvMainCrossShadow` is a separate read-only covariance companion. Actual StateHelper hooks cover initialization, full-state IMU transition, visual injection, clone augmentation and marginalization. Archived auxiliary variables survive main marginalization. Seed Jacobians are mapped from the actual context clone selectors into the full main layout; the runtime emits a bounded conditional seed/main cross component with missing historical bearing cross explicitly recorded. This conditional component must not be consumed by an unconditional correlated updater.
+`LtvDiscreteSensitivity.h`, `LtvJointFactors.h` and native `ltv_observer.cpp` hooks differentiate mean and the entire P_R metric together. They include corrected acceleration/gyro, gain dependence, raw-bearing normalization, projection/y, repeated same-frame substeps and spectral flooring. P_R derivatives feed subsequent gain derivatives; no fixed-gain substitution is made in the finite source actor.
 
-Native JPL injection is normalized `[dx/2,1]`, not Exp(dx). For pre-injection residual chart `delta=dx+r`, differentiation of the native product `q(dx+r) inverse(q(dx))` and rational chart `2 vector/scalar` gives
+Native order is IMU Euler mean/P_R prediction → spectral sanitize → controlled lifecycle/seed → normalized bearing projection → ceil-based adaptive substeps → each camera mean/P_R update and spectral sanitize. The spectral derivative uses divided differences within a fixed branch. Floor/ceil/reset/identity switching are separate events, not globally smooth Jacobians. The historical `LtvErrorShadow` named fixed-gain blocks remain diagnostic and explicitly unqualified; its full-gain offset/seed/raw-bearing derivative blocks are sensitivities, not physical covariance.
 
-`J_reset=(I-skew(dx)/2)/(1+||dx||^2/4)`.
+## Finite actual source actor
 
-Position, velocity and bias error reset is identity. The companion applies this to every actual IMU/pose/quaternion injection without changing stored filter P. It propagates physical Sigma separately and logs `||Sigma_x-P_stored||`. The actual filter does not reset stored P at this site. This is a model distinction requiring evidence, not an automatic failure or excuse to skip source propagation.
+`LtvFiniteJointShadow` runs one independently configured native Observer slot using the same q/V/P_R/floor/substep rules and fixed calibration/clock. This changes its coupling relative to the production30-slot Observer; it cannot be used as a cropped production covariance. Its initial main covariance is an explicitly supplied prior law, not a derivation of actual static-initializer/history-source errors. Main innovation H/K/FEJ/QR schedule is conditioned on the nominal run; stochastic gain/Jacobian variation is not included.
 
-Anchor timing must match B: current point is after IMU propagation and before current camera correction; diagnostic anchor is saved after the prior camera transaction. Main visual update follows the LTV camera workflow. A same-time/same-side anchor substitution is therefore invalid.
+Implemented source paths:
 
-Remaining runtime dependencies: shared main/Observer raw IMU endpoint source mapping including interpolation, full historical seed/bearing cross, visual nullspace and measurement-compression source maps, calibration/time sensitivity, and an unconditional current/anchor error covariance. The generic seed and visual propagation APIs accept supplied nonzero source crosses; runtime hooks currently retain explicit missing flags instead of asserting those crosses are zero. C2/C3/C4 are not complete yet. Real landmark calibration remains NOT_EVALUATED without independent point truth.
+- Actual main mean integrator: two raw endpoints and initial IMU state are differentiated through the selected native discrete/RK4/analytic mean function in a separate local State. Stored G/Q is not substituted for this input map.
+- Raw IMU endpoints: timestamps and interpolation weights retain one shared latent draw across adjacent substeps and camera boundaries. Per-sample variance is sigma_density²/raw_dt under the declared white hypothesis. Reusing a source checks dimension/variance; densities cannot change within a model version.
+- Prior bias receipt: VioManager captures biases before main propagation. A separate factor is frozen at that exact phase and reused during later Observer integration; current post-propagation bias covariance is not silently substituted.
+- Seed history: actual geometry Jacobian, actual full clone selector and pixel-to-bearing tangent maps are used. Already-consumed pixels before registration are rejected; this is the fresh-history subset, not all initialization history.
+- Main visual injection: the exact native nullspace/compression Givens rotations also transform registered raw pixel columns. Shared seed/current-bearing/visual sources remain correlated. Unregistered visual remainder is a declared fresh independent white model; duplicate receipt and late registration audits constrain this assumption.
+- Clone augmentation and marginalization transform the factor rows. Past effects persist in retained main/Observer/source/anchor factors. Sources expire only under the actual retained-clone and maximum-supported IMU bracket window; reuse after expiry is rejected.
+- QR compression stacks ALL retained states, archived anchors and source handles. D'=Q R implies D D'=R' R, so replacing D by R' retains all pairwise covariance and source reuse, without covariance clipping.
 
-## Program perturbations, true errors and stored P (correction before first finite replay)
+Unknown/unqualified: actual initializer-source prior law, already-consumed history outside the registered subset, stochastic main H/K/FEJ/QR effects, true physical process/noise/identity law in EuRoC, changing calibration/time, production30-slot covariance and any real landmark statistical calibration.
 
-Three matrices must remain distinct: stored EKF P; covariance of the program's local estimated-state perturbation; covariance of actual native true-est errors. The finite source engine stores `m=-xi_est`, where `q_est_pert=q(xi_est) q_est_nom` in the local native quaternion chart, with analogous negative additive perturbations for other main variables. It is not automatically the actual true-est error when the nominal attitude error is nonzero.
+## Native injection and true-error reset
 
-For `q(dx)=normalize([dx/2,1])`, perturbing the native injection gives
+For native `q(dx)=normalize([dx/2,1])`, the conditional posterior-centered reset at old error≈dx is
 
-`xi_new = Ad(q(dx)) xi_old + J_dx delta_dx`,
+`J_dx=(I-skew(dx)/2)/(1+||dx||²/4)`.
 
-`J_dx=(I-skew(dx)/2)/(1+||dx||^2/4)`,
+Actual program injection has TWO independent perturbation inputs:
 
-`Ad(q(dx))=((1-||dx||^2/4) I + dx dx'/2 - skew(dx))/(1+||dx||^2/4)`.
+`xi_new=Ad(q(dx)) xi_old + J_dx delta_dx`,
 
-Consequently the finite program factor updates orientation with `Ad * m_old - J_dx * delta_dx_factor`. Multiplying an unconditional program factor `(I-KH) m - K epsilon` by the posterior-centered J_dx alone is wrong at nonzero nominal dx. The external stored-P companion's conditional posterior reset and the finite program factor are separately named.
+`Ad=((1-||dx||²/4)I+dx dx'/2-skew(dx))/(1+||dx||²/4)`.
 
-If the actual nominal true-est rational attitude error is `e0=2 vec(q_true inverse(q_est))/scalar`, then at fixed physical truth
+Thus the finite program factor uses `Ad*m_old - J_dx*delta_dx_factor`; applying J_dx alone to `(I-KH)m-Kepsilon` is incorrect at nonzero nominal dx. The original stored-P companion keeps its separately named conditional posterior calculation. Corrected code and FD explicitly distinguish these maps. GT mapping M(e0) is a third operation, not a renaming of either matrix.
 
-`delta_e_main = M(e0) m`, with `M(e0)=I-skew(e0)/2+e0 e0'/4`.
+## Current/anchor residual and correlated solve
 
-Position, world velocity and sensor biases are additive, so their mapping is identity at fixed truth. The main/clones pose layout is exported for independent offline GT mapping with the same frozen SE(3) gauge. At e0=0 this mapping is identity; the zero-nominal-main-error controlled experiment does not validate nonzero-error real covariance. Main H/K/FEJ/QR schedule remains a declared nominal linear innovation model; its stochastic gain and Jacobian variation is outside this finite layer. Initial main error covariance is a declared prior law, not a measured true covariance nor a derivation of static-initializer/history-source correlations.
+Physical/program coordinates must be declared before composing blocks. With current pre-camera point l_t, prior post-camera anchor l_a, R_i=world-to-body and world position p_i:
 
-Observer coordinates are physical IMU body vectors at a fixed physical timestamp, with fixed calibration. When true landmark/velocity/gravity vectors are held fixed across the noise ensemble, `delta e_Observer=delta program_mean` for the est-true convention. Thus its program-mean covariance equals the modelled error covariance under that ensemble even when the deterministic mean error is nonzero. This identity does not validate the input noise law, landmark identity, mean bias, non-smooth selection distribution, or real error calibration. Real landmark truth is unavailable, so empirical real calibration is NOT_EVALUATED. The finite one-slot actor also does not inherit the production 30-slot covariance/coupling.
+`r=l_t-R_t(R_a' l_a+p_a-p_t)`, `A=R_t R_a'`.
+
+For main program columns `[theta_t,p_t,theta_a,p_a]`, `m=-xi_est`, the actual partial pose Jacobian is
+
+`H=[skew(predicted), -R_t, -A skew(l_a), R_t]`.
+
+For actual true-error main coordinates, compose H with M(e0)^{-1} for every attitude block. Noise moments at declared nominal A are
+
+`R_L=Sigma_tt+A Sigma_aa A' - Sigma_ta A' - A Sigma_at`,
+
+`N_L=C_xt-C_xa A'`,
+
+`Cov(n_L,n_vis)=Cov(e_t,n_vis)-A Cov(e_a,n_vis)`.
+
+The full residual mean and any random-A/nonzero-anchor-error mean effects must be accounted for before assigning zero-mean statistical interpretation. Independent real landmark truth is unavailable; those means are not empirically closed.
+
+`LtvCorrelatedLandmark.h` supplies pure algebra for R_L/N_L/visual cross and a stable LDLT solve:
+
+`S=H P H'+R+H N+N' H'`,
+
+`K=(P H'+N) S^{-1}`, `Pplus=P-(P H'+N) S^{-1}(H P+N')`.
+
+It verifies joint state/noise compatibility and rejects singular duplicated-information innovation. Correction input is explicitly innovation minus a declared mean. It does not mutate State and does not use an independent Joseph formula to conceal N. Formula/pose-FD/solve tests are separate from real runtime qualification.
+
+## Concrete STOP for production correlated ON / C4
+
+No qualified production30-slot R_L/N_L/visual-cross interface exists. The finite actor has different gain/coupling; actual initial/history/noise law and main stochastic schedule remain unvalidated; actual error charts require mean mapping; landmark residual mean is unclosed. In controlled known-truth evidence, deterministic Observer mean error norm9.85903 remains despite covariance agreement0.496%. Treating covariance agreement as zero-mean consistent fusion would therefore be a false inference. Production correlated ON and C4 replacement are STOP/NOT_RUN pending those extensions. B's independently authorized engineering approximate ON has separate empirical qualification.
