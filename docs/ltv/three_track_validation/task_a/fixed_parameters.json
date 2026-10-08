@@ -1,0 +1,20 @@
+{
+  "source": "2417d036002fbfd542ae71d96d0fc734cd6d47e8",
+  "historical_config_origin": "/home/he/output/ltv_integration_cleanup_real_20261005/configs/V2_02_medium",
+  "files": {
+    "estimator_config.yaml": "c2250d9d5da69235cdbfbf46ae8a0f15384eecfb4583664c25d5516662ba8b34",
+    "kalibr_imu_chain.yaml": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287",
+    "kalibr_imucam_chain.yaml": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+  },
+  "modes": [
+    "OFF",
+    "G",
+    "V",
+    "GV"
+  ],
+  "parameters_changed": false,
+  "correlation_model": "independence_approximation",
+  "landmark_fusion": false,
+  "confirmation_frames": 20,
+  "max_slam": 0
+}

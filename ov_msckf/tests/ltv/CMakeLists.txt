@@ -101,6 +101,13 @@ ament_target_dependencies(run_ltv_gv_evaluation ${ament_libraries})
 target_link_libraries(run_ltv_gv_evaluation ov_msckf_lib ${thirdparty_libraries})
 install(TARGETS run_ltv_gv_evaluation DESTINATION lib/${PROJECT_NAME})
 
+# Identical deterministic sensor stream; current production scalar logging level.
+add_executable(run_ltv_gv_production tools/run_ltv_feature_passive.cpp)
+target_compile_definitions(run_ltv_gv_production PRIVATE LTV_GV_EVALUATION=1 LTV_GV_PRODUCTION_LEVEL=1)
+ament_target_dependencies(run_ltv_gv_production ${ament_libraries})
+target_link_libraries(run_ltv_gv_production ov_msckf_lib ${thirdparty_libraries})
+install(TARGETS run_ltv_gv_production DESTINATION lib/${PROJECT_NAME})
+
 # Causal landmark prediction diagnostics; no fusion switch or production policy.
 foreach(shadow_target replay_ltv_landmark_shadow test_ltv_landmark_shadow)
     if(shadow_target STREQUAL "replay_ltv_landmark_shadow")
