@@ -73,6 +73,7 @@ int main() {
   auto anchor = std::dynamic_pointer_cast<ov_type::PoseJPL>(StateHelper::clone(state, state->_imu->pose()));
   state->_clones_IMU.emplace(0, anchor);
   state->_timestamp = 1;
+  StateHelper::set_initial_covariance(state, .001 * Eigen::MatrixXd::Identity(21, 21), {state->_imu, anchor});
   MeasurementBlock visual;
   visual.order = {anchor};
   visual.H = Eigen::MatrixXd::Zero(3, 6);
@@ -102,7 +103,7 @@ int main() {
   UpdaterLTV generic(enabled);
   auto base = generic.build(state, frame);
   MeasurementBlock point_block = old_point;
-  point_block.order = {state->_imu->pose(), anchor};
+  point_block.order = {state->_imu->q(), state->_imu->p(), anchor};
   auto auxiliary = UpdaterLTV::merge(base, point_block);
   auxiliary.receipt->diagnostics.landmark_rows = 3;
   const auto stacked = UpdaterLTV::merge(visual, auxiliary);
@@ -112,6 +113,46 @@ int main() {
   require(applied.consumed && applied.landmark_rows == 3 && applied.submit_reason == "joint_applied" && applied.ekf_calls == 1,
           "actual whole-pose joint native update");
   require(applied.landmark_update_norm > 0, "actual landmark component in joint native K*r");
+  // Hybrid current subtypes share the exact G/V q object and whole visual anchor.
+  // This is an interface/numerical test, not combined-mode trajectory qualification.
+  auto fixture = [&]() {
+    auto s = make_state();
+    auto a = std::dynamic_pointer_cast<ov_type::PoseJPL>(StateHelper::clone(s, s->_imu->pose()));
+    s->_clones_IMU.emplace(0, a);
+    s->_timestamp = 1;
+    StateHelper::set_initial_covariance(s, .001 * Eigen::MatrixXd::Identity(21, 21), {s->_imu, a});
+    return std::make_pair(s, a);
+  };
+  auto actual_fixture = fixture(), expected_fixture = fixture();
+  auto sg = actual_fixture.first, se = expected_fixture.first;
+  auto ag = actual_fixture.second, ae = expected_fixture.second;
+  MeasurementBlock vg = visual, ve = visual;
+  vg.order = {ag};
+  ve.order = {ae};
+  MeasurementBlock lg = point_block, le = point_block;
+  lg.order = {sg->_imu->q(), sg->_imu->p(), ag};
+  le.order = {se->_imu->q(), se->_imu->p(), ae};
+  ltv::LtvSnapshot gravity_snapshot;
+  gravity_snapshot.gravity_body = Eigen::Vector3d(0, 0, -9.81);
+  const auto gg = generic.gravity(*sg, generic.context(*sg), gravity_snapshot);
+  const auto ge = generic.gravity(*se, generic.context(*se), gravity_snapshot);
+  auto bg = generic.build(sg, frame);
+  auto combined_aux = UpdaterLTV::merge(UpdaterLTV::merge(bg, gg), lg);
+  combined_aux.receipt->diagnostics.gravity_rows = 2;
+  combined_aux.receipt->diagnostics.landmark_rows = 3;
+  auto full_g = UpdaterLTV::merge(vg, combined_aux);
+  auto full_e = UpdaterLTV::merge(ve, UpdaterLTV::merge(ge, le));
+  require(full_g.H.rows() == 8 && full_g.H.cols() == 15, "visual GV landmark hybrid column layout");
+  const auto marginal = StateHelper::get_marginal_covariance(sg, full_g.order);
+  const Eigen::MatrixXd innovation = full_g.H * marginal * full_g.H.transpose() + full_g.R;
+  require(innovation.llt().info() == Eigen::Success, "native hybrid joint innovation SPD");
+  StateHelper::EKFUpdate(se, full_e.order, full_e.H, full_e.res, full_e.R);
+  require(UpdaterLTV::apply_joint(sg, vg, combined_aux), "hybrid joint receipt consumed");
+  require(combined_aux.receipt->diagnostics.ekf_calls == 1 && combined_aux.receipt->diagnostics.landmark_rows == 3,
+          "hybrid one authoritative EKF call");
+  metric("hybrid_native_one_EKF_mean_equivalence", (sg->_imu->value() - se->_imu->value()).norm(), 1e-12);
+  metric("hybrid_native_one_EKF_P_equivalence", (StateHelper::get_full_covariance(sg) - StateHelper::get_full_covariance(se)).norm(),
+         1e-12);
   LtvOptions defaults;
   require(!defaults.enable_landmark_approx && !defaults.landmark_approx_shadow, "default OFF");
   std::cout << "PASS native JPL/FEJ landmark model, units, gauge, B3 gate, default OFF\n";
