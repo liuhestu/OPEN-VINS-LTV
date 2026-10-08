@@ -28,12 +28,14 @@ inline Eigen::MatrixXd shadowJointMap(const Eigen::MatrixXd &sigma, const Eigen:
          map * error_source_cross * source_map.transpose() + source_map * error_source_cross.transpose() * map.transpose();
 }
 
-// These derivatives hold the Riccati gain schedule fixed. They describe the
-// actual Euler mean map, not a statistical Sigma_L. Gain/P_R sensitivities and
-// historic source/main-error blocks remain mandatory for an unconditional model.
+// Named fixed-gain blocks retain the historical diagnostic. Named full-gain
+// blocks differentiate mean and P_R jointly. Neither is a physical Sigma_L;
+// source laws and true-error initial conditions are supplied separately.
 class LtvErrorShadow {
 public:
-  LtvErrorShadow() {
+  explicit LtvErrorShadow(bool emit = true) {
+    if (!emit)
+      return;
     const char *path = std::getenv("LTV_JOINT_SHADOW_PATH");
     if (!path || !*path)
       return;
@@ -58,7 +60,7 @@ public:
     *output_ << std::setprecision(17)
              << "event,time,epoch,transaction,dimension,imu_steps,births,retired,substeps,transition_norm,source_map_norm,"
                 "conditional_unit_source_gram_trace,persistent_corrected_input_offset_norm,local_feature_ids,valid_unconditional,missing_"
-                "blocks\n";
+                "blocks,full_direction_dimension,full_source_capacity_events,spectral_floor_boundary_events\n";
   }
   bool enabled() const { return output_ && output_->is_open(); }
   const Eigen::MatrixXd &imuSourceMap() const { return imu_b_; }
@@ -87,6 +89,7 @@ public:
     full_mean_ = Eigen::MatrixXd::Zero(6, 6);
     full_riccati_.assign(6, Eigen::MatrixXd::Zero(6, 6));
     seed_columns_.clear();
+    source_capacity_events_ = spectral_boundaries_ = 0;
     write("reset", time, 6, 0, 0, 0, 0, 0);
     record("reset", time, {{"persistent_input_offset", &persistent_input_offset_}});
   }
@@ -342,6 +345,15 @@ private:
           sink.index << ',';
         sink.index << observed_ids_[i];
       }
+    sink.index << "],\"full_source_capacity_events\":" << source_capacity_events_
+               << ",\"spectral_floor_boundary_events\":" << spectral_boundaries_ << ",\"seed_direction_columns\":[";
+    bool first_seed = true;
+    for (const auto &entry : seed_columns_) {
+      if (!first_seed)
+        sink.index << ',';
+      first_seed = false;
+      sink.index << "{\"local_id\":" << entry.first << ",\"column\":" << entry.second << '}';
+    }
     sink.index << "],\"matrices\":{";
     bool first = true;
     for (const auto &entry : matrices) {
@@ -382,7 +394,8 @@ private:
              << (std::string(event) == "camera" ? frame_source_gram_.trace() : 0.0) << "," << persistent_input_offset_.norm() << ","
              << (std::string(event) == "camera" ? source_ids_ : "")
              << ",false,seed_history_joint;main_visual_reset_cross;interpolated_imu_source_cross;gain_schedule_sensitivity;independent_"
-                "landmark_truth\n";
+                "landmark_truth"
+             << "," << full_mean_.cols() << "," << source_capacity_events_ << "," << spectral_boundaries_ << '\n';
     if (!*output_)
       throw std::runtime_error("joint shadow write failed");
   }

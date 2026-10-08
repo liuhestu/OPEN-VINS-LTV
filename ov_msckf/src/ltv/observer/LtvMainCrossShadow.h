@@ -149,9 +149,16 @@ public:
   }
   int sourceDimension() const { return source_main_.cols(); }
   void usedVisualSources(const std::vector<std::string> &keys) {
-    for (const auto &key : keys)
+    for (const auto &key : keys) {
       used_visual_.insert(key);
+      if (used_visual_.size() > 8192) {
+        missing_.insert("visual_receipt_capacity_8192");
+        used_visual_.erase(used_visual_.begin());
+      }
+    }
   }
+  bool previouslyUsed(const std::string &key) const { return used_visual_.count(key) != 0; }
+  const Eigen::MatrixXd &pendingVisualNoiseMap() const { return pending_visual_; }
   void visualNoiseMap(const Eigen::MatrixXd &map) { pending_visual_ = map; }
   bool registerPixel(const std::string &key, double variance) {
     if (key.empty() || !(variance > 0)) {
@@ -227,7 +234,15 @@ public:
 
 private:
   LtvMainCrossShadow() {
+    std::string derived;
     const char *path = std::getenv("LTV_MAIN_CROSS_SHADOW_PATH");
+    if (!path || !*path) {
+      const char *finite = std::getenv("LTV_FINITE_JOINT_PATH");
+      if (finite && *finite) {
+        derived = std::string(finite) + ".seed_sources.csv";
+        path = derived.c_str();
+      }
+    }
     enabled_ = path && *path;
     if (!enabled_)
       return;

@@ -20,6 +20,7 @@
  */
 
 #include "StateHelper.h"
+#include "ltv/observer/LtvFiniteJointShadow.h"
 #include "ltv/observer/LtvMainCrossShadow.h"
 
 #include "state/State.h"
@@ -107,6 +108,7 @@ void StateHelper::EKFPropagation(std::shared_ptr<State> state, const std::vector
     for (size_t i = 0; i < order_OLD.size(); ++i)
       map.block(start_id, order_OLD[i]->id(), phi_size, order_OLD[i]->size()) = Phi.block(0, Phi_id[i], phi_size, order_OLD[i]->size());
     ltv::LtvMainCrossShadow::instance().mainMap(state.get(), shadow_old_p, map, state->_Cov, "main_imu_propagation");
+    ltv::LtvFiniteJointShadow::instance().mainMap(state.get(), shadow_old_p, map, "main_imu_propagation");
     ltv::LtvMainCrossShadow::instance().missing("main_observer_raw_imu_endpoints_cross");
   }
 
@@ -181,6 +183,7 @@ void StateHelper::EKFUpdate(std::shared_ptr<State> state, const std::vector<std:
     Eigen::MatrixXd full_h = Eigen::MatrixXd::Zero(H.rows(), state->_Cov.rows());
     for (size_t i = 0; i < H_order.size(); ++i)
       full_h.middleCols(H_order[i]->id(), H_order[i]->size()) = H.middleCols(H_id[i], H_order[i]->size());
+    ltv::LtvFiniteJointShadow::instance().mainVisual(full_h, K, R, ltv::LtvMainCrossShadow::instance().pendingVisualNoiseMap());
     ltv::LtvMainCrossShadow::instance().visual(state.get(), shadow_update_old_p, full_h, K, state->_Cov, R);
   }
   // Cov -= K * M_a.transpose();
@@ -210,6 +213,7 @@ void StateHelper::EKFUpdate(std::shared_ptr<State> state, const std::vector<std:
         reset.block<3, 3>(v->id(), v->id()) = ltv::LtvMainCrossShadow::nativeJplReset(dx.segment<3>(v->id()));
     }
     ltv::LtvMainCrossShadow::instance().errorReset(reset);
+    ltv::LtvFiniteJointShadow::instance().errorReset(reset);
   }
 
   for (size_t i = 0; i < state->_variables.size(); i++) {
@@ -251,6 +255,7 @@ void StateHelper::set_initial_covariance(std::shared_ptr<State> state, const Eig
   }
   state->_Cov = state->_Cov.selfadjointView<Eigen::Upper>();
   ltv::LtvMainCrossShadow::instance().reset(state.get(), state->_Cov);
+  ltv::LtvFiniteJointShadow::instance().reset(state.get(), state->_Cov);
 }
 
 Eigen::MatrixXd StateHelper::get_marginal_covariance(std::shared_ptr<State> state,
@@ -343,6 +348,7 @@ void StateHelper::marginalize(std::shared_ptr<State> state, std::shared_ptr<Type
     for (int i = 0; i < Cov_new.rows(); ++i)
       map(i, i < marg_id ? i : i + marg_size) = 1.;
     ltv::LtvMainCrossShadow::instance().mainMap(state.get(), state->_Cov, map, Cov_new, "main_marginalization_retain_aux_history");
+    ltv::LtvFiniteJointShadow::instance().mainMap(state.get(), state->_Cov, map, "main_marginalization_retain_aux_history");
   }
   // Now set new covariance
   // state->_Cov.resize(Cov_new.rows(),Cov_new.cols());
@@ -417,6 +423,7 @@ std::shared_ptr<Type> StateHelper::clone(std::shared_ptr<State> state, std::shar
       map.topRows(old_size).setIdentity();
       map.block(old_size, old_loc, total_size, total_size).setIdentity();
       ltv::LtvMainCrossShadow::instance().mainMap(state.get(), shadow_clone_old_p, map, state->_Cov, "main_clone_augmentation");
+      ltv::LtvFiniteJointShadow::instance().mainMap(state.get(), shadow_clone_old_p, map, "main_clone_augmentation");
     }
 
     break;

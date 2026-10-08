@@ -15,7 +15,8 @@ bool finiteVector(const Eigen::Vector3d &value) { return value.allFinite(); }
 
 } // namespace
 
-LtvObserver::LtvObserver() { initializeBaseState(); }
+LtvObserver::LtvObserver() : LtvObserver(true) {}
+LtvObserver::LtvObserver(bool emit_legacy_shadow) : error_shadow_(emit_legacy_shadow) { initializeBaseState(); }
 
 void LtvObserver::configure(const LtvConfig &config) {
   config_ = config;
@@ -57,6 +58,8 @@ void LtvObserver::initializeBaseState() {
   covariance_ = Eigen::MatrixXd::Zero(6, 6);
   covariance_.topLeftCorner<3, 3>() = config_.initial_p_velocity * Eigen::Matrix3d::Identity();
   covariance_.bottomRightCorner<3, 3>() = config_.initial_p_gravity * Eigen::Matrix3d::Identity();
+  if (source_sensitivity_)
+    source_sensitivity_->reset(6);
 }
 
 void LtvObserver::start(double imu_timestamp) {
@@ -125,6 +128,8 @@ void LtvObserver::propagateImu(double dt, const Eigen::Vector3d &acc_measurement
     error_shadow_.imu(imu_timestamp_, dt, Eigen::MatrixXd::Identity(dimension, dimension) + dt * system, b, state_);
   }
   error_shadow_.fullImu(state_, covariance_, system, input, acceleration, dt);
+  if (source_sensitivity_)
+    source_sensitivity_->imu(state_, covariance_, system, input, acceleration, dt);
   state_ += dt * (system * state_ + input * acceleration);
   covariance_ += dt * (system * covariance_ + covariance_ * system.transpose() + processNoise());
   imu_timestamp_ += dt;
@@ -239,7 +244,7 @@ void LtvObserver::rebuildState(const std::vector<int> &feature_ids) {
     }
   }
 
-  if (error_shadow_.enabled()) {
+  if (error_shadow_.enabled() || source_sensitivity_) {
     Eigen::MatrixXd map = Eigen::MatrixXd::Zero(new_dimension, state_.size());
     int births = 0;
     for (int row = 0; row < new_dimension; ++row)
@@ -249,6 +254,8 @@ void LtvObserver::rebuildState(const std::vector<int> &feature_ids) {
       if (!feature_to_slot_.count(id))
         ++births;
     error_shadow_.lifecycle(imu_timestamp_, map, births, old_feature_count + births - static_cast<int>(feature_ids.size()), feature_ids);
+    if (source_sensitivity_)
+      source_sensitivity_->lifecycle(map);
   }
   state_.swap(new_state);
   covariance_.swap(new_covariance);
@@ -363,6 +370,8 @@ LtvSnapshot LtvObserver::updateFeaturesImpl(double frame_timestamp, double imu_t
     rebuildState(control->retained_ids);
     for (const auto &birth : control->births) {
       error_shadow_.fullSeed(birth.feature_id, feature_to_slot_.at(birth.feature_id), birth.apply_mean);
+      if (source_sensitivity_)
+        source_sensitivity_->seed(feature_to_slot_.at(birth.feature_id), birth.apply_mean);
       if (birth.apply_mean)
         state_.segment<3>(3 * feature_to_slot_.at(birth.feature_id)) = birth.mean_body;
       if (!monotonic_local_ids_)
@@ -458,6 +467,9 @@ LtvSnapshot LtvObserver::updateFeaturesImpl(double frame_timestamp, double imu_t
                                          rotation_body_camera, position_body_camera);
       }
       error_shadow_.fullCameraSubstep(state_, covariance_, measurement, output, correction_dt * config_.q_landmark);
+      if (source_sensitivity_)
+        source_sensitivity_->camera(state_, covariance_, measurement, output, correction_dt * config_.q_landmark,
+                                    observed_slots.at(0).first);
       state_ += correction_dt * config_.q_landmark * covariance_measurement_transpose * substep_innovation;
       covariance_ -= correction_dt * config_.q_landmark * covariance_measurement_transpose * measurement * covariance_;
       if (!sanitizeCovariance()) {
@@ -512,6 +524,8 @@ bool LtvObserver::sanitizeCovariance() {
     return false;
 
   error_shadow_.fullSanitize(covariance_, config_.covariance_floor);
+  if (source_sensitivity_)
+    source_sensitivity_->sanitize(covariance_, config_.covariance_floor);
   Eigen::VectorXd eigenvalues = solver.eigenvalues().cwiseMax(config_.covariance_floor);
   covariance_ = solver.eigenvectors() * eigenvalues.asDiagonal() * solver.eigenvectors().transpose();
   covariance_ = (0.5 * (covariance_ + covariance_.transpose())).eval();

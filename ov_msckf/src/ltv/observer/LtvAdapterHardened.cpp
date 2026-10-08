@@ -1,4 +1,5 @@
 #include "ltv/observer/LtvAdapter.h"
+#include "ltv/observer/LtvFiniteJointShadow.h"
 #include "ltv/observer/LtvMainCrossShadow.h"
 #include <algorithm>
 #include <climits>
@@ -135,6 +136,7 @@ LtvFrame LtvAdapter::processHardened(double t, const std::vector<LtvBearing> &, 
     for (size_t i = 1; i < samples.size(); ++i) {
       const auto a = correct(samples[i - 1], c, ba, bg), b = correct(samples[i], c, ba, bg);
       const double dt = b.timestamp - a.timestamp;
+      ltv::LtvFiniteJointShadow::instance().observerImu(dt, a.timestamp, b.timestamp, .5 * (a.am + b.am), .5 * (a.wm + b.wm), c);
       observer_.propagateImu(dt, .5 * (a.am + b.am), .5 * (a.wm + b.wm), Eigen::Vector3d::Zero(), Eigen::Vector3d::Zero());
       ++steps_;
       seconds_ += dt;
@@ -256,6 +258,7 @@ LtvFrame LtvAdapter::processHardened(double t, const std::vector<LtvBearing> &, 
       }
     }
   }
+  ltv::LtvFiniteJointShadow::instance().camera(context, staged_frame, options_.observer, c);
   const auto corrected = staged_core.snapshot(t);
   const double dt = last_correction_time_ < 0 ? 0 : target - last_correction_time_;
   correction_diagnostics_valid_ = dt > 0 && angles.size() >= options_.hardening_readiness.min_features && corrected.camera_substeps > 0;
