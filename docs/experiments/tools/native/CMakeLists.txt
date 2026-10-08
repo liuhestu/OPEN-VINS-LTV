@@ -15,3 +15,7 @@ foreach(driver replay_ltv_feature_cache replay_ltv_landmark_shadow)
     target_link_libraries(${driver} ov_msckf_lib ${thirdparty_libraries})
     install(TARGETS ${driver} DESTINATION lib/${PROJECT_NAME})
 endforeach()
+
+add_executable(test_ltv_experiment_modes test_experiment_modes.cpp)
+target_compile_options(test_ltv_experiment_modes PRIVATE -UNDEBUG)
+install(TARGETS test_ltv_experiment_modes DESTINATION lib/${PROJECT_NAME})

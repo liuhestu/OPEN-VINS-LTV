@@ -1,5 +1,6 @@
 #include "ltv/diagnostics/LtvBoundedDiagnostics.h"
 // Deterministic ASL input adapter: no GT enters the estimator, no ROS transport drops.
+#include "ExperimentMode.h"
 #include "LtvEventReceipt.h"
 #include "core/VioManager.h"
 #include "feat/Feature.h"
@@ -608,15 +609,12 @@ public:
 int main(int argc, char **argv) {
   try {
     if (argc < 5 || argc > 6)
-      throw std::runtime_error(
-          "usage: run_ltv_feature_passive config.yaml sensor_ASL_root output_dir B|P_OLD|P_NEW [short_input_seconds<=40]");
+      throw std::runtime_error("usage: run_ltv_gv_production config.yaml sensor_ASL_root output_dir OFF|G|V|GV|L|L_GV [seconds<=40]");
     const std::string root = argv[2], out = argv[3];
     const std::string requested_mode = argv[4];
 #ifdef LTV_GV_EVALUATION
-    if (requested_mode != "OFF" && requested_mode != "G" && requested_mode != "V" && requested_mode != "GV" && requested_mode != "V10" &&
-        requested_mode != "L_OFF" && requested_mode != "L_ON")
-      throw std::runtime_error("usage: run_ltv_gv_evaluation config.yaml sensor_ASL_root output_dir OFF|G|V|GV|V10 [seconds<=40]");
-    const std::string mode = "P_NEW";
+    const auto selected = experiment_mode(requested_mode);
+    const std::string mode = selected.observer ? "P_NEW" : "B";
 #else
     const std::string mode = requested_mode;
 #endif
@@ -629,6 +627,11 @@ int main(int argc, char **argv) {
     options.print_and_load(parser);
     if (options.ltv_options.enable_gravity || options.ltv_options.enable_velocity)
       throw std::runtime_error("PASSIVE only: injection settings must be OFF in input configuration");
+#ifdef LTV_GV_EVALUATION
+    // Canonical OFF is pure OpenVINS; all physical C0 parameters remain unchanged.
+    options.ltv_options.enabled = selected.observer;
+    options.ltv_options.feature_readiness_enabled = selected.observer;
+#endif
     if (options.ltv_options.enabled != (mode != "B") || options.ltv_options.feature_readiness_enabled != (mode == "P_NEW"))
       throw std::runtime_error("mode differs from parsed configuration");
 #ifdef LTV_GV_PRODUCTION_LEVEL
@@ -650,18 +653,16 @@ int main(int argc, char **argv) {
     // Input YAML remains byte-identical. V10 is the single experiment-only
     // confirmation alternative; production parsing never exposes this option.
     options.ltv_options.passive_assert_no_injection = false;
-    if (requested_mode == "L_OFF" || requested_mode == "L_ON") {
-      options.ltv_options.landmark_approx_shadow = true;
-      options.ltv_options.enable_landmark_approx = requested_mode == "L_ON";
-      options.ltv_options.allow_correlated_pseudomeasurements = true;
-    }
+    options.ltv_options.landmark_approx_shadow = selected.landmark_shadow;
+    options.ltv_options.enable_landmark_approx = selected.landmark;
+    options.ltv_options.allow_correlated_pseudomeasurements = selected.observer;
 #ifdef LTV_GV_PRODUCTION_LEVEL
     options.ltv_options.gv_evaluation_diagnostics = false;
 #else
     options.ltv_options.gv_evaluation_diagnostics = true;
 #endif
-    options.ltv_options.enable_gravity = requested_mode == "G" || requested_mode == "GV";
-    options.ltv_options.enable_velocity = requested_mode == "V" || requested_mode == "GV" || requested_mode == "V10";
+    options.ltv_options.enable_gravity = selected.gravity;
+    options.ltv_options.enable_velocity = selected.velocity;
     if (requested_mode == "V10")
       options.ltv_options.hardening_readiness.experimental_velocity_confirm_frames = 10;
     options.ltv_options.validate(options.state_options);
@@ -675,6 +676,10 @@ int main(int argc, char **argv) {
       throw std::runtime_error("cannot write effective configuration");
     effective << std::setprecision(17) << "{\n";
 #define EFFECTIVE(key, value) effective << "\"" << key << "\": " << value << ",\n"
+#ifdef LTV_GV_EVALUATION
+    effective << "\"experiment_mode\": \"" << selected.name << "\",\n";
+    EFFECTIVE("experiment_mode_schema", 2);
+#endif
     EFFECTIVE("ltv_value_diagnostics_enabled", options.ltv_options.value_diagnostics_enabled);
     EFFECTIVE("ltv_value_diagnostics_matrices", options.ltv_options.value_diagnostics_matrices);
     EFFECTIVE("ltv_enabled", options.ltv_options.enabled);
@@ -921,6 +926,9 @@ int main(int argc, char **argv) {
          << ",\"input_camera_packets\":" << left.size() << ",\"imu_consumed\":" << cursor << ",\"input_imu_samples\":" << imus.size()
          << ",\"output_rows\":" << outputs << ",\"input_span_seconds\":" << std::setprecision(17) << last_input_time - sensor_start
          << ",\"short_limit_seconds\":" << limit << ",\"mode\":\"" << mode << "\",\"actual_G_submissions\":" << total_G
+#ifdef LTV_GV_EVALUATION
+         << ",\"experiment_mode\":\"" << selected.name << "\""
+#endif
          << ",\"actual_V_submissions\":" << total_V << ",\"complete\":" << (!limit ? "true" : "false") << "}\n";
     meta.flush();
     if (!meta)
