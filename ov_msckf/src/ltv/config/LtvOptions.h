@@ -9,6 +9,10 @@ struct LtvOptions {
   bool enabled = false, enable_gravity = false, enable_velocity = false, allow_correlated_pseudomeasurements = false;
   bool enable_quality_gate = false, enable_nis_gate = true, log_enabled = false;
   bool enable_huber = false;
+  bool enable_landmark_approx = false, landmark_approx_shadow = false;
+  int landmark_approx_max_points = 2;
+  double landmark_approx_sigma_floor_m = .5, landmark_approx_information_cap = .01;
+  std::string landmark_approx_log_path = "landmark_approx.csv";
   bool feature_readiness_enabled = false, feature_apply_seed = true, passive_audit_enabled = false;
   // Replay instrumentation only; defaults preserve Passive zero-injection enforcement.
   bool passive_assert_no_injection = true, gv_evaluation_diagnostics = false;
@@ -33,6 +37,12 @@ struct LtvOptions {
     if (!p)
       return;
 #define FIELD(x) p->parse_config("ltv_" #x, x, false)
+    FIELD(enable_landmark_approx);
+    FIELD(landmark_approx_shadow);
+    FIELD(landmark_approx_max_points);
+    FIELD(landmark_approx_sigma_floor_m);
+    FIELD(landmark_approx_information_cap);
+    FIELD(landmark_approx_log_path);
     FIELD(value_diagnostics_enabled);
     FIELD(feature_readiness_enabled);
     FIELD(passive_hardening_enabled);
@@ -131,6 +141,12 @@ struct LtvOptions {
       throw std::invalid_argument("Passive audit forbids auxiliary injection");
     if ((enable_gravity || enable_velocity) && (!enabled || !allow_correlated_pseudomeasurements))
       throw std::invalid_argument("LTV auxiliary requires enabled and explicit correlated pseudomeasurement acceptance");
+    if (enable_landmark_approx && (!enabled || !feature_readiness_enabled || !passive_hardening_enabled ||
+                                   !allow_correlated_pseudomeasurements || passive_assert_no_injection || state.max_slam_features != 0))
+      throw std::invalid_argument("approximate landmark requires explicit experimental injection and max_slam=0");
+    if (landmark_approx_max_points < 1 || landmark_approx_max_points > 2 || !std::isfinite(landmark_approx_sigma_floor_m) ||
+        landmark_approx_sigma_floor_m <= 0 || !std::isfinite(landmark_approx_information_cap) || landmark_approx_information_cap <= 0)
+      throw std::invalid_argument("invalid approximate landmark budget");
     if (!enabled)
       return;
     if (state.do_calib_camera_pose || state.do_calib_camera_intrinsics || state.do_calib_camera_timeoffset ||

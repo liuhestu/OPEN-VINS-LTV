@@ -609,18 +609,19 @@ int main(int argc, char **argv) {
   try {
     if (argc < 5 || argc > 6)
       throw std::runtime_error(
-          "usage: run_ltv_feature_passive config.yaml sensor_ASL_root output_dir B|P_OLD|P_NEW [short_input_seconds<=10]");
+          "usage: run_ltv_feature_passive config.yaml sensor_ASL_root output_dir B|P_OLD|P_NEW [short_input_seconds<=40]");
     const std::string root = argv[2], out = argv[3];
     const std::string requested_mode = argv[4];
 #ifdef LTV_GV_EVALUATION
-    if (requested_mode != "OFF" && requested_mode != "G" && requested_mode != "V" && requested_mode != "GV" && requested_mode != "V10")
-      throw std::runtime_error("usage: run_ltv_gv_evaluation config.yaml sensor_ASL_root output_dir OFF|G|V|GV|V10 [seconds<=10]");
+    if (requested_mode != "OFF" && requested_mode != "G" && requested_mode != "V" && requested_mode != "GV" && requested_mode != "V10" &&
+        requested_mode != "L_OFF" && requested_mode != "L_ON")
+      throw std::runtime_error("usage: run_ltv_gv_evaluation config.yaml sensor_ASL_root output_dir OFF|G|V|GV|V10 [seconds<=40]");
     const std::string mode = "P_NEW";
 #else
     const std::string mode = requested_mode;
 #endif
     const double limit = argc == 6 ? std::stod(argv[5]) : 0;
-    if ((mode != "B" && mode != "P_OLD" && mode != "P_NEW") || !std::isfinite(limit) || limit < 0 || limit > 10 ||
+    if ((mode != "B" && mode != "P_OLD" && mode != "P_NEW") || !std::isfinite(limit) || limit < 0 || limit > 40 ||
         (argc == 6 && limit == 0))
       throw std::runtime_error("invalid passive mode/short input duration");
     auto parser = std::make_shared<ov_core::YamlParser>(argv[1]);
@@ -649,6 +650,11 @@ int main(int argc, char **argv) {
     // Input YAML remains byte-identical. V10 is the single experiment-only
     // confirmation alternative; production parsing never exposes this option.
     options.ltv_options.passive_assert_no_injection = false;
+    if (requested_mode == "L_OFF" || requested_mode == "L_ON") {
+      options.ltv_options.landmark_approx_shadow = true;
+      options.ltv_options.enable_landmark_approx = requested_mode == "L_ON";
+      options.ltv_options.allow_correlated_pseudomeasurements = true;
+    }
 #ifdef LTV_GV_PRODUCTION_LEVEL
     options.ltv_options.gv_evaluation_diagnostics = false;
 #else
@@ -672,6 +678,11 @@ int main(int argc, char **argv) {
     EFFECTIVE("ltv_value_diagnostics_enabled", options.ltv_options.value_diagnostics_enabled);
     EFFECTIVE("ltv_value_diagnostics_matrices", options.ltv_options.value_diagnostics_matrices);
     EFFECTIVE("ltv_enabled", options.ltv_options.enabled);
+    EFFECTIVE("ltv_enable_landmark_approx", options.ltv_options.enable_landmark_approx);
+    EFFECTIVE("ltv_landmark_approx_shadow", options.ltv_options.landmark_approx_shadow);
+    EFFECTIVE("ltv_landmark_approx_max_points", options.ltv_options.landmark_approx_max_points);
+    EFFECTIVE("ltv_landmark_approx_sigma_floor_m", options.ltv_options.landmark_approx_sigma_floor_m);
+    EFFECTIVE("ltv_landmark_approx_information_cap", options.ltv_options.landmark_approx_information_cap);
     EFFECTIVE("ltv_feature_readiness_enabled", options.ltv_options.feature_readiness_enabled);
     EFFECTIVE("ltv_feature_apply_seed", options.ltv_options.feature_apply_seed);
     EFFECTIVE("ltv_passive_audit_enabled", options.ltv_options.passive_audit_enabled);
@@ -726,6 +737,7 @@ int main(int argc, char **argv) {
     EFFECTIVE("use_multi_threading_subs", options.use_multi_threading_subs);
     EFFECTIVE("use_multi_threading_pubs", options.use_multi_threading_pubs);
 #undef EFFECTIVE
+    effective << "\"landmark_correlation_model\": \"approximate_shared_sources_unmodeled\",\n";
     effective << "\"correlation_model\": \"" << options.ltv_options.correlation_model << "\"\n}\n";
     effective.close();
     ov_core::Printer::setPrintLevel("WARNING");
