@@ -1,5 +1,6 @@
 #include "ltv/observer/LtvOpenVinsInput.h"
 #include "feat/Feature.h"
+#include "ltv/observer/LtvMainCrossShadow.h"
 #include "state/State.h"
 #include "state/StateHelper.h"
 #include <algorithm>
@@ -42,9 +43,11 @@ LtvOpenVinsInput makeLtvOpenVinsInput(const std::shared_ptr<State> &state, const
     // PoseJPL position error is additive in world coordinates. No sign flip
     // or block-diagonal approximation: retain all clone cross-covariances.
     feature_context.pose_covariance = StateHelper::get_marginal_covariance(state, pose_order);
-    feature_context.pose_error_selector = Eigen::MatrixXd::Zero(6 * pose_order.size(), state->max_covariance_size());
-    for (size_t i = 0; i < pose_order.size(); ++i)
-      feature_context.pose_error_selector.block(6 * i, pose_order[i]->id(), 6, 6).setIdentity();
+    if (ltv::LtvMainCrossShadow::instance().enabled()) {
+      feature_context.pose_error_selector = Eigen::MatrixXd::Zero(6 * pose_order.size(), state->max_covariance_size());
+      for (size_t i = 0; i < pose_order.size(); ++i)
+        feature_context.pose_error_selector.block(6 * i, pose_order[i]->id(), 6, 6).setIdentity();
+    }
     for (int camera = 0; camera < state->_options.num_cameras; ++camera) {
       ltv::SeedCamera seed_camera;
       if (camera == 0) {
