@@ -9,6 +9,7 @@ from pathlib import Path
 
 def collect(coord, destination):
     rows = []
+    session = json.loads((coord / 'session.json').read_text())
     for task in ('a', 'b', 'c'):
         path = coord / 'registry' / f'task_{task}.jsonl'
         state = {}
@@ -34,8 +35,29 @@ def collect(coord, destination):
             row.update(task=task, run_id=run_id, status=event['event'], verified_live=live,
                        historical_reuse=event.get('historical_reuse', False))
             for key in ('command_expanded', 'binary_paths', 'config_paths', 'data', 'configuration', 'resources',
-                        'source_mutation', 'binary_mutation', 'locks'):
+                        'source_mutation', 'binary_mutation', 'locks', 'start_identity', 'contract_sha256',
+                        'source_files_sha256'):
                 row[key] = json.dumps(event.get(key), ensure_ascii=False)
+            row['baseline_oid'] = session['baseline_oid']
+            row['performance'] = event.get('performance', False)
+            row['kind'] = event.get('kind', '')
+            row['attempt_identity'] = run_id
+            row['scientific_verdict'] = 'SEE_TASK_REPORT; EXIT_ZERO_IS_NOT_PASS'
+            # Only terminal output is immutable. Do not hash a live estimator's
+            # files or imply that waiting commands have executed.
+            provenance = {}
+            if event['event'] in ('FINISH', 'LAUNCHER_FAILURE', 'CANCELLED_SOURCE_UPDATE') and event.get('output_dir'):
+                output = Path(event['output_dir'])
+                for name in ('environment.json', 'replay.json', 'instrumentation.json', 'effective_options.json'):
+                    artifact = output / name
+                    if artifact.is_file():
+                        data = artifact.read_bytes()
+                        provenance[name] = {'path': str(artifact), 'sha256': hashlib.sha256(data).hexdigest(),
+                                            'content': json.loads(data)}
+                for artifact in sorted(output.glob('*.ldd.txt')):
+                    provenance[artifact.name] = {'path': str(artifact),
+                                                'sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}
+            row['terminal_provenance'] = json.dumps(provenance, ensure_ascii=False)
             rows.append(row)
     destination.mkdir(parents=True, exist_ok=True)
     with (destination / 'run_manifest.csv').open('w', newline='') as stream:
