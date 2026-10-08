@@ -10,7 +10,7 @@ p.add_argument('install', type=Path)
 p.add_argument('source', type=Path)
 p.add_argument('output', type=Path)
 a = p.parse_args()
-names = ('test_ltv_native_default_off', 'test_ltv_options', 'test_ltv_timing', 'test_ltv_pose_convention',
+names = ('test_ltv_alias_fixed', 'test_ltv_core_lifecycle', 'test_ltv_options', 'test_ltv_timing', 'test_ltv_pose_convention',
          'test_ltv_readiness', 'test_ltv_fej', 'test_ltv_gv_jacobian', 'test_ltv_gv_covariance',
          'test_ltv_joint_layout', 'test_ltv_joint_covariance', 'test_ltv_huber', 'test_ltv_innovation')
 results = []
