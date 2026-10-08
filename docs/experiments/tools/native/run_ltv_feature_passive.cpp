@@ -631,6 +631,10 @@ int main(int argc, char **argv) {
     // Canonical OFF is pure OpenVINS; all physical C0 parameters remain unchanged.
     options.ltv_options.enabled = selected.observer;
     options.ltv_options.feature_readiness_enabled = selected.observer;
+    if (!selected.observer) {
+      options.ltv_options.passive_hardening_enabled = false;
+      options.ltv_options.active_consistency.enabled = false;
+    }
 #endif
     if (options.ltv_options.enabled != (mode != "B") || options.ltv_options.feature_readiness_enabled != (mode == "P_NEW"))
       throw std::runtime_error("mode differs from parsed configuration");
