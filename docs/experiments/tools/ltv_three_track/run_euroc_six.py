@@ -28,10 +28,19 @@ def verify_output(path, mode, full):
         replay = json.loads((path / 'replay.json').read_text())
         if replay['complete'] != full:
             errors.append('input_interval_mismatch')
-        if replay['camera_packets'] != replay['input_camera_packets'] or replay['imu_consumed'] != replay['input_imu_samples']:
-            errors.append('incomplete_input_consumption')
-        if mode == 'OFF' and (replay['actual_G_submissions'] or replay['actual_V_submissions']):
-            errors.append('OFF_auxiliary_applied')
+        if full:
+            if replay['camera_packets'] != replay['input_camera_packets'] or replay['imu_consumed'] != replay['input_imu_samples']:
+                errors.append('incomplete_input_consumption')
+        else:
+            if replay['short_limit_seconds'] != 40 or not (0 < replay['input_span_seconds'] <= 40 + 1e-6):
+                errors.append('invalid_prefix_interval')
+            if not (0 < replay['camera_packets'] <= replay['input_camera_packets'] and
+                    0 < replay['imu_consumed'] <= replay['input_imu_samples']):
+                errors.append('invalid_prefix_counts')
+        if not FLAGS[mode][1] and replay['actual_G_submissions']:
+            errors.append('disabled_G_applied')
+        if not FLAGS[mode][2] and replay['actual_V_submissions']:
+            errors.append('disabled_V_applied')
         landmark = path / 'landmark_approx.csv'
         applied = 0
         if landmark.exists():
