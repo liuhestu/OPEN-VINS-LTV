@@ -20,7 +20,7 @@
  */
 
 #include "Propagator.h"
-#include "ltv/observer/LtvFiniteJointShadow.h"
+#include "ltv/diagnostics/joint/LtvFiniteJointShadow.h"
 
 #include "state/State.h"
 #include "state/StateHelper.h"

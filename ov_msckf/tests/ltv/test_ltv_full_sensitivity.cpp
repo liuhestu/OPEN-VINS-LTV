@@ -1,5 +1,5 @@
-#include "ltv/observer/LtvDiscreteSensitivity.h"
-#include "ltv/observer/LtvMainCrossShadow.h"
+#include "ltv/diagnostics/joint/LtvDiscreteSensitivity.h"
+#include "ltv/diagnostics/joint/LtvMainCrossShadow.h"
 #include "utils/quat_ops.h"
 #include <cassert>
 #include <iostream>

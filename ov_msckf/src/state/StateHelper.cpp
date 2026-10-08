@@ -20,8 +20,8 @@
  */
 
 #include "StateHelper.h"
-#include "ltv/observer/LtvFiniteJointShadow.h"
-#include "ltv/observer/LtvMainCrossShadow.h"
+#include "ltv/diagnostics/joint/LtvFiniteJointShadow.h"
+#include "ltv/diagnostics/joint/LtvMainCrossShadow.h"
 
 #include "state/State.h"
 

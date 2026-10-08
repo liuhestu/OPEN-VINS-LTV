@@ -20,8 +20,8 @@
  */
 
 #include "UpdaterMSCKF.h"
+#include "ltv/diagnostics/joint/LtvMainCrossShadow.h"
 #include "ltv/fusion/UpdaterLTV.h"
-#include "ltv/observer/LtvMainCrossShadow.h"
 
 #include "UpdaterHelper.h"
 

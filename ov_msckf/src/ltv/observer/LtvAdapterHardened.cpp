@@ -1,6 +1,6 @@
+#include "ltv/diagnostics/joint/LtvFiniteJointShadow.h"
+#include "ltv/diagnostics/joint/LtvMainCrossShadow.h"
 #include "ltv/observer/LtvAdapter.h"
-#include "ltv/observer/LtvFiniteJointShadow.h"
-#include "ltv/observer/LtvMainCrossShadow.h"
 #include <algorithm>
 #include <climits>
 #include <cmath>

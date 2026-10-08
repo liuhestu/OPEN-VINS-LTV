@@ -1,6 +1,6 @@
 #include "ltv/observer/LtvOpenVinsInput.h"
 #include "feat/Feature.h"
-#include "ltv/observer/LtvMainCrossShadow.h"
+#include "ltv/diagnostics/joint/LtvMainCrossShadow.h"
 #include "state/State.h"
 #include "state/StateHelper.h"
 #include <algorithm>

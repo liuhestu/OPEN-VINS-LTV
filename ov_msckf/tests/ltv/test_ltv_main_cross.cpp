@@ -1,4 +1,4 @@
-#include "ltv/observer/LtvMainCrossShadow.h"
+#include "ltv/diagnostics/joint/LtvMainCrossShadow.h"
 #include <cassert>
 #include <iostream>
 #include <random>

@@ -1,0 +1,13 @@
+{
+  "baseline_oid": "66d9eb327182ecbb741a1137d35d0df62b9aab3c",
+  "estimator_cpp_files_verified": 80,
+  "changes": "include paths and read-only diagnostic file relocation only; all function bodies exact",
+  "relocations": {
+    "ov_msckf/src/ltv/observer/LtvDiscreteSensitivity.h": "ov_msckf/src/ltv/diagnostics/joint/LtvDiscreteSensitivity.h",
+    "ov_msckf/src/ltv/observer/LtvErrorShadow.h": "ov_msckf/src/ltv/diagnostics/joint/LtvErrorShadow.h",
+    "ov_msckf/src/ltv/observer/LtvJointFactors.h": "ov_msckf/src/ltv/diagnostics/joint/LtvJointFactors.h",
+    "ov_msckf/src/ltv/observer/LtvMainCrossShadow.h": "ov_msckf/src/ltv/diagnostics/joint/LtvMainCrossShadow.h",
+    "ov_msckf/src/ltv/observer/LtvFiniteJointShadow.h": "ov_msckf/src/ltv/diagnostics/joint/LtvFiniteJointShadow.h",
+    "ov_msckf/src/ltv/observer/LtvFiniteJointShadow.cpp": "ov_msckf/src/ltv/diagnostics/joint/LtvFiniteJointShadow.cpp"
+  }
+}

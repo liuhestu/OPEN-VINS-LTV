@@ -1,7 +1,7 @@
 #pragma once
 
-#include "ltv/observer/LtvErrorShadow.h"
-#include "ltv/observer/LtvJointFactors.h"
+#include "ltv/diagnostics/joint/LtvErrorShadow.h"
+#include "ltv/diagnostics/joint/LtvJointFactors.h"
 #include "ltv/observer/ltv_controlled_features.h"
 #include "ltv/observer/ltv_types.h"
 

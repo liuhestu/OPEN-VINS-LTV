@@ -20,7 +20,7 @@
  */
 
 #include "VioManager.h"
-#include "ltv/observer/LtvFiniteJointShadow.h"
+#include "ltv/diagnostics/joint/LtvFiniteJointShadow.h"
 
 #include "feat/Feature.h"
 #include "feat/FeatureDatabase.h"

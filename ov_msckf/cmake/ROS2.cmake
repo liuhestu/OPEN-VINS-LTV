@@ -119,5 +119,10 @@ if (BUILD_LTV_PHASE0_TESTS)
     add_subdirectory(tests/ltv)
 endif ()
 
+option(BUILD_LTV_EXPERIMENTS "Build opt-in archived LTV study drivers" OFF)
+if (BUILD_LTV_EXPERIMENTS)
+    add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../../docs/experiments/tools/native ltv_experiments)
+endif ()
+
 # finally define this as the package
 ament_package()
