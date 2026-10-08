@@ -51,22 +51,31 @@ def main():
     # also describe the corresponding JPL world-to-body rotation.
     quaternions = gt[:, [5, 6, 7, 4]]
     slerp = Slerp(times, Rotation.from_quat(quaternions))
-    off = np.genfromtxt(a.off_trajectory, delimiter=',', names=True)
-    ref_time = np.asarray(off['timestamp']) + a.camera_imu_offset
-    valid = (ref_time >= times[0]) & (ref_time <= times[-1])
-    x = np.column_stack([off[k] for k in ('px', 'py', 'pz')])[valid]
-    y = np.column_stack([np.interp(ref_time[valid], times, gt[:, i]) for i in (1, 2, 3)])
-    if len(x) < 20:
-        raise RuntimeError('insufficient OFF/GT gauge coverage')
-    xc, yc = x.mean(0), y.mean(0)
-    u, _, vt = np.linalg.svd((x - xc).T @ (y - yc))
-    adjust = np.diag([1., 1., np.linalg.det(vt.T @ u.T)])
-    align = vt.T @ adjust @ u.T
-    translation = yc - align @ xc
+    off = np.loadtxt(a.off_trajectory,delimiter=',',skiprows=1,ndmin=2)
+    # Runner timestamp=target=t_camera+offset: already IMU time. The shared A
+    # protocol obtains support from camera audit plus offset exactly once.
+    effective=json.loads((a.off_trajectory.parent/'effective_options.json').read_text())
+    offset=float(effective['calib_camimu_dt'])
+    if abs(offset-a.camera_imu_offset)>1e-12:raise RuntimeError('frozen offset differs from OFF effective options')
+    with (a.off_trajectory.parent/'audit.csv').open() as stream:audit=list(csv.DictReader(stream))
+    sensor=np.asarray([int(row['camera_ns'])*1e-9+offset for row in audit]);sensor=sensor[sensor>=off[0,0]-1e-6]
+    def nearest(t,u):
+        hi=np.searchsorted(t,u).clip(0,len(t)-1);lo=np.maximum(0,hi-1)
+        return np.where(abs(t[lo]-u)<=abs(t[hi]-u),lo,hi)
+    gi=nearest(times,sensor)
+    valid=(sensor>=times[0])&(sensor<=times[-1])&(abs(times[gi]-sensor)<=.02)
+    support=sensor[valid];xi=nearest(off[:,0],support)
+    if np.any(abs(off[xi,0]-support)>1e-6):raise RuntimeError('OFF complete-support output mismatch')
+    x=off[xi,5:8];y=gt[gi[valid],1:4]
+    if len(x)<20:raise RuntimeError('insufficient OFF/GT gauge coverage')
+    # Exact shared 347b0ec/evaluate_runs + evaluate.align equations/support.
+    u,_,vt=np.linalg.svd((x-x.mean(0)).T@(y-y.mean(0)))
+    d=np.eye(3);d[2,2]=np.linalg.det(vt.T@u.T)
+    align=vt.T@d@u.T;translation=y.mean(0)-align@x.mean(0)
     identity = {'off_trajectory': str(a.off_trajectory), 'off_trajectory_sha256': hashlib.sha256(a.off_trajectory.read_bytes()).hexdigest(),
                 'gt_csv': str(a.gt_csv), 'gt_sha256': hashlib.sha256(a.gt_csv.read_bytes()).hexdigest(), 'camera_imu_offset': a.camera_imu_offset,
-                'gauge': 'SE3 complete supplied OFF, no scale, reused unchanged for all emitted windows', 'rotation_est_to_gt': align.tolist(),
-                'translation_est_to_gt': translation.tolist(), 'fit_samples': len(x), 'off_unmatched_gt': int(np.sum(~valid)),
+                'gauge': 'shared347b0ec nearestGT20ms complete OFF-support SE3 no scale, reused unchanged for every window', 'rotation_est_to_gt': align.tolist(),
+                'translation_est_to_gt': translation.tolist(), 'fit_samples': len(x), 'off_unmatched_gt': int(np.sum(~valid)), 'time_convention':'trajectory/finite pose times already IMU; only audit camera_ns adds frozen offset once',
                 'real_landmark_calibration': 'NOT_EVALUATED', 'source_law_calibration': 'NOT_PROVEN',
                 'scope': 'first-order actual main quaternion error chart map of conditional program covariance; all prior/source/H/K assumptions retained'}
     (a.output / 'identity.json').write_text(json.dumps(identity, indent=2) + '\n')
@@ -82,6 +91,11 @@ def main():
             stored = read_matrix(stream, matrices['P_stored_main'])
             if np.any(layout[:, 0] < times[0]) or np.any(layout[:, 0] > times[-1]):
                 missing.append({'ordinal': ordinal, 'time': event['time'], 'status': 'NOT_EVALUATED_GT_OUT_OF_RANGE'})
+                continue
+            hi=np.searchsorted(times,layout[:,0]).clip(1,len(times)-1)
+            bracket=times[hi]-times[hi-1]
+            if np.any(bracket>.010000001):
+                missing.append({'ordinal':ordinal,'time':event['time'],'status':'NOT_EVALUATED_GT_BRACKET_GT10MS'})
                 continue
             mapping = np.eye(len(sigma))
             mean_errors = []
