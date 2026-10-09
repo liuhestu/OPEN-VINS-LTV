@@ -347,6 +347,8 @@ class Independent(Study):
         if landmark_section.exists():text+=['',landmark_section.read_text().rstrip(),'']
         high_section=ROOT/'docs/euroc_tune_results/v36_v49/section.md'
         if high_section.exists():text+=['',high_section.read_text().rstrip(),'']
+        combination_section=ROOT/'docs/euroc_tune_results/v49_combinations/section.md'
+        if combination_section.exists():text+=['',combination_section.read_text().rstrip(),'']
         REPORT.write_text('\n'.join(text));write(DEST/'sha256.json',{str(f.relative_to(DEST)):sha(f) for f in sorted(DEST.rglob('*')) if f.is_file() and f.name!='sha256.json'})
 
 

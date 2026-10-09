@@ -1,0 +1,40 @@
+{
+  "profiles": {
+    "GV": [
+      2,
+      49,
+      0
+    ],
+    "VL": [
+      0,
+      49,
+      6
+    ],
+    "L_GV": [
+      2,
+      49,
+      6
+    ]
+  },
+  "sequences": [
+    "MH_01_easy",
+    "MH_02_easy",
+    "MH_03_medium",
+    "MH_05_difficult",
+    "V1_01_easy",
+    "V1_02_medium",
+    "V1_03_difficult",
+    "V2_01_easy",
+    "V2_02_medium",
+    "V2_03_difficult"
+  ],
+  "representatives": [
+    "V2_02_medium",
+    "V2_03_difficult",
+    "MH_05_difficult"
+  ],
+  "gate": "strict >10% relative OFF or V49 blocks extension",
+  "position_support": "frozen OFF, initialization <=1us, coverage100%",
+  "threads": 1,
+  "workers": 8
+}
