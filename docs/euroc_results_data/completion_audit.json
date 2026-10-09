@@ -15,7 +15,18 @@
     "config",
     "docs/experiments/configs"
   ],
-  "descriptive_ate_comparison": {
+  "qualification": "not_granted; ATE completeness is not nondegradation/performance qualification",
+  "summary_scope": {
+    "included_sequences": 10,
+    "excluded_sequences": [
+      "MH_04_difficult"
+    ],
+    "exclusion_reason": "User attributes baseline divergence to initial stationary phase; excluded from benefit and nondegradation summary after replay, raw results retained.",
+    "reason_source": "user",
+    "exclusion_stage": "post_replay_reporting",
+    "included_runs": 60
+  },
+  "full_matrix_descriptive_ate_comparison": {
     "G": {
       "lower_ate_sequences": 6,
       "equal_ate_sequences": 1,
@@ -52,5 +63,41 @@
       "max_degradation_percent": 0.0071665587690999105
     }
   },
-  "qualification": "not_granted; ATE completeness is not nondegradation/performance qualification"
+  "descriptive_ate_comparison": {
+    "G": {
+      "lower_ate_sequences": 6,
+      "equal_ate_sequences": 0,
+      "higher_ate_sequences": 4,
+      "max_improvement_percent": 0.08797025152447951,
+      "max_degradation_percent": 0.006185859832607289
+    },
+    "V": {
+      "lower_ate_sequences": 8,
+      "equal_ate_sequences": 0,
+      "higher_ate_sequences": 2,
+      "max_improvement_percent": 0.3219886941540243,
+      "max_degradation_percent": 0.0033314043553113928
+    },
+    "GV": {
+      "lower_ate_sequences": 7,
+      "equal_ate_sequences": 0,
+      "higher_ate_sequences": 3,
+      "max_improvement_percent": 0.37470853471703236,
+      "max_degradation_percent": 0.008607443748476773
+    },
+    "L": {
+      "lower_ate_sequences": 6,
+      "equal_ate_sequences": 0,
+      "higher_ate_sequences": 4,
+      "max_improvement_percent": 0.3016692311439725,
+      "max_degradation_percent": 0.017369828628079738
+    },
+    "L_GV": {
+      "lower_ate_sequences": 6,
+      "equal_ate_sequences": 0,
+      "higher_ate_sequences": 4,
+      "max_improvement_percent": 0.6701929413333871,
+      "max_degradation_percent": 0.0071665587690999105
+    }
+  }
 }
