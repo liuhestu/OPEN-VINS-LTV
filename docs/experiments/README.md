@@ -43,6 +43,6 @@ git switch --detach archive/consolidation-20261008T153807/origin/experiment/ltv-
 
 ## EuRoC 六模式全量矩阵
 
-[最终 ATE RMSE](../euroc_results.mc) 收录 11 序列 × 6 模式的 66 次新完整回放、实际融合计数、异常序列和验收边界。所有组固定 C0、max_slam=0。
+[最终 ATE RMSE](../euroc_results.md) 收录 11 序列 × 6 模式的 66 次新完整回放、实际融合计数、异常序列和验收边界。所有组固定 C0、max_slam=0。
 
 批次入口为 `tools/ltv_three_track/run_euroc_six.py`；ATE 入口为 `tools/ltv_three_track/evaluate_euroc_six.py`。准确命令、独立构建来源及完整 manifest 见结果文档和 `../euroc_results_data/`。

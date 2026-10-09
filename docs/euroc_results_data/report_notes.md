@@ -37,7 +37,7 @@ MH_04_difficult 六组均为 12999.026971521 m；OFF 轨迹末端位置模长约
 
 ```bash
 python3 docs/experiments/tools/ltv_three_track/run_euroc_six.py /path/to/coord --stage full --data /path/to/ASL
-OPENBLAS_NUM_THREADS=1 python3 docs/experiments/tools/ltv_three_track/evaluate_euroc_six.py /path/to/coord docs/euroc_results.mc --data /path/to/ASL
+OPENBLAS_NUM_THREADS=1 python3 docs/experiments/tools/ltv_three_track/evaluate_euroc_six.py /path/to/coord docs/euroc_results.md --data /path/to/ASL
 ```
 
 协调 launcher、干净环境入口、源码冻结工具与构建规格保存在 coordination_tools/ 及 build.json、driver_fix_build2.json。目录内绝对路径是原机器证据引用；换机器需要按新位置准备协调目录、源码和构建产物。
