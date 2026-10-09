@@ -123,7 +123,9 @@ class V25(Independent):
         if marker in old:old=old[:old.index(marker)]
         section='\n'.join(text)
         (DEST/'section.md').write_text(section)
-        report.write_text(old.rstrip()+'\n\n'+section)
+        landmark_section=ROOT/'docs/euroc_tune_results/landmark/section.md'
+        suffix='\n\n'+landmark_section.read_text() if landmark_section.exists() else ''
+        report.write_text(old.rstrip()+'\n\n'+section+suffix)
         write(DEST/'sha256.json',{str(f.relative_to(DEST)):sha(f) for f in sorted(DEST.rglob('*')) if f.is_file() and f.name!='sha256.json'})
 
 

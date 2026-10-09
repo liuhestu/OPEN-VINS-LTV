@@ -290,7 +290,7 @@ class Study:
         binary = install / 'ov_msckf/lib/ov_msckf/run_ltv_gv_production'
         command = ['bash', str(self.coord / 'tools/env_exec.sh'), str(install), str(binary), str(config), self.inputs[seq]['root'], '{RUN_DIR}', mode]
         if short: command.append(str(short))
-        spec = dict(coord_root=str(self.coord), task=f'w{worker}', label=f'{label}_{seq}_{mode}_{alpha}', kind='replay', four_worker_pool=True,
+        spec = dict(coord_root=str(self.coord), task=f'w{worker}', label=f'{label}_{seq}_{mode}_{alpha}', kind='replay', four_worker_pool=True, worker_pool_size=len(json.loads((self.coord / 'session.json').read_text())['tasks']),
                     source_oid=self.identity['source_oid'], source_snapshot=self.identity['source'], command=command,
                     binary_paths=[str(binary)], config_paths=[str(p) for p in config.parent.iterdir() if p.is_file()],
                     configuration=dict(sequence=seq, mode=mode, alpha=alpha, short_seconds=short), data=self.inputs[seq], diagnostic_level='scalar_ltv_csv')
@@ -339,13 +339,14 @@ class Study:
     def batch(self, jobs, short=False, serial=False):
         # A worker processes its assigned queue serially; no concurrent registry writers per worker.
         finished = queue.Queue()
+        worker_count = 1 if serial else len(json.loads((self.coord / 'session.json').read_text())['tasks'])
         def work(worker):
-            for job in jobs[worker::(1 if serial else 4)]:
+            for job in jobs[worker::worker_count]:
                 row = self.run_one(job, worker)
                 finished.put(row)
         rows = []
-        with ThreadPoolExecutor(max_workers=1 if serial else 4) as pool:
-            futures = [pool.submit(work, n) for n in range(1 if serial else 4)]
+        with ThreadPoolExecutor(max_workers=worker_count) as pool:
+            futures = [pool.submit(work, n) for n in range(worker_count)]
             while len(rows) < len(jobs):
                 try:
                     row = finished.get(timeout=1)

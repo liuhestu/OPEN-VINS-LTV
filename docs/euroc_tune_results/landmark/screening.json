@@ -1,0 +1,145 @@
+[
+  {
+    "mode": "L",
+    "alpha": 6,
+    "status": "PASS",
+    "reasons": [],
+    "sequences": [
+      {
+        "sequence": "V2_02_medium",
+        "mode": "L",
+        "alpha": 6,
+        "run_id": "w0_full_V2_02_medium_L_6_20261009T153000_dd1ee4df",
+        "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w0/results/w0_full_V2_02_medium_L_6_20261009T153000_dd1ee4df",
+        "exit_code": 0,
+        "audit": {
+          "errors": [],
+          "actual_G": 0,
+          "actual_V": 0,
+          "actual_L": 1570,
+          "output_rows": 2266,
+          "camera_packets": 2348
+        },
+        "threading": {
+          "requested_opencv_threads": 1,
+          "actual_opencv_threads": 1
+        },
+        "landmark_information": {
+          "count": 2266,
+          "total": 0.15627370460889053,
+          "maximum": 0.0002333741632327577
+        },
+        "gate_reason_counts": {
+          "G_reason:disabled": 2348,
+          "V_reason:disabled": 2348
+        },
+        "ate_rmse_m": 0.051972224248304395,
+        "status": "VALID_FULL_MATCHED",
+        "reason": "",
+        "samples": 2252,
+        "baseline_support": 2252,
+        "coverage": 1.0,
+        "initialization_delta_s": 0.0,
+        "gt_coverage": 0.9938217122683142,
+        "estimated_rows": 2266,
+        "conditional_ate_rmse_m": 0.051972224248304395,
+        "svd_horn_difference_m": 1.1449174941446927e-15,
+        "tail_position_rmse_m": 0.1031018287165869,
+        "position_error_p95_m": 0.10773963671824799,
+        "position_error_max_m": 0.12989073658726194,
+        "off_ate": 0.05197520957067538,
+        "reference_ate": 0.05197513744903024
+      },
+      {
+        "sequence": "V2_03_difficult",
+        "mode": "L",
+        "alpha": 6,
+        "run_id": "w1_full_V2_03_difficult_L_6_20261009T153000_e2071649",
+        "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w1/results/w1_full_V2_03_difficult_L_6_20261009T153000_e2071649",
+        "exit_code": 0,
+        "audit": {
+          "errors": [],
+          "actual_G": 0,
+          "actual_V": 0,
+          "actual_L": 627,
+          "output_rows": 1806,
+          "camera_packets": 1921
+        },
+        "threading": {
+          "requested_opencv_threads": 1,
+          "actual_opencv_threads": 1
+        },
+        "landmark_information": {
+          "count": 1806,
+          "total": 0.07539710698617089,
+          "maximum": 0.0003573345695519106
+        },
+        "gate_reason_counts": {
+          "G_reason:disabled": 1921,
+          "V_reason:disabled": 1921
+        },
+        "ate_rmse_m": 0.2072559062305672,
+        "status": "VALID_FULL_MATCHED",
+        "reason": "",
+        "samples": 1799,
+        "baseline_support": 1799,
+        "coverage": 1.0,
+        "initialization_delta_s": 0.0,
+        "gt_coverage": 0.9961240310077519,
+        "estimated_rows": 1806,
+        "conditional_ate_rmse_m": 0.2072559062305672,
+        "svd_horn_difference_m": 3.3306690738754696e-16,
+        "tail_position_rmse_m": 0.20279543112406198,
+        "position_error_p95_m": 0.38826160125118747,
+        "position_error_max_m": 0.43287977570369124,
+        "off_ate": 0.20742761529144602,
+        "reference_ate": 0.2072413759735566
+      },
+      {
+        "sequence": "MH_05_difficult",
+        "mode": "L",
+        "alpha": 6,
+        "run_id": "w2_full_MH_05_difficult_L_6_20261009T153000_4e23ba26",
+        "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w2/results/w2_full_MH_05_difficult_L_6_20261009T153000_4e23ba26",
+        "exit_code": 0,
+        "audit": {
+          "errors": [],
+          "actual_G": 0,
+          "actual_V": 0,
+          "actual_L": 1575,
+          "output_rows": 1849,
+          "camera_packets": 2273
+        },
+        "threading": {
+          "requested_opencv_threads": 1,
+          "actual_opencv_threads": 1
+        },
+        "landmark_information": {
+          "count": 1849,
+          "total": 0.31499202225564027,
+          "maximum": 0.0007945195354461591
+        },
+        "gate_reason_counts": {
+          "G_reason:disabled": 2273,
+          "V_reason:disabled": 2273
+        },
+        "ate_rmse_m": 0.2763707263331078,
+        "status": "VALID_FULL_MATCHED",
+        "reason": "",
+        "samples": 1826,
+        "baseline_support": 1826,
+        "coverage": 1.0,
+        "initialization_delta_s": 0.0,
+        "gt_coverage": 0.9875608436992969,
+        "estimated_rows": 1849,
+        "conditional_ate_rmse_m": 0.2763707263331078,
+        "svd_horn_difference_m": 7.216449660063518e-16,
+        "tail_position_rmse_m": 0.47449074505816385,
+        "position_error_p95_m": 0.503004388684098,
+        "position_error_max_m": 0.6070972875750195,
+        "off_ate": 0.2762423776506412,
+        "reference_ate": 0.27629036047823724
+      }
+    ]
+  }
+]

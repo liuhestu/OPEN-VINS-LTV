@@ -1,0 +1,31 @@
+[
+  {
+    "sequence": "V2_02_medium",
+    "mode": "L",
+    "alpha": 6,
+    "run_id": "w0_smoke_V2_02_medium_L_6_20261009T152943_680000ef",
+    "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w0/results/w0_smoke_V2_02_medium_L_6_20261009T152943_680000ef",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 401,
+      "output_rows": 718,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    },
+    "landmark_information": {
+      "count": 718,
+      "total": 0.044356464650945754,
+      "maximum": 0.0002333741632327577
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 800,
+      "V_reason:disabled": 800
+    }
+  }
+]

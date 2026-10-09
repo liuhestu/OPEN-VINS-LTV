@@ -1,0 +1,1280 @@
+[
+  {
+    "owner": "1000",
+    "task": "w4",
+    "run_id": "w4_full_V1_02_medium_L_6_20261009T153111_47d70e6b",
+    "launcher_pid": 554816,
+    "spec_path": "/home/he/output/ltv_landmark6_20261009T152850/specs/full_V1_02_medium_L_6.json",
+    "spec_sha256": "a8e7e92115665258b48d1a25f1d999094faa0f92625b67d018f815b469355d76",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "{RUN_DIR}",
+      "L"
+    ],
+    "launcher_path": "/home/he/output/ltv_landmark6_20261009T152850/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V1_02_medium_L_6",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791559871.0494447,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "a436245befb6aad480ec045a190bbb53b50f7a97",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/study.py\n?? docs/euroc_tune_results/landmark/\n?? docs/experiments/tools/ltv_gain_scan/landmark6.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "eb9df797fe2415e1eeedf6c151cb994a70577bce00e4d10b2c5ca6a26cf894cd",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w4/results/w4_full_V1_02_medium_L_6_20261009T153111_47d70e6b",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "8,9",
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "/home/he/output/ltv_landmark6_20261009T152850/w4/results/w4_full_V1_02_medium_L_6_20261009T153111_47d70e6b",
+      "L"
+    ],
+    "cwd": "/home/he/output/ltv_landmark6_20261009T152850/w4/results/w4_full_V1_02_medium_L_6_20261009T153111_47d70e6b",
+    "locks": [
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/build_replay.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/slot_6.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/performance_gate.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/w4/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "8bc716dd32728d94e17634e1d1f714bbf3f8f50834c625f18b5eb614a1a81620",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V1_02_medium",
+      "mode": "L",
+      "alpha": 6,
+      "short_seconds": null
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "fed415eee44313584b9c4f61010dac146d5e4a4a35301db25b1ecd7d4d91b5f0",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V1_02_medium_hashes.json",
+      "sensor_hash_manifest_sha256": "2c788482b4328823be7a4cbfd97854c75d42f66276f5a3232a8d00ae18b4c3af"
+    },
+    "cpu_affinity": [
+      8,
+      9
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+        "sha256": "4657dbdc0e925883c83a42c713a18cf7c4679344bd1c5c03518ff7a908125455"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791559871.0704217,
+    "finished_at": 1791559913.0858848,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 114624,
+      "elapsed_s": 41.99,
+      "user_s": 41.55,
+      "system_s": 0.43
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w1",
+    "run_id": "w1_full_MH_02_easy_L_6_20261009T153111_ef7199fd",
+    "launcher_pid": 554818,
+    "spec_path": "/home/he/output/ltv_landmark6_20261009T152850/specs/full_MH_02_easy_L_6.json",
+    "spec_sha256": "9851827d3e59e5741badaa440be51149ea3e2c59690120960f7d077a4eb84a02",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "{RUN_DIR}",
+      "L"
+    ],
+    "launcher_path": "/home/he/output/ltv_landmark6_20261009T152850/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_MH_02_easy_L_6",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791559871.036049,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "a436245befb6aad480ec045a190bbb53b50f7a97",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/study.py\n?? docs/euroc_tune_results/landmark/\n?? docs/experiments/tools/ltv_gain_scan/landmark6.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "eb9df797fe2415e1eeedf6c151cb994a70577bce00e4d10b2c5ca6a26cf894cd",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w1/results/w1_full_MH_02_easy_L_6_20261009T153111_ef7199fd",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "2,3",
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "/home/he/output/ltv_landmark6_20261009T152850/w1/results/w1_full_MH_02_easy_L_6_20261009T153111_ef7199fd",
+      "L"
+    ],
+    "cwd": "/home/he/output/ltv_landmark6_20261009T152850/w1/results/w1_full_MH_02_easy_L_6_20261009T153111_ef7199fd",
+    "locks": [
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/build_replay.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/slot_1.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/performance_gate.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/w1/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "8bc716dd32728d94e17634e1d1f714bbf3f8f50834c625f18b5eb614a1a81620",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "MH_02_easy",
+      "mode": "L",
+      "alpha": 6,
+      "short_seconds": null
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "original": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "f49666ad4991c80bc467fc05e6d250cec7e28fbd05c1643402298e67438f754f",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_02_easy_hashes.json",
+      "sensor_hash_manifest_sha256": "0a5a7a1e18bc8b14576163b4973bbe5c8843cfef86aaca2727e92702dc32e991"
+    },
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+        "sha256": "4657dbdc0e925883c83a42c713a18cf7c4679344bd1c5c03518ff7a908125455"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791559871.0539224,
+    "finished_at": 1791559964.0957506,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 124896,
+      "elapsed_s": 93.03,
+      "user_s": 92.42,
+      "system_s": 0.59
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w1",
+    "run_id": "w1_full_V2_03_difficult_L_6_20261009T153000_e2071649",
+    "launcher_pid": 554024,
+    "spec_path": "/home/he/output/ltv_landmark6_20261009T152850/specs/full_V2_03_difficult_L_6.json",
+    "spec_sha256": "185684c0ea014e373b46880dd2cfc05ac55555b2553b6c8a918a030ef86e0c51",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "{RUN_DIR}",
+      "L"
+    ],
+    "launcher_path": "/home/he/output/ltv_landmark6_20261009T152850/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V2_03_difficult_L_6",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791559800.9327092,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "a436245befb6aad480ec045a190bbb53b50f7a97",
+    "dirty_state": " M .gitignore\n M docs/experiments/tools/ltv_gain_scan/study.py\n?? docs/experiments/tools/ltv_gain_scan/landmark6.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "321835a2cda9f4c62905b9b31ead3fcab507e3fe35944bbefab16920274fc80a",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w1/results/w1_full_V2_03_difficult_L_6_20261009T153000_e2071649",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "2,3",
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "/home/he/output/ltv_landmark6_20261009T152850/w1/results/w1_full_V2_03_difficult_L_6_20261009T153000_e2071649",
+      "L"
+    ],
+    "cwd": "/home/he/output/ltv_landmark6_20261009T152850/w1/results/w1_full_V2_03_difficult_L_6_20261009T153000_e2071649",
+    "locks": [
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/build_replay.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/slot_1.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/performance_gate.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/w1/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "8bc716dd32728d94e17634e1d1f714bbf3f8f50834c625f18b5eb614a1a81620",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V2_03_difficult",
+      "mode": "L",
+      "alpha": 6,
+      "short_seconds": null
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_03_difficult_hashes.json",
+      "sensor_hash_manifest_sha256": "fd97af12a1660583519ae26ecf77433d58b07ba204ff2c7dd80953d7a26496ef"
+    },
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+        "sha256": "4657dbdc0e925883c83a42c713a18cf7c4679344bd1c5c03518ff7a908125455"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791559800.9537554,
+    "finished_at": 1791559840.4770906,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 111444,
+      "elapsed_s": 39.51,
+      "user_s": 39.17,
+      "system_s": 0.31
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w2",
+    "run_id": "w2_full_MH_03_medium_L_6_20261009T153111_b06da109",
+    "launcher_pid": 554813,
+    "spec_path": "/home/he/output/ltv_landmark6_20261009T152850/specs/full_MH_03_medium_L_6.json",
+    "spec_sha256": "7173e80d9c19ed29a198a8a3083044291137686f0a1eb7b69c4cb6b45a419a2b",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "{RUN_DIR}",
+      "L"
+    ],
+    "launcher_path": "/home/he/output/ltv_landmark6_20261009T152850/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_MH_03_medium_L_6",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791559871.0355556,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "a436245befb6aad480ec045a190bbb53b50f7a97",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/study.py\n?? docs/euroc_tune_results/landmark/\n?? docs/experiments/tools/ltv_gain_scan/landmark6.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "eb9df797fe2415e1eeedf6c151cb994a70577bce00e4d10b2c5ca6a26cf894cd",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w2/results/w2_full_MH_03_medium_L_6_20261009T153111_b06da109",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "4,5",
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "/home/he/output/ltv_landmark6_20261009T152850/w2/results/w2_full_MH_03_medium_L_6_20261009T153111_b06da109",
+      "L"
+    ],
+    "cwd": "/home/he/output/ltv_landmark6_20261009T152850/w2/results/w2_full_MH_03_medium_L_6_20261009T153111_b06da109",
+    "locks": [
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/build_replay.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/slot_0.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/performance_gate.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/w2/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "8bc716dd32728d94e17634e1d1f714bbf3f8f50834c625f18b5eb614a1a81620",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "MH_03_medium",
+      "mode": "L",
+      "alpha": 6,
+      "short_seconds": null
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "original": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "7e52fd28088b0d428509cc365fbb44ed5d910e5174ac155e1d987923c056000f",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_03_medium_hashes.json",
+      "sensor_hash_manifest_sha256": "c77ddb56522c97fd76f434360d66016f84d317d5e5ff0d1a089dd3e706e65891"
+    },
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+        "sha256": "4657dbdc0e925883c83a42c713a18cf7c4679344bd1c5c03518ff7a908125455"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791559871.0560973,
+    "finished_at": 1791559957.7334182,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 121700,
+      "elapsed_s": 86.65,
+      "user_s": 85.97,
+      "system_s": 0.65
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w2",
+    "run_id": "w2_full_MH_05_difficult_L_6_20261009T153000_4e23ba26",
+    "launcher_pid": 554023,
+    "spec_path": "/home/he/output/ltv_landmark6_20261009T152850/specs/full_MH_05_difficult_L_6.json",
+    "spec_sha256": "2c4aa9e31d657e06c2484e69ce573373d95922c3227427d034007e71ac4b5f1b",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "{RUN_DIR}",
+      "L"
+    ],
+    "launcher_path": "/home/he/output/ltv_landmark6_20261009T152850/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_MH_05_difficult_L_6",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791559800.9326978,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "a436245befb6aad480ec045a190bbb53b50f7a97",
+    "dirty_state": " M .gitignore\n M docs/experiments/tools/ltv_gain_scan/study.py\n?? docs/experiments/tools/ltv_gain_scan/landmark6.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "321835a2cda9f4c62905b9b31ead3fcab507e3fe35944bbefab16920274fc80a",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w2/results/w2_full_MH_05_difficult_L_6_20261009T153000_4e23ba26",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "4,5",
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "/home/he/output/ltv_landmark6_20261009T152850/w2/results/w2_full_MH_05_difficult_L_6_20261009T153000_4e23ba26",
+      "L"
+    ],
+    "cwd": "/home/he/output/ltv_landmark6_20261009T152850/w2/results/w2_full_MH_05_difficult_L_6_20261009T153000_4e23ba26",
+    "locks": [
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/build_replay.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/slot_2.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/performance_gate.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/w2/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "8bc716dd32728d94e17634e1d1f714bbf3f8f50834c625f18b5eb614a1a81620",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "MH_05_difficult",
+      "mode": "L",
+      "alpha": 6,
+      "short_seconds": null
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "original": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "da13e5dcb3d5fc2f12c4e8bfae10dd380d765150be3312f989b0bc5550965451",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_05_difficult_hashes.json",
+      "sensor_hash_manifest_sha256": "bbc8bcd48327a2d212ff33677b478e5e118a4c57e9c56093172d09c248720ec5"
+    },
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+        "sha256": "4657dbdc0e925883c83a42c713a18cf7c4679344bd1c5c03518ff7a908125455"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791559800.9545271,
+    "finished_at": 1791559870.8710232,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 120520,
+      "elapsed_s": 69.9,
+      "user_s": 69.24,
+      "system_s": 0.64
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w3",
+    "run_id": "w3_full_V1_01_easy_L_6_20261009T153111_f7fcda32",
+    "launcher_pid": 554814,
+    "spec_path": "/home/he/output/ltv_landmark6_20261009T152850/specs/full_V1_01_easy_L_6.json",
+    "spec_sha256": "01fdb776a27bb95c5e7b2b6f2efc17b8fde16aca718ab7ae34ea711056a38f72",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "{RUN_DIR}",
+      "L"
+    ],
+    "launcher_path": "/home/he/output/ltv_landmark6_20261009T152850/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V1_01_easy_L_6",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791559871.0489829,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "a436245befb6aad480ec045a190bbb53b50f7a97",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/study.py\n?? docs/euroc_tune_results/landmark/\n?? docs/experiments/tools/ltv_gain_scan/landmark6.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "eb9df797fe2415e1eeedf6c151cb994a70577bce00e4d10b2c5ca6a26cf894cd",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w3/results/w3_full_V1_01_easy_L_6_20261009T153111_f7fcda32",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "6,7",
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "/home/he/output/ltv_landmark6_20261009T152850/w3/results/w3_full_V1_01_easy_L_6_20261009T153111_f7fcda32",
+      "L"
+    ],
+    "cwd": "/home/he/output/ltv_landmark6_20261009T152850/w3/results/w3_full_V1_01_easy_L_6_20261009T153111_f7fcda32",
+    "locks": [
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/build_replay.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/slot_5.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/performance_gate.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/w3/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "8bc716dd32728d94e17634e1d1f714bbf3f8f50834c625f18b5eb614a1a81620",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V1_01_easy",
+      "mode": "L",
+      "alpha": 6,
+      "short_seconds": null
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "701200e6924ba845ccdeea884bd717c82d1ed91f480913ea6e2e6ccb9c0fbf6d",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V1_01_easy_hashes.json",
+      "sensor_hash_manifest_sha256": "7ae85c1b966d3f533584286562d21580d2b1fba9320c5a7624e363b271209d2a"
+    },
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+        "sha256": "4657dbdc0e925883c83a42c713a18cf7c4679344bd1c5c03518ff7a908125455"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791559871.0727122,
+    "finished_at": 1791559950.602885,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 119604,
+      "elapsed_s": 79.5,
+      "user_s": 78.67,
+      "system_s": 0.8
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w6",
+    "run_id": "w6_full_V2_01_easy_L_6_20261009T153111_72dbc2c9",
+    "launcher_pid": 554819,
+    "spec_path": "/home/he/output/ltv_landmark6_20261009T152850/specs/full_V2_01_easy_L_6.json",
+    "spec_sha256": "06da7f5ea121c7c41ac10621530bdb7e75cde13a09314c42481754d2449c94e9",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "{RUN_DIR}",
+      "L"
+    ],
+    "launcher_path": "/home/he/output/ltv_landmark6_20261009T152850/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V2_01_easy_L_6",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791559871.0363495,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "a436245befb6aad480ec045a190bbb53b50f7a97",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/study.py\n?? docs/euroc_tune_results/landmark/\n?? docs/experiments/tools/ltv_gain_scan/landmark6.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "eb9df797fe2415e1eeedf6c151cb994a70577bce00e4d10b2c5ca6a26cf894cd",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w6/results/w6_full_V2_01_easy_L_6_20261009T153111_72dbc2c9",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "12,13",
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "/home/he/output/ltv_landmark6_20261009T152850/w6/results/w6_full_V2_01_easy_L_6_20261009T153111_72dbc2c9",
+      "L"
+    ],
+    "cwd": "/home/he/output/ltv_landmark6_20261009T152850/w6/results/w6_full_V2_01_easy_L_6_20261009T153111_72dbc2c9",
+    "locks": [
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/build_replay.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/slot_2.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/performance_gate.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/w6/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "8bc716dd32728d94e17634e1d1f714bbf3f8f50834c625f18b5eb614a1a81620",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V2_01_easy",
+      "mode": "L",
+      "alpha": 6,
+      "short_seconds": null
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "315807fd7d91868ed6085a3d8fde40315842135f13199ed83e2e6270eb5b5126",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_01_easy_hashes.json",
+      "sensor_hash_manifest_sha256": "99cba2e0457ff4ecfe1a8263ab7aad8b173207a13c72cfeb072c66e776509c0f"
+    },
+    "cpu_affinity": [
+      12,
+      13
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+        "sha256": "4657dbdc0e925883c83a42c713a18cf7c4679344bd1c5c03518ff7a908125455"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791559871.0564075,
+    "finished_at": 1791559965.8893664,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 7,
+    "resources": {
+      "max_rss_kb": 124692,
+      "elapsed_s": 94.81,
+      "user_s": 93.63,
+      "system_s": 1.16
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w0",
+    "run_id": "w0_smoke_V2_02_medium_L_6_20261009T152943_680000ef",
+    "launcher_pid": 553893,
+    "spec_path": "/home/he/output/ltv_landmark6_20261009T152850/specs/smoke_V2_02_medium_L_6.json",
+    "spec_sha256": "6d8c0de029035da724b0eee9c4420f4d0c361ca85992ba5902f033a58cbdc815",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "{RUN_DIR}",
+      "L",
+      "40"
+    ],
+    "launcher_path": "/home/he/output/ltv_landmark6_20261009T152850/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "smoke_V2_02_medium_L_6",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791559783.6588514,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "a436245befb6aad480ec045a190bbb53b50f7a97",
+    "dirty_state": " M .gitignore\n M docs/experiments/tools/ltv_gain_scan/study.py\n?? docs/experiments/tools/ltv_gain_scan/landmark6.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "321835a2cda9f4c62905b9b31ead3fcab507e3fe35944bbefab16920274fc80a",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w0/results/w0_smoke_V2_02_medium_L_6_20261009T152943_680000ef",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "0,1",
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "/home/he/output/ltv_landmark6_20261009T152850/w0/results/w0_smoke_V2_02_medium_L_6_20261009T152943_680000ef",
+      "L",
+      "40"
+    ],
+    "cwd": "/home/he/output/ltv_landmark6_20261009T152850/w0/results/w0_smoke_V2_02_medium_L_6_20261009T152943_680000ef",
+    "locks": [
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/build_replay.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/slot_0.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/performance_gate.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/w0/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "8bc716dd32728d94e17634e1d1f714bbf3f8f50834c625f18b5eb614a1a81620",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V2_02_medium",
+      "mode": "L",
+      "alpha": 6,
+      "short_seconds": 40
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_02_medium_hashes.json",
+      "sensor_hash_manifest_sha256": "24209fc1cbe327ae49656ff9058b1508bd4b8ec12e92493d886f3ce68f55647e"
+    },
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+        "sha256": "4657dbdc0e925883c83a42c713a18cf7c4679344bd1c5c03518ff7a908125455"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791559783.6805794,
+    "finished_at": 1791559800.8939748,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 113516,
+      "elapsed_s": 17.2,
+      "user_s": 16.93,
+      "system_s": 0.24
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w0",
+    "run_id": "w0_full_V2_02_medium_L_6_20261009T153000_dd1ee4df",
+    "launcher_pid": 554022,
+    "spec_path": "/home/he/output/ltv_landmark6_20261009T152850/specs/full_V2_02_medium_L_6.json",
+    "spec_sha256": "b2629d2bb40b47ce7d1f8e99bbf2a4627dda809504d9070e0ae6928f41237754",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "{RUN_DIR}",
+      "L"
+    ],
+    "launcher_path": "/home/he/output/ltv_landmark6_20261009T152850/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V2_02_medium_L_6",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791559800.9306538,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "a436245befb6aad480ec045a190bbb53b50f7a97",
+    "dirty_state": " M .gitignore\n M docs/experiments/tools/ltv_gain_scan/study.py\n?? docs/experiments/tools/ltv_gain_scan/landmark6.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "321835a2cda9f4c62905b9b31ead3fcab507e3fe35944bbefab16920274fc80a",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w0/results/w0_full_V2_02_medium_L_6_20261009T153000_dd1ee4df",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "0,1",
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "/home/he/output/ltv_landmark6_20261009T152850/w0/results/w0_full_V2_02_medium_L_6_20261009T153000_dd1ee4df",
+      "L"
+    ],
+    "cwd": "/home/he/output/ltv_landmark6_20261009T152850/w0/results/w0_full_V2_02_medium_L_6_20261009T153000_dd1ee4df",
+    "locks": [
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/build_replay.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/slot_0.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/performance_gate.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/w0/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "8bc716dd32728d94e17634e1d1f714bbf3f8f50834c625f18b5eb614a1a81620",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V2_02_medium",
+      "mode": "L",
+      "alpha": 6,
+      "short_seconds": null
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_02_medium_hashes.json",
+      "sensor_hash_manifest_sha256": "24209fc1cbe327ae49656ff9058b1508bd4b8ec12e92493d886f3ce68f55647e"
+    },
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+        "sha256": "4657dbdc0e925883c83a42c713a18cf7c4679344bd1c5c03518ff7a908125455"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791559800.9537563,
+    "finished_at": 1791559856.8338544,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 116232,
+      "elapsed_s": 55.86,
+      "user_s": 55.32,
+      "system_s": 0.5
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w0",
+    "run_id": "w0_full_MH_01_easy_L_6_20261009T153111_545d0ebf",
+    "launcher_pid": 554817,
+    "spec_path": "/home/he/output/ltv_landmark6_20261009T152850/specs/full_MH_01_easy_L_6.json",
+    "spec_sha256": "15990cba7cacb7152a70d009988d980315806d7d79fba955ebf49572e87ca68d",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "{RUN_DIR}",
+      "L"
+    ],
+    "launcher_path": "/home/he/output/ltv_landmark6_20261009T152850/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_MH_01_easy_L_6",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791559871.037186,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "a436245befb6aad480ec045a190bbb53b50f7a97",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/study.py\n?? docs/euroc_tune_results/landmark/\n?? docs/experiments/tools/ltv_gain_scan/landmark6.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "eb9df797fe2415e1eeedf6c151cb994a70577bce00e4d10b2c5ca6a26cf894cd",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w0/results/w0_full_MH_01_easy_L_6_20261009T153111_545d0ebf",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "0,1",
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "/home/he/output/ltv_landmark6_20261009T152850/w0/results/w0_full_MH_01_easy_L_6_20261009T153111_545d0ebf",
+      "L"
+    ],
+    "cwd": "/home/he/output/ltv_landmark6_20261009T152850/w0/results/w0_full_MH_01_easy_L_6_20261009T153111_545d0ebf",
+    "locks": [
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/build_replay.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/slot_3.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/performance_gate.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/w0/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "8bc716dd32728d94e17634e1d1f714bbf3f8f50834c625f18b5eb614a1a81620",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "MH_01_easy",
+      "mode": "L",
+      "alpha": 6,
+      "short_seconds": null
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "original": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "aae2d7c5684724c8afe364d2fd8499a6ed77a9169adf03736531f67d8e7b2117",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_01_easy_hashes.json",
+      "sensor_hash_manifest_sha256": "28fd36bf9cb4da84d5aea13fde1acd259124561b3f37a55c307fffba4ebc915c"
+    },
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+        "sha256": "4657dbdc0e925883c83a42c713a18cf7c4679344bd1c5c03518ff7a908125455"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791559871.053853,
+    "finished_at": 1791559985.336835,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 125312,
+      "elapsed_s": 114.27,
+      "user_s": 113.29,
+      "system_s": 0.95
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w5",
+    "run_id": "w5_full_V1_03_difficult_L_6_20261009T153111_9929bc91",
+    "launcher_pid": 554815,
+    "spec_path": "/home/he/output/ltv_landmark6_20261009T152850/specs/full_V1_03_difficult_L_6.json",
+    "spec_sha256": "adab40078d79d7597bb3c32b6b464613db85057dba524b0ffd8109d1dfa3bd8e",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "{RUN_DIR}",
+      "L"
+    ],
+    "launcher_path": "/home/he/output/ltv_landmark6_20261009T152850/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V1_03_difficult_L_6",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791559871.0441332,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "a436245befb6aad480ec045a190bbb53b50f7a97",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/study.py\n?? docs/euroc_tune_results/landmark/\n?? docs/experiments/tools/ltv_gain_scan/landmark6.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "eb9df797fe2415e1eeedf6c151cb994a70577bce00e4d10b2c5ca6a26cf894cd",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_landmark6_20261009T152850/w5/results/w5_full_V1_03_difficult_L_6_20261009T153111_9929bc91",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "10,11",
+      "bash",
+      "/home/he/output/ltv_landmark6_20261009T152850/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "/home/he/output/ltv_landmark6_20261009T152850/w5/results/w5_full_V1_03_difficult_L_6_20261009T153111_9929bc91",
+      "L"
+    ],
+    "cwd": "/home/he/output/ltv_landmark6_20261009T152850/w5/results/w5_full_V1_03_difficult_L_6_20261009T153111_9929bc91",
+    "locks": [
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/build_replay.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/slot_4.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/locks/performance_gate.lock",
+      "/home/he/output/ltv_landmark6_20261009T152850/w5/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "8bc716dd32728d94e17634e1d1f714bbf3f8f50834c625f18b5eb614a1a81620",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V1_03_difficult",
+      "mode": "L",
+      "alpha": 6,
+      "short_seconds": null
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "703ba51a854daba80f20df93e76605c2278b3f227afe2bcbe9eb4255186fc3d9",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V1_03_difficult_hashes.json",
+      "sensor_hash_manifest_sha256": "acda3254af924aa5f6238a2150a9792b254933af8274c07d076ca07dad9b23fc"
+    },
+    "cpu_affinity": [
+      10,
+      11
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/estimator_config.yaml",
+        "sha256": "4657dbdc0e925883c83a42c713a18cf7c4679344bd1c5c03518ff7a908125455"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_landmark6_20261009T152850/configs/euroc/L_6/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791559871.067005,
+    "finished_at": 1791559919.8051198,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 116252,
+      "elapsed_s": 48.71,
+      "user_s": 48.16,
+      "system_s": 0.54
+    },
+    "validity": "EXIT_ZERO"
+  }
+]

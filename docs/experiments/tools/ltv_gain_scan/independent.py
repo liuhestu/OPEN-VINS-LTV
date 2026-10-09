@@ -343,6 +343,8 @@ class Independent(Study):
         text+=['','## 身份与证据','',f'新回放源码 `{self.identity["source_oid"]}`；原始记录 `{self.coord}`。', '[全部配置](euroc_tune_results/gv_independent/results.json) · [筛选决定](euroc_tune_results/gv_independent/screening.json) · [审计](euroc_tune_results/gv_independent/independent_audit.json) · [协议](euroc_tune_results/gv_independent/protocol.json)','']
         v25_section=ROOT/'docs/euroc_tune_results/v25/section.md'
         if v25_section.exists():text+=['',v25_section.read_text().rstrip(),'']
+        landmark_section=ROOT/'docs/euroc_tune_results/landmark/section.md'
+        if landmark_section.exists():text+=['',landmark_section.read_text().rstrip(),'']
         REPORT.write_text('\n'.join(text));write(DEST/'sha256.json',{str(f.relative_to(DEST)):sha(f) for f in sorted(DEST.rglob('*')) if f.is_file() and f.name!='sha256.json'})
 
 
