@@ -609,7 +609,7 @@ public:
 int main(int argc, char **argv) {
   try {
     if (argc < 5 || argc > 6)
-      throw std::runtime_error("usage: run_ltv_gv_production config.yaml sensor_ASL_root output_dir OFF|G|V|GV|L|L_GV [seconds<=40]");
+      throw std::runtime_error("usage: run_ltv_gv_production config.yaml sensor_ASL_root output_dir OFF|G|V|GV|L|L_GV|VL [seconds<=40]");
     const std::string root = argv[2], out = argv[3];
     const std::string requested_mode = argv[4];
 #ifdef LTV_GV_EVALUATION

@@ -9,7 +9,7 @@ import subprocess
 
 MODES = ['OFF', 'G', 'V', 'GV', 'L', 'L_GV']
 FLAGS = {'OFF': [0, 0, 0, 0], 'G': [1, 1, 0, 0], 'V': [1, 0, 1, 0],
-         'GV': [1, 1, 1, 0], 'L': [1, 0, 0, 1], 'L_GV': [1, 1, 1, 1]}
+         'GV': [1, 1, 1, 0], 'L': [1, 0, 0, 1], 'L_GV': [1, 1, 1, 1], 'VL': [1, 0, 1, 1]}
 SEQUENCES = ['MH_01_easy', 'MH_02_easy', 'MH_03_medium', 'MH_04_difficult', 'MH_05_difficult',
              'V1_01_easy', 'V1_02_medium', 'V1_03_difficult', 'V2_01_easy', 'V2_02_medium', 'V2_03_difficult']
 

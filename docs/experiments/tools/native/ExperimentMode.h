@@ -18,6 +18,9 @@ inline ExperimentMode experiment_mode(const std::string &name) {
     return {"GV", true, true, true, false, false};
   if (name == "L" || name == "L_ON")
     return {"L", true, false, false, true, true};
+  // Opt-in combination check; canonical six-mode batches remain unchanged.
+  if (name == "VL")
+    return {"VL", true, false, true, true, true};
   if (name == "L_GV")
     return {"L_GV", true, true, true, true, true};
   // Historical aliases are excluded from the canonical six-mode batch.
@@ -25,5 +28,5 @@ inline ExperimentMode experiment_mode(const std::string &name) {
     return {"L_OFF", true, false, false, false, true};
   if (name == "V10")
     return {"V10", true, false, true, false, false};
-  throw std::invalid_argument("expected OFF|G|V|GV|L|L_GV (legacy L_OFF|L_ON|V10)");
+  throw std::invalid_argument("expected OFF|G|V|GV|L|L_GV|VL (legacy L_OFF|L_ON|V10)");
 }

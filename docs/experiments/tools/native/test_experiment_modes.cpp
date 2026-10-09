@@ -14,6 +14,8 @@ int main() {
     assert(m.landmark == expected[i][3]);
     assert(m.landmark_shadow == m.landmark);
   }
+  const auto vl = experiment_mode("VL");
+  assert(vl.observer && !vl.gravity && vl.velocity && vl.landmark && vl.landmark_shadow);
   assert(experiment_mode("L_ON").name == "L");
   bool rejected = false;
   try {
