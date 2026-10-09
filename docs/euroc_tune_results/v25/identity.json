@@ -1,0 +1,9 @@
+{
+  "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+  "source": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+  "artifact": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial",
+  "purpose": "post-run threading correction; original full matrix remains the original artifact",
+  "coord_root": "/home/he/output/ltv_v25_20261009T151451",
+  "binary_sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6",
+  "analysis_source_oid": "f04d9a451b706839199833a98dc15ff7c405f013"
+}

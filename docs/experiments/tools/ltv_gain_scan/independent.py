@@ -37,7 +37,8 @@ def weights(mode, g, v):
     if (g > 0) != (mode in ['G', 'GV']) or (v > 0) != (mode in ['V', 'GV']):
         raise ValueError('disabled branch must have zero weight identity')
     allowed = TIERS if mode == 'GV' else TIERS + EXTRA
-    if g not in [0] + allowed or v not in [0] + allowed:
+    allowed_velocity = allowed + ([25] if mode == 'V' else [])
+    if g not in [0] + allowed or v not in [0] + allowed_velocity:
         raise ValueError('outside declared grid')
     return dict(ltv_sigma_gravity_deg=10 / np.sqrt(g or 1), ltv_sigma_velocity_mps=1 / np.sqrt(v or 1))
 
@@ -340,6 +341,8 @@ class Independent(Study):
         notes=DEST/'analysis_notes.md'
         if notes.exists():text+=['',notes.read_text().rstrip()]
         text+=['','## 身份与证据','',f'新回放源码 `{self.identity["source_oid"]}`；原始记录 `{self.coord}`。', '[全部配置](euroc_tune_results/gv_independent/results.json) · [筛选决定](euroc_tune_results/gv_independent/screening.json) · [审计](euroc_tune_results/gv_independent/independent_audit.json) · [协议](euroc_tune_results/gv_independent/protocol.json)','']
+        v25_section=ROOT/'docs/euroc_tune_results/v25/section.md'
+        if v25_section.exists():text+=['',v25_section.read_text().rstrip(),'']
         REPORT.write_text('\n'.join(text));write(DEST/'sha256.json',{str(f.relative_to(DEST)):sha(f) for f in sorted(DEST.rglob('*')) if f.is_file() and f.name!='sha256.json'})
 
 

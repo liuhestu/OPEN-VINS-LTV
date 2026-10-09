@@ -1,0 +1,129 @@
+[
+  {
+    "mode": "V",
+    "alpha_gravity": 0,
+    "alpha_velocity": 25,
+    "stage": "representative",
+    "status": "PASS",
+    "reasons": [],
+    "sequences": [
+      {
+        "sequence": "V2_02_medium",
+        "mode": "V",
+        "alpha_gravity": 0,
+        "alpha_velocity": 25,
+        "historical_reuse": false,
+        "phase": "representative",
+        "run_id": "w0_representative_V2_02_medium_V_G0_V25_20261009T151549_0ab649d5",
+        "output_dir": "/home/he/output/ltv_v25_20261009T151451/w0/results/w0_representative_V2_02_medium_V_G0_V25_20261009T151549_0ab649d5",
+        "exit_code": 0,
+        "audit": {
+          "errors": [],
+          "actual_G": 0,
+          "actual_V": 1571,
+          "actual_L": 0,
+          "output_rows": 2266,
+          "camera_packets": 2348
+        },
+        "threading": {
+          "requested_opencv_threads": 1,
+          "actual_opencv_threads": 1
+        },
+        "ate_rmse_m": 0.051975575492381465,
+        "status": "VALID_FULL_MATCHED",
+        "reason": "",
+        "samples": 2252,
+        "baseline_support": 2252,
+        "coverage": 1.0,
+        "initialization_delta_s": 0.0,
+        "gt_coverage": 0.9938217122683142,
+        "estimated_rows": 2266,
+        "conditional_ate_rmse_m": 0.051975575492381465,
+        "svd_horn_difference_m": 1.5959455978986625e-16,
+        "tail_position_rmse_m": 0.10312555060890632,
+        "position_error_p95_m": 0.10794742591816427,
+        "position_error_max_m": 0.13007058038232186,
+        "off_ate": 0.05197520957067538,
+        "reference_ate": 0.0519733342690273
+      },
+      {
+        "sequence": "V2_03_difficult",
+        "mode": "V",
+        "alpha_gravity": 0,
+        "alpha_velocity": 25,
+        "historical_reuse": false,
+        "phase": "representative",
+        "run_id": "w1_representative_V2_03_difficult_V_G0_V25_20261009T151549_212e1685",
+        "output_dir": "/home/he/output/ltv_v25_20261009T151451/w1/results/w1_representative_V2_03_difficult_V_G0_V25_20261009T151549_212e1685",
+        "exit_code": 0,
+        "audit": {
+          "errors": [],
+          "actual_G": 0,
+          "actual_V": 637,
+          "actual_L": 0,
+          "output_rows": 1806,
+          "camera_packets": 1921
+        },
+        "threading": {
+          "requested_opencv_threads": 1,
+          "actual_opencv_threads": 1
+        },
+        "ate_rmse_m": 0.20720765536726113,
+        "status": "VALID_FULL_MATCHED",
+        "reason": "",
+        "samples": 1799,
+        "baseline_support": 1799,
+        "coverage": 1.0,
+        "initialization_delta_s": 0.0,
+        "gt_coverage": 0.9961240310077519,
+        "estimated_rows": 1806,
+        "conditional_ate_rmse_m": 0.20720765536726113,
+        "svd_horn_difference_m": 6.106226635438361e-16,
+        "tail_position_rmse_m": 0.20254547905912892,
+        "position_error_p95_m": 0.38778776910298446,
+        "position_error_max_m": 0.43228021473522754,
+        "off_ate": 0.20742761529144602,
+        "reference_ate": 0.20723497040821132
+      },
+      {
+        "sequence": "MH_05_difficult",
+        "mode": "V",
+        "alpha_gravity": 0,
+        "alpha_velocity": 25,
+        "historical_reuse": false,
+        "phase": "representative",
+        "run_id": "w2_representative_MH_05_difficult_V_G0_V25_20261009T151549_e62230f6",
+        "output_dir": "/home/he/output/ltv_v25_20261009T151451/w2/results/w2_representative_MH_05_difficult_V_G0_V25_20261009T151549_e62230f6",
+        "exit_code": 0,
+        "audit": {
+          "errors": [],
+          "actual_G": 0,
+          "actual_V": 1576,
+          "actual_L": 0,
+          "output_rows": 1849,
+          "camera_packets": 2273
+        },
+        "threading": {
+          "requested_opencv_threads": 1,
+          "actual_opencv_threads": 1
+        },
+        "ate_rmse_m": 0.2646569666921767,
+        "status": "VALID_FULL_MATCHED",
+        "reason": "",
+        "samples": 1826,
+        "baseline_support": 1826,
+        "coverage": 1.0,
+        "initialization_delta_s": 0.0,
+        "gt_coverage": 0.9875608436992969,
+        "estimated_rows": 1849,
+        "conditional_ate_rmse_m": 0.2646569666921767,
+        "svd_horn_difference_m": 3.885780586188048e-16,
+        "tail_position_rmse_m": 0.4563687445253381,
+        "position_error_p95_m": 0.4797447127376902,
+        "position_error_max_m": 0.593852580180733,
+        "off_ate": 0.2762423776506412,
+        "reference_ate": 0.2757957431498765
+      }
+    ]
+  }
+]

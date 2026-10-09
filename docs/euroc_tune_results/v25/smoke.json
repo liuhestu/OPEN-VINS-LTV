@@ -1,0 +1,25 @@
+[
+  {
+    "sequence": "V2_02_medium",
+    "mode": "V",
+    "alpha_gravity": 0,
+    "alpha_velocity": 25,
+    "historical_reuse": false,
+    "phase": "smoke",
+    "run_id": "w0_smoke_V2_02_medium_V_G0_V25_20261009T151531_f56d049c",
+    "output_dir": "/home/he/output/ltv_v25_20261009T151451/w0/results/w0_smoke_V2_02_medium_V_G0_V25_20261009T151531_f56d049c",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 401,
+      "actual_L": 0,
+      "output_rows": 718,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  }
+]

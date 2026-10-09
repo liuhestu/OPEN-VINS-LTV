@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "new_full_recomputed": 10,
+  "maximum_concurrent": 7,
+  "artifact_weights_threads_verified": true
+}

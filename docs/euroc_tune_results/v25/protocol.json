@@ -1,0 +1,28 @@
+{
+  "mode": "V",
+  "alpha_gravity": 0,
+  "alpha_velocity": 25,
+  "landmark": false,
+  "velocity_sigma_mps": 0.2,
+  "sequences": [
+    "MH_01_easy",
+    "MH_02_easy",
+    "MH_03_medium",
+    "MH_05_difficult",
+    "V1_01_easy",
+    "V1_02_medium",
+    "V1_03_difficult",
+    "V2_01_easy",
+    "V2_02_medium",
+    "V2_03_difficult"
+  ],
+  "representatives": [
+    "V2_02_medium",
+    "V2_03_difficult",
+    "MH_05_difficult"
+  ],
+  "gate": "strict >10% vs OFF or V1 blocks extension; initialization<=1us; frozen support 100%",
+  "reference_v16": "comparison only; reused",
+  "threads": 1,
+  "workers": 8
+}
