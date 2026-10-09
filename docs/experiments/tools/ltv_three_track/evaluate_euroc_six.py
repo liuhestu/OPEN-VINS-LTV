@@ -98,6 +98,30 @@ def evaluate(index, data):
     return result
 
 
+def percentage_table(rows, excluded_sequences):
+    lookup = {(r['sequence'], r['mode']): r for r in rows}
+    text = ['', '## 相对 baseline 的 ATE 百分比变化', '',
+            'baseline 为 OFF；变化 = (配置 ATE − OFF ATE) / OFF ATE × 100%。使用未舍入的结果计算，负值表示改善并加粗，正值表示退化。排除的序列不参与比较。',
+            '', '| 序列 | OFF | G | V | GV | L | L_GV |', '|---|---:|---:|---:|---:|---:|---:|']
+    for seq in SEQUENCES:
+        baseline = lookup[seq, 'OFF']['ate_rmse_m']
+        values = []
+        for mode in MODES:
+            value = lookup[seq, mode]['ate_rmse_m']
+            if seq in excluded_sequences:
+                cell = '—（排除）'
+            elif baseline is None or baseline <= 0 or value is None:
+                cell = '—'
+            else:
+                change = 100 * (value - baseline) / baseline
+                cell = f'{change:+.6f}%' if change else '0.000000%'
+                if change < 0:
+                    cell = '**' + cell + '**'
+            values.append(cell)
+        text.append('| ' + seq + ' | ' + ' | '.join(values) + ' |')
+    return text
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('coord', type=Path)
@@ -125,6 +149,10 @@ def main():
     for seq in SEQUENCES:
         values = [f"{lookup[seq,m]['ate_rmse_m']:.9f}" if lookup[seq,m]['ate_rmse_m'] is not None else ('PENDING' if lookup[seq,m]['status']=='PENDING' else 'FAIL') for m in MODES]
         text.append('| ' + seq + ' | ' + ' | '.join(values) + ' |')
+    audit_path = artifact / 'completion_audit.json'
+    audit = json.loads(audit_path.read_text()) if audit_path.exists() else {}
+    excluded = audit.get('summary_scope', {}).get('excluded_sequences', [])
+    text += percentage_table(rows, excluded)
     text += ['', '## 初始化、覆盖与实际融合', '', '| 序列 | 模式 | 状态 | 样本/基准 | G/V/L应用帧 | 条件ATE(m) |', '|---|---|---|---:|---:|---:|']
     for r in rows:
         value = f"{r['conditional_ate_rmse_m']:.9f}" if r['conditional_ate_rmse_m'] is not None else '—'
