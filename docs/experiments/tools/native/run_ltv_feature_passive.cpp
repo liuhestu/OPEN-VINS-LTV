@@ -671,6 +671,7 @@ int main(int argc, char **argv) {
       options.ltv_options.hardening_readiness.experimental_velocity_confirm_frames = 10;
     options.ltv_options.validate(options.state_options);
 #endif
+    options.num_opencv_threads = 1;
     cv::setNumThreads(1);
     options.use_multi_threading_subs = false;
     options.use_multi_threading_pubs = false;
@@ -743,6 +744,7 @@ int main(int argc, char **argv) {
     EFFECTIVE("max_slam_features", options.state_options.max_slam_features);
     EFFECTIVE("max_clone_size", options.state_options.max_clone_size);
     EFFECTIVE("calib_camimu_dt", options.calib_camimu_dt);
+    EFFECTIVE("num_opencv_threads", options.num_opencv_threads);
     EFFECTIVE("use_multi_threading_subs", options.use_multi_threading_subs);
     EFFECTIVE("use_multi_threading_pubs", options.use_multi_threading_pubs);
 #undef EFFECTIVE
@@ -751,6 +753,14 @@ int main(int argc, char **argv) {
     effective.close();
     ov_core::Printer::setPrintLevel("WARNING");
     ReplayManager app(options);
+    // VioManager sets the OpenCV thread count in its constructor. Audit the
+    // effective backend after construction, before any input is consumed.
+    std::ofstream threading(out + "/threading.json");
+    threading << "{\"requested_opencv_threads\":" << options.num_opencv_threads << ",\"actual_opencv_threads\":" << cv::getNumThreads()
+              << "}\n";
+    threading.close();
+    if (!threading || cv::getNumThreads() != 1)
+      throw std::runtime_error("replay requires exactly one OpenCV thread");
     std::ofstream fusion, matrices;
 #ifdef LTV_GV_EVALUATION
     fusion.open(out + "/fusion.jsonl");
