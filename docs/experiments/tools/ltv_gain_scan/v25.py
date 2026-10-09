@@ -12,7 +12,7 @@ from independent import Independent, ROOT, TOOLS, EUROC, REP, assess, set_keys, 
 DEST=ROOT/'docs/euroc_tune_results/v25'
 
 
-def prepare(coord,parent):
+def prepare(coord,parent,tiers=(25,),reference_tiers=(1,16)):
     if coord.exists():raise ValueError('new coordination directory required')
     coord.mkdir(parents=True)
     for name in ['registry','contracts','tools','specs','support','configs','locks']: (coord/name).mkdir()
@@ -23,14 +23,14 @@ def prepare(coord,parent):
     assert not delta
     tasks=json.loads((parent/'session.json').read_text())['tasks']
     for n,t in tasks.items():
-        t.update(task_root=str(coord/n),namespace=f'ltv_v25_{coord.name}_{n}');(coord/n).mkdir()
+        t.update(task_root=str(coord/n),namespace=f'ltv_velocity_{coord.name}_{n}');(coord/n).mkdir()
     write(coord/'session.json',{'tasks':tasks})
     shared=Path('/home/he/output/ltv_shared_replay_locks')
     for name in ['build_replay.lock','performance_gate.lock']+[f'slot_{i}.lock' for i in range(8)]: (coord/'locks'/name).symlink_to(shared/name)
     for f in TOOLS.glob('*.py'):shutil.copy2(f,coord/'tools'/f.name)
     shutil.copy2(TOOLS/'env_exec.sh',coord/'tools/env_exec.sh')
     (coord/'contracts/empty_colcon_defaults.yaml').write_text('{}\n')
-    write(coord/'contracts/protocol.json',dict(mode='V',alpha_gravity=0,alpha_velocity=25,landmark=False,velocity_sigma_mps=.2,sequences=EUROC,representatives=REP,gate='strict >10% vs OFF or V1 blocks extension; initialization<=1us; frozen support 100%',reference_v16='comparison only; reused',threads=1,workers=8))
+    write(coord/'contracts/protocol.json',dict(mode='V',alpha_gravity=0,alpha_velocity=list(tiers),landmark=False,velocity_sigma_mps={a:1/np.sqrt(a) for a in tiers},sequences=EUROC,representatives=REP,gate='strict >10% vs OFF or V1 blocks extension; initialization<=1us; frozen support 100%',reference_v16='comparison only; reused',threads=1,workers=8))
     inputs=json.loads((parent/'data_identity.json').read_text());write(coord/'data_identity.json',inputs)
     for seq,item in inputs.items():
         if sha(item['gt'])!=item['gt_sha256']:raise ValueError('GT changed')
@@ -38,11 +38,14 @@ def prepare(coord,parent):
         for name,h in json.loads(manifest.read_text()).items():
             if sha(Path(item['root'])/name)!=h:raise ValueError('sensor changed '+seq)
         shutil.copy2(manifest,coord/'support'/manifest.name);shutil.copy2(parent/'support'/f'{seq}.npz',coord/'support'/f'{seq}.npz')
-    prior=json.loads((parent/'index.json').read_text());refs=[dict(r,historical_reuse=True) for r in prior if r['mode']=='OFF' or (r['mode']=='V' and r['alpha_velocity'] in [1,16])]
-    assert len(refs)==30
+    prior=json.loads((parent/'index.json').read_text());refs=[dict(r,historical_reuse=True) for r in prior if r['mode']=='OFF' or (r['mode']=='V' and r['alpha_velocity'] in reference_tiers)]
+    assert len(refs)==10*(1+len(reference_tiers))
     write(coord/'index.json',refs);write(coord/'screening.json',[])
-    dest=coord/'configs/V_G0_V25';shutil.copytree(parent/'configs/V_G0_V16',dest)
-    config=dest/'estimator_config.yaml';config.chmod(config.stat().st_mode|0o200);config.write_text(set_keys(config.read_text(),weights('V',0,25)));config.chmod(0o444)
+    base=parent/'configs/V_G0_V16'
+    if not base.exists():base=parent/'configs/V_G0_V25'
+    for alpha in tiers:
+        dest=coord/f'configs/V_G0_V{alpha}';shutil.copytree(base,dest)
+        config=dest/'estimator_config.yaml';config.chmod(config.stat().st_mode|0o200);config.write_text(set_keys(config.read_text(),weights('V',0,alpha)));config.chmod(0o444)
     for f in (coord/'support').iterdir():f.chmod(0o444)
     write(coord/'analysis_identity.json',{str(f):sha(f) for f in [Path(__file__).resolve(),ROOT/'docs/experiments/tools/ltv_gain_scan/independent.py',TOOLS/'launcher.py']})
     print('prepared',coord,flush=True)

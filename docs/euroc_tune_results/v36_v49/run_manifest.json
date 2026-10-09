@@ -1,0 +1,2602 @@
+[
+  {
+    "owner": "1000",
+    "task": "w4",
+    "run_id": "w4_representative_V2_03_difficult_V_G0_V49_20261009T155417_b249a344",
+    "launcher_pid": 558702,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/representative_V2_03_difficult_V_G0_V49.json",
+    "spec_sha256": "9ddeea37c3db60c5156aa480db174ac31c2e7b064a821959aec8a8c438324683",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "representative_V2_03_difficult_V_G0_V49",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561257.4257357,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "994d0efba33ef2c058153248d14fea4167f9bfc0c30c2665fa1b2d0e62610125",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w4/results/w4_representative_V2_03_difficult_V_G0_V49_20261009T155417_b249a344",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "8,9",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w4/results/w4_representative_V2_03_difficult_V_G0_V49_20261009T155417_b249a344",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w4/results/w4_representative_V2_03_difficult_V_G0_V49_20261009T155417_b249a344",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_2.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w4/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V2_03_difficult",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 49,
+      "short_seconds": null,
+      "phase": "representative"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_03_difficult_hashes.json",
+      "sensor_hash_manifest_sha256": "fd97af12a1660583519ae26ecf77433d58b07ba204ff2c7dd80953d7a26496ef"
+    },
+    "cpu_affinity": [
+      8,
+      9
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+        "sha256": "22509d05bd22cc0fc1461cb630b06c8d0c831a586253568d8bef7b2e1cea1128"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561257.4536092,
+    "finished_at": 1791561298.5644913,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 110932,
+      "elapsed_s": 41.1,
+      "user_s": 40.71,
+      "system_s": 0.38
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w4",
+    "run_id": "w4_full_V1_02_medium_V_G0_V36_20261009T155529_8e105d96",
+    "launcher_pid": 560208,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_V1_02_medium_V_G0_V36.json",
+    "spec_sha256": "8a1eb9e7238edb4bfdbb9c317131182279f019cd0b4c89ba0b9ee160f4545181",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V1_02_medium_V_G0_V36",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561329.1579108,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w4/results/w4_full_V1_02_medium_V_G0_V36_20261009T155529_8e105d96",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "8,9",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w4/results/w4_full_V1_02_medium_V_G0_V36_20261009T155529_8e105d96",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w4/results/w4_full_V1_02_medium_V_G0_V36_20261009T155529_8e105d96",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_2.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w4/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V1_02_medium",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 36,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "fed415eee44313584b9c4f61010dac146d5e4a4a35301db25b1ecd7d4d91b5f0",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V1_02_medium_hashes.json",
+      "sensor_hash_manifest_sha256": "2c788482b4328823be7a4cbfd97854c75d42f66276f5a3232a8d00ae18b4c3af"
+    },
+    "cpu_affinity": [
+      8,
+      9
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+        "sha256": "2fab3a02eaa3a66f887cf58607fad310b6c3cad66af8e434647eee81a4c3cfec"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561329.1813767,
+    "finished_at": 1791561371.229628,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 116276,
+      "elapsed_s": 42.02,
+      "user_s": 41.66,
+      "system_s": 0.35
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w4",
+    "run_id": "w4_full_MH_02_easy_V_G0_V49_20261009T155611_79330ec4",
+    "launcher_pid": 563976,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_MH_02_easy_V_G0_V49.json",
+    "spec_sha256": "be6f3dba7d6531ffd2215707b732cfc00e8b62d4a48d87661ecedee92bfbe9ef",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_MH_02_easy_V_G0_V49",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561371.380384,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w4/results/w4_full_MH_02_easy_V_G0_V49_20261009T155611_79330ec4",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "8,9",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w4/results/w4_full_MH_02_easy_V_G0_V49_20261009T155611_79330ec4",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w4/results/w4_full_MH_02_easy_V_G0_V49_20261009T155611_79330ec4",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_2.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w4/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "MH_02_easy",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 49,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "original": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "f49666ad4991c80bc467fc05e6d250cec7e28fbd05c1643402298e67438f754f",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_02_easy_hashes.json",
+      "sensor_hash_manifest_sha256": "0a5a7a1e18bc8b14576163b4973bbe5c8843cfef86aaca2727e92702dc32e991"
+    },
+    "cpu_affinity": [
+      8,
+      9
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+        "sha256": "22509d05bd22cc0fc1461cb630b06c8d0c831a586253568d8bef7b2e1cea1128"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561371.4099343,
+    "finished_at": 1791561467.0589848,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 125936,
+      "elapsed_s": 95.62,
+      "user_s": 94.89,
+      "system_s": 0.72
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w1",
+    "run_id": "w1_representative_V2_03_difficult_V_G0_V36_20261009T155417_b4ff6008",
+    "launcher_pid": 558700,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/representative_V2_03_difficult_V_G0_V36.json",
+    "spec_sha256": "2fd615e05d81b8c7783ee01658b7790ef5ea63e11b515dd320356946dab946a2",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "representative_V2_03_difficult_V_G0_V36",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561257.4374566,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "994d0efba33ef2c058153248d14fea4167f9bfc0c30c2665fa1b2d0e62610125",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_representative_V2_03_difficult_V_G0_V36_20261009T155417_b4ff6008",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "2,3",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_representative_V2_03_difficult_V_G0_V36_20261009T155417_b4ff6008",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_representative_V2_03_difficult_V_G0_V36_20261009T155417_b4ff6008",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_4.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w1/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V2_03_difficult",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 36,
+      "short_seconds": null,
+      "phase": "representative"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_03_difficult_hashes.json",
+      "sensor_hash_manifest_sha256": "fd97af12a1660583519ae26ecf77433d58b07ba204ff2c7dd80953d7a26496ef"
+    },
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+        "sha256": "2fab3a02eaa3a66f887cf58607fad310b6c3cad66af8e434647eee81a4c3cfec"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561257.4622447,
+    "finished_at": 1791561298.5026476,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 112196,
+      "elapsed_s": 41.03,
+      "user_s": 40.66,
+      "system_s": 0.35
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w1",
+    "run_id": "w1_full_MH_02_easy_V_G0_V36_20261009T155529_ef6e5cae",
+    "launcher_pid": 560206,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_MH_02_easy_V_G0_V36.json",
+    "spec_sha256": "11c0e8f25eaa06149bcc4b56e76445cd4bb02cdd540f140758c58572395ca9a6",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_MH_02_easy_V_G0_V36",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561329.157628,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_full_MH_02_easy_V_G0_V36_20261009T155529_ef6e5cae",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "2,3",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_full_MH_02_easy_V_G0_V36_20261009T155529_ef6e5cae",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_full_MH_02_easy_V_G0_V36_20261009T155529_ef6e5cae",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_0.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w1/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "MH_02_easy",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 36,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "original": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "f49666ad4991c80bc467fc05e6d250cec7e28fbd05c1643402298e67438f754f",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_02_easy_hashes.json",
+      "sensor_hash_manifest_sha256": "0a5a7a1e18bc8b14576163b4973bbe5c8843cfef86aaca2727e92702dc32e991"
+    },
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+        "sha256": "2fab3a02eaa3a66f887cf58607fad310b6c3cad66af8e434647eee81a4c3cfec"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561329.1750052,
+    "finished_at": 1791561425.0473814,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 123656,
+      "elapsed_s": 95.85,
+      "user_s": 95.04,
+      "system_s": 0.78
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w1",
+    "run_id": "w1_full_V1_03_difficult_V_G0_V49_20261009T155705_4b4e8e34",
+    "launcher_pid": 565527,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_V1_03_difficult_V_G0_V49.json",
+    "spec_sha256": "1f1f3a3b7772d0dea0a3fbcbed51b64697d7ddf69da35a84e26a947df24e4b3b",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V1_03_difficult_V_G0_V49",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561425.2972255,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_full_V1_03_difficult_V_G0_V49_20261009T155705_4b4e8e34",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "2,3",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_full_V1_03_difficult_V_G0_V49_20261009T155705_4b4e8e34",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_full_V1_03_difficult_V_G0_V49_20261009T155705_4b4e8e34",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_0.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w1/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V1_03_difficult",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 49,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "703ba51a854daba80f20df93e76605c2278b3f227afe2bcbe9eb4255186fc3d9",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V1_03_difficult_hashes.json",
+      "sensor_hash_manifest_sha256": "acda3254af924aa5f6238a2150a9792b254933af8274c07d076ca07dad9b23fc"
+    },
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+        "sha256": "22509d05bd22cc0fc1461cb630b06c8d0c831a586253568d8bef7b2e1cea1128"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561425.3236294,
+    "finished_at": 1791561473.72965,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 119972,
+      "elapsed_s": 48.38,
+      "user_s": 47.72,
+      "system_s": 0.61
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w1",
+    "run_id": "w1_smoke_V2_02_medium_V_G0_V49_20261009T155359_d10f4223",
+    "launcher_pid": 558429,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/smoke_V2_02_medium_V_G0_V49.json",
+    "spec_sha256": "e260093c2e9ae6a2e21863db7e4f1503d256acf05ce64238b6c1da3ea757b001",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "{RUN_DIR}",
+      "V",
+      "40"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "smoke_V2_02_medium_V_G0_V49",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561239.8249476,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "994d0efba33ef2c058153248d14fea4167f9bfc0c30c2665fa1b2d0e62610125",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_smoke_V2_02_medium_V_G0_V49_20261009T155359_d10f4223",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "2,3",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_smoke_V2_02_medium_V_G0_V49_20261009T155359_d10f4223",
+      "V",
+      "40"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_smoke_V2_02_medium_V_G0_V49_20261009T155359_d10f4223",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_1.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w1/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V2_02_medium",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 49,
+      "short_seconds": 40,
+      "phase": "smoke"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_02_medium_hashes.json",
+      "sensor_hash_manifest_sha256": "24209fc1cbe327ae49656ff9058b1508bd4b8ec12e92493d886f3ce68f55647e"
+    },
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+        "sha256": "22509d05bd22cc0fc1461cb630b06c8d0c831a586253568d8bef7b2e1cea1128"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561239.8532338,
+    "finished_at": 1791561257.3860545,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 109428,
+      "elapsed_s": 17.52,
+      "user_s": 17.29,
+      "system_s": 0.22
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w7",
+    "run_id": "w7_full_MH_01_easy_V_G0_V49_20261009T155529_5b682bda",
+    "launcher_pid": 560207,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_MH_01_easy_V_G0_V49.json",
+    "spec_sha256": "2d90c1a327a3706e598a98c7eab713021f753629ae6102856bc0ce663abb6769",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_MH_01_easy_V_G0_V49",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561329.15774,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w7/results/w7_full_MH_01_easy_V_G0_V49_20261009T155529_5b682bda",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "14,15",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w7/results/w7_full_MH_01_easy_V_G0_V49_20261009T155529_5b682bda",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w7/results/w7_full_MH_01_easy_V_G0_V49_20261009T155529_5b682bda",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_1.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w7/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "MH_01_easy",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 49,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "original": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "aae2d7c5684724c8afe364d2fd8499a6ed77a9169adf03736531f67d8e7b2117",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_01_easy_hashes.json",
+      "sensor_hash_manifest_sha256": "28fd36bf9cb4da84d5aea13fde1acd259124561b3f37a55c307fffba4ebc915c"
+    },
+    "cpu_affinity": [
+      14,
+      15
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+        "sha256": "22509d05bd22cc0fc1461cb630b06c8d0c831a586253568d8bef7b2e1cea1128"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561329.1750102,
+    "finished_at": 1791561517.1758153,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 124132,
+      "elapsed_s": 187.98,
+      "user_s": 186.64,
+      "system_s": 1.23
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w2",
+    "run_id": "w2_full_MH_03_medium_V_G0_V36_20261009T155529_9ea6b195",
+    "launcher_pid": 560202,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_MH_03_medium_V_G0_V36.json",
+    "spec_sha256": "6a53851a275dd5ee176d0030c6257c0a2096dcc41109019e3d9839c10bb973fe",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_MH_03_medium_V_G0_V36",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561329.1691253,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w2/results/w2_full_MH_03_medium_V_G0_V36_20261009T155529_9ea6b195",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "4,5",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w2/results/w2_full_MH_03_medium_V_G0_V36_20261009T155529_9ea6b195",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w2/results/w2_full_MH_03_medium_V_G0_V36_20261009T155529_9ea6b195",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_5.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w2/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "MH_03_medium",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 36,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "original": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "7e52fd28088b0d428509cc365fbb44ed5d910e5174ac155e1d987923c056000f",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_03_medium_hashes.json",
+      "sensor_hash_manifest_sha256": "c77ddb56522c97fd76f434360d66016f84d317d5e5ff0d1a089dd3e706e65891"
+    },
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+        "sha256": "2fab3a02eaa3a66f887cf58607fad310b6c3cad66af8e434647eee81a4c3cfec"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561329.1939435,
+    "finished_at": 1791561418.1372473,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 124004,
+      "elapsed_s": 88.92,
+      "user_s": 88.12,
+      "system_s": 0.77
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w2",
+    "run_id": "w2_representative_MH_05_difficult_V_G0_V36_20261009T155417_5e540b16",
+    "launcher_pid": 558701,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/representative_MH_05_difficult_V_G0_V36.json",
+    "spec_sha256": "8fd45f597310262d8acd3dcd3c0835cb9f6ba7b5fa3e4ec330489c42eec37290",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "representative_MH_05_difficult_V_G0_V36",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561257.4374442,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "994d0efba33ef2c058153248d14fea4167f9bfc0c30c2665fa1b2d0e62610125",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w2/results/w2_representative_MH_05_difficult_V_G0_V36_20261009T155417_5e540b16",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "4,5",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w2/results/w2_representative_MH_05_difficult_V_G0_V36_20261009T155417_5e540b16",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w2/results/w2_representative_MH_05_difficult_V_G0_V36_20261009T155417_5e540b16",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_5.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w2/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "MH_05_difficult",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 36,
+      "short_seconds": null,
+      "phase": "representative"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "original": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "da13e5dcb3d5fc2f12c4e8bfae10dd380d765150be3312f989b0bc5550965451",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_05_difficult_hashes.json",
+      "sensor_hash_manifest_sha256": "bbc8bcd48327a2d212ff33677b478e5e118a4c57e9c56093172d09c248720ec5"
+    },
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+        "sha256": "2fab3a02eaa3a66f887cf58607fad310b6c3cad66af8e434647eee81a4c3cfec"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561257.4622293,
+    "finished_at": 1791561328.9422846,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 122540,
+      "elapsed_s": 71.46,
+      "user_s": 70.83,
+      "system_s": 0.6
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w2",
+    "run_id": "w2_full_V1_02_medium_V_G0_V49_20261009T155658_39f1c065",
+    "launcher_pid": 565388,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_V1_02_medium_V_G0_V49.json",
+    "spec_sha256": "bb067c30228810cb75a14d4cebc703aaa909603771c6d1e09f1786f123e96331",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V1_02_medium_V_G0_V49",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561418.4319053,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w2/results/w2_full_V1_02_medium_V_G0_V49_20261009T155658_39f1c065",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "4,5",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w2/results/w2_full_V1_02_medium_V_G0_V49_20261009T155658_39f1c065",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w2/results/w2_full_V1_02_medium_V_G0_V49_20261009T155658_39f1c065",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_5.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w2/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V1_02_medium",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 49,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "fed415eee44313584b9c4f61010dac146d5e4a4a35301db25b1ecd7d4d91b5f0",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V1_02_medium_hashes.json",
+      "sensor_hash_manifest_sha256": "2c788482b4328823be7a4cbfd97854c75d42f66276f5a3232a8d00ae18b4c3af"
+    },
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+        "sha256": "22509d05bd22cc0fc1461cb630b06c8d0c831a586253568d8bef7b2e1cea1128"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561418.4593558,
+    "finished_at": 1791561460.6423793,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 116984,
+      "elapsed_s": 42.16,
+      "user_s": 41.81,
+      "system_s": 0.33
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w3",
+    "run_id": "w3_full_V1_01_easy_V_G0_V36_20261009T155529_ef9bc646",
+    "launcher_pid": 560205,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_V1_01_easy_V_G0_V36.json",
+    "spec_sha256": "3fc3de0b8403c75089edfdd7f45d14d7a6e81258553ef3969b2ed47abadb40f8",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V1_01_easy_V_G0_V36",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561329.170431,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w3/results/w3_full_V1_01_easy_V_G0_V36_20261009T155529_ef9bc646",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "6,7",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w3/results/w3_full_V1_01_easy_V_G0_V36_20261009T155529_ef9bc646",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w3/results/w3_full_V1_01_easy_V_G0_V36_20261009T155529_ef9bc646",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_7.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w3/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V1_01_easy",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 36,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "701200e6924ba845ccdeea884bd717c82d1ed91f480913ea6e2e6ccb9c0fbf6d",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V1_01_easy_hashes.json",
+      "sensor_hash_manifest_sha256": "7ae85c1b966d3f533584286562d21580d2b1fba9320c5a7624e363b271209d2a"
+    },
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+        "sha256": "2fab3a02eaa3a66f887cf58607fad310b6c3cad66af8e434647eee81a4c3cfec"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561329.1904511,
+    "finished_at": 1791561410.2147372,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 116972,
+      "elapsed_s": 81.0,
+      "user_s": 80.28,
+      "system_s": 0.68
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w3",
+    "run_id": "w3_full_V1_01_easy_V_G0_V49_20261009T155650_f06dbe85",
+    "launcher_pid": 565236,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_V1_01_easy_V_G0_V49.json",
+    "spec_sha256": "a0753e8004dbb312c66ee5ea98a7fa5a6fb11662a1f848036fd1b7a24ea27750",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V1_01_easy_V_G0_V49",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561410.4409144,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w3/results/w3_full_V1_01_easy_V_G0_V49_20261009T155650_f06dbe85",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "6,7",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w3/results/w3_full_V1_01_easy_V_G0_V49_20261009T155650_f06dbe85",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w3/results/w3_full_V1_01_easy_V_G0_V49_20261009T155650_f06dbe85",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_7.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w3/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V1_01_easy",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 49,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "701200e6924ba845ccdeea884bd717c82d1ed91f480913ea6e2e6ccb9c0fbf6d",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V1_01_easy_hashes.json",
+      "sensor_hash_manifest_sha256": "7ae85c1b966d3f533584286562d21580d2b1fba9320c5a7624e363b271209d2a"
+    },
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+        "sha256": "22509d05bd22cc0fc1461cb630b06c8d0c831a586253568d8bef7b2e1cea1128"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561410.4660397,
+    "finished_at": 1791561489.6224177,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 118680,
+      "elapsed_s": 79.13,
+      "user_s": 78.5,
+      "system_s": 0.61
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w3",
+    "run_id": "w3_representative_V2_02_medium_V_G0_V49_20261009T155417_081b633e",
+    "launcher_pid": 558703,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/representative_V2_02_medium_V_G0_V49.json",
+    "spec_sha256": "50d2c29c70cd88537e46edc57e8899575909b9471ae9a9877ae909193777ddf2",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "representative_V2_02_medium_V_G0_V49",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561257.4293504,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "994d0efba33ef2c058153248d14fea4167f9bfc0c30c2665fa1b2d0e62610125",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w3/results/w3_representative_V2_02_medium_V_G0_V49_20261009T155417_081b633e",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "6,7",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w3/results/w3_representative_V2_02_medium_V_G0_V49_20261009T155417_081b633e",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w3/results/w3_representative_V2_02_medium_V_G0_V49_20261009T155417_081b633e",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_3.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w3/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V2_02_medium",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 49,
+      "short_seconds": null,
+      "phase": "representative"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_02_medium_hashes.json",
+      "sensor_hash_manifest_sha256": "24209fc1cbe327ae49656ff9058b1508bd4b8ec12e92493d886f3ce68f55647e"
+    },
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+        "sha256": "22509d05bd22cc0fc1461cb630b06c8d0c831a586253568d8bef7b2e1cea1128"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561257.4513557,
+    "finished_at": 1791561315.1320517,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 114560,
+      "elapsed_s": 57.67,
+      "user_s": 57.12,
+      "system_s": 0.53
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w6",
+    "run_id": "w6_full_V2_01_easy_V_G0_V36_20261009T155529_dfe86fa9",
+    "launcher_pid": 560204,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_V2_01_easy_V_G0_V36.json",
+    "spec_sha256": "04316d33487cd25c6611d04e42abafb9044fef204fe5f5219dba07657230e1e7",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V2_01_easy_V_G0_V36",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561329.1667154,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w6/results/w6_full_V2_01_easy_V_G0_V36_20261009T155529_dfe86fa9",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "12,13",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w6/results/w6_full_V2_01_easy_V_G0_V36_20261009T155529_dfe86fa9",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w6/results/w6_full_V2_01_easy_V_G0_V36_20261009T155529_dfe86fa9",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_4.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w6/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V2_01_easy",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 36,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "315807fd7d91868ed6085a3d8fde40315842135f13199ed83e2e6270eb5b5126",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_01_easy_hashes.json",
+      "sensor_hash_manifest_sha256": "99cba2e0457ff4ecfe1a8263ab7aad8b173207a13c72cfeb072c66e776509c0f"
+    },
+    "cpu_affinity": [
+      12,
+      13
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+        "sha256": "2fab3a02eaa3a66f887cf58607fad310b6c3cad66af8e434647eee81a4c3cfec"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561329.1840036,
+    "finished_at": 1791561427.563822,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 4,
+    "resources": {
+      "max_rss_kb": 123132,
+      "elapsed_s": 98.35,
+      "user_s": 97.47,
+      "system_s": 0.84
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w6",
+    "run_id": "w6_full_V2_01_easy_V_G0_V49_20261009T155707_7d72eb06",
+    "launcher_pid": 565712,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_V2_01_easy_V_G0_V49.json",
+    "spec_sha256": "2203d38bd5c5d85674df82c913b3c45bcf82b5b219e1a23d6cb95e4859320416",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V2_01_easy_V_G0_V49",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561427.820988,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w6/results/w6_full_V2_01_easy_V_G0_V49_20261009T155707_7d72eb06",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "12,13",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w6/results/w6_full_V2_01_easy_V_G0_V49_20261009T155707_7d72eb06",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w6/results/w6_full_V2_01_easy_V_G0_V49_20261009T155707_7d72eb06",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_4.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w6/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V2_01_easy",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 49,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "315807fd7d91868ed6085a3d8fde40315842135f13199ed83e2e6270eb5b5126",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_01_easy_hashes.json",
+      "sensor_hash_manifest_sha256": "99cba2e0457ff4ecfe1a8263ab7aad8b173207a13c72cfeb072c66e776509c0f"
+    },
+    "cpu_affinity": [
+      12,
+      13
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+        "sha256": "22509d05bd22cc0fc1461cb630b06c8d0c831a586253568d8bef7b2e1cea1128"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561427.849789,
+    "finished_at": 1791561522.3592422,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 123976,
+      "elapsed_s": 94.49,
+      "user_s": 93.64,
+      "system_s": 0.77
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w0",
+    "run_id": "w0_full_MH_01_easy_V_G0_V36_20261009T155529_16796f3c",
+    "launcher_pid": 560209,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_MH_01_easy_V_G0_V36.json",
+    "spec_sha256": "7a8fdc6e89e43216ab78aebc193ec0c238990e3f9600c6b0ad6644b7b98b2dbc",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_MH_01_easy_V_G0_V36",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561329.1581533,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w0/results/w0_full_MH_01_easy_V_G0_V36_20261009T155529_16796f3c",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "0,1",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w0/results/w0_full_MH_01_easy_V_G0_V36_20261009T155529_16796f3c",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w0/results/w0_full_MH_01_easy_V_G0_V36_20261009T155529_16796f3c",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_3.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w0/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "MH_01_easy",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 36,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "original": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "aae2d7c5684724c8afe364d2fd8499a6ed77a9169adf03736531f67d8e7b2117",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_01_easy_hashes.json",
+      "sensor_hash_manifest_sha256": "28fd36bf9cb4da84d5aea13fde1acd259124561b3f37a55c307fffba4ebc915c"
+    },
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+        "sha256": "2fab3a02eaa3a66f887cf58607fad310b6c3cad66af8e434647eee81a4c3cfec"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561329.1746042,
+    "finished_at": 1791561447.9388907,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 124652,
+      "elapsed_s": 118.75,
+      "user_s": 117.78,
+      "system_s": 0.94
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w0",
+    "run_id": "w0_smoke_V2_02_medium_V_G0_V36_20261009T155359_e027c40f",
+    "launcher_pid": 558426,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/smoke_V2_02_medium_V_G0_V36.json",
+    "spec_sha256": "56a433c058db16b910185e7d74b414b3bcba1eab93362156e10a121c1ece1e9e",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "{RUN_DIR}",
+      "V",
+      "40"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "smoke_V2_02_medium_V_G0_V36",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561239.8243098,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "994d0efba33ef2c058153248d14fea4167f9bfc0c30c2665fa1b2d0e62610125",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w0/results/w0_smoke_V2_02_medium_V_G0_V36_20261009T155359_e027c40f",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "0,1",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w0/results/w0_smoke_V2_02_medium_V_G0_V36_20261009T155359_e027c40f",
+      "V",
+      "40"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w0/results/w0_smoke_V2_02_medium_V_G0_V36_20261009T155359_e027c40f",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_0.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w0/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V2_02_medium",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 36,
+      "short_seconds": 40,
+      "phase": "smoke"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_02_medium_hashes.json",
+      "sensor_hash_manifest_sha256": "24209fc1cbe327ae49656ff9058b1508bd4b8ec12e92493d886f3ce68f55647e"
+    },
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+        "sha256": "2fab3a02eaa3a66f887cf58607fad310b6c3cad66af8e434647eee81a4c3cfec"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561239.8539217,
+    "finished_at": 1791561257.3963022,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 109752,
+      "elapsed_s": 17.52,
+      "user_s": 17.3,
+      "system_s": 0.21
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w0",
+    "run_id": "w0_representative_V2_02_medium_V_G0_V36_20261009T155417_a60de6c5",
+    "launcher_pid": 558699,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/representative_V2_02_medium_V_G0_V36.json",
+    "spec_sha256": "894aded6943cf83f31419d051b039b51c5434cc0cd9afdb65460a8859c7e2992",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "representative_V2_02_medium_V_G0_V36",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561257.423602,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "994d0efba33ef2c058153248d14fea4167f9bfc0c30c2665fa1b2d0e62610125",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w0/results/w0_representative_V2_02_medium_V_G0_V36_20261009T155417_a60de6c5",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "0,1",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w0/results/w0_representative_V2_02_medium_V_G0_V36_20261009T155417_a60de6c5",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w0/results/w0_representative_V2_02_medium_V_G0_V36_20261009T155417_a60de6c5",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_0.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w0/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V2_02_medium",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 36,
+      "short_seconds": null,
+      "phase": "representative"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_02_medium_hashes.json",
+      "sensor_hash_manifest_sha256": "24209fc1cbe327ae49656ff9058b1508bd4b8ec12e92493d886f3ce68f55647e"
+    },
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+        "sha256": "2fab3a02eaa3a66f887cf58607fad310b6c3cad66af8e434647eee81a4c3cfec"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561257.4560714,
+    "finished_at": 1791561315.192286,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 120980,
+      "elapsed_s": 57.72,
+      "user_s": 57.21,
+      "system_s": 0.5
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w5",
+    "run_id": "w5_full_MH_03_medium_V_G0_V49_20261009T155618_6e039f62",
+    "launcher_pid": 564799,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_MH_03_medium_V_G0_V49.json",
+    "spec_sha256": "8e5f2181b683cbe5decd5efb677741e8fc52683f7e53c912085532ae2cd8c3f8",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_MH_03_medium_V_G0_V49",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561378.3335552,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w5/results/w5_full_MH_03_medium_V_G0_V49_20261009T155618_6e039f62",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "10,11",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w5/results/w5_full_MH_03_medium_V_G0_V49_20261009T155618_6e039f62",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w5/results/w5_full_MH_03_medium_V_G0_V49_20261009T155618_6e039f62",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_6.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w5/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "MH_03_medium",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 49,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "original": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "7e52fd28088b0d428509cc365fbb44ed5d910e5174ac155e1d987923c056000f",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_03_medium_hashes.json",
+      "sensor_hash_manifest_sha256": "c77ddb56522c97fd76f434360d66016f84d317d5e5ff0d1a089dd3e706e65891"
+    },
+    "cpu_affinity": [
+      10,
+      11
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+        "sha256": "22509d05bd22cc0fc1461cb630b06c8d0c831a586253568d8bef7b2e1cea1128"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561378.3617864,
+    "finished_at": 1791561467.0775974,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 123364,
+      "elapsed_s": 88.7,
+      "user_s": 87.93,
+      "system_s": 0.76
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w5",
+    "run_id": "w5_representative_MH_05_difficult_V_G0_V49_20261009T155417_647f75de",
+    "launcher_pid": 558704,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/representative_MH_05_difficult_V_G0_V49.json",
+    "spec_sha256": "1e5a211b145ffa4f02838bf56f7cd4e714081763f136ed1738135a521fe4e73c",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "representative_MH_05_difficult_V_G0_V49",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561257.4250398,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "994d0efba33ef2c058153248d14fea4167f9bfc0c30c2665fa1b2d0e62610125",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w5/results/w5_representative_MH_05_difficult_V_G0_V49_20261009T155417_647f75de",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "10,11",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w5/results/w5_representative_MH_05_difficult_V_G0_V49_20261009T155417_647f75de",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w5/results/w5_representative_MH_05_difficult_V_G0_V49_20261009T155417_647f75de",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_1.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w5/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "MH_05_difficult",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 49,
+      "short_seconds": null,
+      "phase": "representative"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "original": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "da13e5dcb3d5fc2f12c4e8bfae10dd380d765150be3312f989b0bc5550965451",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_05_difficult_hashes.json",
+      "sensor_hash_manifest_sha256": "bbc8bcd48327a2d212ff33677b478e5e118a4c57e9c56093172d09c248720ec5"
+    },
+    "cpu_affinity": [
+      10,
+      11
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/estimator_config.yaml",
+        "sha256": "22509d05bd22cc0fc1461cb630b06c8d0c831a586253568d8bef7b2e1cea1128"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V49/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561257.451347,
+    "finished_at": 1791561328.8388867,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 121328,
+      "elapsed_s": 71.37,
+      "user_s": 70.77,
+      "system_s": 0.58
+    },
+    "validity": "EXIT_ZERO"
+  },
+  {
+    "owner": "1000",
+    "task": "w5",
+    "run_id": "w5_full_V1_03_difficult_V_G0_V36_20261009T155529_11ed57d9",
+    "launcher_pid": 560203,
+    "spec_path": "/home/he/output/ltv_v36_v49_20261009T155302/specs/full_V1_03_difficult_V_G0_V36.json",
+    "spec_sha256": "b68b697632bf52dbfec88ee1fa59e25d0501b746ebec1cafa23ea7a99fcf3e01",
+    "command": [
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "{RUN_DIR}",
+      "V"
+    ],
+    "launcher_path": "/home/he/output/ltv_v36_v49_20261009T155302/tools/launcher.py",
+    "launcher_sha256_at_start": "a0845171bd6a47cbd4407bbb93df98296908f292855bbacc3f61f354a9554bc3",
+    "label": "full_V1_03_difficult_V_G0_V36",
+    "kind": "replay",
+    "heavy": true,
+    "performance": false,
+    "requested_at": 1791561329.1694398,
+    "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+    "worktree_head": "693233685c41a198a8523121d9c85beb8bee7a14",
+    "dirty_state": " M .gitignore\n M docs/euroc_tune_results.md\n M docs/experiments/tools/ltv_gain_scan/independent.py\n M docs/experiments/tools/ltv_gain_scan/v25.py\n?? docs/euroc_tune_results/v36_v49/\n?? docs/experiments/tools/ltv_gain_scan/velocity_high.py\n?? docs/ltv/nondegradation_goal_reference.md.md\n?? docs/ltv/openvins_ltv_three_track_execution_reference.md\n",
+    "dirty_patch_sha256": "3515823f2f4f19c8dc8b53d5007f00e47c44f67d5bfad95cf559c547e61d439f",
+    "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w5/results/w5_full_V1_03_difficult_V_G0_V36_20261009T155529_11ed57d9",
+    "command_expanded": [
+      "taskset",
+      "-c",
+      "10,11",
+      "bash",
+      "/home/he/output/ltv_v36_v49_20261009T155302/tools/env_exec.sh",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install",
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+      "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w5/results/w5_full_V1_03_difficult_V_G0_V36_20261009T155529_11ed57d9",
+      "V"
+    ],
+    "cwd": "/home/he/output/ltv_v36_v49_20261009T155302/w5/results/w5_full_V1_03_difficult_V_G0_V36_20261009T155529_11ed57d9",
+    "locks": [
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/build_replay.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/slot_6.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/locks/performance_gate.lock",
+      "/home/he/output/ltv_v36_v49_20261009T155302/w5/task_artifact.lock"
+    ],
+    "contract_sha256": {
+      "protocol.json": "915988b0c4b6784eacb19cffacb20fabb4c54d3245168c3cdd727da6218751af",
+      "empty_colcon_defaults.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "configuration": {
+      "sequence": "V1_03_difficult",
+      "mode": "V",
+      "alpha_gravity": 0,
+      "alpha_velocity": 36,
+      "short_seconds": null,
+      "phase": "full"
+    },
+    "data": {
+      "root": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "original": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+      "gt": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0/state_groundtruth_estimate0/data.csv",
+      "gt_sha256": "703ba51a854daba80f20df93e76605c2278b3f227afe2bcbe9eb4255186fc3d9",
+      "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V1_03_difficult_hashes.json",
+      "sensor_hash_manifest_sha256": "acda3254af924aa5f6238a2150a9792b254933af8274c07d076ca07dad9b23fc"
+    },
+    "cpu_affinity": [
+      10,
+      11
+    ],
+    "diagnostic_level": "scalar_ltv_csv",
+    "historical_reuse": false,
+    "source_snapshot": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+    "cache_schema": null,
+    "source_files_sha256": {},
+    "config_paths": {
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imu_chain.yaml",
+        "sha256": "408ea8b60b5f9e7c8251e6d302f04c0675bfefdd31229bb1afd139bc8f4a0287"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/estimator_config.yaml",
+        "sha256": "2fab3a02eaa3a66f887cf58607fad310b6c3cad66af8e434647eee81a4c3cfec"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/README.md",
+        "sha256": "6cf99db72e277b4ea67bdffae6fb0bca919ecce19ccf0e3108ff592f73de2f3f"
+      },
+      "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml": {
+        "resolved": "/home/he/output/ltv_v36_v49_20261009T155302/configs/V_G0_V36/kalibr_imucam_chain.yaml",
+        "sha256": "b9e11b7bcda102f7c8c384c97318d67f3916b58942f9073722f83c22bd7073f7"
+      }
+    },
+    "binary_paths": {
+      "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production": {
+        "resolved": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial/install/ov_msckf/lib/ov_msckf/run_ltv_gv_production",
+        "sha256": "106a975342390331b2627285f783d8d31df3ba759c1356478fff09b4c8f24ea6"
+      }
+    },
+    "event": "FINISH",
+    "started_at": 1791561329.1924121,
+    "finished_at": 1791561378.1795323,
+    "exit_code": 0,
+    "source_mutation": {},
+    "binary_mutation": {},
+    "registered_processes": 3,
+    "resources": {
+      "max_rss_kb": 118544,
+      "elapsed_s": 48.97,
+      "user_s": 48.36,
+      "system_s": 0.58
+    },
+    "validity": "EXIT_ZERO"
+  }
+]

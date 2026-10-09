@@ -18,6 +18,11 @@ class IndependentContract(unittest.TestCase):
         self.assertEqual(weights('V',0,25)['ltv_sigma_velocity_mps'],.2)
         for args in [('G',25,0),('GV',2,25)]:
             with self.assertRaises(ValueError):weights(*args)
+    def test_velocity_36_49_only(self):
+        self.assertEqual(weights('V',0,36)['ltv_sigma_velocity_mps'],1/6)
+        self.assertEqual(weights('V',0,49)['ltv_sigma_velocity_mps'],1/7)
+        for args in [('G',36,0),('GV',2,49)]:
+            with self.assertRaises(ValueError):weights(*args)
     def test_mode_identity(self):
         for args in [('V',2,6),('G',3,2),('GV',0,6),('GV',5,7)]:
             with self.assertRaises(ValueError):weights(*args)

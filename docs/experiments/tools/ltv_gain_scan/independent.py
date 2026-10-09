@@ -37,7 +37,7 @@ def weights(mode, g, v):
     if (g > 0) != (mode in ['G', 'GV']) or (v > 0) != (mode in ['V', 'GV']):
         raise ValueError('disabled branch must have zero weight identity')
     allowed = TIERS if mode == 'GV' else TIERS + EXTRA
-    allowed_velocity = allowed + ([25] if mode == 'V' else [])
+    allowed_velocity = allowed + ([25,36,49] if mode == 'V' else [])
     if g not in [0] + allowed or v not in [0] + allowed_velocity:
         raise ValueError('outside declared grid')
     return dict(ltv_sigma_gravity_deg=10 / np.sqrt(g or 1), ltv_sigma_velocity_mps=1 / np.sqrt(v or 1))
@@ -345,6 +345,8 @@ class Independent(Study):
         if v25_section.exists():text+=['',v25_section.read_text().rstrip(),'']
         landmark_section=ROOT/'docs/euroc_tune_results/landmark/section.md'
         if landmark_section.exists():text+=['',landmark_section.read_text().rstrip(),'']
+        high_section=ROOT/'docs/euroc_tune_results/v36_v49/section.md'
+        if high_section.exists():text+=['',high_section.read_text().rstrip(),'']
         REPORT.write_text('\n'.join(text));write(DEST/'sha256.json',{str(f.relative_to(DEST)):sha(f) for f in sorted(DEST.rglob('*')) if f.is_file() and f.name!='sha256.json'})
 
 

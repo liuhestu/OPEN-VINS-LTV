@@ -1,0 +1,48 @@
+[
+  {
+    "sequence": "V2_02_medium",
+    "mode": "V",
+    "alpha_gravity": 0,
+    "alpha_velocity": 49,
+    "historical_reuse": false,
+    "phase": "smoke",
+    "run_id": "w1_smoke_V2_02_medium_V_G0_V49_20261009T155359_d10f4223",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w1/results/w1_smoke_V2_02_medium_V_G0_V49_20261009T155359_d10f4223",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 401,
+      "actual_L": 0,
+      "output_rows": 718,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "V",
+    "alpha_gravity": 0,
+    "alpha_velocity": 36,
+    "historical_reuse": false,
+    "phase": "smoke",
+    "run_id": "w0_smoke_V2_02_medium_V_G0_V36_20261009T155359_e027c40f",
+    "output_dir": "/home/he/output/ltv_v36_v49_20261009T155302/w0/results/w0_smoke_V2_02_medium_V_G0_V36_20261009T155359_e027c40f",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 401,
+      "actual_L": 0,
+      "output_rows": 718,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  }
+]
