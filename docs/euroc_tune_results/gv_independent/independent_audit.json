@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "expected": 680,
+  "recorded": 680,
+  "historical": 100,
+  "new_full": 580,
+  "maximum_concurrent": 8,
+  "sensor_hashes_reverified": true,
+  "position_ATE_recomputed": 580,
+  "new_opencv_threads": 1,
+  "historical_threads": 4,
+  "status_counts": {
+    "VALID_FULL_MATCHED": 680
+  }
+}

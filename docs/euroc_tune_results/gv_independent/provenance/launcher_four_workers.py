@@ -88,9 +88,6 @@ def run(spec_path):
     pgid = None
     try:
         if spec.get('four_worker_pool'):
-            pool_size = int(spec.get('worker_pool_size', 4))
-            if pool_size not in (4, 8):
-                raise ValueError('replay pool supports four or eight slots')
             build_gate = (coord / 'locks/build_replay.lock').open('a')
             fcntl.flock(build_gate, fcntl.LOCK_EX if base['kind'] == 'build' else fcntl.LOCK_SH)
             handles.append(build_gate)
@@ -100,7 +97,7 @@ def run(spec_path):
                     available = next(int(line.split()[1]) for line in memory if line.startswith('MemAvailable:'))
                     if available >= 4 * 1024 * 1024:
                         slot = None
-                        for number in range(pool_size):
+                        for number in range(4):
                             candidate = (coord / f'locks/slot_{number}.lock').open('a')
                             try:
                                 fcntl.flock(candidate, fcntl.LOCK_EX | fcntl.LOCK_NB)
@@ -139,8 +136,8 @@ def run(spec_path):
         command = [expand(arg) for arg in spec['command']]
         affinity = task.get('cpu_affinity')
         if affinity is not None:
-            if len(affinity) not in (2, 4) or len(set(affinity)) != len(affinity) or not set(affinity) <= os.sched_getaffinity(0):
-                raise ValueError('worker requires two or four distinct allowed logical CPUs')
+            if len(affinity) != 4 or not set(affinity) <= os.sched_getaffinity(0):
+                raise ValueError('worker requires four allowed logical CPUs')
             command = ['taskset', '-c', ','.join(map(str, affinity)), *command]
         cwd = Path(expand(spec.get('cwd', '{RUN_DIR}'))).resolve()
         cwd.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,17 @@
+{
+  "tiers": [
+    10,
+    16
+  ],
+  "modes": [
+    "G",
+    "V"
+  ],
+  "representatives": [
+    "V2_02_medium",
+    "V2_03_difficult",
+    "MH_05_difficult"
+  ],
+  "maximum_new_full": 40,
+  "joint_grid_unchanged": true
+}

@@ -1,0 +1,10 @@
+{
+  "tiers": [
+    10,
+    16
+  ],
+  "scope": "G/V singles only; no larger GV grid",
+  "maximum_new_full": 40,
+  "order": "after base seven-tier stage",
+  "user_authorized": true
+}

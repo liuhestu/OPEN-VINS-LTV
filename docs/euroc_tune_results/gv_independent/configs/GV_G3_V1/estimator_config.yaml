@@ -1,0 +1,188 @@
+%YAML:1.0 # need to specify the file type at the top!
+
+verbosity: "INFO" # ALL, DEBUG, INFO, WARNING, ERROR, SILENT
+
+use_fej: true # if first-estimate Jacobians should be used (enable for good consistency)
+integration: "rk4" # discrete, rk4, analytical (if rk4 or analytical used then analytical covariance propagation is used)
+use_stereo: true # if we have more than 1 camera, if we should try to track stereo constraints between pairs
+max_cameras: 2 # how many cameras we have 1 = mono, 2 = stereo, >2 = binocular (all mono tracking)
+
+calib_cam_extrinsics: false
+calib_cam_intrinsics: false
+calib_cam_timeoffset: false
+calib_imu_intrinsics: false # if imu intrinsics should be calibrated (rotation and skew-scale matrix)
+calib_imu_g_sensitivity: false # if gyroscope gravity sensitivity (Tg) should be calibrated
+
+max_clones: 11 # how many clones in the sliding window
+max_slam: 0
+max_slam_in_update: 25 # update can be split into sequential updates of batches, how many in a batch
+max_msckf_in_update: 40 # how many MSCKF features to use in the update
+dt_slam_delay: 1 # delay before initializing (helps with stability from bad initialization...)
+
+gravity_mag: 9.81 # magnitude of gravity in this location
+
+feat_rep_msckf: "GLOBAL_3D"
+feat_rep_slam: "ANCHORED_MSCKF_INVERSE_DEPTH"
+feat_rep_aruco: "ANCHORED_MSCKF_INVERSE_DEPTH"
+
+# zero velocity update parameters we can use
+# we support either IMU-based or disparity detection.
+try_zupt: false
+zupt_chi2_multipler: 0 # set to 0 for only disp-based
+zupt_max_velocity: 0.1
+zupt_noise_multiplier: 10
+zupt_max_disparity: 0.5 # set to 0 for only imu-based
+zupt_only_at_beginning: false
+
+# ==================================================================
+# ==================================================================
+
+init_window_time: 2.0 # how many seconds to collect initialization information
+init_imu_thresh: 1.5 # threshold for variance of the accelerometer to detect a "jerk" in motion
+init_max_disparity: 10.0 # max disparity to consider the platform stationary (dependent on resolution)
+init_max_features: 50 # how many features to track during initialization (saves on computation)
+
+init_dyn_use: false # if dynamic initialization should be used
+init_dyn_mle_opt_calib: false # if we should optimize calibration during intialization (not recommended)
+init_dyn_mle_max_iter: 50 # how many iterations the MLE refinement should use (zero to skip the MLE)
+init_dyn_mle_max_time: 0.05 # how many seconds the MLE should be completed in
+init_dyn_mle_max_threads: 6 # how many threads the MLE should use
+init_dyn_num_pose: 6 # number of poses to use within our window time (evenly spaced)
+init_dyn_min_deg: 10.0 # orientation change needed to try to init
+
+init_dyn_inflation_ori: 10 # what to inflate the recovered q_GtoI covariance by
+init_dyn_inflation_vel: 100 # what to inflate the recovered v_IinG covariance by
+init_dyn_inflation_bg: 10 # what to inflate the recovered bias_g covariance by
+init_dyn_inflation_ba: 100 # what to inflate the recovered bias_a covariance by
+init_dyn_min_rec_cond: 1e-12 # reciprocal condition number thresh for info inversion
+
+init_dyn_bias_g: [ 0.0, 0.0, 0.0 ] # initial gyroscope bias guess
+init_dyn_bias_a: [ 0.0, 0.0, 0.0 ] # initial accelerometer bias guess
+
+# ==================================================================
+# ==================================================================
+
+record_timing_information: false # if we want to record timing information of the method
+record_timing_filepath: "/tmp/traj_timing.txt" # https://docs.openvins.com/eval-timing.html#eval-ov-timing-flame
+
+# if we want to save the simulation state and its diagional covariance
+# use this with rosrun ov_eval error_simulation
+save_total_state: false
+filepath_est: "/tmp/ov_estimate.txt"
+filepath_std: "/tmp/ov_estimate_std.txt"
+filepath_gt: "/tmp/ov_groundtruth.txt"
+
+# ==================================================================
+# ==================================================================
+
+# our front-end feature tracking parameters
+# we have a KLT and descriptor based (KLT is better implemented...)
+use_klt: true # if true we will use KLT, otherwise use a ORB descriptor + robust matching
+num_pts: 200 # number of points (per camera) we will extract and try to track
+fast_threshold: 20 # threshold for fast extraction (warning: lower threshs can be expensive)
+grid_x: 5 # extraction sub-grid count for horizontal direction (uniform tracking)
+grid_y: 5 # extraction sub-grid count for vertical direction (uniform tracking)
+min_px_dist: 10 # distance between features (features near each other provide less information)
+knn_ratio: 0.70 # descriptor knn threshold for the top two descriptor matches
+track_frequency: 21.0 # frequency we will perform feature tracking at (in frames per second / hertz)
+downsample_cameras: false # will downsample image in half if true
+num_opencv_threads: 1
+histogram_method: "HISTOGRAM" # NONE, HISTOGRAM, CLAHE
+
+# aruco tag tracker for the system
+# DICT_6X6_1000 from https://chev.me/arucogen/
+use_aruco: false
+num_aruco: 1024
+downsize_aruco: true
+
+# ==================================================================
+# ==================================================================
+
+# camera noises and chi-squared threshold multipliers
+up_msckf_sigma_px: 1
+up_msckf_chi2_multipler: 1
+up_slam_sigma_px: 1
+up_slam_chi2_multipler: 1
+up_aruco_sigma_px: 1
+up_aruco_chi2_multipler: 1
+
+# masks for our images
+use_mask: false
+
+# imu and camera spacial-temporal
+# imu config should also have the correct noise values
+relative_config_imu: "kalibr_imu_chain.yaml"
+relative_config_imucam: "kalibr_imucam_chain.yaml"
+
+
+
+
+
+# LTV experiment base: all five modes share every native setting above.
+# Start conservative; per-run mode files may change only the three switches.
+ltv_enabled: true
+ltv_enable_gravity: false
+ltv_enable_velocity: false
+ltv_allow_correlated_pseudomeasurements: true
+ltv_correlation_model: "independence_approximation"
+ltv_sigma_gravity_deg: 5.773502691896258
+ltv_sigma_velocity_mps: 1.0
+ltv_max_gravity_angle_deg: 30.0
+ltv_enable_quality_gate: false
+ltv_enable_nis_gate: true
+ltv_nis_gravity: 9.21034037197618
+ltv_nis_velocity: 11.3448667301444
+ltv_time_tolerance_s: 0.000001
+ltv_log_enabled: true
+ltv_log_path: "ltv.csv"
+ltv_observer_max_features: 30
+ltv_observer_min_features: 15
+ltv_observer_max_missed_frames: 2
+ltv_observer_warmup_camera_updates: 20
+ltv_observer_max_imu_dt: 0.05
+ltv_observer_reset_gap: 0.2
+ltv_observer_timestamp_tolerance: 0.005
+ltv_observer_q_landmark: 0.0001
+ltv_observer_v_landmark: 1000000.0
+ltv_observer_v_velocity: 1000000.0
+ltv_observer_v_gravity: 1000000.0
+ltv_observer_initial_p_landmark: 1.0
+ltv_observer_initial_p_velocity: 1.0
+ltv_observer_initial_p_gravity: 1.0
+ltv_observer_covariance_floor: 1.e-9
+ltv_observer_covariance_failure_threshold: -0.001
+ltv_observer_camera_euler_safety: 0.5
+ltv_observer_max_camera_substeps: 100
+ltv_observer_gravity_norm_min: 7.0
+ltv_observer_gravity_norm_max: 12.0
+
+ltv_feature_seed_source: "STEREO_THEN_TEMPORAL"
+
+ltv_feature_readiness_enabled: true
+
+ltv_feature_apply_seed: true
+
+ltv_passive_audit_enabled: true
+
+ltv_feature_bearing_sigma_rad: 0.0008726646259971648
+
+ltv_value_diagnostics_enabled: false
+
+ltv_passive_hardening_enabled: true
+ltv_hardening_initial_warmup: true
+ltv_hardening_preserve_constrained_state: true
+ltv_hardening_ready_soft_grace: true
+ltv_active_consistency_enabled: true
+ltv_active_consistency_min_history_frames: 5
+ltv_active_consistency_min_history_span_s: 0.2
+ltv_active_consistency_max_history_residual_rad: 0.02
+ltv_active_consistency_max_holdout_residual_rad: 0.02
+ltv_active_consistency_retire_after_consecutive_failures: 2
+
+ltv_landmark_approx_sigma_floor_m: 0.5
+
+ltv_landmark_approx_information_cap: 0.01
+
+ltv_landmark_approx_max_points: 2
+
+ltv_enable_landmark_approx: false

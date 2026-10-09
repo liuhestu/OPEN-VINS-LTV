@@ -1,0 +1,5 @@
+{
+  "status": "FAILED_RETAINED",
+  "reason": "copy2 preserved readonly historical estimator YAML; no native dataset replay started",
+  "fix": "enable owner write only on new experiment config copy before editing, then refreeze"
+}

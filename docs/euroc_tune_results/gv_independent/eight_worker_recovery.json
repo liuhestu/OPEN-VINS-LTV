@@ -1,0 +1,31 @@
+{
+  "recovered": [
+    "w1_single_full_V1_02_medium_V_G0_V8_20261009T052748_14967869",
+    "w1_single_full_V1_01_easy_V_G0_V6_20261009T052423_642e9dfa",
+    "w1_single_full_MH_01_easy_V_G0_V5_20261009T052134_7f457005",
+    "w1_single_full_V1_03_difficult_V_G0_V6_20261009T052539_423ba3b8",
+    "w1_single_full_MH_03_medium_V_G0_V8_20261009T052625_9caade1f",
+    "w1_single_full_V2_01_easy_V_G0_V5_20261009T052325_6e7f439e",
+    "w2_single_full_V2_01_easy_V_G0_V8_20261009T052805_7e7fcafa",
+    "w2_single_full_V1_03_difficult_V_G0_V5_20261009T052317_868b4cec",
+    "w2_single_full_V1_01_easy_V_G0_V5_20261009T052201_9a4a3259",
+    "w2_single_full_MH_02_easy_V_G0_V6_20261009T052403_cd3d2521",
+    "w2_single_full_MH_01_easy_V_G0_V8_20261009T052613_74264d56",
+    "w2_single_full_V1_02_medium_V_G0_V6_20261009T052533_6c6ce655",
+    "w3_single_full_MH_03_medium_V_G0_V6_20261009T052404_ea9b7c39",
+    "w3_single_full_MH_03_medium_V_G0_V5_20261009T052150_62257159",
+    "w3_single_full_MH_02_easy_V_G0_V8_20261009T052617_38c84aea",
+    "w0_single_full_MH_02_easy_V_G0_V5_20261009T052144_bc3d3eef",
+    "w0_single_full_V1_03_difficult_V_G0_V8_20261009T052801_657ea5ac",
+    "w0_single_full_V1_02_medium_V_G0_V5_20261009T052315_7b671fca",
+    "w0_single_full_V1_01_easy_V_G0_V8_20261009T052645_f50e4e8a",
+    "w0_single_full_V2_01_easy_V_G0_V6_20261009T052546_381917ae",
+    "w0_single_full_MH_01_easy_V_G0_V6_20261009T052355_2e1dabfe"
+  ],
+  "new_single_completed": 80,
+  "old_coordinator_terminal": true,
+  "old_groups_terminal": true,
+  "mode": "resume only incomplete identities",
+  "new_workers": 8,
+  "cpus_per_worker": 2
+}

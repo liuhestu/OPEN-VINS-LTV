@@ -1,0 +1,17 @@
+{
+  "request": "user explicitly selected eight isolated processes",
+  "coordinator": {
+    "pid": 323158,
+    "pgid": 323156,
+    "start_ticks": "9336739",
+    "executable": "/usr/bin/python3.10",
+    "argv": [
+      "python3",
+      "docs/experiments/tools/ltv_gain_scan/independent.py",
+      "run",
+      "/home/he/output/ltv_gv_independent_20261009T050259"
+    ]
+  },
+  "signal": "SIGINT; ThreadPool shutdown drains current single-stage worker queue; recover FINISH records before resume",
+  "requested_at": 1791523379.3982317
+}
