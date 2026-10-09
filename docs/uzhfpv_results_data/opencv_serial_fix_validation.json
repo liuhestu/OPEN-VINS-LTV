@@ -1,0 +1,118 @@
+{
+  "cases": [
+    {
+      "mode": "OFF",
+      "alpha": 1,
+      "passed": true,
+      "actual_threading": {
+        "requested_opencv_threads": 1,
+        "actual_opencv_threads": 1
+      },
+      "matched": {
+        "trajectory.csv": true,
+        "replay.json": true
+      },
+      "original_options_unchanged": true,
+      "prior": "w0_smoke_serial_indoor_forward_5_OFF_1_20261009T022128_56308a06",
+      "corrected": "w0_opencv_serial_fix_smoke_indoor_forward_5_OFF_1_20261009T035352_4c7baa8c"
+    },
+    {
+      "mode": "V",
+      "alpha": 1,
+      "passed": true,
+      "actual_threading": {
+        "requested_opencv_threads": 1,
+        "actual_opencv_threads": 1
+      },
+      "matched": {
+        "trajectory.csv": true,
+        "replay.json": true
+      },
+      "original_options_unchanged": true,
+      "prior": "w0_smoke_serial_indoor_forward_5_V_1_20261009T022211_c2549461",
+      "corrected": "w2_opencv_serial_fix_smoke_indoor_forward_5_V_1_20261009T035352_4757d50a"
+    },
+    {
+      "mode": "G",
+      "alpha": 1,
+      "passed": true,
+      "actual_threading": {
+        "requested_opencv_threads": 1,
+        "actual_opencv_threads": 1
+      },
+      "matched": {
+        "trajectory.csv": true,
+        "replay.json": true
+      },
+      "original_options_unchanged": true,
+      "prior": "w0_smoke_serial_indoor_forward_5_G_1_20261009T022137_9aac18a2",
+      "corrected": "w1_opencv_serial_fix_smoke_indoor_forward_5_G_1_20261009T035352_f49e45fc"
+    },
+    {
+      "mode": "L",
+      "alpha": 1,
+      "passed": true,
+      "actual_threading": {
+        "requested_opencv_threads": 1,
+        "actual_opencv_threads": 1
+      },
+      "matched": {
+        "trajectory.csv": true,
+        "replay.json": true
+      },
+      "original_options_unchanged": true,
+      "prior": "w0_smoke_serial_indoor_forward_5_L_1_20261009T022319_9237a1fb",
+      "corrected": "w0_opencv_serial_fix_smoke_indoor_forward_5_L_1_20261009T035402_e01909f3"
+    },
+    {
+      "mode": "GV",
+      "alpha": 1,
+      "passed": true,
+      "actual_threading": {
+        "requested_opencv_threads": 1,
+        "actual_opencv_threads": 1
+      },
+      "matched": {
+        "trajectory.csv": true,
+        "replay.json": true
+      },
+      "original_options_unchanged": true,
+      "prior": "w0_smoke_serial_indoor_forward_5_GV_1_20261009T022245_d3fca8ad",
+      "corrected": "w3_opencv_serial_fix_smoke_indoor_forward_5_GV_1_20261009T035352_8bd10ab4"
+    },
+    {
+      "mode": "L_GV",
+      "alpha": 4,
+      "passed": true,
+      "actual_threading": {
+        "requested_opencv_threads": 1,
+        "actual_opencv_threads": 1
+      },
+      "matched": {
+        "trajectory.csv": true,
+        "replay.json": true
+      },
+      "original_options_unchanged": true,
+      "prior": "w0_smoke_serial_indoor_forward_5_L_GV_4_20261009T022428_7c8ccb86",
+      "corrected": "w2_opencv_serial_fix_smoke_indoor_forward_5_L_GV_4_20261009T035427_7bcaea86"
+    },
+    {
+      "mode": "L_GV",
+      "alpha": 1,
+      "passed": true,
+      "actual_threading": {
+        "requested_opencv_threads": 1,
+        "actual_opencv_threads": 1
+      },
+      "matched": {
+        "trajectory.csv": true,
+        "replay.json": true
+      },
+      "original_options_unchanged": true,
+      "prior": "w0_smoke_serial_indoor_forward_5_L_GV_1_20261009T022353_e59ac324",
+      "corrected": "w1_opencv_serial_fix_smoke_indoor_forward_5_L_GV_1_20261009T035427_a94bb549"
+    }
+  ],
+  "status": "PASS",
+  "note": "Post-run correction validation; full scientific matrix used original artifact with four OpenCV threads inside each four-CPU affinity."
+}

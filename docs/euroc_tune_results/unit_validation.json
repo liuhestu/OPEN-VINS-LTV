@@ -1,0 +1,10 @@
+{
+  "command": [
+    "python3",
+    "docs/experiments/tools/ltv_gain_scan/test_study.py"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.002s\n\nOK\n",
+  "utc": "2026-10-09T02:32:20.895598+00:00"
+}

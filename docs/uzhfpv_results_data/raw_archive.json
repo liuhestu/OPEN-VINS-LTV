@@ -1,0 +1,6 @@
+{
+  "original_coord_root": "/tmp/ltv_gain_scan_20261009",
+  "archive_root": "/home/he/output/ltv_gain_scan_20261009_archive",
+  "method": "independent cp -a --reflink=auto; absolute historical paths retained",
+  "purpose": "persistent raw evidence archive, not a relabeled execution root"
+}

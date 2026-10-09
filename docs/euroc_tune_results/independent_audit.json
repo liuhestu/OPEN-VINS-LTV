@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "planned": 256,
+  "recorded": 256,
+  "status_counts": {
+    "VALID_FULL_MATCHED": 256
+  },
+  "input_hashes_reverified": true,
+  "sensor_conversion_reverified": true,
+  "attempts": 281,
+  "excluded_from_tuning": [
+    "indoor_forward_7"
+  ],
+  "active_configurations": 240,
+  "maximum_concurrent_replays": 4,
+  "failed_attempts": [
+    {
+      "run_id": "w0_build_retry_20261009T021944_75868528",
+      "exit_code": 126
+    },
+    {
+      "run_id": "w0_build_20261009T021859_c94190c7",
+      "exit_code": 1
+    }
+  ],
+  "maximum_horn_svd_difference_m": 5.995204332975845e-15,
+  "report_scope": "screening only; historical engineering conclusions unchanged"
+}

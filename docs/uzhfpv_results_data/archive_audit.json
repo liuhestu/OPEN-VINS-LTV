@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "independently_recomputed": 36,
+  "maximum_difference_m": 4.3298697960381105e-15,
+  "needs_original_inputs_or_temporary_directory": false,
+  "alignment": "position SE(3), no scale; Horn/SVD"
+}

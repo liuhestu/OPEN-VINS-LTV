@@ -1,0 +1,52 @@
+{
+  "tasks": {
+    "w0": {
+      "task_root": "/tmp/ltv_gain_scan_20261009/w0",
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "namespace": "ltv_scan_w0",
+      "ros_domain_id": 201,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "w1": {
+      "task_root": "/tmp/ltv_gain_scan_20261009/w1",
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "namespace": "ltv_scan_w1",
+      "ros_domain_id": 202,
+      "cpu_affinity": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "w2": {
+      "task_root": "/tmp/ltv_gain_scan_20261009/w2",
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "namespace": "ltv_scan_w2",
+      "ros_domain_id": 203,
+      "cpu_affinity": [
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "w3": {
+      "task_root": "/tmp/ltv_gain_scan_20261009/w3",
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "namespace": "ltv_scan_w3",
+      "ros_domain_id": 204,
+      "cpu_affinity": [
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "source_oid": "21564dda04e4fd59013682e9bd95dc21d7fcc467",
+  "source": "/tmp/ltv_gain_scan_20261009/source",
+  "artifact": "/tmp/ltv_gain_scan_20261009/artifact_retry",
+  "coord_root": "/tmp/ltv_gain_scan_20261009",
+  "base_main_oid": "21564dda04e4fd59013682e9bd95dc21d7fcc467",
+  "origin": "git@github.com:liuhestu/OPEN-VINS-LTV.git"
+}

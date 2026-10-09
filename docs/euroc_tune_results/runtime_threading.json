@@ -1,0 +1,11 @@
+{
+  "full_matrix_source_oid": "21564dda04e4fd59013682e9bd95dc21d7fcc467",
+  "full_matrix_opencv_threads": 4,
+  "cpu_affinity_per_worker": 4,
+  "process_limit": 4,
+  "blas_openmp_threads": 1,
+  "planned_opencv_threads": 1,
+  "deviation": "Original driver called cv::setNumThreads(1) before VioManager reset it from config to four. Full matrix remains valid for matched position ATE and process isolation; timings are not single-thread timings or performance acceptance.",
+  "correction": "Dedicated scalar driver now sets options.num_opencv_threads=1 and verifies actual count after construction; post-run seven-case regression compares original trajectories.",
+  "historical_results_rewritten": false
+}

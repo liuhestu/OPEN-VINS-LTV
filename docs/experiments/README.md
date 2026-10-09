@@ -46,3 +46,9 @@ git switch --detach archive/consolidation-20261008T153807/origin/experiment/ltv-
 [最终 ATE RMSE](../euroc_results.md) 收录 11 序列 × 6 模式的 66 次新完整回放、实际融合计数、异常序列和验收边界。所有组固定 C0、max_slam=0。
 
 批次入口为 `tools/ltv_three_track/run_euroc_six.py`；ATE 入口为 `tools/ltv_three_track/evaluate_euroc_six.py`。准确命令、独立构建来源及完整 manifest 见结果文档和 `../euroc_results_data/`。
+
+## UZH-FPV 原配置与增益扫描
+
+[UZH 原配置六模式对照](../uzhfpv_results.md) 使用公开 GT 的 Snapdragon 双目和 IMU，保留各类 UZH 标定、噪声与初始化；[增益扫描](../euroc_tune_results/report.md) 先在代表序列筛选，只有相对 OFF 及同模式 1× 的 ATE 增幅均不超过 10% 才扩展。
+
+入口与隔离约束见 [ltv_gain_scan 使用说明](tools/ltv_gain_scan/README.md)。最多四个隔离回放进程；原始数据和日志放在仓库外。indoor_forward_7 因实际融合次数全部为零，按用户要求从后续增益测试和汇总中排除，已完成记录保留。

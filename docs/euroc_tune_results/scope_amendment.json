@@ -1,0 +1,19 @@
+{
+  "excluded_from_tuning": [
+    "indoor_forward_7"
+  ],
+  "reason": "User requested exclusion from subsequent tests because all completed reference/2x/4x cases have zero actual G/V/L applications.",
+  "effective_stage": "after representative screening; existing 16 raw runs retained, no additional runs scheduled",
+  "reference_report": "retain the original six-sequence UZH report with explicit no-effect annotation",
+  "active_tuning_sequences": 15,
+  "active_tuning_configurations": 240,
+  "historical_raw_configurations": 256,
+  "representatives": [
+    "V2_02_medium",
+    "V2_03_difficult",
+    "MH_05_difficult",
+    "indoor_forward_5",
+    "outdoor_forward_5"
+  ],
+  "recorded_at_utc": "2026-10-09T03:09:21.824496+00:00"
+}

@@ -1,0 +1,387 @@
+[
+  {
+    "mode": "OFF",
+    "alpha": 1,
+    "identical": true,
+    "serial": {
+      "sequence": "indoor_forward_5",
+      "mode": "OFF",
+      "alpha": 1,
+      "run_id": "w0_smoke_serial_indoor_forward_5_OFF_1_20261009T022128_56308a06",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_smoke_serial_indoor_forward_5_OFF_1_20261009T022128_56308a06",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 0,
+        "actual_V": 0,
+        "actual_L": 0,
+        "output_rows": 936,
+        "camera_packets": 1143
+      }
+    },
+    "concurrent": {
+      "sequence": "indoor_forward_5",
+      "mode": "OFF",
+      "alpha": 1,
+      "run_id": "w0_smoke_concurrent_indoor_forward_5_OFF_1_20261009T022502_3962cd21",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_smoke_concurrent_indoor_forward_5_OFF_1_20261009T022502_3962cd21",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 0,
+        "actual_V": 0,
+        "actual_L": 0,
+        "output_rows": 936,
+        "camera_packets": 1143
+      }
+    }
+  },
+  {
+    "mode": "G",
+    "alpha": 1,
+    "identical": true,
+    "serial": {
+      "sequence": "indoor_forward_5",
+      "mode": "G",
+      "alpha": 1,
+      "run_id": "w0_smoke_serial_indoor_forward_5_G_1_20261009T022137_9aac18a2",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_smoke_serial_indoor_forward_5_G_1_20261009T022137_9aac18a2",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 615,
+        "actual_V": 0,
+        "actual_L": 0,
+        "output_rows": 936,
+        "camera_packets": 1143
+      },
+      "gate_reason_counts": {
+        "G_reason:disabled": 207,
+        "V_reason:disabled": 1143,
+        "G_reason:warmup_or_core_invalid": 113,
+        "G_reason:not_ready_G": 208,
+        "G_reason:accepted": 615
+      }
+    },
+    "concurrent": {
+      "sequence": "indoor_forward_5",
+      "mode": "G",
+      "alpha": 1,
+      "run_id": "w1_smoke_concurrent_indoor_forward_5_G_1_20261009T022502_ec66b63c",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w1/results/w1_smoke_concurrent_indoor_forward_5_G_1_20261009T022502_ec66b63c",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 615,
+        "actual_V": 0,
+        "actual_L": 0,
+        "output_rows": 936,
+        "camera_packets": 1143
+      },
+      "gate_reason_counts": {
+        "G_reason:disabled": 207,
+        "V_reason:disabled": 1143,
+        "G_reason:warmup_or_core_invalid": 113,
+        "G_reason:not_ready_G": 208,
+        "G_reason:accepted": 615
+      }
+    }
+  },
+  {
+    "mode": "V",
+    "alpha": 1,
+    "identical": true,
+    "serial": {
+      "sequence": "indoor_forward_5",
+      "mode": "V",
+      "alpha": 1,
+      "run_id": "w0_smoke_serial_indoor_forward_5_V_1_20261009T022211_c2549461",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_smoke_serial_indoor_forward_5_V_1_20261009T022211_c2549461",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 0,
+        "actual_V": 455,
+        "actual_L": 0,
+        "output_rows": 936,
+        "camera_packets": 1143
+      },
+      "gate_reason_counts": {
+        "G_reason:disabled": 1143,
+        "V_reason:disabled": 207,
+        "V_reason:warmup_or_core_invalid": 113,
+        "V_reason:not_ready_V": 368,
+        "V_reason:accepted": 455
+      }
+    },
+    "concurrent": {
+      "sequence": "indoor_forward_5",
+      "mode": "V",
+      "alpha": 1,
+      "run_id": "w2_smoke_concurrent_indoor_forward_5_V_1_20261009T022502_d23e07f4",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w2/results/w2_smoke_concurrent_indoor_forward_5_V_1_20261009T022502_d23e07f4",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 0,
+        "actual_V": 455,
+        "actual_L": 0,
+        "output_rows": 936,
+        "camera_packets": 1143
+      },
+      "gate_reason_counts": {
+        "G_reason:disabled": 1143,
+        "V_reason:disabled": 207,
+        "V_reason:warmup_or_core_invalid": 113,
+        "V_reason:not_ready_V": 368,
+        "V_reason:accepted": 455
+      }
+    }
+  },
+  {
+    "mode": "GV",
+    "alpha": 1,
+    "identical": true,
+    "serial": {
+      "sequence": "indoor_forward_5",
+      "mode": "GV",
+      "alpha": 1,
+      "run_id": "w0_smoke_serial_indoor_forward_5_GV_1_20261009T022245_d3fca8ad",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_smoke_serial_indoor_forward_5_GV_1_20261009T022245_d3fca8ad",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 615,
+        "actual_V": 455,
+        "actual_L": 0,
+        "output_rows": 936,
+        "camera_packets": 1143
+      },
+      "gate_reason_counts": {
+        "G_reason:disabled": 207,
+        "V_reason:disabled": 207,
+        "G_reason:warmup_or_core_invalid": 113,
+        "V_reason:warmup_or_core_invalid": 113,
+        "G_reason:not_ready_G": 208,
+        "V_reason:not_ready_V": 368,
+        "G_reason:accepted": 615,
+        "V_reason:accepted": 455
+      }
+    },
+    "concurrent": {
+      "sequence": "indoor_forward_5",
+      "mode": "GV",
+      "alpha": 1,
+      "run_id": "w3_smoke_concurrent_indoor_forward_5_GV_1_20261009T022502_1493fc0d",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w3/results/w3_smoke_concurrent_indoor_forward_5_GV_1_20261009T022502_1493fc0d",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 615,
+        "actual_V": 455,
+        "actual_L": 0,
+        "output_rows": 936,
+        "camera_packets": 1143
+      },
+      "gate_reason_counts": {
+        "G_reason:disabled": 207,
+        "V_reason:disabled": 207,
+        "G_reason:warmup_or_core_invalid": 113,
+        "V_reason:warmup_or_core_invalid": 113,
+        "G_reason:not_ready_G": 208,
+        "V_reason:not_ready_V": 368,
+        "G_reason:accepted": 615,
+        "V_reason:accepted": 455
+      }
+    }
+  },
+  {
+    "mode": "L",
+    "alpha": 1,
+    "identical": true,
+    "serial": {
+      "sequence": "indoor_forward_5",
+      "mode": "L",
+      "alpha": 1,
+      "run_id": "w0_smoke_serial_indoor_forward_5_L_1_20261009T022319_9237a1fb",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_smoke_serial_indoor_forward_5_L_1_20261009T022319_9237a1fb",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 0,
+        "actual_V": 0,
+        "actual_L": 454,
+        "output_rows": 936,
+        "camera_packets": 1143
+      },
+      "landmark_information": {
+        "count": 936,
+        "total": 0.0058160587398783156,
+        "maximum": 3.633156169183747e-05
+      },
+      "gate_reason_counts": {
+        "G_reason:disabled": 1143,
+        "V_reason:disabled": 1143
+      }
+    },
+    "concurrent": {
+      "sequence": "indoor_forward_5",
+      "mode": "L",
+      "alpha": 1,
+      "run_id": "w0_smoke_concurrent_indoor_forward_5_L_1_20261009T022511_e1591c04",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_smoke_concurrent_indoor_forward_5_L_1_20261009T022511_e1591c04",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 0,
+        "actual_V": 0,
+        "actual_L": 454,
+        "output_rows": 936,
+        "camera_packets": 1143
+      },
+      "landmark_information": {
+        "count": 936,
+        "total": 0.0058160587398783156,
+        "maximum": 3.633156169183747e-05
+      },
+      "gate_reason_counts": {
+        "G_reason:disabled": 1143,
+        "V_reason:disabled": 1143
+      }
+    }
+  },
+  {
+    "mode": "L_GV",
+    "alpha": 1,
+    "identical": true,
+    "serial": {
+      "sequence": "indoor_forward_5",
+      "mode": "L_GV",
+      "alpha": 1,
+      "run_id": "w0_smoke_serial_indoor_forward_5_L_GV_1_20261009T022353_e59ac324",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_smoke_serial_indoor_forward_5_L_GV_1_20261009T022353_e59ac324",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 615,
+        "actual_V": 455,
+        "actual_L": 454,
+        "output_rows": 936,
+        "camera_packets": 1143
+      },
+      "landmark_information": {
+        "count": 936,
+        "total": 0.005814046680724801,
+        "maximum": 3.62700823962945e-05
+      },
+      "gate_reason_counts": {
+        "G_reason:disabled": 207,
+        "V_reason:disabled": 207,
+        "G_reason:warmup_or_core_invalid": 113,
+        "V_reason:warmup_or_core_invalid": 113,
+        "G_reason:not_ready_G": 208,
+        "V_reason:not_ready_V": 368,
+        "G_reason:accepted": 615,
+        "V_reason:accepted": 455
+      }
+    },
+    "concurrent": {
+      "sequence": "indoor_forward_5",
+      "mode": "L_GV",
+      "alpha": 1,
+      "run_id": "w1_smoke_concurrent_indoor_forward_5_L_GV_1_20261009T022537_5c12927d",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w1/results/w1_smoke_concurrent_indoor_forward_5_L_GV_1_20261009T022537_5c12927d",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 615,
+        "actual_V": 455,
+        "actual_L": 454,
+        "output_rows": 936,
+        "camera_packets": 1143
+      },
+      "landmark_information": {
+        "count": 936,
+        "total": 0.005814046680724801,
+        "maximum": 3.62700823962945e-05
+      },
+      "gate_reason_counts": {
+        "G_reason:disabled": 207,
+        "V_reason:disabled": 207,
+        "G_reason:warmup_or_core_invalid": 113,
+        "V_reason:warmup_or_core_invalid": 113,
+        "G_reason:not_ready_G": 208,
+        "V_reason:not_ready_V": 368,
+        "G_reason:accepted": 615,
+        "V_reason:accepted": 455
+      }
+    }
+  },
+  {
+    "mode": "L_GV",
+    "alpha": 4,
+    "identical": true,
+    "serial": {
+      "sequence": "indoor_forward_5",
+      "mode": "L_GV",
+      "alpha": 4,
+      "run_id": "w0_smoke_serial_indoor_forward_5_L_GV_4_20261009T022428_7c8ccb86",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_smoke_serial_indoor_forward_5_L_GV_4_20261009T022428_7c8ccb86",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 599,
+        "actual_V": 439,
+        "actual_L": 438,
+        "output_rows": 936,
+        "camera_packets": 1143
+      },
+      "landmark_information": {
+        "count": 936,
+        "total": 0.019741347266925946,
+        "maximum": 9.575729337554957e-05
+      },
+      "gate_reason_counts": {
+        "G_reason:disabled": 207,
+        "V_reason:disabled": 207,
+        "G_reason:warmup_or_core_invalid": 129,
+        "V_reason:warmup_or_core_invalid": 129,
+        "G_reason:not_ready_G": 208,
+        "V_reason:not_ready_V": 368,
+        "G_reason:accepted": 599,
+        "V_reason:accepted": 439
+      }
+    },
+    "concurrent": {
+      "sequence": "indoor_forward_5",
+      "mode": "L_GV",
+      "alpha": 4,
+      "run_id": "w2_smoke_concurrent_indoor_forward_5_L_GV_4_20261009T022537_32bb50df",
+      "output_dir": "/tmp/ltv_gain_scan_20261009/w2/results/w2_smoke_concurrent_indoor_forward_5_L_GV_4_20261009T022537_32bb50df",
+      "exit_code": 0,
+      "audit": {
+        "errors": [],
+        "actual_G": 599,
+        "actual_V": 439,
+        "actual_L": 438,
+        "output_rows": 936,
+        "camera_packets": 1143
+      },
+      "landmark_information": {
+        "count": 936,
+        "total": 0.019741347266925946,
+        "maximum": 9.575729337554957e-05
+      },
+      "gate_reason_counts": {
+        "G_reason:disabled": 207,
+        "V_reason:disabled": 207,
+        "G_reason:warmup_or_core_invalid": 129,
+        "V_reason:warmup_or_core_invalid": 129,
+        "G_reason:not_ready_G": 208,
+        "V_reason:not_ready_V": 368,
+        "G_reason:accepted": 599,
+        "V_reason:accepted": 439
+      }
+    }
+  }
+]

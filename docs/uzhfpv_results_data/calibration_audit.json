@@ -1,0 +1,29 @@
+[
+  {
+    "family": "uzhfpv_indoor",
+    "frozen_config": "/tmp/ltv_gain_scan_20261009/configs/uzhfpv_indoor/OFF_1/kalibr_imucam_chain.yaml",
+    "official_config": "/home/he/datasets/uzhfpv/archives/indoor_forward_calib_snapdragon/camchain-imucam-..indoor_forward_calib_snapdragon_imu.yaml",
+    "official_sha256": "06842157194c9c5ca59e343eaf105cc5d2c1b1380d13de8d287a343ad017efe9",
+    "frozen_sha256": "d94c73ba11927dadcc76e691f9a560c2f4efc60070aefb6a12e6c95f38399826",
+    "camera_differences": [],
+    "decision": "Use family UZH physical settings; only LTV keys inherited from shared C0."
+  },
+  {
+    "family": "uzhfpv_indoor_45",
+    "frozen_config": "/tmp/ltv_gain_scan_20261009/configs/uzhfpv_indoor_45/OFF_1/kalibr_imucam_chain.yaml",
+    "official_config": "/home/he/datasets/uzhfpv/archives/indoor_45_calib_snapdragon/camchain-imucam-..indoor_45_calib_snapdragon_imu.yaml",
+    "official_sha256": "9cbd3aa4e6e822b116cfbda2adececed5509e8dd36c5941dbd561c1f230caecc",
+    "frozen_sha256": "7c4da84ea194b0b6b7d92524cb7730501953fc2204b97338bd7d7b2734c45df7",
+    "camera_differences": [],
+    "decision": "Use family UZH physical settings; only LTV keys inherited from shared C0."
+  },
+  {
+    "family": "uzhfpv_outdoor",
+    "frozen_config": "/tmp/ltv_gain_scan_20261009/configs/uzhfpv_outdoor/OFF_1/kalibr_imucam_chain.yaml",
+    "official_config": "/home/he/datasets/uzhfpv/archives/outdoor_forward_calib_snapdragon/camchain-imucam-..outdoor_forward_calib_snapdragon_imu.yaml",
+    "official_sha256": "b113067666d1b265a9cca1ad0795fc4655f205f0122e0eb54d4fc740a37eae8e",
+    "frozen_sha256": "bf21f11e5da367af2f8f7fcec7968812f775fc1e85f7086466f8b8fa0801c3f7",
+    "camera_differences": [],
+    "decision": "Use family UZH physical settings; only LTV keys inherited from shared C0."
+  }
+]

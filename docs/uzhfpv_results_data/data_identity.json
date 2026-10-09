@@ -1,0 +1,50 @@
+{
+  "indoor_forward_5": {
+    "root": "/tmp/ltv_gain_scan_20261009/inputs/indoor_forward_5",
+    "original": "/home/he/datasets/uzhfpv/archives/indoor_forward_5_snapdragon_with_gt",
+    "gt": "/home/he/datasets/uzhfpv/archives/indoor_forward_5_snapdragon_with_gt/groundtruth.txt",
+    "gt_sha256": "4a54cd2addaea79c34f7b0582a8cd8544b3c7bf5d91e6dce2594768aee9fb018",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/indoor_forward_5_hashes.json",
+    "sensor_hash_manifest_sha256": "f4d916aec9ae80b76b7f0f52f2375544abd97ec63ef382c63fc252be4b005ad7"
+  },
+  "indoor_forward_6": {
+    "root": "/tmp/ltv_gain_scan_20261009/inputs/indoor_forward_6",
+    "original": "/home/he/datasets/uzhfpv/archives/indoor_forward_6_snapdragon_with_gt",
+    "gt": "/home/he/datasets/uzhfpv/archives/indoor_forward_6_snapdragon_with_gt/groundtruth.txt",
+    "gt_sha256": "0d417f83866b335f5e3f9cf1a37f007d82e1f2362ba6c0fe44cc8e3a03dddd7c",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/indoor_forward_6_hashes.json",
+    "sensor_hash_manifest_sha256": "d8fde5fc9360c9f35a0d44cc6a02b54a40b6933d8eaa0cd9f716ff401953f05b"
+  },
+  "indoor_forward_7": {
+    "root": "/tmp/ltv_gain_scan_20261009/inputs/indoor_forward_7",
+    "original": "/home/he/datasets/uzhfpv/archives/indoor_forward_7_snapdragon_with_gt",
+    "gt": "/home/he/datasets/uzhfpv/archives/indoor_forward_7_snapdragon_with_gt/groundtruth.txt",
+    "gt_sha256": "1f63e693e44ff3842949de69243ad298a7a9acea6fff4b8c2d36f1a66ef8fd59",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/indoor_forward_7_hashes.json",
+    "sensor_hash_manifest_sha256": "8c2f238e50a60929e32d09952f9534ea7ee803dd49833360636a8f6bf59fe357"
+  },
+  "indoor_45_2": {
+    "root": "/tmp/ltv_gain_scan_20261009/inputs/indoor_45_2",
+    "original": "/home/he/datasets/uzhfpv/archives/indoor_45_2_snapdragon_with_gt",
+    "gt": "/home/he/datasets/uzhfpv/archives/indoor_45_2_snapdragon_with_gt/groundtruth.txt",
+    "gt_sha256": "ecab8a2a6de523164bdfcd56a2518d393334125256929b64a714fb6a35eaa97e",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/indoor_45_2_hashes.json",
+    "sensor_hash_manifest_sha256": "ceb99afc43865bd3017fae526c4ed0ff5287276a43111013de8d5b95f551605b"
+  },
+  "outdoor_forward_1": {
+    "root": "/tmp/ltv_gain_scan_20261009/inputs/outdoor_forward_1",
+    "original": "/home/he/datasets/uzhfpv/archives/outdoor_forward_1_snapdragon_with_gt",
+    "gt": "/home/he/datasets/uzhfpv/archives/outdoor_forward_1_snapdragon_with_gt/groundtruth.txt",
+    "gt_sha256": "67ecd68298d1463e730c131a1ca845981452a9b0ba7cea031f320e6c4c8dd08c",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/outdoor_forward_1_hashes.json",
+    "sensor_hash_manifest_sha256": "d364b6ceaef0f7cb0ab8ad3ce0e73d4d9f866248f883880be314e76655fe64c9"
+  },
+  "outdoor_forward_5": {
+    "root": "/tmp/ltv_gain_scan_20261009/inputs/outdoor_forward_5",
+    "original": "/home/he/datasets/uzhfpv/archives/outdoor_forward_5_snapdragon_with_gt",
+    "gt": "/home/he/datasets/uzhfpv/archives/outdoor_forward_5_snapdragon_with_gt/groundtruth.txt",
+    "gt_sha256": "7e2c952ca60431d5c138a2a5aa2306740d8dc5c5aab21b115b2e760acd799e41",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/outdoor_forward_5_hashes.json",
+    "sensor_hash_manifest_sha256": "a5e88061ff662dcfe47403ecd7c6bf41770af5825262d84e297455f2d155a44c"
+  }
+}

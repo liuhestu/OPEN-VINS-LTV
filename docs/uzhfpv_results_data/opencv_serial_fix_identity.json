@@ -1,0 +1,6 @@
+{
+  "source_oid": "8c58c2c35427f5d5dc48e3741b537521e8d8f416",
+  "source": "/tmp/ltv_gain_scan_20261009/source_cv_serial",
+  "artifact": "/tmp/ltv_gain_scan_20261009/artifact_cv_serial",
+  "purpose": "post-run threading correction; original full matrix remains the original artifact"
+}

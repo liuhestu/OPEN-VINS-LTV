@@ -1,0 +1,702 @@
+[
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "OFF",
+    "alpha": 1,
+    "run_id": "w2_full_indoor_forward_7_OFF_1_20261009T022612_ebe8f665",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w2/results/w2_full_indoor_forward_7_OFF_1_20261009T022612_ebe8f665",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "G",
+    "alpha": 1,
+    "run_id": "w2_full_indoor_forward_7_G_1_20261009T022944_8781fcc8",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w2/results/w2_full_indoor_forward_7_G_1_20261009T022944_8781fcc8",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 278,
+      "V_reason:disabled": 3177,
+      "G_reason:time_or_token": 2899
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "G",
+    "alpha": 2,
+    "run_id": "w0_full_indoor_forward_7_G_2_20261009T024611_27f50328",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_full_indoor_forward_7_G_2_20261009T024611_27f50328",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 278,
+      "V_reason:disabled": 3177,
+      "G_reason:time_or_token": 2899
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "G",
+    "alpha": 4,
+    "run_id": "w0_full_indoor_forward_7_G_4_20261009T025800_3f631b60",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_full_indoor_forward_7_G_4_20261009T025800_3f631b60",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 278,
+      "V_reason:disabled": 3177,
+      "G_reason:time_or_token": 2899
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "V",
+    "alpha": 1,
+    "run_id": "w3_full_indoor_forward_7_V_1_20261009T023104_03a06204",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w3/results/w3_full_indoor_forward_7_V_1_20261009T023104_03a06204",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 3177,
+      "V_reason:disabled": 278,
+      "V_reason:time_or_token": 2899
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "V",
+    "alpha": 2,
+    "run_id": "w1_full_indoor_forward_7_V_2_20261009T024554_f053c1df",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w1/results/w1_full_indoor_forward_7_V_2_20261009T024554_f053c1df",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 3177,
+      "V_reason:disabled": 278,
+      "V_reason:time_or_token": 2899
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "V",
+    "alpha": 4,
+    "run_id": "w1_full_indoor_forward_7_V_4_20261009T025743_65e70fbd",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w1/results/w1_full_indoor_forward_7_V_4_20261009T025743_65e70fbd",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 3177,
+      "V_reason:disabled": 278,
+      "V_reason:time_or_token": 2899
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "GV",
+    "alpha": 1,
+    "run_id": "w0_full_indoor_forward_7_GV_1_20261009T023141_2f09d810",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_full_indoor_forward_7_GV_1_20261009T023141_2f09d810",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 278,
+      "V_reason:disabled": 278,
+      "G_reason:time_or_token": 2899,
+      "V_reason:time_or_token": 2899
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "GV",
+    "alpha": 2,
+    "run_id": "w2_full_indoor_forward_7_GV_2_20261009T024626_d4128c80",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w2/results/w2_full_indoor_forward_7_GV_2_20261009T024626_d4128c80",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 278,
+      "V_reason:disabled": 278,
+      "G_reason:time_or_token": 2899,
+      "V_reason:time_or_token": 2899
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "GV",
+    "alpha": 4,
+    "run_id": "w2_full_indoor_forward_7_GV_4_20261009T025814_a7a06fdc",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w2/results/w2_full_indoor_forward_7_GV_4_20261009T025814_a7a06fdc",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 278,
+      "V_reason:disabled": 278,
+      "G_reason:time_or_token": 2899,
+      "V_reason:time_or_token": 2899
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "L",
+    "alpha": 1,
+    "run_id": "w1_full_indoor_forward_7_L_1_20261009T023028_4f8f7540",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w1/results/w1_full_indoor_forward_7_L_1_20261009T023028_4f8f7540",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "landmark_information": {
+      "count": 2899,
+      "total": 0.0,
+      "maximum": 0.0
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 3177,
+      "V_reason:disabled": 3177
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "L",
+    "alpha": 2,
+    "run_id": "w3_full_indoor_forward_7_L_2_20261009T025034_b170e9e0",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w3/results/w3_full_indoor_forward_7_L_2_20261009T025034_b170e9e0",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "landmark_information": {
+      "count": 2899,
+      "total": 0.0,
+      "maximum": 0.0
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 3177,
+      "V_reason:disabled": 3177
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "L",
+    "alpha": 4,
+    "run_id": "w3_full_indoor_forward_7_L_4_20261009T030222_3f783517",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w3/results/w3_full_indoor_forward_7_L_4_20261009T030222_3f783517",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "landmark_information": {
+      "count": 2899,
+      "total": 0.0,
+      "maximum": 0.0
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 3177,
+      "V_reason:disabled": 3177
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "L_GV",
+    "alpha": 1,
+    "run_id": "w2_full_indoor_forward_7_L_GV_1_20261009T023009_482c0341",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w2/results/w2_full_indoor_forward_7_L_GV_1_20261009T023009_482c0341",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "landmark_information": {
+      "count": 2899,
+      "total": 0.0,
+      "maximum": 0.0
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 278,
+      "V_reason:disabled": 278,
+      "G_reason:time_or_token": 2899,
+      "V_reason:time_or_token": 2899
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "L_GV",
+    "alpha": 2,
+    "run_id": "w0_full_indoor_forward_7_L_GV_2_20261009T024637_5e331bc9",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_full_indoor_forward_7_L_GV_2_20261009T024637_5e331bc9",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "landmark_information": {
+      "count": 2899,
+      "total": 0.0,
+      "maximum": 0.0
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 278,
+      "V_reason:disabled": 278,
+      "G_reason:time_or_token": 2899,
+      "V_reason:time_or_token": 2899
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  },
+  {
+    "sequence": "indoor_forward_7",
+    "mode": "L_GV",
+    "alpha": 4,
+    "run_id": "w0_full_indoor_forward_7_L_GV_4_20261009T025825_45ae7117",
+    "output_dir": "/tmp/ltv_gain_scan_20261009/w0/results/w0_full_indoor_forward_7_L_GV_4_20261009T025825_45ae7117",
+    "exit_code": 0,
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 2899,
+      "camera_packets": 3177
+    },
+    "landmark_information": {
+      "count": 2899,
+      "total": 0.0,
+      "maximum": 0.0
+    },
+    "gate_reason_counts": {
+      "G_reason:disabled": 278,
+      "V_reason:disabled": 278,
+      "G_reason:time_or_token": 2899,
+      "V_reason:time_or_token": 2899
+    },
+    "ate_rmse_m": 0.48490042092745994,
+    "status": "VALID_FULL_MATCHED",
+    "reason": "",
+    "samples": 1735,
+    "baseline_support": 1735,
+    "coverage": 1.0,
+    "initialization_delta_s": 0.0,
+    "gt_coverage": 0.5984822352535357,
+    "estimated_rows": 2899,
+    "conditional_ate_rmse_m": 0.48490042092745994,
+    "svd_horn_difference_m": 2.7755575615628914e-16,
+    "tail_position_rmse_m": 0.7044743859811952,
+    "position_error_p95_m": 0.8442775349614535,
+    "position_error_max_m": 0.9797040994586728,
+    "threading": {
+      "actual_opencv_threads": 4,
+      "verification": "inferred from frozen num_opencv_threads=4 and original VioManager constructor; post-construction metadata was absent",
+      "cpu_affinity_per_worker": 4
+    },
+    "relative_off_percent": 0.0,
+    "relative_reference_percent": 0.0
+  }
+]
