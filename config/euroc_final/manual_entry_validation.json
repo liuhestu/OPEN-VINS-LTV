@@ -1,0 +1,67 @@
+{
+  "timestamp_utc": "2026-10-10T02:56:14.774180+00:00",
+  "status": "PASS",
+  "frozen_configurations_generated_and_verified": 50,
+  "invalid_weights_rejected": [
+    "zero enabled weight",
+    "negative weight",
+    "NaN",
+    "boolean",
+    "unknown branch"
+  ],
+  "runtime_cases": [
+    {
+      "output_dir": "/tmp/openvins_ltv_manual/MH_05_difficult_GVL_20261010T025534Z_cc72cf92",
+      "sequence": "MH_05_difficult",
+      "mode": "GVL",
+      "weights": {
+        "G": 4,
+        "V": 9,
+        "L": 2
+      },
+      "short_seconds": 40,
+      "validation": {
+        "exit_code": 0,
+        "errors": [],
+        "actual_applications": {
+          "G": 290,
+          "V": 282,
+          "L": 281
+        },
+        "status": "PASS",
+        "scope": "Manual replay and effective configuration; not final experiment acceptance"
+      },
+      "binary_sha256": "64b2b81daa935b45309112512a752783e30c09341c8054c54d74065c7dffae60"
+    },
+    {
+      "output_dir": "/tmp/openvins_ltv_manual/V2_02_medium_OFF_20261010T025550Z_1b8dd32f",
+      "sequence": "V2_02_medium",
+      "mode": "OFF",
+      "weights": {
+        "G": 0,
+        "V": 0,
+        "L": 0
+      },
+      "short_seconds": 40,
+      "validation": {
+        "exit_code": 0,
+        "errors": [],
+        "actual_applications": {
+          "G": 0,
+          "V": 0,
+          "L": 0
+        },
+        "status": "PASS",
+        "scope": "Manual replay and effective configuration; not final experiment acceptance"
+      },
+      "binary_sha256": "64b2b81daa935b45309112512a752783e30c09341c8054c54d74065c7dffae60"
+    }
+  ],
+  "known_short_prefix_limit": "MH_01_easy did not initialize within first 40 seconds; full replay remains default",
+  "files_sha256": {
+    "config/euroc_final/manual_run.yaml": "fa8d04619f5b839ae38f2c8bf61dd9fc6fdde34e4c5d1f427e30118863f33489",
+    "config/euroc_final/README.md": "704483e0e45a4c874b63fa2b45857890ab7dabfc3809ef21acb515448a0032dd",
+    "docs/experiments/tools/ltv_gain_scan/run_manual_euroc.py": "4585cf47af3d394cfeecc2cc7f1c280f217413daa3631683b1f13ac27765f757"
+  },
+  "scope": "Manual selection and existing-binary replay, not new engineering acceptance"
+}

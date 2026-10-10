@@ -1,0 +1,26 @@
+{
+  "timestamp_utc": "2026-10-10T02:40:06.025933+00:00",
+  "status": "PASS",
+  "accuracy_cases": 50,
+  "serial_cases": 50,
+  "trajectory_byte_identical": 50,
+  "published_files_rehashed": 78,
+  "dataset_files_rehashed": 50585,
+  "recomputed_metrics": 50,
+  "recomputed_local_windows": 575,
+  "effective_profiles_verified": 100,
+  "opencv_single_thread_verified": 100,
+  "analysis_summary_recomputed": true,
+  "raw_audit": {
+    "status": "PASS",
+    "errors": [],
+    "new_accuracy": 50,
+    "serial_measurements": 50,
+    "owned_live_processes": [],
+    "qualification": "metric confirmation, not new engineering acceptance"
+  },
+  "process_check_scope": "current /proc namespace only; historical completion manifests also checked",
+  "raw_directory": "/home/he/output/ltv_euroc_final_20261009T164739",
+  "replay_needed": false,
+  "qualification": "Experiment integrity PASS; measured cost FAIL; full engineering NOT_EVALUATED"
+}

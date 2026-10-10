@@ -1,0 +1,549 @@
+{
+  "scope": "frozen selected scene/mode confirmation; descriptive single paired run per sequence/mode",
+  "accuracy_cases": 50,
+  "serial_cases": 50,
+  "serial_parallel_identical": 50,
+  "scene_ate": [
+    {
+      "scene": "MH",
+      "mode": "G",
+      "sequences": 4,
+      "lower": 3,
+      "equal": 0,
+      "higher": 1,
+      "minimum_percent": -1.1041659344881771,
+      "median_percent": -0.673817119060921,
+      "maximum_percent": 0.01729654414202031
+    },
+    {
+      "scene": "MH",
+      "mode": "V",
+      "sequences": 4,
+      "lower": 4,
+      "equal": 0,
+      "higher": 0,
+      "minimum_percent": -10.897778008975234,
+      "median_percent": -8.648798635081217,
+      "maximum_percent": -1.4446428120718502
+    },
+    {
+      "scene": "MH",
+      "mode": "L",
+      "sequences": 4,
+      "lower": 2,
+      "equal": 0,
+      "higher": 2,
+      "minimum_percent": -0.8999580271572549,
+      "median_percent": -0.08181028115625821,
+      "maximum_percent": 0.04646234352532197
+    },
+    {
+      "scene": "MH",
+      "mode": "GVL",
+      "sequences": 4,
+      "lower": 4,
+      "equal": 0,
+      "higher": 0,
+      "minimum_percent": -11.535464079150248,
+      "median_percent": -8.67004655648268,
+      "maximum_percent": -1.4363046159067805
+    },
+    {
+      "scene": "Vicon",
+      "mode": "G",
+      "sequences": 6,
+      "lower": 3,
+      "equal": 0,
+      "higher": 3,
+      "minimum_percent": -0.0879702515244829,
+      "median_percent": -0.000304038926612904,
+      "maximum_percent": 0.006185859832608109
+    },
+    {
+      "scene": "Vicon",
+      "mode": "V",
+      "sequences": 6,
+      "lower": 4,
+      "equal": 0,
+      "higher": 2,
+      "minimum_percent": -0.0962326983920514,
+      "median_percent": -0.008816131218969403,
+      "maximum_percent": 0.019627366375840616
+    },
+    {
+      "scene": "Vicon",
+      "mode": "L",
+      "sequences": 6,
+      "lower": 5,
+      "equal": 0,
+      "higher": 1,
+      "minimum_percent": -0.08278023185946948,
+      "median_percent": -0.006189658080563154,
+      "maximum_percent": 8.30722383771132e-05
+    },
+    {
+      "scene": "Vicon",
+      "mode": "GVL",
+      "sequences": 6,
+      "lower": 3,
+      "equal": 0,
+      "higher": 3,
+      "minimum_percent": -0.08665114228483262,
+      "median_percent": -0.0032511553319181097,
+      "maximum_percent": 0.007166558769089448
+    }
+  ],
+  "paired_cost": [
+    {
+      "mode": "G",
+      "sequences": 10,
+      "median_percent": {
+        "camera_api_p95_ms": 337.1366609386191,
+        "full_cpu_s": 214.80720455644888,
+        "full_wall_s": 214.88307117831866,
+        "peak_rss_kb": 22.93747111292569
+      },
+      "minimum_percent": {
+        "camera_api_p95_ms": 154.06201728818135,
+        "full_cpu_s": 139.03675538656523,
+        "full_wall_s": 139.22686945500632,
+        "peak_rss_kb": 12.914026067200757
+      },
+      "maximum_percent": {
+        "camera_api_p95_ms": 606.7749427159106,
+        "full_cpu_s": 309.8728043609932,
+        "full_wall_s": 310.0545124167171,
+        "peak_rss_kb": 28.461076645987582
+      },
+      "camera_p95_over_historical_5pct": 10,
+      "rss_over_historical_10pct": 10,
+      "pairs": [
+        {
+          "sequence": "MH_01_easy",
+          "camera_api_p95_ms": 606.7749427159106,
+          "full_cpu_s": 301.1111111111111,
+          "full_wall_s": 301.0736764161422,
+          "peak_rss_kb": 27.844706824094455
+        },
+        {
+          "sequence": "MH_02_easy",
+          "camera_api_p95_ms": 576.7421676939072,
+          "full_cpu_s": 294.41163107678324,
+          "full_wall_s": 294.5024988641526,
+          "peak_rss_kb": 28.461076645987582
+        },
+        {
+          "sequence": "MH_03_medium",
+          "camera_api_p95_ms": 508.8959638345942,
+          "full_cpu_s": 284.11483253588517,
+          "full_wall_s": 284.2583732057417,
+          "peak_rss_kb": 25.12657719199549
+        },
+        {
+          "sequence": "MH_05_difficult",
+          "camera_api_p95_ms": 521.6561403846712,
+          "full_cpu_s": 309.8728043609932,
+          "full_wall_s": 310.0545124167171,
+          "peak_rss_kb": 23.582766439909285
+        },
+        {
+          "sequence": "V1_01_easy",
+          "camera_api_p95_ms": 324.72748853804774,
+          "full_cpu_s": 215.41792983975748,
+          "full_wall_s": 215.634473798181,
+          "peak_rss_kb": 17.571808827619083
+        },
+        {
+          "sequence": "V1_02_medium",
+          "camera_api_p95_ms": 316.8842191740514,
+          "full_cpu_s": 178.7991104521868,
+          "full_wall_s": 178.8148148148148,
+          "peak_rss_kb": 20.5662115084291
+        },
+        {
+          "sequence": "V1_03_difficult",
+          "camera_api_p95_ms": 270.93645077321924,
+          "full_cpu_s": 157.8791469194313,
+          "full_wall_s": 157.78567199526344,
+          "peak_rss_kb": 20.160674834304082
+        },
+        {
+          "sequence": "V2_01_easy",
+          "camera_api_p95_ms": 341.5038441396012,
+          "full_cpu_s": 214.19647927314026,
+          "full_wall_s": 214.1316685584563,
+          "peak_rss_kb": 25.159551274428193
+        },
+        {
+          "sequence": "V2_02_medium",
+          "camera_api_p95_ms": 332.76947773763703,
+          "full_cpu_s": 192.93150684931507,
+          "full_wall_s": 192.8258488499452,
+          "peak_rss_kb": 22.292175785942092
+        },
+        {
+          "sequence": "V2_03_difficult",
+          "camera_api_p95_ms": 154.06201728818135,
+          "full_cpu_s": 139.03675538656523,
+          "full_wall_s": 139.22686945500632,
+          "peak_rss_kb": 12.914026067200757
+        }
+      ]
+    },
+    {
+      "mode": "V",
+      "sequences": 10,
+      "median_percent": {
+        "camera_api_p95_ms": 335.2668366115154,
+        "full_cpu_s": 214.45687307572842,
+        "full_wall_s": 214.6097735309053,
+        "peak_rss_kb": 22.741310930107073
+      },
+      "minimum_percent": {
+        "camera_api_p95_ms": 154.3538413788226,
+        "full_cpu_s": 138.7832699619772,
+        "full_wall_s": 138.9100126742713,
+        "peak_rss_kb": 13.248834150424482
+      },
+      "maximum_percent": {
+        "camera_api_p95_ms": 596.3043658174131,
+        "full_cpu_s": 309.5699576014536,
+        "full_wall_s": 309.69109630526947,
+        "peak_rss_kb": 28.87332399439664
+      },
+      "camera_p95_over_historical_5pct": 10,
+      "rss_over_historical_10pct": 10,
+      "pairs": [
+        {
+          "sequence": "MH_01_easy",
+          "camera_api_p95_ms": 596.3043658174131,
+          "full_cpu_s": 298.2962962962963,
+          "full_wall_s": 298.25990373935576,
+          "peak_rss_kb": 28.87332399439664
+        },
+        {
+          "sequence": "MH_02_easy",
+          "camera_api_p95_ms": 576.2237602888237,
+          "full_cpu_s": 294.5479327578374,
+          "full_wall_s": 294.72966833257607,
+          "peak_rss_kb": 28.30098058835302
+        },
+        {
+          "sequence": "MH_03_medium",
+          "camera_api_p95_ms": 508.56255387116045,
+          "full_cpu_s": 284.7846889952153,
+          "full_wall_s": 285.1196172248804,
+          "peak_rss_kb": 23.30225829783814
+        },
+        {
+          "sequence": "MH_05_difficult",
+          "camera_api_p95_ms": 522.6335675285541,
+          "full_cpu_s": 309.5699576014536,
+          "full_wall_s": 309.69109630526947,
+          "peak_rss_kb": 23.252575884154837
+        },
+        {
+          "sequence": "V1_01_easy",
+          "camera_api_p95_ms": 324.61241967545914,
+          "full_cpu_s": 215.11476829796453,
+          "full_wall_s": 215.20138588133392,
+          "peak_rss_kb": 17.814151205752648
+        },
+        {
+          "sequence": "V1_02_medium",
+          "camera_api_p95_ms": 318.47848961216175,
+          "full_cpu_s": 179.8369162342476,
+          "full_wall_s": 179.77777777777783,
+          "peak_rss_kb": 15.428662955992479
+        },
+        {
+          "sequence": "V1_03_difficult",
+          "camera_api_p95_ms": 271.8576011098383,
+          "full_cpu_s": 158.0568720379147,
+          "full_wall_s": 158.0224985198342,
+          "peak_rss_kb": 19.935730066278378
+        },
+        {
+          "sequence": "V2_01_easy",
+          "camera_api_p95_ms": 339.4810519046255,
+          "full_cpu_s": 213.79897785349235,
+          "full_wall_s": 214.01816118047668,
+          "peak_rss_kb": 23.59773258810005
+        },
+        {
+          "sequence": "V2_02_medium",
+          "camera_api_p95_ms": 331.0526213184052,
+          "full_cpu_s": 193.04109589041096,
+          "full_wall_s": 192.9353778751369,
+          "peak_rss_kb": 22.23004597605931
+        },
+        {
+          "sequence": "V2_03_difficult",
+          "camera_api_p95_ms": 154.3538413788226,
+          "full_cpu_s": 138.7832699619772,
+          "full_wall_s": 138.9100126742713,
+          "peak_rss_kb": 13.248834150424482
+        }
+      ]
+    },
+    {
+      "mode": "L",
+      "sequences": 10,
+      "median_percent": {
+        "camera_api_p95_ms": 341.1396885571386,
+        "full_cpu_s": 218.41879134286523,
+        "full_wall_s": 218.65034615080208,
+        "peak_rss_kb": 22.92004682517087
+      },
+      "minimum_percent": {
+        "camera_api_p95_ms": 156.311033686566,
+        "full_cpu_s": 142.33206590621035,
+        "full_wall_s": 142.6489226869455,
+        "peak_rss_kb": 15.77185220614612
+      },
+      "maximum_percent": {
+        "camera_api_p95_ms": 605.3924348020796,
+        "full_cpu_s": 313.3252574197455,
+        "full_wall_s": 313.74924288310115,
+        "peak_rss_kb": 27.95677406443866
+      },
+      "camera_p95_over_historical_5pct": 10,
+      "rss_over_historical_10pct": 10,
+      "pairs": [
+        {
+          "sequence": "MH_01_easy",
+          "camera_api_p95_ms": 605.3924348020796,
+          "full_cpu_s": 300.0,
+          "full_wall_s": 300.18511662347277,
+          "peak_rss_kb": 27.95677406443866
+        },
+        {
+          "sequence": "MH_02_easy",
+          "camera_api_p95_ms": 581.5605094888751,
+          "full_cpu_s": 297.54656974102676,
+          "full_wall_s": 297.86460699681953,
+          "peak_rss_kb": 27.020212127276366
+        },
+        {
+          "sequence": "MH_03_medium",
+          "camera_api_p95_ms": 514.0454127881433,
+          "full_cpu_s": 287.36842105263156,
+          "full_wall_s": 287.75119617224885,
+          "peak_rss_kb": 25.423933135096032
+        },
+        {
+          "sequence": "MH_05_difficult",
+          "camera_api_p95_ms": 528.3127127694187,
+          "full_cpu_s": 313.3252574197455,
+          "full_wall_s": 313.74924288310115,
+          "peak_rss_kb": 23.54298444524008
+        },
+        {
+          "sequence": "V1_01_easy",
+          "camera_api_p95_ms": 328.3585983536568,
+          "full_cpu_s": 218.6660892161109,
+          "full_wall_s": 218.96925075790386,
+          "peak_rss_kb": 17.873743593818283
+        },
+        {
+          "sequence": "V1_02_medium",
+          "camera_api_p95_ms": 321.37690911727407,
+          "full_cpu_s": 182.35730170496666,
+          "full_wall_s": 182.51851851851853,
+          "peak_rss_kb": 16.201497617426817
+        },
+        {
+          "sequence": "V1_03_difficult",
+          "camera_api_p95_ms": 276.11122232253996,
+          "full_cpu_s": 161.9075829383886,
+          "full_wall_s": 162.048549437537,
+          "peak_rss_kb": 22.450291223137175
+        },
+        {
+          "sequence": "V2_01_easy",
+          "camera_api_p95_ms": 346.62521260855107,
+          "full_cpu_s": 218.17149346961955,
+          "full_wall_s": 218.33144154370032,
+          "peak_rss_kb": 21.873389622230157
+        },
+        {
+          "sequence": "V2_02_medium",
+          "camera_api_p95_ms": 335.6541645057261,
+          "full_cpu_s": 196.76712328767127,
+          "full_wall_s": 196.93318729463303,
+          "peak_rss_kb": 23.389802427204565
+        },
+        {
+          "sequence": "V2_03_difficult",
+          "camera_api_p95_ms": 156.311033686566,
+          "full_cpu_s": 142.33206590621035,
+          "full_wall_s": 142.6489226869455,
+          "peak_rss_kb": 15.77185220614612
+        }
+      ]
+    },
+    {
+      "mode": "GVL",
+      "sequences": 10,
+      "median_percent": {
+        "camera_api_p95_ms": 340.7790227012787,
+        "full_cpu_s": 219.22000398903236,
+        "full_wall_s": 219.401527556632,
+        "peak_rss_kb": 21.686647458964593
+      },
+      "minimum_percent": {
+        "camera_api_p95_ms": 157.10508188953898,
+        "full_cpu_s": 142.7122940430925,
+        "full_wall_s": 142.9024081115336,
+        "peak_rss_kb": 13.707202359599835
+      },
+      "maximum_percent": {
+        "camera_api_p95_ms": 605.0915325213068,
+        "full_cpu_s": 315.5057540884313,
+        "full_wall_s": 315.99030890369477,
+        "peak_rss_kb": 28.57714628777266
+      },
+      "camera_p95_over_historical_5pct": 10,
+      "rss_over_historical_10pct": 10,
+      "pairs": [
+        {
+          "sequence": "MH_01_easy",
+          "camera_api_p95_ms": 605.0915325213068,
+          "full_cpu_s": 301.55555555555554,
+          "full_wall_s": 301.77711958533877,
+          "peak_rss_kb": 28.57714628777266
+        },
+        {
+          "sequence": "MH_02_easy",
+          "camera_api_p95_ms": 585.9286802908288,
+          "full_cpu_s": 298.8187187641981,
+          "full_wall_s": 299.27305770104493,
+          "peak_rss_kb": 28.160896537922753
+        },
+        {
+          "sequence": "MH_03_medium",
+          "camera_api_p95_ms": 514.9121374876052,
+          "full_cpu_s": 288.5645933014355,
+          "full_wall_s": 289.04306220095697,
+          "peak_rss_kb": 25.018082455999348
+        },
+        {
+          "sequence": "MH_05_difficult",
+          "camera_api_p95_ms": 533.0454823377011,
+          "full_cpu_s": 315.5057540884313,
+          "full_wall_s": 315.99030890369477,
+          "peak_rss_kb": 22.775191948124274
+        },
+        {
+          "sequence": "V1_01_easy",
+          "camera_api_p95_ms": 330.96097443475907,
+          "full_cpu_s": 220.26851450844524,
+          "full_wall_s": 220.5283672585535,
+          "peak_rss_kb": 17.524134917166577
+        },
+        {
+          "sequence": "V1_02_medium",
+          "camera_api_p95_ms": 323.78358440098066,
+          "full_cpu_s": 183.0985915492958,
+          "full_wall_s": 183.25925925925927,
+          "peak_rss_kb": 15.708965682937581
+        },
+        {
+          "sequence": "V1_03_difficult",
+          "camera_api_p95_ms": 279.5572027061901,
+          "full_cpu_s": 163.21090047393366,
+          "full_wall_s": 163.46950858496152,
+          "peak_rss_kb": 18.738702550712993
+        },
+        {
+          "sequence": "V2_01_easy",
+          "camera_api_p95_ms": 344.6150502142896,
+          "full_cpu_s": 218.1714934696195,
+          "full_wall_s": 218.27468785471052,
+          "peak_rss_kb": 23.58980457446387
+        },
+        {
+          "sequence": "V2_02_medium",
+          "camera_api_p95_ms": 336.9429951882678,
+          "full_cpu_s": 198.24657534246577,
+          "full_wall_s": 198.4665936473165,
+          "peak_rss_kb": 20.59810296980491
+        },
+        {
+          "sequence": "V2_03_difficult",
+          "camera_api_p95_ms": 157.10508188953898,
+          "full_cpu_s": 142.7122940430925,
+          "full_wall_s": 142.9024081115336,
+          "peak_rss_kb": 13.707202359599835
+        }
+      ]
+    }
+  ],
+  "local_diagnostics": [
+    {
+      "mode": "G",
+      "largest_relative_increase": {
+        "sequence": "MH_01_easy",
+        "bin": 7,
+        "increase_percent": 6.081191430448052,
+        "increase_m": 0.002753968701877274
+      },
+      "largest_absolute_increase": {
+        "sequence": "MH_01_easy",
+        "bin": 13,
+        "increase_percent": 2.333124046147539,
+        "increase_m": 0.005897452587058982
+      }
+    },
+    {
+      "mode": "V",
+      "largest_relative_increase": {
+        "sequence": "MH_03_medium",
+        "bin": 5,
+        "increase_percent": 8.551660005404461,
+        "increase_m": 0.0031933493508818564
+      },
+      "largest_absolute_increase": {
+        "sequence": "V2_03_difficult",
+        "bin": 11,
+        "increase_percent": 3.018424512134721,
+        "increase_m": 0.005703816961005748
+      }
+    },
+    {
+      "mode": "L",
+      "largest_relative_increase": {
+        "sequence": "V2_03_difficult",
+        "bin": 11,
+        "increase_percent": 3.094179156734933,
+        "increase_m": 0.005846968007191811
+      },
+      "largest_absolute_increase": {
+        "sequence": "V2_03_difficult",
+        "bin": 11,
+        "increase_percent": 3.094179156734933,
+        "increase_m": 0.005846968007191811
+      }
+    },
+    {
+      "mode": "GVL",
+      "largest_relative_increase": {
+        "sequence": "MH_03_medium",
+        "bin": 5,
+        "increase_percent": 9.0180575884788,
+        "increase_m": 0.0033675109076114346
+      },
+      "largest_absolute_increase": {
+        "sequence": "V2_03_difficult",
+        "bin": 11,
+        "increase_percent": 3.08035974918468,
+        "increase_m": 0.005820853929844716
+      }
+    }
+  ],
+  "qualification": {
+    "measured_cost": "FAIL historical camera P95 +5% and RSS +10% limits for all 40 ON paired cases",
+    "full_engineering": "NOT_EVALUATED: frozen full main P/Observer x/P/lifecycle/receipts deterministic regression and covariance/correlation evidence incomplete",
+    "V1_01_attitude_RPE": "descriptive only: corrected GT orientation provenance unverified"
+  }
+}

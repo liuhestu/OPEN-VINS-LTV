@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "accuracy_cases": 50,
+  "serial_cases": 50,
+  "post_constructor_single_opencv_thread_verified": 100,
+  "effective_profiles_verified": 100,
+  "complete_input_verified": 100,
+  "frozen_support_coverage": "100%",
+  "initialization_tolerance_seconds": 1e-06,
+  "serial_parallel_byte_identical": 50,
+  "maximum_ate_horn_svd_difference_m": 2.1371793224034263e-15,
+  "distinct_artifact_files_rehashed": 41,
+  "unit_tests": {
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 docs/experiments/tools/ltv_gain_scan/test_final_euroc.py",
+    "exit_code": 0,
+    "tests": 2
+  },
+  "qualification": "metric/data integrity only; measured overhead FAIL; full engineering NOT_EVALUATED"
+}

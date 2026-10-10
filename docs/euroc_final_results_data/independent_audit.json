@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "new_accuracy": 50,
+  "serial_measurements": 50,
+  "owned_live_processes": [],
+  "qualification": "metric confirmation, not new engineering acceptance"
+}

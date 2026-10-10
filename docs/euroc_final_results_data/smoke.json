@@ -1,0 +1,262 @@
+[
+  {
+    "sequence": "MH_05_difficult",
+    "scene": "MH",
+    "mode": "OFF",
+    "native_mode": "OFF",
+    "alpha_gravity": 0,
+    "alpha_velocity": 0,
+    "alpha_landmark": 0,
+    "historical_reuse": false,
+    "run_id": "w0_smoke_MH_05_difficult_OFF_20261009T164901_5a049ad5",
+    "output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w0/results/w0_smoke_MH_05_difficult_OFF_20261009T164901_5a049ad5",
+    "exit_code": 0,
+    "phase": "smoke",
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 376,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "scene": "Vicon",
+    "mode": "OFF",
+    "native_mode": "OFF",
+    "alpha_gravity": 0,
+    "alpha_velocity": 0,
+    "alpha_landmark": 0,
+    "historical_reuse": false,
+    "run_id": "w5_smoke_V2_02_medium_OFF_20261009T164901_b8389a5a",
+    "output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w5/results/w5_smoke_V2_02_medium_OFF_20261009T164901_b8389a5a",
+    "exit_code": 0,
+    "phase": "smoke",
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 718,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "scene": "MH",
+    "mode": "G",
+    "native_mode": "G",
+    "alpha_gravity": 16,
+    "alpha_velocity": 0,
+    "alpha_landmark": 0,
+    "historical_reuse": false,
+    "run_id": "w1_smoke_MH_05_difficult_G_20261009T164901_f30cf108",
+    "output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w1/results/w1_smoke_MH_05_difficult_G_20261009T164901_f30cf108",
+    "exit_code": 0,
+    "phase": "smoke",
+    "audit": {
+      "errors": [],
+      "actual_G": 290,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 376,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "scene": "MH",
+    "mode": "V",
+    "native_mode": "V",
+    "alpha_gravity": 0,
+    "alpha_velocity": 49,
+    "alpha_landmark": 0,
+    "historical_reuse": false,
+    "run_id": "w2_smoke_MH_05_difficult_V_20261009T164901_5cf354e9",
+    "output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w2/results/w2_smoke_MH_05_difficult_V_20261009T164901_5cf354e9",
+    "exit_code": 0,
+    "phase": "smoke",
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 282,
+      "actual_L": 0,
+      "output_rows": 376,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "scene": "MH",
+    "mode": "L",
+    "native_mode": "L",
+    "alpha_gravity": 0,
+    "alpha_velocity": 0,
+    "alpha_landmark": 6,
+    "historical_reuse": false,
+    "run_id": "w3_smoke_MH_05_difficult_L_20261009T164901_9b788e06",
+    "output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w3/results/w3_smoke_MH_05_difficult_L_20261009T164901_9b788e06",
+    "exit_code": 0,
+    "phase": "smoke",
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 281,
+      "output_rows": 376,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "scene": "MH",
+    "mode": "GVL",
+    "native_mode": "L_GV",
+    "alpha_gravity": 2,
+    "alpha_velocity": 49,
+    "alpha_landmark": 6,
+    "historical_reuse": false,
+    "run_id": "w4_smoke_MH_05_difficult_GVL_20261009T164901_07056396",
+    "output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w4/results/w4_smoke_MH_05_difficult_GVL_20261009T164901_07056396",
+    "exit_code": 0,
+    "phase": "smoke",
+    "audit": {
+      "errors": [],
+      "actual_G": 290,
+      "actual_V": 282,
+      "actual_L": 281,
+      "output_rows": 376,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "scene": "Vicon",
+    "mode": "L",
+    "native_mode": "L",
+    "alpha_gravity": 0,
+    "alpha_velocity": 0,
+    "alpha_landmark": 6,
+    "historical_reuse": false,
+    "run_id": "w0_smoke_V2_02_medium_L_20261009T164907_9eae9008",
+    "output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w0/results/w0_smoke_V2_02_medium_L_20261009T164907_9eae9008",
+    "exit_code": 0,
+    "phase": "smoke",
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 0,
+      "actual_L": 401,
+      "output_rows": 718,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "scene": "Vicon",
+    "mode": "GVL",
+    "native_mode": "L_GV",
+    "alpha_gravity": 1,
+    "alpha_velocity": 1,
+    "alpha_landmark": 1,
+    "historical_reuse": false,
+    "run_id": "w5_smoke_V2_02_medium_GVL_20261009T164908_e055ff29",
+    "output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w5/results/w5_smoke_V2_02_medium_GVL_20261009T164908_e055ff29",
+    "exit_code": 0,
+    "phase": "smoke",
+    "audit": {
+      "errors": [],
+      "actual_G": 436,
+      "actual_V": 401,
+      "actual_L": 401,
+      "output_rows": 718,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "scene": "Vicon",
+    "mode": "V",
+    "native_mode": "V",
+    "alpha_gravity": 0,
+    "alpha_velocity": 6,
+    "alpha_landmark": 0,
+    "historical_reuse": false,
+    "run_id": "w7_smoke_V2_02_medium_V_20261009T164901_9857b3b6",
+    "output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w7/results/w7_smoke_V2_02_medium_V_20261009T164901_9857b3b6",
+    "exit_code": 0,
+    "phase": "smoke",
+    "audit": {
+      "errors": [],
+      "actual_G": 0,
+      "actual_V": 401,
+      "actual_L": 0,
+      "output_rows": 718,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  },
+  {
+    "sequence": "V2_02_medium",
+    "scene": "Vicon",
+    "mode": "G",
+    "native_mode": "G",
+    "alpha_gravity": 1,
+    "alpha_velocity": 0,
+    "alpha_landmark": 0,
+    "historical_reuse": false,
+    "run_id": "w6_smoke_V2_02_medium_G_20261009T164901_12425054",
+    "output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w6/results/w6_smoke_V2_02_medium_G_20261009T164901_12425054",
+    "exit_code": 0,
+    "phase": "smoke",
+    "audit": {
+      "errors": [],
+      "actual_G": 436,
+      "actual_V": 0,
+      "actual_L": 0,
+      "output_rows": 718,
+      "camera_packets": 800
+    },
+    "threading": {
+      "requested_opencv_threads": 1,
+      "actual_opencv_threads": 1
+    }
+  }
+]

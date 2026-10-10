@@ -1,0 +1,74 @@
+{
+  "version": "three-track-20261008-v1",
+  "baseline": "2417d036002fbfd542ae71d96d0fc734cd6d47e8",
+  "previous_contract_sha256": "9879047e2fde013570d4874c57706630f9ffb0070609690ca3eee5f68c0d2b29",
+  "threshold_source": "prior nondegradation contract plus current three-track reference; no relaxation",
+  "OFF": {
+    "comparison": "exact",
+    "fields": [
+      "main state",
+      "full main P",
+      "Observer full x/P_R",
+      "lifecycle/readiness",
+      "fusion receipt"
+    ],
+    "excluded": [
+      "wall time",
+      "resource usage",
+      "new shadow diagnostics"
+    ]
+  },
+  "global_metrics": {
+    "ATE_translation_m": {
+      "relative": 0.005,
+      "absolute": 0.001
+    },
+    "RPE_translation_m_1s_5s": {
+      "relative": 0.005,
+      "absolute": 0.001
+    },
+    "RPE_rotation_deg_1s_5s": {
+      "relative": 0.005,
+      "absolute": 0.01
+    },
+    "velocity_mps": {
+      "relative": 0.005,
+      "absolute": 0.005
+    }
+  },
+  "attitude_deg": {
+    "relative": 0.005,
+    "absolute": 0.01
+  },
+  "local_metrics": {
+    "relative": 0.02,
+    "absolute_multiplier": 2,
+    "interval_source": "docs/ltv/gv_no_benefit_diagnosis/protocol.md",
+    "interval_source_sha256": "16db7dcbae8eeb12449a37f0a74b2d80819b57332db51d2c122ae1bdbc6cde5d",
+    "rules": "OFF upper quartile error plus 1s increase; OFF visual-row bottom 20%; readiness interruptions; no ON selection"
+  },
+  "local_windows": "fixed 10s bins from OFF initialized start; retain empty metrics as NOT_RUN not PASS",
+  "overhead": {
+    "frame_p95_relative": 0.05,
+    "peak_rss_relative": 0.1,
+    "resource_contention": "exclude or remeasure",
+    "missing_measurement": "NOT_EVALUATED",
+    "heavy_shadow": "separate from production candidate"
+  },
+  "new_failures_allowed": 0,
+  "determinism": "zero tolerance frozen main state/full P, observer x/P_R, lifecycle/readiness and receipts; timer only excluded",
+  "production_diagnostic_level": "scalar_ltv_csv; no passive cache/full serialized matrix I/O; keep algorithm internal numerical safeguards",
+  "statistics": "separate; P_R and stored main P not automatically calibrated actual error covariance",
+  "benefit": "effect size and serial dependence; determinism not independent sampling",
+  "landmark_approx_permission": "explicit user three-track authorization; correlation_model approximate, unknown cross declared, engineering scope only; GV OFF initially",
+  "production_defaults": "do not edit existing defaults, confirm20, GV/landmark fusion OFF",
+  "resource_policy": {
+    "host_heavy_parallelism": 1,
+    "compile_jobs": 1,
+    "threads": 1,
+    "task_memory_gib": 8,
+    "fresh_source_build_id": true,
+    "no_symlink_install": true,
+    "whole_lifecycle_locks": true
+  }
+}

@@ -1,0 +1,25 @@
+# 修改此文件后直接运行，无需编译：
+# python3 docs/experiments/tools/ltv_gain_scan/run_manual_euroc.py
+
+sequence: MH_01_easy
+mode: GVL                    # OFF / G / V / L / GVL
+
+# null：使用对应场景和模式的冻结强度；数字：手动覆盖。
+# 这里只调辅助融合权重，不改变 Observer 内部增益。
+# 未启用的分支请保持 null 或 0；启用的分支必须大于 0。
+weights:
+  G: null
+  V: null
+  L: null
+
+# 原始 ASL 目录，包含各序列的 mav0/cam0、cam1、imu0。
+dataset_root: /home/he/datasets/euroc/ASL
+
+# null：从最终实验 identity.json 选择已经编译好的 install。
+# 若将来移动二进制，可填写新的 install 绝对路径。
+install_root: null
+
+# 每次创建独立结果目录，不覆盖之前的实验。
+output_root: /tmp/openvins_ltv_manual
+cpu_affinity: [0, 1]
+short_seconds: 0             # 0=完整序列；(0,40]秒=短段检查

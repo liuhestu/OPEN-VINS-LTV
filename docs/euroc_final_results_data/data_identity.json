@@ -1,0 +1,82 @@
+{
+  "MH_01_easy": {
+    "root": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+    "original": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0",
+    "gt": "/home/he/datasets/euroc/ASL/MH_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+    "gt_sha256": "aae2d7c5684724c8afe364d2fd8499a6ed77a9169adf03736531f67d8e7b2117",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_01_easy_hashes.json",
+    "sensor_hash_manifest_sha256": "28fd36bf9cb4da84d5aea13fde1acd259124561b3f37a55c307fffba4ebc915c"
+  },
+  "MH_02_easy": {
+    "root": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+    "original": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0",
+    "gt": "/home/he/datasets/euroc/ASL/MH_02_easy/mav0/state_groundtruth_estimate0/data.csv",
+    "gt_sha256": "f49666ad4991c80bc467fc05e6d250cec7e28fbd05c1643402298e67438f754f",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_02_easy_hashes.json",
+    "sensor_hash_manifest_sha256": "0a5a7a1e18bc8b14576163b4973bbe5c8843cfef86aaca2727e92702dc32e991"
+  },
+  "MH_03_medium": {
+    "root": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+    "original": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0",
+    "gt": "/home/he/datasets/euroc/ASL/MH_03_medium/mav0/state_groundtruth_estimate0/data.csv",
+    "gt_sha256": "7e52fd28088b0d428509cc365fbb44ed5d910e5174ac155e1d987923c056000f",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_03_medium_hashes.json",
+    "sensor_hash_manifest_sha256": "c77ddb56522c97fd76f434360d66016f84d317d5e5ff0d1a089dd3e706e65891"
+  },
+  "MH_05_difficult": {
+    "root": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+    "original": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0",
+    "gt": "/home/he/datasets/euroc/ASL/MH_05_difficult/mav0/state_groundtruth_estimate0/data.csv",
+    "gt_sha256": "da13e5dcb3d5fc2f12c4e8bfae10dd380d765150be3312f989b0bc5550965451",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/MH_05_difficult_hashes.json",
+    "sensor_hash_manifest_sha256": "bbc8bcd48327a2d212ff33677b478e5e118a4c57e9c56093172d09c248720ec5"
+  },
+  "V1_01_easy": {
+    "root": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+    "original": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0",
+    "gt": "/home/he/datasets/euroc/ASL/V1_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+    "gt_sha256": "701200e6924ba845ccdeea884bd717c82d1ed91f480913ea6e2e6ccb9c0fbf6d",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V1_01_easy_hashes.json",
+    "sensor_hash_manifest_sha256": "7ae85c1b966d3f533584286562d21580d2b1fba9320c5a7624e363b271209d2a"
+  },
+  "V1_02_medium": {
+    "root": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+    "original": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0",
+    "gt": "/home/he/datasets/euroc/ASL/V1_02_medium/mav0/state_groundtruth_estimate0/data.csv",
+    "gt_sha256": "fed415eee44313584b9c4f61010dac146d5e4a4a35301db25b1ecd7d4d91b5f0",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V1_02_medium_hashes.json",
+    "sensor_hash_manifest_sha256": "2c788482b4328823be7a4cbfd97854c75d42f66276f5a3232a8d00ae18b4c3af"
+  },
+  "V1_03_difficult": {
+    "root": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+    "original": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0",
+    "gt": "/home/he/datasets/euroc/ASL/V1_03_difficult/mav0/state_groundtruth_estimate0/data.csv",
+    "gt_sha256": "703ba51a854daba80f20df93e76605c2278b3f227afe2bcbe9eb4255186fc3d9",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V1_03_difficult_hashes.json",
+    "sensor_hash_manifest_sha256": "acda3254af924aa5f6238a2150a9792b254933af8274c07d076ca07dad9b23fc"
+  },
+  "V2_01_easy": {
+    "root": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+    "original": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0",
+    "gt": "/home/he/datasets/euroc/ASL/V2_01_easy/mav0/state_groundtruth_estimate0/data.csv",
+    "gt_sha256": "315807fd7d91868ed6085a3d8fde40315842135f13199ed83e2e6270eb5b5126",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_01_easy_hashes.json",
+    "sensor_hash_manifest_sha256": "99cba2e0457ff4ecfe1a8263ab7aad8b173207a13c72cfeb072c66e776509c0f"
+  },
+  "V2_02_medium": {
+    "root": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+    "original": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0",
+    "gt": "/home/he/datasets/euroc/ASL/V2_02_medium/mav0/state_groundtruth_estimate0/data.csv",
+    "gt_sha256": "019ec178d0d2636dca66808f6422ae835b24f14184c54823b3a4a47bf187be2d",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_02_medium_hashes.json",
+    "sensor_hash_manifest_sha256": "24209fc1cbe327ae49656ff9058b1508bd4b8ec12e92493d886f3ce68f55647e"
+  },
+  "V2_03_difficult": {
+    "root": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+    "original": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0",
+    "gt": "/home/he/datasets/euroc/ASL/V2_03_difficult/mav0/state_groundtruth_estimate0/data.csv",
+    "gt_sha256": "2c273cf35909c4ca7786137cf63f04cf292ca13da48c406c72b8e96a2b1372e5",
+    "sensor_hash_manifest": "/tmp/ltv_gain_scan_20261009/inputs/V2_03_difficult_hashes.json",
+    "sensor_hash_manifest_sha256": "fd97af12a1660583519ae26ecf77433d58b07ba204ff2c7dd80953d7a26496ef"
+  }
+}

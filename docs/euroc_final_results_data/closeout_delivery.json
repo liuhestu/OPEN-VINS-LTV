@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-10-10T02:40:39.118108+00:00",
+  "status": "COMPLETE",
+  "scope": "Frozen EuRoC scene/mode confirmation; no estimator changes or new replay required",
+  "validation_command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 python3 docs/experiments/tools/ltv_gain_scan/closeout_final_euroc.py /home/he/output/ltv_euroc_final_20261009T164739 --output docs/euroc_final_results_data/closeout_validation.json",
+  "validation_exit_code": 0,
+  "tests": {
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 python3 docs/experiments/tools/ltv_gain_scan/test_final_euroc.py",
+    "exit_code": 0,
+    "count": 2
+  },
+  "files_sha256": {
+    "docs/euroc_final_results.md": "6a8a5fb37343037b005b754bb5a546324a6153ed6ba64799110fd1eef587fd10",
+    "docs/experiments/tools/ltv_gain_scan/closeout_final_euroc.py": "de3ca18d66b7bc15bfa3fec75515b98e2f14413593ef4b3ec446b22e4ece9db7",
+    "docs/experiments/tools/ltv_gain_scan/test_final_euroc.py": "b9988c5982556c9ccceb8326bcd42979fcea28bd586cd3235cc2aac437a58f91",
+    "docs/euroc_final_results_data/closeout_validation.json": "1f4436b9e4b6c211f180a509f8e6d44e8c7069f49bef95f66b1440494d6093ce"
+  },
+  "measured_cost": "FAIL",
+  "full_engineering": "NOT_EVALUATED"
+}

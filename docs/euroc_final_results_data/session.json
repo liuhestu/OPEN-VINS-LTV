@@ -1,0 +1,84 @@
+{
+  "tasks": {
+    "w0": {
+      "task_root": "/home/he/output/ltv_euroc_final_20261009T164739/w0",
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "namespace": "ltv_final_ltv_euroc_final_20261009T164739_w0",
+      "ros_domain_id": 201,
+      "cpu_affinity": [
+        0,
+        1
+      ]
+    },
+    "w1": {
+      "task_root": "/home/he/output/ltv_euroc_final_20261009T164739/w1",
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "namespace": "ltv_final_ltv_euroc_final_20261009T164739_w1",
+      "ros_domain_id": 202,
+      "cpu_affinity": [
+        2,
+        3
+      ]
+    },
+    "w2": {
+      "task_root": "/home/he/output/ltv_euroc_final_20261009T164739/w2",
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "namespace": "ltv_final_ltv_euroc_final_20261009T164739_w2",
+      "ros_domain_id": 203,
+      "cpu_affinity": [
+        4,
+        5
+      ]
+    },
+    "w3": {
+      "task_root": "/home/he/output/ltv_euroc_final_20261009T164739/w3",
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "namespace": "ltv_final_ltv_euroc_final_20261009T164739_w3",
+      "ros_domain_id": 204,
+      "cpu_affinity": [
+        6,
+        7
+      ]
+    },
+    "w4": {
+      "task_root": "/home/he/output/ltv_euroc_final_20261009T164739/w4",
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "namespace": "ltv_final_ltv_euroc_final_20261009T164739_w4",
+      "ros_domain_id": 205,
+      "cpu_affinity": [
+        8,
+        9
+      ]
+    },
+    "w5": {
+      "task_root": "/home/he/output/ltv_euroc_final_20261009T164739/w5",
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "namespace": "ltv_final_ltv_euroc_final_20261009T164739_w5",
+      "ros_domain_id": 206,
+      "cpu_affinity": [
+        10,
+        11
+      ]
+    },
+    "w6": {
+      "task_root": "/home/he/output/ltv_euroc_final_20261009T164739/w6",
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "namespace": "ltv_final_ltv_euroc_final_20261009T164739_w6",
+      "ros_domain_id": 207,
+      "cpu_affinity": [
+        12,
+        13
+      ]
+    },
+    "w7": {
+      "task_root": "/home/he/output/ltv_euroc_final_20261009T164739/w7",
+      "worktree": "/home/he/open_vins_ltv_ws/src/open_vins_ltv",
+      "namespace": "ltv_final_ltv_euroc_final_20261009T164739_w7",
+      "ros_domain_id": 208,
+      "cpu_affinity": [
+        14,
+        15
+      ]
+    }
+  }
+}
