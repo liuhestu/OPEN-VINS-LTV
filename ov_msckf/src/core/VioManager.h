@@ -32,11 +32,8 @@
 #include <string>
 
 #include "VioManagerOptions.h"
-#include "ltv/diagnostics/LtvPassiveCache.h"
-#include "ltv/diagnostics/ValueDiagnostics.h"
 #include "ltv/fusion/UpdaterLTV.h"
-#include "ltv/fusion/UpdaterLandmarkApprox.h"
-#include "ltv/observer/LtvAdapter.h"
+#include "ltv/runtime/LtvRuntime.h"
 
 namespace ov_core {
 struct ImuData;
@@ -147,12 +144,8 @@ protected:
   uint64_t passive_auxiliary_receipts = 0, passive_gravity_submissions = 0, passive_velocity_submissions = 0;
   LtvFrame passive_ltv_frame;
   MeasurementBlock evaluation_ltv_block;
-  std::shared_ptr<LtvPassiveCacheWriter> passive_cache;
   std::vector<ltv::HistoryObservation> passive_current_observations;
-  std::shared_ptr<ValueDiagnostics> value_diagnostics;
-  std::shared_ptr<LtvAdapter> ltv_adapter;
-  std::shared_ptr<UpdaterLTV> updater_ltv;
-  std::shared_ptr<UpdaterLandmarkApprox> updater_landmark_approx;
+  std::shared_ptr<LtvRuntime> ltv_runtime;
   LtvDiagnostics ltv_diagnostics;
   uint64_t ltv_state_version = 0;
   std::ofstream ltv_log;

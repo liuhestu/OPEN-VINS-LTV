@@ -1,0 +1,51 @@
+{
+  "domains": {
+    "observer": {
+      "files": [
+        "ov_msckf/src/ltv/observer/LtvObserver.h",
+        "ov_msckf/src/ltv/observer/LtvTypes.h",
+        "ov_msckf/src/ltv/observer/LtvObserver.cpp"
+      ],
+      "lines": 698
+    },
+    "features": {
+      "files": [
+        "ov_msckf/src/ltv/features/LtvSeedGeometry.h",
+        "ov_msckf/src/ltv/features/LtvFeatureFrontend.cpp",
+        "ov_msckf/src/ltv/features/LtvSeedGeometry.cpp",
+        "ov_msckf/src/ltv/features/LtvFeatureManager.h",
+        "ov_msckf/src/ltv/features/LtvFeatureManager.cpp",
+        "ov_msckf/src/ltv/features/LtvFeatureFrontend.h",
+        "ov_msckf/src/ltv/features/LtvFeatureTypes.h"
+      ],
+      "lines": 1449
+    },
+    "runtime": {
+      "files": [
+        "ov_msckf/src/ltv/runtime/LtvRuntime.cpp",
+        "ov_msckf/src/ltv/runtime/LtvAvailabilityPolicy.cpp",
+        "ov_msckf/src/ltv/runtime/LtvRuntime.h",
+        "ov_msckf/src/ltv/runtime/LtvOpenVinsInput.cpp",
+        "ov_msckf/src/ltv/runtime/LtvOpenVinsInput.h",
+        "ov_msckf/src/ltv/runtime/LtvAvailabilityPolicy.h"
+      ],
+      "lines": 1146
+    },
+    "fusion": {
+      "files": [
+        "ov_msckf/src/ltv/fusion/UpdaterLTV.cpp",
+        "ov_msckf/src/ltv/fusion/UpdaterLTV.h",
+        "ov_msckf/src/ltv/fusion/UpdaterLandmarkApprox.h"
+      ],
+      "lines": 786
+    },
+    "config": {
+      "files": [
+        "ov_msckf/src/ltv/config/LtvOptions.h"
+      ],
+      "lines": 183
+    }
+  },
+  "source_files": 20,
+  "scope": "Current human-readable architecture; runtime includes input conversion, scheduling, availability and atomic transactions."
+}

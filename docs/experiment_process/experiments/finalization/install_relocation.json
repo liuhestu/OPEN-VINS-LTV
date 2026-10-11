@@ -1,0 +1,15 @@
+{
+  "source": "/tmp/ltv_finalize_install",
+  "destination": "/home/he/open_vins_ltv_ws/install_final",
+  "binary_library_bytes_unchanged": true,
+  "patched_text_metadata": [
+    "setup.sh",
+    "local_setup.sh",
+    "ov_init/share/ov_init/local_setup.sh",
+    "ov_init/share/ov_init/package.sh",
+    "ov_core/share/ov_core/local_setup.sh",
+    "ov_core/share/ov_core/package.sh",
+    "ov_msckf/share/ov_msckf/local_setup.sh",
+    "ov_msckf/share/ov_msckf/package.sh"
+  ]
+}

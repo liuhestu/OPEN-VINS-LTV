@@ -1,19 +1,12 @@
-# One production source list shared by ROS 1 and ROS 2.
+# Mathematical observer, feature processing, integration and fusion.
 set(LTV_PRODUCTION_SOURCES
-    src/ltv/landmark_adapter/LtvFeatureHistory.cpp
-    src/ltv/landmark_adapter/LtvSeedEstimator.cpp
-    src/ltv/landmark_adapter/LtvSeedUncertainty.cpp
-    src/ltv/landmark_adapter/LtvFeatureQuality.cpp
-    src/ltv/landmark_adapter/LtvLandmarkManager.cpp
-    src/ltv/landmark_adapter/LtvActiveConsistency.cpp
-    src/ltv/landmark_adapter/LtvLandmarkAdapter.cpp
-    src/ltv/observer/ltv_observer.cpp
-    src/ltv/diagnostics/joint/LtvFiniteJointShadow.cpp
-    src/ltv/observer/LtvAdapter.cpp
-    src/ltv/observer/LtvAdapterHardened.cpp
-    src/ltv/observer/LtvReadiness.cpp
-    src/ltv/diagnostics/LtvPassiveCache.cpp
-    src/ltv/diagnostics/ValueDiagnostics.cpp
+    src/ltv/observer/LtvObserver.cpp
+    src/ltv/features/LtvSeedGeometry.cpp
+    src/ltv/features/LtvFeatureManager.cpp
+    src/ltv/features/LtvFeatureFrontend.cpp
+    src/ltv/runtime/LtvAvailabilityPolicy.cpp
+    src/ltv/runtime/LtvLandmarkHistory.cpp
+    src/ltv/runtime/LtvRuntime.cpp
+    src/ltv/runtime/LtvOpenVinsInput.cpp
     src/ltv/fusion/UpdaterLTV.cpp
-    src/ltv/observer/LtvOpenVinsInput.cpp
 )

@@ -11,29 +11,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 enable_testing()
 set(ltv_dir "${LTV_SOURCE_ROOT}/ov_msckf/src/ltv")
-if(EXISTS "${ltv_dir}/observer/ltv_observer.cpp")
-    include("${ltv_dir}/sources.cmake")
-    set(passive_sources ${LTV_PRODUCTION_SOURCES})
-    list(FILTER passive_sources EXCLUDE REGEX "/(UpdaterLTV|ValueDiagnostics|LtvOpenVinsInput)\\.cpp$")
-    list(TRANSFORM passive_sources PREPEND "${LTV_SOURCE_ROOT}/ov_msckf/")
-    add_library(ltv_passive STATIC
-        ${LTV_SOURCE_ROOT}/ov_core/src/utils/print.cpp ${passive_sources})
-else()
-add_library(ltv_passive STATIC
-    ${LTV_SOURCE_ROOT}/ov_core/src/utils/print.cpp
-    ${ltv_dir}/ltv_observer.cpp
-    ${ltv_dir}/LtvFeatureHistory.cpp
-    ${ltv_dir}/LtvFeatureQuality.cpp
-    ${ltv_dir}/LtvSeedEstimator.cpp
-    ${ltv_dir}/LtvSeedUncertainty.cpp
-    ${ltv_dir}/LtvLandmarkManager.cpp
-    ${ltv_dir}/LtvActiveConsistency.cpp
-    ${ltv_dir}/LtvFeaturePipeline.cpp
-    ${ltv_dir}/LtvReadiness.cpp
-    ${ltv_dir}/LtvAdapter.cpp
-    ${ltv_dir}/LtvAdapterHardened.cpp
-    ${ltv_dir}/LtvPassiveCache.cpp)
-endif()
+include("${ltv_dir}/sources.cmake")
+set(passive_sources ${LTV_PRODUCTION_SOURCES})
+list(FILTER passive_sources EXCLUDE REGEX "/(UpdaterLTV|LtvOpenVinsInput)\\.cpp$")
+list(TRANSFORM passive_sources PREPEND "${LTV_SOURCE_ROOT}/ov_msckf/")
+add_library(ltv_passive STATIC ${LTV_SOURCE_ROOT}/ov_core/src/utils/print.cpp ${passive_sources})
 set_target_properties(ltv_passive PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_include_directories(ltv_passive PUBLIC
     "${LTV_SOURCE_ROOT}/ov_msckf/src" "${LTV_SOURCE_ROOT}/ov_core/src" ${OpenCV_INCLUDE_DIRS})
@@ -44,19 +26,12 @@ foreach(name
     test_ltv_manager_bounded test_ltv_adapter_hardened test_ltv_controlled
     test_ltv_readiness test_ltv_history_competition test_bounded_history
     test_identity_guard test_ltv_feature_manager test_ltv_core_lifecycle
-    test_ltv_alias_fixed test_ltv_pose_convention test_ltv_error_shadow)
+    test_ltv_alias_fixed test_ltv_pose_convention)
     add_executable(${name} "${LTV_SOURCE_ROOT}/ov_msckf/tests/ltv/${name}.cpp")
     target_link_libraries(${name} PRIVATE ltv_passive)
     target_compile_options(${name} PRIVATE -UNDEBUG)
     add_test(NAME ${name} COMMAND ${name})
 endforeach()
-add_executable(replay_ltv_feature_cache "${LTV_SOURCE_ROOT}/ov_msckf/tests/ltv/tools/replay_ltv_feature_cache.cpp")
-target_link_libraries(replay_ltv_feature_cache PRIVATE ltv_passive)
-add_executable(compare_cache_numerical "${LTV_SOURCE_ROOT}/scripts/ltv_passive_hardening/tests/compare_cache_numerical.cpp")
-target_link_libraries(compare_cache_numerical PRIVATE ltv_passive)
-add_library(ltv_synthetic_wrapper SHARED "${LTV_SOURCE_ROOT}/scripts/ltv_active_consistency_r4/synthetic_wrapper.cpp")
-target_link_libraries(ltv_synthetic_wrapper PRIVATE ltv_passive)
-
 # Optional native main-estimator checks against an independently built full library.
 set(LTV_NATIVE_LIBRARY "" CACHE FILEPATH "Full ov_msckf_lib shared library to validate")
 if(LTV_NATIVE_LIBRARY)
@@ -77,7 +52,7 @@ if(LTV_NATIVE_LIBRARY)
         target_link_libraries(${name} PRIVATE ltv_native Eigen3::Eigen Boost::filesystem Boost::system ${OpenCV_LIBS})
     endforeach()
     add_library(ltv_native_synthetic_wrapper SHARED
-        "${LTV_SOURCE_ROOT}/scripts/ltv_active_consistency_r4/synthetic_wrapper.cpp")
+        "${LTV_SOURCE_ROOT}/docs/experiment_process/experiments/tools/ltv_active_consistency_r4/synthetic_wrapper.cpp")
     target_include_directories(ltv_native_synthetic_wrapper PRIVATE "${LTV_SOURCE_ROOT}/ov_msckf/src"
         "${LTV_SOURCE_ROOT}/ov_core/src" ${OpenCV_INCLUDE_DIRS})
     target_compile_definitions(ltv_native_synthetic_wrapper PRIVATE ROS_AVAILABLE=0)

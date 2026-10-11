@@ -1,0 +1,10 @@
+{
+  "text": {
+    "byte_identical": true,
+    "sha256": "f3a16a93e45e196226fd1358b1b32d70dc49779be88ca1a89b730eb5eae80d11"
+  },
+  "rodata": {
+    "byte_identical": true,
+    "sha256": "f5c3a71229e54d049edef43bde23cc1c8898e1ca12f9ba24a43d30a6c1d7f69d"
+  }
+}

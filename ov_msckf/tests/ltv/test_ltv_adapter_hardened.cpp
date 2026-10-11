@@ -1,4 +1,4 @@
-#include "ltv/observer/LtvAdapter.h"
+#include "ltv/runtime/LtvRuntime.h"
 #include <iostream>
 #include <stdexcept>
 using namespace ov_msckf;
@@ -7,7 +7,7 @@ static void require(bool value, const char *reason) {
     throw std::runtime_error(reason);
 }
 struct Harness {
-  LtvAdapter adapter;
+  LtvRuntime adapter;
   LtvCalibration cal;
   int imu_tick = -2;
   double last_imu = -.01;
@@ -24,8 +24,8 @@ struct Harness {
       last_imu = s.timestamp;
     }
   }
-  ltv::FeaturePipelineContext context(int frame, bool visible) {
-    ltv::FeaturePipelineContext ctx;
+  ltv::LtvFeatureContext context(int frame, bool visible) {
+    ltv::LtvFeatureContext ctx;
     ctx.time = frame * .05;
     ctx.version = frame + 1;
     ltv::SeedPose pose;
@@ -81,17 +81,18 @@ int main() {
     require(startup.health.physical_fault_count == 0, "startup unavailable is not a physical sensor fault");
     for (int k = 0; k < 20; ++k) {
       f = h.frame(k, false);
-      require(!h.adapter.core().started() && f.integrated_steps == 0 && !f.raw_current && !f.ready_G && !f.ready_V,
+      require(!h.adapter.observer_started() && f.integrated_steps == 0 && !f.raw_current && !f.ready_G && !f.ready_V,
               "empty collecting must not integrate or publish raw");
-      require(h.adapter.core().state().size() == 6 && h.adapter.core().state().norm() == 0, "empty collecting no hidden state drift");
+      require(h.adapter.observer().state().size() == 6 && h.adapter.observer().state().norm() == 0,
+              "empty collecting no hidden state drift");
     }
     for (int k = 20; k < 24; ++k) {
       f = h.frame(k, true);
-      require(!h.adapter.core().started() && !f.raw_current, "history plus three supply confirmations required");
+      require(!h.adapter.observer_started() && !f.raw_current, "history plus three supply confirmations required");
       require(h.adapter.feature_frame().management.births.empty(), "prebootstrap preview cannot consume seed");
     }
     f = h.frame(24, true);
-    require(h.adapter.core().started() && f.raw_current, "third qualified supply commits observer");
+    require(h.adapter.observer_started() && f.raw_current, "third qualified supply commits observer");
     require(f.health.bootstrap_count == 1 && f.health.last_bootstrap_source == "ZERO_DELAYED_START" && f.health.physical_fault_count == 0,
             "explicit cold bootstrap source");
     require(f.integrated_steps == 0 && f.snapshot.velocity_body.norm() == 0 && f.snapshot.gravity_body.norm() == 0,
@@ -100,12 +101,12 @@ int main() {
             "all seed/slots commit atomically");
     for (const auto &birth : h.adapter.feature_frame().management.births) {
       const auto id = h.adapter.feature_ids().at(birth.feature_id);
-      const int slot = h.adapter.core().slotForFeature(id);
-      require(slot >= 0 && (h.adapter.core().state().segment<3>(3 * slot) - birth.seed.landmark_B).norm() < 1e-10,
+      const int slot = h.adapter.observer().slotForFeature(id);
+      require(slot >= 0 && (h.adapter.observer().state().segment<3>(3 * slot) - birth.seed.landmark_B).norm() < 1e-10,
               "seed written before first zero-length correction");
     }
-    auto x = h.adapter.core().state();
-    auto P = h.adapter.core().covariance();
+    auto x = h.adapter.observer().state();
+    auto P = h.adapter.observer().covariance();
     auto duplicate = h.frame(24, true);
     require(!duplicate.raw_current && !duplicate.ready_G && !duplicate.ready_V && !duplicate.available,
             "duplicate packet cannot publish current result");
@@ -113,7 +114,7 @@ int main() {
                 !duplicate.health.joint_ready && !duplicate.health.grace_G && !duplicate.health.grace_V &&
                 duplicate.health.reason == "duplicate_or_backward_camera",
             "duplicate return diagnostics cannot inherit accepted readiness");
-    require((x - h.adapter.core().state()).norm() == 0 && (P - h.adapter.core().covariance()).norm() == 0,
+    require((x - h.adapter.observer().state()).norm() == 0 && (P - h.adapter.observer().covariance()).norm() == 0,
             "duplicate packet preserves full x/P");
     for (int k = 25; k < 29; ++k) {
       f = h.frame(k, true);
@@ -127,11 +128,11 @@ int main() {
       if (f.health.state == ltv::LtvAvailability::Dormant)
         dormant = true;
     }
-    require(dormant && !f.raw_current && !h.adapter.core().started(), "prolonged loss stops observer with explicit dormant");
+    require(dormant && !f.raw_current && !h.adapter.observer_started(), "prolonged loss stops observer with explicit dormant");
     const auto stopped_steps = f.integrated_steps;
     for (int k = 54; k < 70; ++k) {
       f = h.frame(k, true);
-      require(!f.raw_current && !h.adapter.core().started() && f.health.bootstrap_count == 1, "quality restart is cooling down");
+      require(!f.raw_current && !h.adapter.observer_started() && f.health.bootstrap_count == 1, "quality restart is cooling down");
       require(f.integrated_steps == stopped_steps, "dormant does not continue blind propagation");
     }
     h.duplicate_imu();
@@ -140,7 +141,7 @@ int main() {
             "actual duplicate IMU marks physical fault separately");
     for (int k = 71; k < 76; ++k)
       f = h.frame(k, true);
-    require(f.health.bootstrap_count == 2 && h.adapter.core().started() && f.raw_current,
+    require(f.health.bootstrap_count == 2 && h.adapter.observer_started() && f.raw_current,
             "physical input recovery can restart within quality cooldown");
     require(f.health.last_bootstrap_time < options.hardening_readiness.quality_bootstrap_interval,
             "test physically distinguishes cooldown bypass");
@@ -148,18 +149,18 @@ int main() {
     LtvOptions warm_options = options;
     warm_options.hardening_initial_warmup = true;
     LtvOptions previous_options = options;
-    previous_options.passive_hardening_enabled = false;
+    previous_options.hardening_initial_warmup = true;
     Harness previous(previous_options), warm(warm_options);
     for (int k = 0; k <= 80; ++k) {
       previous.frame(k, true);
       auto current = warm.frame(k, true);
-      const auto &a = previous.adapter.core();
-      const auto &b = warm.adapter.core();
+      const auto &a = previous.adapter.observer();
+      const auto &b = warm.adapter.observer();
       require(a.state().size() == b.state().size() && a.covariance().rows() == b.covariance().rows(),
-              "initial warmup preserves baseline complete state dimensions");
+              "initial warmup deterministically repeats complete state dimensions");
       require((a.state().array() == b.state().array()).all() && (a.covariance().array() == b.covariance().array()).all(),
-              "initial warmup preserves exact baseline full state and cross covariance");
-      require(previous.adapter.feature_ids() == warm.adapter.feature_ids(), "initial warmup preserves original feature mapping");
+              "initial warmup deterministically repeats full state and cross covariance");
+      require(previous.adapter.feature_ids() == warm.adapter.feature_ids(), "initial warmup deterministically repeats feature mapping");
       for (const auto &entry : previous.adapter.feature_ids())
         require(a.slotForFeature(entry.second) == b.slotForFeature(entry.second), "initial warmup preserves every feature slot");
       require(current.health.bootstrap_count == 1 && current.health.physical_fault_count == 0 &&
@@ -180,7 +181,7 @@ int main() {
     }
     for (int k = 21; k < 40; ++k) {
       auto current = empty_warm.frame(k, true);
-      require(!empty_warm.adapter.core().started() && !current.raw_current && current.health.bootstrap_count == 1,
+      require(!empty_warm.adapter.observer_started() && !current.raw_current && current.health.bootstrap_count == 1,
               "next event resets dormant core before publishing another current state");
       require(current.integrated_steps == dormant_boundary_steps,
               "no IMU integration after one-second dormant request, including the next event");
@@ -193,7 +194,7 @@ int main() {
             "physical fault before first start remains a real fault");
     for (int k = 1; k <= 5; ++k) {
       physical = fault_before_warm.frame(k, false);
-      require(!fault_before_warm.adapter.core().started() && physical.health.bootstrap_count == 0 && !physical.raw_current,
+      require(!fault_before_warm.adapter.observer_started() && physical.health.bootstrap_count == 0 && !physical.raw_current,
               "physical recovery cannot sneak into initial empty warmup");
     }
     std::cout << "hardened adapter PASS real pipeline collection/atomic seed/duplicate/dormant/cooldown/physical recovery\n";

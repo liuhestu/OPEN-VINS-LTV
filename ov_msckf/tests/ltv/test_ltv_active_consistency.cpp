@@ -1,5 +1,4 @@
-#include "ltv/landmark_adapter/LtvActiveConsistency.h"
-#include "ltv/landmark_adapter/LtvFeaturePipeline.h"
+#include "ltv/features/LtvFeatureFrontend.h"
 #include <Eigen/Geometry>
 #include <iostream>
 #include <stdexcept>
@@ -9,7 +8,7 @@ static void check(bool value, const char *message) {
     throw std::runtime_error(message);
 }
 struct Fixture {
-  FeaturePipelineContext ctx;
+  LtvFeatureContext ctx;
   FeatureTrackHistory history;
   Eigen::Vector3d point{.6, .4, 4.};
   Fixture() {

@@ -284,13 +284,13 @@ Machine Hall 的 V、GVL 均在四条序列降低 ATE；最大改善分别为 10
 
 V1_01 的 GT 姿态重估版本来源未核实，依赖姿态的 RPE 仅描述。各候选按场景和模式采用不同权重，组合差异不能直接归因为某个分支的单独贡献。
 
-[结构化收益、开销和局部诊断](euroc_final_results_data/analysis_summary.json) · [恢复后独立核验](euroc_final_results_data/recovery_validation.json)
+[结构化收益、开销和局部诊断](experiment_process/euroc_final_results_data/analysis_summary.json) · [恢复后独立核验](experiment_process/euroc_final_results_data/recovery_validation.json)
 
 ## 证据与验收边界
 
 历史5%预测FAIL和工程结论保留。此表未完成完整主P/Observer状态与生命周期的冻结确定性回归，相关性近似和误差协方差一致性缺口仍在，不以ATE确认授予生产资格。原历史阈值原样附存，没有用调参筛选的10%替代真实验收标准。
 源码 `5ce89b93c6ed3e37274d57e0900feb2b4e2e3185`；原始目录 `/home/he/output/ltv_euroc_final_20261009T164739`。
-[结果](euroc_final_results_data/results.json) · [RPE/尾部](euroc_final_results_data/metrics.json) · [局部窗口](euroc_final_results_data/local_windows.json) · [串行开销](euroc_final_results_data/performance_index.json) · [审计](euroc_final_results_data/independent_audit.json) · [冻结协议](euroc_final_results_data/protocol.json)
+[结果](experiment_process/euroc_final_results_data/results.json) · [RPE/尾部](experiment_process/euroc_final_results_data/metrics.json) · [局部窗口](experiment_process/euroc_final_results_data/local_windows.json) · [串行开销](experiment_process/euroc_final_results_data/performance_index.json) · [审计](experiment_process/euroc_final_results_data/independent_audit.json) · [冻结协议](experiment_process/euroc_final_results_data/protocol.json)
 
 ## 接续核验与收尾（2026-10-10）
 
@@ -309,11 +309,11 @@ V1_01 的 GT 姿态重估版本来源未核实，依赖姿态的 RPE 仅描述�
 
 ```bash
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 \
-  python3 docs/experiments/tools/ltv_gain_scan/closeout_final_euroc.py \
+  python3 docs/experiment_process/experiments/tools/ltv_gain_scan/closeout_final_euroc.py \
   /home/he/output/ltv_euroc_final_20261009T164739 \
-  --output docs/euroc_final_results_data/closeout_validation.json
+  --output docs/experiment_process/euroc_final_results_data/closeout_validation.json
 ```
 
 上述核验退出码为0；现有指标测试 `test_final_euroc.py` 的2项测试通过，覆盖刚体坐标变换下ATE与机体RPE的不变性及冻结配置表。下一阶段若优化开销，应另立源码/产物身份、保存本轮冻结结果；若申请工程资格，应补齐完整确定性与协方差一致性证据，不能由本轮ATE结果替代。
 
-[本次核验记录](euroc_final_results_data/closeout_validation.json) · [交付身份与验证命令](euroc_final_results_data/closeout_delivery.json)
+[本次核验记录](experiment_process/euroc_final_results_data/closeout_validation.json) · [交付身份与验证命令](experiment_process/euroc_final_results_data/closeout_delivery.json)

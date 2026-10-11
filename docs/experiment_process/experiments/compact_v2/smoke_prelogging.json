@@ -1,0 +1,588 @@
+[
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "OFF",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/MH_05_difficult_OFF_20261011T160739Z_0eba1cf7",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 376,
+    "cost": {
+      "camera_api_p50_ms": 2.441693,
+      "camera_api_p95_ms": 6.834558349999999,
+      "camera_api_p99_ms": 8.23662514,
+      "full_wall_s": 6.27,
+      "full_cpu_s": 5.859999999999999,
+      "peak_rss_kb": 88632
+    },
+    "trajectory_sha256": "44a00d2d0f998610f6c3f1367f1e48f4d3327a93b172b3fe4685e7ba4d8fda6f",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "G",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/MH_05_difficult_G_20261011T160739Z_8231c6e9",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 16,
+      "V": 0,
+      "L": 0
+    },
+    "errors": [],
+    "applications": {
+      "G": 290,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 424,
+      "V:disabled": 800,
+      "L:disabled": 800,
+      "G:warmup_or_core_invalid": 50,
+      "G:not_ready_G": 36,
+      "G:accepted": 290
+    },
+    "ekf_calls": 354,
+    "nis": {
+      "G": {
+        "samples": 290,
+        "p50": 0.005232051682935973,
+        "p95": 0.031224001135122963
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 290,
+        "p50": 15.127699523047454,
+        "p95": 58.2594607071249
+      }
+    },
+    "estimated_rows": 376,
+    "cost": {
+      "camera_api_p50_ms": 2.4213025,
+      "camera_api_p95_ms": 30.282019149999996,
+      "camera_api_p99_ms": 32.283369220000004,
+      "full_wall_s": 14.17,
+      "full_cpu_s": 13.9,
+      "peak_rss_kb": 102292
+    },
+    "trajectory_sha256": "efa72ebd5b5032e0248c062bdd11381138c2d53ae91dc2b8311a8d9ddf26f6d4",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "V",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/MH_05_difficult_V_20261011T160739Z_087a19bf",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 0,
+      "V": 49,
+      "L": 0
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 281,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 800,
+      "V:disabled": 424,
+      "L:disabled": 800,
+      "V:warmup_or_core_invalid": 50,
+      "V:not_ready_V": 45,
+      "V:accepted": 281
+    },
+    "ekf_calls": 352,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 281,
+        "p50": 0.11091010442629247,
+        "p95": 0.4961133784103512
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 281,
+        "p50": 15.289237684243169,
+        "p95": 59.20643291767408
+      }
+    },
+    "estimated_rows": 376,
+    "cost": {
+      "camera_api_p50_ms": 2.451192,
+      "camera_api_p95_ms": 30.40420405,
+      "camera_api_p99_ms": 32.57082858999999,
+      "full_wall_s": 14.17,
+      "full_cpu_s": 13.89,
+      "peak_rss_kb": 102788
+    },
+    "trajectory_sha256": "a69cde56d500a58c72ee4652a2fa31c366ddaaff4a352276d41386ca124fbea9",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "L",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/MH_05_difficult_L_20261011T160739Z_595a2b6c",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 280
+    },
+    "rejections": {
+      "G:disabled": 800,
+      "V:disabled": 800,
+      "L:disabled": 474,
+      "L:no_candidates": 46,
+      "L:accepted": 280
+    },
+    "ekf_calls": 352,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 280,
+        "p50": 0.0038742711729392127,
+        "p95": 0.029507979109691912
+      },
+      "joint": {
+        "samples": 280,
+        "p50": 15.149855885004705,
+        "p95": 58.88796382410087
+      }
+    },
+    "estimated_rows": 376,
+    "cost": {
+      "camera_api_p50_ms": 2.5383505,
+      "camera_api_p95_ms": 30.7846108,
+      "camera_api_p99_ms": 34.49132133,
+      "full_wall_s": 14.29,
+      "full_cpu_s": 14.049999999999999,
+      "peak_rss_kb": 102016
+    },
+    "trajectory_sha256": "9f1fc28c26fc74bef5d440cb0619ab763a63402defc2286b0951402df0f064bd",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "GVL",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/MH_05_difficult_GVL_20261011T160754Z_b53497e0",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 2,
+      "V": 49,
+      "L": 6
+    },
+    "errors": [],
+    "applications": {
+      "G": 290,
+      "V": 281,
+      "L": 280
+    },
+    "rejections": {
+      "G:disabled": 424,
+      "V:disabled": 424,
+      "L:disabled": 474,
+      "G:warmup_or_core_invalid": 50,
+      "V:warmup_or_core_invalid": 50,
+      "G:not_ready_G": 36,
+      "V:not_ready_V": 45,
+      "L:no_candidates": 46,
+      "G:accepted": 290,
+      "V:accepted": 281,
+      "L:accepted": 280
+    },
+    "ekf_calls": 354,
+    "nis": {
+      "G": {
+        "samples": 290,
+        "p50": 0.0006934791884086494,
+        "p95": 0.003917731287691089
+      },
+      "V": {
+        "samples": 281,
+        "p50": 0.10949867096234374,
+        "p95": 0.4854134593096384
+      },
+      "L": {
+        "samples": 280,
+        "p50": 0.0037301108317283407,
+        "p95": 0.028681063932246148
+      },
+      "joint": {
+        "samples": 290,
+        "p50": 15.514823038767787,
+        "p95": 57.83780462163574
+      }
+    },
+    "estimated_rows": 376,
+    "cost": {
+      "camera_api_p50_ms": 2.0148585,
+      "camera_api_p95_ms": 30.591878299999998,
+      "camera_api_p99_ms": 33.35894859,
+      "full_wall_s": 13.82,
+      "full_cpu_s": 13.809999999999999,
+      "peak_rss_kb": 102504
+    },
+    "trajectory_sha256": "5649f6e3410cbe68b99a24de24b1538f0632b109657fc15de55add45e2edbacb",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "GVL",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/V2_02_medium_GVL_20261011T160754Z_040c6170",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 1,
+      "V": 1,
+      "L": 1
+    },
+    "errors": [],
+    "applications": {
+      "G": 434,
+      "V": 404,
+      "L": 404
+    },
+    "rejections": {
+      "G:disabled": 82,
+      "V:disabled": 82,
+      "L:disabled": 176,
+      "G:warmup_or_core_invalid": 94,
+      "V:warmup_or_core_invalid": 94,
+      "G:not_ready_G": 190,
+      "V:not_ready_V": 220,
+      "L:no_candidates": 220,
+      "G:accepted": 434,
+      "V:accepted": 404,
+      "L:accepted": 404
+    },
+    "ekf_calls": 713,
+    "nis": {
+      "G": {
+        "samples": 434,
+        "p50": 0.000126872370197045,
+        "p95": 0.002285784373546975
+      },
+      "V": {
+        "samples": 404,
+        "p50": 0.0008449439808957571,
+        "p95": 0.003747405099581766
+      },
+      "L": {
+        "samples": 404,
+        "p50": 0.0005546913547476392,
+        "p95": 0.002532248419856242
+      },
+      "joint": {
+        "samples": 438,
+        "p50": 31.490425918265785,
+        "p95": 76.09970855952754
+      }
+    },
+    "estimated_rows": 718,
+    "cost": {
+      "camera_api_p50_ms": 12.2558585,
+      "camera_api_p95_ms": 20.917264449999998,
+      "camera_api_p99_ms": 22.57604202,
+      "full_wall_s": 13.41,
+      "full_cpu_s": 12.93,
+      "peak_rss_kb": 96860
+    },
+    "trajectory_sha256": "60e2c1ca57e2a38496c61d7b29f9154b22d3ac1115b000d769ef312a13d00dac",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "L",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/V2_02_medium_L_20261011T160754Z_e8cff927",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 404
+    },
+    "rejections": {
+      "G:disabled": 800,
+      "V:disabled": 800,
+      "L:disabled": 176,
+      "L:no_candidates": 220,
+      "L:accepted": 404
+    },
+    "ekf_calls": 713,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 404,
+        "p50": 0.0025265439058843406,
+        "p95": 0.011115802116611746
+      },
+      "joint": {
+        "samples": 404,
+        "p50": 31.09901974119571,
+        "p95": 76.20457432489097
+      }
+    },
+    "estimated_rows": 718,
+    "cost": {
+      "camera_api_p50_ms": 12.252322,
+      "camera_api_p95_ms": 20.838601699999995,
+      "camera_api_p99_ms": 22.697677039999995,
+      "full_wall_s": 13.41,
+      "full_cpu_s": 12.93,
+      "peak_rss_kb": 97324
+    },
+    "trajectory_sha256": "9ec63a307edf6d2b49868476b7960e12b8d4f8bf9fffc1322c6d8c509d1e19fc",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "V",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/V2_02_medium_V_20261011T160754Z_54663966",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 0,
+      "V": 6,
+      "L": 0
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 404,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 800,
+      "V:disabled": 82,
+      "L:disabled": 800,
+      "V:warmup_or_core_invalid": 94,
+      "V:not_ready_V": 220,
+      "V:accepted": 404
+    },
+    "ekf_calls": 713,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 404,
+        "p50": 0.005064684989870819,
+        "p95": 0.022450867328141028
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 404,
+        "p50": 31.31480658973041,
+        "p95": 78.38585276985148
+      }
+    },
+    "estimated_rows": 718,
+    "cost": {
+      "camera_api_p50_ms": 12.269548499999999,
+      "camera_api_p95_ms": 20.9871285,
+      "camera_api_p99_ms": 22.959489139999995,
+      "full_wall_s": 13.41,
+      "full_cpu_s": 12.95,
+      "peak_rss_kb": 96432
+    },
+    "trajectory_sha256": "2ed162ebaccf9e59b4e994fdcb3c5035034dfe3288bf5f355b4fda01feeab115",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "G",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/V2_02_medium_G_20261011T160807Z_d71d2e26",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 1,
+      "V": 0,
+      "L": 0
+    },
+    "errors": [],
+    "applications": {
+      "G": 434,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 82,
+      "V:disabled": 800,
+      "L:disabled": 800,
+      "G:warmup_or_core_invalid": 94,
+      "G:not_ready_G": 190,
+      "G:accepted": 434
+    },
+    "ekf_calls": 713,
+    "nis": {
+      "G": {
+        "samples": 434,
+        "p50": 0.00012685273175759928,
+        "p95": 0.002285784373546975
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 434,
+        "p50": 30.74651068821032,
+        "p95": 74.69340757996639
+      }
+    },
+    "estimated_rows": 718,
+    "cost": {
+      "camera_api_p50_ms": 10.900438,
+      "camera_api_p95_ms": 19.5124039,
+      "camera_api_p99_ms": 21.580840949999995,
+      "full_wall_s": 11.96,
+      "full_cpu_s": 11.95,
+      "peak_rss_kb": 99212
+    },
+    "trajectory_sha256": "8810d7ab1e5103d462efeea33fe60770327baccd500313fc0a76da62e839a92e",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "OFF",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/V2_02_medium_OFF_20261011T160807Z_c2720e02",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 718,
+    "cost": {
+      "camera_api_p50_ms": 4.6775585,
+      "camera_api_p95_ms": 6.681859849999998,
+      "camera_api_p99_ms": 8.002224049999997,
+      "full_wall_s": 6.35,
+      "full_cpu_s": 6.35,
+      "peak_rss_kb": 91136
+    },
+    "trajectory_sha256": "0f3e21d27aaf43ae82d150f3a35b50d550d168ed7895b6cd3767aef78b7e6b8b",
+    "status": "PASS"
+  }
+]

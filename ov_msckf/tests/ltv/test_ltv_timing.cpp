@@ -1,7 +1,7 @@
-#include "ltv/observer/LtvAdapter.h"
+#include "ltv/runtime/LtvRuntime.h"
 #include "native_test_support.h"
 using namespace ov_msckf;
-void feed(LtvAdapter &a, double begin, double end, double step = 0.005) {
+void feed(LtvRuntime &a, double begin, double end, double step = 0.005) {
   for (double t = begin; t < end + 1e-8; t += step) {
     ov_core::ImuData x;
     x.timestamp = t;
@@ -16,7 +16,7 @@ int main() {
   options.observer.min_features = 1;
   options.observer.warmup_camera_updates = 1;
   options.validate(StateOptions());
-  LtvAdapter a(options);
+  LtvRuntime a(options);
   LtvCalibration c;
   c.offset = 0.003;
   Eigen::Vector3d ba(0.1, -0.2, 0.09), bg(0.01, 0.02, 0.03);
@@ -24,12 +24,12 @@ int main() {
   feed(a, 0, 0.3);
   auto first = a.process(0.01, bearings, c, ba, bg, 1);
   require(first.available && a.claim(first) && !a.claim(first), "one attempt stereo token");
-  const Eigen::MatrixXd p0 = a.core().covariance();
+  const Eigen::MatrixXd p0 = a.observer().covariance();
   auto second = a.process(0.031, bearings, c, ba, bg, 2);
   require(second.available, "fractional endpoints");
   metric("integrated_interval", std::abs(second.integrated_seconds - 0.021), 1e-12);
   require(second.integrated_steps == 5, "five boundary intervals");
-  require((a.core().covariance() - p0).norm() > 1, "persistent Riccati propagation");
+  require((a.observer().covariance() - p0).norm() > 1, "persistent Riccati propagation");
   const auto snapshot = second.snapshot;
   require(!a.process(0.031, bearings, c, ba, bg, 3).available, "duplicate frame rejected");
   require(a.claim(second), "duplicate cannot alter original attempt");
@@ -56,11 +56,11 @@ int main() {
   feed(a, 1, 1.2);
   auto reset = a.process(1.01, bearings, c, ba, bg, 10);
   require(reset.available && reset.epoch > zupt.epoch, "main reset resumes new epoch");
-  LtvAdapter gap(options);
+  LtvRuntime gap(options);
   feed(gap, 0, 0.01);
   feed(gap, 0.2, 0.21);
   require(!gap.process(0.1, bearings, c, ba, bg, 1).available, "large interpolation gap rejected");
-  LtvAdapter corrected(options);
+  LtvRuntime corrected(options);
   feed(corrected, 0, 0.1);
   LtvCalibration identity;
   corrected.process(0, bearings, identity, ba, bg, 1);
@@ -77,8 +77,8 @@ int main() {
   for (int i = 0; i < 4; ++i)
     reference.propagateImu(0.005, Eigen::Vector3d(0.1, -0.2, 9.9), Eigen::Vector3d(0.01, 0.02, 0.03), ba, bg);
   reference.updateFeatures(0.02, 0.02, {f}, Eigen::Matrix3d::Identity(), Eigen::Vector3d::Zero());
-  metric("identity_bias_contract_state", (reference.state() - corrected.core().state()).norm(), 1e-10);
-  metric("identity_bias_contract_P", (reference.covariance() - corrected.core().covariance()).norm(), 1e-8);
+  metric("identity_bias_contract_state", (reference.state() - corrected.observer().state()).norm(), 1e-10);
+  metric("identity_bias_contract_P", (reference.covariance() - corrected.observer().covariance()).norm(), 1e-8);
   require(result.available, "identity candidate");
   std::cout << "T6 PASS" << std::endl;
 }

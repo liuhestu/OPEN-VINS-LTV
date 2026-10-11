@@ -20,7 +20,6 @@
  */
 
 #include "UpdaterMSCKF.h"
-#include "ltv/diagnostics/joint/LtvMainCrossShadow.h"
 #include "ltv/fusion/UpdaterLTV.h"
 
 #include "UpdaterHelper.h"
@@ -36,12 +35,15 @@
 
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/math/distributions/chi_squared.hpp>
+#include <chrono>
 
 using namespace ov_core;
 using namespace ov_type;
 using namespace ov_msckf;
 
-UpdaterMSCKF::UpdaterMSCKF(UpdaterOptions &options, ov_core::FeatureInitializerOptions &feat_init_options) : _options(options) {
+UpdaterMSCKF::UpdaterMSCKF(UpdaterOptions &options, ov_core::FeatureInitializerOptions &feat_init_options, const LtvOptions &ltv_options,
+                           double gravity_mag)
+    : ltv_model_(ltv_options, gravity_mag), _options(options) {
 
   // Save our raw pixel noise squared
   _options.sigma_pix_sq = std::pow(_options.sigma_pix, 2);
@@ -57,19 +59,9 @@ UpdaterMSCKF::UpdaterMSCKF(UpdaterOptions &options, ov_core::FeatureInitializerO
   }
 }
 
-void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_ptr<Feature>> &feature_vec,
-                          const MeasurementBlock *ltv_block, LtvDiagnostics *diagnostics,
-                          const std::function<void(const MeasurementBlock &)> &before_update) {
-  const auto auxiliary_only = [&]() {
-    if (before_update)
-      before_update(MeasurementBlock());
-    if (ltv_block) {
-      MeasurementBlock empty;
-      empty.H.resize(0, 0);
-      empty.R.resize(0, 0);
-      UpdaterLTV::apply_joint(state, empty, *ltv_block);
-    }
-  };
+void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_ptr<Feature>> &feature_vec, const LtvFrame *ltv_frame,
+                          LtvDiagnostics *diagnostics) {
+  const auto auxiliary_only = [&]() { update_joint(state, MeasurementBlock(), ltv_frame, diagnostics); };
 
   // Return if no features
   if (feature_vec.empty()) {
@@ -180,11 +172,6 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
   std::vector<std::shared_ptr<Type>> Hx_order_big;
   size_t ct_jacob = 0;
   size_t ct_meas = 0;
-  auto &source_shadow = ltv::LtvMainCrossShadow::instance();
-  const bool trace_sources = source_shadow.enabled();
-  Eigen::MatrixXd visual_source_map;
-  if (trace_sources)
-    visual_source_map = Eigen::MatrixXd::Zero(max_meas_size, source_shadow.sourceDimension());
 
   // 4. Compute linear system for each feature, nullspace project, and reject
   auto it2 = feature_vec.begin();
@@ -223,23 +210,8 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
     // Get the Jacobian for this feature
     UpdaterHelper::get_feature_jacobian_full(state, feat, H_f, H_x, res, Hx_order);
 
-    Eigen::MatrixXd feature_source_map;
-    std::vector<std::string> raw_source_keys;
-    if (trace_sources) {
-      feature_source_map = Eigen::MatrixXd::Zero(res.rows(), source_shadow.sourceDimension());
-      int raw_row = 0;
-      for (const auto &camera : feat.timestamps)
-        for (double timestamp : camera.second) {
-          const auto key = ltv::LtvMainCrossShadow::pixelKey(feat.featid, camera.first, timestamp + state->_calib_dt_CAMtoIMU->value()(0));
-          raw_source_keys.push_back(key);
-          const int col = source_shadow.sourceColumn(key);
-          if (col >= 0)
-            feature_source_map.block<2, 2>(raw_row, col).setIdentity();
-          raw_row += 2;
-        }
-    }
-    // Nullspace project; preserve the EXACT raw-noise row transforms.
-    UpdaterHelper::nullspace_project_inplace(H_f, H_x, res, trace_sources ? &feature_source_map : nullptr);
+    // Nullspace project.
+    UpdaterHelper::nullspace_project_inplace(H_f, H_x, res, nullptr);
 
     /// Chi2 distance check
     Eigen::MatrixXd P_marg = StateHelper::get_marginal_covariance(state, Hx_order);
@@ -285,10 +257,6 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
       ct_hx += var->size();
     }
 
-    if (trace_sources) {
-      visual_source_map.middleRows(ct_meas, res.rows()) = feature_source_map;
-      source_shadow.usedVisualSources(raw_source_keys);
-    }
     // Append our residual and move forward
     res_big.block(ct_meas, 0, res.rows(), 1) = res;
     ct_meas += res.rows();
@@ -312,12 +280,8 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
   res_big.conservativeResize(ct_meas, 1);
   Hx_big.conservativeResize(ct_meas, ct_jacob);
 
-  if (trace_sources)
-    visual_source_map.conservativeResize(ct_meas, visual_source_map.cols());
-  // 5. Perform measurement compression, applying its rotations to source columns.
-  UpdaterHelper::measurement_compress_inplace(Hx_big, res_big, trace_sources ? &visual_source_map : nullptr);
-  if (trace_sources)
-    source_shadow.visualNoiseMap(visual_source_map);
+  // 5. Perform measurement compression.
+  UpdaterHelper::measurement_compress_inplace(Hx_big, res_big, nullptr);
   if (Hx_big.rows() < 1) {
     auxiliary_only();
     return;
@@ -327,32 +291,21 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
   // Our noise is isotropic, so make it here after our compression
   Eigen::MatrixXd R_big = _options.sigma_pix_sq * Eigen::MatrixXd::Identity(res_big.rows(), res_big.rows());
 
-  if (diagnostics) {
-    diagnostics->visual_rows = Hx_big.rows();
-    diagnostics->columns = Hx_big.cols();
-    if (!ltv_block)
-      diagnostics->ekf_calls = 1;
-  }
-
-  if (before_update) {
+  // 6. Build auxiliary models against this native prior, then make one update.
+  if (ltv_frame) {
     MeasurementBlock visual;
     visual.order = Hx_order_big;
     visual.H = Hx_big;
     visual.res = res_big;
     visual.R = R_big;
-    before_update(visual);
-  }
-
-  // 6. With all good features update the state
-  if (ltv_block) {
-    MeasurementBlock visual;
-    visual.order = Hx_order_big;
-    visual.H = Hx_big;
-    visual.res = res_big;
-    visual.R = R_big;
-    UpdaterLTV::apply_joint(state, visual, *ltv_block);
+    update_joint(state, visual, ltv_frame, diagnostics);
   } else {
     StateHelper::EKFUpdate(state, Hx_order_big, Hx_big, res_big, R_big);
+    if (diagnostics) {
+      diagnostics->visual_rows = Hx_big.rows();
+      diagnostics->columns = Hx_big.cols();
+      diagnostics->ekf_calls = 1;
+    }
   }
   rT5 = boost::posix_time::microsec_clock::local_time();
 
@@ -363,4 +316,52 @@ void UpdaterMSCKF::update(std::shared_ptr<State> state, std::vector<std::shared_
   PRINT_ALL("[MSCKF-UP]: %.4f seconds compress system\n", (rT4 - rT3).total_microseconds() * 1e-6);
   PRINT_ALL("[MSCKF-UP]: %.4f seconds update state (%d size)\n", (rT5 - rT4).total_microseconds() * 1e-6, (int)res_big.rows());
   PRINT_ALL("[MSCKF-UP]: %.4f seconds total\n", (rT5 - rT1).total_microseconds() * 1e-6);
+}
+
+void UpdaterMSCKF::update_joint(const std::shared_ptr<State> &state, const MeasurementBlock &visual, const LtvFrame *frame,
+                                LtvDiagnostics *diagnostics) {
+  const auto begin = std::chrono::steady_clock::now();
+  LtvDiagnostics d;
+  MeasurementBlock combined = visual;
+  if (frame) {
+    const bool repeated = last_ltv_state_.lock() == state &&
+                          (frame->epoch < last_ltv_epoch_ || (frame->epoch == last_ltv_epoch_ && frame->sequence <= last_ltv_sequence_));
+    if (repeated) {
+      d.submit_reason = "duplicate_or_stale_token";
+    } else {
+      last_ltv_state_ = state;
+      last_ltv_epoch_ = frame->epoch;
+      last_ltv_sequence_ = frame->sequence;
+      try {
+        const auto auxiliary = ltv_model_.build(state, *frame);
+        d = auxiliary.receipt->diagnostics;
+        d.consumed = true;
+        if (!auxiliary.empty()) {
+          auto merged = merge_measurements(visual, auxiliary);
+          std::string reason;
+          if (validate_measurement(state, merged, reason, &d.joint_nis)) {
+            combined = std::move(merged);
+            d.submit_reason = "joint_applied";
+          } else {
+            d.submit_reason = reason;
+            d.gravity_rows = d.velocity_rows = d.landmark_rows = 0;
+          }
+        } else {
+          d.submit_reason = "no_auxiliary";
+        }
+      } catch (const std::exception &e) {
+        d.submit_reason = e.what();
+        d.gravity_rows = d.velocity_rows = d.landmark_rows = 0;
+      }
+    }
+  }
+  d.visual_rows = visual.res.size();
+  d.columns = combined.H.cols();
+  if (!combined.empty()) {
+    StateHelper::EKFUpdate(state, combined.order, combined.H, combined.res, combined.R);
+    d.ekf_calls = 1;
+  }
+  d.compute_time_ms = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - begin).count();
+  if (diagnostics)
+    *diagnostics = std::move(d);
 }

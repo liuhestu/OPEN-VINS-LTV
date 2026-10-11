@@ -3,10 +3,10 @@
 编辑同目录的 [manual_run.yaml](manual_run.yaml)，然后在仓库根目录运行：
 
 ```bash
-python3 docs/experiments/tools/ltv_gain_scan/run_manual_euroc.py
+python3 docs/experiment_process/experiments/tools/ltv_gain_scan/run_manual_euroc.py
 ```
 
-入口使用最终实验已经编译好的 `run_ltv_gv_production`，修改选择或权重后无需重新编译。它直接读取原始 ASL 图像和IMU完成离线回放；输出轨迹CSV，不启动ROS话题或RViz。默认安装位置从 `docs/euroc_final_results_data/identity.json` 读取；安装被移动时修改 `install_root`。
+入口使用最终实验已经编译好的 `run_ltv_gv_production`，修改选择或权重后无需重新编译。它直接读取原始 ASL 图像和IMU完成离线回放；输出轨迹CSV，不启动ROS话题或RViz。本轮compact_v2默认安装位置为 `/home/he/open_vins_ltv_ws/install_compact_v2`；`install_root: null` 切换到历史最终实验 identity.json 记录的冻结二进制。安装被移动时修改该字段。
 
 ## 最常修改的字段
 
@@ -69,7 +69,7 @@ Observer内部参数沿用本轮冻结值。模式由二进制原生入口应用
 `short_seconds: 0` 回放完整序列；填写 `(0,40]` 秒可检查短段。也可以临时覆盖：
 
 ```bash
-python3 docs/experiments/tools/ltv_gain_scan/run_manual_euroc.py --seconds 40
+python3 docs/experiment_process/experiments/tools/ltv_gain_scan/run_manual_euroc.py --seconds 40
 ```
 
 MH_01的前40秒可能尚未完成初始化；检查初始化及辅助更新时推荐 `MH_05_difficult` 或 `V2_02_medium`。如果日志提示没有初始化轨迹，改用完整回放，不通过改变初始化参数绕过。
@@ -77,13 +77,13 @@ MH_01的前40秒可能尚未完成初始化；检查初始化及辅助更新时�
 只生成估计器YAML和选择记录，暂不回放：
 
 ```bash
-python3 docs/experiments/tools/ltv_gain_scan/run_manual_euroc.py --prepare-only
+python3 docs/experiment_process/experiments/tools/ltv_gain_scan/run_manual_euroc.py --prepare-only
 ```
 
 也可以另存一份自己的选择文件：
 
 ```bash
-python3 docs/experiments/tools/ltv_gain_scan/run_manual_euroc.py /absolute/path/my_run.yaml
+python3 docs/experiment_process/experiments/tools/ltv_gain_scan/run_manual_euroc.py /absolute/path/my_run.yaml
 ```
 
 每次运行在 `output_root` 下新建目录，终端打印其路径。默认根目录为 `/tmp/openvins_ltv_manual`；需要长期保留结果时将其改到自己的持久目录。
@@ -102,3 +102,5 @@ python3 docs/experiments/tools/ltv_gain_scan/run_manual_euroc.py /absolute/path/
 | manual_validation.json | 运行退出码、实际参数、线程与初始化检查 |
 
 入口会尝试取得现有实验的共享锁；若已有实验运行，会提示稍后重试。手动运行的开销记录不自动纳入正式性能表，手动轨迹也不会覆盖已归档的最终实验。
+
+compact_v2改变了Observer离散实现，保留冻结特征策略与融合权重；新评估见 [compact_v2](../../docs/experiment_process/experiments/compact_v2/README.md)。旧字段中的Euler/谱裁剪参数不参与新递推。

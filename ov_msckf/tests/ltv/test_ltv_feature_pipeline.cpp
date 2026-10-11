@@ -1,4 +1,4 @@
-#include "ltv/landmark_adapter/LtvFeaturePipeline.h"
+#include "ltv/features/LtvFeatureFrontend.h"
 #include <iostream>
 #include <stdexcept>
 using namespace ltv;
@@ -6,8 +6,8 @@ static void check(bool pass, const char *reason) {
   if (!pass)
     throw std::runtime_error(reason);
 }
-static FeaturePipelineContext context(int tick, bool stereo) {
-  FeaturePipelineContext c;
+static LtvFeatureContext context(int tick, bool stereo) {
+  LtvFeatureContext c;
   c.time = .05 * tick;
   c.version = tick;
   for (int j = 0; j <= tick; ++j) {
@@ -39,9 +39,9 @@ static FeaturePipelineContext context(int tick, bool stereo) {
 }
 int main() {
   try {
-    FeaturePipelineConfig cfg;
+    LtvFeatureConfig cfg;
     cfg.source = FeatureSeedSource::Stereo;
-    LtvFeaturePipeline stereo(cfg);
+    LtvFeatureFrontend stereo(cfg);
     check(stereo.process(context(0, true)).management.births.empty(), "stereo history wait");
     stereo.process(context(1, true));
     auto s = stereo.process(context(2, true));
@@ -54,7 +54,7 @@ int main() {
     check((s.management.births[0].seed.landmark_B - Eigen::Vector3d(.1, .2, 3)).norm() < 1e-10, "execution body frame");
     check(s.management.observations.size() == 1 && s.management.observations[0].camera_id == 0, "right camera seed only");
     check(stereo.process(context(3, true)).seeds.empty(), "no repeated seed geometry for active point");
-    LtvFeaturePipeline temporal;
+    LtvFeatureFrontend temporal;
     temporal.process(context(0, false));
     temporal.process(context(1, false));
     auto t = temporal.process(context(2, false));
@@ -70,7 +70,7 @@ int main() {
     bad.pose_covariance(0, 0) = -1;
     check(!temporal.process(bad).management.accepted_input, "invalid covariance cannot mutate history");
     check(temporal.manager().history().time() == .1, "rejected input preserves event cursor");
-    LtvFeaturePipeline missing;
+    LtvFeatureFrontend missing;
     missing.process(context(0, false));
     missing.process(context(1, false));
     auto shortctx = context(2, false);
@@ -80,10 +80,10 @@ int main() {
     shortctx.pose_covariance = .0001 * Eigen::Matrix<double, 6, 6>::Identity();
     auto m = missing.process(shortctx);
     check(m.management.births.empty() && m.seeds[0].input.observations.size() == 1, "missing historical pose not fabricated");
-    FeaturePipelineConfig hybrid_config;
+    LtvFeatureConfig hybrid_config;
     hybrid_config.source = FeatureSeedSource::StereoThenTemporal;
-    LtvFeaturePipeline hybrid_near(hybrid_config), stereo_near(cfg);
-    auto exact_seed = [&](const FeatureSeedDiagnostic &a, const FeatureSeedDiagnostic &b) {
+    LtvFeatureFrontend hybrid_near(hybrid_config), stereo_near(cfg);
+    auto exact_seed = [&](const FeatureSeedResult &a, const FeatureSeedResult &b) {
       check(a.candidate.source == b.candidate.source, "hybrid selected concrete source");
       check((a.estimate.landmark_B.array() == b.estimate.landmark_B.array()).all(), "route exact seed mean");
       check((a.uncertainty.covariance_B.array() == b.uncertainty.covariance_B.array()).all(), "route exact uncertainty");
@@ -98,7 +98,7 @@ int main() {
       exact_seed(hybrid.seeds[0], original.seeds[0]);
       check(hybrid.management.births.size() == original.management.births.size(), "near route same admission");
     }
-    LtvFeaturePipeline hybrid_far(hybrid_config), temporal_far;
+    LtvFeatureFrontend hybrid_far(hybrid_config), temporal_far;
     for (int tick = 0; tick < 3; ++tick) {
       auto input = context(tick, true);
       for (size_t j = 0; j < input.poses.size(); ++j)

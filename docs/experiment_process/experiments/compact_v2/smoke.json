@@ -1,0 +1,632 @@
+[
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "OFF",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/MH_05_difficult_OFF_20261011T161029Z_899845bd",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 376,
+    "cost": {
+      "camera_api_p50_ms": 1.9710999999999999,
+      "camera_api_p95_ms": 6.63576695,
+      "camera_api_p99_ms": 7.8619764399999985,
+      "full_wall_s": 5.52,
+      "full_cpu_s": 5.5200000000000005,
+      "peak_rss_kb": 89756
+    },
+    "trajectory_sha256": "44a00d2d0f998610f6c3f1367f1e48f4d3327a93b172b3fe4685e7ba4d8fda6f",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "G",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/MH_05_difficult_G_20261011T161029Z_09aa1c0d",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 16,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 290,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 424,
+      "V:disabled": 800,
+      "L:disabled": 800,
+      "G:warmup_or_core_invalid": 50,
+      "G:not_ready_G": 36,
+      "G:accepted": 290
+    },
+    "ekf_calls": 354,
+    "nis": {
+      "G": {
+        "samples": 290,
+        "p50": 0.005232051682935973,
+        "p95": 0.031224001135122963
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 290,
+        "p50": 15.127699523047454,
+        "p95": 58.2594607071249
+      }
+    },
+    "estimated_rows": 376,
+    "cost": {
+      "camera_api_p50_ms": 2.826667,
+      "camera_api_p95_ms": 30.009748849999998,
+      "camera_api_p99_ms": 32.67426398999999,
+      "full_wall_s": 13.67,
+      "full_cpu_s": 13.65,
+      "peak_rss_kb": 103656
+    },
+    "trajectory_sha256": "efa72ebd5b5032e0248c062bdd11381138c2d53ae91dc2b8311a8d9ddf26f6d4",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "V",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/MH_05_difficult_V_20261011T161029Z_97530fb9",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 0,
+      "V": 49,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 281,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 800,
+      "V:disabled": 424,
+      "L:disabled": 800,
+      "V:warmup_or_core_invalid": 50,
+      "V:not_ready_V": 45,
+      "V:accepted": 281
+    },
+    "ekf_calls": 352,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 281,
+        "p50": 0.11091010442629247,
+        "p95": 0.4961133784103512
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 281,
+        "p50": 15.289237684243169,
+        "p95": 59.20643291767408
+      }
+    },
+    "estimated_rows": 376,
+    "cost": {
+      "camera_api_p50_ms": 2.1176525,
+      "camera_api_p95_ms": 29.847941249999995,
+      "camera_api_p99_ms": 32.258872,
+      "full_wall_s": 13.58,
+      "full_cpu_s": 13.58,
+      "peak_rss_kb": 103336
+    },
+    "trajectory_sha256": "a69cde56d500a58c72ee4652a2fa31c366ddaaff4a352276d41386ca124fbea9",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "L",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/MH_05_difficult_L_20261011T161029Z_2c541780",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 280
+    },
+    "rejections": {
+      "G:disabled": 800,
+      "V:disabled": 800,
+      "L:disabled": 424,
+      "L:warmup_or_core_invalid": 50,
+      "L:no_candidates": 46,
+      "L:accepted": 280
+    },
+    "ekf_calls": 352,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 280,
+        "p50": 0.010138138542322088,
+        "p95": 0.06758576644743332
+      },
+      "joint": {
+        "samples": 280,
+        "p50": 15.149855885004705,
+        "p95": 58.88796382410087
+      }
+    },
+    "estimated_rows": 376,
+    "cost": {
+      "camera_api_p50_ms": 2.0547855,
+      "camera_api_p95_ms": 29.838195650000003,
+      "camera_api_p99_ms": 32.069182659999996,
+      "full_wall_s": 13.56,
+      "full_cpu_s": 13.56,
+      "peak_rss_kb": 103228
+    },
+    "trajectory_sha256": "9f1fc28c26fc74bef5d440cb0619ab763a63402defc2286b0951402df0f064bd",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "GVL",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/MH_05_difficult_GVL_20261011T161043Z_e4055be8",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 2,
+      "V": 49,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 290,
+      "V": 281,
+      "L": 280
+    },
+    "rejections": {
+      "G:disabled": 424,
+      "V:disabled": 424,
+      "L:disabled": 424,
+      "G:warmup_or_core_invalid": 50,
+      "V:warmup_or_core_invalid": 50,
+      "L:warmup_or_core_invalid": 50,
+      "G:not_ready_G": 36,
+      "V:not_ready_V": 45,
+      "L:no_candidates": 46,
+      "G:accepted": 290,
+      "V:accepted": 281,
+      "L:accepted": 280
+    },
+    "ekf_calls": 354,
+    "nis": {
+      "G": {
+        "samples": 290,
+        "p50": 0.0006934791884086494,
+        "p95": 0.003917731287691089
+      },
+      "V": {
+        "samples": 281,
+        "p50": 0.10949867096234374,
+        "p95": 0.4854134593096384
+      },
+      "L": {
+        "samples": 280,
+        "p50": 0.01018500311770907,
+        "p95": 0.06564454819844293
+      },
+      "joint": {
+        "samples": 290,
+        "p50": 15.514823038767787,
+        "p95": 57.83780462163574
+      }
+    },
+    "estimated_rows": 376,
+    "cost": {
+      "camera_api_p50_ms": 1.929119,
+      "camera_api_p95_ms": 30.9038672,
+      "camera_api_p99_ms": 33.339241109999996,
+      "full_wall_s": 13.84,
+      "full_cpu_s": 13.83,
+      "peak_rss_kb": 104364
+    },
+    "trajectory_sha256": "5649f6e3410cbe68b99a24de24b1538f0632b109657fc15de55add45e2edbacb",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "GVL",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/V2_02_medium_GVL_20261011T161043Z_292d33de",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 1,
+      "V": 1,
+      "L": 1
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 434,
+      "V": 404,
+      "L": 404
+    },
+    "rejections": {
+      "G:disabled": 82,
+      "V:disabled": 82,
+      "L:disabled": 82,
+      "G:warmup_or_core_invalid": 94,
+      "V:warmup_or_core_invalid": 94,
+      "L:warmup_or_core_invalid": 94,
+      "G:not_ready_G": 190,
+      "V:not_ready_V": 220,
+      "L:no_candidates": 220,
+      "G:accepted": 434,
+      "V:accepted": 404,
+      "L:accepted": 404
+    },
+    "ekf_calls": 713,
+    "nis": {
+      "G": {
+        "samples": 434,
+        "p50": 0.000126872370197045,
+        "p95": 0.002285784373546975
+      },
+      "V": {
+        "samples": 404,
+        "p50": 0.0008449439808957571,
+        "p95": 0.003747405099581766
+      },
+      "L": {
+        "samples": 404,
+        "p50": 0.0015575002285453012,
+        "p95": 0.0047660290013593395
+      },
+      "joint": {
+        "samples": 438,
+        "p50": 31.490425918265785,
+        "p95": 76.09970855952754
+      }
+    },
+    "estimated_rows": 718,
+    "cost": {
+      "camera_api_p50_ms": 11.8393755,
+      "camera_api_p95_ms": 21.00135015,
+      "camera_api_p99_ms": 23.424843290000002,
+      "full_wall_s": 12.66,
+      "full_cpu_s": 12.65,
+      "peak_rss_kb": 98964
+    },
+    "trajectory_sha256": "60e2c1ca57e2a38496c61d7b29f9154b22d3ac1115b000d769ef312a13d00dac",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "L",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/V2_02_medium_L_20261011T161043Z_37018181",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 404
+    },
+    "rejections": {
+      "G:disabled": 800,
+      "V:disabled": 800,
+      "L:disabled": 82,
+      "L:warmup_or_core_invalid": 94,
+      "L:no_candidates": 220,
+      "L:accepted": 404
+    },
+    "ekf_calls": 713,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 404,
+        "p50": 0.00715253847931285,
+        "p95": 0.020775919872560954
+      },
+      "joint": {
+        "samples": 404,
+        "p50": 31.09901974119571,
+        "p95": 76.20457432489097
+      }
+    },
+    "estimated_rows": 718,
+    "cost": {
+      "camera_api_p50_ms": 11.835524,
+      "camera_api_p95_ms": 20.27691955,
+      "camera_api_p99_ms": 22.19829876,
+      "full_wall_s": 12.64,
+      "full_cpu_s": 12.63,
+      "peak_rss_kb": 98196
+    },
+    "trajectory_sha256": "9ec63a307edf6d2b49868476b7960e12b8d4f8bf9fffc1322c6d8c509d1e19fc",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "V",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/V2_02_medium_V_20261011T161043Z_2943424f",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 0,
+      "V": 6,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 404,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 800,
+      "V:disabled": 82,
+      "L:disabled": 800,
+      "V:warmup_or_core_invalid": 94,
+      "V:not_ready_V": 220,
+      "V:accepted": 404
+    },
+    "ekf_calls": 713,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 404,
+        "p50": 0.005064684989870819,
+        "p95": 0.022450867328141028
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 404,
+        "p50": 31.31480658973041,
+        "p95": 78.38585276985148
+      }
+    },
+    "estimated_rows": 718,
+    "cost": {
+      "camera_api_p50_ms": 11.677421500000001,
+      "camera_api_p95_ms": 20.5809543,
+      "camera_api_p99_ms": 22.201024959999998,
+      "full_wall_s": 12.55,
+      "full_cpu_s": 12.53,
+      "peak_rss_kb": 98676
+    },
+    "trajectory_sha256": "2ed162ebaccf9e59b4e994fdcb3c5035034dfe3288bf5f355b4fda01feeab115",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "G",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/V2_02_medium_G_20261011T161057Z_97e94cd0",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 1,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 434,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 82,
+      "V:disabled": 800,
+      "L:disabled": 800,
+      "G:warmup_or_core_invalid": 94,
+      "G:not_ready_G": 190,
+      "G:accepted": 434
+    },
+    "ekf_calls": 713,
+    "nis": {
+      "G": {
+        "samples": 434,
+        "p50": 0.00012685273175759928,
+        "p95": 0.002285784373546975
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 434,
+        "p50": 30.74651068821032,
+        "p95": 74.69340757996639
+      }
+    },
+    "estimated_rows": 718,
+    "cost": {
+      "camera_api_p50_ms": 11.029311,
+      "camera_api_p95_ms": 19.822316749999995,
+      "camera_api_p99_ms": 21.75486637,
+      "full_wall_s": 12.01,
+      "full_cpu_s": 12.0,
+      "peak_rss_kb": 98520
+    },
+    "trajectory_sha256": "8810d7ab1e5103d462efeea33fe60770327baccd500313fc0a76da62e839a92e",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "OFF",
+    "phase": "smoke",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/smoke/V2_02_medium_OFF_20261011T161057Z_070a0c22",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 718,
+    "cost": {
+      "camera_api_p50_ms": 4.7961635000000005,
+      "camera_api_p95_ms": 6.84607355,
+      "camera_api_p99_ms": 8.33451863,
+      "full_wall_s": 6.44,
+      "full_cpu_s": 6.43,
+      "peak_rss_kb": 90768
+    },
+    "trajectory_sha256": "0f3e21d27aaf43ae82d150f3a35b50d550d168ed7895b6cd3767aef78b7e6b8b",
+    "status": "PASS"
+  }
+]

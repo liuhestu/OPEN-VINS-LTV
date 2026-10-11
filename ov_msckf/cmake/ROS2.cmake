@@ -121,7 +121,7 @@ endif ()
 
 option(BUILD_LTV_EXPERIMENTS "Build opt-in archived LTV study drivers" OFF)
 if (BUILD_LTV_EXPERIMENTS)
-    add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../../docs/experiments/tools/native ltv_experiments)
+    add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../../docs/experiment_process/experiments/tools/native ltv_experiments)
 endif ()
 
 # finally define this as the package

@@ -1,5 +1,5 @@
 # 修改此文件后直接运行，无需编译：
-# python3 docs/experiments/tools/ltv_gain_scan/run_manual_euroc.py
+# python3 docs/experiment_process/experiments/tools/ltv_gain_scan/run_manual_euroc.py
 
 sequence: MH_01_easy
 mode: GVL                    # OFF / G / V / L / GVL
@@ -15,9 +15,9 @@ weights:
 # 原始 ASL 目录，包含各序列的 mav0/cam0、cam1、imu0。
 dataset_root: /home/he/datasets/euroc/ASL
 
-# null：从最终实验 identity.json 选择已经编译好的 install。
-# 若将来移动二进制，可填写新的 install 绝对路径。
-install_root: null
+# compact_v2：一次离散相机修正，原生 MSCKF 联合更新；本轮重新评估。
+# 改为 null 可以选择历史最终实验的冻结二进制。
+install_root: /home/he/open_vins_ltv_ws/install_compact_v2
 
 # 每次创建独立结果目录，不覆盖之前的实验。
 output_root: /tmp/openvins_ltv_manual

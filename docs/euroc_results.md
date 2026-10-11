@@ -114,7 +114,7 @@ baseline 为 OFF；变化 = (配置 ATE − OFF ATE) / OFF ATE × 100%。使用�
 
 二进制源码：`a18f86d9aab0da95f1ca7a86d377425d71857b11`；原main：`300198d08d057d9fb9a0029df6fdb67603722e99`。
 原始输出：`/home/he/output/ltv_euroc_six_20261008T172854`（本机路径，不是公开下载）。
-[结构化结果](euroc_results_data/results.csv) · [完整结果与失败原因](euroc_results_data/results.json)。
+[结构化结果](experiment_process/euroc_results_data/results.csv) · [完整结果与失败原因](experiment_process/euroc_results_data/results.json)。
 
 ## 结果解释与验收边界
 
@@ -143,19 +143,19 @@ MH_04_difficult 六组均为 12999.026971521 m；OFF 轨迹末端位置模长约
 
 ## 可核验材料与复现
 
-[协议](protocol.json)、[完整 66 次索引](full_index.json)、[82 次构建/测试/回放尝试](run_manifest.json)、[简表](run_manifest.csv)、[输入内容哈希](data_identity.json)、[运行身份](identity.json)、[独立驱动构建与依赖哈希](runner_build_identity.json)、[完成审计](completion_audit.json)、[归档文件 SHA256](sha256.json)。
+[协议](experiment_process/euroc_results_data/protocol.json)、[完整 66 次索引](experiment_process/euroc_results_data/full_index.json)、[82 次构建/测试/回放尝试](experiment_process/euroc_results_data/run_manifest.json)、[简表](experiment_process/euroc_results_data/run_manifest.csv)、[输入内容哈希](experiment_process/euroc_results_data/data_identity.json)、[运行身份](experiment_process/euroc_results_data/identity.json)、[独立驱动构建与依赖哈希](experiment_process/euroc_results_data/runner_build_identity.json)、[完成审计](experiment_process/euroc_results_data/completion_audit.json)、[归档文件 SHA256](experiment_process/euroc_results_data/sha256.json)。
 
 实际驱动源码为 a18f86d；其库来自本任务独立构建的 b770d6f，并在驱动重建前校验包源码闭包未变，复制到独立产物后验证库哈希与链接路径。没有使用共享旧 overlay。原算法源码、数据集 YAML、共享 C0 参数与本轮起点 main 300198d 相同；残差、Jacobian、参数、门控和更新顺序未改。
 
-初次驱动构建因 provenance 输出目录缺失退出 1，已保留尝试；修复后重建退出 0，失败产物未用于回放。12 次 40 s 烟测均正常退出，但初始批次校验器错误要求消耗全量数据；[原索引](smoke_index.json)及[限定前缀后重新审计](smoke_corrected_audit.json)同时保留。L_GV 在 V2_02/V2_03 烟测分别有 397/188 帧同时实际应用三分支。
+初次驱动构建因 provenance 输出目录缺失退出 1，已保留尝试；修复后重建退出 0，失败产物未用于回放。12 次 40 s 烟测均正常退出，但初始批次校验器错误要求消耗全量数据；[原索引](experiment_process/euroc_results_data/smoke_index.json)及[限定前缀后重新审计](experiment_process/euroc_results_data/smoke_corrected_audit.json)同时保留。L_GV 在 V2_02/V2_03 烟测分别有 397/188 帧同时实际应用三分支。
 
 完整回放命令保存在 run_manifest.json 的 command_expanded，每次使用唯一输出目录、单线程、独立安装路径及输入内容标识。本机原始目录已结束全部任务，已登记进程无存活。
 
 在已有相同协调目录与独立构建产物上运行批次（索引有完成记录时跳过，重新实验应创建新目录）：
 
 ```bash
-python3 docs/experiments/tools/ltv_three_track/run_euroc_six.py /path/to/coord --stage full --data /path/to/ASL
-OPENBLAS_NUM_THREADS=1 python3 docs/experiments/tools/ltv_three_track/evaluate_euroc_six.py /path/to/coord docs/euroc_results.md --data /path/to/ASL
+python3 docs/experiment_process/experiments/tools/ltv_three_track/run_euroc_six.py /path/to/coord --stage full --data /path/to/ASL
+OPENBLAS_NUM_THREADS=1 python3 docs/experiment_process/experiments/tools/ltv_three_track/evaluate_euroc_six.py /path/to/coord docs/euroc_results.md --data /path/to/ASL
 ```
 
 协调 launcher、干净环境入口、源码冻结工具与构建规格保存在 coordination_tools/ 及 build.json、driver_fix_build2.json。目录内绝对路径是原机器证据引用；换机器需要按新位置准备协调目录、源码和构建产物。

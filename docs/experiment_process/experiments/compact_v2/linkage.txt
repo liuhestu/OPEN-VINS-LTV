@@ -1,0 +1,3 @@
+	libov_core_lib.so => /home/he/open_vins_ltv_ws/install_compact_v2/ov_core/lib/libov_core_lib.so (0x000070e1ac068000)
+	libov_msckf_lib.so => /home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so (0x000070e1abc00000)
+	libov_init_lib.so => /home/he/open_vins_ltv_ws/install_compact_v2/ov_init/lib/libov_init_lib.so (0x000070e1aa41f000)

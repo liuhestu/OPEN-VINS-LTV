@@ -1,4 +1,4 @@
-#include "ltv/landmark_adapter/LtvLandmarkManager.h"
+#include "ltv/features/LtvFeatureManager.h"
 #include <iostream>
 #include <limits>
 #include <stdexcept>
@@ -37,7 +37,7 @@ static std::vector<FeatureSeedCandidate> seeds(double time, uint64_t epoch = 0, 
 }
 int main() {
   try {
-    LtvLandmarkManager m;
+    LtvFeatureManager m;
     check(m.step(0, 0, 1, observations(), seeds(0)).births.empty(), "new candidates cannot pollute observer");
     check(m.step(0, .05, 2, observations(), seeds(.05)).births.empty(), "minimum causal history");
     auto bad = seeds(.1);
@@ -66,14 +66,14 @@ int main() {
     m.step(1, 0, 1, observations(), seeds(0, 1));
     m.step(1, .05, 2, observations(), seeds(.05, 1));
     check(m.step(1, .1, 3, observations(), seeds(.1, 1)).births.size() == 16, "explicit epoch reset permits new seed");
-    LtvLandmarkManager capped;
+    LtvFeatureManager capped;
     auto many = observations(0, 40);
     capped.step(0, 0, 1, many, seeds(0, 0, 0, 40));
     capped.step(0, .05, 2, many, seeds(.05, 0, 0, 40));
     check(capped.step(0, .1, 3, many, seeds(.1, 0, 0, 40)).births.size() == 30, "capacity capped");
-    LandmarkManagerConfig cfg;
+    LtvFeatureManagerConfig cfg;
     cfg.apply_seed = false;
-    LtvLandmarkManager sel(cfg);
+    LtvFeatureManager sel(cfg);
     sel.step(0, 0, 1, observations(), seeds(0));
     sel.step(0, .05, 2, observations(), seeds(.05));
     auto selected = sel.step(0, .1, 3, observations(), seeds(.1));
@@ -91,9 +91,9 @@ int main() {
     check(!h.update(0, .15, 3, invalid) && h.time() == .1, "nonfinite rejected atomically");
     bool min_guard = false;
     try {
-      LandmarkManagerConfig c;
+      LtvFeatureManagerConfig c;
       c.min_features = 1;
-      LtvLandmarkManager invalid_manager(c);
+      LtvFeatureManager invalid_manager(c);
     } catch (const std::invalid_argument &) {
       min_guard = true;
     }

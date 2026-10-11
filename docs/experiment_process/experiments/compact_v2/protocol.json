@@ -1,0 +1,80 @@
+{
+  "version": "compact_v2",
+  "profiles": {
+    "MH": {
+      "OFF": [
+        0,
+        0,
+        0
+      ],
+      "G": [
+        16,
+        0,
+        0
+      ],
+      "V": [
+        0,
+        49,
+        0
+      ],
+      "L": [
+        0,
+        0,
+        6
+      ],
+      "GVL": [
+        2,
+        49,
+        6
+      ]
+    },
+    "Vicon": {
+      "OFF": [
+        0,
+        0,
+        0
+      ],
+      "G": [
+        1,
+        0,
+        0
+      ],
+      "V": [
+        0,
+        6,
+        0
+      ],
+      "L": [
+        0,
+        0,
+        6
+      ],
+      "GVL": [
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "sequences": [
+    "MH_01_easy",
+    "MH_02_easy",
+    "MH_03_medium",
+    "MH_05_difficult",
+    "V1_01_easy",
+    "V1_02_medium",
+    "V1_03_difficult",
+    "V2_01_easy",
+    "V2_02_medium",
+    "V2_03_difficult"
+  ],
+  "source_support": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/euroc_final_results_data/support",
+  "smoke_seconds": 40,
+  "accuracy_workers": 4,
+  "serial_cpu": [
+    0,
+    1
+  ],
+  "parameter_scan": false,
+  "independent_serial_runs": true
+}

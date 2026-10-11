@@ -1,0 +1,175 @@
+[
+  {
+    "sequence": "MH_01_easy",
+    "mode": "OFF",
+    "phase": "performance",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/performance/MH_01_easy_OFF_20261011T162257Z_f5221f7c",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 2784,
+    "cost": {
+      "camera_api_p50_ms": 3.6885044999999996,
+      "camera_api_p95_ms": 6.147085999999995,
+      "camera_api_p99_ms": 7.813236840000002,
+      "full_wall_s": 26.79,
+      "full_cpu_s": 26.51,
+      "peak_rss_kb": 92800
+    },
+    "trajectory_sha256": "22571ff5569c1a6aefdc08aabbd9f085bdfc3aee6a9fe48a336c16c3f2b14800",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_01_easy",
+    "mode": "G",
+    "phase": "performance",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/performance/MH_01_easy_G_20261011T162324Z_9750fa7b",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 16,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 2298,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 898,
+      "V:disabled": 3682,
+      "L:disabled": 3682,
+      "G:warmup_or_core_invalid": 35,
+      "G:not_ready_G": 451,
+      "G:accepted": 2298
+    },
+    "ekf_calls": 2712,
+    "nis": {
+      "G": {
+        "samples": 2298,
+        "p50": 0.0029962740977379004,
+        "p95": 0.017513603009516193
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 2298,
+        "p50": 5.026489069789243,
+        "p95": 53.74778871045596
+      }
+    },
+    "estimated_rows": 2784,
+    "cost": {
+      "camera_api_p50_ms": 22.5522605,
+      "camera_api_p95_ms": 36.3801134,
+      "camera_api_p99_ms": 40.495894830000005,
+      "full_wall_s": 86.08,
+      "full_cpu_s": 86.05000000000001,
+      "peak_rss_kb": 111520
+    },
+    "trajectory_sha256": "70b492a105d1e2e0cf94b752d152bc73585b3902dc2ca5aa28d9dc1090c3e580",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_01_easy",
+    "mode": "V",
+    "phase": "performance",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/performance/MH_01_easy_V_20261011T162450Z_2f964dca",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 0,
+      "V": 49,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 2288,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 3682,
+      "V:disabled": 898,
+      "L:disabled": 3682,
+      "V:warmup_or_core_invalid": 35,
+      "V:not_ready_V": 461,
+      "V:accepted": 2288
+    },
+    "ekf_calls": 2711,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 2288,
+        "p50": 0.08675916836627695,
+        "p95": 0.5180514642461578
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 2288,
+        "p50": 5.096699272892625,
+        "p95": 54.42058793817164
+      }
+    },
+    "estimated_rows": 2784,
+    "cost": {
+      "camera_api_p50_ms": 22.6333805,
+      "camera_api_p95_ms": 36.217895799999994,
+      "camera_api_p99_ms": 40.555987200000004,
+      "full_wall_s": 86.39,
+      "full_cpu_s": 86.33999999999999,
+      "peak_rss_kb": 111808
+    },
+    "trajectory_sha256": "0cde520a5ebb0ae7e6bdb29a7fff167670fe279268dfa5bb9b5a94b3403d94fb",
+    "status": "PASS"
+  }
+]

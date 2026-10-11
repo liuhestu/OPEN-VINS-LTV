@@ -1,4 +1,4 @@
-#include "ltv/landmark_adapter/LtvLandmarkManager.h"
+#include "ltv/features/LtvFeatureManager.h"
 #include <iostream>
 #include <stdexcept>
 using namespace ltv;
@@ -36,11 +36,11 @@ static std::vector<FeatureSeedCandidate> seeds(double t, size_t first) {
 }
 int main() {
   try {
-    LandmarkManagerConfig c;
+    LtvFeatureManagerConfig c;
     c.max_active = c.history.max_candidates = 15;
-    LtvLandmarkManager old(c);
+    LtvFeatureManager old(c);
     c.bounded_memory = true;
-    LtvLandmarkManager bounded(c);
+    LtvFeatureManager bounded(c);
     old.reset(1);
     bounded.reset(1);
     auto paired = [&](double t, const std::vector<HistoryObservation> &obs, const std::vector<FeatureSeedCandidate> &seed) {

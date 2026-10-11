@@ -1,0 +1,5 @@
+prechange/
+runs/
+*.tar.gz
+build*.log
+tests/*.log

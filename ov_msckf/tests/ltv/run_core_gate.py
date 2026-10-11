@@ -18,7 +18,7 @@ def main():
     repo = Path(__file__).resolve().parents[3]
     out = args.output or Path(tempfile.mkdtemp(prefix='openvins-ltv-core-gate.'))
     out.mkdir(parents=True, exist_ok=True)
-    bundle = repo / 'docs/ltv_handover'
+    bundle = repo / 'docs/experiment_process/ltv_handover'
     fixture = bundle / 'parity_fixture'
     print(out, flush=True)
 

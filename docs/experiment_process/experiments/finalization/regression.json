@@ -1,0 +1,209 @@
+{
+  "timestamp_utc": "2026-10-11T13:53:12.452790+00:00",
+  "status": "PASS",
+  "completed": 10,
+  "planned": 10,
+  "cases": [
+    {
+      "sequence": "MH_05_difficult",
+      "mode": "OFF",
+      "output_dir": "/home/he/output/ltv_finalization_regression/MH_05_difficult_OFF_20261011T134420Z_3025006b",
+      "frozen_output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w3/results/w3_accuracy_MH_05_difficult_OFF_20261009T164930_7107b580",
+      "trajectory_byte_identical": true,
+      "maximum_absolute_numeric_difference": 0.0,
+      "replay_counts_match": true,
+      "actual_applications": {
+        "G": 0,
+        "V": 0,
+        "L": 0
+      },
+      "applications_match": true,
+      "fusion_receipts_byte_identical": true,
+      "observer_digests_byte_identical": true,
+      "binary_sha256": "131fc2647f6111318fc0a01d2cfcdf57e0680a46ab3badefb0e7505a0a4aecfc",
+      "status": "PASS",
+      "main_state_covariance_audit_byte_identical": true
+    },
+    {
+      "sequence": "MH_05_difficult",
+      "mode": "G",
+      "output_dir": "/home/he/output/ltv_finalization_regression/MH_05_difficult_G_20261011T134438Z_b52a21cf",
+      "frozen_output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w2/results/w2_accuracy_MH_05_difficult_G_20261009T165208_18950857",
+      "trajectory_byte_identical": true,
+      "maximum_absolute_numeric_difference": 0.0,
+      "replay_counts_match": true,
+      "actual_applications": {
+        "G": 1638,
+        "V": 0,
+        "L": 0
+      },
+      "applications_match": true,
+      "fusion_receipts_byte_identical": true,
+      "observer_digests_byte_identical": true,
+      "binary_sha256": "131fc2647f6111318fc0a01d2cfcdf57e0680a46ab3badefb0e7505a0a4aecfc",
+      "status": "PASS",
+      "main_state_covariance_audit_byte_identical": true
+    },
+    {
+      "sequence": "MH_05_difficult",
+      "mode": "V",
+      "output_dir": "/home/he/output/ltv_finalization_regression/MH_05_difficult_V_20261011T134547Z_a9c81d3f",
+      "frozen_output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w3/results/w3_accuracy_MH_05_difficult_V_20261009T165208_35804f54",
+      "trajectory_byte_identical": true,
+      "maximum_absolute_numeric_difference": 0.0,
+      "replay_counts_match": true,
+      "actual_applications": {
+        "G": 0,
+        "V": 1578,
+        "L": 0
+      },
+      "applications_match": true,
+      "fusion_receipts_byte_identical": true,
+      "observer_digests_byte_identical": true,
+      "binary_sha256": "131fc2647f6111318fc0a01d2cfcdf57e0680a46ab3badefb0e7505a0a4aecfc",
+      "status": "PASS",
+      "main_state_covariance_audit_byte_identical": true
+    },
+    {
+      "sequence": "MH_05_difficult",
+      "mode": "L",
+      "output_dir": "/home/he/output/ltv_finalization_regression/MH_05_difficult_L_20261011T134655Z_e04f89f0",
+      "frozen_output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w6/results/w6_accuracy_MH_05_difficult_L_20261009T165246_1d6306f8",
+      "trajectory_byte_identical": true,
+      "maximum_absolute_numeric_difference": 0.0,
+      "replay_counts_match": true,
+      "actual_applications": {
+        "G": 0,
+        "V": 0,
+        "L": 1575
+      },
+      "applications_match": true,
+      "fusion_receipts_byte_identical": true,
+      "observer_digests_byte_identical": true,
+      "binary_sha256": "131fc2647f6111318fc0a01d2cfcdf57e0680a46ab3badefb0e7505a0a4aecfc",
+      "status": "PASS",
+      "main_state_covariance_audit_byte_identical": true
+    },
+    {
+      "sequence": "MH_05_difficult",
+      "mode": "GVL",
+      "output_dir": "/home/he/output/ltv_finalization_regression/MH_05_difficult_GVL_20261011T134804Z_eea1b28c",
+      "frozen_output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w7/results/w7_accuracy_MH_05_difficult_GVL_20261009T165246_788e7208",
+      "trajectory_byte_identical": true,
+      "maximum_absolute_numeric_difference": 0.0,
+      "replay_counts_match": true,
+      "actual_applications": {
+        "G": 1638,
+        "V": 1578,
+        "L": 1578
+      },
+      "applications_match": true,
+      "fusion_receipts_byte_identical": true,
+      "observer_digests_byte_identical": true,
+      "binary_sha256": "131fc2647f6111318fc0a01d2cfcdf57e0680a46ab3badefb0e7505a0a4aecfc",
+      "status": "PASS",
+      "main_state_covariance_audit_byte_identical": true
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "OFF",
+      "output_dir": "/home/he/output/ltv_finalization_regression/V2_02_medium_OFF_20261011T134913Z_9215a5fa",
+      "frozen_output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w5/results/w5_accuracy_V2_02_medium_OFF_20261009T164947_5306c68a",
+      "trajectory_byte_identical": true,
+      "maximum_absolute_numeric_difference": 0.0,
+      "replay_counts_match": true,
+      "actual_applications": {
+        "G": 0,
+        "V": 0,
+        "L": 0
+      },
+      "applications_match": true,
+      "fusion_receipts_byte_identical": true,
+      "observer_digests_byte_identical": true,
+      "binary_sha256": "131fc2647f6111318fc0a01d2cfcdf57e0680a46ab3badefb0e7505a0a4aecfc",
+      "status": "PASS",
+      "main_state_covariance_audit_byte_identical": true
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "G",
+      "output_dir": "/home/he/output/ltv_finalization_regression/V2_02_medium_G_20261011T134933Z_37b1a27f",
+      "frozen_output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w4/results/w4_accuracy_V2_02_medium_G_20261009T165526_dbaf9218",
+      "trajectory_byte_identical": true,
+      "maximum_absolute_numeric_difference": 0.0,
+      "replay_counts_match": true,
+      "actual_applications": {
+        "G": 1606,
+        "V": 0,
+        "L": 0
+      },
+      "applications_match": true,
+      "fusion_receipts_byte_identical": true,
+      "observer_digests_byte_identical": true,
+      "binary_sha256": "131fc2647f6111318fc0a01d2cfcdf57e0680a46ab3badefb0e7505a0a4aecfc",
+      "status": "PASS",
+      "main_state_covariance_audit_byte_identical": true
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "V",
+      "output_dir": "/home/he/output/ltv_finalization_regression/V2_02_medium_V_20261011T135028Z_1947ae6a",
+      "frozen_output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w5/results/w5_accuracy_V2_02_medium_V_20261009T165526_1cd5d80a",
+      "trajectory_byte_identical": true,
+      "maximum_absolute_numeric_difference": 0.0,
+      "replay_counts_match": true,
+      "actual_applications": {
+        "G": 0,
+        "V": 1571,
+        "L": 0
+      },
+      "applications_match": true,
+      "fusion_receipts_byte_identical": true,
+      "observer_digests_byte_identical": true,
+      "binary_sha256": "131fc2647f6111318fc0a01d2cfcdf57e0680a46ab3badefb0e7505a0a4aecfc",
+      "status": "PASS",
+      "main_state_covariance_audit_byte_identical": true
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "L",
+      "output_dir": "/home/he/output/ltv_finalization_regression/V2_02_medium_L_20261011T135122Z_49ee6578",
+      "frozen_output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w2/results/w2_accuracy_V2_02_medium_L_20261009T165538_cadb3da7",
+      "trajectory_byte_identical": true,
+      "maximum_absolute_numeric_difference": 0.0,
+      "replay_counts_match": true,
+      "actual_applications": {
+        "G": 0,
+        "V": 0,
+        "L": 1570
+      },
+      "applications_match": true,
+      "fusion_receipts_byte_identical": true,
+      "observer_digests_byte_identical": true,
+      "binary_sha256": "131fc2647f6111318fc0a01d2cfcdf57e0680a46ab3badefb0e7505a0a4aecfc",
+      "status": "PASS",
+      "main_state_covariance_audit_byte_identical": true
+    },
+    {
+      "sequence": "V2_02_medium",
+      "mode": "GVL",
+      "output_dir": "/home/he/output/ltv_finalization_regression/V2_02_medium_GVL_20261011T135217Z_9ca04e8a",
+      "frozen_output_dir": "/home/he/output/ltv_euroc_final_20261009T164739/w3/results/w3_accuracy_V2_02_medium_GVL_20261009T165538_b1a5e3b9",
+      "trajectory_byte_identical": true,
+      "maximum_absolute_numeric_difference": 0.0,
+      "replay_counts_match": true,
+      "actual_applications": {
+        "G": 1606,
+        "V": 1571,
+        "L": 1570
+      },
+      "applications_match": true,
+      "fusion_receipts_byte_identical": true,
+      "observer_digests_byte_identical": true,
+      "binary_sha256": "131fc2647f6111318fc0a01d2cfcdf57e0680a46ab3badefb0e7505a0a4aecfc",
+      "status": "PASS",
+      "main_state_covariance_audit_byte_identical": true
+    }
+  ],
+  "scope": "Diagnostic cleanup: two full sequences, all five modes; exact trajectories, main state/P audits, Observer x/P digests and scalar fusion receipts. Not independent accuracy validation or complete statistical/engineering acceptance."
+}

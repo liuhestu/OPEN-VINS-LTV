@@ -1,5 +1,5 @@
 // LC-01/06 actual seed map, with native JPL pose updates and common physical sources.
-#include "ltv/landmark_adapter/LtvSeedUncertainty.h"
+#include "ltv/features/LtvSeedGeometry.h"
 #include "types/PoseJPL.h"
 #include "utils/quat_ops.h"
 #include <Eigen/Geometry>

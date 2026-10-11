@@ -80,4 +80,4 @@ indoor_forward_7 / L：L 未实际应用；门控诊断 `{"G_reason:disabled": 3
 indoor_forward_7 / L_GV：G,V,L 未实际应用；门控诊断 `{"G_reason:disabled": 278, "V_reason:disabled": 278, "G_reason:time_or_token": 2899, "V_reason:time_or_token": 2899}`。
 
 源码 `21564dda04e4fd59013682e9bd95dc21d7fcc467`；原始输出 `/tmp/ltv_gain_scan_20261009`。
-[结果及诊断](uzhfpv_results_data/results.json) · [运行身份与命令](uzhfpv_results_data/run_manifest.json) · [位置证据及复算](uzhfpv_results_data/evaluation_archive.json)
+[结果及诊断](experiment_process/uzhfpv_results_data/results.json) · [运行身份与命令](experiment_process/uzhfpv_results_data/run_manifest.json) · [位置证据及复算](experiment_process/uzhfpv_results_data/evaluation_archive.json)

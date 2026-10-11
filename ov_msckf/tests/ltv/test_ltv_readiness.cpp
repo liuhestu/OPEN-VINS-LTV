@@ -1,4 +1,4 @@
-#include "ltv/observer/LtvReadiness.h"
+#include "ltv/runtime/LtvAvailabilityPolicy.h"
 #include <cmath>
 #include <iostream>
 #include <limits>
@@ -8,8 +8,8 @@ static void require(bool v, const char *m) {
   if (!v)
     throw std::runtime_error(m);
 }
-static LtvReadinessInput healthy(double t) {
-  LtvReadinessInput i;
+static LtvAvailabilityInput healthy(double t) {
+  LtvAvailabilityInput i;
   i.time = i.observer_time = t;
   i.eligible_seeds = i.observed_features = i.mature_observed_features = 15;
   i.geometry_valid = i.observer_started = i.observer_finite = i.correction_diagnostics_valid = true;
@@ -24,12 +24,12 @@ static LtvReadinessInput healthy(double t) {
 int main() {
   try {
     for (bool grace : {false, true}) {
-      LtvReadinessConfig base_config;
+      LtvAvailabilityConfig base_config;
       base_config.enabled = base_config.initial_unseeded_warmup = base_config.preserve_constrained_state = true;
       base_config.ready_soft_grace = grace;
       auto short_config = base_config;
       short_config.experimental_velocity_confirm_frames = 10;
-      LtvReadiness baseline(base_config), shorter(short_config);
+      LtvAvailabilityPolicy baseline(base_config), shorter(short_config);
       for (auto *policy : {&baseline, &shorter}) {
         auto initial = healthy(0);
         initial.bootstrap_source = "BOUNDED_INITIAL_ZERO_WARMUP";
@@ -58,7 +58,7 @@ int main() {
         require(!shorter.update(invalid).ready_V, "invalid diagnostics never accumulate short confirmation");
       }
       for (int which = 0; which < 7; ++which) {
-        LtvReadiness policy(short_config);
+        LtvAvailabilityPolicy policy(short_config);
         auto initial = healthy(0);
         initial.bootstrap_source = "BOUNDED_INITIAL_ZERO_WARMUP";
         policy.update(initial);
@@ -84,21 +84,21 @@ int main() {
         require(!b.ready_V && !b.grace_V, "short confirmation cannot bypass existing hard health or time boundaries");
       }
     }
-    auto invalid_experiment = LtvReadinessConfig();
+    auto invalid_experiment = LtvAvailabilityConfig();
     invalid_experiment.experimental_velocity_confirm_frames = 11;
     bool invalid_length_rejected = false;
     try {
-      LtvReadiness invalid(invalid_experiment);
+      LtvAvailabilityPolicy invalid(invalid_experiment);
     } catch (const std::invalid_argument &) {
       invalid_length_rejected = true;
     }
     require(invalid_length_rejected, "only the predeclared ten-frame alternative is allowed");
-    LtvReadiness off;
+    LtvAvailabilityPolicy off;
     auto o = off.update(healthy(0));
     require(o.state == LtvAvailability::Disabled && !o.request_bootstrap && !o.ready_V, "default off");
-    LtvReadinessConfig c;
+    LtvAvailabilityConfig c;
     c.enabled = true;
-    LtvReadiness r(c);
+    LtvAvailabilityPolicy r(c);
     for (int k = 0; k < 3; ++k) {
       auto i = healthy(.05 * k);
       i.observer_started = false;
@@ -189,7 +189,7 @@ int main() {
       recovery_requests += o.request_bootstrap;
     }
     require(recovery_requests == 1 && !o.bootstrap_is_physical_recovery, "quality cooldown expires causally without request storm");
-    LtvReadiness cold(c);
+    LtvAvailabilityPolicy cold(c);
     for (int k = 0; k < 200; ++k) {
       auto i = healthy(.05 * k);
       i.eligible_seeds = 0;
@@ -197,7 +197,7 @@ int main() {
       o = cold.update(i);
       require(!o.request_bootstrap && !o.ready_V, "no supply stays collecting");
     }
-    LtvReadiness atomic(c);
+    LtvAvailabilityPolicy atomic(c);
     auto unsolicited = healthy(0);
     unsolicited.bootstrap_committed = true;
     unsolicited.bootstrap_source = "UNSOLICITED";
@@ -260,7 +260,7 @@ int main() {
     require(rejected, "tracking cannot rewrite after cooldown without pending request");
     o = atomic.update(healthy(1.5));
     require(!o.ready_V, "missing event interval breaks ready confirmation");
-    LtvReadiness cancelled(c);
+    LtvAvailabilityPolicy cancelled(c);
     for (int k = 0; k < 3; ++k) {
       auto i = healthy(.05 * k);
       i.observer_started = false;
@@ -291,16 +291,16 @@ int main() {
       rejected = true;
     }
     require(rejected, "cancelled supply request cannot commit");
-    LtvReadiness gap_policy(c);
+    LtvAvailabilityPolicy gap_policy(c);
     for (int k = 0; k < 5; ++k) {
       auto i = healthy(k * 1.0);
       i.observer_started = false;
       o = gap_policy.update(i);
       require(!o.request_bootstrap, "sparse frames cannot accumulate supply confirmations");
     }
-    LtvReadinessConfig warm_config = c;
+    LtvAvailabilityConfig warm_config = c;
     warm_config.initial_unseeded_warmup = true;
-    LtvReadiness warm(warm_config);
+    LtvAvailabilityPolicy warm(warm_config);
     auto unseeded = healthy(0);
     unseeded.eligible_seeds = unseeded.observed_features = unseeded.mature_observed_features = 0;
     unseeded.geometry_valid = false;
@@ -332,12 +332,12 @@ int main() {
     for (int k = 0; k < 3; ++k)
       o = warm.update(healthy(30.05 + .05 * k));
     require(o.request_bootstrap && o.reason == "atomic_bootstrap_required", "later recovery requires ordinary confirmed supply");
-    LtvReadiness default_warm(c);
+    LtvAvailabilityPolicy default_warm(c);
     unseeded.time = unseeded.observer_time = 0;
     require(!default_warm.update(unseeded).request_bootstrap, "default R1 finite empty core still waits for seed supply");
-    LtvReadinessConfig preserve_config = warm_config;
+    LtvAvailabilityConfig preserve_config = warm_config;
     preserve_config.preserve_constrained_state = true;
-    LtvReadiness preserve(preserve_config);
+    LtvAvailabilityPolicy preserve(preserve_config);
     auto preserved = healthy(0);
     preserved.bootstrap_source = "BOUNDED_INITIAL_ZERO_WARMUP";
     require(preserve.update(preserved).request_bootstrap, "R3 initial warmup keeps atomic contract");
@@ -372,7 +372,7 @@ int main() {
     }
     require(o.request_bootstrap && o.bootstrap_is_physical_recovery, "physical repair still requires confirmed seed supply");
     for (int axis = 0; axis < 2; ++axis) {
-      LtvReadiness bounded_norm(preserve_config);
+      LtvAvailabilityPolicy bounded_norm(preserve_config);
       auto normal = healthy(0);
       normal.bootstrap_source = "BOUNDED_INITIAL_ZERO_WARMUP";
       bounded_norm.update(normal);
@@ -386,7 +386,7 @@ int main() {
       o = bounded_norm.update(excessive);
       require(o.request_dormant && !o.observer_valid && o.reason == "observer_norm_guard", "finite extreme state stops immediately");
     }
-    LtvReadiness invalid_geometry(preserve_config);
+    LtvAvailabilityPolicy invalid_geometry(preserve_config);
     auto initial = healthy(0);
     initial.bootstrap_source = "BOUNDED_INITIAL_ZERO_WARMUP";
     invalid_geometry.update(initial);
@@ -398,7 +398,7 @@ int main() {
       o = invalid_geometry.update(bad_geometry);
     }
     require(o.request_dormant && o.state == LtvAvailability::Dormant, "positive count without valid geometry does not preserve state");
-    LtvReadiness stale_preserved(preserve_config);
+    LtvAvailabilityPolicy stale_preserved(preserve_config);
     stale_preserved.update(initial);
     stale_preserved.acknowledgeBootstrap(initial);
     auto stale_thin = healthy(.05);
@@ -406,10 +406,10 @@ int main() {
     stale_thin.observer_time = 0;
     o = stale_preserved.update(stale_thin);
     require(o.request_dormant && !o.observer_valid, "thin count cannot preserve stale observer");
-    LtvReadinessConfig grace_config = warm_config;
+    LtvAvailabilityConfig grace_config = warm_config;
     grace_config.ready_soft_grace = true;
     auto primed = [&](double origin) {
-      LtvReadiness policy(grace_config);
+      LtvAvailabilityPolicy policy(grace_config);
       auto i = healthy(origin);
       i.bootstrap_source = "BOUNDED_INITIAL_ZERO_WARMUP";
       policy.update(i);

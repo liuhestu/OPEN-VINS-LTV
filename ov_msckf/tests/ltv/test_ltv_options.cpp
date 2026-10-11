@@ -65,14 +65,22 @@ int main() {
   managed.active_consistency.enabled = true;
   managed.passive_assert_no_injection = false;
   managed.validate(StateOptions());
-  LtvAdapter managed_adapter(managed);
-  require(managed_adapter.landmark_adapter() != nullptr, "evaluation can construct frozen managed/active observer");
+  LtvRuntime managed_adapter(managed);
+  require(managed_adapter.feature_frontend() != nullptr, "evaluation can construct frozen managed/active observer");
+  // C0 freezing belongs to the experiment driver, not the general runtime API.
+  auto tunable = managed;
+  tunable.observer.q_landmark = 2e-4;
+  tunable.observer.max_features = 35;
+  tunable.validate(StateOptions());
+  LtvRuntime tunable_runtime(tunable);
+  require(tunable_runtime.feature_frontend() != nullptr, "valid managed settings are not hard-coded to study C0");
   auto unbounded = managed;
   unbounded.passive_hardening_enabled = false;
-  LtvAdapter unbounded_adapter(unbounded);
-  ltv::FeaturePipelineContext empty_context;
+  LtvRuntime unbounded_adapter(unbounded);
+  ltv::LtvFeatureContext empty_context;
   empty_context.time = 1;
   empty_context.version = 1;
+  empty_context.cameras = {ltv::SeedCamera()};
   unbounded_adapter.process(1, {}, LtvCalibration(), Eigen::Vector3d::Zero(), Eigen::Vector3d::Zero(), 1, &empty_context);
   managed.enabled = false;
   bool disabled_rejected = false;

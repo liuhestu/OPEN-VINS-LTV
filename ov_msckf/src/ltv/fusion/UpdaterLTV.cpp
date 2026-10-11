@@ -41,17 +41,6 @@ bool layout(const MeasurementBlock &b, std::string &reason) {
   }
   return true;
 }
-bool covariance(const Eigen::MatrixXd &P, double &symmetry, double &minimum) {
-  if (!P.allFinite())
-    return false;
-  symmetry = (P - P.transpose()).cwiseAbs().maxCoeff();
-  Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> eig(P);
-  if (eig.info() != Eigen::Success)
-    return false;
-  minimum = eig.eigenvalues().minCoeff();
-  const double scale = std::max(1.0, eig.eigenvalues().cwiseAbs().maxCoeff());
-  return symmetry <= 1e-10 * scale && minimum >= -1e-10 * scale;
-}
 double nis(const std::shared_ptr<State> &state, const MeasurementBlock &b) {
   const auto P = StateHelper::get_marginal_covariance(state, b.order);
   const Eigen::MatrixXd S = innovation_matrix(b.H, P, b.R);
@@ -102,16 +91,9 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
   b.R.resize(0, 0);
   b.receipt = std::make_shared<LtvReceipt>();
   b.token = f;
-  b.state_identity = state.get();
-  b.prior_P = StateHelper::get_full_covariance(state);
-  b.prior_imu = state->_imu->value();
-  b.prior_fej = state->_imu->fej();
-  for (const auto &clone : state->_clones_IMU)
-    b.prior_clones.emplace(clone.first, std::make_pair(clone.second->value(), clone.second->fej()));
   if (diagnostic)
-    *diagnostic = b; // Preserve the frozen prior and live receipt even if build throws.
+    *diagnostic = b;
   auto &d = b.receipt->diagnostics;
-  d.capture_matrices = options_.gv_evaluation_diagnostics;
   d.prior_rotation_difference = (state->_imu->Rot() - state->_imu->Rot_fej()).norm();
   d.prior_velocity_difference = (state->_imu->vel() - state->_imu->vel_fej()).norm();
   d.gravity_variance = std::pow(options_.sigma_gravity_deg * std::acos(-1.0) / 180, 2);
@@ -121,6 +103,8 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
       d.gravity_reason = reason;
     if (options_.enable_velocity)
       d.velocity_reason = reason;
+    if (options_.enable_landmark_approx)
+      d.landmark_reason = reason;
   };
   if (!options_.enabled || !options_.allow_correlated_pseudomeasurements) {
     reject("disabled_or_unacknowledged");
@@ -145,33 +129,16 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
       std::abs(state->_imu->quat_fej().norm() - 1) > 1e-8) {
     throw std::runtime_error("nonfinite or invalid native quaternion/state");
   }
-  d.p_checked = true;
-  if (!covariance(b.prior_P, d.p_symmetry, d.p_min_eigenvalue))
-    throw std::runtime_error("invalid native prior covariance");
   const auto c = context(*state);
   const auto &snap = f.snapshot;
   auto gate = [&](const MeasurementBlock &block, double threshold, double &value, std::string &reason) {
     std::string why;
-    if (!validate(state, block, why)) {
+    if (!validate_measurement(state, block, why, &value)) {
       reason = why;
-      if (options_.gv_evaluation_diagnostics && why == "nonSPD_S") {
-        d.joint_H = block.H;
-        d.joint_R = block.R;
-        d.joint_res = block.res;
-        d.joint_S = innovation_matrix(block.H, StateHelper::get_marginal_covariance(state, block.order), block.R);
-        for (const auto &type : block.order) {
-          d.joint_ids.push_back(type->id());
-          d.joint_sizes.push_back(type->size());
-        }
-        throw std::runtime_error("branch innovation decomposition failed");
-      }
       return false;
     }
-    value = nis(state, block);
     if (value < 0) {
       reason = "invalid_nis";
-      if (options_.gv_evaluation_diagnostics)
-        throw std::runtime_error("branch innovation NIS invalid");
       return false;
     }
     if (options_.enable_nis_gate && value > threshold) {
@@ -214,7 +181,7 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
         d.gravity_reason = "quality";
         if (d.gravity_quality && gate(g, options_.nis_gravity, d.gravity_nis, d.gravity_reason)) {
           robustify(g, d.gravity_variance);
-          b = merge(b, g);
+          b = merge_measurements(b, g);
           d.gravity_rows = 2;
         }
       }
@@ -236,16 +203,84 @@ MeasurementBlock UpdaterLTV::build(const std::shared_ptr<State> &state, const Lt
       d.velocity_reason = "quality";
       if (d.velocity_quality && gate(v, options_.nis_velocity, d.velocity_nis, d.velocity_reason)) {
         robustify(v, d.velocity_variance);
-        b = merge(b, v);
+        b = merge_measurements(b, v);
         d.velocity_rows = 3;
       }
     }
   }
-  if (!b.empty())
-    d.gv_nis = nis(state, b); // Diagnostic only: no additional joint gate.
+  b = landmark(state, f, b);
   return b;
 }
-MeasurementBlock UpdaterLTV::merge(const MeasurementBlock &a, const MeasurementBlock &b) {
+Eigen::Vector3d UpdaterLTV::landmark_prediction(const ov_type::PoseJPL &t, const ov_type::PoseJPL &a, const Eigen::Vector3d &l_a,
+                                                bool fej) {
+  const Eigen::Matrix3d Rt = fej ? t.Rot_fej() : t.Rot(), Ra = fej ? a.Rot_fej() : a.Rot();
+  const Eigen::Vector3d pt = fej ? t.pos_fej() : t.pos(), pa = fej ? a.pos_fej() : a.pos();
+  return Rt * (Ra.transpose() * l_a + pa - pt);
+}
+Eigen::Matrix<double, 3, 12> UpdaterLTV::landmark_jacobian(const ov_type::PoseJPL &t, const ov_type::PoseJPL &a, const Eigen::Vector3d &l_a,
+                                                           bool fej) {
+  const Eigen::Matrix3d Rt = fej ? t.Rot_fej() : t.Rot(), Ra = fej ? a.Rot_fej() : a.Rot();
+  Eigen::Matrix<double, 3, 12> H;
+  H << ov_core::skew_x(landmark_prediction(t, a, l_a, fej)), -Rt, -Rt * Ra.transpose() * ov_core::skew_x(l_a), Rt;
+  return H;
+}
+
+MeasurementBlock UpdaterLTV::landmark(const std::shared_ptr<State> &state, const LtvFrame &frame, MeasurementBlock base) const {
+  if (!options_.enable_landmark_approx)
+    return base;
+  auto &d = base.receipt->diagnostics;
+  d.landmark_reason = "no_candidates";
+  int selected = 0;
+  MeasurementBlock landmarks;
+  for (const auto &candidate : frame.landmarks) {
+    if (selected >= options_.landmark_approx_max_points)
+      break;
+    if (candidate.epoch != frame.epoch || !candidate.point.allFinite() || !candidate.anchor_point.allFinite() ||
+        !std::isfinite(candidate.span) || candidate.span < .2 - 1e-6 || candidate.span > .55 + 1e-6) {
+      d.landmark_reason = "invalid_candidate";
+      continue;
+    }
+    std::shared_ptr<ov_type::PoseJPL> anchor;
+    for (const auto &clone : state->_clones_IMU)
+      if (std::abs(clone.first + state->_calib_dt_CAMtoIMU->value()(0) - candidate.anchor_time) <= 1e-9)
+        anchor = clone.second;
+    if (!anchor || candidate.anchor_time >= frame.imu_time - 1e-9) {
+      d.landmark_reason = "anchor_not_live";
+      continue;
+    }
+    MeasurementBlock point;
+    point.order = {state->_imu->q(), state->_imu->p(), anchor};
+    point.H = landmark_jacobian(*state->_imu->pose(), *anchor, candidate.anchor_point, state->_options.do_fej);
+    point.res = candidate.point - landmark_prediction(*state->_imu->pose(), *anchor, candidate.anchor_point);
+    const double sigma = options_.landmark_approx_sigma_floor_m + .02 * candidate.point.norm();
+    double variance = sigma * sigma * (1 + candidate.span / .55);
+    const auto P = StateHelper::get_marginal_covariance(state, point.order);
+    const double signal = (point.H * P * point.H.transpose()).trace();
+    const double cap = options_.landmark_approx_information_cap / options_.landmark_approx_max_points;
+    if (!std::isfinite(signal) || signal < 0 || !std::isfinite(cap) || cap <= 0) {
+      d.landmark_reason = "invalid_information";
+      continue;
+    }
+    variance = std::max(variance, signal / cap);
+    point.R = variance * Eigen::Matrix3d::Identity();
+    std::string reason;
+    if (!validate_measurement(state, point, reason)) {
+      d.landmark_reason = reason;
+      continue;
+    }
+    landmarks = merge_measurements(landmarks, point);
+    d.landmark_reason = "accepted";
+    ++selected;
+  }
+  d.landmark_rows = 3 * selected;
+  if (selected) {
+    d.landmark_nis = nis(state, landmarks);
+    base = merge_measurements(base, landmarks);
+  }
+  return base;
+}
+
+MeasurementBlock merge_measurements(const MeasurementBlock &a, const MeasurementBlock &b) {
   std::string reason;
   if (!layout(a, reason) || !layout(b, reason))
     throw std::invalid_argument(reason);
@@ -289,7 +324,9 @@ MeasurementBlock UpdaterLTV::merge(const MeasurementBlock &a, const MeasurementB
   }
   return result;
 }
-bool UpdaterLTV::validate(const std::shared_ptr<State> &state, const MeasurementBlock &b, std::string &reason) {
+bool validate_measurement(const std::shared_ptr<State> &state, const MeasurementBlock &b, std::string &reason, double *nis_value) {
+  if (nis_value)
+    *nis_value = -1;
   if (!layout(b, reason))
     return false;
   if (b.empty())
@@ -318,119 +355,15 @@ bool UpdaterLTV::validate(const std::shared_ptr<State> &state, const Measurement
   }
   const auto P = StateHelper::get_marginal_covariance(state, b.order);
   const Eigen::MatrixXd S = innovation_matrix(b.H, P, b.R);
-  if ((S - S.transpose()).norm() > 1e-12 * std::max(1.0, S.norm())) {
-    reason = "asymmetric_S";
-    return false;
-  }
   Eigen::LLT<Eigen::MatrixXd> innovation(S);
   if (!S.allFinite() || innovation.info() != Eigen::Success) {
     reason = "nonSPD_S";
     return false;
   }
-  return true;
-}
-bool UpdaterLTV::apply_joint(const std::shared_ptr<State> &state, const MeasurementBlock &visual, const MeasurementBlock &auxiliary) {
-  if (!auxiliary.receipt)
-    throw std::invalid_argument("missing LTV receipt");
-  auto &receipt = *auxiliary.receipt;
-  if (receipt.consumed)
-    return false;
-  receipt.consumed = true;
-  auto &d = receipt.diagnostics;
-  d.consumed = true;
-  d.visual_rows = visual.res.size();
-  MeasurementBlock combined = visual;
-  bool accepted = !auxiliary.empty();
-  const auto P = StateHelper::get_full_covariance(state);
-  bool clones_match = auxiliary.prior_clones.size() == state->_clones_IMU.size();
-  for (const auto &clone : state->_clones_IMU) {
-    const auto old = auxiliary.prior_clones.find(clone.first);
-    if (old == auxiliary.prior_clones.end() || (old->second.first - clone.second->value()).norm() != 0 ||
-        (old->second.second - clone.second->fej()).norm() != 0)
-      clones_match = false;
+  if (nis_value) {
+    const double value = b.res.dot(innovation.solve(b.res));
+    *nis_value = std::isfinite(value) && value >= 0 ? value : -1;
   }
-  if (!clones_match || auxiliary.state_identity != state.get() || auxiliary.token.camera_time != state->_timestamp ||
-      P.rows() != auxiliary.prior_P.rows() || (P - auxiliary.prior_P).norm() != 0 ||
-      (state->_imu->value() - auxiliary.prior_imu).norm() != 0 || (state->_imu->fej() - auxiliary.prior_fej).norm() != 0) {
-    accepted = false;
-    d.submit_reason = "stale_prior";
-  }
-  if (accepted) {
-    try {
-      combined = merge(visual, auxiliary);
-    } catch (const std::invalid_argument &e) {
-      accepted = false;
-      d.submit_reason = e.what();
-    }
-  }
-  if (d.capture_matrices) {
-    d.joint_H = combined.H;
-    d.joint_R = combined.R;
-    d.joint_res = combined.res;
-    if (!combined.empty())
-      d.joint_S = innovation_matrix(combined.H, StateHelper::get_marginal_covariance(state, combined.order), combined.R);
-    for (const auto &type : combined.order) {
-      d.joint_ids.push_back(type->id());
-      d.joint_sizes.push_back(type->size());
-    }
-  }
-  std::string reason;
-  if (accepted && !validate(state, combined, reason)) {
-    accepted = false;
-    d.submit_reason = reason;
-    if (d.capture_matrices && reason == "nonSPD_S")
-      throw std::runtime_error("joint innovation decomposition failed");
-  }
-  if (!accepted) {
-    combined = visual;
-    d.gravity_rows = 0;
-    d.velocity_rows = 0;
-    d.landmark_rows = 0;
-  }
-  if (combined.empty())
-    return true;
-  d.columns = combined.H.cols();
-  if (accepted) {
-    const auto small = StateHelper::get_marginal_covariance(state, combined.order);
-    const Eigen::MatrixXd S = innovation_matrix(combined.H, small, combined.R);
-    Eigen::MatrixXd Hd = Eigen::MatrixXd::Zero(combined.H.rows(), P.rows());
-    int offset = 0;
-    for (const auto &type : combined.order) {
-      Hd.middleCols(type->id(), type->size()) = combined.H.middleCols(offset, type->size());
-      offset += type->size();
-    }
-    const Eigen::MatrixXd K = P * Hd.transpose() * S.llt().solve(Eigen::MatrixXd::Identity(S.rows(), S.cols()));
-    d.joint_nis = combined.res.dot(S.llt().solve(combined.res));
-    d.update_norm = (K * combined.res).norm();
-    int start = visual.res.size();
-    if (d.gravity_rows) {
-      d.gravity_gain_norm = K.middleCols(start, d.gravity_rows).norm();
-      d.gravity_update_norm = (K.middleCols(start, d.gravity_rows) * combined.res.segment(start, d.gravity_rows)).norm();
-      start += d.gravity_rows;
-    }
-    if (d.velocity_rows) {
-      d.velocity_gain_norm = K.middleCols(start, d.velocity_rows).norm();
-      d.velocity_update_norm = (K.middleCols(start, d.velocity_rows) * combined.res.segment(start, d.velocity_rows)).norm();
-    }
-    if (d.landmark_rows) {
-      start += d.velocity_rows;
-      const Eigen::VectorXd delta = K.middleCols(start, d.landmark_rows) * combined.res.segment(start, d.landmark_rows);
-      d.landmark_update_norm = delta.norm();
-      d.landmark_bg_update_norm = delta.segment(state->_imu->bg()->id(), 3).norm();
-      d.landmark_ba_update_norm = delta.segment(state->_imu->ba()->id(), 3).norm();
-    }
-    d.submit_reason = "joint_applied";
-  }
-  StateHelper::EKFUpdate(state, combined.order, combined.H, combined.res, combined.R);
-  ++d.ekf_calls;
-  d.p_checked = true;
-  const auto posterior = StateHelper::get_full_covariance(state);
-  if (d.capture_matrices) {
-    d.joint_post_P = posterior;
-    d.joint_post_imu = state->_imu->value();
-  }
-  if (!state->_imu->value().allFinite() || !covariance(posterior, d.p_symmetry, d.p_min_eigenvalue))
-    throw std::runtime_error("nonfinite/invalid native joint posterior");
   return true;
 }
 } // namespace ov_msckf

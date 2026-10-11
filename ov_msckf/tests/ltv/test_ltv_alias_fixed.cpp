@@ -1,4 +1,4 @@
-#include "ltv/observer/ltv_observer.h"
+#include "ltv/observer/LtvObserver.h"
 #include <iostream>
 
 // Inject into a test-owned, non-const observer through its existing accessor.

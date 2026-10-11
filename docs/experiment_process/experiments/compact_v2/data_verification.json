@@ -1,0 +1,82 @@
+[
+  {
+    "sequence": "MH_01_easy",
+    "files": 7376,
+    "errors": [],
+    "start_unix": 1791735326.6270885,
+    "end_unix": 1791735328.0180287,
+    "frozen_manifest_sha256": "28fd36bf9cb4da84d5aea13fde1acd259124561b3f37a55c307fffba4ebc915c"
+  },
+  {
+    "sequence": "MH_02_easy",
+    "files": 6092,
+    "errors": [],
+    "start_unix": 1791735328.018661,
+    "end_unix": 1791735329.1731513,
+    "frozen_manifest_sha256": "0a5a7a1e18bc8b14576163b4973bbe5c8843cfef86aaca2727e92702dc32e991"
+  },
+  {
+    "sequence": "MH_03_medium",
+    "files": 5412,
+    "errors": [],
+    "start_unix": 1791735329.1736667,
+    "end_unix": 1791735330.1811752,
+    "frozen_manifest_sha256": "c77ddb56522c97fd76f434360d66016f84d317d5e5ff0d1a089dd3e706e65891"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "files": 4558,
+    "errors": [],
+    "start_unix": 1791735330.1816175,
+    "end_unix": 1791735332.4119544,
+    "frozen_manifest_sha256": "bbc8bcd48327a2d212ff33677b478e5e118a4c57e9c56093172d09c248720ec5"
+  },
+  {
+    "sequence": "V1_01_easy",
+    "files": 5839,
+    "errors": [],
+    "start_unix": 1791735332.4124193,
+    "end_unix": 1791735336.590086,
+    "frozen_manifest_sha256": "7ae85c1b966d3f533584286562d21580d2b1fba9320c5a7624e363b271209d2a"
+  },
+  {
+    "sequence": "V1_02_medium",
+    "files": 3436,
+    "errors": [],
+    "start_unix": 1791735336.5905814,
+    "end_unix": 1791735338.9012074,
+    "frozen_manifest_sha256": "2c788482b4328823be7a4cbfd97854c75d42f66276f5a3232a8d00ae18b4c3af"
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "files": 4313,
+    "errors": [],
+    "start_unix": 1791735338.901546,
+    "end_unix": 1791735341.9140484,
+    "frozen_manifest_sha256": "acda3254af924aa5f6238a2150a9792b254933af8274c07d076ca07dad9b23fc"
+  },
+  {
+    "sequence": "V2_01_easy",
+    "files": 4575,
+    "errors": [],
+    "start_unix": 1791735341.9144602,
+    "end_unix": 1791735345.3439322,
+    "frozen_manifest_sha256": "99cba2e0457ff4ecfe1a8263ab7aad8b173207a13c72cfeb072c66e776509c0f"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "files": 4711,
+    "errors": [],
+    "start_unix": 1791735345.3443513,
+    "end_unix": 1791735347.9459627,
+    "frozen_manifest_sha256": "24209fc1cbe327ae49656ff9058b1508bd4b8ec12e92493d886f3ce68f55647e"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "files": 4273,
+    "errors": [],
+    "start_unix": 1791735347.946392,
+    "end_unix": 1791735351.1209342,
+    "frozen_manifest_sha256": "fd97af12a1660583519ae26ecf77433d58b07ba204ff2c7dd80953d7a26496ef"
+  }
+]

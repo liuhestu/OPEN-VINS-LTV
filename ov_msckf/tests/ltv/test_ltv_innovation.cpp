@@ -12,6 +12,20 @@ Eigen::MatrixXd read(std::istream &in) {
   return m;
 }
 int main() {
+  // Analytic case: P=I, H=I, R=I, r=[1,2,3], so NIS is 14/2=7.
+  // This verifies the value returned by the shared SPD/NIS factorization.
+  {
+    auto analytic_state = make_state();
+    MeasurementBlock analytic;
+    analytic.order = {analytic_state->_imu->v()};
+    analytic.H = analytic.R = Eigen::Matrix3d::Identity();
+    analytic.res = Eigen::Vector3d(1, 2, 3);
+    StateHelper::set_initial_covariance(analytic_state, Eigen::Matrix3d::Identity(), analytic.order);
+    double value = -1;
+    std::string reason;
+    require(UpdaterLTV::validate(analytic_state, analytic, reason, &value), "analytic innovation accepted");
+    metric("shared_factorization_NIS", std::abs(value - 7), 1e-13);
+  }
   std::ifstream file(LTV_TEST_FIXTURE_DIR "/joint_cancellation.txt");
   require(bool(file), "open cancellation fixture");
   const auto compact = read(file), H = read(file), R = read(file);

@@ -1,0 +1,218 @@
+{
+  "timestamp_utc": "2026-10-11T13:43:20.575509+00:00",
+  "status": "PASS",
+  "count": 26,
+  "tests": [
+    {
+      "test": "test_bounded_history",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_bounded_history",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_bounded_history.log"
+    },
+    {
+      "test": "test_identity_guard",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_identity_guard",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_identity_guard.log"
+    },
+    {
+      "test": "test_ltv_active_consistency",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_active_consistency",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_active_consistency.log"
+    },
+    {
+      "test": "test_ltv_active_lifecycle",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_active_lifecycle",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_active_lifecycle.log"
+    },
+    {
+      "test": "test_ltv_adapter_hardened",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_adapter_hardened",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_adapter_hardened.log"
+    },
+    {
+      "test": "test_ltv_alias",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_alias",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_alias.log"
+    },
+    {
+      "test": "test_ltv_alias_fixed",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_alias_fixed",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_alias_fixed.log"
+    },
+    {
+      "test": "test_ltv_controlled",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_controlled",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_controlled.log"
+    },
+    {
+      "test": "test_ltv_core_lifecycle",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_core_lifecycle",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_core_lifecycle.log"
+    },
+    {
+      "test": "test_ltv_feature_manager",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_feature_manager",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_feature_manager.log"
+    },
+    {
+      "test": "test_ltv_feature_pipeline",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_feature_pipeline",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_feature_pipeline.log"
+    },
+    {
+      "test": "test_ltv_fej",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_fej",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_fej.log"
+    },
+    {
+      "test": "test_ltv_gv_covariance",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_gv_covariance",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_gv_covariance.log"
+    },
+    {
+      "test": "test_ltv_gv_jacobian",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_gv_jacobian",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_gv_jacobian.log"
+    },
+    {
+      "test": "test_ltv_history_competition",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_history_competition",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_history_competition.log"
+    },
+    {
+      "test": "test_ltv_huber",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_huber",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_huber.log"
+    },
+    {
+      "test": "test_ltv_innovation",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_innovation",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_innovation.log"
+    },
+    {
+      "test": "test_ltv_joint_covariance",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_joint_covariance",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_joint_covariance.log"
+    },
+    {
+      "test": "test_ltv_joint_layout",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_joint_layout",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_joint_layout.log"
+    },
+    {
+      "test": "test_ltv_landmark_approx",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_landmark_approx",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_landmark_approx.log"
+    },
+    {
+      "test": "test_ltv_manager_bounded",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_manager_bounded",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_manager_bounded.log"
+    },
+    {
+      "test": "test_ltv_options",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_options",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_options.log"
+    },
+    {
+      "test": "test_ltv_pose_convention",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_pose_convention",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_pose_convention.log"
+    },
+    {
+      "test": "test_ltv_readiness",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_readiness",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_readiness.log"
+    },
+    {
+      "test": "test_ltv_seed_joint",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_seed_joint",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_seed_joint.log"
+    },
+    {
+      "test": "test_ltv_timing",
+      "command": "/tmp/ltv_finalize_build/ov_msckf/tests/ltv/test_ltv_timing",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "PASS",
+      "log_path": "/home/he/output/ltv_finalization_test_logs/test_ltv_timing.log"
+    }
+  ],
+  "positive_tests": 25,
+  "negative_controls": 1,
+  "negative_control_note": "test_ltv_alias intentionally reproduces Eigen aliasing error; nonzero exit 1 is expected. Production alias-fixed test exits 0."
+}

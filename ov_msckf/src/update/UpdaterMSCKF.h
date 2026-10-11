@@ -29,6 +29,7 @@
 #include "feat/FeatureInitializerOptions.h"
 
 #include "UpdaterOptions.h"
+#include "ltv/fusion/UpdaterLTV.h"
 
 namespace ov_core {
 class Feature;
@@ -60,7 +61,8 @@ public:
    * @param options Updater options (include measurement noise value)
    * @param feat_init_options Feature initializer options
    */
-  UpdaterMSCKF(UpdaterOptions &options, ov_core::FeatureInitializerOptions &feat_init_options);
+  UpdaterMSCKF(UpdaterOptions &options, ov_core::FeatureInitializerOptions &feat_init_options, const LtvOptions &ltv_options = LtvOptions(),
+               double gravity_mag = 9.81);
 
   /**
    * @brief Given tracked features, this will try to use them to update the state.
@@ -69,10 +71,13 @@ public:
    * @param feature_vec Features that can be used for update
    */
   void update(std::shared_ptr<State> state, std::vector<std::shared_ptr<ov_core::Feature>> &feature_vec,
-              const MeasurementBlock *ltv_block = nullptr, LtvDiagnostics *diagnostics = nullptr,
-              const std::function<void(const MeasurementBlock &)> &before_update = {});
+              const LtvFrame *ltv_frame = nullptr, LtvDiagnostics *diagnostics = nullptr);
 
 protected:
+  void update_joint(const std::shared_ptr<State> &, const MeasurementBlock &, const LtvFrame *, LtvDiagnostics *);
+  UpdaterLTV ltv_model_;
+  std::weak_ptr<State> last_ltv_state_;
+  uint64_t last_ltv_epoch_ = 0, last_ltv_sequence_ = 0;
   /// Options used during update
   UpdaterOptions _options;
 

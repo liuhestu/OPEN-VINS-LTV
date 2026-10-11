@@ -1,5 +1,5 @@
-#include "ltv/landmark_adapter/LtvLandmarkManager.h"
-#include "ltv/observer/ltv_observer.h"
+#include "ltv/features/LtvFeatureManager.h"
+#include "ltv/observer/LtvObserver.h"
 #include <iostream>
 #include <stdexcept>
 using namespace ltv;
@@ -40,7 +40,7 @@ static std::map<size_t, ActiveConsistencyResult> result(bool evaluable, bool pas
                         : ActiveConsistencyReason::HistoryInconsistent;
   return {{42, r}};
 }
-static LtvControlledResult camera(LtvObserver &core, const LandmarkManagerFrame &frame) {
+static bool camera(LtvObserver &core, const LandmarkManagerFrame &frame) {
   LtvControlledFeatures c;
   c.imu_timestamp = frame.time;
   c.epoch = frame.epoch;
@@ -60,13 +60,13 @@ static LtvControlledResult camera(LtvObserver &core, const LandmarkManagerFrame 
     a.normalized_coordinate = o.bearing;
     z.push_back(a);
   }
-  return core.updateFeaturesControlled(frame.time, frame.time, z, Eigen::Matrix3d::Identity(), Eigen::Vector3d(.05, -.02, .03), c);
+  return core.synchronize(c) && core.correct(.05, z, Eigen::Matrix3d::Identity(), Eigen::Vector3d(.05, -.02, .03));
 }
 int main() {
   for (bool bounded : {false, true}) {
-    LandmarkManagerConfig c;
+    LtvFeatureManagerConfig c;
     c.bounded_memory = bounded;
-    LtvLandmarkManager m(c);
+    LtvFeatureManager m(c);
     for (int k = 0; k < 2; ++k)
       check(m.step(0, .05 * k, k + 1, {obs()}, {seed(.05 * k)}).births.empty(), "causal history before birth");
     auto born = m.step(0, .1, 3, {obs()}, {seed(.1)});
@@ -81,7 +81,8 @@ int main() {
               skipped.active_consistency[0].fail_count == 1,
           "typed skip count");
     check(m.landmarks().at(42).missed_frames == 0 && m.history().find(42)->samples.back().time == .2, "reject remains raw visible history");
-    check((m.history().find(42)->samples.back().observations[0].bearing - obs().bearing.normalized()).norm() == 0, "rejected raw ray preserved");
+    check((m.history().find(42)->samples.back().observations[0].bearing - obs().bearing.normalized()).norm() == 0,
+          "rejected raw ray preserved");
     auto unavailable = m.step(0, .25, 6, {obs()}, {}, true, &unknown);
     check(unavailable.observations.size() == 1 && m.landmarks().at(42).consistency_fail_count == 1,
           "unevaluable preserves count allows observation");
@@ -100,21 +101,18 @@ int main() {
     coreconfig.enable = true;
     LtvObserver core;
     core.configure(coreconfig);
-    core.start(.1);
-    check(core.enableControlledFeatures(0), "controlled enable");
-    check(camera(core, born).accepted, "controlled birth");
+    check(camera(core, born), "controlled birth");
     for (int k = 0; k < 20; ++k)
-      core.propagateImu(.005, Eigen::Vector3d(.3, -.1, -9.81), Eigen::Vector3d(.1, .2, -.1), Eigen::Vector3d::Zero(),
-                        Eigen::Vector3d::Zero());
+      core.propagateImu(.005, Eigen::Vector3d(.3, -.1, -9.81), Eigen::Vector3d(.1, .2, -.1));
     const Eigen::VectorXd x = core.state();
     const Eigen::MatrixXd P = core.covariance();
     check(P.block<3, 6>(0, 3).norm() > 1e-4, "nonzero point shared cross blocks exist");
     auto core_skip = camera(core, skipped);
-    check(core_skip.accepted && core.slotForFeature(42) == 0, "skip retained actual slot");
+    check(core_skip && core.slotForFeature(42) == 0, "skip retained actual slot");
     check((core.state() - x).norm() == 0, "no external mean patch and no skipped correction");
     check((core.covariance() - P).norm() < 1e-10 * std::max(1., P.norm()),
-          "full covariance including cross blocks preserved within sanitizer roundoff");
-    check(core_skip.snapshot.camera_substeps == 0, "no actual observation correction for all-skipped packet");
+          "full covariance including cross blocks preserved exactly after synchronization");
+    check(core.snapshot().observed_features == 0, "no actual observation correction for all-skipped packet");
   }
   std::cout << "active consistency lifecycle PASS\n";
 }

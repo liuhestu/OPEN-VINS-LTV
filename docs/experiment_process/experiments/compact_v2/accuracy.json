@@ -1,0 +1,3158 @@
+[
+  {
+    "sequence": "MH_01_easy",
+    "mode": "OFF",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_01_easy_OFF_20261011T161109Z_ca80b241",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 2784,
+    "cost": {
+      "camera_api_p50_ms": 4.2729625,
+      "camera_api_p95_ms": 6.841190050000001,
+      "camera_api_p99_ms": 8.55766545,
+      "full_wall_s": 31.31,
+      "full_cpu_s": 29.65,
+      "peak_rss_kb": 91488
+    },
+    "trajectory_sha256": "22571ff5569c1a6aefdc08aabbd9f085bdfc3aee6a9fe48a336c16c3f2b14800",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_01_easy",
+    "mode": "G",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_01_easy_G_20261011T161109Z_8da62e3e",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 16,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 2298,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 898,
+      "V:disabled": 3682,
+      "L:disabled": 3682,
+      "G:warmup_or_core_invalid": 35,
+      "G:not_ready_G": 451,
+      "G:accepted": 2298
+    },
+    "ekf_calls": 2712,
+    "nis": {
+      "G": {
+        "samples": 2298,
+        "p50": 0.0029962740977379004,
+        "p95": 0.017513603009516193
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 2298,
+        "p50": 5.026489069789243,
+        "p95": 53.74778871045596
+      }
+    },
+    "estimated_rows": 2784,
+    "cost": {
+      "camera_api_p50_ms": 23.622008,
+      "camera_api_p95_ms": 37.40841639999999,
+      "camera_api_p99_ms": 41.32060978,
+      "full_wall_s": 90.34,
+      "full_cpu_s": 89.83,
+      "peak_rss_kb": 110240
+    },
+    "trajectory_sha256": "70b492a105d1e2e0cf94b752d152bc73585b3902dc2ca5aa28d9dc1090c3e580",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_01_easy",
+    "mode": "V",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_01_easy_V_20261011T161109Z_7c3192d9",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 0,
+      "V": 49,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 2288,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 3682,
+      "V:disabled": 898,
+      "L:disabled": 3682,
+      "V:warmup_or_core_invalid": 35,
+      "V:not_ready_V": 461,
+      "V:accepted": 2288
+    },
+    "ekf_calls": 2711,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 2288,
+        "p50": 0.08675916836627695,
+        "p95": 0.5180514642461578
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 2288,
+        "p50": 5.096699272892625,
+        "p95": 54.42058793817164
+      }
+    },
+    "estimated_rows": 2784,
+    "cost": {
+      "camera_api_p50_ms": 23.527758,
+      "camera_api_p95_ms": 37.036837549999994,
+      "camera_api_p99_ms": 41.33196478,
+      "full_wall_s": 90.04,
+      "full_cpu_s": 89.55,
+      "peak_rss_kb": 110380
+    },
+    "trajectory_sha256": "0cde520a5ebb0ae7e6bdb29a7fff167670fe279268dfa5bb9b5a94b3403d94fb",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_01_easy",
+    "mode": "L",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_01_easy_L_20261011T161109Z_6d2fe755",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 2288
+    },
+    "rejections": {
+      "G:disabled": 3682,
+      "V:disabled": 3682,
+      "L:disabled": 898,
+      "L:warmup_or_core_invalid": 35,
+      "L:no_candidates": 461,
+      "L:accepted": 2288
+    },
+    "ekf_calls": 2713,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 2288,
+        "p50": 0.004744417930803175,
+        "p95": 0.05632203760775839
+      },
+      "joint": {
+        "samples": 2288,
+        "p50": 5.00908943302289,
+        "p95": 53.582681308576554
+      }
+    },
+    "estimated_rows": 2784,
+    "cost": {
+      "camera_api_p50_ms": 23.408194,
+      "camera_api_p95_ms": 37.09399895,
+      "camera_api_p99_ms": 41.385484410000004,
+      "full_wall_s": 89.82,
+      "full_cpu_s": 89.31,
+      "peak_rss_kb": 110456
+    },
+    "trajectory_sha256": "f8783637b760b301a5c21b2122a9dfe60168f8d98455926c9fe00e4d1838088d",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_01_easy",
+    "mode": "GVL",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_01_easy_GVL_20261011T161239Z_4a8ea7ee",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 2,
+      "V": 49,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 2297,
+      "V": 2288,
+      "L": 2288
+    },
+    "rejections": {
+      "G:disabled": 898,
+      "V:disabled": 898,
+      "L:disabled": 898,
+      "G:warmup_or_core_invalid": 35,
+      "V:warmup_or_core_invalid": 35,
+      "L:warmup_or_core_invalid": 35,
+      "G:not_ready_G": 452,
+      "V:not_ready_V": 461,
+      "L:no_candidates": 461,
+      "G:accepted": 2297,
+      "V:accepted": 2288,
+      "L:accepted": 2288
+    },
+    "ekf_calls": 2713,
+    "nis": {
+      "G": {
+        "samples": 2297,
+        "p50": 0.0003712324889756502,
+        "p95": 0.0021134361450627645
+      },
+      "V": {
+        "samples": 2288,
+        "p50": 0.0868647946535235,
+        "p95": 0.518107178812496
+      },
+      "L": {
+        "samples": 2288,
+        "p50": 0.004625476211298376,
+        "p95": 0.05490898942526838
+      },
+      "joint": {
+        "samples": 2305,
+        "p50": 5.197861258704818,
+        "p95": 53.86972362276411
+      }
+    },
+    "estimated_rows": 2784,
+    "cost": {
+      "camera_api_p50_ms": 23.594049,
+      "camera_api_p95_ms": 37.2957213,
+      "camera_api_p99_ms": 41.49279436,
+      "full_wall_s": 89.34,
+      "full_cpu_s": 89.34,
+      "peak_rss_kb": 109516
+    },
+    "trajectory_sha256": "cd2847b3f4c0780b5109604b17ee610aedb6ae69600e1057fb393f754ca608ad",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_02_easy",
+    "mode": "GVL",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_02_easy_GVL_20261011T161239Z_e1a41a29",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 2,
+      "V": 49,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 1494,
+      "V": 1474,
+      "L": 1474
+    },
+    "rejections": {
+      "G:disabled": 781,
+      "V:disabled": 781,
+      "L:disabled": 781,
+      "G:warmup_or_core_invalid": 41,
+      "V:warmup_or_core_invalid": 41,
+      "L:warmup_or_core_invalid": 41,
+      "G:not_ready_G": 724,
+      "V:not_ready_V": 744,
+      "L:no_candidates": 744,
+      "G:accepted": 1494,
+      "V:accepted": 1474,
+      "L:accepted": 1474
+    },
+    "ekf_calls": 2159,
+    "nis": {
+      "G": {
+        "samples": 1494,
+        "p50": 0.000377972089218897,
+        "p95": 0.002597690777628935
+      },
+      "V": {
+        "samples": 1474,
+        "p50": 0.08418093936497384,
+        "p95": 0.7637486249624432
+      },
+      "L": {
+        "samples": 1474,
+        "p50": 0.0066317924958827126,
+        "p95": 0.06515256615093015
+      },
+      "joint": {
+        "samples": 1499,
+        "p50": 4.016733196699551,
+        "p95": 52.43243801750633
+      }
+    },
+    "estimated_rows": 2259,
+    "cost": {
+      "camera_api_p50_ms": 23.780305,
+      "camera_api_p95_ms": 36.666992949999994,
+      "camera_api_p99_ms": 42.717575080000024,
+      "full_wall_s": 76.05,
+      "full_cpu_s": 74.68,
+      "peak_rss_kb": 108632
+    },
+    "trajectory_sha256": "22a925ad100b84eccfdcf09b2a79ded8987d40f5a7225ab850dc954a61e215ba",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_02_easy",
+    "mode": "L",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_02_easy_L_20261011T161239Z_ad756393",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 1474
+    },
+    "rejections": {
+      "G:disabled": 3040,
+      "V:disabled": 3040,
+      "L:disabled": 781,
+      "L:warmup_or_core_invalid": 41,
+      "L:no_candidates": 744,
+      "L:accepted": 1474
+    },
+    "ekf_calls": 2151,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 1474,
+        "p50": 0.006679368730544869,
+        "p95": 0.068089584046178
+      },
+      "joint": {
+        "samples": 1474,
+        "p50": 3.7793953024354603,
+        "p95": 53.11191713929625
+      }
+    },
+    "estimated_rows": 2259,
+    "cost": {
+      "camera_api_p50_ms": 23.7640725,
+      "camera_api_p95_ms": 36.38265524999999,
+      "camera_api_p99_ms": 43.11448708000002,
+      "full_wall_s": 76.05,
+      "full_cpu_s": 74.74,
+      "peak_rss_kb": 108636
+    },
+    "trajectory_sha256": "02ffc4b7be0e49b754e847db780672eb51bd0265b15a430850eedb73824262d7",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_02_easy",
+    "mode": "V",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_02_easy_V_20261011T161239Z_898dd9d6",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 0,
+      "V": 49,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 1474,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 3040,
+      "V:disabled": 781,
+      "L:disabled": 3040,
+      "V:warmup_or_core_invalid": 41,
+      "V:not_ready_V": 744,
+      "V:accepted": 1474
+    },
+    "ekf_calls": 2151,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 1474,
+        "p50": 0.0839911967234735,
+        "p95": 0.7675078847668151
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 1474,
+        "p50": 3.974505186564163,
+        "p95": 52.612052357497895
+      }
+    },
+    "estimated_rows": 2259,
+    "cost": {
+      "camera_api_p50_ms": 23.777282,
+      "camera_api_p95_ms": 36.02002689999998,
+      "camera_api_p99_ms": 42.34657190000001,
+      "full_wall_s": 76.05,
+      "full_cpu_s": 74.56,
+      "peak_rss_kb": 107668
+    },
+    "trajectory_sha256": "12f5dc57e48017fec1541b17637ef44276f04e384abcefb239e519599eead729",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_02_easy",
+    "mode": "G",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_02_easy_G_20261011T161409Z_f18fc63c",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 16,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 1494,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 781,
+      "V:disabled": 3040,
+      "L:disabled": 3040,
+      "G:warmup_or_core_invalid": 41,
+      "G:not_ready_G": 724,
+      "G:accepted": 1494
+    },
+    "ekf_calls": 2158,
+    "nis": {
+      "G": {
+        "samples": 1494,
+        "p50": 0.003095275107423706,
+        "p95": 0.02061638669083087
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 1494,
+        "p50": 3.74048918640469,
+        "p95": 51.28042446342112
+      }
+    },
+    "estimated_rows": 2259,
+    "cost": {
+      "camera_api_p50_ms": 22.937404,
+      "camera_api_p95_ms": 35.47660934999999,
+      "camera_api_p99_ms": 41.54598261000001,
+      "full_wall_s": 72.11,
+      "full_cpu_s": 72.08,
+      "peak_rss_kb": 109440
+    },
+    "trajectory_sha256": "92e2d4e736876cbd2404762e38e4c46e6138446a91d9881958f437101d8451b3",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_02_easy",
+    "mode": "OFF",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_02_easy_OFF_20261011T161409Z_5c252eb2",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 2259,
+    "cost": {
+      "camera_api_p50_ms": 4.518889,
+      "camera_api_p95_ms": 7.2194306,
+      "camera_api_p99_ms": 8.723627480000001,
+      "full_wall_s": 24.19,
+      "full_cpu_s": 24.19,
+      "peak_rss_kb": 88128
+    },
+    "trajectory_sha256": "d83a528461a8379f5a8b3f057ca8b02a1f88ff462615a476685958211103d8aa",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_03_medium",
+    "mode": "OFF",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_03_medium_OFF_20261011T161409Z_808e02b7",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 2311,
+    "cost": {
+      "camera_api_p50_ms": 5.131905,
+      "camera_api_p95_ms": 7.549602999999998,
+      "camera_api_p99_ms": 8.985666429999995,
+      "full_wall_s": 24.85,
+      "full_cpu_s": 23.68,
+      "peak_rss_kb": 87692
+    },
+    "trajectory_sha256": "d17999987a0c01dda17ebfc465b9f4e21c4d1572e06e1c34a0ab65be87cc8c80",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_03_medium",
+    "mode": "G",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_03_medium_G_20261011T161409Z_41c6e2ec",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 16,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 2074,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 389,
+      "V:disabled": 2700,
+      "L:disabled": 2700,
+      "G:warmup_or_core_invalid": 111,
+      "G:not_ready_G": 126,
+      "G:accepted": 2074
+    },
+    "ekf_calls": 2270,
+    "nis": {
+      "G": {
+        "samples": 2074,
+        "p50": 0.005008657130083179,
+        "p95": 0.053829126389536894
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 2074,
+        "p50": 12.887279537801414,
+        "p95": 65.49073073681373
+      }
+    },
+    "estimated_rows": 2311,
+    "cost": {
+      "camera_api_p50_ms": 21.933462,
+      "camera_api_p95_ms": 33.4181502,
+      "camera_api_p99_ms": 35.86612118999998,
+      "full_wall_s": 65.39,
+      "full_cpu_s": 65.16,
+      "peak_rss_kb": 104420
+    },
+    "trajectory_sha256": "db855b09860429db695d5cc645bf8a0c40be2ed91938be7dd7a62c76f99b6f3b",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_03_medium",
+    "mode": "V",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_03_medium_V_20261011T161521Z_32d25f2f",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 0,
+      "V": 49,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 1935,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 2700,
+      "V:disabled": 389,
+      "L:disabled": 2700,
+      "V:warmup_or_core_invalid": 111,
+      "V:not_ready_V": 265,
+      "V:accepted": 1935
+    },
+    "ekf_calls": 2255,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 1935,
+        "p50": 0.13427944519913426,
+        "p95": 0.850536397974238
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 1935,
+        "p50": 12.873569589491433,
+        "p95": 65.58154459446965
+      }
+    },
+    "estimated_rows": 2311,
+    "cost": {
+      "camera_api_p50_ms": 22.077689,
+      "camera_api_p95_ms": 33.910218349999994,
+      "camera_api_p99_ms": 36.82151231999997,
+      "full_wall_s": 65.83,
+      "full_cpu_s": 65.82000000000001,
+      "peak_rss_kb": 105996
+    },
+    "trajectory_sha256": "87c4d69cb1b50a0b6364bb57e352d4981dddf666cd1e6eb334605ce8b5a684e9",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_03_medium",
+    "mode": "L",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_03_medium_L_20261011T161521Z_666f744e",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 1918
+    },
+    "rejections": {
+      "G:disabled": 2700,
+      "V:disabled": 2700,
+      "L:disabled": 389,
+      "L:warmup_or_core_invalid": 111,
+      "L:no_candidates": 282,
+      "L:accepted": 1918
+    },
+    "ekf_calls": 2245,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 1918,
+        "p50": 0.015365730142084193,
+        "p95": 0.07716639489808018
+      },
+      "joint": {
+        "samples": 1918,
+        "p50": 12.677705900861257,
+        "p95": 65.45551435629395
+      }
+    },
+    "estimated_rows": 2311,
+    "cost": {
+      "camera_api_p50_ms": 22.2626645,
+      "camera_api_p95_ms": 33.9565585,
+      "camera_api_p99_ms": 36.681251069999995,
+      "full_wall_s": 66.01,
+      "full_cpu_s": 65.99,
+      "peak_rss_kb": 107444
+    },
+    "trajectory_sha256": "b96616f9f99e81896e53d4be6bb93e6091c95eaaadd92130fd8f710b665a3221",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_03_medium",
+    "mode": "GVL",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_03_medium_GVL_20261011T161521Z_6514a20e",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 2,
+      "V": 49,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 2074,
+      "V": 1935,
+      "L": 1934
+    },
+    "rejections": {
+      "G:disabled": 389,
+      "V:disabled": 389,
+      "L:disabled": 389,
+      "G:warmup_or_core_invalid": 111,
+      "V:warmup_or_core_invalid": 111,
+      "L:warmup_or_core_invalid": 111,
+      "G:not_ready_G": 126,
+      "V:not_ready_V": 265,
+      "L:no_candidates": 266,
+      "G:accepted": 2074,
+      "V:accepted": 1935,
+      "L:accepted": 1934
+    },
+    "ekf_calls": 2270,
+    "nis": {
+      "G": {
+        "samples": 2074,
+        "p50": 0.0006401797743307438,
+        "p95": 0.0069369945672567565
+      },
+      "V": {
+        "samples": 1935,
+        "p50": 0.1337554977895593,
+        "p95": 0.8478490429711287
+      },
+      "L": {
+        "samples": 1934,
+        "p50": 0.01526513107208666,
+        "p95": 0.07661181193294804
+      },
+      "joint": {
+        "samples": 2076,
+        "p50": 13.189951225448377,
+        "p95": 66.24520488209549
+      }
+    },
+    "estimated_rows": 2311,
+    "cost": {
+      "camera_api_p50_ms": 22.247755,
+      "camera_api_p95_ms": 33.815614149999995,
+      "camera_api_p99_ms": 36.80458216999996,
+      "full_wall_s": 65.96,
+      "full_cpu_s": 65.96,
+      "peak_rss_kb": 108424
+    },
+    "trajectory_sha256": "0e11898969ff6742bc91c6ee469b437217dd7b367d28417196969cd118a3f042",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "GVL",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_05_difficult_GVL_20261011T161521Z_3a77369d",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 2,
+      "V": 49,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 1638,
+      "V": 1577,
+      "L": 1577
+    },
+    "rejections": {
+      "G:disabled": 424,
+      "V:disabled": 424,
+      "L:disabled": 424,
+      "G:warmup_or_core_invalid": 97,
+      "V:warmup_or_core_invalid": 97,
+      "L:warmup_or_core_invalid": 97,
+      "G:not_ready_G": 109,
+      "V:not_ready_V": 170,
+      "L:no_candidates": 170,
+      "G:accepted": 1638,
+      "V:accepted": 1577,
+      "L:accepted": 1577,
+      "G:time_or_token": 5,
+      "V:time_or_token": 5,
+      "L:time_or_token": 5
+    },
+    "ekf_calls": 1793,
+    "nis": {
+      "G": {
+        "samples": 1638,
+        "p50": 0.000684303752402478,
+        "p95": 0.003899452943199401
+      },
+      "V": {
+        "samples": 1577,
+        "p50": 0.15573183362064114,
+        "p95": 1.162048037022032
+      },
+      "L": {
+        "samples": 1577,
+        "p50": 0.015193758032227406,
+        "p95": 0.10107217342631372
+      },
+      "joint": {
+        "samples": 1640,
+        "p50": 11.819668029988696,
+        "p95": 56.61429070014221
+      }
+    },
+    "estimated_rows": 1849,
+    "cost": {
+      "camera_api_p50_ms": 24.503936,
+      "camera_api_p95_ms": 33.6256928,
+      "camera_api_p99_ms": 37.46490464000001,
+      "full_wall_s": 57.31,
+      "full_cpu_s": 56.89,
+      "peak_rss_kb": 106784
+    },
+    "trajectory_sha256": "c4336b0f4205ed4240e1a5a40d0285d409f58db2ef3c1d89278c1db2fedf0d47",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "L",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_05_difficult_L_20261011T161627Z_a8639e26",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 1574
+    },
+    "rejections": {
+      "G:disabled": 2273,
+      "V:disabled": 2273,
+      "L:disabled": 424,
+      "L:warmup_or_core_invalid": 98,
+      "L:no_candidates": 172,
+      "L:accepted": 1574,
+      "L:time_or_token": 5
+    },
+    "ekf_calls": 1787,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 1574,
+        "p50": 0.015872730391138706,
+        "p95": 0.09918331424496432
+      },
+      "joint": {
+        "samples": 1574,
+        "p50": 11.221727248064813,
+        "p95": 55.95156195195862
+      }
+    },
+    "estimated_rows": 1849,
+    "cost": {
+      "camera_api_p50_ms": 24.146799,
+      "camera_api_p95_ms": 33.0582196,
+      "camera_api_p99_ms": 36.62734636000003,
+      "full_wall_s": 56.17,
+      "full_cpu_s": 56.0,
+      "peak_rss_kb": 104136
+    },
+    "trajectory_sha256": "8bdf5be9f615477e93cb8d649a34ac5ec8b06f122be58d24e7ca0a42b0937f74",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "V",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_05_difficult_V_20261011T161627Z_677f2be4",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 0,
+      "V": 49,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 1577,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 2273,
+      "V:disabled": 424,
+      "L:disabled": 2273,
+      "V:warmup_or_core_invalid": 98,
+      "V:not_ready_V": 169,
+      "V:accepted": 1577,
+      "V:time_or_token": 5
+    },
+    "ekf_calls": 1785,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 1577,
+        "p50": 0.15538626385130844,
+        "p95": 1.1640436388391253
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 1577,
+        "p50": 11.670778170777869,
+        "p95": 56.12602438349095
+      }
+    },
+    "estimated_rows": 1849,
+    "cost": {
+      "camera_api_p50_ms": 24.073608,
+      "camera_api_p95_ms": 33.10268160000001,
+      "camera_api_p99_ms": 36.64022104000002,
+      "full_wall_s": 56.2,
+      "full_cpu_s": 56.02,
+      "peak_rss_kb": 104864
+    },
+    "trajectory_sha256": "6af7ea6d223ecbc001f4c0fe64281c874846227341ee8da6cac3996b61533ff5",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "G",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_05_difficult_G_20261011T161627Z_630d3ae2",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 16,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 1638,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 424,
+      "V:disabled": 2273,
+      "L:disabled": 2273,
+      "G:warmup_or_core_invalid": 98,
+      "G:not_ready_G": 108,
+      "G:accepted": 1638,
+      "G:time_or_token": 5
+    },
+    "ekf_calls": 1792,
+    "nis": {
+      "G": {
+        "samples": 1638,
+        "p50": 0.0054715214350911645,
+        "p95": 0.03149535535851617
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 1638,
+        "p50": 11.473915277118275,
+        "p95": 55.95826092616779
+      }
+    },
+    "estimated_rows": 1849,
+    "cost": {
+      "camera_api_p50_ms": 24.016845,
+      "camera_api_p95_ms": 32.763909000000005,
+      "camera_api_p99_ms": 36.67757420000001,
+      "full_wall_s": 55.89,
+      "full_cpu_s": 55.73,
+      "peak_rss_kb": 105252
+    },
+    "trajectory_sha256": "597547d555cb969721b20bccfc4c5705bded33154c576f9d76fb933004b35172",
+    "status": "PASS"
+  },
+  {
+    "sequence": "MH_05_difficult",
+    "mode": "OFF",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/MH_05_difficult_OFF_20261011T161627Z_2fff3c59",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 1849,
+    "cost": {
+      "camera_api_p50_ms": 4.784271,
+      "camera_api_p95_ms": 7.325296400000001,
+      "camera_api_p99_ms": 8.953911080000028,
+      "full_wall_s": 18.71,
+      "full_cpu_s": 18.44,
+      "peak_rss_kb": 89404
+    },
+    "trajectory_sha256": "69cf97655e03066d2d8e24564c665ec119740067a2300e184db420753462119e",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "OFF",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_01_easy_OFF_20261011T161723Z_5bd66c0e",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 2800,
+    "cost": {
+      "camera_api_p50_ms": 5.1597325,
+      "camera_api_p95_ms": 7.9015499,
+      "camera_api_p99_ms": 9.624056539999998,
+      "full_wall_s": 27.16,
+      "full_cpu_s": 26.2,
+      "peak_rss_kb": 88652
+    },
+    "trajectory_sha256": "432d948bfabc214773839e549781bfd73996c5d35be828a2f415366b7f11a313",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "G",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_01_easy_G_20261011T161723Z_a026ec34",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 1,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 2413,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 112,
+      "V:disabled": 2912,
+      "L:disabled": 2912,
+      "G:warmup_or_core_invalid": 22,
+      "G:not_ready_G": 365,
+      "G:accepted": 2413
+    },
+    "ekf_calls": 2769,
+    "nis": {
+      "G": {
+        "samples": 2413,
+        "p50": 6.753273866873165e-05,
+        "p95": 0.0004728696135279566
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 2413,
+        "p50": 11.665594143653248,
+        "p95": 55.14921092572342
+      }
+    },
+    "estimated_rows": 2800,
+    "cost": {
+      "camera_api_p50_ms": 14.459026000000001,
+      "camera_api_p95_ms": 23.070747849999997,
+      "camera_api_p99_ms": 26.112807379999992,
+      "full_wall_s": 55.85,
+      "full_cpu_s": 55.589999999999996,
+      "peak_rss_kb": 101988
+    },
+    "trajectory_sha256": "545c4228a42febcb6efe2ccbd5a0c84017c19158b25954cbff8f7cfffe3a485a",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "V",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_01_easy_V_20261011T161723Z_b2106aca",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 0,
+      "V": 6,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 2394,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 2912,
+      "V:disabled": 112,
+      "L:disabled": 2912,
+      "V:warmup_or_core_invalid": 22,
+      "V:not_ready_V": 384,
+      "V:accepted": 2394
+    },
+    "ekf_calls": 2766,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 2394,
+        "p50": 0.002753634789927931,
+        "p95": 0.01860225555084733
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 2394,
+        "p50": 11.544927251844346,
+        "p95": 55.27381937149711
+      }
+    },
+    "estimated_rows": 2800,
+    "cost": {
+      "camera_api_p50_ms": 14.507394000000001,
+      "camera_api_p95_ms": 22.8440074,
+      "camera_api_p99_ms": 25.768362989999993,
+      "full_wall_s": 55.75,
+      "full_cpu_s": 55.52,
+      "peak_rss_kb": 100496
+    },
+    "trajectory_sha256": "ea218e37b04d6d852f502eee8948387d38324814c2dfc8697e8bc82c3900f3a6",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "L",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_01_easy_L_20261011T161723Z_124e34d6",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 2393
+    },
+    "rejections": {
+      "G:disabled": 2912,
+      "V:disabled": 2912,
+      "L:disabled": 112,
+      "L:warmup_or_core_invalid": 22,
+      "L:no_candidates": 385,
+      "L:accepted": 2393
+    },
+    "ekf_calls": 2766,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 2393,
+        "p50": 0.00259212763717358,
+        "p95": 0.01946444776589471
+      },
+      "joint": {
+        "samples": 2393,
+        "p50": 11.643252134189014,
+        "p95": 55.56142391112397
+      }
+    },
+    "estimated_rows": 2800,
+    "cost": {
+      "camera_api_p50_ms": 14.583424,
+      "camera_api_p95_ms": 23.02966695,
+      "camera_api_p99_ms": 25.719806809999994,
+      "full_wall_s": 55.82,
+      "full_cpu_s": 55.68,
+      "peak_rss_kb": 100992
+    },
+    "trajectory_sha256": "2edb302da167c9246bb21421b724a59e6c89737721f105ce10c934975a5c496c",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_01_easy",
+    "mode": "GVL",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_01_easy_GVL_20261011T161819Z_ba4152cc",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 1,
+      "V": 1,
+      "L": 1
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 2413,
+      "V": 2394,
+      "L": 2393
+    },
+    "rejections": {
+      "G:disabled": 112,
+      "V:disabled": 112,
+      "L:disabled": 112,
+      "G:warmup_or_core_invalid": 22,
+      "V:warmup_or_core_invalid": 22,
+      "L:warmup_or_core_invalid": 22,
+      "G:not_ready_G": 365,
+      "V:not_ready_V": 384,
+      "L:no_candidates": 385,
+      "G:accepted": 2413,
+      "V:accepted": 2394,
+      "L:accepted": 2393
+    },
+    "ekf_calls": 2770,
+    "nis": {
+      "G": {
+        "samples": 2413,
+        "p50": 6.753026480975374e-05,
+        "p95": 0.0004728783145244642
+      },
+      "V": {
+        "samples": 2394,
+        "p50": 0.0004590195923066004,
+        "p95": 0.003108023703106251
+      },
+      "L": {
+        "samples": 2393,
+        "p50": 0.0005737672425679886,
+        "p95": 0.004415880665997231
+      },
+      "joint": {
+        "samples": 2418,
+        "p50": 11.550877768404762,
+        "p95": 55.44237196527196
+      }
+    },
+    "estimated_rows": 2800,
+    "cost": {
+      "camera_api_p50_ms": 14.2155475,
+      "camera_api_p95_ms": 22.60446505,
+      "camera_api_p99_ms": 25.42790960999999,
+      "full_wall_s": 54.63,
+      "full_cpu_s": 54.62,
+      "peak_rss_kb": 104300
+    },
+    "trajectory_sha256": "caa36f28e4118451828af4dbbb6ecf2beec132d455bfbcf0d0ad3e744ead6f44",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_02_medium",
+    "mode": "GVL",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_02_medium_GVL_20261011T161819Z_81837722",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 1,
+      "V": 1,
+      "L": 1
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 933,
+      "V": 909,
+      "L": 907
+    },
+    "rejections": {
+      "G:disabled": 99,
+      "V:disabled": 99,
+      "L:disabled": 99,
+      "G:warmup_or_core_invalid": 129,
+      "V:warmup_or_core_invalid": 129,
+      "L:warmup_or_core_invalid": 129,
+      "G:not_ready_G": 549,
+      "V:not_ready_V": 573,
+      "L:no_candidates": 575,
+      "G:accepted": 933,
+      "V:accepted": 909,
+      "L:accepted": 907
+    },
+    "ekf_calls": 1575,
+    "nis": {
+      "G": {
+        "samples": 933,
+        "p50": 0.00012849724453759713,
+        "p95": 0.0008812330260284105
+      },
+      "V": {
+        "samples": 909,
+        "p50": 0.0008355884315659754,
+        "p95": 0.005421012190657327
+      },
+      "L": {
+        "samples": 907,
+        "p50": 0.0016255328202968962,
+        "p95": 0.008600066682786785
+      },
+      "joint": {
+        "samples": 946,
+        "p50": 22.960856415165036,
+        "p95": 64.60911385851631
+      }
+    },
+    "estimated_rows": 1611,
+    "cost": {
+      "camera_api_p50_ms": 12.423921,
+      "camera_api_p95_ms": 21.598765349999997,
+      "camera_api_p99_ms": 24.973405780000004,
+      "full_wall_s": 30.05,
+      "full_cpu_s": 29.24,
+      "peak_rss_kb": 97820
+    },
+    "trajectory_sha256": "e3b53522c80a1be7de15b563d3d089de52d4a0a23a830a7abe5d3a4fd808b1ec",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_02_medium",
+    "mode": "L",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_02_medium_L_20261011T161819Z_55830097",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 907
+    },
+    "rejections": {
+      "G:disabled": 1710,
+      "V:disabled": 1710,
+      "L:disabled": 99,
+      "L:warmup_or_core_invalid": 129,
+      "L:no_candidates": 575,
+      "L:accepted": 907
+    },
+    "ekf_calls": 1575,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 907,
+        "p50": 0.007195430715435465,
+        "p95": 0.03680761720947995
+      },
+      "joint": {
+        "samples": 907,
+        "p50": 22.18358123768254,
+        "p95": 64.28690215363669
+      }
+    },
+    "estimated_rows": 1611,
+    "cost": {
+      "camera_api_p50_ms": 12.477161,
+      "camera_api_p95_ms": 21.9431922,
+      "camera_api_p99_ms": 27.77272719,
+      "full_wall_s": 30.22,
+      "full_cpu_s": 29.400000000000002,
+      "peak_rss_kb": 99012
+    },
+    "trajectory_sha256": "250fedc266f4ccb99fed6ea2a9631f78842768ceec72fe0b2422f397f6f33309",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_02_medium",
+    "mode": "V",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_02_medium_V_20261011T161819Z_d3c9bdc8",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 0,
+      "V": 6,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 909,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 1710,
+      "V:disabled": 99,
+      "L:disabled": 1710,
+      "V:warmup_or_core_invalid": 129,
+      "V:not_ready_V": 573,
+      "V:accepted": 909
+    },
+    "ekf_calls": 1575,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 909,
+        "p50": 0.005007233708200026,
+        "p95": 0.032483463951429384
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 909,
+        "p50": 22.273307394203794,
+        "p95": 64.40775797230113
+      }
+    },
+    "estimated_rows": 1611,
+    "cost": {
+      "camera_api_p50_ms": 12.3768535,
+      "camera_api_p95_ms": 21.57499505,
+      "camera_api_p99_ms": 24.86236583,
+      "full_wall_s": 30.04,
+      "full_cpu_s": 29.12,
+      "peak_rss_kb": 99032
+    },
+    "trajectory_sha256": "667591058cd954c6d00561aa3317c159c744100dd616f779c1c575ca8013769a",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_02_medium",
+    "mode": "G",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_02_medium_G_20261011T161914Z_2d960745",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 1,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 933,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 99,
+      "V:disabled": 1710,
+      "L:disabled": 1710,
+      "G:warmup_or_core_invalid": 129,
+      "G:not_ready_G": 549,
+      "G:accepted": 933
+    },
+    "ekf_calls": 1575,
+    "nis": {
+      "G": {
+        "samples": 933,
+        "p50": 0.00012851018762403512,
+        "p95": 0.0008810455200940854
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 933,
+        "p50": 23.058707769532603,
+        "p95": 65.8284870925436
+      }
+    },
+    "estimated_rows": 1611,
+    "cost": {
+      "camera_api_p50_ms": 11.5761955,
+      "camera_api_p95_ms": 21.15514005,
+      "camera_api_p99_ms": 24.58372195,
+      "full_wall_s": 27.82,
+      "full_cpu_s": 27.82,
+      "peak_rss_kb": 101128
+    },
+    "trajectory_sha256": "fbc5c1ace236bbba949a8dac0c07367843b402579b7c66d20eb1c0f2209bedbd",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_02_medium",
+    "mode": "OFF",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_02_medium_OFF_20261011T161914Z_c2dacaa6",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 1611,
+    "cost": {
+      "camera_api_p50_ms": 5.623722,
+      "camera_api_p95_ms": 7.826723599999999,
+      "camera_api_p99_ms": 8.963939150000016,
+      "full_wall_s": 15.4,
+      "full_cpu_s": 15.39,
+      "peak_rss_kb": 87764
+    },
+    "trajectory_sha256": "28d71de48bb0c1746c77e84aff1d1f68167609c7f8d76e0429d47066c0046d2d",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "mode": "OFF",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_03_difficult_OFF_20261011T161914Z_4bda1335",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 2005,
+    "cost": {
+      "camera_api_p50_ms": 5.538242,
+      "camera_api_p95_ms": 7.744245799999999,
+      "camera_api_p99_ms": 9.8046918,
+      "full_wall_s": 18.38,
+      "full_cpu_s": 18.21,
+      "peak_rss_kb": 90368
+    },
+    "trajectory_sha256": "e6411a87e1c15792bef6d264585a964081d2552f6182d035a97a5987ca105f73",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "mode": "G",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_03_difficult_G_20261011T161914Z_5e812f1b",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 1,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 934,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 144,
+      "V:disabled": 2149,
+      "L:disabled": 2149,
+      "G:warmup_or_core_invalid": 516,
+      "G:not_ready_G": 555,
+      "G:accepted": 934
+    },
+    "ekf_calls": 1949,
+    "nis": {
+      "G": {
+        "samples": 934,
+        "p50": 9.547352576308963e-05,
+        "p95": 0.0005231034713034353
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 934,
+        "p50": 30.95293457618836,
+        "p95": 87.40987023725339
+      }
+    },
+    "estimated_rows": 2005,
+    "cost": {
+      "camera_api_p50_ms": 11.073501,
+      "camera_api_p95_ms": 20.551046399999997,
+      "camera_api_p99_ms": 25.332035039999997,
+      "full_wall_s": 32.3,
+      "full_cpu_s": 32.26,
+      "peak_rss_kb": 103324
+    },
+    "trajectory_sha256": "a2d8c28a50447a36f36d54a6f87abf52a2005cd08a873221ebad733057159de5",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "mode": "V",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_03_difficult_V_20261011T161946Z_5abc93f8",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 0,
+      "V": 6,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 910,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 2149,
+      "V:disabled": 144,
+      "L:disabled": 2149,
+      "V:warmup_or_core_invalid": 516,
+      "V:not_ready_V": 579,
+      "V:accepted": 910
+    },
+    "ekf_calls": 1948,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 910,
+        "p50": 0.004695257694835104,
+        "p95": 0.02719527510671253
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 910,
+        "p50": 30.70451794877407,
+        "p95": 87.42014411892644
+      }
+    },
+    "estimated_rows": 2005,
+    "cost": {
+      "camera_api_p50_ms": 11.2212,
+      "camera_api_p95_ms": 20.838775399999996,
+      "camera_api_p99_ms": 26.07780936,
+      "full_wall_s": 32.82,
+      "full_cpu_s": 32.81,
+      "peak_rss_kb": 102240
+    },
+    "trajectory_sha256": "7c18c57343950e952e15d8df69462ccd8716e559bdeea018ccd2873e49ca4414",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "mode": "L",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_03_difficult_L_20261011T161946Z_7407b330",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 906
+    },
+    "rejections": {
+      "G:disabled": 2149,
+      "V:disabled": 2149,
+      "L:disabled": 144,
+      "L:warmup_or_core_invalid": 516,
+      "L:no_candidates": 583,
+      "L:accepted": 906
+    },
+    "ekf_calls": 1946,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 906,
+        "p50": 0.004935800374561398,
+        "p95": 0.026237206464368005
+      },
+      "joint": {
+        "samples": 906,
+        "p50": 30.917037493413638,
+        "p95": 86.55202127629354
+      }
+    },
+    "estimated_rows": 2005,
+    "cost": {
+      "camera_api_p50_ms": 11.490987,
+      "camera_api_p95_ms": 20.962339399999998,
+      "camera_api_p99_ms": 25.91218104,
+      "full_wall_s": 33.37,
+      "full_cpu_s": 33.36,
+      "peak_rss_kb": 100024
+    },
+    "trajectory_sha256": "fc04dcf9df4461a588df4c4beefbf4102ed96794abc990119557c1f5cfe2e131",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V1_03_difficult",
+    "mode": "GVL",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V1_03_difficult_GVL_20261011T161946Z_a52e83e0",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 1,
+      "V": 1,
+      "L": 1
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 934,
+      "V": 910,
+      "L": 906
+    },
+    "rejections": {
+      "G:disabled": 144,
+      "V:disabled": 144,
+      "L:disabled": 144,
+      "G:warmup_or_core_invalid": 516,
+      "V:warmup_or_core_invalid": 516,
+      "L:warmup_or_core_invalid": 516,
+      "G:not_ready_G": 555,
+      "V:not_ready_V": 579,
+      "L:no_candidates": 583,
+      "G:accepted": 934,
+      "V:accepted": 910,
+      "L:accepted": 906
+    },
+    "ekf_calls": 1949,
+    "nis": {
+      "G": {
+        "samples": 934,
+        "p50": 9.548592698655043e-05,
+        "p95": 0.0005231038433965625
+      },
+      "V": {
+        "samples": 910,
+        "p50": 0.0007827432447409537,
+        "p95": 0.0045369590026592965
+      },
+      "L": {
+        "samples": 906,
+        "p50": 0.0011168188312107143,
+        "p95": 0.006129766577267498
+      },
+      "joint": {
+        "samples": 953,
+        "p50": 31.32108889329834,
+        "p95": 87.26395160384804
+      }
+    },
+    "estimated_rows": 2005,
+    "cost": {
+      "camera_api_p50_ms": 11.334909,
+      "camera_api_p95_ms": 20.9327462,
+      "camera_api_p99_ms": 25.7641568,
+      "full_wall_s": 33.19,
+      "full_cpu_s": 33.19,
+      "peak_rss_kb": 100136
+    },
+    "trajectory_sha256": "78f1ae051889ccac323aadead305d38f323e1e84443baedde0b20a5b96a8d107",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_01_easy",
+    "mode": "GVL",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_01_easy_GVL_20261011T161946Z_1d9c1e75",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 1,
+      "V": 1,
+      "L": 1
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 1561,
+      "V": 1549,
+      "L": 1546
+    },
+    "rejections": {
+      "G:disabled": 99,
+      "V:disabled": 99,
+      "L:disabled": 99,
+      "G:warmup_or_core_invalid": 177,
+      "V:warmup_or_core_invalid": 177,
+      "L:warmup_or_core_invalid": 177,
+      "G:not_ready_G": 443,
+      "V:not_ready_V": 455,
+      "L:no_candidates": 458,
+      "G:accepted": 1561,
+      "V:accepted": 1549,
+      "L:accepted": 1546
+    },
+    "ekf_calls": 2025,
+    "nis": {
+      "G": {
+        "samples": 1561,
+        "p50": 7.177321089957057e-05,
+        "p95": 0.0006302275776484907
+      },
+      "V": {
+        "samples": 1549,
+        "p50": 0.00040107531823132354,
+        "p95": 0.004933015316092695
+      },
+      "L": {
+        "samples": 1546,
+        "p50": 0.00042404749206819087,
+        "p95": 0.00473915160671249
+      },
+      "joint": {
+        "samples": 1567,
+        "p50": 22.26450895178477,
+        "p95": 74.3536969508393
+      }
+    },
+    "estimated_rows": 2181,
+    "cost": {
+      "camera_api_p50_ms": 14.966463000000001,
+      "camera_api_p95_ms": 22.3688561,
+      "camera_api_p99_ms": 24.85428061,
+      "full_wall_s": 44.81,
+      "full_cpu_s": 43.6,
+      "peak_rss_kb": 103724
+    },
+    "trajectory_sha256": "36b5c0ce15784ee1c4d149cc6251005a1514cf691f09d040da4c16f2b14ebafa",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_01_easy",
+    "mode": "L",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_01_easy_L_20261011T162031Z_391af381",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 1546
+    },
+    "rejections": {
+      "G:disabled": 2280,
+      "V:disabled": 2280,
+      "L:disabled": 99,
+      "L:warmup_or_core_invalid": 177,
+      "L:no_candidates": 458,
+      "L:accepted": 1546
+    },
+    "ekf_calls": 2022,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 1546,
+        "p50": 0.001944296975737152,
+        "p95": 0.020983813694320137
+      },
+      "joint": {
+        "samples": 1546,
+        "p50": 22.226709792926926,
+        "p95": 76.85439801943355
+      }
+    },
+    "estimated_rows": 2181,
+    "cost": {
+      "camera_api_p50_ms": 14.176913500000001,
+      "camera_api_p95_ms": 22.043215699999998,
+      "camera_api_p99_ms": 23.958435710000003,
+      "full_wall_s": 41.94,
+      "full_cpu_s": 41.93,
+      "peak_rss_kb": 104932
+    },
+    "trajectory_sha256": "8fca803eccddf2f8b7d25674c94e3e3ed69b6cfac33e9c5b63d0c51195b2f131",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_01_easy",
+    "mode": "V",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_01_easy_V_20261011T162031Z_8dd3dc61",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 0,
+      "V": 6,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 1549,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 2280,
+      "V:disabled": 99,
+      "L:disabled": 2280,
+      "V:warmup_or_core_invalid": 177,
+      "V:not_ready_V": 455,
+      "V:accepted": 1549
+    },
+    "ekf_calls": 2022,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 1549,
+        "p50": 0.0024053235788129637,
+        "p95": 0.02958594996411186
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 1549,
+        "p50": 22.28989906590999,
+        "p95": 76.50844169842375
+      }
+    },
+    "estimated_rows": 2181,
+    "cost": {
+      "camera_api_p50_ms": 14.173765,
+      "camera_api_p95_ms": 21.91278615,
+      "camera_api_p99_ms": 23.94806702,
+      "full_wall_s": 41.78,
+      "full_cpu_s": 41.77,
+      "peak_rss_kb": 104936
+    },
+    "trajectory_sha256": "2f3bf503cdd3da5cfd95592e20eb2edcc0a99bd6f76e77c7209303bd3d410458",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_01_easy",
+    "mode": "G",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_01_easy_G_20261011T162031Z_bf3e5370",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 1,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 1561,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 99,
+      "V:disabled": 2280,
+      "L:disabled": 2280,
+      "G:warmup_or_core_invalid": 177,
+      "G:not_ready_G": 443,
+      "G:accepted": 1561
+    },
+    "ekf_calls": 2024,
+    "nis": {
+      "G": {
+        "samples": 1561,
+        "p50": 7.177804671572768e-05,
+        "p95": 0.0006303881600355495
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 1561,
+        "p50": 22.117661247846705,
+        "p95": 74.42658777013921
+      }
+    },
+    "estimated_rows": 2181,
+    "cost": {
+      "camera_api_p50_ms": 14.116018,
+      "camera_api_p95_ms": 21.807900399999998,
+      "camera_api_p99_ms": 23.923810370000005,
+      "full_wall_s": 41.75,
+      "full_cpu_s": 41.74,
+      "peak_rss_kb": 102780
+    },
+    "trajectory_sha256": "8b43bff04e3934939649bc718ab738b55521c35e8a8d51653343114f515bc835",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_01_easy",
+    "mode": "OFF",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_01_easy_OFF_20261011T162031Z_dbbec6ae",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 2181,
+    "cost": {
+      "camera_api_p50_ms": 4.749489499999999,
+      "camera_api_p95_ms": 6.8837290499999995,
+      "camera_api_p99_ms": 8.10357836,
+      "full_wall_s": 18.8,
+      "full_cpu_s": 18.74,
+      "peak_rss_kb": 86448
+    },
+    "trajectory_sha256": "82ea7c8ac331ad87a59c0b68a23f034a4fa1a1dfeea5dd32dd132c7d5fd80e17",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "OFF",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_02_medium_OFF_20261011T162113Z_7c2a7525",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 2266,
+    "cost": {
+      "camera_api_p50_ms": 5.132287,
+      "camera_api_p95_ms": 6.909144850000001,
+      "camera_api_p99_ms": 8.238439550000002,
+      "full_wall_s": 20.86,
+      "full_cpu_s": 20.16,
+      "peak_rss_kb": 87824
+    },
+    "trajectory_sha256": "cd7a1a3e36f475b93be24d81fef9122ecfbabed08073d9179f6c5f40014a6a2f",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "G",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_02_medium_G_20261011T162113Z_7bdf0ea5",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 1,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 1571,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 82,
+      "V:disabled": 2348,
+      "L:disabled": 2348,
+      "G:warmup_or_core_invalid": 140,
+      "G:not_ready_G": 555,
+      "G:accepted": 1571
+    },
+    "ekf_calls": 2225,
+    "nis": {
+      "G": {
+        "samples": 1571,
+        "p50": 0.000123292594163485,
+        "p95": 0.001216836958622079
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 1571,
+        "p50": 32.19668213709762,
+        "p95": 80.53977450797854
+      }
+    },
+    "estimated_rows": 2266,
+    "cost": {
+      "camera_api_p50_ms": 12.229836,
+      "camera_api_p95_ms": 19.745024800000003,
+      "camera_api_p99_ms": 22.134683140000007,
+      "full_wall_s": 38.92,
+      "full_cpu_s": 38.68,
+      "peak_rss_kb": 101876
+    },
+    "trajectory_sha256": "9e1675c3b6a3d9b762a03fd9d3f94f7fc1b8b704f30a711041cb2e12af77051b",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "V",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_02_medium_V_20261011T162113Z_bb8e183c",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 0,
+      "V": 6,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 1541,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 2348,
+      "V:disabled": 82,
+      "L:disabled": 2348,
+      "V:warmup_or_core_invalid": 140,
+      "V:not_ready_V": 585,
+      "V:accepted": 1541
+    },
+    "ekf_calls": 2225,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 1541,
+        "p50": 0.006077696067018907,
+        "p95": 0.044710477614154476
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 1541,
+        "p50": 32.33284090257447,
+        "p95": 82.46446747816246
+      }
+    },
+    "estimated_rows": 2266,
+    "cost": {
+      "camera_api_p50_ms": 12.32277,
+      "camera_api_p95_ms": 19.758106600000005,
+      "camera_api_p99_ms": 22.256000830000012,
+      "full_wall_s": 38.92,
+      "full_cpu_s": 38.82,
+      "peak_rss_kb": 101636
+    },
+    "trajectory_sha256": "7adac0f2632c24d3fc7c891a7ec0ac60b617621800ee9a38dff221f647b2de7f",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "L",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_02_medium_L_20261011T162113Z_e528ee21",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 1540
+    },
+    "rejections": {
+      "G:disabled": 2348,
+      "V:disabled": 2348,
+      "L:disabled": 82,
+      "L:warmup_or_core_invalid": 140,
+      "L:no_candidates": 586,
+      "L:accepted": 1540
+    },
+    "ekf_calls": 2224,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 1540,
+        "p50": 0.007549884628650336,
+        "p95": 0.03670145867338565
+      },
+      "joint": {
+        "samples": 1540,
+        "p50": 32.32693013864085,
+        "p95": 80.29497918686153
+      }
+    },
+    "estimated_rows": 2266,
+    "cost": {
+      "camera_api_p50_ms": 12.384299500000001,
+      "camera_api_p95_ms": 19.896850699999998,
+      "camera_api_p99_ms": 22.303082200000006,
+      "full_wall_s": 38.99,
+      "full_cpu_s": 38.99,
+      "peak_rss_kb": 101276
+    },
+    "trajectory_sha256": "8d4b879717591e3a312bdd25e40d988e88d1f3f92a1a9bbc1d90b707073e9630",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_02_medium",
+    "mode": "GVL",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_02_medium_GVL_20261011T162152Z_297ec135",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 1,
+      "V": 1,
+      "L": 1
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 1571,
+      "V": 1541,
+      "L": 1540
+    },
+    "rejections": {
+      "G:disabled": 82,
+      "V:disabled": 82,
+      "L:disabled": 82,
+      "G:warmup_or_core_invalid": 140,
+      "V:warmup_or_core_invalid": 140,
+      "L:warmup_or_core_invalid": 140,
+      "G:not_ready_G": 555,
+      "V:not_ready_V": 585,
+      "L:no_candidates": 586,
+      "G:accepted": 1571,
+      "V:accepted": 1541,
+      "L:accepted": 1540
+    },
+    "ekf_calls": 2225,
+    "nis": {
+      "G": {
+        "samples": 1571,
+        "p50": 0.00012329732919235685,
+        "p95": 0.0012164083414654167
+      },
+      "V": {
+        "samples": 1541,
+        "p50": 0.0010135583161581694,
+        "p95": 0.007459991203218171
+      },
+      "L": {
+        "samples": 1540,
+        "p50": 0.0017006305493223366,
+        "p95": 0.008735464303623505
+      },
+      "joint": {
+        "samples": 1587,
+        "p50": 32.505553754645575,
+        "p95": 80.65412805454517
+      }
+    },
+    "estimated_rows": 2266,
+    "cost": {
+      "camera_api_p50_ms": 12.344048,
+      "camera_api_p95_ms": 19.6607996,
+      "camera_api_p99_ms": 22.456364980000046,
+      "full_wall_s": 39.04,
+      "full_cpu_s": 38.82,
+      "peak_rss_kb": 101104
+    },
+    "trajectory_sha256": "f5954fbbcc5ab731b79bcb1d1914f37b8efaf859afef968e47744346ffc43b0e",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "GVL",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_03_difficult_GVL_20261011T162152Z_e91a34fc",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 1,
+      "V": 1,
+      "L": 1
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 680,
+      "V": 614,
+      "L": 604
+    },
+    "rejections": {
+      "G:disabled": 115,
+      "V:disabled": 115,
+      "L:disabled": 115,
+      "G:warmup_or_core_invalid": 725,
+      "V:warmup_or_core_invalid": 725,
+      "L:warmup_or_core_invalid": 725,
+      "G:not_ready_G": 401,
+      "V:not_ready_V": 467,
+      "L:no_candidates": 477,
+      "G:accepted": 680,
+      "V:accepted": 614,
+      "L:accepted": 604
+    },
+    "ekf_calls": 1726,
+    "nis": {
+      "G": {
+        "samples": 680,
+        "p50": 0.00016047385673959383,
+        "p95": 0.002067011796324939
+      },
+      "V": {
+        "samples": 614,
+        "p50": 0.0014175148905478216,
+        "p95": 0.008983931907189796
+      },
+      "L": {
+        "samples": 604,
+        "p50": 0.001672075678905243,
+        "p95": 0.006673828422284229
+      },
+      "joint": {
+        "samples": 685,
+        "p50": 34.61079542094285,
+        "p95": 89.56809290767727
+      }
+    },
+    "estimated_rows": 1806,
+    "cost": {
+      "camera_api_p50_ms": 11.179172,
+      "camera_api_p95_ms": 18.157813,
+      "camera_api_p99_ms": 22.184214399999995,
+      "full_wall_s": 29.62,
+      "full_cpu_s": 28.56,
+      "peak_rss_kb": 97400
+    },
+    "trajectory_sha256": "f13220109a811e7730d8576522fa57d4b3a3dedcf4fc6c09eb0f58a2dfa3f615",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "L",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_03_difficult_L_20261011T162152Z_647af9ee",
+    "exit_code": 0,
+    "cpu_affinity": [
+      4,
+      5
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 6
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 604
+    },
+    "rejections": {
+      "G:disabled": 1921,
+      "V:disabled": 1921,
+      "L:disabled": 115,
+      "L:warmup_or_core_invalid": 725,
+      "L:no_candidates": 477,
+      "L:accepted": 604
+    },
+    "ekf_calls": 1722,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 604,
+        "p50": 0.007208651098831004,
+        "p95": 0.02925795861603888
+      },
+      "joint": {
+        "samples": 604,
+        "p50": 34.83729533632662,
+        "p95": 91.16028537198007
+      }
+    },
+    "estimated_rows": 1806,
+    "cost": {
+      "camera_api_p50_ms": 11.132979,
+      "camera_api_p95_ms": 18.183821,
+      "camera_api_p99_ms": 22.131157399999996,
+      "full_wall_s": 29.62,
+      "full_cpu_s": 28.459999999999997,
+      "peak_rss_kb": 98736
+    },
+    "trajectory_sha256": "fa011eacfb03572e2fbac536b66bbb9acceec0b39e15c2dff95243170a2f11da",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "V",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_03_difficult_V_20261011T162152Z_3928d723",
+    "exit_code": 0,
+    "cpu_affinity": [
+      6,
+      7
+    ],
+    "weights": {
+      "G": 0,
+      "V": 6,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 614,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 1921,
+      "V:disabled": 115,
+      "L:disabled": 1921,
+      "V:warmup_or_core_invalid": 725,
+      "V:not_ready_V": 467,
+      "V:accepted": 614
+    },
+    "ekf_calls": 1723,
+    "nis": {
+      "G": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "V": {
+        "samples": 614,
+        "p50": 0.008495403938752751,
+        "p95": 0.05385387294302666
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 614,
+        "p50": 35.08944251356637,
+        "p95": 90.99059539367856
+      }
+    },
+    "estimated_rows": 1806,
+    "cost": {
+      "camera_api_p50_ms": 11.302702,
+      "camera_api_p95_ms": 18.30822,
+      "camera_api_p99_ms": 22.4306678,
+      "full_wall_s": 29.63,
+      "full_cpu_s": 28.689999999999998,
+      "peak_rss_kb": 98956
+    },
+    "trajectory_sha256": "371d199d1aee579393738163283737b28e88c08e4d4ace1452cf179a2a366441",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "G",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_03_difficult_G_20261011T162231Z_b3289d6f",
+    "exit_code": 0,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "weights": {
+      "G": 1,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 680,
+      "V": 0,
+      "L": 0
+    },
+    "rejections": {
+      "G:disabled": 115,
+      "V:disabled": 1921,
+      "L:disabled": 1921,
+      "G:warmup_or_core_invalid": 725,
+      "G:not_ready_G": 401,
+      "G:accepted": 680
+    },
+    "ekf_calls": 1726,
+    "nis": {
+      "G": {
+        "samples": 680,
+        "p50": 0.00016049710452661737,
+        "p95": 0.00206692413840162
+      },
+      "V": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "L": {
+        "samples": 0,
+        "p50": null,
+        "p95": null
+      },
+      "joint": {
+        "samples": 680,
+        "p50": 34.71271577614041,
+        "p95": 88.70614736320769
+      }
+    },
+    "estimated_rows": 1806,
+    "cost": {
+      "camera_api_p50_ms": 9.892882,
+      "camera_api_p95_ms": 16.974331,
+      "camera_api_p99_ms": 20.9899444,
+      "full_wall_s": 25.94,
+      "full_cpu_s": 25.92,
+      "peak_rss_kb": 98796
+    },
+    "trajectory_sha256": "3fdeb3525fd7f9b54f11c6a2f0b8e4e6bc6bc8a218e99625dc184973fcd4a149",
+    "status": "PASS"
+  },
+  {
+    "sequence": "V2_03_difficult",
+    "mode": "OFF",
+    "phase": "accuracy",
+    "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/docs/experiment_process/experiments/compact_v2/runs/accuracy/V2_03_difficult_OFF_20261011T162231Z_0212d83e",
+    "exit_code": 0,
+    "cpu_affinity": [
+      2,
+      3
+    ],
+    "weights": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "binary_identity": {
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/libov_msckf_lib.so": "68f125a6b160a7764595957d05a8ca8d2d7bbdeffeb56f3dcfeefb1df7f01254",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/run_ltv_gv_production": "9f23684d7d4bcaf1ae61f2e22f4ca6018431acce6c65d3954e6660c8db95e600"
+    },
+    "errors": [],
+    "applications": {
+      "G": 0,
+      "V": 0,
+      "L": 0
+    },
+    "estimated_rows": 1806,
+    "cost": {
+      "camera_api_p50_ms": 4.975931,
+      "camera_api_p95_ms": 10.66822,
+      "camera_api_p99_ms": 18.23085499999999,
+      "full_wall_s": 15.96,
+      "full_cpu_s": 15.96,
+      "peak_rss_kb": 91600
+    },
+    "trajectory_sha256": "970209135dd7c1680309213fbf7ef2baf962859884768973fdc9444efa5d2ff3",
+    "status": "PASS"
+  }
+]

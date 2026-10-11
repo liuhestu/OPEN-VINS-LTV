@@ -1,4 +1,4 @@
-#include "ltv/landmark_adapter/LtvFeatureHistory.h"
+#include "ltv/features/LtvFeatureManager.h"
 #include <cassert>
 #include <cmath>
 #include <iostream>

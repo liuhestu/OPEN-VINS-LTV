@@ -1,7 +1,7 @@
 #pragma once
-#include "ltv/landmark_adapter/LtvLandmarkManager.h"
-#include "ltv/observer/LtvReadiness.h"
-#include "ltv/observer/ltv_types.h"
+#include "ltv/features/LtvFeatureManager.h"
+#include "ltv/observer/LtvTypes.h"
+#include "ltv/runtime/LtvAvailabilityPolicy.h"
 #include "state/StateOptions.h"
 #include <stdexcept>
 namespace ov_msckf {
@@ -18,12 +18,12 @@ struct LtvOptions {
   bool passive_assert_no_injection = true, gv_evaluation_diagnostics = false;
   bool passive_hardening_enabled = false, hardening_health_readiness = true, hardening_initial_warmup = false;
   bool hardening_preserve_constrained_state = false, hardening_ready_soft_grace = false;
-  ltv::LtvReadinessConfig hardening_readiness;
+  ltv::LtvAvailabilityConfig hardening_readiness;
   ltv::ActiveConsistencyConfig active_consistency;
   std::string feature_seed_source = "TEMPORAL_POSE";
   std::string passive_cache_path;
   double feature_bearing_sigma_rad = 0.0008726646259971648;
-  ltv::LandmarkManagerConfig feature_manager;
+  ltv::LtvFeatureManagerConfig feature_manager;
   double huber_delta = 2.0;
   double sigma_gravity_deg = 10, sigma_velocity_mps = 1, max_gravity_angle_deg = 30, time_tolerance_s = 1e-6;
   double nis_gravity = 9.21034037197618, nis_velocity = 11.3448667301444;
@@ -119,21 +119,27 @@ struct LtvOptions {
     CORE(gravity_norm_max);
 #undef CORE
   }
-  void validate(const StateOptions &state) const {
-    if (passive_hardening_enabled &&
-        (!feature_readiness_enabled || !enabled || (passive_assert_no_injection && (enable_gravity || enable_velocity))))
+  // One definition of runtime topology checks; constructors and YAML validation
+  // share it instead of maintaining several versions of the same conditions.
+  void validate_runtime() const {
+    const bool managed = enabled && feature_readiness_enabled;
+    const bool injection_allowed = !passive_assert_no_injection || (!enable_gravity && !enable_velocity);
+    if (active_consistency.enabled && (!managed || !injection_allowed))
+      throw std::invalid_argument("Active consistency requires managed Passive LTV");
+    if (passive_hardening_enabled && (!managed || !injection_allowed))
       throw std::invalid_argument("Passive hardening requires managed Passive LTV");
+    if (feature_readiness_enabled && (!enabled || !injection_allowed))
+      throw std::invalid_argument("Feature readiness requires Passive LTV with G/V injection OFF");
+  }
+  void validate(const StateOptions &state) const {
+    if (value_diagnostics_enabled || value_diagnostics_matrices || !passive_cache_path.empty())
+      throw std::invalid_argument("Research value/cache diagnostics were retired; use the archived revision");
+    validate_runtime();
     if (feature_readiness_enabled) {
-      if (!enabled || (passive_assert_no_injection && (enable_gravity || enable_velocity)))
-        throw std::invalid_argument("Feature readiness requires Passive LTV with G/V injection OFF");
       if (feature_seed_source != "TEMPORAL_POSE" && feature_seed_source != "STEREO" && feature_seed_source != "STEREO_THEN_TEMPORAL")
         throw std::invalid_argument("Unsupported feature seed source");
       if (feature_seed_source != "TEMPORAL_POSE" && state.num_cameras != 2)
         throw std::invalid_argument("Stereo seeds require two existing cameras");
-      if (observer.q_landmark != 1e-4 || observer.v_landmark != 1e6 || observer.v_velocity != 1e6 || observer.v_gravity != 1e6 ||
-          observer.initial_p_landmark != 1 || observer.initial_p_velocity != 1 || observer.initial_p_gravity != 1 ||
-          observer.max_features != 30 || observer.min_features != 15)
-        throw std::invalid_argument("Feature readiness study requires frozen C0 and 30/15 capacity");
       if (!std::isfinite(feature_bearing_sigma_rad) || feature_bearing_sigma_rad <= 0)
         throw std::invalid_argument("Invalid feature bearing uncertainty");
     }

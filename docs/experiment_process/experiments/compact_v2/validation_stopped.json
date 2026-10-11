@@ -1,0 +1,12 @@
+{
+  "status": "STOPPED_BY_USER",
+  "reason": "User is still editing and requested less verification",
+  "stopped_pids": [
+    776779,
+    799619,
+    799618
+  ],
+  "remaining_validation_cancelled": true,
+  "accuracy_completed": 50,
+  "performance_completed": 3
+}

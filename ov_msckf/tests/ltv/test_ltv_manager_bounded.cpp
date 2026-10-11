@@ -1,4 +1,4 @@
-#include "ltv/landmark_adapter/LtvLandmarkManager.h"
+#include "ltv/features/LtvFeatureManager.h"
 #include <iostream>
 #include <limits>
 #include <stdexcept>
@@ -37,11 +37,11 @@ static std::vector<FeatureSeedCandidate> seeds(uint64_t epoch, double time, size
 }
 int main() {
   try {
-    LandmarkManagerConfig config;
+    LtvFeatureManagerConfig config;
     config.bounded_memory = true;
     config.history.max_candidates = 30;
     config.max_active = 15;
-    LtvLandmarkManager manager(config);
+    LtvFeatureManager manager(config);
     manager.reset(1);
     LandmarkManagerFrame f;
     for (int k = 0; k < 3; ++k)
@@ -89,14 +89,14 @@ int main() {
       f = staged.step(2, k * .05, k, observations(0, 15), seeds(2, k * .05, 0, 15));
     require(f.births.size() == 15 && f.admitted_tracks == 15 && f.active_retired_total == 0, "explicit new epoch permits one seed again");
     // Large nonmonotonic IDs do not raise a frontend-ID high water mark.
-    LtvLandmarkManager nonmonotonic(config);
+    LtvFeatureManager nonmonotonic(config);
     nonmonotonic.reset(1);
     for (int k = 0; k < 3; ++k)
       nonmonotonic.step(1, k * .05, k, observations(100000, 1), seeds(1, k * .05, 100000, 1));
     for (int k = 3; k < 6; ++k)
       f = nonmonotonic.step(1, k * .05, k, observations(1, 1), seeds(1, k * .05, 1, 1));
     require(f.births.size() == 1 && f.births.front().feature_id == 1, "legal low frontend ID remains admissible");
-    LtvLandmarkManager gap_expiry(config);
+    LtvFeatureManager gap_expiry(config);
     gap_expiry.reset(1);
     f = gap_expiry.step(1, 0, 0, observations(77, 1), {});
     require(f.exact_records == 1 && f.identity_guard_insertions == 0, "unadmitted candidate initially cached");
@@ -126,7 +126,7 @@ int main() {
                 gap_expiry.landmarks().empty() && gap_expiry.history().find(77)->last_time == 2.2,
             "same-time valid retry refreshes only input history without duplicate exit or seed");
     // Ten minutes of candidate turnover remains finite; no full observer simulation.
-    LtvLandmarkManager churn(config);
+    LtvFeatureManager churn(config);
     churn.reset(1);
     for (int k = 0; k < 12000; ++k) {
       f = churn.step(1, k * .05, k, observations(1000 + 30 * k, 30), {});

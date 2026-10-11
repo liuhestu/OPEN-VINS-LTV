@@ -1,0 +1,170 @@
+[
+  {
+    "test": "test_ltv_compact_math",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_ltv_compact_math"
+    ]
+  },
+  {
+    "test": "test_ltv_compact_native",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_ltv_compact_native"
+    ]
+  },
+  {
+    "test": "test_ltv_gv_jacobian",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_ltv_gv_jacobian"
+    ]
+  },
+  {
+    "test": "test_ltv_fej",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_ltv_fej"
+    ]
+  },
+  {
+    "test": "test_ltv_options",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_ltv_options"
+    ]
+  },
+  {
+    "test": "test_ltv_feature_manager",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_ltv_feature_manager"
+    ]
+  },
+  {
+    "test": "test_ltv_active_lifecycle",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_ltv_active_lifecycle"
+    ]
+  },
+  {
+    "test": "test_ltv_active_consistency",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_ltv_active_consistency"
+    ]
+  },
+  {
+    "test": "test_ltv_readiness",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_ltv_readiness"
+    ]
+  },
+  {
+    "test": "test_bounded_history",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_bounded_history"
+    ]
+  },
+  {
+    "test": "test_identity_guard",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_identity_guard"
+    ]
+  },
+  {
+    "test": "test_ltv_history_competition",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_ltv_history_competition"
+    ]
+  },
+  {
+    "test": "test_ltv_adapter_hardened",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_ltv_adapter_hardened"
+    ]
+  },
+  {
+    "test": "test_ltv_experiment_modes",
+    "exit_code": 0,
+    "command": [
+      "bash",
+      "-c",
+      "source /opt/ros/humble/setup.bash; source \"$1/local_setup.bash\"; exec \"$2\"",
+      "test",
+      "/home/he/open_vins_ltv_ws/install_compact_v2",
+      "/home/he/open_vins_ltv_ws/install_compact_v2/ov_msckf/lib/ov_msckf/test_ltv_experiment_modes"
+    ]
+  }
+]

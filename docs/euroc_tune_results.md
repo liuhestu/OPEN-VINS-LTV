@@ -287,7 +287,7 @@ GV 当前完整有效配置中，等权平均 ATE 最好的参数为 **GV_G2_V8*
 ## 身份与证据
 
 新回放源码 `8c58c2c35427f5d5dc48e3741b537521e8d8f416`；原始记录 `/home/he/output/ltv_gv_independent_20261009T050259`。
-[全部配置](euroc_tune_results/gv_independent/results.json) · [筛选决定](euroc_tune_results/gv_independent/screening.json) · [审计](euroc_tune_results/gv_independent/independent_audit.json) · [协议](euroc_tune_results/gv_independent/protocol.json)
+[全部配置](experiment_process/euroc_tune_results/gv_independent/results.json) · [筛选决定](experiment_process/euroc_tune_results/gv_independent/screening.json) · [审计](experiment_process/euroc_tune_results/gv_independent/independent_audit.json) · [协议](experiment_process/euroc_tune_results/gv_independent/protocol.json)
 
 ## V25 单分支追加测试
 
@@ -310,7 +310,7 @@ V25 相对 OFF 的每序列等权平均变化为 -1.779889%，中位数 -0.10015
 这是固定数据集探索结果，不能据此推断无限增大权重会持续改善；历史预测FAIL与工程结论保留。
 
 原始目录 `/home/he/output/ltv_v25_20261009T151451`。
-[结构化结果](euroc_tune_results/v25/results.json) · [筛选](euroc_tune_results/v25/screening.json) · [审计](euroc_tune_results/v25/independent_audit.json)
+[结构化结果](experiment_process/euroc_tune_results/v25/results.json) · [筛选](experiment_process/euroc_tune_results/v25/screening.json) · [审计](experiment_process/euroc_tune_results/v25/independent_audit.json)
 
 
 ### V25 是否还有额外收益
@@ -367,7 +367,7 @@ L6目前是这四个单独 landmark 档位中平均ATE最好的配置，但典�
 全部新结果完整匹配冻结OFF支持，初始化差不超过1µs，实际G/V应用为零；单线程入口与历史四线程身份明确区分，不混用耗时作性能验收。本次没有独立留出集，相关性近似、复用信息协方差及一致性证据未解决；历史5%预测FAIL和工程结论保持不变，10%代表筛选PASS仅表示允许扩展。
 
 原始目录 `/home/he/output/ltv_landmark6_20261009T152850`。
-[结构化结果](euroc_tune_results/landmark/results.json) · [筛选](euroc_tune_results/landmark/screening.json) · [审计](euroc_tune_results/landmark/independent_audit.json)
+[结构化结果](experiment_process/euroc_tune_results/landmark/results.json) · [筛选](experiment_process/euroc_tune_results/landmark/screening.json) · [审计](experiment_process/euroc_tune_results/landmark/independent_audit.json)
 
 ## V36/V49 单分支追加测试
 
@@ -420,7 +420,7 @@ V36与V49的实际V应用帧数逐序列相同，差异不是提交次数增加�
 本轮复用了OFF、V1、V16、V25参考，仅新增20次完整回放，没有重复旧档位。新回放实际单线程、最多八进程隔离；两档代表筛选分别通过才扩展。历史5%预测FAIL与工程结论保持不变，本次没有独立留出验证，没有测试V36/V49参与的GV或GVL组合。
 
 原始目录 `/home/he/output/ltv_v36_v49_20261009T155302`。
-[结构化结果与NIS原因](euroc_tune_results/v36_v49/results.json) · [筛选](euroc_tune_results/v36_v49/screening.json) · [审计](euroc_tune_results/v36_v49/independent_audit.json)
+[结构化结果与NIS原因](experiment_process/euroc_tune_results/v36_v49/results.json) · [筛选](experiment_process/euroc_tune_results/v36_v49/screening.json) · [审计](experiment_process/euroc_tune_results/v36_v49/independent_audit.json)
 
 ## V49 加入 G/L 的组合验证
 
@@ -487,4 +487,4 @@ V36与V49的实际V应用帧数逐序列相同，差异不是提交次数增加�
 VL是本次新增的显式实验入口，原六模式批次不变。新驱动与被复用估计器库的依赖源码闭包、库字节哈希一致；只新增模式选择，没有修改残差、Jacobian、参数公式、门控或更新顺序。G2对应重力标准差约7.071°，V49对应约0.142857 m/s，L6对应标准差下限约0.204124 m、信息上限0.06、最多两点。原生SLAM关闭，新回放实际单线程、最多八进程，V49参考直接复用，没有重复回放旧档位。
 
 原始目录 `/home/he/output/ltv_v49_combos_20261009T161324`。
-[结果](euroc_tune_results/v49_combinations/results.json) · [筛选](euroc_tune_results/v49_combinations/screening.json) · [审计](euroc_tune_results/v49_combinations/independent_audit.json)
+[结果](experiment_process/euroc_tune_results/v49_combinations/results.json) · [筛选](experiment_process/euroc_tune_results/v49_combinations/screening.json) · [审计](experiment_process/euroc_tune_results/v49_combinations/independent_audit.json)
