@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.3)
 # Find ROS build system
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 find_package(ov_core REQUIRED)
 
 # Describe ROS project
@@ -39,7 +41,7 @@ list(APPEND LIBRARY_SOURCES
 )
 file(GLOB_RECURSE LIBRARY_HEADERS "src/*.h")
 add_library(ov_eval_lib SHARED ${LIBRARY_SOURCES} ${LIBRARY_HEADERS})
-ament_target_dependencies(ov_eval_lib rclcpp ov_core)
+ament_target_dependencies(ov_eval_lib rclcpp ov_core geometry_msgs nav_msgs)
 target_link_libraries(ov_eval_lib ${thirdparty_libraries})
 target_include_directories(ov_eval_lib PUBLIC src/)
 install(TARGETS ov_eval_lib
@@ -58,13 +60,12 @@ ament_export_libraries(ov_eval_lib)
 # Make binary files!
 ##################################################
 
-# TODO: UPGRADE THIS TO ROS2 AS ANOTHER FILE!!
-#if (catkin_FOUND AND ENABLE_ROS)
-#    add_executable(pose_to_file src/pose_to_file.cpp)
-#    target_link_libraries(pose_to_file ov_eval_lib ${thirdparty_libraries})
-#    add_executable(live_align_trajectory src/live_align_trajectory.cpp)
-#    target_link_libraries(live_align_trajectory ov_eval_lib ${thirdparty_libraries})
-#endif ()
+foreach(tool pose_to_file live_align_trajectory)
+    add_executable(${tool} src/${tool}.cpp)
+    ament_target_dependencies(${tool} rclcpp ov_core geometry_msgs nav_msgs)
+    target_link_libraries(${tool} ov_eval_lib ${thirdparty_libraries})
+    install(TARGETS ${tool} DESTINATION lib/${PROJECT_NAME})
+endforeach()
 
 add_executable(format_converter src/format_converter.cpp)
 ament_target_dependencies(format_converter rclcpp ov_core)

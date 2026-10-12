@@ -183,6 +183,10 @@ int main(int argc, char **argv) {
   ros::shutdown();
 #elif ROS_AVAILABLE == 2
   viz->visualize_final();
+  // Destroy transport publishers while their plugin loaders still exist;
+  // global shared_ptr destruction during atexit is too late.
+  viz.reset();
+  sys.reset();
   rclcpp::shutdown();
 #endif
 

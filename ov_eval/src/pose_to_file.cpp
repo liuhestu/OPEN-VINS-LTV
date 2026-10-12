@@ -19,31 +19,30 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <geometry_msgs/PoseStamped.h>
-#include <geometry_msgs/PoseWithCovarianceStamped.h>
-#include <geometry_msgs/TransformStamped.h>
-#include <nav_msgs/Odometry.h>
-#include <ros/ros.h>
+#include <functional>
 
 #include "utils/Recorder.h"
 #include "utils/print.h"
 
 int main(int argc, char **argv) {
 
-  // Create ros node
+  std::string verbosity, topic, topic_type, fileoutput;
+#if ROS_AVAILABLE == 2
+  rclcpp::init(argc, argv);
+  auto node = std::make_shared<rclcpp::Node>("pose_to_file");
+  verbosity = node->declare_parameter<std::string>("verbosity", "INFO");
+  topic = node->declare_parameter<std::string>("topic", "/ov_msckf/poseimu");
+  topic_type = node->declare_parameter<std::string>("topic_type", "PoseWithCovarianceStamped");
+  fileoutput = node->declare_parameter<std::string>("output", "/tmp/traj_estimate.txt");
+#else
   ros::init(argc, argv, "pose_to_file");
   ros::NodeHandle nh("~");
-
-  // Verbosity setting
-  std::string verbosity;
   nh.param<std::string>("verbosity", verbosity, "INFO");
-  ov_core::Printer::setPrintLevel(verbosity);
-
-  // Get parameters to subscribe
-  std::string topic, topic_type, fileoutput;
   nh.getParam("topic", topic);
   nh.getParam("topic_type", topic_type);
   nh.getParam("output", fileoutput);
+#endif
+  ov_core::Printer::setPrintLevel(verbosity);
 
   // Debug
   PRINT_DEBUG("Done reading config values");
@@ -55,6 +54,20 @@ int main(int argc, char **argv) {
   ov_eval::Recorder recorder(fileoutput);
 
   // Subscribe to topic
+#if ROS_AVAILABLE == 2
+  rclcpp::SubscriptionBase::SharedPtr sub;
+  using std::placeholders::_1;
+  if (topic_type == "PoseWithCovarianceStamped") {
+    sub = node->create_subscription<ov_eval::PoseWithCovarianceStamped>(
+        topic, 9999, std::bind(&ov_eval::Recorder::callback_posecovariance, &recorder, _1));
+  } else if (topic_type == "PoseStamped") {
+    sub = node->create_subscription<ov_eval::PoseStamped>(topic, 9999, std::bind(&ov_eval::Recorder::callback_pose, &recorder, _1));
+  } else if (topic_type == "TransformStamped") {
+    sub =
+        node->create_subscription<ov_eval::TransformStamped>(topic, 9999, std::bind(&ov_eval::Recorder::callback_transform, &recorder, _1));
+  } else if (topic_type == "Odometry") {
+    sub = node->create_subscription<ov_eval::Odometry>(topic, 9999, std::bind(&ov_eval::Recorder::callback_odometry, &recorder, _1));
+#else
   ros::Subscriber sub;
   if (topic_type == std::string("PoseWithCovarianceStamped")) {
     sub = nh.subscribe(topic, 9999, &ov_eval::Recorder::callback_posecovariance, &recorder);
@@ -64,6 +77,8 @@ int main(int argc, char **argv) {
     sub = nh.subscribe(topic, 9999, &ov_eval::Recorder::callback_transform, &recorder);
   } else if (topic_type == std::string("Odometry")) {
     sub = nh.subscribe(topic, 9999, &ov_eval::Recorder::callback_odometry, &recorder);
+
+#endif
   } else {
     PRINT_ERROR("The specified topic type is not supported");
     PRINT_ERROR("topic_type = %s", topic_type.c_str());
@@ -72,6 +87,13 @@ int main(int argc, char **argv) {
   }
 
   // Done!
+#if ROS_AVAILABLE == 2
+  rclcpp::spin(node);
+  sub.reset();
+  node.reset();
+  rclcpp::shutdown();
+#else
   ros::spin();
+#endif
   return EXIT_SUCCESS;
 }

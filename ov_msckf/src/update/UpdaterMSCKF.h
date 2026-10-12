@@ -29,7 +29,7 @@
 #include "feat/FeatureInitializerOptions.h"
 
 #include "UpdaterOptions.h"
-#include "ltv/fusion/UpdaterLTV.h"
+#include "update/UpdaterLTV.h"
 
 namespace ov_core {
 class Feature;
@@ -72,6 +72,8 @@ public:
    */
   void update(std::shared_ptr<State> state, std::vector<std::shared_ptr<ov_core::Feature>> &feature_vec,
               const LtvFrame *ltv_frame = nullptr, LtvDiagnostics *diagnostics = nullptr);
+
+  UpdaterLTV &ltv_model() { return ltv_model_; }
 
 protected:
   void update_joint(const std::shared_ptr<State> &, const MeasurementBlock &, const LtvFrame *, LtvDiagnostics *);

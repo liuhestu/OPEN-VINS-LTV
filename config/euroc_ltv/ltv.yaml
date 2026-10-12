@@ -1,0 +1,28 @@
+# 默认关闭；launch 的 ltv_mode 覆盖 mode。
+mode: "OFF"
+# bag 回放自动按 MH / Vicon 选择场景；实时输入使用此默认值。
+scene: Vicon
+# 最终实验冻结权重。每个模式独立配置，手动调参只修改这里。
+profiles:
+  MH:
+    "OFF":
+      weights: {G: 0, V: 0, L: 0}
+    "G":
+      weights: {G: 16, V: 0, L: 0}
+    "V":
+      weights: {G: 0, V: 49, L: 0}
+    "L":
+      weights: {G: 0, V: 0, L: 6}
+    "GVL":
+      weights: {G: 2, V: 49, L: 6}
+  Vicon:
+    "OFF":
+      weights: {G: 0, V: 0, L: 0}
+    "G":
+      weights: {G: 1, V: 0, L: 0}
+    "V":
+      weights: {G: 0, V: 6, L: 0}
+    "L":
+      weights: {G: 0, V: 0, L: 6}
+    "GVL":
+      weights: {G: 1, V: 1, L: 1}

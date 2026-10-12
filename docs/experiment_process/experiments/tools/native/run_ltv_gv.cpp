@@ -1,6 +1,4 @@
-#include "LtvBoundedDiagnostics.h"
 // Deterministic ASL input adapter: no GT enters the estimator, no ROS transport drops.
-#include "ExperimentMode.h"
 #include "core/VioManager.h"
 #include "feat/Feature.h"
 #include "feat/FeatureDatabase.h"
@@ -149,22 +147,6 @@ public:
   }
   std::string visual_digest() {
     Digest h;
-    auto observations = passive_current_observations;
-    std::sort(observations.begin(), observations.end(), [](const ltv::HistoryObservation &a, const ltv::HistoryObservation &b) {
-      return a.feature_id != b.feature_id ? a.feature_id < b.feature_id : a.camera_id < b.camera_id;
-    });
-    h.scalar(observations.size());
-    for (const auto &o : observations) {
-      h.scalar(o.feature_id);
-      h.scalar(o.camera_id);
-      h.matrix(o.bearing);
-      h.scalar(o.match_valid);
-    }
-
-    h.ids(passive_msckf_input_ids);
-    h.ids(passive_msckf_used_ids);
-    h.ids(passive_slam_update_ids);
-    h.ids(passive_slam_init_ids);
     h.scalar(good_features_MSCKF.size());
     for (const auto &v : good_features_MSCKF)
       h.matrix(v);
@@ -183,8 +165,8 @@ public:
   }
   void lifecycle_identity(std::ostream &out, int64_t ns) {
     out << std::setprecision(17) << "{\"camera_ns\":" << ns;
-    if (ltv_runtime) {
-      const auto &h = ltv_runtime->availability();
+    if (ltv_observer) {
+      const auto &h = ltv_lifecycle.status;
       out << ",\"health\":[" << int(h.state) << ',' << h.accepted_time << ',' << h.pool_ready << ',' << h.observer_valid << ',' << h.ready_G
           << ',' << h.ready_V << ',' << h.joint_ready << ',' << h.request_bootstrap << ',' << h.bootstrap_is_physical_recovery << ','
           << h.request_dormant << ',' << h.ready_soft_grace_enabled << ',' << h.grace_G << ',' << h.grace_V << ','
@@ -192,8 +174,8 @@ public:
           << h.last_bootstrap_time << ',' << h.bootstrap_count << ',' << h.physical_fault_count << "],\"reason\":\"" << h.reason
           << "\",\"bootstrap_source\":\"" << h.last_bootstrap_source << "\",\"landmarks\":[";
       bool first = true;
-      if (ltv_runtime->feature_frontend())
-        for (const auto &e : ltv_runtime->feature_frontend()->manager().landmarks()) {
+      if (ltv_features)
+        for (const auto &e : ltv_features->pool().landmarks()) {
           if (!first)
             out << ',';
           first = false;
@@ -204,24 +186,17 @@ public:
         }
       out << "],\"ids\":[";
       first = true;
-      for (const auto &e : ltv_runtime->feature_ids()) {
+      for (const auto &e : ltv_features->ids()) {
         if (!first)
           out << ',';
         first = false;
-        out << '[' << e.first << ',' << e.second << ',' << ltv_runtime->observer().slotForFeature(e.second) << ']';
+        out << '[' << e.first << ',' << e.second << ',' << ltv_observer->slotForFeature(e.second) << ']';
       }
       out << ']';
     }
     out << "}\n";
     if (!out)
       throw std::runtime_error("lifecycle identity write failure");
-  }
-  void assert_passive() {
-    if (!params.ltv_options.passive_assert_no_injection)
-      return;
-    if (params.ltv_options.enable_gravity || params.ltv_options.enable_velocity || passive_auxiliary_receipts ||
-        passive_gravity_submissions || passive_velocity_submissions)
-      throw std::runtime_error("PASSIVE VIOLATION: actual auxiliary receipt/submission");
   }
   void fusion_row(std::ostream &out, std::ostream &matrices, int64_t ns) {
     {
@@ -230,9 +205,9 @@ public:
           << d.velocity_reason << "\",\"submit_reason\":\"" << d.submit_reason << "\",\"G_rows\":" << d.gravity_rows
           << ",\"V_rows\":" << d.velocity_rows << ",\"L_rows\":" << d.landmark_rows << ",\"EKF_calls\":" << d.ekf_calls << "}\n";
       Digest observer;
-      if (ltv_runtime) {
-        observer.matrix(ltv_runtime->observer().state());
-        observer.matrix(ltv_runtime->observer().covariance());
+      if (ltv_observer) {
+        observer.matrix(ltv_observer->state());
+        observer.matrix(ltv_observer->covariance());
       }
       matrices << "{\"camera_ns\":" << ns << ",\"observer_digest\":\"" << observer.finish() << "\"}\n";
       return;
@@ -247,57 +222,25 @@ public:
            ltv_diagnostics.velocity_rows > 0;
   }
   void injection_row(std::ostream &out) {
-    out << "," << passive_auxiliary_receipts << "," << passive_gravity_submissions << "," << passive_velocity_submissions;
+    out << "," << ltv_diagnostics.consumed << "," << (ltv_diagnostics.gravity_rows > 0) << "," << (ltv_diagnostics.velocity_rows > 0);
   }
 };
 int main(int argc, char **argv) {
   try {
     if (argc < 5 || argc > 6)
-      throw std::runtime_error("usage: run_ltv_gv_production config.yaml sensor_ASL_root output_dir OFF|G|V|GV|L|L_GV|VL [seconds<=40]");
+      throw std::runtime_error("usage: run_ltv_gv_production config.yaml sensor_ASL_root output_dir ltv_profile.yaml [seconds<=40]");
     const std::string root = argv[2], out = argv[3];
-    const std::string requested_mode = argv[4];
-    const auto selected = experiment_mode(requested_mode);
-    const std::string mode = selected.observer ? "P_NEW" : "B";
     const double limit = argc == 6 ? std::stod(argv[5]) : 0;
-    if ((mode != "B" && mode != "P_OLD" && mode != "P_NEW") || !std::isfinite(limit) || limit < 0 || limit > 40 ||
-        (argc == 6 && limit == 0))
-      throw std::runtime_error("invalid passive mode/short input duration");
+    if (!std::isfinite(limit) || limit < 0 || limit > 40 || (argc == 6 && limit == 0))
+      throw std::invalid_argument("short replay duration must be in (0,40]");
     auto parser = std::make_shared<ov_core::YamlParser>(argv[1]);
     VioManagerOptions options;
     options.print_and_load(parser);
-    if (options.ltv_options.enable_gravity || options.ltv_options.enable_velocity)
-      throw std::runtime_error("PASSIVE only: injection settings must be OFF in input configuration");
-    // Canonical OFF is pure OpenVINS; all physical C0 parameters remain unchanged.
-    options.ltv_options.enabled = selected.observer;
-    options.ltv_options.feature_readiness_enabled = selected.observer;
-    if (!selected.observer) {
-      options.ltv_options.passive_hardening_enabled = false;
-      options.ltv_options.active_consistency.enabled = false;
-    }
-    if (options.ltv_options.enabled != (mode != "B") || options.ltv_options.feature_readiness_enabled != (mode == "P_NEW"))
-      throw std::runtime_error("mode differs from parsed configuration");
-    // Match the opt-in scalar LTV logging path, without passive cache or full matrices.
-    options.ltv_options.passive_audit_enabled = false;
-    options.ltv_options.passive_cache_path.clear();
-    // Counterfactual injection diagnostics are not part of this passive experiment.
-    if (options.ltv_options.value_diagnostics_enabled)
-      throw std::runtime_error("disable legacy counterfactual value diagnostics for passive runner");
-    const auto &c0 = options.ltv_options.observer;
-    if (c0.q_landmark != 1e-4 || c0.v_landmark != 1e6 || c0.v_velocity != 1e6 || c0.v_gravity != 1e6 || c0.initial_p_landmark != 1 ||
-        c0.initial_p_velocity != 1 || c0.initial_p_gravity != 1 || c0.max_features != 30 || c0.min_features != 15)
-      throw std::runtime_error("observer must retain C0 Q/V/P0 and 30/15 feature limits");
-    // Input YAML remains byte-identical. V10 is the single experiment-only
-    // confirmation alternative; production parsing never exposes this option.
-    options.ltv_options.passive_assert_no_injection = false;
-    options.ltv_options.landmark_approx_shadow = selected.landmark_shadow;
-    options.ltv_options.enable_landmark_approx = selected.landmark;
-    options.ltv_options.allow_correlated_pseudomeasurements = selected.observer;
-    options.ltv_options.gv_evaluation_diagnostics = false;
-    options.ltv_options.enable_gravity = selected.gravity;
-    options.ltv_options.enable_velocity = selected.velocity;
-    if (requested_mode == "V10")
-      options.ltv_options.hardening_readiness.experimental_velocity_confirm_frames = 10;
+    options.ltv_options.load_profile(argv[4]);
     options.ltv_options.validate(options.state_options);
+    options.ltv_options.print();
+    const std::string requested_mode = options.ltv_options.mode;
+    const std::string mode = options.ltv_options.enabled ? "P_NEW" : "B";
     options.num_opencv_threads = 1;
     cv::setNumThreads(1);
     options.use_multi_threading_subs = false;
@@ -308,19 +251,14 @@ int main(int argc, char **argv) {
       throw std::runtime_error("cannot write effective configuration");
     effective << std::setprecision(17) << "{\n";
 #define EFFECTIVE(key, value) effective << "\"" << key << "\": " << value << ",\n"
-    effective << "\"experiment_mode\": \"" << selected.name << "\",\n";
+    effective << "\"experiment_mode\": \"" << requested_mode << "\",\n";
     EFFECTIVE("experiment_mode_schema", 2);
-    EFFECTIVE("ltv_value_diagnostics_enabled", options.ltv_options.value_diagnostics_enabled);
-    EFFECTIVE("ltv_value_diagnostics_matrices", options.ltv_options.value_diagnostics_matrices);
     EFFECTIVE("ltv_enabled", options.ltv_options.enabled);
     EFFECTIVE("ltv_enable_landmark_approx", options.ltv_options.enable_landmark_approx);
-    EFFECTIVE("ltv_landmark_approx_shadow", options.ltv_options.landmark_approx_shadow);
     EFFECTIVE("ltv_landmark_approx_max_points", options.ltv_options.landmark_approx_max_points);
     EFFECTIVE("ltv_landmark_approx_sigma_floor_m", options.ltv_options.landmark_approx_sigma_floor_m);
     EFFECTIVE("ltv_landmark_approx_information_cap", options.ltv_options.landmark_approx_information_cap);
-    EFFECTIVE("ltv_feature_readiness_enabled", options.ltv_options.feature_readiness_enabled);
     EFFECTIVE("ltv_feature_apply_seed", options.ltv_options.feature_apply_seed);
-    EFFECTIVE("ltv_passive_audit_enabled", options.ltv_options.passive_audit_enabled);
     EFFECTIVE("ltv_enable_gravity", options.ltv_options.enable_gravity);
     EFFECTIVE("ltv_enable_velocity", options.ltv_options.enable_velocity);
     EFFECTIVE("ltv_allow_correlated_pseudomeasurements", options.ltv_options.allow_correlated_pseudomeasurements);
@@ -340,12 +278,10 @@ int main(int argc, char **argv) {
     EFFECTIVE("ltv_quality_velocity_disagreement", options.ltv_options.quality_velocity_disagreement);
     EFFECTIVE("ltv_quality_min_features", options.ltv_options.quality_min_features);
     EFFECTIVE("ltv_observer_max_features", options.ltv_options.observer.max_features);
-    EFFECTIVE("ltv_observer_min_features", options.ltv_options.observer.min_features);
-    EFFECTIVE("ltv_observer_max_missed_frames", options.ltv_options.observer.max_missed_frames);
-    EFFECTIVE("ltv_observer_warmup_camera_updates", options.ltv_options.observer.warmup_camera_updates);
-    EFFECTIVE("ltv_observer_max_imu_dt", options.ltv_options.observer.max_imu_dt);
-    EFFECTIVE("ltv_observer_reset_gap", options.ltv_options.observer.reset_gap);
-    EFFECTIVE("ltv_observer_timestamp_tolerance", options.ltv_options.observer.timestamp_tolerance);
+    EFFECTIVE("ltv_observer_min_features", options.ltv_options.min_features);
+    EFFECTIVE("ltv_observer_warmup_camera_updates", options.ltv_options.warmup_camera_updates);
+    EFFECTIVE("ltv_observer_max_imu_dt", options.ltv_options.max_imu_dt);
+    EFFECTIVE("ltv_observer_reset_gap", options.ltv_options.reset_gap);
     EFFECTIVE("ltv_observer_q_landmark", options.ltv_options.observer.q_landmark);
     EFFECTIVE("ltv_observer_v_landmark", options.ltv_options.observer.v_landmark);
     EFFECTIVE("ltv_observer_v_velocity", options.ltv_options.observer.v_velocity);
@@ -353,12 +289,8 @@ int main(int argc, char **argv) {
     EFFECTIVE("ltv_observer_initial_p_landmark", options.ltv_options.observer.initial_p_landmark);
     EFFECTIVE("ltv_observer_initial_p_velocity", options.ltv_options.observer.initial_p_velocity);
     EFFECTIVE("ltv_observer_initial_p_gravity", options.ltv_options.observer.initial_p_gravity);
-    EFFECTIVE("ltv_observer_covariance_floor", options.ltv_options.observer.covariance_floor);
-    EFFECTIVE("ltv_observer_covariance_failure_threshold", options.ltv_options.observer.covariance_failure_threshold);
-    EFFECTIVE("ltv_observer_camera_euler_safety", options.ltv_options.observer.camera_euler_safety);
-    EFFECTIVE("ltv_observer_max_camera_substeps", options.ltv_options.observer.max_camera_substeps);
-    EFFECTIVE("ltv_observer_gravity_norm_min", options.ltv_options.observer.gravity_norm_min);
-    EFFECTIVE("ltv_observer_gravity_norm_max", options.ltv_options.observer.gravity_norm_max);
+    EFFECTIVE("ltv_observer_gravity_norm_min", options.ltv_options.gravity_norm_min);
+    EFFECTIVE("ltv_observer_gravity_norm_max", options.ltv_options.gravity_norm_max);
     EFFECTIVE("do_fej", options.state_options.do_fej);
     EFFECTIVE("do_calib_camera_pose", options.state_options.do_calib_camera_pose);
     EFFECTIVE("do_calib_camera_intrinsics", options.state_options.do_calib_camera_intrinsics);
@@ -374,7 +306,7 @@ int main(int argc, char **argv) {
     EFFECTIVE("use_multi_threading_pubs", options.use_multi_threading_pubs);
 #undef EFFECTIVE
     effective << "\"landmark_correlation_model\": \"approximate_shared_sources_unmodeled\",\n";
-    effective << "\"correlation_model\": \"" << options.ltv_options.correlation_model << "\"\n}\n";
+    effective << "\"correlation_model\": \"" << std::string("independence_approximation") << "\"\n}\n";
     effective.close();
     ov_core::Printer::setPrintLevel("WARNING");
     ReplayManager app(options);
@@ -392,14 +324,7 @@ int main(int argc, char **argv) {
     if (!fusion || !matrices)
       throw std::runtime_error("cannot open fusion diagnostics");
     std::ofstream instrument(out + "/instrumentation.json");
-    instrument << "{\"passive_assert_no_injection\":false,\"gv_evaluation_diagnostics\":"
-               << (options.ltv_options.gv_evaluation_diagnostics ? "true" : "false") << ",\"mode\":\"" << requested_mode
-               << "\",\"velocity_confirm_frames\":"
-               << (options.ltv_options.hardening_readiness.experimental_velocity_confirm_frames
-                       ? options.ltv_options.hardening_readiness.experimental_velocity_confirm_frames
-                       : options.ltv_options.hardening_readiness.ready_confirm_frames)
-               << "}\n";
-    app.assert_passive();
+    instrument << "{\"mode\":\"" << requested_mode << "\",\"profile\":\"" << argv[4] << "\"}\n";
     const auto raw_left = images(root + "/cam0/data.csv"), raw_right = images(root + "/cam1/data.csv");
     // Exact-time synchronization tolerates missing messages, never pairs different headers.
     // Every unmatched input is recorded, including leading/trailing messages.
@@ -504,7 +429,6 @@ int main(int argc, char **argv) {
       app.fusion_row(fusion, matrices, left[i].ns);
       total_G += app.gravity_submissions();
       total_V += app.velocity_submissions();
-      app.assert_passive();
       last_input_time = std::max(last_input_time, target);
       if (cursor)
         last_input_time = std::max(last_input_time, imus[cursor - 1].timestamp);
@@ -545,7 +469,7 @@ int main(int argc, char **argv) {
          << ",\"input_camera_packets\":" << left.size() << ",\"imu_consumed\":" << cursor << ",\"input_imu_samples\":" << imus.size()
          << ",\"output_rows\":" << outputs << ",\"input_span_seconds\":" << std::setprecision(17) << last_input_time - sensor_start
          << ",\"short_limit_seconds\":" << limit << ",\"mode\":\"" << mode << "\",\"actual_G_submissions\":" << total_G
-         << ",\"experiment_mode\":\"" << selected.name << "\""
+         << ",\"experiment_mode\":\"" << requested_mode << "\""
          << ",\"actual_V_submissions\":" << total_V << ",\"complete\":" << (!limit ? "true" : "false") << "}\n";
     meta.flush();
     if (!meta)

@@ -52,6 +52,7 @@
 
     <!-- System dependencies for both versions -->
     <depend>eigen</depend>
+    <depend>yaml-cpp</depend>
     <depend>libopencv-dev</depend>
     <depend>libopencv-contrib-dev</depend>
     <depend>boost</depend>
@@ -67,7 +68,7 @@
     <!-- These are really "soft" dependencies, and are just required if you need them for launch... -->
     <!--    <depend condition="$ROS_VERSION == 1">ov_eval</depend>-->
     <!--    <depend condition="$ROS_VERSION == 1">ov_data</depend>-->
-    <!--    <depend condition="$ROS_VERSION == 2">ov_eval</depend>-->
+    <exec_depend condition="$ROS_VERSION == 2">ov_eval</exec_depend>
     <!--    <depend condition="$ROS_VERSION == 2">ov_data</depend>-->
 
 </package>

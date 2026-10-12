@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "install": "/home/he/open_vins_ltv_ws/install",
+  "build": "/tmp/ltv_release_final_build.log",
+  "configuration": "config/euroc_ltv/ltv.yaml",
+  "preset_check": "10 presets exactly match frozen final protocol",
+  "tests": [
+    "test_ltv_options PASS",
+    "test_ltv_host_lifecycle PASS",
+    "launch resolver: MH/Vicon, live fallback, explicit config preservation PASS",
+    "manual frontend: shared presets/main install/unquoted OFF PASS"
+  ],
+  "startup": [
+    {
+      "mode": "GVL",
+      "command": [
+        "bash",
+        "-c",
+        "unset AMENT_PREFIX_PATH CMAKE_PREFIX_PATH COLCON_PREFIX_PATH LD_LIBRARY_PATH PYTHONPATH; source /opt/ros/humble/setup.bash; source /home/he/open_vins_ltv_ws/install/setup.bash; exec \"$@\"",
+        "release",
+        "ros2",
+        "launch",
+        "ov_msckf",
+        "subscribe.launch.py",
+        "ltv_mode:=GVL",
+        "bag_play:=false"
+      ],
+      "expected": "[LTV] mode=GVL scene=MH weights G=2 V=49 L=6",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "mode": "G",
+      "command": [
+        "bash",
+        "-c",
+        "unset AMENT_PREFIX_PATH CMAKE_PREFIX_PATH COLCON_PREFIX_PATH LD_LIBRARY_PATH PYTHONPATH; source /opt/ros/humble/setup.bash; source /home/he/open_vins_ltv_ws/install/setup.bash; exec \"$@\"",
+        "release",
+        "ros2",
+        "launch",
+        "ov_msckf",
+        "subscribe.launch.py",
+        "ltv_mode:=G",
+        "bag_play:=false",
+        "ltv_scene:=Vicon"
+      ],
+      "expected": "[LTV] mode=G scene=Vicon weights G=1 V=0 L=0",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "mode": "OFF",
+      "command": [
+        "bash",
+        "-c",
+        "unset AMENT_PREFIX_PATH CMAKE_PREFIX_PATH COLCON_PREFIX_PATH LD_LIBRARY_PATH PYTHONPATH; source /opt/ros/humble/setup.bash; source /home/he/open_vins_ltv_ws/install/setup.bash; exec \"$@\"",
+        "release",
+        "ros2",
+        "launch",
+        "ov_msckf",
+        "subscribe.launch.py",
+        "ltv_mode:=OFF",
+        "bag_play:=false"
+      ],
+      "expected": "[LTV] mode=OFF scene=MH weights G=0 V=0 L=0",
+      "status": "PASS",
+      "exit_code": 0
+    }
+  ],
+  "config_symlink": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/config/euroc_ltv/ltv.yaml",
+  "validation_scope": "Configuration and startup only; no dataset replay or accuracy evaluation."
+}

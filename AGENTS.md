@@ -12,10 +12,10 @@ From the workspace root (`/home/he/open_vins_ltv_ws`), run:
 source /opt/ros/humble/setup.bash
 colcon build --packages-up-to ov_msckf
 source install/setup.bash
-ros2 launch ov_msckf subscribe.launch.py rviz_enable:=true
+ros2 launch ov_msckf subscribe.launch.py dobag:=true dolivetraj:=true rviz:=true
 ```
 
-The build includes `ov_msckf` and its package dependencies. The launch command runs the configured EuRoC bag; override the local default with `bag_path:=/path/to/sequence_db`, or use `bag_play:=false` for live topics. Set `dosave:=true` to write an estimated trajectory.
+The build includes `ov_msckf` and its package dependencies. The launch command above runs the configured EuRoC bag; override the local default with `bag:=/path/to/sequence_db`. The default configuration is `euroc_ltv`, loading estimator_config.yaml and optional ltv.yaml from one directory; use `config:=euroc_mav ltv_mode:=OFF` for the native EuRoC profile. Both `dobag` and `dolivetraj` default to false: launch without them subscribes to live topics. Set `dosave:=true` to record an estimated trajectory through ov_eval/pose_to_file, and `dotime:=true` to record estimator timing. Groundtruth alignment defaults to `alignment_type:=posyaw`; use `se3` for full rigid alignment.
 
 ## Coding Style & Naming Conventions
 

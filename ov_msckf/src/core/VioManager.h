@@ -32,8 +32,8 @@
 #include <string>
 
 #include "VioManagerOptions.h"
-#include "ltv/fusion/UpdaterLTV.h"
-#include "ltv/runtime/LtvRuntime.h"
+#include "ltv/features/LtvFeatureManager.h"
+#include "update/UpdaterLTV.h"
 
 namespace ov_core {
 struct ImuData;
@@ -139,13 +139,32 @@ public:
   }
 
 protected:
-  // Read-only audit bookkeeping; populated identically in all Passive study modes.
-  std::vector<size_t> passive_msckf_input_ids, passive_msckf_used_ids, passive_slam_update_ids, passive_slam_init_ids;
-  uint64_t passive_auxiliary_receipts = 0, passive_gravity_submissions = 0, passive_velocity_submissions = 0;
-  LtvFrame passive_ltv_frame;
-  MeasurementBlock evaluation_ltv_block;
-  std::vector<ltv::HistoryObservation> passive_current_observations;
-  std::shared_ptr<LtvRuntime> ltv_runtime;
+  std::unique_ptr<ltv::LtvObserver> ltv_observer;
+  std::unique_ptr<ltv::LtvFeatureManager> ltv_features;
+  struct LtvLifecycle {
+    ltv::LtvAvailability state_ = ltv::LtvAvailability::Collecting;
+    double last_time_ = -1, shortage_since_ = -1, last_bootstrap_ = -1, last_quality_bootstrap_ = -1;
+    unsigned int supply_frames_ = 0;
+    bool pending_physical_ = false, pending_initial_warmup_ = false, awaiting_bootstrap_ = false;
+    bool bootstrapped_ = false, dormant_requested_ = false, physical_recovery_ = false, fault_latched_ = false;
+    uint64_t bootstrap_count_ = 0, physical_fault_count_ = 0;
+    std::string bootstrap_source_;
+    bool started = false, suspended = true, new_epoch = false, initial_warm = false;
+    double cursor = 0, camera_time = -1, correction_time = -1;
+    uint64_t epoch = 0, sequence = 0, corrections = 0, integrated_steps = 0, imu_fault_version = 0;
+    double integrated_seconds = 0;
+    int healthy_frames = 0;
+    ltv::LtvAvailabilityOutput status;
+  } ltv_lifecycle;
+  void initialize_ltv();
+  void reset_ltv();
+  LtvFrame process_ltv(double camera_time, const Eigen::Vector3d &ba, const Eigen::Vector3d &bg);
+  ltv::LtvFeatureContext ltv_feature_context(double camera_time) const;
+  void reset_ltv_lifecycle();
+  void validate_ltv_bootstrap(const ltv::LtvAvailabilityInput &) const;
+  void commit_ltv_bootstrap(const ltv::LtvAvailabilityInput &);
+  ltv::LtvAvailabilityOutput acknowledge_ltv_bootstrap(const ltv::LtvAvailabilityInput &);
+  ltv::LtvAvailabilityOutput update_ltv_lifecycle(const ltv::LtvAvailabilityInput &);
   LtvDiagnostics ltv_diagnostics;
   uint64_t ltv_state_version = 0;
   std::ofstream ltv_log;

@@ -20,7 +20,7 @@
  */
 
 #include "UpdaterMSCKF.h"
-#include "ltv/fusion/UpdaterLTV.h"
+#include "update/UpdaterLTV.h"
 
 #include "UpdaterHelper.h"
 
@@ -333,8 +333,7 @@ void UpdaterMSCKF::update_joint(const std::shared_ptr<State> &state, const Measu
       last_ltv_epoch_ = frame->epoch;
       last_ltv_sequence_ = frame->sequence;
       try {
-        const auto auxiliary = ltv_model_.build(state, *frame);
-        d = auxiliary.receipt->diagnostics;
+        const auto auxiliary = ltv_model_.build(state, *frame, &d);
         d.consumed = true;
         if (!auxiliary.empty()) {
           auto merged = merge_measurements(visual, auxiliary);

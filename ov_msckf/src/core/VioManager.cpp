@@ -37,7 +37,6 @@
 #include "init/InertialInitializer.h"
 #include <iomanip>
 
-#include "ltv/runtime/LtvOpenVinsInput.h"
 #include "state/Propagator.h"
 #include "state/State.h"
 #include "state/StateHelper.h"
@@ -73,7 +72,7 @@ VioManager::VioManager(VioManagerOptions &params_) : thread_init_running(false),
 
   params.ltv_options.validate(params.state_options);
   if (params.ltv_options.enabled) {
-    ltv_runtime = std::make_shared<LtvRuntime>(params.ltv_options);
+    initialize_ltv();
     if (params.ltv_options.log_enabled) {
       ltv_log.open(params.ltv_options.log_path);
       if (!ltv_log)
@@ -180,9 +179,6 @@ VioManager::VioManager(VioManagerOptions &params_) : thread_init_running(false),
 
 void VioManager::feed_measurement_imu(const ov_core::ImuData &message) {
 
-  if (ltv_runtime)
-    ltv_runtime->feed_imu(message);
-
   // The oldest time we need IMU with is the last clone
   // We shouldn't really need the whole window, but if we go backwards in time we will
   double oldest_time = state->margtimestep();
@@ -208,7 +204,7 @@ void VioManager::feed_measurement_imu(const ov_core::ImuData &message) {
 
 void VioManager::feed_measurement_simulation(double timestamp, const std::vector<int> &camids,
                                              const std::vector<std::vector<std::pair<size_t, Eigen::VectorXf>>> &feats) {
-  if (ltv_runtime)
+  if (ltv_observer)
     ++ltv_state_version;
 
   // Start timing
@@ -275,22 +271,8 @@ void VioManager::feed_measurement_simulation(double timestamp, const std::vector
 }
 
 void VioManager::track_image_and_update(const ov_core::CameraData &message_const) {
-  if (params.ltv_options.passive_audit_enabled) {
-    passive_msckf_input_ids.clear();
-    passive_msckf_used_ids.clear();
-    passive_slam_update_ids.clear();
-    passive_slam_init_ids.clear();
-    passive_current_observations.clear();
-    passive_ltv_frame = LtvFrame();
-    evaluation_ltv_block = MeasurementBlock();
-    ltv_diagnostics = LtvDiagnostics();
-    passive_auxiliary_receipts = passive_gravity_submissions = passive_velocity_submissions = 0;
-  }
-  if (params.ltv_options.passive_assert_no_injection &&
-      (params.ltv_options.feature_readiness_enabled || params.ltv_options.passive_audit_enabled) &&
-      (params.ltv_options.enable_gravity || params.ltv_options.enable_velocity))
-    throw std::runtime_error("Passive study injection enabled");
-  if (ltv_runtime) {
+
+  if (ltv_observer) {
     ++ltv_state_version;
     if (message_const.sensor_ids.empty() || message_const.sensor_ids.front() != 0 || message_const.sensor_ids.size() > 2)
       throw std::runtime_error("UNSUPPORTED LTV camera packet: camera0 required");
@@ -320,24 +302,6 @@ void VioManager::track_image_and_update(const ov_core::CameraData &message_const
 
   // Perform our feature tracking!
   trackFEATS->feed_new_camera(message);
-  if (params.ltv_options.passive_audit_enabled) {
-    for (const auto &feature : trackFEATS->get_feature_database()->features_containing(message.timestamp)) {
-      for (int camera : message.sensor_ids) {
-        const auto history = feature->timestamps.find(camera);
-        if (history == feature->timestamps.end())
-          continue;
-        const auto current = std::find(history->second.begin(), history->second.end(), message.timestamp);
-        if (current == history->second.end())
-          continue;
-        const auto uv = feature->uvs_norm.at(camera).at(std::distance(history->second.begin(), current));
-        ltv::HistoryObservation observation;
-        observation.feature_id = feature->featid;
-        observation.camera_id = camera;
-        observation.bearing = Eigen::Vector3d(uv(0), uv(1), 1);
-        passive_current_observations.push_back(observation);
-      }
-    }
-  }
 
   // If the aruco tracker is available, the also pass to it
   // NOTE: binocular tracking for aruco doesn't make sense as we by default have the ids
@@ -396,7 +360,7 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   }
 
   Eigen::Vector3d ltv_ba, ltv_bg;
-  if (ltv_runtime) {
+  if (ltv_observer) {
     ltv_ba = state->_imu->bias_a();
     ltv_bg = state->_imu->bias_g();
   }
@@ -430,18 +394,9 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   has_moved_since_zupt = true;
 
   LtvFrame ltv_frame;
-  if (ltv_runtime) {
+  if (ltv_observer) {
     ltv_diagnostics = LtvDiagnostics();
-    const auto input =
-        makeLtvOpenVinsInput(state, trackFEATS->get_feature_database()->features_containing(message.timestamp), message.timestamp,
-                             ltv_state_version, params.ltv_options.feature_readiness_enabled, params.msckf_options.sigma_pix_sq);
-    const auto &c = input.calibration;
-    const auto &feature_context = input.feature_context;
-    const auto &bearings = input.bearings;
-    ltv_frame = ltv_runtime->process(message.timestamp, bearings, c, ltv_ba, ltv_bg, ltv_state_version,
-                                     params.ltv_options.feature_readiness_enabled ? &feature_context : nullptr);
-    if (ltv_frame.available && !ltv_runtime->claim(ltv_frame))
-      throw std::runtime_error("LTV duplicate attempt");
+    ltv_frame = process_ltv(message.timestamp, ltv_ba, ltv_bg);
   }
 
   //===================================================================================
@@ -607,23 +562,12 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   // NOTE: this should only really be used if you want to track a lot of features, or have limited computational resources
   if ((int)featsup_MSCKF.size() > state->_options.max_msckf_in_update)
     featsup_MSCKF.erase(featsup_MSCKF.begin(), featsup_MSCKF.end() - state->_options.max_msckf_in_update);
-  const bool submit_ltv =
-      ltv_runtime && (params.ltv_options.enable_gravity || params.ltv_options.enable_velocity || params.ltv_options.enable_landmark_approx);
-  if (params.ltv_options.passive_audit_enabled)
-    for (const auto &feature : featsup_MSCKF)
-      passive_msckf_input_ids.push_back(feature->featid);
-  updaterMSCKF->update(state, featsup_MSCKF, submit_ltv ? &ltv_frame : nullptr, ltv_runtime ? &ltv_diagnostics : nullptr);
-  if (params.ltv_options.passive_audit_enabled) {
-    for (const auto &feature : featsup_MSCKF)
-      passive_msckf_used_ids.push_back(feature->featid);
-    passive_auxiliary_receipts = submit_ltv;
-    passive_gravity_submissions = ltv_diagnostics.gravity_rows > 0;
-    passive_velocity_submissions = ltv_diagnostics.velocity_rows > 0;
-    if (params.ltv_options.passive_assert_no_injection &&
-        (passive_auxiliary_receipts || passive_gravity_submissions || passive_velocity_submissions))
-      throw std::runtime_error("Passive audit observed auxiliary submission");
-  }
-  if (ltv_runtime) {
+  const bool submit_ltv = ltv_observer && (params.ltv_options.enable_gravity || params.ltv_options.enable_velocity ||
+                                           params.ltv_options.enable_landmark_approx);
+
+  updaterMSCKF->update(state, featsup_MSCKF, submit_ltv ? &ltv_frame : nullptr, ltv_observer ? &ltv_diagnostics : nullptr);
+
+  if (ltv_observer) {
     record_ltv(ltv_frame);
   }
   propagator->invalidate_cache();
@@ -648,12 +592,7 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   feats_slam_UPDATE = feats_slam_UPDATE_TEMP;
   rT5 = boost::posix_time::microsec_clock::local_time();
   updaterSLAM->delayed_init(state, feats_slam_DELAYED);
-  if (params.ltv_options.passive_audit_enabled) {
-    for (const auto &feature : feats_slam_UPDATE)
-      passive_slam_update_ids.push_back(feature->featid);
-    for (const auto &feature : feats_slam_DELAYED)
-      passive_slam_init_ids.push_back(feature->featid);
-  }
+
   rT6 = boost::posix_time::microsec_clock::local_time();
 
   //===================================================================================
@@ -822,20 +761,12 @@ void VioManager::do_feature_propagate_update(const ov_core::CameraData &message)
   }
 }
 
-void VioManager::pause_ltv(double time, const std::string &reason) {
-  if (ltv_runtime) {
-    ltv_diagnostics = LtvDiagnostics();
-    const auto frame = ltv_runtime->pause(time, reason, ltv_state_version);
-    record_ltv(frame);
-  }
-}
 void VioManager::record_ltv(const LtvFrame &f) {
-  if (params.ltv_options.passive_audit_enabled)
-    passive_ltv_frame = f;
+
   if (!ltv_log.is_open())
     return;
   const auto &d = ltv_diagnostics;
-  ltv_log << f.epoch << ',' << f.camera_time << ',' << f.sequence << ',' << f.reason << ',' << f.available << ',' << f.snapshot.valid << ','
+  ltv_log << f.epoch << ',' << f.camera_time << ',' << f.sequence << ',' << f.reason << ',' << f.available << ',' << f.valid << ','
           << d.gravity_reason << ',' << d.velocity_reason << ',' << d.landmark_reason << ',' << d.gravity_nis << ',' << d.velocity_nis
           << ',' << d.landmark_nis << ',' << d.joint_nis << ',' << d.gravity_rows << ',' << d.velocity_rows << ',' << d.landmark_rows << ','
           << d.visual_rows << ',' << d.columns << ',' << d.ekf_calls << ',' << d.submit_reason << ',' << f.compute_time_ms << ','

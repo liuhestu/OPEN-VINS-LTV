@@ -108,8 +108,10 @@ void Propagator::propagate_and_clone(std::shared_ptr<State> state, double timest
     Eigen::Matrix3d Dw = State::Dm(state->_options.imu_model, state->_calib_imu_dw->value());
     Eigen::Matrix3d Da = State::Dm(state->_options.imu_model, state->_calib_imu_da->value());
     Eigen::Matrix3d Tg = State::Tg(state->_calib_imu_tg->value());
-    last_a = state->_calib_imu_ACCtoIMU->Rot() * Da * (prop_data.at(prop_data.size() - 1).am - state->_imu->bias_a());
-    last_w = state->_calib_imu_GYROtoIMU->Rot() * Dw * (prop_data.at(prop_data.size() - 1).wm - state->_imu->bias_g() - Tg * last_a);
+    const auto last = correct_imu(prop_data.back(), Da, Dw, Tg, state->_calib_imu_ACCtoIMU->Rot(), state->_calib_imu_GYROtoIMU->Rot(),
+                                  state->_imu->bias_a(), state->_imu->bias_g());
+    last_a = last.am;
+    last_w = last.wm;
   }
 
   // Do the update to the covariance with our "summed" state transition and IMU noise addition...
@@ -1013,4 +1015,53 @@ Eigen::MatrixXd Propagator::compute_H_Tg(std::shared_ptr<State> state, const Eig
   Eigen::MatrixXd H_Tg = Eigen::MatrixXd::Zero(3, 9);
   H_Tg << a_1 * I_3x3, a_2 * I_3x3, a_3 * I_3x3;
   return H_Tg;
+}
+Propagator::ImuInterval Propagator::imu_interval(double start, double end, double max_gap) {
+  std::lock_guard<std::mutex> lock(imu_data_mtx);
+  ImuInterval result;
+  result.fault_version = imu_fault_version_;
+  if (!std::isfinite(start) || !std::isfinite(end) || end < start || !std::isfinite(max_gap) || max_gap <= 0) {
+    result.error = "invalid_imu_interval";
+    return result;
+  }
+  if (imu_data.size() < 2 || imu_data.front().timestamp > start || imu_data.back().timestamp < end) {
+    result.error = "missing_imu_bracket";
+    return result;
+  }
+  for (size_t i = 0; i < imu_data.size(); ++i) {
+    const auto &sample = imu_data[i];
+    if (!std::isfinite(sample.timestamp) || !sample.am.allFinite() || !sample.wm.allFinite() ||
+        (i && sample.timestamp <= imu_data[i - 1].timestamp)) {
+      result.error = "invalid_or_out_of_order_imu";
+      return result;
+    }
+  }
+  auto boundary = [&](double t) {
+    auto hi = std::lower_bound(imu_data.begin(), imu_data.end(), t, [](const ov_core::ImuData &a, double b) { return a.timestamp < b; });
+    if (hi->timestamp == t)
+      return *hi;
+    auto lo = std::prev(hi);
+    if (hi->timestamp - lo->timestamp > max_gap)
+      result.error = "imu_bracket_gap";
+    return interpolate_data(*lo, *hi, t);
+  };
+  result.samples.push_back(boundary(start));
+  for (const auto &sample : imu_data)
+    if (sample.timestamp > start && sample.timestamp < end)
+      result.samples.push_back(sample);
+  if (end > start)
+    result.samples.push_back(boundary(end));
+  for (size_t i = 1; i < result.samples.size(); ++i)
+    if (result.samples[i].timestamp - result.samples[i - 1].timestamp > max_gap)
+      result.error = "imu_gap";
+  return result;
+}
+ov_core::ImuData Propagator::correct_imu(const ov_core::ImuData &raw, const Eigen::Matrix3d &Da, const Eigen::Matrix3d &Dw,
+                                         const Eigen::Matrix3d &Tg, const Eigen::Matrix3d &R_ACCtoIMU, const Eigen::Matrix3d &R_GYROtoIMU,
+                                         const Eigen::Vector3d &ba, const Eigen::Vector3d &bg) {
+  ov_core::ImuData x;
+  x.timestamp = raw.timestamp;
+  x.am = R_ACCtoIMU * Da * (raw.am - ba);
+  x.wm = R_GYROtoIMU * Dw * (raw.wm - bg - Tg * x.am);
+  return x;
 }

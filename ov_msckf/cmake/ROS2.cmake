@@ -114,11 +114,6 @@ install(TARGETS test_sim_repeat DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY launch/ DESTINATION share/${PROJECT_NAME}/launch/)
 install(DIRECTORY ../config/ DESTINATION share/${PROJECT_NAME}/config/)
 
-option(BUILD_LTV_PHASE0_TESTS "Build isolated LTV Phase 0 acceptance probes" OFF)
-if (BUILD_LTV_PHASE0_TESTS)
-    add_subdirectory(tests/ltv)
-endif ()
-
 option(BUILD_LTV_EXPERIMENTS "Build opt-in archived LTV study drivers" OFF)
 if (BUILD_LTV_EXPERIMENTS)
     add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../../docs/experiment_process/experiments/tools/native ltv_experiments)

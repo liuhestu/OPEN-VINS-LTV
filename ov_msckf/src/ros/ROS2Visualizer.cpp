@@ -27,11 +27,8 @@
 #include "state/Propagator.h"
 #include "state/State.h"
 #include "state/StateHelper.h"
-#include "utils/dataset_reader.h"
 #include "utils/print.h"
 #include "utils/sensor_data.h"
-
-#include <stdexcept>
 
 using namespace ov_core;
 using namespace ov_type;
@@ -68,11 +65,14 @@ ROS2Visualizer::ROS2Visualizer(std::shared_ptr<rclcpp::Node> node, std::shared_p
   it_pub_tracks = it.advertise("trackhist", 2);
   PRINT_DEBUG("Publishing: %s\n", it_pub_tracks.getTopic().c_str());
 
-  // Groundtruth publishers
-  pub_posegt = node->create_publisher<geometry_msgs::msg::PoseStamped>("posegt", 2);
-  PRINT_DEBUG("Publishing: %s\n", pub_posegt->get_topic_name());
-  pub_pathgt = node->create_publisher<nav_msgs::msg::Path>("pathgt", 2);
-  PRINT_DEBUG("Publishing: %s\n", pub_pathgt->get_topic_name());
+  // Only simulation publishes groundtruth from the estimator.
+  if (_sim != nullptr) {
+    // Groundtruth publishers
+    pub_posegt = node->create_publisher<geometry_msgs::msg::PoseStamped>("posegt", 2);
+    PRINT_DEBUG("Publishing: %s\n", pub_posegt->get_topic_name());
+    pub_pathgt = node->create_publisher<nav_msgs::msg::Path>("pathgt", 2);
+    PRINT_DEBUG("Publishing: %s\n", pub_pathgt->get_topic_name());
+  }
 
   // Loop closure publishers
   pub_loop_pose = node->create_publisher<nav_msgs::msg::Odometry>("loop_pose", 2);
@@ -88,34 +88,6 @@ ROS2Visualizer::ROS2Visualizer(std::shared_ptr<rclcpp::Node> node, std::shared_p
   }
   if (node->has_parameter("publish_calibration_tf")) {
     node->get_parameter<bool>("publish_calibration_tf", publish_calibration_tf);
-  }
-
-  // Load groundtruth if we have it and are not doing simulation
-  // NOTE: needs to be a csv ASL format file
-  std::string path_to_gt;
-  bool has_gt = node->get_parameter("path_gt", path_to_gt);
-  if (has_gt && _sim == nullptr && !path_to_gt.empty()) {
-    DatasetReader::load_gt_file(path_to_gt, gt_states);
-    PRINT_DEBUG("gt file path is: %s\n", path_to_gt.c_str());
-  }
-
-  bool dosave = false;
-  if (node->has_parameter("dosave")) {
-    node->get_parameter<bool>("dosave", dosave);
-  }
-  if (dosave) {
-    std::string path_est = "/tmp/traj_estimate.txt";
-    node->get_parameter<std::string>("path_est", path_est);
-    const boost::filesystem::path output_path(path_est);
-    if (!output_path.parent_path().empty()) {
-      boost::filesystem::create_directories(output_path.parent_path());
-    }
-    of_pose_est.open(path_est, std::ios::out | std::ios::trunc);
-    if (!of_pose_est) {
-      throw std::runtime_error("Unable to open estimated trajectory file: " + path_est);
-    }
-    of_pose_est << "# timestamp(s) tx ty tz qx qy qz qw Pr11 Pr12 Pr13 Pr22 Pr23 Pr33 Pt11 Pt12 Pt13 Pt22 Pt23 Pt33" << std::endl;
-    PRINT_INFO("saving estimated trajectory to: %s\n", path_est.c_str());
   }
 
   // Load if we should save the total state to file
@@ -170,14 +142,13 @@ ROS2Visualizer::ROS2Visualizer(std::shared_ptr<rclcpp::Node> node, std::shared_p
 
   // Start thread for the image publishing
   if (_app->get_params().use_multi_threading_pubs) {
-    std::thread thread([&] {
+    image_worker = std::thread([this] {
       rclcpp::Rate loop_rate(20);
-      while (rclcpp::ok()) {
+      while (!stopping && rclcpp::ok()) {
         publish_images();
         loop_rate.sleep();
       }
     });
-    thread.detach();
   }
 }
 
@@ -370,7 +341,20 @@ void ROS2Visualizer::visualize_odometry(double timestamp) {
   }
 }
 
+ROS2Visualizer::~ROS2Visualizer() { stop_workers(); }
+
+void ROS2Visualizer::stop_workers() {
+  stopping = true;
+  if (update_worker.joinable())
+    update_worker.join();
+  if (image_worker.joinable())
+    image_worker.join();
+}
+
 void ROS2Visualizer::visualize_final() {
+  // The executor has stopped. Finish owned workers before reading final state
+  // or allowing the visualizer/app to be destroyed.
+  stop_workers();
 
   // Final time offset value
   if (_app->get_state()->_options.do_calib_camera_timeoffset) {
@@ -437,14 +421,8 @@ void ROS2Visualizer::visualize_final() {
     PRINT_INFO(REDPURPLE "%.6f,%.6f,%.6f\n\n" RESET, Tg(2, 0), Tg(2, 1), Tg(2, 2));
   }
 
-  // Publish RMSE if we have it
-  if (!gt_states.empty()) {
-    PRINT_INFO(REDPURPLE "RMSE: %.3f (deg) orientation\n" RESET, std::sqrt(summed_mse_ori / summed_number));
-    PRINT_INFO(REDPURPLE "RMSE: %.3f (m) position\n\n" RESET, std::sqrt(summed_mse_pos / summed_number));
-  }
-
   // Publish RMSE and NEES if doing simulation
-  if (_sim != nullptr) {
+  if (_sim != nullptr && summed_number > 0) {
     PRINT_INFO(REDPURPLE "RMSE: %.3f (deg) orientation\n" RESET, std::sqrt(summed_mse_ori / summed_number));
     PRINT_INFO(REDPURPLE "RMSE: %.3f (m) position\n\n" RESET, std::sqrt(summed_mse_pos / summed_number));
     PRINT_INFO(REDPURPLE "NEES: %.3f (deg) orientation\n" RESET, summed_nees_ori / summed_number);
@@ -471,10 +449,12 @@ void ROS2Visualizer::callback_inertial(const sensor_msgs::msg::Imu::SharedPtr ms
   // If the processing queue is currently active / running just return so we can keep getting measurements
   // Otherwise create a second thread to do our update in an async manor
   // The visualization of the state, images, and features will be synchronous with the update!
-  if (thread_update_running)
+  if (stopping || thread_update_running.exchange(true))
     return;
-  thread_update_running = true;
-  std::thread thread([&] {
+  if (update_worker.joinable())
+    update_worker.join();
+  // The IMU callback returns while this worker runs: own the sample value.
+  update_worker = std::thread([this, message] {
     // Lock on the queue (prevents new images from appending)
     std::lock_guard<std::mutex> lck(camera_queue_mtx);
 
@@ -493,7 +473,7 @@ void ROS2Visualizer::callback_inertial(const sensor_msgs::msg::Imu::SharedPtr ms
       // Loop through our queue and see if we are able to process any of our camera measurements
       // We are able to process if we have at least one IMU measurement greater than the camera time
       double timestamp_imu_inC = message.timestamp - _app->get_state()->_calib_dt_CAMtoIMU->value()(0);
-      while (!camera_queue.empty() && camera_queue.at(0).timestamp < timestamp_imu_inC) {
+      while (!stopping && !camera_queue.empty() && camera_queue.at(0).timestamp < timestamp_imu_inC) {
         auto rT0_1 = boost::posix_time::microsec_clock::local_time();
         double update_dt = 100.0 * (timestamp_imu_inC - camera_queue.at(0).timestamp);
         _app->feed_measurement_camera(camera_queue.at(0));
@@ -507,13 +487,8 @@ void ROS2Visualizer::callback_inertial(const sensor_msgs::msg::Imu::SharedPtr ms
     thread_update_running = false;
   });
 
-  // If we are single threaded, then run single threaded
-  // Otherwise detach this thread so it runs in the background!
-  if (!_app->get_params().use_multi_threading_subs) {
-    thread.join();
-  } else {
-    thread.detach();
-  }
+  if (!_app->get_params().use_multi_threading_subs)
+    update_worker.join();
 }
 
 void ROS2Visualizer::callback_monocular(const sensor_msgs::msg::Image::SharedPtr msg0, int cam_id0) {
@@ -647,23 +622,6 @@ void ROS2Visualizer::publish_state() {
   }
   pub_poseimu->publish(poseIinM);
 
-  if (of_pose_est.is_open()) {
-    std::lock_guard<std::mutex> lock(pose_file_mtx);
-    const auto &pose = poseIinM.pose.pose;
-    const auto &cov = poseIinM.pose.covariance;
-    of_pose_est.setf(std::ios::fixed, std::ios::floatfield);
-    of_pose_est.precision(5);
-    of_pose_est << timestamp_inI << " ";
-    of_pose_est.precision(6);
-    of_pose_est << pose.position.x << " " << pose.position.y << " " << pose.position.z << " " << pose.orientation.x << " "
-                << pose.orientation.y << " " << pose.orientation.z << " " << pose.orientation.w;
-    of_pose_est.precision(10);
-    for (int index : {21, 22, 23, 28, 29, 35, 0, 1, 2, 7, 8, 14}) {
-      of_pose_est << " " << cov[index];
-    }
-    of_pose_est << std::endl;
-  }
-
   //=========================================================
   //=========================================================
 
@@ -746,6 +704,9 @@ void ROS2Visualizer::publish_features() {
 }
 
 void ROS2Visualizer::publish_groundtruth() {
+  // CSV trajectory visualization belongs to ov_eval/live_align_trajectory.
+  if (_sim == nullptr)
+    return;
 
   // Our groundtruth state
   Eigen::Matrix<double, 17, 1> state_gt;
@@ -754,11 +715,6 @@ void ROS2Visualizer::publish_groundtruth() {
   // The timestamp in the state will be the last camera time
   double t_ItoC = _app->get_state()->_calib_dt_CAMtoIMU->value()(0);
   double timestamp_inI = _app->get_state()->_timestamp + t_ItoC;
-
-  // Check that we have the timestamp in our GT file [time(sec),q_GtoI,p_IinG,v_IinG,b_gyro,b_accel]
-  if (_sim == nullptr && (gt_states.empty() || !DatasetReader::get_gt_state(timestamp_inI, state_gt, gt_states))) {
-    return;
-  }
 
   // Get the simulated groundtruth
   // NOTE: we get the true time in the IMU clock frame

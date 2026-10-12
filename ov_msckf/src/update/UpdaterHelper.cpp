@@ -20,6 +20,7 @@
  */
 
 #include "UpdaterHelper.h"
+#include "state/StateHelper.h"
 
 #include "state/State.h"
 
@@ -494,3 +495,125 @@ void UpdaterHelper::measurement_compress_inplace(Eigen::MatrixXd &H_x, Eigen::Ve
   if (source_map)
     source_map->conservativeResize(r, source_map->cols());
 }
+
+namespace ov_msckf {
+namespace {
+Eigen::MatrixXd innovation_matrix(const Eigen::MatrixXd &H, const Eigen::MatrixXd &P, const Eigen::MatrixXd &R) {
+  Eigen::MatrixXd S(R.rows(), R.cols());
+  S.triangularView<Eigen::Upper>() = H * P * H.transpose();
+  S.triangularView<Eigen::Upper>() += R;
+  return S.selfadjointView<Eigen::Upper>();
+}
+bool layout(const MeasurementBlock &b, std::string &reason) {
+  int n = 0;
+  for (size_t i = 0; i < b.order.size(); ++i) {
+    const auto &a = b.order[i];
+    if (!a || a->id() < 0 || a->size() <= 0) {
+      reason = "invalid_type";
+      return false;
+    }
+    for (size_t j = 0; j < i; ++j) {
+      const auto &other = b.order[j];
+      if (a->id() < other->id() + other->size() && other->id() < a->id() + a->size()) {
+        reason = "overlapping_columns";
+        return false;
+      }
+    }
+    n += a->size();
+  }
+  if (b.H.rows() != b.res.rows() || b.H.cols() != n || b.R.rows() != b.res.rows() || b.R.cols() != b.res.rows()) {
+    reason = "dimension_mismatch";
+    return false;
+  }
+  if (!b.H.allFinite() || !b.res.allFinite() || !b.R.allFinite()) {
+    reason = "nonfinite_measurement";
+    return false;
+  }
+  return true;
+}
+} // namespace
+MeasurementBlock merge_measurements(const MeasurementBlock &a, const MeasurementBlock &b) {
+  std::string reason;
+  if (!layout(a, reason) || !layout(b, reason))
+    throw std::invalid_argument(reason);
+  MeasurementBlock result = a;
+  std::vector<int> dest;
+  int columns = a.H.cols();
+  for (const auto &type : b.order) {
+    int offset = 0, found = -1;
+    for (const auto &existing : result.order) {
+      if (type.get() == existing.get() && type->id() == existing->id() && type->size() == existing->size())
+        found = offset;
+      else if (type->id() < existing->id() + existing->size() && existing->id() < type->id() + type->size())
+        throw std::invalid_argument("overlapping type ranges");
+      offset += existing->size();
+    }
+    if (found < 0) {
+      found = columns;
+      columns += type->size();
+      result.order.push_back(type);
+    }
+    dest.push_back(found);
+  }
+  const int ma = a.res.size(), mb = b.res.size();
+  result.H = Eigen::MatrixXd::Zero(ma + mb, columns);
+  result.res.resize(ma + mb);
+  result.R = Eigen::MatrixXd::Zero(ma + mb, ma + mb);
+  if (ma) {
+    result.H.topLeftCorner(ma, a.H.cols()) = a.H;
+    result.res.head(ma) = a.res;
+    result.R.topLeftCorner(ma, ma) = a.R;
+  }
+  if (mb) {
+    int source = 0;
+    for (size_t i = 0; i < b.order.size(); ++i) {
+      int size = b.order[i]->size();
+      result.H.block(ma, dest[i], mb, size) = b.H.middleCols(source, size);
+      source += size;
+    }
+    result.res.tail(mb) = b.res;
+    result.R.bottomRightCorner(mb, mb) = b.R;
+  }
+  return result;
+}
+bool validate_measurement(const std::shared_ptr<State> &state, const MeasurementBlock &b, std::string &reason, double *nis_value) {
+  if (nis_value)
+    *nis_value = -1;
+  if (!layout(b, reason))
+    return false;
+  if (b.empty())
+    return true;
+  for (const auto &type : b.order) {
+    if (type->id() + type->size() > state->max_covariance_size()) {
+      reason = "outside_covariance";
+      return false;
+    }
+    const bool owned = StateHelper::owns_type(state, type);
+    if (!owned) {
+      reason = "foreign_type";
+      return false;
+    }
+  }
+  if ((b.R - b.R.transpose()).norm() > 1e-12 * std::max(1.0, b.R.norm())) {
+    reason = "asymmetric_R";
+    return false;
+  }
+  Eigen::LLT<Eigen::MatrixXd> noise(b.R);
+  if (noise.info() != Eigen::Success) {
+    reason = "nonSPD_R";
+    return false;
+  }
+  const auto P = StateHelper::get_marginal_covariance(state, b.order);
+  const Eigen::MatrixXd S = innovation_matrix(b.H, P, b.R);
+  Eigen::LLT<Eigen::MatrixXd> innovation(S);
+  if (!S.allFinite() || innovation.info() != Eigen::Success) {
+    reason = "nonSPD_S";
+    return false;
+  }
+  if (nis_value) {
+    const double value = b.res.dot(innovation.solve(b.res));
+    *nis_value = std::isfinite(value) && value >= 0 ? value : -1;
+  }
+  return true;
+}
+} // namespace ov_msckf

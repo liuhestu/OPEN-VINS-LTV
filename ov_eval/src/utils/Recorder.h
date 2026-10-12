@@ -29,13 +29,39 @@
 #include <Eigen/Eigen>
 #include <boost/filesystem.hpp>
 
+#include "utils/print.h"
+#if ROS_AVAILABLE == 2
+#include <geometry_msgs/msg/pose_stamped.hpp>
+#include <geometry_msgs/msg/pose_with_covariance_stamped.hpp>
+#include <geometry_msgs/msg/transform_stamped.hpp>
+#include <nav_msgs/msg/odometry.hpp>
+#include <rclcpp/rclcpp.hpp>
+#else
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/PoseWithCovarianceStamped.h>
 #include <geometry_msgs/TransformStamped.h>
 #include <nav_msgs/Odometry.h>
 #include <ros/ros.h>
+#endif
 
 namespace ov_eval {
+#if ROS_AVAILABLE == 2
+using PoseStamped = geometry_msgs::msg::PoseStamped;
+using PoseWithCovarianceStamped = geometry_msgs::msg::PoseWithCovarianceStamped;
+using TransformStamped = geometry_msgs::msg::TransformStamped;
+using Odometry = nav_msgs::msg::Odometry;
+using PosePtr = PoseStamped::ConstSharedPtr;
+using PoseCovariancePtr = PoseWithCovarianceStamped::ConstSharedPtr;
+using TransformPtr = TransformStamped::ConstSharedPtr;
+using OdometryPtr = Odometry::ConstSharedPtr;
+inline double recorder_time(const builtin_interfaces::msg::Time &stamp) { return rclcpp::Time(stamp).seconds(); }
+#else
+using PosePtr = geometry_msgs::PoseStamped::ConstPtr;
+using PoseCovariancePtr = geometry_msgs::PoseWithCovarianceStamped::ConstPtr;
+using TransformPtr = geometry_msgs::TransformStamped::ConstPtr;
+using OdometryPtr = nav_msgs::Odometry::ConstPtr;
+inline double recorder_time(const ros::Time &stamp) { return stamp.toSec(); }
+#endif
 
 /**
  * @brief This class takes in published poses and writes them to file.
@@ -55,20 +81,20 @@ public:
   Recorder(std::string filename) {
     // Create folder path to this location if not exists
     boost::filesystem::path dir(filename.c_str());
-    if (boost::filesystem::create_directories(dir.parent_path())) {
-      ROS_INFO("Created folder path to output file.");
-      ROS_INFO("Path: %s", dir.parent_path().c_str());
+    if (!dir.parent_path().empty() && boost::filesystem::create_directories(dir.parent_path())) {
+      PRINT_INFO("Created folder path to output file.\n");
+      PRINT_INFO("Path: %s\n", dir.parent_path().c_str());
     }
     // If it exists, then delete it
     if (boost::filesystem::exists(filename)) {
-      ROS_WARN("Output file exists, deleting old file....");
+      PRINT_WARNING("Output file exists, deleting old file....\n");
       boost::filesystem::remove(filename);
     }
     // Open this file we want to write to
     outfile.open(filename.c_str());
     if (outfile.fail()) {
-      ROS_ERROR("Unable to open output file!!");
-      ROS_ERROR("Path: %s", filename.c_str());
+      PRINT_ERROR("Unable to open output file!!\n");
+      PRINT_ERROR("Path: %s\n", filename.c_str());
       std::exit(EXIT_FAILURE);
     }
     outfile << "# timestamp(s) tx ty tz qx qy qz qw Pr11 Pr12 Pr13 Pr22 Pr23 Pr33 Pt11 Pt12 Pt13 Pt22 Pt23 Pt33" << std::endl;
@@ -89,8 +115,8 @@ public:
    *
    * @param msg New message
    */
-  void callback_odometry(const nav_msgs::OdometryPtr &msg) {
-    timestamp = msg->header.stamp.toSec();
+  void callback_odometry(const OdometryPtr &msg) {
+    timestamp = recorder_time(msg->header.stamp);
     q_ItoG << msg->pose.pose.orientation.x, msg->pose.pose.orientation.y, msg->pose.pose.orientation.z, msg->pose.pose.orientation.w;
     p_IinG << msg->pose.pose.position.x, msg->pose.pose.position.y, msg->pose.pose.position.z;
     cov_pos << msg->pose.covariance.at(0), msg->pose.covariance.at(1), msg->pose.covariance.at(2), msg->pose.covariance.at(6),
@@ -107,8 +133,8 @@ public:
    * @brief Callback for geometry_msgs::PoseStamped message types
    * @param msg New message
    */
-  void callback_pose(const geometry_msgs::PoseStampedPtr &msg) {
-    timestamp = msg->header.stamp.toSec();
+  void callback_pose(const PosePtr &msg) {
+    timestamp = recorder_time(msg->header.stamp);
     q_ItoG << msg->pose.orientation.x, msg->pose.orientation.y, msg->pose.orientation.z, msg->pose.orientation.w;
     p_IinG << msg->pose.position.x, msg->pose.position.y, msg->pose.position.z;
     write();
@@ -122,8 +148,8 @@ public:
    *
    * @param msg New message
    */
-  void callback_posecovariance(const geometry_msgs::PoseWithCovarianceStampedPtr &msg) {
-    timestamp = msg->header.stamp.toSec();
+  void callback_posecovariance(const PoseCovariancePtr &msg) {
+    timestamp = recorder_time(msg->header.stamp);
     q_ItoG << msg->pose.pose.orientation.x, msg->pose.pose.orientation.y, msg->pose.pose.orientation.z, msg->pose.pose.orientation.w;
     p_IinG << msg->pose.pose.position.x, msg->pose.pose.position.y, msg->pose.pose.position.z;
     cov_pos << msg->pose.covariance.at(0), msg->pose.covariance.at(1), msg->pose.covariance.at(2), msg->pose.covariance.at(6),
@@ -140,8 +166,8 @@ public:
    * @brief Callback for geometry_msgs::TransformStamped message types
    * @param msg New message
    */
-  void callback_transform(const geometry_msgs::TransformStampedPtr &msg) {
-    timestamp = msg->header.stamp.toSec();
+  void callback_transform(const TransformPtr &msg) {
+    timestamp = recorder_time(msg->header.stamp);
     q_ItoG << msg->transform.rotation.x, msg->transform.rotation.y, msg->transform.rotation.z, msg->transform.rotation.w;
     p_IinG << msg->transform.translation.x, msg->transform.translation.y, msg->transform.translation.z;
     write();

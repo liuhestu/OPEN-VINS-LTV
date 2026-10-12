@@ -13,10 +13,13 @@
 | `experiments/` | 回放/分析工具、实验配置、重构验证和已退出主构建的研究源码 |
 | `Pose_Velocity_and_Landmark_Position_Estimation_Using_IMU_and_Bearing_Measurements.pdf` | LTV观测器参考论文 |
 
-当前手动回放入口：
+当前回放入口统一为 ROS 2 launch：
 
 ```bash
-python3 docs/experiment_process/experiments/tools/ltv_gain_scan/run_manual_euroc.py
+source /home/he/open_vins_ltv_ws/install/setup.bash
+ros2 launch ov_msckf subscribe.launch.py ltv_mode:=GVL dobag:=true dolivetraj:=true rviz:=true
 ```
 
-选择文件仍为仓库的 `config/euroc_final/manual_run.yaml`。历史manifest及JSON中的源码版本、原始输出路径和历史命令属于溯源证据，不因目录迁移而改写；本目录中的旧研究脚本不保证能直接作用于删减后的定稿源码。重现旧研究请使用其中记录的源码版本及冻结二进制。
+模式及最终权重配置见 `config/euroc_ltv/ltv.yaml`。旧 `run_manual_euroc.py` 与 `manual_run.yaml` 已移除。
+
+历史 manifest、JSON 中的源码版本、原始输出路径和历史命令属于溯源证据，不因当前入口整理而改写；本目录中的旧研究脚本不保证能直接作用于定版源码。重现旧研究请使用对应源码版本及冻结二进制。

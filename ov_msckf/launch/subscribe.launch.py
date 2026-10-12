@@ -1,169 +1,170 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, ExecuteProcess, LogInfo, OpaqueFunction, TimerAction
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, OpaqueFunction, TimerAction
 from launch.conditions import IfCondition
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 from ament_index_python.packages import get_package_share_directory
+import math
 import os
 
 launch_args = [
-    DeclareLaunchArgument(name="namespace", default_value="ov_msckf", description="namespace"),
+    # Estimator configuration
     DeclareLaunchArgument(
-        name="ov_enable", default_value="true", description="enable OpenVINS node"
+        "config",
+        default_value="euroc_ltv",
+        description="configuration directory containing estimator_config.yaml and optional ltv.yaml",
     ),
     DeclareLaunchArgument(
-        name="rviz_enable", default_value="false", description="enable rviz node"
-    ),
-    DeclareLaunchArgument(
-        name="bag_play", default_value="true", description="play the EuRoC ROS 2 bag"
-    ),
-    DeclareLaunchArgument(
-        name="bag_path",
-        default_value="/home/he/datasets/euroc/V1_01_easy_db",
-        description="directory containing the EuRoC ROS 2 bag metadata.yaml",
-    ),
-    DeclareLaunchArgument(
-        name="path_gt",
+        "config_path",
         default_value="",
-        description="EuRoC ASL groundtruth CSV; auto-detected from bag_path when empty",
+        description="explicit estimator_config.yaml; otherwise use config",
     ),
+
+    # LTV mode and scene presets
     DeclareLaunchArgument(
-        name="dosave", default_value="false", description="save estimated poses to a text file"
+        "ltv_scene",
+        default_value="auto",
+        description="infer MH/Vicon during replay; otherwise use YAML scene",
     ),
+    DeclareLaunchArgument("ltv_mode", default_value="", description="override LTV mode: OFF/G/V/L/GVL"),
+
+    # Node namespace and RViz
+    DeclareLaunchArgument("namespace", default_value="ov_msckf"),
+    DeclareLaunchArgument("rviz", default_value="true", description="start RViz"),
+
+    # Camera setup
+    DeclareLaunchArgument("max_cameras", default_value="2"),
+    DeclareLaunchArgument("use_stereo", default_value="true"),
+
+    # Dataset and ROS 2 bag playback
+    DeclareLaunchArgument("dataset", default_value="V1_01_easy"),
     DeclareLaunchArgument(
-        name="path_est",
-        default_value="/output/traj_estimate.txt",
-        description="estimated pose output file when dosave is true",
-    ),
-    DeclareLaunchArgument(
-        name="config",
-        default_value="euroc_mav",
-        description="euroc_mav, tum_vi, rpng_aruco...",
-    ),
-    DeclareLaunchArgument(
-        name="config_path",
-        default_value="",
-        description="path to estimator_config.yaml. If not given, determined based on provided 'config' above",
-    ),
-    DeclareLaunchArgument(
-        name="verbosity",
-        default_value="INFO",
-        description="ALL, DEBUG, INFO, WARNING, ERROR, SILENT",
-    ),
-    DeclareLaunchArgument(
-        name="use_stereo",
+        "dobag",
         default_value="true",
-        description="if we have more than 1 camera, if we should try to track stereo constraints between pairs",
+        description="play the ROS 2 bag; false subscribes to live topics",
     ),
     DeclareLaunchArgument(
-        name="max_cameras",
-        default_value="2",
-        description="how many cameras we have 1 = mono, 2 = stereo, >2 = binocular (all mono tracking)",
+        "bag",
+        default_value="",
+        description="bag directory; empty uses /home/he/datasets/euroc/<dataset>_db",
     ),
     DeclareLaunchArgument(
-        name="save_total_state",
-        default_value="false",
-        description="record the total state with calibration and features to a txt file",
-    )
+        "bag_start",
+        default_value="0",
+        description="skip this many seconds from the beginning of the bag",
+    ),
+    DeclareLaunchArgument("bag_rate", default_value="1", description="positive playback rate"),
+
+    # Estimated trajectory and timing output
+    DeclareLaunchArgument("dosave", default_value="false", description="start ov_eval/pose_to_file"),
+    DeclareLaunchArgument("path_est", default_value="/results/traj_estimate.txt"),
+    DeclareLaunchArgument("dotime", default_value="false", description="record estimator timing"),
+    DeclareLaunchArgument("path_time", default_value="/tmp/traj_timing.txt"),
+
+    # Groundtruth trajectory alignment and display
+    DeclareLaunchArgument("dolivetraj", default_value="true", description="start ov_eval/live_align_trajectory"),
+    DeclareLaunchArgument(
+        "alignment_type",
+        default_value="posyaw",
+        choices=["posyaw", "posyawsingle", "se3", "se3single", "sim3", "none"],
+    ),
+    DeclareLaunchArgument(
+        "path_gt",
+        default_value="",
+        description="GT CSV or TXT; empty finds EuRoC ASL GT beside the bag",
+    ),
+
+    # Full estimator state output
+    DeclareLaunchArgument("save_total_state", default_value="false"),
 ]
 
-def launch_setup(context):
-    config_path = LaunchConfiguration("config_path").perform(context)
-    config = LaunchConfiguration("config").perform(context)
+
+def resolve_inputs(config, config_path, ltv_mode, ltv_scene, bag, dobag, share_dir):
+    config = config or "euroc_ltv"
     if not config_path:
-        configs_dir = os.path.join(get_package_share_directory("ov_msckf"), "config")
-        available_configs = os.listdir(configs_dir)
-        if config in available_configs:
-            config_path = os.path.join(
-                            get_package_share_directory("ov_msckf"),
-                            "config",config,"estimator_config.yaml"
-                        )
-        else:
-            return [
-                LogInfo(
-                    msg="ERROR: unknown config: '{}' - Available configs are: {} - not starting OpenVINS".format(
-                        config, ", ".join(available_configs)
-                    )
-                )
-            ]
-    else:
-        if not os.path.isfile(config_path):
-            return [
-                LogInfo(
-                    msg="ERROR: config_path file: '{}' - does not exist. - not starting OpenVINS".format(
-                        config_path)
-                )
-            ]
-    path_gt = LaunchConfiguration("path_gt").perform(context)
-    if not path_gt and config == "euroc_mav":
-        bag_path = os.path.normpath(LaunchConfiguration("bag_path").perform(context))
-        sequence = os.path.basename(bag_path)
-        if sequence.endswith("_db"):
-            sequence = sequence[:-3]
-        candidate = os.path.join(
-            os.path.dirname(bag_path), "ASL", sequence,
-            "mav0", "state_groundtruth_estimate0", "data.csv",
-        )
-        if os.path.isfile(candidate):
-            path_gt = candidate
-    if path_gt and not os.path.isfile(path_gt):
-        raise RuntimeError("Groundtruth CSV does not exist: {}".format(path_gt))
+        config_path = os.path.join(share_dir, "config", config, "estimator_config.yaml")
+    if not os.path.isfile(config_path):
+        raise RuntimeError("Estimator config does not exist: " + config_path)
+    candidate = os.path.join(os.path.dirname(config_path), "ltv.yaml")
+    ltv_config = candidate if os.path.isfile(candidate) else ""
+    if ltv_mode not in ("", "OFF") and not ltv_config:
+        raise RuntimeError("Requested LTV mode requires ltv.yaml beside estimator_config.yaml: " + candidate)
+    if ltv_scene == "auto":
+        ltv_scene = ""
+        if dobag:
+            sequence = os.path.basename(os.path.normpath(bag))
+            if sequence.startswith("MH_"):
+                ltv_scene = "MH"
+            elif sequence.startswith(("V1_", "V2_")):
+                ltv_scene = "Vicon"
+    return config, config_path, ltv_config, ltv_scene
 
-    node_parameters = [
-        {"verbosity": LaunchConfiguration("verbosity")},
-        {"use_stereo": LaunchConfiguration("use_stereo")},
-        {"max_cameras": LaunchConfiguration("max_cameras")},
-        {"save_total_state": LaunchConfiguration("save_total_state")},
-        {"dosave": LaunchConfiguration("dosave")},
-        {"path_est": LaunchConfiguration("path_est")},
-        {"config_path": config_path},
-    ]
-    if path_gt:
-        node_parameters.append({"path_gt": path_gt})
 
-    node1 = Node(
-        package="ov_msckf",
-        executable="run_subscribe_msckf",
-        condition=IfCondition(LaunchConfiguration("ov_enable")),
-        namespace=LaunchConfiguration("namespace"),
-        output='screen',
-        parameters=node_parameters,
+def launch_setup(context):
+    value = lambda key: LaunchConfiguration(key).perform(context)
+    bag = value("bag") or os.path.join("/home/he/datasets/euroc", value("dataset") + "_db")
+    dobag = value("dobag").lower() in ("true", "1")
+    dolivetraj = value("dolivetraj").lower() in ("true", "1")
+    bag_start, bag_rate = float(value("bag_start")), float(value("bag_rate"))
+    if not math.isfinite(bag_start) or bag_start < 0 or not math.isfinite(bag_rate) or bag_rate <= 0:
+        raise RuntimeError("bag_start must be finite and nonnegative; bag_rate must be finite and positive")
+    if dobag and not os.path.isfile(os.path.join(bag, "metadata.yaml")):
+        raise RuntimeError("ROS 2 bag metadata does not exist: " + bag)
+    config, config_path, ltv_config, ltv_scene = resolve_inputs(
+        value("config"), value("config_path"), value("ltv_mode"),
+        value("ltv_scene"), bag, dobag, get_package_share_directory("ov_msckf"),
     )
-
-    node2 = Node(
-        package="rviz2",
-        executable="rviz2",
-        condition=IfCondition(LaunchConfiguration("rviz_enable")),
-        arguments=[
-            "-d",
-            os.path.join(
-                get_package_share_directory("ov_msckf"), "launch", "display_ros2.rviz"
-            ),
-            "--ros-args",
-            "--log-level",
-            "warn",
-            ],
+    path_gt = value("path_gt")
+    if dolivetraj:
+        if not path_gt and config in ("euroc_mav", "euroc_ltv"):
+            sequence = os.path.basename(os.path.normpath(bag))
+            if sequence.endswith("_db"):
+                sequence = sequence[:-3]
+            path_gt = os.path.join(os.path.dirname(bag), "ASL", sequence,
+                                   "mav0", "state_groundtruth_estimate0", "data.csv")
+        if not path_gt or not os.path.isfile(path_gt):
+            raise RuntimeError("dolivetraj requires a valid groundtruth CSV or TXT: " + path_gt)
+    topic_root = "/" + value("namespace").strip("/") if value("namespace").strip("/") else ""
+    parameter = lambda key, kind: ParameterValue(LaunchConfiguration(key), value_type=kind)
+    estimator = Node(
+        package="ov_msckf", executable="run_subscribe_msckf",
+        namespace=value("namespace"), output="screen",
+        parameters=[{
+            "config_path": config_path,
+            "use_stereo": parameter("use_stereo", bool), "max_cameras": parameter("max_cameras", int),
+            "record_timing_information": parameter("dotime", bool), "record_timing_filepath": parameter("path_time", str),
+            "save_total_state": parameter("save_total_state", bool),
+            "ltv_config": ltv_config, "ltv_mode": parameter("ltv_mode", str), "ltv_scene": ltv_scene,
+        }],
     )
-
-    bag_player = ExecuteProcess(
-        cmd=[
-            "ros2", "bag", "play", LaunchConfiguration("bag_path"),
-            "--topics", "/imu0", "/cam0/image_raw", "/cam1/image_raw",
-            "--disable-keyboard-controls",
-        ],
+    recorder = Node(
+        package="ov_eval", executable="pose_to_file", name="recorder_estimate", namespace=value("namespace"),
+        condition=IfCondition(LaunchConfiguration("dosave")), output="screen",
+        parameters=[{"topic": topic_root + "/poseimu", "topic_type": "PoseWithCovarianceStamped",
+                     "output": parameter("path_est", str)}],
+    )
+    aligner = Node(
+        package="ov_eval", executable="live_align_trajectory", name="live_align_trajectory", namespace=value("namespace"),
+        condition=IfCondition(LaunchConfiguration("dolivetraj")), output="log",
+        parameters=[{"alignment_type": parameter("alignment_type", str), "path_gt": path_gt}],
+        remappings=[("/ov_msckf/pathimu", topic_root + "/pathimu"), ("/ov_msckf/pathgt", topic_root + "/pathgt")],
+    )
+    rviz_topics = ["pathimu", "pathgt", "poseimu", "odomimu", "trackhist", "points_msckf", "points_slam", "points_aruco", "points_sim", "loop_depth_colored", "loop_feats"]
+    rviz_node = Node(
+        package="rviz2", executable="rviz2", condition=IfCondition(LaunchConfiguration("rviz")),
+        arguments=["-d", os.path.join(get_package_share_directory("ov_msckf"), "launch", "display_ros2.rviz"),
+                   "--ros-args", "--log-level", "warn"],
+        remappings=[("/ov_msckf/" + topic, topic_root + "/" + topic) for topic in rviz_topics],
+    )
+    player = ExecuteProcess(
+        cmd=["ros2", "bag", "play", bag, "--start-offset", str(bag_start), "--rate", str(bag_rate),
+             "--topics", "/imu0", "/cam0/image_raw", "/cam1/image_raw", "--disable-keyboard-controls"],
         output="screen",
     )
-    delayed_bag_player = TimerAction(
-        period=3.0,
-        actions=[bag_player],
-        condition=IfCondition(LaunchConfiguration("bag_play")),
-    )
-
-    return [node1, node2, delayed_bag_player]
+    delayed_player = TimerAction(period=3.0, actions=[player], condition=IfCondition(LaunchConfiguration("dobag")))
+    return [estimator, recorder, aligner, rviz_node, delayed_player]
 
 
 def generate_launch_description():
-    opfunc = OpaqueFunction(function=launch_setup)
-    ld = LaunchDescription(launch_args)
-    ld.add_action(opfunc)
-    return ld
+    return LaunchDescription(launch_args + [OpaqueFunction(function=launch_setup)])

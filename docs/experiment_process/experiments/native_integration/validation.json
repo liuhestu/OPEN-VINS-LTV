@@ -1,0 +1,298 @@
+{
+  "scope": "Native integration refactor: necessary tests and bounded launch smoke only",
+  "build": {
+    "status": "PASS",
+    "install": "/home/he/open_vins_ltv_ws/install_ltv_native",
+    "log": "/tmp/ltv_native_build_exit.log",
+    "dependencies": "Unmodified ov_core/ov_init from install_compact_v2"
+  },
+  "tests": [
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_bounded_history"
+      ],
+      "exit_code": 0,
+      "test": "test_bounded_history"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_identity_guard"
+      ],
+      "exit_code": 0,
+      "test": "test_identity_guard"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_active_consistency"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_active_consistency"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_active_lifecycle"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_active_lifecycle"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_feature_pool"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_feature_pool"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_features"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_features"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_fej"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_fej"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_gv_jacobian"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_gv_jacobian"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_history_competition"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_history_competition"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_host_lifecycle"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_host_lifecycle"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_imu_interval"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_imu_interval"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_manager_bounded"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_manager_bounded"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_observer"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_observer"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_options"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_options"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_pose_convention"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_pose_convention"
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash && source \"$1/setup.bash\" && ros2 run ov_msckf \"$2\"",
+        "ltv-tests",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "test_ltv_update"
+      ],
+      "exit_code": 0,
+      "test": "test_ltv_update"
+    }
+  ],
+  "smoke": [
+    {
+      "mode": "OFF",
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash; source \"$1/setup.bash\"; shift; exec \"$@\"",
+        "ltv-smoke",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "ros2",
+        "launch",
+        "ov_msckf",
+        "subscribe.launch.py",
+        "config:=euroc_ltv",
+        "config_path:=/tmp/ltv_native_launch_accepted/OFF/config/estimator_config.yaml",
+        "ltv_config:=/tmp/ltv_native_launch_accepted/OFF/config/ltv.yaml",
+        "ltv_mode:=OFF",
+        "bag_path:=/home/he/datasets/euroc/MH_05_difficult_db",
+        "rviz_enable:=false",
+        "dosave:=true",
+        "path_est:=/tmp/ltv_native_launch_accepted/OFF/trajectory.txt"
+      ],
+      "exit_code": 0,
+      "trajectory_rows": 366,
+      "applications": {
+        "G": 0,
+        "V": 0,
+        "L": 0
+      },
+      "clean_exit": true,
+      "status": "PASS"
+    },
+    {
+      "mode": "GVL",
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash; source \"$1/setup.bash\"; shift; exec \"$@\"",
+        "ltv-smoke",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "ros2",
+        "launch",
+        "ov_msckf",
+        "subscribe.launch.py",
+        "config:=euroc_ltv",
+        "config_path:=/tmp/ltv_native_launch_accepted/GVL/config/estimator_config.yaml",
+        "ltv_config:=/tmp/ltv_native_launch_accepted/GVL/config/ltv.yaml",
+        "ltv_mode:=GVL",
+        "bag_path:=/home/he/datasets/euroc/MH_05_difficult_db",
+        "rviz_enable:=false",
+        "dosave:=true",
+        "path_est:=/tmp/ltv_native_launch_accepted/GVL/trajectory.txt"
+      ],
+      "exit_code": 0,
+      "trajectory_rows": 365,
+      "applications": {
+        "G": 279,
+        "V": 265,
+        "L": 264
+      },
+      "clean_exit": true,
+      "status": "PASS"
+    },
+    {
+      "mode": "live_GVL",
+      "command": [
+        "bash",
+        "-c",
+        "source /opt/ros/humble/setup.bash; source \"$1/setup.bash\"; shift; exec \"$@\"",
+        "ltv-smoke",
+        "/home/he/open_vins_ltv_ws/install_ltv_native",
+        "ros2",
+        "launch",
+        "ov_msckf",
+        "subscribe.launch.py",
+        "config:=euroc_ltv",
+        "ltv_config:=/tmp/ltv_native_launch_accepted/GVL/config/ltv.yaml",
+        "bag_play:=false",
+        "rviz_enable:=false"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "short_dataset": "MH_05_difficult_db",
+  "bag_seconds_limit": 40,
+  "manual_frontend": "prepare-only PASS; inactive weights retained; C++ owns noise conversion",
+  "shutdown_fix": "GDB identified image_transport publisher destruction during atexit; explicitly release visualizer before main returns. Own/join workers and capture IMU by value.",
+  "superseded_attempts": [
+    "/tmp/ltv_native_launch_smoke/validation.json",
+    "/tmp/ltv_native_launch_smoke_final/validation.json"
+  ],
+  "binary_sha256": {
+    "/home/he/open_vins_ltv_ws/install_ltv_native/ov_msckf/lib/libov_msckf_lib.so": "5fce6e405e7657aad5273c2a2cd588b0301b4c399efd9726dfd23d1b8acb6c2c",
+    "/home/he/open_vins_ltv_ws/install_ltv_native/ov_msckf/lib/ov_msckf/run_subscribe_msckf": "baeb5b3f228140feadb25e30cee04033735695708eca21b3e9d3cca332e7f2bf"
+  }
+}

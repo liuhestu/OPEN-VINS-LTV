@@ -66,6 +66,9 @@ public:
 
     // Append it to our vector
     std::lock_guard<std::mutex> lck(imu_data_mtx);
+    if (!std::isfinite(message.timestamp) || !message.am.allFinite() || !message.wm.allFinite() ||
+        (!imu_data.empty() && message.timestamp <= imu_data.back().timestamp))
+      ++imu_fault_version_;
     imu_data.emplace_back(message);
 
     // Clean old measurements
@@ -93,6 +96,16 @@ public:
   /**
    * @brief Will invalidate the cache used for fast propagation
    */
+  struct ImuInterval {
+    std::vector<ov_core::ImuData> samples;
+    uint64_t fault_version = 0;
+    std::string error;
+    bool valid() const { return error.empty(); }
+  };
+  ImuInterval imu_interval(double start, double end, double max_gap);
+  static ov_core::ImuData correct_imu(const ov_core::ImuData &, const Eigen::Matrix3d &Da, const Eigen::Matrix3d &Dw,
+                                      const Eigen::Matrix3d &Tg, const Eigen::Matrix3d &R_ACCtoIMU, const Eigen::Matrix3d &R_GYROtoIMU,
+                                      const Eigen::Vector3d &ba, const Eigen::Vector3d &bg);
   void invalidate_cache() { cache_imu_valid = false; }
 
   /**
@@ -435,6 +448,7 @@ protected:
   NoiseManager _noises;
 
   /// Our history of IMU messages (time, angular, linear)
+  uint64_t imu_fault_version_ = 0;
   std::vector<ov_core::ImuData> imu_data;
   std::mutex imu_data_mtx;
 

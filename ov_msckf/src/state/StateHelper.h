@@ -45,6 +45,7 @@ class State;
 class StateHelper {
 
 public:
+  static bool owns_type(const std::shared_ptr<State> &state, const std::shared_ptr<ov_type::Type> &type);
   /**
    * @brief Performs EKF propagation of the state covariance.
    *

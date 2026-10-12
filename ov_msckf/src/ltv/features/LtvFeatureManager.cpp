@@ -1,487 +1,402 @@
 #include "ltv/features/LtvFeatureManager.h"
 #include <algorithm>
-#include <array>
 #include <cmath>
+#include <map>
+#include <set>
 #include <stdexcept>
 
-// 1. Maintain causal observation history.
+// 1. Check retained features against causal geometry.
 namespace ltv {
-LtvFeatureHistory::LtvFeatureHistory(const FeatureHistoryConfig &config) : config_(config) {
-  if (!config.max_candidates || !std::isfinite(config.history_window) || config.history_window <= 0 ||
-      !std::isfinite(config.candidate_ttl) || config.candidate_ttl <= 0)
-    throw std::invalid_argument("invalid LTV history configuration");
-  if (config.bounded_memory && (!config.max_samples_per_track || !config.max_observations_per_packet || !config.max_camera_count))
-    throw std::invalid_argument("invalid bounded LTV history capacity");
-}
-void LtvFeatureHistory::reset(uint64_t epoch) {
-  epoch_ = epoch;
-  time_ = -1;
-  tracks_.clear();
-}
-const FeatureTrackHistory *LtvFeatureHistory::find(size_t id) const {
-  auto it = tracks_.find(id);
-  return it == tracks_.end() ? nullptr : &it->second;
-}
-bool LtvFeatureHistory::forget(size_t id) { return tracks_.erase(id) != 0; }
-bool LtvFeatureHistory::update(uint64_t epoch, double time, uint64_t version, const std::vector<HistoryObservation> &observations,
-                               const std::set<size_t> &protected_ids) {
-  // Caller explicitly resets an epoch; stale/future epochs never clear live history.
-  if (epoch != epoch_ || !std::isfinite(time) || time < 0 || time <= time_)
-    return false;
-  if (config_.bounded_memory &&
-      (observations.size() > config_.max_observations_per_packet || protected_ids.size() > config_.max_candidates))
-    return false;
-  std::map<size_t, std::vector<HistoryObservation>> grouped;
-  std::set<std::pair<size_t, int>> unique;
-  for (const auto &o : observations) {
-    if (o.camera_id < 0 || (config_.bounded_memory && static_cast<size_t>(o.camera_id) >= config_.max_camera_count) ||
-        !o.bearing.allFinite() || o.bearing.norm() < 1e-12 || !unique.emplace(o.feature_id, o.camera_id).second)
-      return false;
-    auto normalized = o;
-    normalized.bearing.normalize();
-    grouped[o.feature_id].push_back(normalized);
+const char *toString(ActiveConsistencyReason r) {
+  switch (r) {
+  case ActiveConsistencyReason::Disabled:
+    return "DISABLED";
+  case ActiveConsistencyReason::InsufficientHistory:
+    return "INSUFFICIENT_HISTORY";
+  case ActiveConsistencyReason::MissingPoseSupport:
+    return "MISSING_POSE_SUPPORT";
+  case ActiveConsistencyReason::FitFailed:
+    return "FIT_FAILED";
+  case ActiveConsistencyReason::HistoryInconsistent:
+    return "HISTORY_INCONSISTENT";
+  case ActiveConsistencyReason::HoldoutInconsistent:
+    return "HOLDOUT_INCONSISTENT";
+  case ActiveConsistencyReason::Pass:
+    return "PASS";
   }
-  // Preflight before mutating time/visibility: a protected identity may not
-  // bypass the total bound. Reserve its slot before admitting ordinary inputs.
-  size_t pending_protected = 0;
-  if (config_.bounded_memory) {
-    size_t survivors = 0;
-    for (const auto &entry : tracks_)
-      if (protected_ids.count(entry.first) || time - entry.second.last_time <= config_.candidate_ttl)
-        ++survivors;
-    for (const auto &entry : grouped)
-      if (protected_ids.count(entry.first) && !tracks_.count(entry.first))
-        ++pending_protected;
-    if (survivors > config_.max_candidates || pending_protected > config_.max_candidates - survivors)
-      return false;
+  return "UNKNOWN";
+}
+LtvActiveConsistency::LtvActiveConsistency(const ActiveConsistencyConfig &c) : config_(c) {
+  if (!c.enabled)
+    return;
+  if (c.min_history_frames < 2 || c.retire_after_consecutive_failures < 1 || !std::isfinite(c.min_history_span_s) ||
+      c.min_history_span_s <= 0 || !std::isfinite(c.history_window_s) || c.history_window_s < c.min_history_span_s ||
+      !std::isfinite(c.max_history_residual_rad) || c.max_history_residual_rad <= 0 || c.max_history_residual_rad >= std::acos(-1.) ||
+      !std::isfinite(c.max_holdout_residual_rad) || c.max_holdout_residual_rad <= 0 || c.max_holdout_residual_rad >= std::acos(-1.))
+    throw std::invalid_argument("invalid active consistency configuration");
+}
+ActiveConsistencyResult LtvActiveConsistency::evaluate(size_t id, double time, const FeatureTrackHistory &history,
+                                                       const LtvFeatureContext &ctx) const {
+  ActiveConsistencyResult out;
+  out.feature_id = id;
+  if (!config_.enabled)
+    return out;
+  out.reason = ActiveConsistencyReason::FitFailed;
+  out.fit_reason = "INVALID_CONTEXT";
+  auto rotation_valid = [](const Eigen::Matrix3d &r) {
+    return r.allFinite() && (r.transpose() * r - Eigen::Matrix3d::Identity()).norm() < 1e-8 && std::abs(r.determinant() - 1) < 1e-8;
+  };
+  if (!std::isfinite(time) || time < 0 || !std::isfinite(ctx.time) || time != ctx.time || ctx.execution_pose_index >= ctx.poses.size() ||
+      ctx.cameras.empty() || !history.identity_valid)
+    return out;
+  const auto &execution = ctx.poses[ctx.execution_pose_index];
+  if (!std::isfinite(execution.t) || std::abs(execution.t - time) > 1e-9)
+    return out;
+  const auto &camera = ctx.cameras[0];
+  if (!rotation_valid(camera.R_BC) || !camera.p_BC.allFinite())
+    return out;
+  std::map<double, size_t> poses;
+  for (size_t j = 0; j < ctx.poses.size(); ++j) {
+    const auto &p = ctx.poses[j];
+    if (!std::isfinite(p.t) || p.t > time || !rotation_valid(p.R_WB) || !p.p_WB.allFinite() || !poses.emplace(p.t, j).second)
+      return out;
   }
-  std::set<size_t> previously_visible;
-  for (const auto &entry : tracks_)
-    if (entry.second.visible)
-      previously_visible.insert(entry.first);
-  time_ = time;
-  for (auto it = tracks_.begin(); it != tracks_.end();) {
-    it->second.visible = false;
-    if (!protected_ids.count(it->first) && time - it->second.last_time > config_.candidate_ttl)
-      it = tracks_.erase(it);
+  const HistoryObservation *current = nullptr;
+  for (const auto &o : ctx.observations)
+    if (o.feature_id == id && o.camera_id == 0) {
+      if (current || !o.match_valid || !o.bearing.allFinite() || o.bearing.norm() < 1e-12)
+        return out;
+      current = &o;
+    }
+  if (!current) {
+    out.fit_reason = "MISSING_CURRENT_OBSERVATION";
+    return out;
+  }
+  SeedInput input;
+  input.cameras.push_back(camera);
+  input.poses.push_back(execution);
+  input.execution_pose_index = 0;
+  std::set<double> timestamps;
+  std::set<size_t> used_poses;
+  size_t past_count = 0;
+  double oldest = time, newest = -1;
+  for (const auto &sample : history.samples) {
+    if (!std::isfinite(sample.time))
+      return out;
+    if (sample.time >= time || sample.time < time - config_.history_window_s)
+      continue;
+    const HistoryObservation *past = nullptr;
+    for (const auto &o : sample.observations)
+      if (o.feature_id == id && o.camera_id == 0 && o.match_valid) {
+        if (past || !o.bearing.allFinite() || o.bearing.norm() < 1e-12)
+          return out;
+        past = &o;
+      }
+    if (!past)
+      continue;
+    if (!timestamps.insert(sample.time).second) {
+      out.fit_reason = "DUPLICATE_HISTORY_TIME";
+      return out;
+    }
+    ++past_count;
+    auto match = poses.lower_bound(sample.time - 1e-9);
+    if (match == poses.end() || std::abs(match->first - sample.time) > 1e-9 || match->first >= time ||
+        match->second == ctx.execution_pose_index) {
+      ++out.missing_pose_count;
+      continue;
+    }
+    auto next = std::next(match);
+    if (next != poses.end() && std::abs(next->first - sample.time) <= 1e-9) {
+      out.fit_reason = "AMBIGUOUS_POSE_TIME";
+      return out;
+    }
+    if (!used_poses.insert(match->second).second) {
+      out.fit_reason = "DUPLICATE_POSE_SUPPORT";
+      return out;
+    }
+    input.poses.push_back(ctx.poses[match->second]);
+    input.observations.push_back({input.poses.size() - 1, 0, past->bearing.normalized()});
+    oldest = std::min(oldest, sample.time);
+    newest = std::max(newest, sample.time);
+  }
+  out.history_count = input.observations.size();
+  out.history_span_s = out.history_count ? newest - oldest : 0;
+  if (out.history_count < config_.min_history_frames || out.history_span_s < config_.min_history_span_s) {
+    out.reason = out.missing_pose_count && past_count >= config_.min_history_frames ? ActiveConsistencyReason::MissingPoseSupport
+                                                                                    : ActiveConsistencyReason::InsufficientHistory;
+    out.fit_reason = "NOT_ATTEMPTED";
+    return out;
+  }
+  const auto estimate = LtvSeedEstimator::estimate(input);
+  out.fit_reason = estimate.reason;
+  // A failed estimator result is unavailable in the first registered policy,
+  // including nonpositive signed rays; it never increments a failure count.
+  if (!estimate.valid || !estimate.point_W.allFinite() || !std::isfinite(estimate.max_residual_rad) || !std::isfinite(estimate.condition))
+    return out;
+  out.fit_valid = estimate.valid;
+  out.point_W = estimate.point_W;
+  out.fit_condition = estimate.condition;
+  out.history_max_residual_rad = estimate.max_residual_rad;
+  if (estimate.max_residual_rad > config_.max_history_residual_rad) {
+    out.evaluable = true;
+    out.pass = false;
+    out.reason = ActiveConsistencyReason::HistoryInconsistent;
+    return out;
+  }
+  Eigen::Vector3d ray = camera.R_BC.transpose() * (execution.R_WB.transpose() * (estimate.point_W - execution.p_WB) - camera.p_BC);
+  if (!ray.allFinite() || ray.norm() < 1e-10) {
+    out.fit_reason = "CURRENT_AT_CAMERA_CENTER";
+    return out;
+  }
+  out.holdout_residual_rad = std::acos(std::max(-1., std::min(1., ray.normalized().dot(current->bearing.normalized()))));
+  out.evaluable = true;
+  out.pass = out.holdout_residual_rad <= config_.max_holdout_residual_rad;
+  out.reason = out.pass ? ActiveConsistencyReason::Pass : ActiveConsistencyReason::HoldoutInconsistent;
+  return out;
+}
+} // namespace ltv
+
+// 2. Build seed candidates and run the lifecycle transaction.
+namespace ltv {
+LtvFeatureManager::LtvFeatureManager(const LtvFeatureConfig &config)
+    : anchors_(config.manager.maturity_seconds), config_(config), manager_(config.manager), active_consistency_(config.active_consistency) {
+  if (!std::isfinite(config.bearing_sigma_rad) || config.bearing_sigma_rad < 0 || config.source == FeatureSeedSource::MsckfGeometry)
+    throw std::invalid_argument("unsupported feature pipeline configuration");
+}
+void LtvFeatureManager::reset(uint64_t epoch) {
+  ids_.clear();
+  next_id_ = 0;
+  anchors_.reset();
+  frame_ = LtvFeatureFrame();
+  manager_.reset(epoch);
+}
+LtvFeatureFrame LtvFeatureManager::process(const LtvFeatureContext &ctx, bool allow_admission) {
+  LtvFeatureFrame out;
+  out.management.epoch = ctx.epoch;
+  out.management.time = ctx.time;
+  out.management.reason = "invalid_geometry_context";
+  if (config_.manager.bounded_memory && (ctx.observations.size() > config_.manager.history.max_observations_per_packet ||
+                                         ctx.cameras.size() > config_.manager.history.max_camera_count || ctx.poses.size() > 32)) {
+    out.management.reason = "context_capacity_exceeded";
+    return out;
+  }
+  if (!std::isfinite(ctx.time) || ctx.time < 0 || ctx.epoch != manager_.history().epoch() || ctx.time <= manager_.history().time() ||
+      ctx.execution_pose_index >= ctx.poses.size() || ctx.cameras.empty() ||
+      std::abs(ctx.poses[ctx.execution_pose_index].t - ctx.time) > 1e-9 ||
+      ctx.pose_covariance.rows() != static_cast<int>(6 * ctx.poses.size()) || ctx.pose_covariance.cols() != ctx.pose_covariance.rows() ||
+      !ctx.pose_covariance.allFinite())
+    return out;
+  const double scale = std::max(1.0, ctx.pose_covariance.norm());
+  if ((ctx.pose_covariance - ctx.pose_covariance.transpose()).norm() > 1e-10 * scale)
+    return out;
+  Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> psd(ctx.pose_covariance);
+  if (psd.info() != Eigen::Success || psd.eigenvalues().minCoeff() < -1e-12 * scale)
+    return out;
+  std::map<double, size_t> pose_by_time;
+  for (size_t i = 0; i < ctx.poses.size(); ++i) {
+    const auto &p = ctx.poses[i];
+    if (!std::isfinite(p.t) || p.t > ctx.time + 1e-9 || !p.R_WB.allFinite() || !p.p_WB.allFinite() ||
+        (p.R_WB.transpose() * p.R_WB - Eigen::Matrix3d::Identity()).norm() > 1e-8 || p.R_WB.determinant() < 0 ||
+        !pose_by_time.emplace(p.t, i).second)
+      return out;
+  }
+  for (const auto &c : ctx.cameras)
+    if (!c.R_BC.allFinite() || !c.p_BC.allFinite() || (c.R_BC.transpose() * c.R_BC - Eigen::Matrix3d::Identity()).norm() > 1e-8 ||
+        c.R_BC.determinant() < 0)
+      return out;
+  std::map<size_t, std::map<int, HistoryObservation>> current;
+  for (const auto &o : ctx.observations) {
+    if (o.camera_id < 0 || static_cast<size_t>(o.camera_id) >= ctx.cameras.size() || !o.bearing.allFinite() || o.bearing.norm() < 1e-12 ||
+        !current[o.feature_id].emplace(o.camera_id, o).second)
+      return out;
+  }
+  std::map<size_t, ActiveConsistencyResult> consistency;
+  if (config_.active_consistency.enabled) {
+    for (size_t id : manager_.retained_ids()) {
+      auto visible = current.find(id);
+      const auto *history = manager_.history().find(id);
+      if (history && visible != current.end() && visible->second.count(0) && visible->second.at(0).match_valid)
+        consistency.emplace(id, active_consistency_.evaluate(id, ctx.time, *history, ctx));
+    }
+  }
+  std::vector<FeatureSeedCandidate> candidates;
+  for (const auto &feature : current) {
+    if (!feature.second.count(0))
+      continue;
+    auto prior = manager_.landmarks().find(feature.first);
+    if (prior != manager_.landmarks().end() && (prior->second.entered >= 0 || prior->second.phase == LandmarkPhase::Retired))
+      continue;
+    // A single pure construction path keeps each fixed-source candidate's mean,
+    // covariance and arithmetic order unchanged. Hybrid evaluates a second source
+    // only when current stereo geometry fails the same frozen admission limits.
+    auto construct = [&](FeatureSeedSource source) {
+      FeatureSeedResult d;
+      d.candidate.feature_id = feature.first;
+      d.candidate.epoch = ctx.epoch;
+      d.candidate.time = ctx.time;
+      d.candidate.source = source;
+      auto &u = d.input;
+      u.cameras = ctx.cameras;
+      std::map<size_t, size_t> pose_map;
+      std::vector<size_t> global_indices;
+      auto local_pose = [&](size_t global) {
+        auto it = pose_map.find(global);
+        if (it != pose_map.end())
+          return it->second;
+        const size_t local = u.poses.size();
+        u.poses.push_back(ctx.poses[global]);
+        global_indices.push_back(global);
+        pose_map.emplace(global, local);
+        return local;
+      };
+      u.execution_pose_index = local_pose(ctx.execution_pose_index);
+      if (source == FeatureSeedSource::TemporalPose) {
+        const auto *h = manager_.history().find(feature.first);
+        if (h && h->visible)
+          for (const auto &sample : h->samples) {
+            if (sample.time >= ctx.time || ctx.time - sample.time > config_.manager.history.history_window)
+              continue;
+            // Resolve in this context only. Missing/marginalized clones are not replaced
+            // by stale historical means or invented independent covariance blocks.
+            auto pose = pose_by_time.lower_bound(sample.time - 1e-9);
+            if (pose == pose_by_time.end() || std::abs(pose->first - sample.time) > 1e-9)
+              continue;
+            for (const auto &o : sample.observations)
+              if (o.camera_id == 0 && o.match_valid)
+                u.observations.push_back({local_pose(pose->second), 0, o.bearing.normalized(), o.pixel_source_key, o.pixel_to_tangent});
+          }
+      }
+      const auto &cam0 = feature.second.at(0);
+      if (cam0.match_valid) {
+        u.anchor_observation = u.observations.size();
+        u.observations.push_back({u.execution_pose_index, 0, cam0.bearing.normalized(), cam0.pixel_source_key, cam0.pixel_to_tangent});
+      }
+      if (source == FeatureSeedSource::Stereo && feature.second.count(1) && feature.second.at(1).match_valid)
+        u.observations.push_back({u.execution_pose_index, 1, feature.second.at(1).bearing.normalized(),
+                                  feature.second.at(1).pixel_source_key, feature.second.at(1).pixel_to_tangent});
+      d.estimate = LtvSeedEstimator::estimate(u);
+      if (source == FeatureSeedSource::Stereo && d.estimate.valid) {
+        const auto *h = manager_.history().find(feature.first);
+        if (h && h->visible)
+          for (const auto &sample : h->samples) {
+            if (sample.time >= ctx.time || ctx.time - sample.time > config_.manager.history.history_window)
+              continue;
+            auto prior_pose = pose_by_time.lower_bound(sample.time - 1e-9);
+            if (prior_pose == pose_by_time.end() || std::abs(prior_pose->first - sample.time) > 1e-9)
+              continue;
+            const auto &pose = ctx.poses[prior_pose->second];
+            const Eigen::Vector3d predicted =
+                ctx.cameras[0].R_BC.transpose() * (pose.R_WB.transpose() * (d.estimate.point_W - pose.p_WB) - ctx.cameras[0].p_BC);
+            if (!predicted.allFinite() || predicted.norm() < 1e-12)
+              continue;
+            for (const auto &o : sample.observations)
+              if (o.camera_id == 0 && o.match_valid) {
+                const double dot = predicted.normalized().dot(o.bearing.normalized());
+                d.heldout_max_residual_rad = std::max(d.heldout_max_residual_rad, std::acos(std::max(-1.0, std::min(1.0, dot))));
+                ++d.heldout_check_observations;
+              }
+          }
+        d.heldout_check_available = d.heldout_check_observations > 0;
+      }
+      d.input_covariance = Eigen::MatrixXd::Zero(LtvSeedUncertainty::inputDimension(u), LtvSeedUncertainty::inputDimension(u));
+      for (size_t a = 0; a < global_indices.size(); ++a)
+        for (size_t b = 0; b < global_indices.size(); ++b)
+          d.input_covariance.block<6, 6>(6 * a, 6 * b) = ctx.pose_covariance.block<6, 6>(6 * global_indices[a], 6 * global_indices[b]);
+      const int bearing_start = static_cast<int>(6 * u.poses.size() + 6 * u.cameras.size());
+      for (size_t i = 0; i < u.observations.size(); ++i)
+        d.input_covariance.block<2, 2>(bearing_start + 2 * i, bearing_start + 2 * i) =
+            config_.bearing_sigma_rad * config_.bearing_sigma_rad * Eigen::Matrix2d::Identity();
+      d.uncertainty = LtvSeedUncertainty::propagate(u, d.estimate, d.input_covariance);
+      if (d.uncertainty.valid && ctx.pose_error_selector.rows() == static_cast<int>(6 * ctx.poses.size()) &&
+          ctx.pose_error_selector.cols() > 0) {
+        d.main_jacobian = Eigen::MatrixXd::Zero(3, ctx.pose_error_selector.cols());
+        for (size_t a = 0; a < global_indices.size(); ++a)
+          d.main_jacobian.noalias() +=
+              d.uncertainty.jacobian.middleCols(6 * a, 6) * ctx.pose_error_selector.middleRows(6 * global_indices[a], 6);
+        d.bearing_jacobian = d.uncertainty.jacobian.rightCols(2 * u.observations.size());
+      }
+
+      auto &s = d.candidate;
+      s.geometry_valid = d.estimate.valid && d.uncertainty.valid;
+      s.landmark_B = d.estimate.landmark_B;
+      s.min_ray = d.estimate.min_ray;
+      s.condition = d.estimate.condition;
+      s.parallax_rad = d.estimate.max_angle_rad;
+      s.residual_rad = d.estimate.max_residual_rad;
+      s.relative_risk = d.uncertainty.relative_parallel_risk;
+      return d;
+    };
+    auto source = config_.source == FeatureSeedSource::StereoThenTemporal ? FeatureSeedSource::Stereo : config_.source;
+    auto d = construct(source);
+    if (config_.source == FeatureSeedSource::StereoThenTemporal) {
+      const auto &q = config_.manager.quality;
+      const auto &c = d.candidate;
+      const bool stereo_pass = c.geometry_valid && c.landmark_B.allFinite() && std::isfinite(c.min_ray) && std::isfinite(c.condition) &&
+                               std::isfinite(c.parallax_rad) && std::isfinite(c.residual_rad) && std::isfinite(c.relative_risk) &&
+                               c.min_ray >= q.min_ray && c.condition >= 1 && c.condition <= q.max_condition &&
+                               c.parallax_rad >= q.min_parallax_rad && c.residual_rad >= 0 && c.residual_rad <= q.max_residual_rad &&
+                               c.relative_risk >= 0 && c.relative_risk <= q.max_relative_risk;
+      if (!stereo_pass)
+        d = construct(FeatureSeedSource::TemporalPose);
+    }
+    const auto &s = d.candidate;
+    candidates.push_back(s);
+    out.seeds.push_back(std::move(d));
+  }
+  out.management = manager_.step(ctx.epoch, ctx.time, ctx.version, ctx.observations, candidates, allow_admission,
+                                 config_.active_consistency.enabled ? &consistency : nullptr,
+                                 config_.active_consistency.retire_after_consecutive_failures);
+  return out;
+}
+} // namespace ltv
+
+namespace ltv {
+LtvFeatureManager::ObserverInput LtvFeatureManager::prepare(const LtvFeatureContext &ctx, const LtvObserver &observer, bool ready_V,
+                                                            bool admit, bool landmarks) {
+  if (landmarks)
+    anchors_.before(*this, observer, ctx, ready_V);
+  frame_ = process(ctx, admit);
+  if (!frame_.management.accepted_input)
+    throw std::invalid_argument(frame_.management.reason);
+  ObserverInput input;
+  const auto &camera = ctx.cameras.at(0);
+  for (const auto &o : frame_.management.observations) {
+    if (o.camera_id != 0)
+      continue;
+    if (!ids_.count(o.feature_id)) {
+      if (next_id_ == std::numeric_limits<int>::max())
+        throw std::overflow_error("LTV feature IDs exhausted");
+      ids_.emplace(o.feature_id, next_id_++);
+    }
+    const int id = ids_.at(o.feature_id);
+    input.observations.push_back({id, o.bearing});
+    const int slot = observer.slotForFeature(id);
+    if (slot >= 0) {
+      const Eigen::Vector3d ray = observer.state().segment<3>(3 * slot) - camera.p_BC;
+      if (ray.allFinite() && ray.norm() >= .1) {
+        const double dot = ray.normalized().dot((camera.R_BC * o.bearing).normalized());
+        input.prediction_angles.push_back(std::acos(std::max(-1., std::min(1., dot))));
+      }
+    }
+  }
+  for (size_t id : frame_.management.retained_ids)
+    input.control.retained_ids.push_back(ids_.at(id));
+  for (const auto &b : frame_.management.births) {
+    if (b.seed.epoch != ctx.epoch || std::abs(b.seed.time - ctx.time) > 1e-9)
+      throw std::invalid_argument("stale LTV seed");
+    input.control.births.push_back({ids_.at(b.feature_id), b.apply_seed, b.seed.landmark_B});
+  }
+  return input;
+}
+void LtvFeatureManager::commit(const LtvFeatureContext &ctx, const LtvObserver &observer, bool landmarks) {
+  const std::set<size_t> retained(frame_.management.retained_ids.begin(), frame_.management.retained_ids.end());
+  for (auto it = ids_.begin(); it != ids_.end();) {
+    if (!retained.count(it->first))
+      it = ids_.erase(it);
     else
       ++it;
   }
-  for (const auto &entry : grouped) {
-    auto it = tracks_.find(entry.first);
-    if (it == tracks_.end()) {
-      if (config_.bounded_memory) {
-        if (!protected_ids.count(entry.first) && tracks_.size() + pending_protected >= config_.max_candidates)
-          continue;
-        if (protected_ids.count(entry.first))
-          --pending_protected;
-      }
-      if (tracks_.size() >= config_.max_candidates && !protected_ids.count(entry.first))
-        continue;
-      FeatureTrackHistory h;
-      h.first_time = time;
-      it = tracks_.emplace(entry.first, h).first;
-    }
-    auto &h = it->second;
-    // A missing frame breaks a candidate's contiguous history. ACTIVE lifecycle
-    // retention is handled separately; no synthetic observation fills the gap.
-    if (!h.samples.empty() && !previously_visible.count(entry.first) && !protected_ids.count(entry.first)) {
-      h.samples.clear();
-      h.first_time = time;
-      h.total_frames = 0;
-      h.identity_valid = true;
-    }
-    h.last_time = time;
-    h.visible = true;
-    ++h.total_frames;
-    for (const auto &o : entry.second)
-      h.identity_valid = h.identity_valid && o.match_valid;
-    if (config_.bounded_memory)
-      while (h.samples.size() >= config_.max_samples_per_track)
-        h.samples.pop_front();
-    h.samples.push_back({time, version, entry.second});
-    while (!h.samples.empty() && time - h.samples.front().time > config_.history_window)
-      h.samples.pop_front();
-  }
-  return true;
-}
-} // namespace ltv
-
-// 2. Evaluate seed admission quality.
-namespace ltv {
-const char *toString(FeatureSeedSource s) {
-  switch (s) {
-  case FeatureSeedSource::TemporalPose:
-    return "TEMPORAL_POSE";
-  case FeatureSeedSource::Stereo:
-    return "STEREO";
-  case FeatureSeedSource::MsckfGeometry:
-    return "MSCKF_GEOMETRY";
-  case FeatureSeedSource::StereoThenTemporal:
-    return "STEREO_THEN_TEMPORAL";
-  }
-  return "UNKNOWN";
-}
-LtvFeatureQuality::LtvFeatureQuality(const FeatureQualityConfig &c) : config_(c) {
-  if (!c.min_history_frames || !(c.min_history_span >= 0) || !(c.min_ray > 0) || !(c.max_condition > 0) || !(c.min_parallax_rad >= 0) ||
-      !(c.max_residual_rad > 0) || !(c.max_relative_risk > 0))
-    throw std::invalid_argument("invalid feature quality configuration");
-}
-FeatureQualityDecision LtvFeatureQuality::evaluate(uint64_t epoch, double time, const FeatureTrackHistory &h,
-                                                   const FeatureSeedCandidate *s) const {
-  FeatureQualityDecision d;
-  auto reject = [&](const char *reason) {
-    d.reason = reason;
-    return d;
-  };
-  if (!h.visible || h.last_time != time)
-    return reject("not_visible");
-  if (!h.identity_valid)
-    return reject("identity_invalid");
-  if (h.samples.size() < config_.min_history_frames || h.samples.empty() ||
-      time - h.samples.front().time + 1e-12 < config_.min_history_span)
-    return reject("history_insufficient");
-  // Opportunity denominator is fixed before the risk gate, including solver failure.
-  d.opportunity = true;
-  if (!s)
-    return reject("seed_unavailable");
-  if (s->epoch != epoch || s->time != time)
-    return reject("seed_stale");
-  if (!s->geometry_valid || !s->landmark_B.allFinite() || !std::isfinite(s->min_ray) || !std::isfinite(s->condition) ||
-      !std::isfinite(s->parallax_rad) || !std::isfinite(s->residual_rad) || !std::isfinite(s->relative_risk))
-    return reject("geometry_invalid");
-  d.risk = s->relative_risk;
-  if (s->min_ray < config_.min_ray)
-    return reject("nonpositive_or_near_ray");
-  if (s->condition < 1 || s->condition > config_.max_condition)
-    return reject("condition");
-  if (s->parallax_rad < config_.min_parallax_rad)
-    return reject("parallax");
-  if (s->residual_rad < 0 || s->residual_rad > config_.max_residual_rad)
-    return reject("angular_residual");
-  if (s->relative_risk < 0 || s->relative_risk > config_.max_relative_risk)
-    return reject("distance_risk");
-  if (config_.require_independent_check && !s->independent_check_available)
-    return reject("independent_check_missing");
-  if (s->independent_check_available &&
-      (!std::isfinite(s->check_residual_rad) || s->check_residual_rad < 0 || s->check_residual_rad > config_.max_residual_rad))
-    return reject("independent_check");
-  d.accepted = true;
-  d.reason = "accepted";
-  return d;
-}
-} // namespace ltv
-
-// 3. Commit feature births, retention and retirement.
-namespace ltv {
-const char *toString(LandmarkPhase s) {
-  switch (s) {
-  case LandmarkPhase::Candidate:
-    return "CANDIDATE";
-  case LandmarkPhase::SeedReady:
-    return "SEED_READY";
-  case LandmarkPhase::Active:
-    return "ACTIVE";
-  case LandmarkPhase::Coasting:
-    return "COASTING";
-  case LandmarkPhase::Retired:
-    return "RETIRED";
-  }
-  return "UNKNOWN";
-}
-LtvFeatureManager::LtvFeatureManager(const LtvFeatureManagerConfig &c)
-    : config_(c), history_([&c]() {
-        auto h = c.history;
-        h.bounded_memory = c.bounded_memory;
-        return h;
-      }()),
-      quality_(c.quality) {
-  if (!c.max_active || c.max_active > 30 || c.min_features < 15 || c.min_features > c.max_active || c.max_missed_frames < 0 ||
-      !std::isfinite(c.maturity_seconds) || c.maturity_seconds < 0 || (c.bounded_memory && c.history.max_candidates < c.max_active))
-    throw std::invalid_argument("invalid LTV manager configuration");
-  if (c.bounded_memory)
-    identity_guard_.emplace_back();
-}
-void LtvFeatureManager::reset(uint64_t epoch) {
-  if (config_.bounded_memory)
-    identity_guard_.front().reset(epoch);
-  opportunity_total_ = admitted_total_ = active_retired_total_ = candidate_ttl_total_ = guard_rejections_total_ = 0;
-  epoch_ = epoch;
-  history_.reset(epoch);
-  landmarks_.clear();
-  retained_.clear();
-  retired_.clear();
-}
-LandmarkManagerFrame LtvFeatureManager::step(uint64_t epoch, double time, uint64_t version,
-                                             const std::vector<HistoryObservation> &observations,
-                                             const std::vector<FeatureSeedCandidate> &candidates, bool allow_admission,
-                                             const std::map<size_t, ActiveConsistencyResult> *consistency, int retire_after) {
-  LandmarkManagerFrame out;
-  out.epoch = epoch;
-  out.time = time;
-  if (epoch != epoch_) {
-    out.reason = "epoch_mismatch";
-    return out;
-  }
-  if (config_.bounded_memory && candidates.size() > config_.history.max_observations_per_packet) {
-    out.reason = "seed_candidate_packet_limit";
-    return out;
-  }
-  if (consistency) {
-    if (retire_after < 1) {
-      out.reason = "invalid_consistency_config";
-      return out;
-    }
-    for (const auto &entry : *consistency) {
-      const auto &r = entry.second;
-      if (entry.first != r.feature_id || !retained_.count(entry.first) || (!r.evaluable && !r.pass) ||
-          (r.evaluable && (!std::isfinite(r.history_max_residual_rad) || (r.pass && !std::isfinite(r.holdout_residual_rad))))) {
-        out.reason = "invalid_consistency_input";
-        return out;
-      }
-    }
-  }
-  std::map<size_t, const FeatureSeedCandidate *> seeds;
-  for (const auto &s : candidates) {
-    if (!seeds.emplace(s.feature_id, &s).second) {
-      out.reason = "duplicate_seed_candidate";
-      return out;
-    }
-  }
-  std::vector<HistoryObservation> filtered;
-  std::set<size_t> expired_candidates;
-  const auto *effective_observations = &observations;
-  if (config_.bounded_memory) {
-    // Validate the whole original packet; a guarded ID cannot hide bad input.
-    if (observations.size() > config_.history.max_observations_per_packet) {
-      out.reason = "invalid_history_input";
-      return out;
-    }
-    // Capture expiry against the previous history before update can erase and
-    // recreate a same-ID observation after a long camera gap. No mutation until
-    // the entire history input has been accepted below.
-    for (const auto &entry : landmarks_) {
-      if (retained_.count(entry.first) || entry.second.entered >= 0)
-        continue;
-      const auto *previous = history_.find(entry.first);
-      if (!previous || time - previous->last_time > config_.history.candidate_ttl)
-        expired_candidates.insert(entry.first);
-    }
-    std::set<std::pair<size_t, int>> unique;
-    std::set<size_t> rejected;
-    for (const auto &o : observations) {
-      if (o.camera_id < 0 || static_cast<size_t>(o.camera_id) >= config_.history.max_camera_count || !o.bearing.allFinite() ||
-          o.bearing.norm() < 1e-12 || !unique.emplace(o.feature_id, o.camera_id).second) {
-        out.reason = "invalid_history_input";
-        return out;
-      }
-      if (expired_candidates.count(o.feature_id) ||
-          (!landmarks_.count(o.feature_id) && identity_guard_.front().potentiallySeen(o.feature_id))) {
-        rejected.insert(o.feature_id);
-      } else {
-        filtered.push_back(o);
-      }
-    }
-    out.identity_guard_rejected_ids.assign(rejected.begin(), rejected.end());
-    effective_observations = &filtered;
-  }
-  // Historical cache occupancy is input-driven, independent of admission guard.
-  // Retired/rejected observations retain the legacy ordering and TTL competition.
-  if (!history_.update(epoch, time, version, observations, retained_)) {
-    out.reason = "invalid_history_input";
-    return out;
-  }
-  out.accepted_input = true;
-  if (config_.bounded_memory)
-    guard_rejections_total_ += out.identity_guard_rejected_ids.size();
-  out.reason = "processed";
-  std::map<size_t, HistoryObservation> visible;
-  for (const auto &o : *effective_observations)
-    if (o.camera_id == 0)
-      visible.emplace(o.feature_id, o);
-  std::set<size_t> consistency_skipped;
-  out.active_consistency_enabled = consistency != nullptr;
-  out.consistency_active_count = retained_.size();
-  for (auto it = retained_.begin(); it != retained_.end();) {
-    auto &m = landmarks_.at(*it);
-    auto v = visible.find(*it);
-    if (v != visible.end() && v->second.match_valid) {
-      m.phase = LandmarkPhase::Active;
-      m.missed_frames = 0;
-      m.last_seen = time;
-    } else {
-      ++m.missed_frames;
-      m.phase = LandmarkPhase::Coasting;
-    }
-    bool consistency_retire = false;
-    if (consistency && v != visible.end() && v->second.match_valid) {
-      const auto found = consistency->find(*it);
-      if (found != consistency->end()) {
-        const auto &r = found->second;
-        if (r.evaluable) {
-          ++out.consistency_evaluable_count;
-          if (r.pass) {
-            m.consistency_fail_count = 0;
-            ++out.consistency_pass_count;
-          } else {
-            ++m.consistency_fail_count;
-            ++m.consistency_reject_count;
-            consistency_skipped.insert(*it);
-            consistency_retire = m.consistency_fail_count >= retire_after;
-            if (consistency_retire)
-              ++out.consistency_retire_count;
-            else
-              ++out.consistency_skip_count;
-          }
-        }
-        out.active_consistency.push_back({r, m.consistency_fail_count, m.consistency_reject_count,
-                                          consistency_retire               ? "RETIRE"
-                                          : consistency_skipped.count(*it) ? "SKIP"
-                                                                           : "UPDATE"});
-      }
-    }
-    if (m.missed_frames > config_.max_missed_frames || (v != visible.end() && !v->second.match_valid) || consistency_retire) {
-      m.phase = LandmarkPhase::Retired;
-      m.reason = consistency_retire ? "active_consistency" : "lost_or_identity_invalid";
-      if (config_.bounded_memory) {
-        out.retirement_events.push_back({*it, LandmarkRetirementKind::ActiveRetired, time, m});
-        ++active_retired_total_;
-      } else {
-        retired_.insert(*it);
-      }
-      out.retired_ids.push_back(*it);
-      it = retained_.erase(it);
-    } else
-      ++it;
-  }
-  if (config_.bounded_memory) {
-    for (auto it = landmarks_.begin(); it != landmarks_.end();) {
-      if (retained_.count(it->first)) {
-        ++it;
-        continue;
-      }
-      if (it->second.phase == LandmarkPhase::Retired || expired_candidates.count(it->first) || !history_.find(it->first)) {
-        if (it->second.entered < 0) {
-          it->second.phase = LandmarkPhase::Retired;
-          it->second.reason = "candidate_ttl";
-          identity_guard_.front().insert(it->first);
-          ++candidate_ttl_total_;
-          out.retirement_events.push_back({it->first, LandmarkRetirementKind::NeverAdmittedCandidateTtl, time, it->second});
-        }
-        it = landmarks_.erase(it);
-      } else {
-        ++it;
-      }
-    }
-  }
-  struct Ready {
-    size_t id;
-    const FeatureSeedCandidate *seed;
-    int sector;
-    double risk;
-  };
-  std::vector<Ready> ready;
-  auto sector = [](const Eigen::Vector3d &b) { return (b.x() >= 0 ? 1 : 0) + (b.y() >= 0 ? 2 : 0); };
-  for (const auto &entry : visible) {
-    const size_t id = entry.first;
-    if (retired_.count(id) || retained_.count(id))
-      continue;
-    if (config_.bounded_memory && !landmarks_.count(id) && identity_guard_.front().potentiallySeen(id))
-      continue; // Includes an identity retired earlier in this same event.
-    const auto *h = history_.find(id);
-    if (!h) {
-      if (config_.bounded_memory)
-        out.capacity_rejected_ids.push_back(id);
-      continue;
-    }
-    if (config_.bounded_memory && !landmarks_.count(id) && landmarks_.size() >= config_.history.max_candidates) {
-      out.capacity_rejected_ids.push_back(id);
-      continue;
-    }
-    auto inserted = landmarks_.emplace(id, ManagedLandmark{});
-    auto &m = inserted.first->second;
-    if (inserted.second)
-      m.first_seen = time;
-    m.last_seen = time;
-    const auto si = seeds.find(id);
-    const auto *s = si == seeds.end() ? nullptr : si->second;
-    const auto q = quality_.evaluate(epoch, time, *h, s);
-    if (config_.bounded_memory && q.opportunity && !m.ever_opportunity)
-      ++opportunity_total_;
-    m.ever_opportunity = m.ever_opportunity || q.opportunity;
-    m.reason = q.reason;
-    if (q.accepted) {
-      m.phase = LandmarkPhase::SeedReady;
-      ready.push_back({id, s, sector(entry.second.bearing), q.risk});
-    } else
-      m.phase = LandmarkPhase::Candidate;
-  }
-  out.eligible_seeds = ready.size();
-  std::array<size_t, 4> sectors{{0, 0, 0, 0}};
-  for (size_t id : retained_)
-    if (visible.count(id))
-      ++sectors[sector(visible.at(id).bearing)];
-  // Existing states never get displaced to improve image distribution. New points
-  // prefer sparsely occupied quadrants, then lower risk, then deterministic ID.
-  while (allow_admission && retained_.size() < config_.max_active && !ready.empty()) {
-    auto best = std::min_element(ready.begin(), ready.end(), [&](const Ready &a, const Ready &b) {
-      if (sectors[a.sector] != sectors[b.sector])
-        return sectors[a.sector] < sectors[b.sector];
-      if (a.risk != b.risk)
-        return a.risk < b.risk;
-      return a.id < b.id;
-    });
-    auto &m = landmarks_.at(best->id);
-    m.phase = LandmarkPhase::Active;
-    m.entered = time;
-    m.reason = "admitted";
-    m.seed_written = config_.apply_seed;
-    m.seeded = config_.apply_seed ? time : -1;
-    retained_.insert(best->id);
-    if (config_.bounded_memory) {
-      identity_guard_.front().insert(best->id);
-      ++admitted_total_;
-    }
-    ++sectors[best->sector];
-    out.births.push_back({best->id, config_.apply_seed, *best->seed});
-    ready.erase(best);
-  }
-  for (const auto &r : ready)
-    landmarks_.at(r.id).reason = allow_admission ? "capacity" : "waiting_observer_start";
-  // Expired candidates keep lightweight lifetime/denominator records but no image
-  // history. Admitted retired identities remain tombstoned until explicit reset.
-  if (!config_.bounded_memory)
-    for (auto &entry : landmarks_) {
-      auto &m = entry.second;
-      if (!retained_.count(entry.first) && !retired_.count(entry.first) && !history_.find(entry.first)) {
-        m.phase = LandmarkPhase::Retired;
-        m.reason = "candidate_ttl";
-        retired_.insert(entry.first);
-      }
-      if (m.ever_opportunity)
-        ++out.opportunity_tracks;
-      if (m.entered >= 0)
-        ++out.admitted_tracks;
-    }
-  for (size_t id : retained_) {
-    out.retained_ids.push_back(id);
-    if (visible.count(id) && visible.at(id).match_valid && !consistency_skipped.count(id)) {
-      out.observations.push_back(visible.at(id));
-      if (time - landmarks_.at(id).entered + 1e-12 >= config_.maturity_seconds)
-        ++out.mature_visible;
-    }
-  }
-  if (config_.bounded_memory) {
-    out.opportunity_tracks = opportunity_total_;
-    out.admitted_tracks = admitted_total_;
-    out.active_retired_total = active_retired_total_;
-    out.candidate_ttl_total = candidate_ttl_total_;
-    out.identity_guard_rejections_total = guard_rejections_total_;
-    out.identity_guard_insertions = identity_guard_.front().insertionCalls();
-    out.identity_guard_set_bits = identity_guard_.front().setBitCount();
-    out.exact_records = landmarks_.size();
-  }
-  out.enough_mature = out.mature_visible >= config_.min_features;
-  return out;
+  if (landmarks)
+    anchors_.after(*this, observer, ctx);
 }
 } // namespace ltv

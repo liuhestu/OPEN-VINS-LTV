@@ -645,3 +645,11 @@ void StateHelper::marginalize_slam(std::shared_ptr<State> state) {
     }
   }
 }
+bool StateHelper::owns_type(const std::shared_ptr<State> &state, const std::shared_ptr<ov_type::Type> &type) {
+  if (!type)
+    return false;
+  for (const auto &variable : state->_variables)
+    if (variable == type || variable->check_if_subvariable(type) == type)
+      return true;
+  return false;
+}

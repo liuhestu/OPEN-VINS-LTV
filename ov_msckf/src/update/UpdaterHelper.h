@@ -24,7 +24,9 @@
 
 #include <Eigen/Eigen>
 #include <memory>
+#include <string>
 #include <unordered_map>
+#include <vector>
 
 #include "types/LandmarkRepresentation.h"
 
@@ -33,6 +35,15 @@ class Type;
 } // namespace ov_type
 
 namespace ov_msckf {
+class State;
+struct MeasurementBlock {
+  std::vector<std::shared_ptr<ov_type::Type>> order;
+  Eigen::MatrixXd H = Eigen::MatrixXd(0, 0), R = Eigen::MatrixXd(0, 0);
+  Eigen::VectorXd res;
+  bool empty() const { return res.size() == 0; }
+};
+MeasurementBlock merge_measurements(const MeasurementBlock &, const MeasurementBlock &);
+bool validate_measurement(const std::shared_ptr<State> &, const MeasurementBlock &, std::string &, double *nis_value = nullptr);
 
 class State;
 

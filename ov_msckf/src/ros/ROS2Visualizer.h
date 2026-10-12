@@ -44,6 +44,7 @@
 #include <tf2/transform_datatypes.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include <tf2_ros/transform_broadcaster.h>
+#include <thread>
 
 #include <atomic>
 #include <fstream>
@@ -108,6 +109,8 @@ public:
    * @brief After the run has ended, print results
    */
   void visualize_final();
+  ~ROS2Visualizer();
+  void stop_workers();
 
   /// Callback for inertial information
   void callback_inertial(const sensor_msgs::msg::Imu::SharedPtr msg);
@@ -180,6 +183,8 @@ protected:
 
   // Thread atomics
   std::atomic<bool> thread_update_running;
+  std::atomic<bool> stopping{false};
+  std::thread image_worker, update_worker;
 
   /// Queue up camera measurements sorted by time and trigger once we have
   /// exactly one IMU measurement with timestamp newer than the camera measurement
@@ -195,9 +200,6 @@ protected:
   double last_visualization_timestamp = 0;
   double last_visualization_timestamp_image = 0;
 
-  // Our groundtruth states
-  std::map<double, Eigen::Matrix<double, 17, 1>> gt_states;
-
   // For path viz
   std::vector<geometry_msgs::msg::PoseStamped> poses_gt;
   bool publish_global2imu_tf = true;
@@ -206,10 +208,6 @@ protected:
   // Files and if we should save total state
   bool save_total_state = false;
   std::ofstream of_state_est, of_state_std, of_state_gt;
-
-  // ROS 1 pose_to_file-compatible estimated trajectory
-  std::ofstream of_pose_est;
-  std::mutex pose_file_mtx;
 };
 
 } // namespace ov_msckf

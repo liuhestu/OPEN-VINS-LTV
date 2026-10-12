@@ -29,7 +29,7 @@
 #include <string>
 #include <vector>
 
-#include "ltv/config/LtvOptions.h"
+#include "ltv/LtvOptions.h"
 #include "state/StateOptions.h"
 #include "update/UpdaterOptions.h"
 #include "utils/NoiseManager.h"
@@ -71,6 +71,7 @@ struct VioManagerOptions {
     print_and_load_state(parser);
     ltv_options.load(parser);
     ltv_options.validate(state_options);
+    ltv_options.print();
   }
 
   // ESTIMATOR ===============================

@@ -233,7 +233,7 @@ struct LtvFeatureContext {
   std::vector<HistoryObservation> observations;
 };
 
-// LtvFeatureFrontend value types
+// LtvFeatureManager value types
 struct LtvFeatureConfig {
   LtvFeatureManagerConfig manager;
   ActiveConsistencyConfig active_consistency;
@@ -260,6 +260,6 @@ struct LtvFeatureFrame {
   std::vector<FeatureSeedResult> seeds;
 };
 // Owns history, identity, initialization, admission/lifecycle and active consistency.
-// Copyable so LtvRuntime can stage and atomically commit a complete transaction.
+// Copyable so the host can stage and atomically commit a feature transaction.
 // Never owns or mutates observer x/P, readiness, or the OpenVINS estimator.
 } // namespace ltv
