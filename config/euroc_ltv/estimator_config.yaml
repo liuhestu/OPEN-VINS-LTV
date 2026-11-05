@@ -13,8 +13,8 @@ calib_cam_timeoffset: false
 calib_imu_intrinsics: false # if imu intrinsics should be calibrated (rotation and skew-scale matrix)
 calib_imu_g_sensitivity: false # if gyroscope gravity sensitivity (Tg) should be calibrated
 
-max_clones: 11 # how many clones in the sliding window
-max_slam: 0
+max_clones: 15 # how many clones in the sliding window
+max_slam: 0 # how many SLAM features to EFK track (0 = no SLAM)
 max_slam_in_update: 25 # update can be split into sequential updates of batches, how many in a batch
 max_msckf_in_update: 40 # how many MSCKF features to use in the update
 dt_slam_delay: 1 # delay before initializing (helps with stability from bad initialization...)

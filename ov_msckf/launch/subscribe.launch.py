@@ -60,7 +60,7 @@ launch_args = [
     DeclareLaunchArgument("dosave", default_value="false", description="start ov_eval/pose_to_file"),
     DeclareLaunchArgument("path_est", default_value="/results/traj_estimate.txt"),
     DeclareLaunchArgument("dotime", default_value="false", description="record estimator timing"),
-    DeclareLaunchArgument("path_time", default_value="/tmp/traj_timing.txt"),
+    DeclareLaunchArgument("path_time", default_value="/results/traj_timing.txt"),
 
     # Groundtruth trajectory alignment and display
     DeclareLaunchArgument("dolivetraj", default_value="true", description="start ov_eval/live_align_trajectory"),
