@@ -1,0 +1,21 @@
+build/
+.build/
+__pycache__/
+*.pyc
+*.synctex.gz
+.DS_Store
+
+# LaTeX intermediate files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bcf
+*.run.xml
+
