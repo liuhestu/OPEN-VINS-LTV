@@ -1,4 +1,4 @@
-# 默认关闭；launch 的 ltv_mode 覆盖 mode。
+# 默认关闭；launch 的 ltv_mode 覆盖 mode。”OFF,G,V,L,GVL“
 mode: "OFF"
 # bag 回放自动按 MH / Vicon 选择场景；实时输入使用此默认值。
 scene: Vicon

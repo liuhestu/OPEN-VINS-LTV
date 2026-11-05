@@ -1,0 +1,59 @@
+{
+  "sequence": "V2_01_easy",
+  "mode": "V",
+  "slot": 1,
+  "ros_domain_id": 182,
+  "status": "passed",
+  "started_at": "2026-11-05T21:31:43.035581+08:00",
+  "command": [
+    "ros2",
+    "launch",
+    "ov_msckf",
+    "subscribe.launch.py",
+    "config:=euroc_ltv",
+    "ltv_mode:=V",
+    "dobag:=true",
+    "dataset:=V2_01_easy",
+    "bag:=/home/he/datasets/euroc/V2_01_easy_db",
+    "bag_rate:=1.0",
+    "bag_start:=0",
+    "dosave:=true",
+    "path_est:=/home/he/open_vins_ltv_ws/src/open_vins_ltv/results/V2_01_easy/V/trajectory_raw.txt",
+    "rviz:=false",
+    "dolivetraj:=false",
+    "dotime:=false",
+    "save_total_state:=false",
+    "ltv_scene:=auto"
+  ],
+  "config_identity": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/results/_batch/20261105T211124/identity.json",
+  "bag": {
+    "duration_s": 113.974481165,
+    "camera_start_s": 1413393211.9501195,
+    "camera_end_s": 1413393325.9116518,
+    "cam0_count": 2280
+  },
+  "output_dir": "/home/he/open_vins_ltv_ws/src/open_vins_ltv/results/V2_01_easy/V",
+  "launch_pid": 151260,
+  "playback_completed_at": "2026-11-05T21:33:41.378028+08:00",
+  "cleanup": {
+    "signals": [
+      "SIGINT"
+    ],
+    "remaining_pids": [],
+    "launch_returncode": 0
+  },
+  "validation": {
+    "pose_count": 2181,
+    "first_timestamp_s": 1413393217.15576,
+    "last_timestamp_s": 1413393326.15576,
+    "initialization_gap_s": 5.205640554428101,
+    "tail_gap_s": -0.2441082000732422,
+    "max_quaternion_norm_error": 8.207873368748508e-07,
+    "tum_sha256": "01c470154a597933653c0971fbcdb41c2bb9bc5531210a10d048746edd0c20e4",
+    "raw_sha256": "75b6a8ee730001047a2bdbcb01f95db785ddd7ad0d6e4c6d78001b5a9e4e806e",
+    "coverage_ok": true
+  },
+  "ltv_report": "[LTV] mode=V scene=Vicon weights G=0 V=6 L=0",
+  "ended_at": "2026-11-05T21:33:51.679052+08:00",
+  "elapsed_s": 128.643
+}

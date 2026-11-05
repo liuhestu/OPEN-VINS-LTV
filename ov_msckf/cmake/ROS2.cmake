@@ -110,6 +110,11 @@ ament_target_dependencies(test_sim_repeat ${ament_libraries})
 target_link_libraries(test_sim_repeat ov_msckf_lib ${thirdparty_libraries})
 install(TARGETS test_sim_repeat DESTINATION lib/${PROJECT_NAME})
 
+add_executable(test_ltv_pause src/test_ltv_pause.cpp)
+ament_target_dependencies(test_ltv_pause ${ament_libraries})
+target_link_libraries(test_ltv_pause ov_msckf_lib ${thirdparty_libraries})
+install(TARGETS test_ltv_pause DESTINATION lib/${PROJECT_NAME})
+
 # Install launch and config directories
 install(DIRECTORY launch/ DESTINATION share/${PROJECT_NAME}/launch/)
 install(DIRECTORY ../config/ DESTINATION share/${PROJECT_NAME}/config/)

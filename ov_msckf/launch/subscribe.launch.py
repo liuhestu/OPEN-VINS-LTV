@@ -102,67 +102,149 @@ def resolve_inputs(config, config_path, ltv_mode, ltv_scene, bag, dobag, share_d
 
 
 def launch_setup(context):
+    # Read launch arguments and resolve the default bag path.
     value = lambda key: LaunchConfiguration(key).perform(context)
     bag = value("bag") or os.path.join("/home/he/datasets/euroc", value("dataset") + "_db")
     dobag = value("dobag").lower() in ("true", "1")
     dolivetraj = value("dolivetraj").lower() in ("true", "1")
     bag_start, bag_rate = float(value("bag_start")), float(value("bag_rate"))
+
+    # Validate playback settings and bag metadata.
     if not math.isfinite(bag_start) or bag_start < 0 or not math.isfinite(bag_rate) or bag_rate <= 0:
         raise RuntimeError("bag_start must be finite and nonnegative; bag_rate must be finite and positive")
     if dobag and not os.path.isfile(os.path.join(bag, "metadata.yaml")):
         raise RuntimeError("ROS 2 bag metadata does not exist: " + bag)
+
+    # Resolve estimator configuration and LTV settings.
     config, config_path, ltv_config, ltv_scene = resolve_inputs(
-        value("config"), value("config_path"), value("ltv_mode"),
-        value("ltv_scene"), bag, dobag, get_package_share_directory("ov_msckf"),
+        value("config"),
+        value("config_path"),
+        value("ltv_mode"),
+        value("ltv_scene"),
+        bag,
+        dobag,
+        get_package_share_directory("ov_msckf"),
     )
+
+    # Resolve and validate the groundtruth trajectory.
     path_gt = value("path_gt")
     if dolivetraj:
         if not path_gt and config in ("euroc_mav", "euroc_ltv"):
             sequence = os.path.basename(os.path.normpath(bag))
             if sequence.endswith("_db"):
                 sequence = sequence[:-3]
-            path_gt = os.path.join(os.path.dirname(bag), "ASL", sequence,
-                                   "mav0", "state_groundtruth_estimate0", "data.csv")
+            path_gt = os.path.join(
+                os.path.dirname(bag),
+                "ASL",
+                sequence,
+                "mav0",
+                "state_groundtruth_estimate0",
+                "data.csv",
+            )
         if not path_gt or not os.path.isfile(path_gt):
             raise RuntimeError("dolivetraj requires a valid groundtruth CSV or TXT: " + path_gt)
+
+    # Prepare the topic namespace and typed node parameters.
     topic_root = "/" + value("namespace").strip("/") if value("namespace").strip("/") else ""
     parameter = lambda key, kind: ParameterValue(LaunchConfiguration(key), value_type=kind)
+
+    # Estimator node.
     estimator = Node(
-        package="ov_msckf", executable="run_subscribe_msckf",
-        namespace=value("namespace"), output="screen",
+        package="ov_msckf",
+        executable="run_subscribe_msckf",
+        namespace=value("namespace"),
+        output="screen",
         parameters=[{
             "config_path": config_path,
-            "use_stereo": parameter("use_stereo", bool), "max_cameras": parameter("max_cameras", int),
-            "record_timing_information": parameter("dotime", bool), "record_timing_filepath": parameter("path_time", str),
+            "use_stereo": parameter("use_stereo", bool),
+            "max_cameras": parameter("max_cameras", int),
+            "record_timing_information": parameter("dotime", bool),
+            "record_timing_filepath": parameter("path_time", str),
             "save_total_state": parameter("save_total_state", bool),
-            "ltv_config": ltv_config, "ltv_mode": parameter("ltv_mode", str), "ltv_scene": ltv_scene,
+            "ltv_config": ltv_config,
+            "ltv_mode": parameter("ltv_mode", str),
+            "ltv_scene": ltv_scene,
         }],
     )
+
+    # Estimated trajectory recorder.
     recorder = Node(
-        package="ov_eval", executable="pose_to_file", name="recorder_estimate", namespace=value("namespace"),
-        condition=IfCondition(LaunchConfiguration("dosave")), output="screen",
-        parameters=[{"topic": topic_root + "/poseimu", "topic_type": "PoseWithCovarianceStamped",
-                     "output": parameter("path_est", str)}],
+        package="ov_eval",
+        executable="pose_to_file",
+        name="recorder_estimate",
+        namespace=value("namespace"),
+        condition=IfCondition(LaunchConfiguration("dosave")),
+        output="screen",
+        parameters=[{
+            "topic": topic_root + "/poseimu",
+            "topic_type": "PoseWithCovarianceStamped",
+            "output": parameter("path_est", str),
+        }],
     )
+
+    # Groundtruth trajectory alignment.
     aligner = Node(
-        package="ov_eval", executable="live_align_trajectory", name="live_align_trajectory", namespace=value("namespace"),
-        condition=IfCondition(LaunchConfiguration("dolivetraj")), output="log",
-        parameters=[{"alignment_type": parameter("alignment_type", str), "path_gt": path_gt}],
-        remappings=[("/ov_msckf/pathimu", topic_root + "/pathimu"), ("/ov_msckf/pathgt", topic_root + "/pathgt")],
+        package="ov_eval",
+        executable="live_align_trajectory",
+        name="live_align_trajectory",
+        namespace=value("namespace"),
+        condition=IfCondition(LaunchConfiguration("dolivetraj")),
+        output="log",
+        parameters=[{
+            "alignment_type": parameter("alignment_type", str),
+            "path_gt": path_gt,
+        }],
+        remappings=[
+            ("/ov_msckf/pathimu", topic_root + "/pathimu"),
+            ("/ov_msckf/pathgt", topic_root + "/pathgt"),
+        ],
     )
-    rviz_topics = ["pathimu", "pathgt", "poseimu", "odomimu", "trackhist", "points_msckf", "points_slam", "points_aruco", "points_sim", "loop_depth_colored", "loop_feats"]
+
+    # RViz visualization.
+    rviz_topics = [
+        "pathimu",
+        "pathgt",
+        "poseimu",
+        "odomimu",
+        "trackhist",
+        "points_msckf",
+        "points_slam",
+        "points_aruco",
+        "points_sim",
+        "loop_depth_colored",
+        "loop_feats",
+    ]
     rviz_node = Node(
-        package="rviz2", executable="rviz2", condition=IfCondition(LaunchConfiguration("rviz")),
-        arguments=["-d", os.path.join(get_package_share_directory("ov_msckf"), "launch", "display_ros2.rviz"),
-                   "--ros-args", "--log-level", "warn"],
+        package="rviz2",
+        executable="rviz2",
+        condition=IfCondition(LaunchConfiguration("rviz")),
+        arguments=[
+            "-d",
+            os.path.join(get_package_share_directory("ov_msckf"), "launch", "display_ros2.rviz"),
+            "--ros-args",
+            "--log-level",
+            "warn",
+        ],
         remappings=[("/ov_msckf/" + topic, topic_root + "/" + topic) for topic in rviz_topics],
     )
+
+    # Delayed bag playback.
     player = ExecuteProcess(
-        cmd=["ros2", "bag", "play", bag, "--start-offset", str(bag_start), "--rate", str(bag_rate),
-             "--topics", "/imu0", "/cam0/image_raw", "/cam1/image_raw", "--disable-keyboard-controls"],
+        cmd=[
+            "ros2", "bag", "play", bag,
+            "--start-offset", str(bag_start),
+            "--rate", str(bag_rate),
+            "--topics", "/imu0", "/cam0/image_raw", "/cam1/image_raw",
+            "--disable-keyboard-controls",
+        ],
         output="screen",
     )
-    delayed_player = TimerAction(period=3.0, actions=[player], condition=IfCondition(LaunchConfiguration("dobag")))
+    delayed_player = TimerAction(
+        period=3.0,
+        actions=[player],
+        condition=IfCondition(LaunchConfiguration("dobag")),
+    )
+
     return [estimator, recorder, aligner, rviz_node, delayed_player]
 
 

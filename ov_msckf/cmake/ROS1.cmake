@@ -160,3 +160,11 @@ install(TARGETS test_sim_repeat
         RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
+add_executable(test_ltv_pause src/test_ltv_pause.cpp)
+target_link_libraries(test_ltv_pause ov_msckf_lib ${thirdparty_libraries})
+install(TARGETS test_ltv_pause
+        ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+        LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+

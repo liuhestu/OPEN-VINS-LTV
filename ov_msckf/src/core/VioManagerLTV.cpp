@@ -111,7 +111,8 @@ void VioManager::pause_ltv(double time, const std::string &reason) {
                                reason == "propagation_failed";
   ltv_lifecycle.status = update_ltv_lifecycle(input);
   ltv_observer->reset();
-  ltv_features->reset(ltv_lifecycle.epoch);
+  // Keep current-epoch identity protection while suspended. process_ltv resets
+  // the feature pool only after advancing the epoch on a valid recovery input.
   ltv_lifecycle.started = false;
   ltv_lifecycle.suspended = ltv_lifecycle.new_epoch = true;
   ltv_lifecycle.healthy_frames = 0;
